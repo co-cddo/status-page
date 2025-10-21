@@ -19,6 +19,20 @@
 - Q: What happens when response body is too large to search for expected text efficiently? → A: Read first 100KB only - text validation searches within the first 100KB of response body, ignoring remainder to prevent memory exhaustion and ensure fast health checks.
 - Q: What happens when metrics telemetry system is unavailable or unreachable? → A: Buffer metrics in memory with size limit - queue metrics until telemetry recovers, flush when available. Drop oldest metrics when buffer limit reached to prevent unbounded memory growth.
 - Q: How should the system behave when a service has no tags defined? → A: Allow but display in "Untagged" section - services without tags are permitted and shown separately at the bottom of the status page (after all tagged services) with a clear "Untagged Services" heading.
+- Q: How should the system handle failed health checks (timeouts, connection errors, DNS failures) for data recording vs. HTML display? → A: Single failure marks service DOWN immediately in CSV/JSON data for accurate historical tracking. HTML status page requires 2 consecutive check cycle failures before displaying service as DOWN to reduce noise from transient network issues for end users.
+- Q: How should verbose debug logging handle sensitive data in request/response bodies (e.g., API keys, tokens, passwords, PII)? → A: No automatic redaction - log everything as-is when debug mode enabled. System emits clear security warnings in documentation and log output when debug mode is active. Operators are responsible for using appropriate log access controls and enabling debug mode only in secure troubleshooting environments.
+- Q: How should the system handle services that respond very slowly (e.g., 30+ seconds) but eventually complete successfully? → A: Use two-threshold model - if service fails to respond within 2 seconds (warning_threshold), mark as DEGRADED; if fails to respond within 5 seconds (timeout), mark as FAILED with timeout reason. Both thresholds defined as global configuration parameters with per-service override capability.
+- Q: What happens when configuration file is modified while the service is running? → A: Require manual restart - configuration changes only take effect after service restart. Operator must restart the process to apply new configuration. When restarting, system completes in-flight health checks gracefully before shutting down to prevent data loss.
+- Q: How should the system handle simultaneous monitoring of many services (e.g., 100+) with different check intervals? → A: Use thread/worker pool sized to available CPU cores (e.g., 2x cores) with priority queue scheduling based on next check time. This provides good concurrency for I/O-bound HTTP checks while limiting resource consumption and ensuring fair scheduling across all services.
+- Q: How should the system present status when no historical data exists yet for a service (newly added, never checked)? → A: Show service with "Unknown" or "Pending" status and "No data yet" message, indicating first check is pending. Once first check completes, display actual status. This sets proper expectations that service is configured but not yet validated.
+- Q: What happens if the static HTML/JSON generation fails mid-process (disk full, permissions, process killed)? → A: Fail service with non-zero exit code - treat any HTML/JSON generation failure as fatal operational error requiring immediate manual intervention. This prevents serving partial or stale data to users and ensures operators are immediately aware of generation problems.
+- Q: How are validation errors communicated in orchestration environments (Kubernetes, systemd) where stderr may not be immediately visible? → A: stderr only - rely on orchestration platforms to properly capture and surface stderr logs. Operators use platform-native tools (journalctl for systemd, kubectl logs for Kubernetes) to view validation errors. Exit with non-zero code triggers restart/failure state that operators monitor through standard platform mechanisms.
+- Q: How should logging verbosity be controlled - via environment variable, configuration file, or other mechanism? → A: Logging verbosity controlled by DEBUG environment variable with standard log levels (info, error, debug, etc.). Example: DEBUG=debug enables debug-level logging, DEBUG=info for info-level, etc.
+- Q: What exact CSV column structure and data format should be used for historical health check records? → A: CSV columns: timestamp (ISO 8601), service_name, status (PASS/DEGRADED/FAIL), latency_ms (integer milliseconds), http_status_code, failure_reason (empty if passed), correlation_id. This provides complete traceability linking to logs and preserves all metrics for uptime calculations.
+- Q: What happens when a previously monitored service is removed from the YAML configuration? → A: Removed service disappears from status display immediately on next generation cycle; historical CSV data for that service is preserved indefinitely for audit purposes; no new health checks are performed for removed services.
+- Q: What should the JSON file structure contain - current status only, or both current status and historical data? → A: JSON contains only current status data (no historical data). Structure is an array of service objects with: name, status, latency_ms, last_check_time, tags, http_status_code, failure_reason. Consumers access historical data by reading the CSV file directly.
+- Q: What structured log format should the system use for operational observability? → A: Structured JSON logging with fields: timestamp (ISO 8601), level (INFO/ERROR/DEBUG), service_name, correlation_id, event_type (e.g., "health_check_complete", "validation_failed"), message, context object with relevant data (latency_ms, http_status_code, etc.). This enables integration with log aggregation systems (ELK, Splunk, CloudWatch).
+- Q: What accessibility standard should the status page meet? → A: WCAG 2.2 AAA - the highest accessibility standard. This exceeds typical government requirements (usually AA) but ensures maximum accessibility for all users including those with disabilities.
 
 ## User Scenarios & Testing
 
@@ -63,13 +77,13 @@ As a service manager or technical analyst, I need to access historical service p
 
 **Why this priority**: Historical data provides valuable trend analysis but is not essential for the core status monitoring function. Users first need current status (P1) and organizational context (P2). This is a programmatic/API-first use case rather than end-user web UI.
 
-**Independent Test**: Can be tested by querying the JSON API or reading the CSV file to access historical performance metrics. Delivers value by enabling automated trend analysis and reliability assessment.
+**Independent Test**: Can be tested by reading the CSV file to access historical performance metrics. Delivers value by enabling automated trend analysis and reliability assessment.
 
 **Acceptance Scenarios**:
 
-1. **Given** services have been monitored over time, **When** I access the JSON API, **Then** I can retrieve historical health check results for analysis
+1. **Given** services have been monitored over time, **When** I access the CSV historical data file, **Then** I can retrieve historical health check results for analysis
 2. **Given** historical data exists in CSV format, **When** I read the CSV file, **Then** I can identify when outages occurred, their duration, and latency patterns
-3. **Given** I am consuming historical data, **When** I parse the records, **Then** I can calculate uptime percentages over different time periods (hours, days, weeks)
+3. **Given** I am consuming historical data, **When** I parse the CSV records, **Then** I can calculate uptime percentages over different time periods (hours, days, weeks)
 
 ---
 
@@ -83,9 +97,9 @@ As a developer or automated system, I need to access current service status data
 
 **Acceptance Scenarios**:
 
-1. **Given** the status monitor is running, **When** I request the JSON data endpoint, **Then** I receive current status for all monitored services in structured format
-2. **Given** I am consuming the API, **When** I parse the JSON response, **Then** I can identify service names, current status, latency metrics, and last check time
-3. **Given** the HTML page is updated, **When** the JSON file is generated, **Then** both contain identical status information
+1. **Given** the status monitor is running, **When** I request the JSON data file, **Then** I receive current status for all monitored services in structured format (name, status, latency_ms, last_check_time, tags, http_status_code, failure_reason)
+2. **Given** I am consuming the JSON API, **When** I parse the JSON response, **Then** I can identify service names, current status, latency metrics, last check time, and tags
+3. **Given** the HTML page is updated, **When** the JSON file is generated, **Then** both contain identical current status information
 
 ---
 
@@ -107,16 +121,16 @@ As a user monitoring service status during an incident, I need the status page t
 
 ### Edge Cases
 
-- What happens when a service check times out or fails to connect (network error, DNS failure, etc.)?
+- What happens when a service check times out or fails to connect (network error, DNS failure, etc.)? (Answer: Single failure marks service DOWN immediately in CSV/JSON data for accurate historical tracking; HTML status page requires 2 consecutive check cycle failures before displaying as DOWN to reduce noise from transient issues)
 - How does the system handle services that are configured but not yet reachable?
 - What happens when the YAML configuration file contains invalid syntax or missing required fields? (Answer: System fails to start, outputs detailed validation errors to stderr/logs, exits with non-zero code)
 - How does the system behave when storage (CSV file) cannot be written due to permissions or disk space issues? (Answer: Process fails with non-zero exit code - storage failures are critical operational errors)
-- What happens when services respond very slowly (e.g., 30+ seconds) but eventually complete?
-- How does the system handle simultaneous monitoring of many services (e.g., 100+) with different check intervals?
-- What happens when a previously monitored service is removed from the configuration?
-- How does the system present status when no historical data exists yet for a service?
-- What happens if the static HTML/JSON generation fails mid-process?
-- How does the page display when accessed via assistive technologies (screen readers)?
+- What happens when services respond very slowly (e.g., 30+ seconds) but eventually complete? (Answer: Two-threshold model - responses exceeding warning_threshold (2s default) marked as DEGRADED; exceeding timeout (5s default) marked as FAILED. Both thresholds configurable globally and per-service)
+- How does the system handle simultaneous monitoring of many services (e.g., 100+) with different check intervals? (Answer: Thread/worker pool sized to CPU cores (2x cores) with priority queue scheduling by next check time - ensures good concurrency while limiting resource consumption)
+- What happens when a previously monitored service is removed from the configuration? (Answer: Removed service disappears from HTML/JSON status display immediately on next generation cycle; historical CSV data preserved indefinitely for audit; no new checks performed)
+- How does the system present status when no historical data exists yet for a service? (Answer: Show with "Unknown" or "Pending" status and "No data yet" message until first check completes, setting proper expectations that service is configured but not yet validated)
+- What happens if the static HTML/JSON generation fails mid-process? (Answer: Fail service with non-zero exit code - treat as fatal operational error requiring immediate manual intervention to prevent serving partial or stale data)
+- How does the page display when accessed via assistive technologies (screen readers)? (Answer: Page must meet WCAG 2.2 AAA standards ensuring compatibility with screen readers, keyboard navigation, enhanced color contrast, clear focus indicators, and comprehensive ARIA labels)
 - What happens when expected status code doesn't match actual response (e.g., expecting 200, receiving 500)?
 - What happens when expected response text is not found in the response body?
 - How does the system handle POST requests that fail due to invalid payload format?
@@ -125,10 +139,10 @@ As a user monitoring service status during an incident, I need the status page t
 - What happens when multiple services share the exact same name? (Answer: Configuration validation fails at startup - duplicate names are validation errors, system refuses to start)
 - What happens when response body is too large to search for expected text efficiently? (Answer: Read first 100KB only - text validation searches within first 100KB, ignoring remainder)
 - What happens when expected Location header doesn't match actual redirect location?
-- How does verbose debug logging handle sensitive data in request/response bodies (e.g., API keys, tokens)?
+- How does verbose debug logging handle sensitive data in request/response bodies (e.g., API keys, tokens)? (Answer: No automatic redaction - logs everything as-is when debug mode enabled with clear security warnings. Operators responsible for log access controls and enabling only in secure environments)
 - What happens when metrics telemetry system is unavailable or unreachable? (Answer: Buffer metrics in memory with size limit - queue until telemetry recovers, drop oldest when buffer full)
-- What happens when configuration file is modified while the service is running (given FR-032 supports config reloads)?
-- How are validation errors communicated in orchestration environments (Kubernetes, systemd) where stderr may not be visible?
+- What happens when configuration file is modified while the service is running (given FR-032 supports config reloads)? (Answer: Manual restart required - config changes only take effect after service restart. System completes in-flight checks gracefully before shutdown to prevent data loss)
+- How are validation errors communicated in orchestration environments (Kubernetes, systemd) where stderr may not be visible? (Answer: stderr only - orchestration platforms capture stderr logs. Operators use platform-native tools (journalctl, kubectl logs) to view errors. Non-zero exit code triggers restart/failure state for monitoring)
 
 ## Requirements
 
@@ -146,24 +160,29 @@ As a user monitoring service status during an incident, I need the status page t
 - **FR-006**: System MUST support POST request payloads (JSON format) for services requiring data submission
 - **FR-007**: System MUST validate YAML configuration on startup and fail to start if validation errors are detected, outputting all specific errors (invalid syntax, missing required fields, invalid values, duplicate service names) to stderr and logs, then exiting with non-zero exit code
 - **FR-007a**: System MUST enforce unique service names - duplicate service names are configuration validation errors
+- **FR-007b**: System MUST exclude removed services (no longer in configuration) from HTML and JSON status output immediately on next generation cycle after restart; historical CSV data for removed services MUST be preserved indefinitely; no new health checks performed for removed services
 
 #### Health Check Execution
 
 - **FR-008**: System MUST perform HTTP(S) health checks against configured service endpoints using the specified method (GET, HEAD, or POST)
 - **FR-009**: System MUST execute health checks at configurable intervals (default 60 seconds if not specified per-service)
+- **FR-009a**: System MUST use a thread/worker pool (sized to available CPU cores, e.g., 2x cores) to execute health checks concurrently, with priority queue scheduling based on next check time to ensure fair scheduling across all services
 - **FR-010**: System MUST include custom headers in requests when specified in service configuration
 - **FR-011**: System MUST send POST payloads when method is POST and payload is configured
 - **FR-012**: System MUST record the response latency (time from request to first response byte) for each health check attempt
 - **FR-013**: System MUST validate response status code matches expected status code
 - **FR-014**: System MUST validate response body contains expected text when text validation is configured, searching within the first 100KB of response body only
 - **FR-014a**: System MUST validate response headers match expected header values when header validation is configured (e.g., Location header for redirects)
-- **FR-015**: System MUST record health checks as FAILED when: network error occurs, timeout exceeded, unexpected status code received, expected text not found, or expected header value mismatch
-- **FR-016**: System MUST record failure reason (connection timeout, DNS failure, HTTP error code, text mismatch, etc.) for failed checks
-- **FR-017**: System MUST support configurable timeout values per service (default 30 seconds if not specified)
+- **FR-015**: System MUST record health checks as FAILED in CSV and JSON data when: network error occurs, timeout exceeded (exceeds configured timeout threshold), unexpected status code received, expected text not found, or expected header value mismatch (single failure marks service DOWN in data layer for accurate historical tracking)
+- **FR-015a**: System MUST require 2 consecutive check cycle failures before displaying a service as DOWN on the HTML status page to reduce noise from transient network issues for end users
+- **FR-015b**: System MUST record health checks as DEGRADED when response succeeds (passes all validations) but latency exceeds warning_threshold (default 2 seconds)
+- **FR-016**: System MUST record failure reason (connection timeout, DNS failure, HTTP error code, text mismatch, header mismatch, etc.) for failed checks
+- **FR-017**: System MUST support configurable timeout values per service (default 5 seconds if not specified); requests exceeding timeout are terminated and marked as FAILED
+- **FR-017a**: System MUST support configurable warning_threshold values per service (default 2 seconds if not specified); successful responses exceeding warning_threshold are marked as DEGRADED
 
 #### Data Storage & History
 
-- **FR-018**: System MUST persist historical health check results in CSV format with: timestamp, service name, status (pass/fail), latency, and failure reason
+- **FR-018**: System MUST persist historical health check results in CSV format with columns: timestamp (ISO 8601 format), service_name, status (PASS/DEGRADED/FAIL in uppercase), latency_ms (integer milliseconds), http_status_code, failure_reason (empty string if passed), correlation_id (for log traceability)
 - **FR-019**: System MUST support extensible storage backends beyond CSV for future scalability (architecture must allow backend swapping)
 - **FR-020**: System MUST append new check results to historical data without requiring full data reload
 - **FR-020a**: System MUST exit with non-zero exit code if CSV file cannot be written due to permissions, disk space, or other I/O errors
@@ -171,39 +190,43 @@ As a user monitoring service status during an incident, I need the status page t
 #### Status Page Generation
 
 - **FR-021**: System MUST generate a static HTML page compliant with GOV.UK Design System showing current service status only (no historical data embedded)
-- **FR-022**: System MUST generate a JSON file containing both current service status and historical performance data for programmatic access
-- **FR-023**: System MUST display failing services at the top of the HTML status page, before healthy services, in a single flat list
+- **FR-022**: System MUST generate a JSON file containing only current service status data (no historical data). JSON structure is an array of service objects with attributes: name, status, latency_ms, last_check_time, tags, http_status_code, failure_reason. Historical data accessed via CSV file directly.
+- **FR-023**: System MUST display services on the HTML status page in priority order: failing services first, then degraded services, then healthy services, in a single flat list
 - **FR-024**: System MUST display all tags associated with each service as visible labels on the status page
 - **FR-024a**: System MUST display services without tags in a separate "Untagged Services" section at the bottom of the status page (after all tagged services)
 - **FR-025**: System MUST use GOV.UK Design System tag components to render service category tags
 - **FR-026**: System MUST indicate the time of the last status check for each service
-- **FR-027**: System MUST provide clear visual indicators distinguishing between healthy (passing validations) and failed (failing validations) service states
+- **FR-027**: System MUST provide clear visual indicators distinguishing between healthy (passing validations), degraded (passing validations but slow), failed (failing validations or timeout), and pending (no health check data yet) service states
+- **FR-027a**: System MUST display services with no historical data yet (newly added, never checked) with "Unknown" or "Pending" status and "No data yet" message until first check completes
 - **FR-028**: System MUST update static HTML and JSON files after each health check cycle completes
+- **FR-028a**: System MUST exit with non-zero exit code if HTML or JSON file generation fails due to I/O errors (disk full, permissions, etc.), treating generation failures as fatal operational errors
 - **FR-029**: HTML page MUST automatically refresh status information at 60-second intervals (browser-based refresh)
+- **FR-029a**: HTML page MUST meet WCAG 2.2 AAA accessibility standards including: enhanced color contrast ratios (7:1 for normal text, 4.5:1 for large text), comprehensive ARIA labels and landmarks, keyboard navigation support, screen reader compatibility, clear focus indicators, and no reliance on color alone for conveying information
 
 #### Service Operation
 
 - **FR-030**: System MUST operate as a background service that generates static assets without requiring runtime web server requests
 - **FR-031**: System MUST support extensible health check probe types beyond HTTP(S), with HTTP(S) polling as the initial implementation
-- **FR-032**: System MUST gracefully handle configuration reloads without dropping in-flight health checks
+- **FR-032**: System MUST gracefully handle shutdown during restart (to apply configuration changes) by completing in-flight health checks before terminating, preventing data loss. Configuration changes require manual service restart to take effect.
 
 #### Observability & Logging
 
-- **FR-033**: System MUST emit structured logs for each health check execution including: timestamp, service name, result (pass/fail), latency, HTTP status code, and correlation ID
-- **FR-034**: System MUST support verbose debug logging mode (controlled by environment variable) that logs full HTTP request/response headers and bodies for troubleshooting
+- **FR-033**: System MUST emit structured JSON logs with fields: timestamp (ISO 8601), level (INFO/ERROR/DEBUG), service_name, correlation_id, event_type (e.g., "health_check_complete", "validation_failed"), message, and context object containing relevant data (latency_ms, http_status_code, etc.)
+- **FR-034**: System MUST support configurable logging verbosity controlled by DEBUG environment variable with standard log levels (info, error, debug, etc.). Debug level logs full HTTP request/response headers and bodies in the context object for troubleshooting without automatic redaction.
+- **FR-034a**: System MUST emit clear security warnings in logs and documentation when debug-level logging is enabled, indicating that sensitive data (API keys, tokens, passwords, PII) will be logged
 - **FR-035**: System MUST emit metrics telemetry including: total checks executed, checks passed/failed, latency percentiles (p50, p95, p99), and services up/down counts
 - **FR-035a**: System MUST buffer metrics in memory (with configurable size limit) when telemetry system is unavailable, flushing when connection recovers
 - **FR-035b**: System MUST drop oldest buffered metrics when buffer limit is reached to prevent unbounded memory growth
-- **FR-036**: System MUST use consistent correlation IDs across logs for a single health check execution to enable request tracing
+- **FR-036**: System MUST use consistent correlation IDs across logs and CSV records for a single health check execution to enable request tracing and linking logs to historical data
 
 ### Key Entities
 
 - **Ping/Service**: Represents a public service or infrastructure component being monitored. Attributes include name, protocol (HTTP/HTTPS), method (GET/HEAD/POST), resource URL, tags array, expected validation criteria (status code, optional text), optional custom headers, optional POST payload, current health status, last check time, and last latency measurement.
-- **Health Check Result**: Represents the outcome of a single monitoring probe execution. Attributes include target service name, timestamp, method used, result status (pass/fail), response latency, HTTP status code received, expected status code, text validation result (if configured), and failure reason (if failed).
+- **Health Check Result**: Represents the outcome of a single monitoring probe execution. Attributes include target service name, timestamp, method used, result status (pass/degraded/fail), response latency, HTTP status code received, expected status code, text validation result (if configured), and failure reason (if failed). Degraded status indicates successful validation with latency exceeding warning_threshold but within timeout.
 - **Tag**: Represents a category label displayed with each service for visual identification. Attributes include tag name. Tags enable flexible multi-dimensional categorization (e.g., by department, function, infrastructure layer) without requiring hierarchical grouping or filtering UI.
 - **Expected Validation**: Represents criteria for determining service health. Attributes include expected HTTP status code, optional expected response body text, and optional expected response headers (e.g., Location for redirect validation). A service passes validation only when all configured criteria are met.
 - **Configuration**: Represents the complete monitoring setup defined in YAML. Attributes include array of ping definitions under `pings` key, global settings (check intervals, timeouts), and tag definitions for display organization.
-- **Historical Record**: Represents time-series data for service health stored in CSV. Attributes include service name, timestamp, pass/fail status, latency measurement, failure reason, and validation details.
+- **Historical Record**: Represents time-series data for service health stored in CSV. Attributes include timestamp (ISO 8601), service_name, status (PASS/DEGRADED/FAIL), latency_ms (integer milliseconds), http_status_code, failure_reason (empty if passed), and correlation_id for linking to structured logs.
 
 ## Success Criteria
 
@@ -214,11 +237,11 @@ As a user monitoring service status during an incident, I need the status page t
 - **SC-003**: Status page loads in under 2 seconds on standard government network connections
 - **SC-004**: 95% of health checks complete within their configured timeout period under normal conditions
 - **SC-005**: Status information updates reflect actual service state within 2 minutes of a service failure or recovery
-- **SC-006**: Static HTML and JSON current status data remain synchronized (both show same current health state) at all times; JSON additionally includes historical data not present in HTML
-- **SC-007**: Status page meets WCAG 2.1 AA accessibility standards for screen reader compatibility and keyboard navigation
+- **SC-006**: Static HTML and JSON current status data remain synchronized (both show same current health state) at all times; JSON contains only current status, historical data accessed separately via CSV
+- **SC-007**: Status page meets WCAG 2.2 AAA accessibility standards for screen reader compatibility, keyboard navigation, and enhanced accessibility requirements
 - **SC-008**: Historical data enables identification of service uptime percentage over rolling 24-hour, 7-day, and 30-day periods
 - **SC-009**: Tag labels displayed on each service enable users to visually identify related service failures by category (e.g., department, infrastructure layer) without requiring navigation or filtering
-- **SC-010**: API consumers can retrieve both current status and historical performance data for all services via a single JSON file request
+- **SC-010**: API consumers can retrieve current status data for all services via JSON file; historical performance data accessed separately via CSV file
 
 ## Configuration Structure
 
@@ -230,14 +253,17 @@ The YAML configuration file defines all monitored services and global settings. 
 # Global settings (optional, with defaults)
 settings:
   check_interval: 60        # Default interval between checks (seconds)
-  timeout: 30               # Default HTTP timeout (seconds)
+  warning_threshold: 2      # Latency threshold for DEGRADED state (seconds)
+  timeout: 5                # HTTP timeout threshold for FAILED state (seconds)
   page_refresh: 60          # Browser auto-refresh interval (seconds)
   max_retries: 3            # Failed check retry attempts before marking as down
+  worker_pool_size: 0       # Concurrent health check workers (0 = auto: 2x CPU cores)
   history_file: "history.csv"     # CSV file path for historical data
   output_dir: "./output"    # Directory for generated HTML/JSON
 
 # Environment variables (runtime configuration):
-# DEBUG_VERBOSE=true|false         # Enable verbose debug logging (full HTTP req/res)
+# DEBUG=info|error|debug           # Logging verbosity level (default: info)
+#                                  # debug level logs full HTTP req/res for troubleshooting
 # METRICS_BUFFER_SIZE=1000         # Max metrics to buffer when telemetry unavailable
 
 # Service definitions
@@ -261,7 +287,8 @@ pings:
     payload:                         # Optional: POST request body (JSON)
       key: "value"
     interval: 60                     # Optional: Override default check interval
-    timeout: 30                      # Optional: Override default timeout
+    warning_threshold: 2             # Optional: Override default warning threshold
+    timeout: 5                       # Optional: Override default timeout
 ```
 
 ### Example from Draft Configuration
@@ -276,7 +303,7 @@ All services use tag-based categorization (e.g., "health", "driving licences", "
 
 ## Assumptions
 
-- GOV.UK Design System components (notification banner, warning text, tables, summary lists, tags) will be sufficient to display status information effectively
+- GOV.UK Design System components (notification banner, warning text, tables, summary lists, tags) will provide a foundation for display; additional customization may be required to achieve WCAG 2.2 AAA compliance (enhanced contrast ratios, comprehensive ARIA labels)
 - CSV file storage is acceptable for initial deployment with file rotation or archival handled manually
 - Status page will be deployed to gov.uk infrastructure with standard web hosting capabilities
 - Services being monitored expose HTTP(S) endpoints suitable for polling without rate limiting concerns
@@ -287,15 +314,16 @@ All services use tag-based categorization (e.g., "health", "driving licences", "
 - Response text validation uses simple substring matching (not regex or complex pattern matching) within first 100KB of response body
 - POST payloads are valid JSON objects
 - Custom headers do not require dynamic value generation (static values configured in YAML are sufficient)
-- Health check results are binary (pass/fail) - no "degraded" or "warning" states in initial implementation
+- Health check results use three-state model (pass/degraded/fail) where degraded indicates successful validation with high latency (exceeds warning_threshold but within timeout)
 - Services can tolerate health check requests at 60-second intervals without rate limiting or blocking
-- Configuration changes require service restart (no hot-reload in initial implementation; FR-032 allows graceful reload without dropping checks)
+- Configuration changes require manual service restart to take effect; system completes in-flight health checks gracefully during shutdown to prevent data loss (no hot-reload capability)
 - Deployment environments (systemd, Kubernetes, etc.) expect fail-fast behavior and will surface non-zero exit codes appropriately
+- Orchestration platforms (systemd, Kubernetes) properly capture and persist stderr logs, making them accessible via platform-native tools (journalctl, kubectl logs) for troubleshooting
 - Configuration validation errors are deployment-time issues requiring administrator intervention before service can start
-- Structured logging format (JSON or similar) is acceptable for operational integration with log aggregation systems
+- Structured JSON logging format with timestamp, level, service_name, correlation_id, event_type, message, and context fields enables integration with log aggregation systems (ELK, Splunk, CloudWatch)
 - Metrics telemetry uses standard observability protocols (e.g., Prometheus, StatsD, or similar) for integration with existing monitoring infrastructure
 - Metrics buffer size defaults to 1000 entries if not configured, providing resilience during telemetry outages while limiting memory impact
-- Verbose debug logging is disabled by default to prevent performance impact and potential PII exposure
+- Logging defaults to info level; debug level is available via DEBUG environment variable for troubleshooting but disabled by default to prevent performance impact and potential PII exposure
 
 ## Out of Scope
 
@@ -335,5 +363,5 @@ All services use tag-based categorization (e.g., "health", "driving licences", "
 - **False Positives**: Network issues between monitor and service could incorrectly report service as down
   - *Mitigation*: Require multiple consecutive failures before marking service as down, document monitoring location
 
-- **Accessibility Compliance**: Status visualization might not meet GOV.UK accessibility standards
-  - *Mitigation*: Use GOV.UK Design System components as specified, conduct accessibility testing before launch
+- **Accessibility Compliance**: Status visualization might not meet WCAG 2.2 AAA accessibility standards (more stringent than typical government requirements)
+  - *Mitigation*: Use GOV.UK Design System components as specified, conduct comprehensive WCAG 2.2 AAA accessibility testing including automated scanning and manual testing with assistive technologies before launch
