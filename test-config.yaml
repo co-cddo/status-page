@@ -1,0 +1,11 @@
+pings:
+  - name: "Google DNS"
+    resource: "https://dns.google"
+    method: GET
+    protocol: HTTPS
+    expected:
+      status: 200
+settings:
+  check_interval: 60
+  timeout: 5
+  history_file: test-history.csv
