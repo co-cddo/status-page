@@ -111,7 +111,7 @@ Build a self-contained status monitoring application that performs periodic HTTP
   - Single HTTP request architecture minimizes network overhead
   - Performance tests validate benchmarked thresholds (FR-040a)
   - GitHub Pages CDN provides edge caching
-  - Lighthouse CI will be added in tasks.md T024a to enforce performance budgets automatically in CI pipeline (performance score ≥ 90, blocks merge if failed)
+  - Lighthouse CI IS enforced in T024a (Phase 3 - US7 MVP infrastructure) to validate performance budgets automatically in CI pipeline (performance score ≥ 90, blocks merge if failed per constitution.md Principle V)
 
 ### VI. Component Quality Standards ✅ PASS
 - **Status**: Compliant
