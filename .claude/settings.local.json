@@ -25,5 +25,5 @@
     "deny": [],
     "ask": []
   },
-  "disableAllHooks": false
+  "disableAllHooks": true
 }

@@ -1,2 +1,0 @@
-timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
-2025-10-21T22:34:39.548Z,Google DNS,PASS,365,200,,ea77bcb6-6d55-469e-83dd-a1b49f2f4618

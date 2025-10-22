@@ -1,25 +1,16 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version Change: 0.0.0 → 1.0.0 (Initial ratification)
-Principles Added:
-  - I. GDS Design System Compliance
-  - II. Accessibility-First Development
-  - III. Test-Driven Development (TDD)
-  - IV. Progressive Enhancement
-  - V. Performance Budgets
-  - VI. Component Quality Standards
-  - VII. User Research & Data-Driven Decisions
-Sections Added:
-  - Code Quality & Technical Standards
-  - User Experience Standards
-  - Testing Requirements
-  - Performance Requirements
-  - Governance
+Version Change: 1.1.0 → 1.1.1 (PATCH: Clarification of tool costs)
+Principles Modified:
+  - VIII. Research-Driven Technical Decisions: Added token cost guidance
+Sections Modified:
+  - Core Principles: Updated Principle VIII with cost-aware tool prioritization
+  - Development Process Guidance: Added cost guidance for each tool
 Templates Status:
-  ✅ plan-template.md - Constitution Check section aligns
-  ✅ spec-template.md - User scenarios and requirements align
-  ✅ tasks-template.md - Testing and quality gates align
+  ✅ plan-template.md - No changes required
+  ✅ spec.md - No changes required
+  ✅ tasks-template.md - No changes required
   ✅ speckit.constitution.md - This command file
 Follow-up TODOs: None
 -->
@@ -160,6 +151,48 @@ Follow-up TODOs: None
 
 **Rationale**: Assumptions harm users. Data and research reveal real user needs, ensuring services work for citizens, not just stakeholders.
 
+### VIII. Research-Driven Technical Decisions (NON-NEGOTIABLE)
+
+**All technical decisions MUST be informed by exhaustive research using available tools to ensure optimal choices.**
+
+- **Before implementation**, developers MUST research using cost-appropriate tools:
+  - **Primary (no token cost - use extensively)**:
+    - Context7 (`mcp__context7__resolve-library-id` + `mcp__context7__get-library-docs`): Retrieve up-to-date official documentation for any library
+    - WebSearch (`WebSearch`): Explore current patterns, pitfalls, community consensus (2025 context)
+    - WebFetch (`WebFetch`): Retrieve official documentation, changelogs, migration guides, GitHub READMEs
+  - **Secondary (token cost - use judiciously for complex analysis)**:
+    - Perplexity (`mcp__perplexity-researcher__perplexity_ask`): Compare approaches with synthesized expert analysis, nuanced architectural tradeoffs
+
+- **Technology Choices**:
+  - MUST query Context7 for library documentation before selecting dependencies (no cost - use liberally)
+  - MUST search for "best practices 2025" using WebSearch before implementing patterns (no cost - use liberally)
+  - MUST fetch official docs using WebFetch to verify API signatures, configuration options, breaking changes (no cost - use liberally)
+  - SHOULD use Perplexity for complex architectural decisions requiring expert synthesis (token cost - reserve for high-value questions)
+
+- **Documentation Requirements**:
+  - Decision documents (e.g., research.md) MUST cite sources (Context7 library IDs, URLs fetched, search queries used)
+  - When tools return conflicting information, MUST document rationale for chosen approach
+  - Research findings MUST be preserved in spec/plan documentation for future reference
+
+- **Prohibited Practices**:
+  - Do NOT implement from memory or assumption when research tools are available
+  - Do NOT copy patterns from outdated blog posts without verifying against current documentation
+  - Do NOT select libraries without checking Context7 for official docs and version compatibility
+  - Do NOT ignore tool suggestions when tools proactively offer to research unknowns
+
+- **Quality Gates**:
+  - Code review MUST verify that technical decisions cite research sources
+  - Architecture Decision Records (ADRs) MUST reference Context7 library IDs or URLs consulted
+  - Pull requests introducing new dependencies MUST include Context7 documentation links
+
+**Rationale**: Government services require reliable, maintainable, secure code. Research tools provide access to current, authoritative information that prevents costly mistakes, outdated patterns, and technical debt. Exhaustive research ensures decisions are evidence-based, not assumption-based, leading to higher quality implementations that align with current best practices and official recommendations. Context7 and web research tools (WebSearch, WebFetch) have no token cost and should be used extensively; Perplexity has token cost and should be reserved for complex questions where synthesized expert analysis adds significant value.
+
+**Cost-Aware Research Examples**:
+- "Which testing framework?" → Context7 for Vitest docs + WebSearch "vitest vs jest 2025 comparison" (no cost)
+- "Specific API usage?" → WebFetch Node.js docs for worker_threads API (no cost)
+- "Best practices for pattern X?" → WebSearch "{pattern} best practices 2025" (no cost)
+- "Complex architectural tradeoff?" → Perplexity "compare serverless vs containers for government services considering compliance, cost, vendor lock-in" (token cost - high-value synthesis question)
+
 ## Code Quality & Technical Standards
 
 ### Version Control
@@ -183,9 +216,61 @@ Follow-up TODOs: None
 ### Dependency Management
 - Pin exact versions in production dependencies
 - Regular security updates (weekly automated PRs)
-- Minimize dependencies; justify each addition
+- Minimize dependencies; justify each addition (with Context7 documentation review)
 - Prefer GOV.UK Frontend toolkit over external UI libraries
 - Audit licenses for compatibility with open government requirements
+
+### Development Process Guidance
+
+**Research Tools Usage** (aligns with Principle VIII):
+
+During all phases of development (specification, planning, implementation), teams MUST leverage available research tools with cost awareness:
+
+**Primary Tools (No Token Cost - Use Extensively)**:
+
+1. **Context7** (`mcp__context7__resolve-library-id` + `mcp__context7__get-library-docs`):
+   - **Cost**: FREE - no token cost
+   - **Use liberally** for retrieving up-to-date official documentation for any library
+   - Resolve library names to Context7-compatible IDs
+   - Fetch specific topics (e.g., "hooks", "routing") for focused documentation
+   - Always verify API signatures, configuration options, breaking changes
+   - **When to use**: Every time you need library documentation, API references, or version-specific guidance
+
+2. **WebSearch** (`WebSearch`):
+   - **Cost**: FREE - no token cost
+   - **Use liberally** for exploring current best practices, patterns, comparisons
+   - Search for "{technology} best practices 2025" to get current guidance
+   - Research security vulnerabilities, performance considerations, common pitfalls
+   - Verify community consensus on architectural decisions
+   - **When to use**: Whenever you need current patterns, community wisdom, or comparative analysis
+
+3. **WebFetch** (`WebFetch`):
+   - **Cost**: FREE - no token cost
+   - **Use liberally** for retrieving official documentation, changelogs, migration guides
+   - Fetch GitHub READMEs, official API docs, release notes
+   - Access specific documentation pages referenced in search results
+   - **When to use**: To retrieve full text of specific documentation pages, READMEs, or changelogs
+
+**Secondary Tool (Token Cost - Use Judiciously)**:
+
+4. **Perplexity** (`mcp__perplexity-researcher__perplexity_ask`):
+   - **Cost**: Token cost applies - use for high-value questions only
+   - **Invaluable** for complex technical comparisons requiring synthesized expert analysis
+   - Ask nuanced questions about architecture tradeoffs with multiple considerations
+   - Get synthesized answers with citations that combine multiple sources
+   - **When to use**: Reserve for complex questions where synthesized analysis adds significant value (e.g., comparing architectural approaches with government-specific constraints, evaluating tradeoffs across security/performance/cost dimensions)
+   - **Cost management**: Start with WebSearch + Context7 + WebFetch; escalate to Perplexity when synthesis of multiple expert perspectives is needed
+
+**When to Research**:
+- **Specification Phase**: Research technical feasibility, existing solutions, design patterns
+- **Planning Phase**: Research architecture approaches, library selection, integration patterns
+- **Implementation Phase**: Research specific API usage, edge case handling, optimization techniques
+- **Code Review**: Verify decisions align with current best practices and official recommendations
+
+**Research Documentation**:
+- Feature specs MUST include "Development Process Guidance" section recommending research tools
+- Implementation plans MUST include research.md documenting all technical decisions with sources
+- Pull requests introducing new patterns MUST reference research sources in description
 
 ## User Experience Standards
 
@@ -293,6 +378,7 @@ Follow-up TODOs: None
 - Product owner validates user experience standards
 - Security team reviews security-related changes
 - Accessibility specialist reviews significant UI changes
+- **Research compliance**: Reviewers verify technical decisions cite Context7/WebSearch/WebFetch sources
 
 ### Complexity Justification
 - Any introduction of complexity that violates simplicity principles MUST be documented
@@ -304,5 +390,6 @@ Follow-up TODOs: None
 - All team members can propose amendments
 - Constitution supersedes individual opinions and preferences
 - When in doubt, refer to GDS Service Manual and GOV.UK Design System documentation
+- **Research supersedes assumptions**: When research tools are available, use them instead of relying on memory
 
-**Version**: 1.0.0 | **Ratified**: 2025-01-21 | **Last Amended**: 2025-01-21
+**Version**: 1.1.0 | **Ratified**: 2025-01-21 | **Last Amended**: 2025-10-22
