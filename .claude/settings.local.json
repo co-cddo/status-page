@@ -22,7 +22,8 @@
       "mcp__context7__resolve-library-id",
       "mcp__context7__get-library-docs",
       "Bash(git -C /Users/cns/httpdocs/cddo/status log --oneline -20)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(awk:*)"
     ],
     "deny": [],
     "ask": []
