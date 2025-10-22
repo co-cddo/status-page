@@ -20,7 +20,9 @@
       "Bash(gh auth:*)",
       "Bash(git push:*)",
       "mcp__context7__resolve-library-id",
-      "mcp__context7__get-library-docs"
+      "mcp__context7__get-library-docs",
+      "Bash(git -C /Users/cns/httpdocs/cddo/status log --oneline -20)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
