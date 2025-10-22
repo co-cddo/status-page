@@ -23,6 +23,9 @@ export interface HealthCheckConfig {
   /** Full URL to check */
   url: string;
 
+  /** Service name (optional, derived from url if not provided) */
+  serviceName?: string;
+
   /** Request timeout in milliseconds */
   timeout: number;
 
@@ -32,8 +35,8 @@ export interface HealthCheckConfig {
   /** Maximum retry attempts */
   maxRetries: number;
 
-  /** Expected HTTP status code */
-  expectedStatus: number;
+  /** Expected HTTP status code(s) */
+  expectedStatus: number | number[];
 
   /** Optional expected text in response body */
   expectedText?: string;
@@ -43,6 +46,9 @@ export interface HealthCheckConfig {
 
   /** Optional custom request headers */
   customHeaders?: Record<string, string>;
+
+  /** Optional custom request headers as array */
+  headers?: Array<{ name: string; value: string }>;
 
   /** Optional POST request body */
   payload?: Record<string, unknown>;
