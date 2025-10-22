@@ -7,43 +7,37 @@
 
 import { describe, test, expect } from 'vitest';
 import { formatSmokeTestComment } from '../../src/workflows/format-smoke-test-comment.js';
+import type { HealthCheckResult } from '../../src/types/health-check.js';
 
 /**
- * Placeholder type for health check result
- * Actual type will come from src/types/health-check.ts
+ * Helper function to create mock HealthCheckResult with required properties
  */
-interface HealthCheckResult {
-  serviceName: string;
-  status: 'PASS' | 'DEGRADED' | 'FAIL';
-  latency_ms: number;
-  http_status_code: number;
-  failure_reason: string;
+function createMockResult(
+  serviceName: string,
+  status: 'PASS' | 'DEGRADED' | 'FAIL',
+  latency_ms: number,
+  http_status_code: number,
+  failure_reason: string
+): HealthCheckResult {
+  return {
+    serviceName,
+    status,
+    latency_ms,
+    http_status_code,
+    failure_reason,
+    timestamp: new Date('2025-01-01T00:00:00Z'),
+    method: 'GET',
+    expected_status: 200,
+    correlation_id: 'test-id-' + serviceName,
+  };
 }
 
 describe('Smoke Test Comment Formatting (US6)', () => {
   test('generates Markdown table from health check results', () => {
     const results: HealthCheckResult[] = [
-      {
-        serviceName: 'Service A',
-        status: 'PASS',
-        latency_ms: 150,
-        http_status_code: 200,
-        failure_reason: '',
-      },
-      {
-        serviceName: 'Service B',
-        status: 'DEGRADED',
-        latency_ms: 2500,
-        http_status_code: 200,
-        failure_reason: '',
-      },
-      {
-        serviceName: 'Service C',
-        status: 'FAIL',
-        latency_ms: 0,
-        http_status_code: 500,
-        failure_reason: 'HTTP 500 Internal Server Error',
-      },
+      createMockResult('Service A', 'PASS', 150, 200, ''),
+      createMockResult('Service B', 'DEGRADED', 2500, 200, ''),
+      createMockResult('Service C', 'FAIL', 0, 500, 'HTTP 500 Internal Server Error'),
     ];
 
     // This will fail until formatSmokeTestComment is implemented
@@ -66,11 +60,11 @@ describe('Smoke Test Comment Formatting (US6)', () => {
 
   test('includes summary statistics', () => {
     const results: HealthCheckResult[] = [
-      { serviceName: 'A', status: 'PASS', latency_ms: 100, http_status_code: 200, failure_reason: '' },
-      { serviceName: 'B', status: 'PASS', latency_ms: 150, http_status_code: 200, failure_reason: '' },
-      { serviceName: 'C', status: 'DEGRADED', latency_ms: 2500, http_status_code: 200, failure_reason: '' },
-      { serviceName: 'D', status: 'FAIL', latency_ms: 0, http_status_code: 500, failure_reason: 'Error' },
-      { serviceName: 'E', status: 'FAIL', latency_ms: 0, http_status_code: 404, failure_reason: 'Not Found' },
+      createMockResult('A', 'PASS', 100, 200, ''),
+      createMockResult('B', 'PASS', 150, 200, ''),
+      createMockResult('C', 'DEGRADED', 2500, 200, ''),
+      createMockResult('D', 'FAIL', 0, 500, 'Error'),
+      createMockResult('E', 'FAIL', 0, 404, 'Not Found'),
     ];
 
     const comment = formatSmokeTestComment(results);
@@ -86,10 +80,10 @@ describe('Smoke Test Comment Formatting (US6)', () => {
   test('includes warning section for widespread failures', () => {
     // More than 50% failures
     const results: HealthCheckResult[] = [
-      { serviceName: 'A', status: 'FAIL', latency_ms: 0, http_status_code: 500, failure_reason: 'Error 1' },
-      { serviceName: 'B', status: 'FAIL', latency_ms: 0, http_status_code: 500, failure_reason: 'Error 2' },
-      { serviceName: 'C', status: 'FAIL', latency_ms: 0, http_status_code: 500, failure_reason: 'Error 3' },
-      { serviceName: 'D', status: 'PASS', latency_ms: 100, http_status_code: 200, failure_reason: '' },
+      createMockResult('A', 'FAIL', 0, 500, 'Error 1'),
+      createMockResult('B', 'FAIL', 0, 500, 'Error 2'),
+      createMockResult('C', 'FAIL', 0, 500, 'Error 3'),
+      createMockResult('D', 'PASS', 100, 200, ''),
     ];
 
     const comment = formatSmokeTestComment(results);
@@ -110,9 +104,9 @@ describe('Smoke Test Comment Formatting (US6)', () => {
 
   test('formats latency values correctly', () => {
     const results: HealthCheckResult[] = [
-      { serviceName: 'Fast', status: 'PASS', latency_ms: 50, http_status_code: 200, failure_reason: '' },
-      { serviceName: 'Slow', status: 'DEGRADED', latency_ms: 3000, http_status_code: 200, failure_reason: '' },
-      { serviceName: 'Timeout', status: 'FAIL', latency_ms: 5000, http_status_code: 0, failure_reason: 'Timeout' },
+      createMockResult('Fast', 'PASS', 50, 200, ''),
+      createMockResult('Slow', 'DEGRADED', 3000, 200, ''),
+      createMockResult('Timeout', 'FAIL', 5000, 0, 'Timeout'),
     ];
 
     const comment = formatSmokeTestComment(results);
@@ -125,20 +119,8 @@ describe('Smoke Test Comment Formatting (US6)', () => {
 
   test('escapes special Markdown characters in service names', () => {
     const results: HealthCheckResult[] = [
-      {
-        serviceName: 'Service | with | pipes',
-        status: 'PASS',
-        latency_ms: 100,
-        http_status_code: 200,
-        failure_reason: '',
-      },
-      {
-        serviceName: 'Service *with* asterisks',
-        status: 'PASS',
-        latency_ms: 100,
-        http_status_code: 200,
-        failure_reason: '',
-      },
+      createMockResult('Service | with | pipes', 'PASS', 100, 200, ''),
+      createMockResult('Service *with* asterisks', 'PASS', 100, 200, ''),
     ];
 
     const comment = formatSmokeTestComment(results);
@@ -153,13 +135,7 @@ describe('Smoke Test Comment Formatting (US6)', () => {
     const longReason = 'A'.repeat(500); // Very long error message
 
     const results: HealthCheckResult[] = [
-      {
-        serviceName: 'Service',
-        status: 'FAIL',
-        latency_ms: 0,
-        http_status_code: 500,
-        failure_reason: longReason,
-      },
+      createMockResult('Service', 'FAIL', 0, 500, longReason),
     ];
 
     const comment = formatSmokeTestComment(results);
@@ -172,13 +148,15 @@ describe('Smoke Test Comment Formatting (US6)', () => {
 
   test('handles large result sets (50+ services)', () => {
     // Generate 60 services
-    const results: HealthCheckResult[] = Array.from({ length: 60 }, (_, i) => ({
-      serviceName: `Service ${i + 1}`,
-      status: i % 3 === 0 ? 'PASS' : i % 3 === 1 ? 'DEGRADED' : 'FAIL',
-      latency_ms: Math.floor(Math.random() * 3000),
-      http_status_code: i % 3 === 2 ? 500 : 200,
-      failure_reason: i % 3 === 2 ? `Error ${i}` : '',
-    })) as HealthCheckResult[];
+    const results: HealthCheckResult[] = Array.from({ length: 60 }, (_, i) =>
+      createMockResult(
+        `Service ${i + 1}`,
+        i % 3 === 0 ? 'PASS' : i % 3 === 1 ? 'DEGRADED' : 'FAIL',
+        Math.floor(Math.random() * 3000),
+        i % 3 === 2 ? 500 : 200,
+        i % 3 === 2 ? `Error ${i}` : ''
+      )
+    );
 
     const comment = formatSmokeTestComment(results);
 
@@ -192,11 +170,11 @@ describe('Smoke Test Comment Formatting (US6)', () => {
 
   test('comment updates on subsequent runs', () => {
     const initialResults: HealthCheckResult[] = [
-      { serviceName: 'A', status: 'PASS', latency_ms: 100, http_status_code: 200, failure_reason: '' },
+      createMockResult('A', 'PASS', 100, 200, ''),
     ];
 
     const updatedResults: HealthCheckResult[] = [
-      { serviceName: 'A', status: 'FAIL', latency_ms: 0, http_status_code: 500, failure_reason: 'Now failing' },
+      createMockResult('A', 'FAIL', 0, 500, 'Now failing'),
     ];
 
     const initialComment = formatSmokeTestComment(initialResults);
@@ -212,7 +190,7 @@ describe('Smoke Test Comment Formatting (US6)', () => {
 
   test('includes timestamp in comment', () => {
     const results: HealthCheckResult[] = [
-      { serviceName: 'A', status: 'PASS', latency_ms: 100, http_status_code: 200, failure_reason: '' },
+      createMockResult('A', 'PASS', 100, 200, ''),
     ];
 
     const comment = formatSmokeTestComment(results);

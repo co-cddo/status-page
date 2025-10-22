@@ -36,6 +36,7 @@ const expectedValidationSchema = {
     headers: {
       type: 'object',
       additionalProperties: { type: 'string' },
+      required: [],
       nullable: true,
     },
   },

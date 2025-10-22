@@ -62,7 +62,7 @@ describe('Test Workflow Contract (US7)', () => {
     const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
     expect(testJob).toBeDefined();
 
-    const steps = testJob.steps;
+    const steps = testJob!.steps;
     const hasTestStep = steps.some((step: WorkflowStep) =>
       step.name?.toLowerCase().includes('test') ||
       step.run?.includes('pnpm test') ||
@@ -134,9 +134,10 @@ describe('Test Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
+    expect(testJob).toBeDefined();
 
     // Verify no continue-on-error for test steps
-    const testSteps = testJob.steps.filter((step: WorkflowStep) =>
+    const testSteps = testJob!.steps.filter((step: WorkflowStep) =>
       step.run?.includes('test') || step.run?.includes('vitest')
     );
 
@@ -151,8 +152,9 @@ describe('Test Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
+    expect(testJob).toBeDefined();
 
-    const steps = testJob.steps;
+    const steps = testJob!.steps;
     const nodeStep = steps.find((step: WorkflowStep) =>
       step.uses?.includes('actions/setup-node')
     );
@@ -193,8 +195,9 @@ describe('Test Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
+    expect(testJob).toBeDefined();
 
-    const steps = testJob.steps;
+    const steps = testJob!.steps;
     const hasCacheStep = steps.some((step: WorkflowStep) =>
       step.uses?.includes('actions/cache') ||
       step.with?.['cache'] === 'pnpm' ||
@@ -245,8 +248,9 @@ describe('Test Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
+    expect(testJob).toBeDefined();
 
-    const steps = testJob.steps;
+    const steps = testJob!.steps;
     const hasUploadStep = steps.some((step: WorkflowStep) =>
       step.uses?.includes('actions/upload-artifact') ||
       step.uses?.includes('codecov')

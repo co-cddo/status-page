@@ -8,7 +8,7 @@
 import { describe, test, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { load } from 'js-yaml';
-import type { GitHubActionsWorkflow, WorkflowStep, WorkflowJob } from '../types/github-workflow.js';
+import type { GitHubActionsWorkflow, WorkflowStep } from '../types/github-workflow.js';
 
 describe('Deploy Workflow Contract (US7)', () => {
   const workflowPath = '.github/workflows/deploy.yml';
@@ -29,7 +29,7 @@ describe('Deploy Workflow Contract (US7)', () => {
       expect(workflow.on.schedule).toHaveLength(1);
 
       // Verify cron schedule is every 5 minutes
-      const cronSchedule = workflow.on.schedule?.[0].cron;
+      const cronSchedule = workflow.on.schedule?.[0]?.cron;
       expect(cronSchedule).toBe('*/5 * * * *');
     }
   });
@@ -62,7 +62,7 @@ describe('Deploy Workflow Contract (US7)', () => {
     const deployJob = jobs.deploy || jobs.build || jobs['build-and-deploy'];
     expect(deployJob).toBeDefined();
 
-    const steps = deployJob.steps;
+    const steps = deployJob!.steps;
     const hasCacheRestoreStep = steps.some((step: WorkflowStep) =>
       step.uses?.includes('actions/cache') ||
       step.name?.toLowerCase().includes('restore') ||
@@ -92,8 +92,9 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const deployJob = jobs.deploy || jobs.build || jobs['build-and-deploy'];
+    expect(deployJob).toBeDefined();
 
-    const steps = deployJob.steps;
+    const steps = deployJob!.steps;
     const hasHealthCheckStep = steps.some((step: WorkflowStep) =>
       step.name?.toLowerCase().includes('health') ||
       step.run?.includes('health-check') ||
@@ -122,8 +123,9 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const deployJob = jobs.deploy || jobs.build || jobs['build-and-deploy'];
+    expect(deployJob).toBeDefined();
 
-    const steps = deployJob.steps;
+    const steps = deployJob!.steps;
     const hasEleventyStep = steps.some((step: WorkflowStep) =>
       step.name?.toLowerCase().includes('eleventy') ||
       step.name?.toLowerCase().includes('build') ||
@@ -153,8 +155,9 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const deployJob = jobs.deploy || jobs.build || jobs['build-and-deploy'];
+    expect(deployJob).toBeDefined();
 
-    const steps = deployJob.steps;
+    const steps = deployJob!.steps;
     const hasDeployStep = steps.some((step: WorkflowStep) =>
       step.uses?.includes('actions/deploy-pages') ||
       step.uses?.includes('peaceiris/actions-gh-pages')
@@ -169,8 +172,9 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const deployJob = jobs.deploy || jobs.build || jobs['build-and-deploy'];
+    expect(deployJob).toBeDefined();
 
-    const steps = deployJob.steps;
+    const steps = deployJob!.steps;
     const hasUploadStep = steps.some((step: WorkflowStep) =>
       step.uses?.includes('actions/upload-pages-artifact') ||
       step.uses?.includes('actions/upload-artifact')
@@ -199,8 +203,9 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const deployJob = jobs.deploy || jobs.build || jobs['build-and-deploy'];
+    expect(deployJob).toBeDefined();
 
-    const steps = deployJob.steps;
+    const steps = deployJob!.steps;
     const hasCacheSaveStep = steps.some((step: WorkflowStep) =>
       (step.uses?.includes('actions/cache') && step.name?.toLowerCase().includes('save')) ||
       step.name?.toLowerCase().includes('cache.*csv')
@@ -215,8 +220,9 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const deployJob = jobs.deploy || jobs.build || jobs['build-and-deploy'];
+    expect(deployJob).toBeDefined();
 
-    const steps = deployJob.steps;
+    const steps = deployJob!.steps;
 
     // Check for failure handling steps
     const hasFailureHandling = steps.some((step: WorkflowStep) =>
@@ -233,8 +239,9 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const deployJob = jobs.deploy || jobs.build || jobs['build-and-deploy'];
+    expect(deployJob).toBeDefined();
 
-    const steps = deployJob.steps;
+    const steps = deployJob!.steps;
     const nodeStep = steps.find((step: WorkflowStep) =>
       step.uses?.includes('actions/setup-node')
     );
@@ -274,14 +281,15 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     const jobs = workflow.jobs;
     const deployJob = jobs.deploy || jobs.build || jobs['build-and-deploy'];
+    expect(deployJob).toBeDefined();
 
     // Verify environment is set for GitHub Pages
-    expect(deployJob.environment).toBeDefined();
+    expect(deployJob!.environment).toBeDefined();
 
-    if (typeof deployJob.environment === 'string') {
-      expect(deployJob.environment).toBe('github-pages');
-    } else if (deployJob.environment && typeof deployJob.environment === 'object') {
-      expect(deployJob.environment.name).toBe('github-pages');
+    if (typeof deployJob!.environment === 'string') {
+      expect(deployJob!.environment).toBe('github-pages');
+    } else if (deployJob!.environment && typeof deployJob!.environment === 'object') {
+      expect(deployJob!.environment.name).toBe('github-pages');
     }
   });
 

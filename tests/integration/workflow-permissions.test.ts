@@ -82,9 +82,10 @@ describe('Workflow Permissions Security (US7)', () => {
     const workflow = load(workflowYaml) as GitHubActionsWorkflow;
 
     const expected = EXPECTED_PERMISSIONS['test.yml'];
+    expect(expected).toBeDefined();
 
     expect(workflow.permissions).toBeDefined();
-    expect(workflow.permissions?.contents).toBe(expected.contents);
+    expect(workflow.permissions?.contents).toBe(expected!.contents);
 
     // Should not have write permissions
     expect(workflow.permissions?.['pull-requests']).not.toBe('write');
@@ -97,10 +98,11 @@ describe('Workflow Permissions Security (US7)', () => {
     const workflow = load(workflowYaml) as GitHubActionsWorkflow;
 
     const expected = EXPECTED_PERMISSIONS['smoke-test.yml'];
+    expect(expected).toBeDefined();
 
     expect(workflow.permissions).toBeDefined();
-    expect(workflow.permissions?.contents).toBe(expected.contents);
-    expect(workflow.permissions?.['pull-requests']).toBe(expected['pull-requests']);
+    expect(workflow.permissions?.contents).toBe(expected!.contents);
+    expect(workflow.permissions?.['pull-requests']).toBe(expected!['pull-requests']);
 
     // Should not have excessive permissions
     expect(workflow.permissions?.pages).not.toBe('write');
@@ -113,11 +115,12 @@ describe('Workflow Permissions Security (US7)', () => {
     const workflow = load(workflowYaml) as GitHubActionsWorkflow;
 
     const expected = EXPECTED_PERMISSIONS['deploy.yml'];
+    expect(expected).toBeDefined();
 
     expect(workflow.permissions).toBeDefined();
-    expect(workflow.permissions?.contents).toBe(expected.contents);
-    expect(workflow.permissions?.pages).toBe(expected.pages);
-    expect(workflow.permissions?.['id-token']).toBe(expected['id-token']);
+    expect(workflow.permissions?.contents).toBe(expected!.contents);
+    expect(workflow.permissions?.pages).toBe(expected!.pages);
+    expect(workflow.permissions?.['id-token']).toBe(expected!['id-token']);
 
     // Should not have unnecessary write permissions
     expect(workflow.permissions?.['pull-requests']).not.toBe('write');
@@ -189,7 +192,7 @@ describe('Workflow Permissions Security (US7)', () => {
       const workflow = load(workflowYaml) as GitHubActionsWorkflow;
 
       // Check each job
-      for (const [jobName, job] of Object.entries(workflow.jobs)) {
+      for (const [, job] of Object.entries(workflow.jobs)) {
         if (job.permissions) {
           // Job permissions should not grant more than workflow permissions
           const workflowPerms = workflow.permissions || {};

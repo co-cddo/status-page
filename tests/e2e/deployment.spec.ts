@@ -12,7 +12,6 @@
 
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
-import { load } from 'js-yaml';
 
 /**
  * Determine GitHub Pages URL from repository configuration
@@ -61,7 +60,7 @@ test.describe('Deployed Status Page (US7)', () => {
   const pageUrl = getGitHubPagesUrl();
   const isLocalTest = pageUrl.includes('localhost');
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async () => {
     // Set longer timeout for GitHub Pages (can be slow)
     test.setTimeout(isLocalTest ? 30000 : 60000);
   });
@@ -108,7 +107,7 @@ test.describe('Deployed Status Page (US7)', () => {
     expect(externalRequests).toHaveLength(0);
   });
 
-  test('status.json API is accessible', async ({ page, request }) => {
+  test('status.json API is accessible', async ({ request }) => {
     const apiUrl = `${pageUrl}${pageUrl.endsWith('/') ? '' : '/'}api/status.json`;
 
     const response = await request.get(apiUrl);
@@ -190,7 +189,9 @@ test.describe('Deployed Status Page (US7)', () => {
     const content = await metaRefresh.getAttribute('content');
     expect(content).toBeTruthy();
 
-    const interval = parseInt(content!.split(';')[0]);
+    const intervalStr = content!.split(';')[0];
+    expect(intervalStr).toBeDefined();
+    const interval = parseInt(intervalStr!);
     expect(interval).toBeGreaterThan(0);
     expect(interval).toBeLessThanOrEqual(300); // Max 5 minutes
   });
@@ -226,7 +227,7 @@ test.describe('Deployed Status Page (US7)', () => {
     await expect(page.locator('body')).toBeVisible();
   });
 
-  test('status page works without JavaScript', async ({ page, browser }) => {
+  test('status page works without JavaScript', async ({ browser }) => {
     // Create new context with JavaScript disabled
     const context = await browser.newContext({
       javaScriptEnabled: false

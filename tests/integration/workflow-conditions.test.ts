@@ -113,8 +113,11 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
     const testJobKeys = Object.keys(testWorkflow.jobs);
     expect(testJobKeys.length).toBeGreaterThan(0);
 
-    const testJob = testWorkflow.jobs[testJobKeys[0]];
-    const testSteps = testJob.steps.filter((step: WorkflowStep) =>
+    const firstJobKey = testJobKeys[0];
+    expect(firstJobKey).toBeDefined();
+    const testJob = testWorkflow.jobs[firstJobKey!];
+    expect(testJob).toBeDefined();
+    const testSteps = testJob!.steps.filter((step: WorkflowStep) =>
       step.run?.includes('test') || step.run?.includes('vitest')
     );
 
@@ -147,7 +150,6 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
 
     expect(testJob).toBeDefined();
 
-    const steps = testJob.steps;
     const workflowString = JSON.stringify(testWorkflow);
 
     // Verify all required test types are executed
@@ -169,7 +171,7 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
 
     expect(smokeTestJob).toBeDefined();
 
-    const steps = smokeTestJob.steps;
+    const steps = smokeTestJob!.steps;
 
     // Should have validation step
     const hasValidation = steps.some((step: WorkflowStep) =>
@@ -214,7 +216,7 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
     expect(smokeTestJob).toBeDefined();
 
     // Test workflow critical steps should not have continue-on-error
-    const testCriticalSteps = testJob.steps.filter((step: WorkflowStep) =>
+    const testCriticalSteps = testJob!.steps.filter((step: WorkflowStep) =>
       step.run?.includes('test') || step.run?.includes('lint') || step.run?.includes('type-check')
     );
 
@@ -223,7 +225,7 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
     }
 
     // Smoke test workflow validation should not have continue-on-error
-    const smokeTestCriticalSteps = smokeTestJob.steps.filter((step: WorkflowStep) =>
+    const smokeTestCriticalSteps = smokeTestJob!.steps.filter((step: WorkflowStep) =>
       step.run?.includes('validate') || step.run?.includes('health-check')
     );
 

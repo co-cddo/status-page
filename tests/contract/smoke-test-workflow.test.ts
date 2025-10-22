@@ -58,7 +58,7 @@ describe('Smoke Test Workflow Contract (US6)', () => {
     const smokeTestJob = jobs['smoke-test'] || jobs.test || jobs.validate;
     expect(smokeTestJob).toBeDefined();
 
-    const steps = smokeTestJob.steps;
+    const steps = smokeTestJob!.steps;
     const hasValidationStep = steps.some((step: WorkflowStep) =>
       step.name?.toLowerCase().includes('validat') ||
       step.run?.includes('config/validator')
@@ -73,8 +73,9 @@ describe('Smoke Test Workflow Contract (US6)', () => {
 
     const jobs = workflow.jobs;
     const smokeTestJob = jobs['smoke-test'] || jobs.test || jobs.validate;
+    expect(smokeTestJob).toBeDefined();
 
-    const steps = smokeTestJob.steps;
+    const steps = smokeTestJob!.steps;
     const hasHealthCheckStep = steps.some((step: WorkflowStep) =>
       step.name?.toLowerCase().includes('health') ||
       step.run?.includes('health-check') ||
@@ -90,8 +91,9 @@ describe('Smoke Test Workflow Contract (US6)', () => {
 
     const jobs = workflow.jobs;
     const smokeTestJob = jobs['smoke-test'] || jobs.test || jobs.validate;
+    expect(smokeTestJob).toBeDefined();
 
-    const steps = smokeTestJob.steps;
+    const steps = smokeTestJob!.steps;
 
     // Look for comment posting step
     const hasCommentStep = steps.some((step: WorkflowStep) =>
@@ -106,9 +108,6 @@ describe('Smoke Test Workflow Contract (US6)', () => {
   test('workflow includes comment with required columns', () => {
     const workflowYaml = readFileSync(workflowPath, 'utf-8');
     const workflow = load(workflowYaml) as GitHubActionsWorkflow;
-
-    const jobs = workflow.jobs;
-    const smokeTestJob = jobs['smoke-test'] || jobs.test || jobs.validate;
 
     // Check if workflow references a comment template or script
     const workflowString = JSON.stringify(workflow);
@@ -127,8 +126,9 @@ describe('Smoke Test Workflow Contract (US6)', () => {
 
     const jobs = workflow.jobs;
     const smokeTestJob = jobs['smoke-test'] || jobs.test || jobs.validate;
+    expect(smokeTestJob).toBeDefined();
 
-    const steps = smokeTestJob.steps;
+    const steps = smokeTestJob!.steps;
 
     // Find comment posting step
     const commentStep = steps.find((step: WorkflowStep) =>
@@ -162,8 +162,9 @@ describe('Smoke Test Workflow Contract (US6)', () => {
 
     const jobs = workflow.jobs;
     const smokeTestJob = jobs['smoke-test'] || jobs.test || jobs.validate;
+    expect(smokeTestJob).toBeDefined();
 
-    const steps = smokeTestJob.steps;
+    const steps = smokeTestJob!.steps;
 
     // Find setup-node step
     const nodeStep = steps.find((step: WorkflowStep) =>

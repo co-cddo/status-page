@@ -259,7 +259,7 @@ export function bufferCounter(
     labels,
     value,
     timestamp: new Date(),
-    correlationId,
+    ...(correlationId !== undefined && { correlationId }),
   });
 }
 
@@ -283,7 +283,7 @@ export function bufferHistogram(
     labels,
     value,
     timestamp: new Date(),
-    correlationId,
+    ...(correlationId !== undefined && { correlationId }),
   });
 }
 
@@ -307,6 +307,6 @@ export function bufferGauge(
     labels,
     value,
     timestamp: new Date(),
-    correlationId,
+    ...(correlationId !== undefined && { correlationId }),
   });
 }

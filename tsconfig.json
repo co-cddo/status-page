@@ -7,7 +7,7 @@
 
     // Node.js 22 native TypeScript support via tsx
     "verbatimModuleSyntax": true,
-    "erasableSyntaxOnly": true,
+    // erasableSyntaxOnly removed - too strict for tsx, prevents export type
 
     // Strict type checking (per constitution.md)
     "strict": true,

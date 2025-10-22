@@ -3,9 +3,25 @@
  * Per FR-007: Validate configuration against schema with detailed error reporting
  */
 
-import Ajv, { type ErrorObject } from 'ajv';
+import Ajv2020Import from 'ajv';
+import type { ErrorObject } from 'ajv';
 import type { Configuration } from '../types/config.js';
 import { configurationSchema, customValidationRules } from './schema.js';
+
+// Workaround for Ajv v8 ESM + TypeScript constructor issue
+// See: https://github.com/ajv-validator/ajv/issues/2132
+// The import works at runtime but TypeScript doesn't recognize it as constructable
+interface ValidateFunction<T = unknown> {
+  (data: unknown): data is T;
+  errors?: ErrorObject[] | null;
+}
+interface AjvInstance {
+  compile<T = unknown>(schema: object): ValidateFunction<T>;
+  validate<T = unknown>(schema: object, data: unknown): data is T;
+  errors: ErrorObject[] | null | undefined;
+}
+type AjvConstructor = new (options?: Record<string, unknown>) => AjvInstance;
+const Ajv2020 = Ajv2020Import as unknown as AjvConstructor;
 
 /**
  * Error thrown when configuration validation fails
@@ -39,8 +55,8 @@ export class ConfigurationValidationError extends Error {
 /**
  * Create Ajv validator instance with strict options
  */
-function createValidator(): Ajv {
-  return new Ajv({
+function createValidator() {
+  return new Ajv2020({
     allErrors: true, // Report all errors, not just the first
     verbose: true, // Include validated data in errors
     strict: true, // Strict mode for schema validation
