@@ -43,9 +43,9 @@
 - [ ] T008 Create TypeScript type definitions in src/types/config.ts: Configuration, GlobalSettings, ServiceDefinition, ExpectedValidation, CustomHeader interfaces per data-model.md
 - [ ] T009 [P] Create TypeScript type definitions in src/types/health-check.ts: HealthCheckResult, ServiceStatus enums, HealthCheckConfig interfaces per data-model.md
 - [ ] T010 [P] Create TypeScript type definitions in src/types/worker-message.ts: WorkerMessage, WorkerResult, WorkerError interfaces for worker thread communication
-- [ ] T011 Create JSON Schema definition in src/config/schema.ts: Ajv schema validating config.yaml structure (required fields, service names unique, valid protocols/methods, tag validation, timeout constraints) per FR-001, FR-007
+- [ ] T011 Create JSON Schema definition in src/config/schema.ts: Ajv schema validating config.yaml structure (required fields, service names unique, valid protocols/methods, tag validation, timeout constraints) per FR-001, FR-002, FR-002a, FR-003, FR-007
 - [ ] T012 Implement YAML configuration loader in src/config/loader.ts: load config.yaml using js-yaml, parse to Configuration type, handle file not found error per FR-001
-- [ ] T013 Implement configuration validator in src/config/validator.ts: validate parsed config against JSON Schema using Ajv, validate service names unique, validate service name/tag format (ASCII, max 100 chars), detailed error reporting to stderr per FR-007, FR-007a
+- [ ] T013 Implement configuration validator in src/config/validator.ts: validate parsed config against JSON Schema using Ajv, validate service names unique, validate service name/tag format (ASCII, max 100 chars), ensure removed services are excluded from checks, detailed error reporting to stderr per FR-007, FR-007a, FR-007b
 - [ ] T014 [P] Implement correlation ID generator in src/logging/correlation.ts: generate UUID v4 using uuid package per FR-036
 - [ ] T015 [P] Implement structured logger in src/logging/logger.ts: Pino logger with JSON format, correlation ID support, log levels (info/error/debug controlled by DEBUG env var), redaction for sensitive fields per FR-033, FR-034
 - [ ] T016 [P] Implement Prometheus metrics setup in src/metrics/prometheus.ts: prom-client registry, health_checks_total counter {service_name, status}, health_check_latency_seconds histogram {service_name}, services_failing gauge, expose /metrics endpoint on port 9090 (PROMETHEUS_PORT env var) per FR-035
@@ -95,10 +95,10 @@
 
 ### Implementation for User Story 7
 
-- [ ] T019 [P] [US7] Create GitHub Actions workflow .github/workflows/test.yml: trigger on PR (all files except config.yaml), run npm test (unit, e2e, accessibility, coverage, performance suites), block merge if fails per FR-040, FR-040a, FR-041
+- [ ] T019 [P] [US7] Create GitHub Actions workflow .github/workflows/test.yml: trigger on PR (all files except config.yaml), run npm test (unit, e2e, accessibility, coverage, performance suites), block merge if fails per FR-037, FR-040, FR-040a, FR-041
 - [ ] T020 [P] [US7] Create GitHub Actions workflow .github/workflows/smoke-test.yml: trigger on PR (config.yaml changes), workflow permissions contents:read pull-requests:write, validate config.yaml syntax/schema, execute health checks for all services, post formatted Markdown comment with results (service status, latency, HTTP codes), fail if comment cannot be posted, allow merge with warning if all services fail per FR-038, FR-038a, FR-038b
 - [ ] T021 [P] [US7] Create GitHub Actions workflow .github/workflows/deploy.yml: schedule cron "*/5 * * * *" (every 5 minutes), manual dispatch support, restore CSV from GitHub Actions cache (primary), fetch CSV from GitHub Pages if cache miss, create new CSV if both fail (first run), execute health checks, append results to CSV, save CSV to Actions cache (fail immediately if cache limit), generate static HTML/JSON, deploy to GitHub Pages using actions/upload-pages-artifact and actions/deploy-pages, include CSV in deployment, retain artifacts on mid-execution failure per FR-042, FR-042a, FR-020b, FR-020c, FR-020d, FR-020e
-- [ ] T022 [US7] Update test workflow with conditional logic: if PR changes both config.yaml and code, run application tests first (fail fast), only run smoke tests if application tests pass per FR-039a
+- [ ] T022 [US7] Update test workflow with conditional logic: if PR changes both config.yaml and code, run application tests first (fail fast), only run smoke tests if application tests pass per FR-039, FR-039a
 - [ ] T023 [US7] Configure workflow explicit permissions: research GitHub Actions security best practices for open source repositories, apply principle of least privilege, never use default permissions per FR-037a
 - [ ] T024 [US7] Configure main branch protection in .github/settings: require PR approval, require all CI tests pass before merge (application tests or smoke tests depending on change type) per FR-041
 - [ ] T025 [US7] Create deployment documentation in docs/deployment.md: GitHub Pages setup using gh CLI, workflow permissions, CSV fallback chain, manual rotation guidance, cache limit troubleshooting per FR-043
@@ -122,7 +122,7 @@
 - [ ] T030a [P] [US1] Write unit test for CSV writer in tests/unit/storage/csv-writer.test.ts: test append HealthCheckResult to history.csv, verify columns (timestamp ISO 8601, service_name, status PASS/DEGRADED/FAIL, latency_ms integer, http_status_code, failure_reason empty if passed, correlation_id), test file creation if not exists, test append without duplicate headers, test exit with non-zero on write failure (permissions, disk space), verify atomic writes (test MUST fail before T030 implementation)
 - [ ] T031a [P] [US1] Write unit test for CSV reader in tests/unit/storage/csv-reader.test.ts: test read history.csv, test format validation (headers present, parse sample rows), test consecutive failure derivation (count consecutive FAIL statuses per service from recent records), test handling of corrupted CSV (log error, emit alert, return validation errors), verify fallback to next tier on corruption, test empty CSV file handling (test MUST fail before T031 implementation)
 - [ ] T032a [P] [US1] Write unit test for JSON writer in tests/unit/storage/json-writer.test.ts: test write _data/health.json from HealthCheckResult array, test mapping to ServiceStatusAPI format (name, status, latency_ms, last_check_time, tags, http_status_code, failure_reason), test sorting (FAIL → DEGRADED → PASS → PENDING), test null values for PENDING services (latency_ms, last_check_time, http_status_code all null), test exit with non-zero on write failure, verify JSON structure matches OpenAPI schema (test MUST fail before T032 implementation)
-- [ ] T033a [US1] Write unit test for worker pool manager in tests/unit/orchestrator/worker-pool.test.ts: test worker pool creation (size = 2x CPU cores, configurable via worker_pool_size setting), test worker lifecycle management (auto-restart on failure), test distribute health checks across workers, test correlation ID tracking per task, test task-level timeouts, test graceful shutdown (30s max wait for in-flight checks, force termination after), test structured error handling with graceful degradation (test MUST fail before T033 implementation)
+- [ ] T033a [US1] Write unit test for worker pool manager in tests/unit/orchestrator/worker-pool.test.ts: test worker pool creation (size = 2x CPU cores for I/O-bound operations, configurable via worker_pool_size setting), test worker lifecycle management (auto-restart on failure), test distribute health checks across workers, test correlation ID tracking per task, test task-level timeouts, test graceful shutdown (30s max wait for in-flight checks, force termination after), test structured error handling with graceful degradation (test MUST fail before T033 implementation)
 - [ ] T034a [US1] Write unit test for scheduler in tests/unit/orchestrator/scheduler.test.ts: test setInterval for health check cycles (default 60s, per-service override), test priority queue by next check time, test worker pool trigger for each cycle, test wait for first cycle completion before generating initial HTML (all services PENDING during first cycle), test HTML/JSON regeneration after every cycle completion regardless of status changes, test cycle timing accuracy (test MUST fail before T034 implementation)
 - [ ] T035a [US1] Write unit test for 11ty runner in tests/unit/orchestrator/eleventy-runner.test.ts: test invoke 11ty CLI (npx @11ty/eleventy) as subprocess, test capture stdout/stderr, test handle subprocess failure (log error, retain previous HTML, emit alert, continue health checks), test retry generation on next cycle after failure, verify subprocess exit codes (test MUST fail before T035 implementation)
 
@@ -162,14 +162,14 @@
 
 ### Implementation for User Story 1
 
-- [ ] T026 [P] [US1] Implement HTTP health check logic in src/health-checks/http-check.ts: use native Node.js 22+ fetch() API, support GET/HEAD/POST methods, custom headers, POST payloads, AbortSignal.timeout() for timeouts, validate status code, search first 100KB of body for expected text, validate response headers (Location for redirects), return HealthCheckResult per FR-008, FR-010, FR-011, FR-013, FR-014, FR-014a, FR-017
-- [ ] T027 [P] [US1] Implement response validation in src/health-checks/validation.ts: validate status code matches expected, search response body for expected text (case-sensitive substring, first 100KB), validate response headers (case-insensitive name, case-sensitive value), return validation results per FR-013, FR-014, FR-014a
+- [ ] T026 [P] [US1] Implement HTTP health check logic in src/health-checks/http-check.ts: use native Node.js 22+ fetch() API, support GET/HEAD/POST methods, custom headers, POST payloads, AbortSignal.timeout() for timeouts, validate status code, search first 100KB of body for expected text, validate response headers (Location for redirects), record response latency, return HealthCheckResult per FR-004, FR-004a, FR-005, FR-006, FR-008, FR-010, FR-011, FR-012, FR-013, FR-014, FR-014a, FR-017
+- [ ] T027 [P] [US1] Implement response validation in src/health-checks/validation.ts: validate status code matches expected, search response body for expected text (case-sensitive substring, first 100KB), validate response headers (case-insensitive name, case-sensitive value), check latency against warning_threshold for DEGRADED status, return validation results per FR-013, FR-014, FR-014a, FR-017a
 - [ ] T028 [P] [US1] Implement retry logic in src/health-checks/retry-logic.ts: retry network errors only (connection refused, DNS failure, timeout), max 3 immediate retries (no delays), retries don't count toward consecutive failure threshold, don't retry status/text/header validation failures per FR-017b
 - [ ] T029 [US1] Implement health check worker in src/health-checks/worker.ts: worker thread using worker_threads module, receive WorkerMessage via postMessage, execute http-check with retry-logic, determine status (FAIL: validation failed or timeout, DEGRADED: passed but latency > warning_threshold, PASS: passed and latency <= warning_threshold), emit Prometheus metrics, return WorkerResult with correlation ID per FR-009a, FR-015, FR-015b
-- [ ] T030 [P] [US1] Implement CSV writer in src/storage/csv-writer.ts: append HealthCheckResult to history.csv, columns: timestamp (ISO 8601), service_name, status (PASS/DEGRADED/FAIL), latency_ms (integer), http_status_code, failure_reason (empty if passed), correlation_id, exit with non-zero if write fails per FR-018, FR-020, FR-020a
+- [ ] T030 [P] [US1] Implement CSV writer in src/storage/csv-writer.ts: append HealthCheckResult to history.csv, columns: timestamp (ISO 8601), service_name, status (PASS/DEGRADED/FAIL), latency_ms (integer), http_status_code, failure_reason (empty if passed), correlation_id, exit with non-zero if write fails per FR-016, FR-018, FR-020, FR-020a
 - [ ] T031 [P] [US1] Implement CSV reader in src/storage/csv-reader.ts: read history.csv, validate format (headers, parse sample rows), derive consecutive failure count from consecutive FAIL statuses per service, return validation errors, handle corrupted CSV (log error, emit alert, fallback to next tier) per FR-015a, FR-020e
 - [ ] T032 [P] [US1] Implement JSON data writer in src/storage/json-writer.ts: write _data/health.json from HealthCheckResult array, map to ServiceStatusAPI format (name, status, latency_ms, last_check_time, tags, http_status_code, failure_reason), sort FAIL → DEGRADED → PASS → PENDING, null values for PENDING services, exit with non-zero if write fails per FR-022, FR-028a
-- [ ] T033 [US1] Implement worker pool manager in src/orchestrator/worker-pool.ts: create worker pool sized to CPU cores (2x cores, configurable via worker_pool_size setting), manage worker lifecycle (auto-restart on failure), distribute health checks across workers, track correlation IDs, implement task-level timeouts (graceful shutdown: 30s max wait for in-flight checks), structured error handling per FR-009a, FR-032
+- [ ] T033 [US1] Implement worker pool manager in src/orchestrator/worker-pool.ts: create worker pool sized to CPU cores (2x cores for I/O-bound operations, configurable via worker_pool_size setting), manage worker lifecycle (auto-restart on failure), distribute health checks across workers, track correlation IDs, implement task-level timeouts (graceful shutdown: 30s max wait for in-flight checks), structured error handling per FR-009a, FR-032
 - [ ] T034 [US1] Implement scheduler in src/orchestrator/scheduler.ts: setInterval for health check cycles (default 60s, per-service override), priority queue by next check time, trigger worker pool for each cycle, wait for first cycle completion before generating initial HTML (all services PENDING), regenerate HTML/JSON after every cycle completion regardless of status changes per FR-009, FR-028
 - [ ] T035 [US1] Implement 11ty runner in src/orchestrator/eleventy-runner.ts: invoke 11ty CLI (npx @11ty/eleventy) as subprocess after each health check cycle, capture stdout/stderr, handle failure (log error, retain previous HTML, emit alert, continue health checks), retry generation on next cycle per FR-030
 - [ ] T036 [P] [US1] Create GOV.UK base layout in _includes/layouts/base.njk: extend @x-govuk/govuk-eleventy-plugin base layout, page title "GOV.UK service status", meta refresh tag `<meta http-equiv="refresh" content="60">`, no Crown logo/official branding per FR-021, FR-029
@@ -181,14 +181,14 @@
 - [ ] T042 [P] [US1] Implement CSS inliner in src/inlining/css-inliner.ts: read CSS files, inline into `<style>` tags in HTML head, handle GOV.UK Design System CSS from plugin per FR-021
 - [ ] T043 [P] [US1] Implement JavaScript inliner in src/inlining/js-inliner.ts: read JavaScript files, inline into `<script>` tags before closing `</body>`, handle GOV.UK Design System JS from plugin per FR-021
 - [ ] T044 [P] [US1] Implement image inliner in src/inlining/image-inliner.ts: read image files (PNG, JPG, SVG, ICO), base64 encode as data URIs, replace `<img src>` and CSS `url()` references, handle GOV.UK Design System images from plugin per FR-021
-- [ ] T044e [P] [US1] Write unit test for size validation in tests/unit/inlining/size-validator.test.ts: test size calculation, verify failure when > 5MB, test warning when > 4MB (80% threshold), verify error message clarity, test suggested optimizations (test MUST fail before T044f implementation)
-- [ ] T044f [P] [US1] Implement HTML size validation in src/inlining/size-validator.ts: check final HTML file size after inlining, fail with clear error if > 5MB, log actual size and components contributing to size, suggest optimization strategies (unused CSS removal, image compression), exit with non-zero code if exceeded per FR-021 constraint
+- [ ] T045a [P] [US1] Write unit test for size validation in tests/unit/inlining/size-validator.test.ts: test size calculation, verify failure when > 5MB, test warning when > 4MB (80% threshold), verify error message clarity, test suggested optimizations (test MUST fail before T045 implementation)
+- [ ] T045 [P] [US1] Implement HTML size validation in src/inlining/size-validator.ts: check final HTML file size after inlining, fail with clear error if > 5MB, log actual size and components contributing to size, suggest optimization strategies (unused CSS removal, image compression), exit with non-zero code if exceeded per FR-021 constraint
 
 ### Additional Robustness Tasks
 
-- [ ] T045 [US1] Implement graceful shutdown handler in src/orchestrator/shutdown.ts: handle SIGTERM/SIGINT signals, wait up to 30 seconds for in-flight checks, track correlation IDs of interrupted checks, force exit after timeout, log shutdown progress per FR-032
-- [ ] T046 [US1] Implement CSV corruption recovery in src/storage/csv-recovery.ts: detect corrupted CSV on read (invalid headers, malformed rows), attempt repair by removing corrupted rows, create backup before repair, fall through to next tier if unrepairable, log detailed corruption analysis per FR-020e
-- [ ] T047 [US1] Write integration test for shutdown scenarios in tests/integration/graceful-shutdown.test.ts: test shutdown during active health checks, verify 30-second timeout enforcement, test correlation ID tracking, verify forced termination, test recovery on next startup
+- [ ] T046 [US1] Implement graceful shutdown handler in src/orchestrator/shutdown.ts: handle SIGTERM/SIGINT signals, wait up to 30 seconds for in-flight checks, track correlation IDs of interrupted checks, force exit after timeout, log shutdown progress per FR-032
+- [ ] T047 [US1] Implement CSV corruption recovery in src/storage/csv-recovery.ts: detect corrupted CSV on read (invalid headers, malformed rows), attempt repair by removing corrupted rows, create backup before repair, fall through to next tier if unrepairable, log detailed corruption analysis per FR-020e
+- [ ] T048 [US1] Write integration test for shutdown scenarios in tests/integration/graceful-shutdown.test.ts: test shutdown during active health checks, verify 30-second timeout enforcement, test correlation ID tracking, verify forced termination, test recovery on next startup
 
 **Checkpoint**: At this point, User Story 1 is fully functional - users can view current service status on auto-updating HTML page with robust error handling
 
@@ -198,18 +198,18 @@
 
 **Purpose**: Write failing tests BEFORE US2 implementation per Constitution Principle III
 
-**TDD Requirement**: These tests MUST be written first and MUST fail before implementing T045-T047
+**TDD Requirement**: These tests MUST be written first and MUST fail before implementing T049-T051
 
 ### Unit Tests for US2
 
-- [ ] T048a [P] [US2] Write unit test for status tags component in tests/unit/components/status-tags.test.ts: test govukTag macro rendering for each service tag, verify multiple tags rendered per service, verify tag HTML structure matches GOV.UK Design System, test empty tags array handling, verify tag text content and CSS classes (test MUST fail before T048 implementation)
+- [ ] T049a [P] [US2] Write unit test for status tags component in tests/unit/components/status-tags.test.ts: test govukTag macro rendering for each service tag, verify multiple tags rendered per service, verify tag HTML structure matches GOV.UK Design System, test empty tags array handling, verify tag text content and CSS classes (test MUST fail before T049 implementation)
 
 ### E2E Tests for US2
 
-- [ ] T049a [US2] Write E2E test for tag display in tests/e2e/service-tags.spec.ts: use Playwright to load status page with tagged services, verify tags displayed as labels next to each service name, verify multiple tags visible per service, verify tag styling matches GOV.UK Design System (govuk-tag class), verify untagged services grouped in separate "Untagged Services" section at bottom of page, verify section heading present, verify tagged and untagged services both display correctly (test MUST fail before T049 implementation)
-- [ ] T050a [US2] Write E2E test for JSON API tags in tests/e2e/tags-json-api.spec.ts: fetch status.json, verify each service object includes tags array, verify tags array empty for untagged services, verify tags array populated for tagged services, verify tags match config.yaml values (test MUST fail before T050 implementation)
+- [ ] T050a [US2] Write E2E test for tag display in tests/e2e/service-tags.spec.ts: use Playwright to load status page with tagged services, verify tags displayed as labels next to each service name, verify multiple tags visible per service, verify tag styling matches GOV.UK Design System (govuk-tag class), verify untagged services grouped in separate "Untagged Services" section at bottom of page, verify section heading present, verify tagged and untagged services both display correctly (test MUST fail before T050 implementation)
+- [ ] T051a [US2] Write E2E test for JSON API tags in tests/e2e/tags-json-api.spec.ts: fetch status.json, verify each service object includes tags array, verify tags array empty for untagged services, verify tags array populated for tagged services, verify tags match config.yaml values (test MUST fail before T051 implementation)
 
-**Checkpoint**: All US2 tests written and FAILING - ready for US2 implementation (T045-T047)
+**Checkpoint**: All US2 tests written and FAILING - ready for US2 implementation (T049-T051)
 
 ---
 
@@ -221,9 +221,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T048 [P] [US2] Create status tags component in _includes/components/status-tags.njk: render GOV.UK tag components for each service tag, use govukTag macro from Design System, display multiple tags per service per FR-024, FR-025
-- [ ] T049 [US2] Update status page template in pages/index.njk: add status-tags component to each service display, group services (failing → degraded → healthy → untagged section at bottom), untagged section heading "Untagged Services" per FR-024a
-- [ ] T050 [US2] Update JSON writer in src/storage/json-writer.ts: include tags array in ServiceStatusAPI output, empty array for services without tags per FR-022
+- [ ] T049 [P] [US2] Create status tags component in _includes/components/status-tags.njk: render GOV.UK tag components for each service tag, use govukTag macro from Design System, display multiple tags per service per FR-024, FR-025
+- [ ] T050 [US2] Update status page template in pages/index.njk: add status-tags component to each service display, group services (failing → degraded → healthy → untagged section at bottom), untagged section heading "Untagged Services" per FR-024a
+- [ ] T051 [US2] Update JSON writer in src/storage/json-writer.ts: include tags array in ServiceStatusAPI output, empty array for services without tags per FR-022
 
 **Checkpoint**: At this point, User Stories 1 AND 2 work - users see categorized services with visual tag labels
 
@@ -233,14 +233,14 @@
 
 **Purpose**: Write failing tests BEFORE US5 implementation per Constitution Principle III
 
-**TDD Requirement**: These tests MUST be written first and MUST fail before implementing T048-T049
+**TDD Requirement**: These tests MUST be written first and MUST fail before implementing T052-T053
 
 ### E2E Tests for US5
 
-- [ ] T051a [US5] Write E2E test for meta refresh behavior in tests/e2e/auto-refresh.spec.ts: use Playwright to load status page, verify meta refresh tag content matches settings.page_refresh from config.yaml (default 60s), verify page automatically refreshes after configured interval (wait 61s, check for page reload event), verify updated status displays after refresh (simulate status change, wait for refresh, verify new status visible), verify refresh works without JavaScript enabled (test MUST fail before T051 implementation)
-- [ ] T052a [US5] Write E2E test for last update display in tests/e2e/last-update-display.spec.ts: use Playwright to load status page, verify prominent last update time displayed, verify page generation timestamp visible and distinct from individual service check times, verify "time since last check" shown for each service, verify timestamps in user-friendly format (relative time or ISO 8601 with local conversion) (test MUST fail before T052 implementation)
+- [ ] T052a [US5] Write E2E test for meta refresh behavior in tests/e2e/auto-refresh.spec.ts: use Playwright to load status page, verify meta refresh tag content matches settings.page_refresh from config.yaml (default 60s), verify page automatically refreshes after configured interval (wait 61s, check for page reload event), verify updated status displays after refresh (simulate status change, wait for refresh, verify new status visible), verify refresh works without JavaScript enabled (test MUST fail before T052 implementation)
+- [ ] T053a [US5] Write E2E test for last update display in tests/e2e/last-update-display.spec.ts: use Playwright to load status page, verify prominent last update time displayed, verify page generation timestamp visible and distinct from individual service check times, verify "time since last check" shown for each service, verify timestamps in user-friendly format (relative time or ISO 8601 with local conversion) (test MUST fail before T053 implementation)
 
-**Checkpoint**: All US5 tests written and FAILING - ready for US5 implementation (T048-T049)
+**Checkpoint**: All US5 tests written and FAILING - ready for US5 implementation (T052-T053)
 
 ---
 
@@ -254,8 +254,8 @@
 
 ### Implementation for User Story 5
 
-- [ ] T051 [US5] Update base layout in _includes/layouts/base.njk: ensure meta refresh tag content matches settings.page_refresh from config.yaml (default 60s) per FR-029
-- [ ] T052 [US5] Update status page template in pages/index.njk: add prominent last update time display, show time since last check for each service, visual indication when page was generated (distinct from service check times) per FR-029b
+- [ ] T052 [US5] Update base layout in _includes/layouts/base.njk: ensure meta refresh tag content matches settings.page_refresh from config.yaml (default 60s) per FR-029
+- [ ] T053 [US5] Update status page template in pages/index.njk: add prominent last update time display, show time since last check for each service, visual indication when page was generated (distinct from service check times) per FR-029b
 
 **Checkpoint**: User Stories 1, 2, AND 5 work - users see auto-updating categorized service status
 
@@ -269,16 +269,16 @@
 
 ### TDD Tests for US3
 
-- [ ] T053a [P] [US3] Write unit test for CSV export endpoint in tests/unit/api/csv-export.test.ts: test HTTP endpoint /history.csv serves CSV file, verify correct Content-Type header (text/csv), test range queries with date parameters, test pagination for large datasets, verify CSV format maintained (test MUST fail before T053 implementation)
-- [ ] T054a [P] [US3] Write unit test for historical data queries in tests/unit/storage/csv-query.test.ts: test query by service name, test query by date range, test uptime percentage calculation (24h, 7d, 30d), test aggregation functions (average latency, failure count), verify performance with large CSV files (test MUST fail before T054 implementation)
-- [ ] T055a [P] [US3] Write unit test for data retention in tests/unit/storage/csv-retention.test.ts: test automatic rotation when file exceeds size limit (configurable, default 100MB), test archival to timestamped files, test cleanup of archives older than retention period (configurable, default 90 days), verify continuity during rotation (test MUST fail before T055 implementation)
-- [ ] T056a [US3] Write E2E test for historical data access in tests/e2e/historical-data.spec.ts: use Playwright or HTTP client to access /history.csv endpoint, verify CSV file downloadable, parse CSV and verify format (columns: timestamp, service_name, status, latency_ms, http_status_code, failure_reason, correlation_id), test date range filtering, verify uptime calculation accuracy (test MUST fail before implementation)
+- [ ] T054a [P] [US3] Write unit test for CSV export endpoint in tests/unit/api/csv-export.test.ts: test HTTP endpoint /history.csv serves CSV file, verify correct Content-Type header (text/csv), test range queries with date parameters, test pagination for large datasets, verify CSV format maintained (test MUST fail before T054 implementation)
+- [ ] T055a [P] [US3] Write unit test for historical data queries in tests/unit/storage/csv-query.test.ts: test query by service name, test query by date range, test uptime percentage calculation (24h, 7d, 30d), test aggregation functions (average latency, failure count), verify performance with large CSV files (test MUST fail before T055 implementation)
+- [ ] T056a [P] [US3] Write unit test for data retention in tests/unit/storage/csv-retention.test.ts: test automatic rotation when file exceeds size limit (configurable, default 100MB), test archival to timestamped files, test cleanup of archives older than retention period (configurable, default 90 days), verify continuity during rotation (test MUST fail before T056 implementation)
+- [ ] T057a [US3] Write E2E test for historical data access in tests/e2e/historical-data.spec.ts: use Playwright or HTTP client to access /history.csv endpoint, verify CSV file downloadable, parse CSV and verify format (columns: timestamp, service_name, status, latency_ms, http_status_code, failure_reason, correlation_id), test date range filtering, verify uptime calculation accuracy (test MUST fail before implementation)
 
 ### Implementation for US3
 
-- [ ] T053 [P] [US3] Implement CSV export endpoint in src/api/csv-export.ts: serve history.csv via HTTP endpoint, support range queries (?from=date&to=date), implement streaming for large files, add appropriate cache headers per SC-008
-- [ ] T054 [P] [US3] Implement historical data query functions in src/storage/csv-query.ts: query by service name, filter by date range, calculate uptime percentages (24h, 7d, 30d), compute aggregate statistics, optimize for performance with indexed reads
-- [ ] T055 [US3] Implement CSV retention policy in src/storage/csv-retention.ts: monitor file size, rotate at configurable threshold (default 100MB), archive with timestamp, clean up old archives (default >90 days), maintain write continuity during rotation
+- [ ] T054 [P] [US3] Implement CSV export endpoint in src/api/csv-export.ts: serve history.csv via HTTP endpoint, support range queries (?from=date&to=date), implement streaming for large files, add appropriate cache headers per SC-008
+- [ ] T055 [P] [US3] Implement historical data query functions in src/storage/csv-query.ts: query by service name, filter by date range, calculate uptime percentages (24h, 7d, 30d), compute aggregate statistics, optimize for performance with indexed reads
+- [ ] T056 [US3] Implement CSV retention policy in src/storage/csv-retention.ts: monitor file size, rotate at configurable threshold (default 100MB), archive with timestamp, clean up old archives (default >90 days), maintain write continuity during rotation
 
 **Checkpoint**: User Story 3 complete - programmatic access to historical data available
 
@@ -292,17 +292,17 @@
 
 ### TDD Tests for US4
 
-- [ ] T057a [P] [US4] Write unit test for API versioning in tests/unit/api/versioning.test.ts: test version header support (X-API-Version), test URL path versioning (/api/v1/status.json), test backward compatibility, verify deprecation warnings, test version negotiation (test MUST fail before T057 implementation)
-- [ ] T058a [P] [US4] Write unit test for rate limiting in tests/unit/api/rate-limit.test.ts: test request counting per IP, test rate limit headers (X-RateLimit-Limit, X-RateLimit-Remaining), test 429 response when exceeded, test configurable limits, verify reset timing (test MUST fail before T058 implementation)
-- [ ] T059a [P] [US4] Write unit test for CORS configuration in tests/unit/api/cors.test.ts: test Access-Control headers, test allowed origins configuration, test preflight OPTIONS requests, verify allowed methods (GET only), test credential handling (test MUST fail before T059 implementation)
-- [ ] T060a [US4] Write E2E test for JSON API in tests/e2e/json-api.spec.ts: fetch /status.json endpoint, verify JSON structure matches OpenAPI schema, verify all required fields present (name, status, latency_ms, last_check_time, tags, http_status_code, failure_reason), test API versioning headers, test rate limiting behavior (test MUST fail before implementation)
+- [ ] T058a [P] [US4] Write unit test for API versioning in tests/unit/api/versioning.test.ts: test version header support (X-API-Version), test URL path versioning (/api/v1/status.json), test backward compatibility, verify deprecation warnings, test version negotiation (test MUST fail before T058 implementation)
+- [ ] T059a [P] [US4] Write unit test for rate limiting in tests/unit/api/rate-limit.test.ts: test request counting per IP, test rate limit headers (X-RateLimit-Limit, X-RateLimit-Remaining), test 429 response when exceeded, test configurable limits, verify reset timing (test MUST fail before T059 implementation)
+- [ ] T060a [P] [US4] Write unit test for CORS configuration in tests/unit/api/cors.test.ts: test Access-Control headers, test allowed origins configuration, test preflight OPTIONS requests, verify allowed methods (GET only), test credential handling (test MUST fail before T060 implementation)
+- [ ] T061a [US4] Write E2E test for JSON API in tests/e2e/json-api.spec.ts: fetch /status.json endpoint, verify JSON structure matches OpenAPI schema, verify all required fields present (name, status, latency_ms, last_check_time, tags, http_status_code, failure_reason), test API versioning headers, test rate limiting behavior (test MUST fail before implementation)
 
 ### Implementation for US4
 
-- [ ] T057 [P] [US4] Implement API versioning in src/api/versioning.ts: support header-based versioning, implement URL path versioning, maintain v1 compatibility, add deprecation warnings for old versions per SC-010
-- [ ] T058 [P] [US4] Implement rate limiting in src/api/rate-limit.ts: count requests per IP address, enforce configurable limits (default 60/minute), return appropriate headers, send 429 when exceeded, implement sliding window
-- [ ] T059 [P] [US4] Implement CORS configuration in src/api/cors.ts: configure allowed origins (default: *), set appropriate headers, handle preflight requests, restrict to GET method only
-- [ ] T060 [US4] Update JSON API endpoint: integrate versioning, rate limiting, and CORS with existing status.json generation, ensure backward compatibility maintained
+- [ ] T058 [P] [US4] Implement API versioning in src/api/versioning.ts: support header-based versioning, implement URL path versioning, maintain v1 compatibility, add deprecation warnings for old versions per SC-010
+- [ ] T059 [P] [US4] Implement rate limiting in src/api/rate-limit.ts: count requests per IP address, enforce configurable limits (default 60/minute), return appropriate headers, send 429 when exceeded, implement sliding window
+- [ ] T060 [P] [US4] Implement CORS configuration in src/api/cors.ts: configure allowed origins (default: *), set appropriate headers, handle preflight requests, restrict to GET method only
+- [ ] T061 [US4] Update JSON API endpoint: integrate versioning, rate limiting, and CORS with existing status.json generation, ensure backward compatibility maintained
 
 **Checkpoint**: User Story 4 complete - full API access with proper versioning and rate limiting
 
@@ -312,10 +312,10 @@
 
 **Goal**: Clean up technical debt, standardize terminology, and improve maintainability
 
-- [ ] T061 Standardize terminology from "pings" to "services" in config.yaml structure: update TypeScript types in src/types/config.ts, update JSON Schema in src/config/schema.ts, maintain backward compatibility with deprecation warning for "pings" key
-- [ ] T062 Update documentation for terminology changes: update spec.md configuration examples, update quickstart.md, add migration guide for existing configs, update all code comments
-- [ ] T063 [P] Refactor task naming patterns in test files: rename test files from pattern T###a to T###-test for clarity, update test imports accordingly
-- [ ] T064 [P] Create comprehensive API documentation in docs/api.md: document all endpoints (/status.json, /history.csv), include OpenAPI specification, provide integration examples, document rate limits and versioning
+- [ ] T062 Standardize terminology from "pings" to "services" in config.yaml structure: update TypeScript types in src/types/config.ts, update JSON Schema in src/config/schema.ts, maintain backward compatibility with deprecation warning for "pings" key
+- [ ] T063 Update documentation for terminology changes: update spec.md configuration examples, update quickstart.md, add migration guide for existing configs, update all code comments
+- [ ] T064 [P] Refactor task naming patterns in test files: rename test files from pattern T###a to T###-test for clarity, update test imports accordingly
+- [ ] T065 [P] Create comprehensive API documentation in docs/api.md: document all endpoints (/status.json, /history.csv), include OpenAPI specification, provide integration examples, document rate limits and versioning
 
 **Checkpoint**: Technical debt resolved, codebase standardized and maintainable
 
@@ -327,19 +327,19 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T065 [P] Create main README.md: project overview, quick start, features, architecture diagram, links to documentation, license information per plan.md
-- [ ] T066 [P] Create MIT LICENSE file: standard MIT license text with Crown (GDS) copyright per plan.md
-- [ ] T067 [P] Update package.json scripts: add "build", "start", "dev", "test", "lint", "lint:fix", "type-check", "validate-config" commands per quickstart.md
-- [ ] T068 [P] Create example config.yaml in repository root: 2-3 example services demonstrating GET, HEAD, POST methods, status validation, text validation, header validation, redirect validation, tags per configuration structure from spec.md
-- [ ] T069 [P] Add structured logging to all modules: include correlation IDs in all log statements, DEBUG env var controls verbosity, security warnings for debug mode, use child loggers per context per FR-033, FR-034, FR-034a
-- [ ] T070 [P] Add error handling to all modules: structured error objects, detailed error messages, appropriate exit codes (non-zero for failures), stderr output for validation errors per FR-007, FR-020a, FR-028a
-- [ ] T071 [P] Validate quickstart.md: verify all commands work, test development workflow, validate prerequisites, test troubleshooting steps per quickstart.md content
-- [ ] T072 Code review and refactoring: remove code duplication, improve type safety, optimize performance, ensure consistent naming conventions
-- [ ] T073 Security hardening: validate no secrets in code, review workflow permissions, implement input validation for all external data, add rate limiting considerations to docs
-- [ ] T074 [P] Performance optimization: benchmark health check cycle time, HTML generation time, memory usage, set aggressive thresholds, document in performance tests per FR-040a
-- [ ] T075 [P] Accessibility validation: run axe-core tests via Playwright, verify WCAG 2.2 AAA compliance (color contrast 7:1 normal text, 4.5:1 large text), test with screen readers (NVDA, VoiceOver, JAWS), verify keyboard navigation, check focus indicators per FR-029a
-- [ ] T076 Final integration testing: end-to-end test full health check → CSV → 11ty → inlining → deployment cycle, verify CSV fallback chain, test graceful shutdown, validate all error paths
-- [ ] T077 [P] Establish performance baseline in tests/performance/baseline.md: run health checks against 5 sample services (response times: 100ms, 500ms, 1s, 2s, 5s), measure cycle time/memory/HTML generation, set thresholds at 80% of baseline (e.g., baseline 10s → threshold 8s) per spec.md FR-040a and Finding A1 remediation
+- [ ] T066 [P] Create main README.md: project overview, quick start, features, architecture diagram, links to documentation, license information per plan.md
+- [ ] T067 [P] Create MIT LICENSE file: standard MIT license text with Crown (GDS) copyright per plan.md
+- [ ] T068 [P] Update package.json scripts: add "build", "start", "dev", "test", "lint", "lint:fix", "type-check", "validate-config" commands per quickstart.md
+- [ ] T069 [P] Create example config.yaml in repository root: 2-3 example services demonstrating GET, HEAD, POST methods, status validation, text validation, header validation, redirect validation, tags per configuration structure from spec.md
+- [ ] T070 [P] Add structured logging to all modules: include correlation IDs in all log statements, DEBUG env var controls verbosity, security warnings for debug mode, use child loggers per context per FR-033, FR-034, FR-034a
+- [ ] T071 [P] Add error handling to all modules: structured error objects, detailed error messages, appropriate exit codes (non-zero for failures), stderr output for validation errors per FR-007, FR-020a, FR-028a
+- [ ] T072 [P] Validate quickstart.md: verify all commands work, test development workflow, validate prerequisites, test troubleshooting steps per quickstart.md content
+- [ ] T073 Code review and refactoring: remove code duplication, improve type safety, optimize performance, ensure consistent naming conventions
+- [ ] T074 Security hardening: validate no secrets in code, review workflow permissions, implement input validation for all external data, add rate limiting considerations to docs
+- [ ] T075 [P] Performance optimization: benchmark health check cycle time, HTML generation time, memory usage, set aggressive thresholds, document in performance tests per FR-040a
+- [ ] T076 [P] Accessibility validation: run axe-core tests via Playwright, verify WCAG 2.2 AAA compliance (color contrast 7:1 normal text, 4.5:1 large text), test with screen readers (NVDA, VoiceOver, JAWS), verify keyboard navigation, check focus indicators per FR-029a
+- [ ] T077 Final integration testing: end-to-end test full health check → CSV → 11ty → inlining → deployment cycle, verify CSV fallback chain, test graceful shutdown, validate all error paths
+- [ ] T078 [P] Establish performance baseline in tests/performance/baseline.md: run health checks against 5 sample services (response times: 100ms, 500ms, 1s, 2s, 5s), measure cycle time/memory/HTML generation, set thresholds at 80% of baseline (e.g., baseline 10s → threshold 8s) per spec.md FR-040a and Finding A1 remediation
 
 ---
 
@@ -417,9 +417,9 @@
    - Phase 3A: Write US6/US7 tests (T018a-T025a) → Tests FAIL ❌
    - Phase 3: Implement US7 (T019-T025) → Tests PASS ✅
 4. **TDD: US1 View Status**
-   - Phase 4A: Write US1 tests (T026a-T044e) → Tests FAIL ❌
-   - Phase 4: Implement US1 (T026-T047) → Tests PASS ✅
-5. Phase 10: T077 (baseline), T076 (integration test)
+   - Phase 4A: Write US1 tests (T026a-T045a) → Tests FAIL ❌
+   - Phase 4: Implement US1 (T026-T048) → Tests PASS ✅
+5. Phase 10: T078 (baseline), T077 (integration test)
 6. **STOP and VALIDATE**: All tests passing, 80%+ coverage achieved
 7. Deploy to GitHub Pages, verify status page accessible
 
@@ -523,14 +523,14 @@ Task T044: Implement image-inliner.ts
 - **Phase 3 (US7 Deployment - P1)**: 7 tasks (infrastructure)
 - **Phase 4A (US1 Tests - TDD)**: 19 tasks (includes size validation test, write first, must fail)
 - **Phase 4 (US1 View Status - P1)**: 22 tasks (includes robustness tasks)
-- **Phase 5A (US2 Tests - TDD)**: 3 tasks (renumbered, write first, must fail)
-- **Phase 5 (US2 Tags - P2)**: 3 tasks (renumbered)
-- **Phase 6A (US5 Tests - TDD)**: 2 tasks (renumbered, write first, must fail)
-- **Phase 6 (US5 Auto-refresh - P2)**: 2 tasks (renumbered)
+- **Phase 5A (US2 Tests - TDD)**: 3 tasks (write first, must fail)
+- **Phase 5 (US2 Tags - P2)**: 3 tasks
+- **Phase 6A (US5 Tests - TDD)**: 2 tasks (write first, must fail)
+- **Phase 6 (US5 Auto-refresh - P2)**: 2 tasks
 - **Phase 7 (US3 Historical - P3)**: 7 tasks (4 tests + 3 implementation)
 - **Phase 8 (US4 JSON API - P3)**: 8 tasks (4 tests + 4 implementation)
 - **Phase 9 (Technical Debt)**: 4 tasks (terminology standardization)
-- **Phase 10 (Polish)**: 13 tasks (renumbered T065-T077)
+- **Phase 10 (Polish)**: 13 tasks
 
 **MVP Scope**: Phases 1-4 = 72 tasks (62% of total)
 - Setup (7) + Foundational (11) + US6/US7 Tests (5) + US7 Impl (7) + US1 Tests (19) + US1 Impl (22) + Integration test (1) = 72 tasks
@@ -561,9 +561,9 @@ Task T044: Implement image-inliner.ts
 - **Constitution compliance (8/8 = 100%)**:
   - ✅ **Test-Driven Development** via 47+ test tasks across all user stories (Constitution Principle III)
   - ✅ GDS Design System via @x-govuk/govuk-eleventy-plugin
-  - ✅ Accessibility-First via WCAG 2.2 AAA validation in T039b, T069
+  - ✅ Accessibility-First via WCAG 2.2 AAA validation in T039b, T076
   - ✅ Progressive Enhancement via meta refresh (no JavaScript required)
-  - ✅ Performance Budgets via benchmarking in T044d, T068, T071
+  - ✅ Performance Budgets via benchmarking in T044d, T075, T078
   - ✅ Component Quality via formal JSON Schema validation (T011-T013)
   - ✅ User Research via 13 measurable success criteria (SC-001 to SC-013)
   - ✅ Research-Driven Decisions via research.md with Context7/WebSearch/WebFetch citations
