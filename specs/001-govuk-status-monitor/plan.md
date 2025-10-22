@@ -104,14 +104,14 @@ Build a self-contained status monitoring application that performs periodic HTTP
   - Core content accessible with HTML and CSS only
 
 ### V. Performance Budgets ✅ PASS
-- **Status**: Compliant (with monitoring)
+- **Status**: Compliant
 - **Evidence**:
   - SC-003: Status page loads in < 2 seconds (target)
   - Self-contained HTML file < 5MB target (FR-021, Assumption)
   - Single HTTP request architecture minimizes network overhead
   - Performance tests validate benchmarked thresholds (FR-040a)
   - GitHub Pages CDN provides edge caching
-- **Note**: Lighthouse CI should be added to pipeline to enforce performance budgets automatically (considered for constitution compliance)
+  - Lighthouse CI will be added in tasks.md T024a to enforce performance budgets automatically in CI pipeline (performance score ≥ 90, blocks merge if failed)
 
 ### VI. Component Quality Standards ✅ PASS
 - **Status**: Compliant

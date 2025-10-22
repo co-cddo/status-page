@@ -319,7 +319,7 @@ As a service operator, I need the status page to automatically update on a regul
 
 #### Data Storage & History
 
-- **FR-018**: System MUST persist historical health check results in CSV format with columns: timestamp (ISO 8601 format), service_name, status (PASS/DEGRADED/FAIL in uppercase), latency_ms (integer milliseconds), http_status_code, failure_reason (empty string if passed), correlation_id (for log traceability)
+- **FR-018**: System MUST persist historical health check results in CSV format with mandatory header row containing column names: timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id. Data rows follow with values: timestamp (ISO 8601 format), service_name, status (PASS/DEGRADED/FAIL in uppercase), latency_ms (integer milliseconds), http_status_code, failure_reason (empty string if passed), correlation_id (UUID v4 for log traceability)
 - **FR-019**: System uses CSV storage as the initial implementation. Extensible storage backend architecture (database, cloud storage) is **OUT OF SCOPE** for initial release and deferred to future iterations. CSV implementation MUST be contained within storage module (src/storage/) to facilitate future backend swapping without affecting orchestrator or health check logic.
 - **FR-020**: System MUST append new check results to historical data without requiring full data reload
 - **FR-020a**: System MUST exit with non-zero exit code if CSV file cannot be written due to permissions, disk space, or other I/O errors
@@ -348,7 +348,7 @@ As a service operator, I need the status page to automatically update on a regul
 
 #### Service Operation
 
-- **FR-030**: System MUST operate as a background service that generates static assets without requiring runtime web server requests. Architecture: Hybrid orchestrator - Node.js/TypeScript entry point (src/index.ts run via tsx) orchestrates periodic health checks using setInterval, writes results to _data/health.json, then invokes 11ty CLI (npx @11ty/eleventy) as subprocess to regenerate static assets. This separates runtime health checking (Node.js) from build-time HTML generation (11ty). No TypeScript compilation (uses tsx). Single npm run build command.
+- **FR-030**: System MUST operate as a background service that generates static assets without requiring runtime web server requests. Architecture: Hybrid orchestrator - Node.js/TypeScript entry point (src/index.ts run via tsx) orchestrates periodic health checks using setInterval, writes results to _data/health.json, then invokes 11ty CLI (npx @11ty/eleventy) as subprocess to regenerate static assets. This separates runtime health checking (Node.js) from build-time HTML generation (11ty). No TypeScript compilation (uses tsx). Single pnpm run build command per constitution.md Principle VI dependency management requirements.
 - **FR-031**: System uses HTTP(S) health checks as the initial implementation. Extensible probe types (TCP, ICMP ping, DNS, database queries, custom protocols) are **OUT OF SCOPE** for initial release and deferred to future iterations. HTTP(S) implementation MUST be contained within health-checks module (src/health-checks/) to facilitate future probe type additions without affecting orchestrator or storage logic.
 - **FR-032**: System MUST gracefully handle shutdown during restart (to apply configuration changes) by waiting maximum 30 seconds for in-flight health checks to complete before forcing termination, preventing data loss. Configuration changes require manual service restart to take effect.
 

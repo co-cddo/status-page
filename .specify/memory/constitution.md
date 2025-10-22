@@ -1,23 +1,25 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version Change: 1.1.1 → 1.1.2 (PATCH: Update package manager from npm to pnpm)
+Version Change: 1.1.2 → 1.2.0 (MINOR: Add dependency installation governance principle)
 Principles Modified:
-  - None (tooling clarification only)
+  - VI. Component Quality Standards: Added new "Dependency Installation" subsection
+Sections Added:
+  - VI. Component Quality Standards → Dependency Installation: MUST use pnpm for all dependency operations; NEVER edit package.json directly
 Sections Modified:
-  - VI. Component Quality Standards: Updated dependency management from npm to pnpm
+  - Governance → Enforcement: Added package installation review checkpoint
 Templates Status:
-  ✅ plan-template.md - No changes required (no package manager references)
-  ✅ spec-template.md - No changes required (no package manager references)
-  ✅ tasks-template.md - No changes required (no package manager references)
-  ⚠️ CLAUDE.md - Update required: Change npm commands to pnpm
-  ⚠️ tasks.md - Update required: Change npm test references to pnpm test
-  ⚠️ package.json - Update required: Consider adding pnpm-lock.yaml to .gitignore
+  ✅ plan-template.md - No changes required (no package manager installation guidance)
+  ✅ spec-template.md - No changes required (no package manager installation guidance)
+  ✅ tasks-template.md - No changes required (no package manager installation guidance)
+  ✅ CLAUDE.md - Already updated with pnpm commands in v1.1.2
 Follow-up TODOs:
-  - Update CLAUDE.md to use pnpm in all command examples
-  - Update tasks.md to use pnpm test in all test task descriptions
-  - Update .gitignore to include pnpm-lock.yaml
-  - Add packageManager field to package.json (e.g., "packageManager": "pnpm@8.0.0")
+  - None - all dependent documents already use pnpm
+Rationale for MINOR bump:
+  - Adds new governance constraint (material principle expansion)
+  - Introduces mandatory practice not previously documented
+  - Affects development workflow (how dependencies are managed)
+  - Not a clarification (PATCH) - establishes new enforceable rule
 -->
 
 # GDS Status Application Constitution
@@ -133,6 +135,20 @@ Follow-up TODOs:
   - Reviewers MUST verify GDS compliance, accessibility, tests, performance
   - No single-reviewer approvals; minimum 2 reviewers for critical paths
 
+- **Dependency Installation** (NON-NEGOTIABLE):
+  - MUST use `pnpm` package manager for ALL dependency operations
+  - NEVER edit `package.json` directly to add/remove/update dependencies
+  - Use `pnpm add <package>` to install production dependencies
+  - Use `pnpm add -D <package>` to install development dependencies
+  - Use `pnpm remove <package>` to uninstall dependencies
+  - Use `pnpm update <package>` to update specific dependencies
+  - ALWAYS commit `pnpm-lock.yaml` with dependency changes
+  - CI/CD pipelines MUST use `pnpm install --frozen-lockfile` to ensure reproducible builds
+  - Manual `package.json` edits are ONLY permitted for:
+    - Updating `scripts` section
+    - Updating metadata (name, version, description, author, license, repository, etc.)
+    - Updating configuration fields (engines, packageManager, type, exports, etc.)
+
 - **Security**:
   - Follow OWASP Top 10 mitigation strategies
   - All user input MUST be validated server-side
@@ -140,7 +156,7 @@ Follow-up TODOs:
   - Regular dependency updates; automated security scanning (pnpm audit, Snyk)
   - Content Security Policy (CSP) headers MUST be implemented
 
-**Rationale**: Quality standards prevent technical debt, ensure maintainability, and protect users. Code reviews spread knowledge and catch errors.
+**Rationale**: Quality standards prevent technical debt, ensure maintainability, and protect users. Code reviews spread knowledge and catch errors. Using pnpm consistently ensures deterministic builds, prevents version drift, and leverages pnpm's efficient disk space usage and security features (strict dependency resolution).
 
 ### VII. User Research & Data-Driven Decisions
 
@@ -393,6 +409,7 @@ During all phases of development (specification, planning, implementation), team
 - Security team reviews security-related changes
 - Accessibility specialist reviews significant UI changes
 - **Research compliance**: Reviewers verify technical decisions cite Context7/WebSearch/WebFetch sources
+- **Dependency installation compliance**: Reviewers verify `pnpm` commands used (not manual `package.json` edits); check `pnpm-lock.yaml` committed with dependency changes
 
 ### Complexity Justification
 - Any introduction of complexity that violates simplicity principles MUST be documented
@@ -406,7 +423,7 @@ During all phases of development (specification, planning, implementation), team
 - When in doubt, refer to GDS Service Manual and GOV.UK Design System documentation
 - **Research supersedes assumptions**: When research tools are available, use them instead of relying on memory
 
-**Version**: 1.1.2 | **Ratified**: 2025-01-21 | **Last Amended**: 2025-10-22
+**Version**: 1.2.0 | **Ratified**: 2025-01-21 | **Last Amended**: 2025-10-22
 
 ---
 
