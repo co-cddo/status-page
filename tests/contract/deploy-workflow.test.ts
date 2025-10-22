@@ -8,50 +8,7 @@
 import { describe, test, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { load } from 'js-yaml';
-
-/**
- * GitHub Actions workflow structure types
- */
-interface WorkflowStep {
-  name?: string;
-  uses?: string;
-  run?: string;
-  with?: Record<string, string | number | boolean>;
-  'continue-on-error'?: boolean;
-  if?: string;
-}
-
-interface WorkflowJob {
-  'runs-on'?: string | string[];
-  steps: WorkflowStep[];
-  permissions?: Record<string, string>;
-  needs?: string | string[];
-  environment?: string | { name: string; url?: string };
-}
-
-interface WorkflowTrigger {
-  pull_request?: {
-    paths?: string[];
-    branches?: string[];
-  };
-  push?: {
-    paths?: string[];
-    branches?: string[];
-  };
-  schedule?: Array<{ cron: string }>;
-  workflow_dispatch?: Record<string, unknown>;
-}
-
-interface GitHubActionsWorkflow {
-  name?: string;
-  on: WorkflowTrigger | string[];
-  permissions?: Record<string, string>;
-  jobs: Record<string, WorkflowJob>;
-  concurrency?: {
-    group: string;
-    'cancel-in-progress'?: boolean;
-  };
-}
+import type { GitHubActionsWorkflow, WorkflowStep, WorkflowJob } from '../types/github-workflow.js';
 
 describe('Deploy Workflow Contract (US7)', () => {
   const workflowPath = '.github/workflows/deploy.yml';

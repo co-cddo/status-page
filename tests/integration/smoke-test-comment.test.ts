@@ -6,6 +6,7 @@
  */
 
 import { describe, test, expect } from 'vitest';
+import { formatSmokeTestComment } from '../../src/workflows/format-smoke-test-comment.js';
 
 /**
  * Placeholder type for health check result
@@ -18,12 +19,6 @@ interface HealthCheckResult {
   http_status_code: number;
   failure_reason: string;
 }
-
-/**
- * Function to format smoke test results as Markdown comment
- * This function doesn't exist yet - will be created in T020
- */
-declare function formatSmokeTestComment(results: HealthCheckResult[]): string;
 
 describe('Smoke Test Comment Formatting (US6)', () => {
   test('generates Markdown table from health check results', () => {

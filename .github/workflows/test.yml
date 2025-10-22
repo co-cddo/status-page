@@ -1,0 +1,89 @@
+name: Test Suite
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'config.yaml'  # Config changes handled by smoke-test.yml
+
+# Per FR-037a: Explicit least-privilege permissions
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Run All Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Uses composite action that includes actions/cache for pnpm dependencies
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: Run type checking
+        run: pnpm run type-check
+        continue-on-error: false
+
+      - name: Run linting
+        run: pnpm run lint
+        continue-on-error: false
+
+      - name: Run unit tests
+        run: pnpm run test:unit
+        continue-on-error: false
+
+      - name: Install Playwright browsers
+        run: pnpx playwright install --with-deps
+
+      - name: Run e2e tests
+        run: pnpm run test:e2e
+        continue-on-error: false
+
+      - name: Run accessibility tests
+        run: pnpm run test:accessibility
+        continue-on-error: false
+
+      - name: Run performance tests
+        run: pnpm run test:performance
+        continue-on-error: false
+
+      - name: Run all tests with coverage
+        run: pnpm test
+        continue-on-error: false
+
+      - name: Check coverage threshold (80% minimum per FR-040a)
+        run: |
+          # Verify coverage meets 80% threshold
+          if [ -f coverage/coverage-summary.json ]; then
+            COVERAGE=$(node -e "console.log(JSON.parse(require('fs').readFileSync('coverage/coverage-summary.json')).total.lines.pct)")
+            echo "Code coverage: ${COVERAGE}%"
+
+            if (( $(echo "$COVERAGE < 80" | bc -l) )); then
+              echo "❌ ERROR: Code coverage ${COVERAGE}% is below 80% threshold (FR-040a)"
+              exit 1
+            fi
+
+            echo "✅ Code coverage meets 80% threshold"
+          else
+            echo "⚠️  Coverage file not found - skipping threshold check"
+          fi
+
+      - name: Upload coverage reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-reports
+          path: coverage/
+          retention-days: 30
+
+      - name: Upload Playwright test results
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

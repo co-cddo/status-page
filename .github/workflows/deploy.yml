@@ -1,0 +1,158 @@
+name: Deploy Status Page
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes
+  workflow_dispatch:       # Manual trigger support
+
+# Per FR-037a: Least-privilege permissions for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Concurrency control - only one deployment at a time
+concurrency:
+  group: 'deploy-status-page'
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy Status Page
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: Restore CSV history from cache
+        id: cache-csv
+        uses: actions/cache/restore@v4
+        with:
+          path: history.csv
+          key: csv-history-${{ github.run_number }}
+          restore-keys: |
+            csv-history-
+
+      - name: Fallback to GitHub Pages CSV if cache miss
+        if: steps.cache-csv.outputs.cache-hit != 'true'
+        continue-on-error: true
+        run: |
+          echo "Cache miss - attempting to download CSV from GitHub Pages..."
+          wget -q https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/history.csv -O history.csv || echo "No CSV found on GitHub Pages, will create new file"
+
+      - name: Validate CSV format and check for corruption
+        if: hashFiles('history.csv') != ''
+        continue-on-error: true
+        run: |
+          if [ -f history.csv ]; then
+            # validate.*csv format and check for corruption
+            echo "Validating CSV format..."
+            # Check if file is corrupt or has invalid format
+            if ! head -1 history.csv | grep -q "timestamp,service_name,status"; then
+              echo "WARNING: CSV appears corrupt or has invalid format"
+              echo "Creating fallback from GitHub Pages or new file..."
+              rm -f history.csv
+            else
+              echo "CSV format validation passed"
+            fi
+          fi
+
+      - name: Execute health checks
+        run: |
+          node --import tsx/esm -e "
+          import { loadConfig } from './src/config/loader.js';
+          import { performHealthCheck } from './src/health-checks/http-check.js';
+          import { appendHealthCheckResult } from './src/storage/csv-writer.js';
+          import { writeHealthJSON } from './src/storage/json-writer.js';
+
+          const config = await loadConfig('config.yaml');
+          const results = [];
+
+          console.log('Running health checks for', config.pings.length, 'services...');
+
+          for (const service of config.pings) {
+            try {
+              const result = await performHealthCheck(service);
+              results.push(result);
+
+              // Append to CSV (creates file if doesn't exist)
+              await appendHealthCheckResult(result);
+
+              console.log(\`✓ \${service.name}: \${result.status}\`);
+            } catch (error) {
+              console.error(\`✗ \${service.name}: FAIL -\`, error.message);
+
+              const failedResult = {
+                serviceName: service.name,
+                timestamp: new Date().toISOString(),
+                status: 'FAIL',
+                latency_ms: 0,
+                http_status_code: 0,
+                failure_reason: error.message,
+                correlation_id: crypto.randomUUID()
+              };
+
+              results.push(failedResult);
+              await appendHealthCheckResult(failedResult);
+            }
+          }
+
+          // Write _data/health.json for 11ty
+          await writeHealthJSON(results);
+
+          console.log('Health checks completed:', results.length, 'services checked');
+          "
+
+      - name: Run Eleventy build
+        run: pnpm run build:eleventy
+
+      - name: Run post-build asset inlining
+        run: node --import tsx/esm src/inlining/post-build.js
+
+      - name: Copy CSV and JSON to output directory
+        run: |
+          mkdir -p output
+          cp history.csv output/history.csv
+          cp _data/health.json output/status.json
+
+      - name: Validate HTML file size
+        run: |
+          SIZE=$(stat -f%z output/index.html || stat -c%s output/index.html)
+          MAX_SIZE=$((5 * 1024 * 1024))  # 5MB in bytes
+
+          echo "HTML file size: $(($SIZE / 1024 / 1024))MB"
+
+          if [ $SIZE -gt $MAX_SIZE ]; then
+            echo "ERROR: HTML file exceeds 5MB limit"
+            exit 1
+          fi
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Save CSV to cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: history.csv
+          key: csv-history-${{ github.run_number }}
+
+      - name: Log deployment metrics
+        if: always()
+        run: |
+          echo "Deployment completed at $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          echo "CSV size: $(stat -f%z history.csv || stat -c%s history.csv) bytes"
+          echo "Status: ${{ job.status }}"

@@ -1,0 +1,147 @@
+name: Smoke Test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'config.yaml'
+
+# Per FR-037a: Least-privilege permissions
+permissions:
+  contents: read
+  pull-requests: write
+
+# Note: Comment includes warning section for widespread failures
+jobs:
+  smoke-test:
+    name: Validate Config and Run Health Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: Validate config.yaml syntax and schema
+        run: |
+          node --import tsx/esm -e "
+          import { loadConfig } from './src/config/loader.js';
+          import { validateConfig } from './src/config/validator.js';
+
+          try {
+            const config = await loadConfig('config.yaml');
+            const errors = await validateConfig(config);
+
+            if (errors.length > 0) {
+              console.error('Config validation errors:');
+              errors.forEach(err => console.error('  -', err));
+              process.exit(1);
+            }
+
+            console.log('✓ Config validation passed');
+          } catch (error) {
+            console.error('Config validation failed:', error.message);
+            process.exit(1);
+          }
+          "
+
+      - name: Run smoke test health checks
+        id: health-checks
+        run: |
+          node --import tsx/esm -e "
+          import { loadConfig } from './src/config/loader.js';
+          import { performHealthCheck } from './src/health-checks/http-check.js';
+          import { writeFileSync } from 'fs';
+
+          const config = await loadConfig('config.yaml');
+          const results = [];
+
+          // Run health checks for all configured services
+          for (const service of config.pings) {
+            try {
+              const result = await performHealthCheck(service);
+              results.push({
+                serviceName: service.name,
+                status: result.status,
+                latency_ms: result.latency_ms,
+                http_status_code: result.http_status_code,
+                failure_reason: result.failure_reason || ''
+              });
+            } catch (error) {
+              results.push({
+                serviceName: service.name,
+                status: 'FAIL',
+                latency_ms: 0,
+                http_status_code: 0,
+                failure_reason: error.message
+              });
+            }
+          }
+
+          // Write results to file for comment generation
+          writeFileSync('smoke-test-results.json', JSON.stringify(results, null, 2));
+          console.log(\`Health checks completed: \${results.length} services\`);
+          "
+
+      - name: Generate and post PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            // Read smoke test results
+            const results = JSON.parse(fs.readFileSync('smoke-test-results.json', 'utf-8'));
+
+            // Import formatSmokeTestComment function
+            const { formatSmokeTestComment } = await import('${{ github.workspace }}/src/workflows/format-smoke-test-comment.js');
+
+            // Generate comment
+            const comment = formatSmokeTestComment(results);
+
+            // Post comment to PR
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            // Find existing smoke test comment
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
+              comment.body.includes('Smoke Test Results')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: comment
+              });
+              console.log('Updated existing smoke test comment');
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+              console.log('Created new smoke test comment');
+            }
+
+            // Log summary with warning for failures
+            const failed = results.filter(r => r.status === 'FAIL').length;
+            const degraded = results.filter(r => r.status === 'DEGRADED').length;
+            const passed = results.filter(r => r.status === 'PASS').length;
+
+            console.log(`Service status: ${passed} passed, ${degraded} degraded, ${failed} failed`);
+
+            // Include warning message for widespread failures if needed
+            if (failed > 0 || degraded > 0) {
+              console.log('⚠️ Warning: Some services are experiencing issues');
+            }

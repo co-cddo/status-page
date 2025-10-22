@@ -8,47 +8,7 @@
 import { describe, test, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { load } from 'js-yaml';
-
-/**
- * GitHub Actions workflow structure types
- * (Reusing from smoke-test-workflow.test.ts)
- */
-interface WorkflowStep {
-  name?: string;
-  uses?: string;
-  run?: string;
-  with?: Record<string, string | number | boolean>;
-  'continue-on-error'?: boolean;
-  if?: string;
-}
-
-interface WorkflowJob {
-  'runs-on'?: string | string[];
-  steps: WorkflowStep[];
-  permissions?: Record<string, string>;
-  needs?: string | string[];
-}
-
-interface WorkflowTrigger {
-  pull_request?: {
-    paths?: string[];
-    branches?: string[];
-    types?: string[];
-  };
-  push?: {
-    paths?: string[];
-    branches?: string[];
-  };
-  schedule?: Array<{ cron: string }>;
-  workflow_dispatch?: Record<string, unknown>;
-}
-
-interface GitHubActionsWorkflow {
-  name?: string;
-  on: WorkflowTrigger | string[];
-  permissions?: Record<string, string>;
-  jobs: Record<string, WorkflowJob>;
-}
+import type { GitHubActionsWorkflow, WorkflowStep } from '../types/github-workflow.js';
 
 describe('Test Workflow Contract (US7)', () => {
   const workflowPath = '.github/workflows/test.yml';
@@ -237,7 +197,8 @@ describe('Test Workflow Contract (US7)', () => {
     const steps = testJob.steps;
     const hasCacheStep = steps.some((step: WorkflowStep) =>
       step.uses?.includes('actions/cache') ||
-      step.with?.['cache'] === 'pnpm'
+      step.with?.['cache'] === 'pnpm' ||
+      step.uses?.includes('setup-node-pnpm')  // Composite action that includes caching
     );
 
     expect(hasCacheStep).toBe(true);
