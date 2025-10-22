@@ -11,36 +11,22 @@ output/
 # Logs
 *.log
 logs/
-pnpm-debug.log*
-pino*.log*
-
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
 
 # Test coverage
 coverage/
 .nyc_output/
 playwright-report/
 test-results/
-.playwright/
 
 # Generated data files
 history.csv
 _data/health.json
 _data/services.json
+
+# Package manager
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
 
 # Temporary files
 *.tmp
