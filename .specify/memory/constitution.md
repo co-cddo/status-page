@@ -312,8 +312,17 @@ During all phases of development (specification, planning, implementation), team
 ### Test Environment Parity
 - Development, staging, production environments MUST be identical (infrastructure as code)
 - Use production-like data volumes in staging
-- Test on representative browsers (Chrome, Firefox, Safari, Edge, IE11)
-- Test on representative devices (iOS, Android, desktop)
+- Test on representative browsers per GDS browser support guidance:
+  - Chrome 90+ (latest stable + previous 2 major versions)
+  - Firefox 88+ (latest stable + previous 2 major versions)
+  - Safari 14+ (latest stable + previous 2 major versions)
+  - Edge 90+ (Chromium-based, latest stable + previous 2 major versions)
+  - IE11 (baseline for progressive enhancement, core functionality only)
+- Test on representative devices representing median UK user:
+  - Mobile: iPhone 12 (iOS 15+), Samsung Galaxy A52 (Android 12+)
+  - Tablet: iPad 8th gen (iPadOS 15+)
+  - Desktop: Windows 11 Dell Latitude (1920×1080), macOS Monterey MacBook Air (2560×1600)
+- Prioritize mobile testing (mobile-first approach per Principle IV)
 
 ### Automated Testing
 - **Unit Tests**: Jest (JavaScript), pytest (Python), or equivalent
@@ -398,3 +407,40 @@ During all phases of development (specification, planning, implementation), team
 - **Research supersedes assumptions**: When research tools are available, use them instead of relying on memory
 
 **Version**: 1.1.2 | **Ratified**: 2025-01-21 | **Last Amended**: 2025-10-22
+
+---
+
+## Appendix A: Representative Device & Browser Matrix
+
+### Browser Support Matrix
+
+| Browser | Minimum Version | Testing Priority | Notes |
+|---------|----------------|------------------|-------|
+| Chrome | 90+ | HIGH | Latest stable + previous 2 major versions |
+| Firefox | 88+ | HIGH | Latest stable + previous 2 major versions |
+| Safari | 14+ | HIGH | Latest stable + previous 2 major versions |
+| Edge | 90+ | MEDIUM | Chromium-based, follows Chrome compatibility |
+| IE11 | 11 | LOW | Progressive enhancement baseline only |
+
+### Device Testing Matrix
+
+| Device Type | Model | OS Version | Screen Size | Priority |
+|-------------|-------|------------|-------------|----------|
+| Mobile (iOS) | iPhone 12 | iOS 15+ | 390×844 | HIGH |
+| Mobile (Android) | Samsung Galaxy A52 | Android 12+ | 360×800 | HIGH |
+| Tablet | iPad 8th gen | iPadOS 15+ | 810×1080 | MEDIUM |
+| Desktop (Windows) | Dell Latitude 5420 | Windows 11 | 1920×1080 | HIGH |
+| Desktop (macOS) | MacBook Air M1 | macOS 12+ | 2560×1600 | MEDIUM |
+
+### Testing Frequency
+
+- **Every PR**: Automated tests on Chrome (latest stable) only
+- **Pre-release**: Manual testing on all HIGH priority devices/browsers
+- **Post-release**: Spot checks on MEDIUM priority devices within 48 hours
+
+### Browser Version Updates
+
+Review and update minimum supported versions quarterly based on:
+- GDS browser support guidance updates
+- UK government analytics showing user browser distribution
+- Security advisories requiring version upgrades

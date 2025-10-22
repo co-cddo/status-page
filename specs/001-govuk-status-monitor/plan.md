@@ -40,7 +40,7 @@ Build a self-contained status monitoring application that performs periodic HTTP
 **Project Type**: Single Node.js application (hybrid orchestrator)
 
 **Performance Goals**:
-- Status page loads in < 2 seconds on standard government network connections (SC-003)
+- Status page loads in < 2 seconds on 3G network connections: 1.6 Mbps down, 768 Kbps up, 300ms RTT (SC-003)
 - 95% of health checks complete within configured timeout under normal conditions (SC-004)
 - HTML generation completes within benchmarked thresholds (measured during development)
 - Self-contained HTML file < 5MB after asset inlining

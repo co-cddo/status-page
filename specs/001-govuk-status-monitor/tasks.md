@@ -20,6 +20,22 @@
 
 ---
 
+## Phase 0: Architecture Decisions (Research Output)
+
+**Purpose**: Document major technical decisions with research citations per constitution.md Principle VIII
+
+**⚠️ PREREQUISITE**: Must complete before Phase 1 Setup
+
+- [ ] T000a Create ADR directory and template: create docs/adr/ directory, create docs/adr/template.md following MADR format (Title, Status, Context, Decision, Consequences, References), document ADR naming convention (####-title-with-dashes.md with leading zeros), create docs/adr/README.md explaining ADR process and index of decisions
+- [ ] T000b [P] Document ADR-0001 Worker Threads for Concurrency: create docs/adr/0001-worker-threads-for-health-checks.md documenting decision to use Node.js worker_threads module (FR-009a) instead of alternatives (async/await, cluster module, child processes, external job queue), cite Context7 documentation for worker_threads API, cite research.md findings on I/O-bound vs CPU-bound workload analysis, document consequences (true parallelism, message passing overhead, TypeScript support via tsx), justify 2x CPU core pool sizing
+- [ ] T000c [P] Document ADR-0002 Eleventy for Static Site Generation: create docs/adr/0002-eleventy-static-site-generator.md documenting decision to use 11ty v3+ (FR-030) instead of alternatives (Next.js SSG, Gatsby, Hugo, Jekyll), cite Context7 documentation for @x-govuk/govuk-eleventy-plugin showing official GDS support, cite research.md findings on GOV.UK Design System integration, document consequences (Nunjucks templates, _data/ directory convention, plugin architecture), justify hybrid orchestrator approach (Node.js + 11ty subprocess)
+- [ ] T000d [P] Document ADR-0003 Post-Build Asset Inlining: create docs/adr/0003-post-build-asset-inlining.md documenting decision to use custom Node.js script for asset inlining (FR-021) instead of alternatives (build-time bundling, inline-source npm package, eleventy-plugin-inline), cite research.md findings on self-contained HTML requirements and GitHub Pages constraints, document consequences (zero external dependencies post-build, single HTTP request, < 5MB file size target, auditability for government context), justify custom script vs npm package tradeoff
+- [ ] T000e [P] Document ADR-0004 GitHub Actions Cache for CSV Persistence: create docs/adr/0004-github-actions-cache-csv-storage.md documenting decision to use GitHub Actions cache as primary CSV storage (FR-020b) with GitHub Pages as fallback instead of alternatives (external object storage S3/GCS, GitHub repository commits, artifacts only), cite GitHub Actions documentation for cache limits and eviction policies, document three-tier fallback strategy (cache → Pages → new file), consequences (10GB limit, 7-day eviction, manual rotation required), justify avoiding external dependencies for MVP
+
+**Checkpoint**: ADRs complete with research citations - provides audit trail for future maintainers per constitution.md Principle VIII
+
+---
+
 ## Phase 1: Setup (Shared Infrastructure)
 
 **Purpose**: Project initialization and basic structure
@@ -96,12 +112,14 @@
 ### Implementation for User Story 7
 
 - [ ] T019 [P] [US7] Create GitHub Actions workflow .github/workflows/test.yml: trigger on PR (all files except config.yaml), run pnpm test (unit, e2e, accessibility, coverage, performance suites), block merge if fails per FR-037, FR-040, FR-040a, FR-041
-- [ ] T020 [P] [US7] Create GitHub Actions workflow .github/workflows/smoke-test.yml: trigger on PR (config.yaml changes), workflow permissions contents:read pull-requests:write, validate config.yaml syntax/schema, execute health checks for all services, post formatted Markdown comment with results (service status, latency, HTTP codes), fail if comment cannot be posted, allow merge with warning if all services fail per FR-038, FR-038a, FR-038b
-- [ ] T021 [P] [US7] Create GitHub Actions workflow .github/workflows/deploy.yml: schedule cron "*/5 * * * *" (every 5 minutes), manual dispatch support, restore CSV from GitHub Actions cache (primary), fetch CSV from GitHub Pages if cache miss, create new CSV if both fail (first run), execute health checks, append results to CSV, save CSV to Actions cache (fail immediately if cache limit), generate static HTML/JSON, deploy to GitHub Pages using actions/upload-pages-artifact and actions/deploy-pages, include CSV in deployment, retain artifacts on mid-execution failure per FR-042, FR-042a, FR-020b, FR-020c, FR-020d, FR-020e
+- [ ] T020 [P] [US7] Create GitHub Actions workflow .github/workflows/smoke-test.yml: trigger on PR (config.yaml changes), workflow permissions contents:read pull-requests:write, validate config.yaml syntax/schema, execute health checks for all services, post formatted Markdown comment with results table (service name, status, latency, HTTP status code, failure reason columns), if all services fail include warning section at top using format from FR-038b (`## ⚠️ WARNING: All Services Failed` heading, bold text, bulleted causes, merge recommendation), fail workflow if comment posting fails per FR-038a, allow merge (pass workflow) even if all services fail per FR-038b
+- [ ] T021 [P] [US7] Create GitHub Actions workflow .github/workflows/deploy.yml: schedule cron "*/5 * * * *" (every 5 minutes), manual dispatch support, restore CSV from GitHub Actions cache (primary), fetch CSV from GitHub Pages if cache miss, create new CSV if both fail (first run), execute health checks, append results to CSV, save CSV to Actions cache (fail immediately if cache limit), generate static HTML/JSON, deploy to GitHub Pages using actions/upload-pages-artifact and actions/deploy-pages, include CSV in deployment, retain artifacts on mid-execution failure per FR-042, FR-042a, FR-020b, FR-020c, FR-020d, FR-020e (depends on T025a - Pages must be enabled first)
 - [ ] T022 [US7] Update test workflow with conditional logic: if PR changes both config.yaml and code, run application tests first (fail fast), only run smoke tests if application tests pass per FR-039, FR-039a
 - [ ] T023 [US7] Configure workflow explicit permissions: research GitHub Actions security best practices for open source repositories, apply principle of least privilege, never use default permissions per FR-037a
 - [ ] T024 [US7] Configure main branch protection in .github/settings: require PR approval, require all CI tests pass before merge (application tests or smoke tests depending on change type) per FR-041
-- [ ] T025 [US7] Create deployment documentation in docs/deployment.md: GitHub Pages setup using gh CLI, workflow permissions, CSV fallback chain, manual rotation guidance, cache limit troubleshooting per FR-043
+- [ ] T024a [US7] Configure Lighthouse CI in test workflow .github/workflows/test.yml: add lighthouserc.json config at repo root defining performance budget (performance score ≥ 90, FCP < 1.8s, LCP < 2.5s, TTI < 3.5s per constitution.md Principle V), add Lighthouse CI action step after test execution (uses treosh/lighthouse-ci-action@v9), run Lighthouse against PR preview or local build, upload results to temporary public storage or GitHub Actions artifacts, post Lighthouse score as PR comment showing performance metrics and score, fail workflow if performance score < 90 blocking merge per constitution.md Principle V enforcement requirement, configure desktop and mobile audits
+- [ ] T025a [US7] Enable GitHub Pages using gh CLI: execute `gh api repos/:owner/:repo/pages -X POST -f source[branch]=main -f source[path]=/` to enable Pages, verify enabled status with `gh api repos/:owner/:repo/pages`, configure custom domain if available (optional, deferred for initial release), test Pages serving by accessing https://{owner}.github.io/{repo}/, document commands executed in docs/deployment.md per FR-043 requirement for "one-time setup step using gh CLI"
+- [ ] T025b [US7] Document deployment workflow in docs/deployment.md: workflow permissions explanation (contents:read, pages:write, id-token:write for artifact deployment), CSV three-tier fallback chain (Actions cache → GitHub Pages → new file), manual CSV rotation guidance (when to rotate, how to archive, cache limit monitoring), cache limit troubleshooting steps (gh cache list, gh cache delete), deployment failure recovery procedures (manual artifact download, local regeneration, manual gh CLI deployment)
 
 **Checkpoint**: At this point, deployment pipeline is fully functional - any implemented user stories will automatically deploy
 
@@ -148,7 +166,7 @@
 
 ### Performance Tests for US1
 
-- [ ] T044d [US1] Write performance test for page load in tests/performance/page-load.spec.ts: use Playwright to measure page load time, verify First Contentful Paint (FCP) < 1.8s, verify Largest Contentful Paint (LCP) < 2.5s, verify Time to Interactive (TTI) < 3.5s, verify Cumulative Layout Shift (CLS) < 0.1, verify Total Blocking Time (TBT) < 300ms, test on simulated 3G connection (Playwright network throttling), verify total page weight < 500KB uncompressed, verify compressed HTML < 14KB (if using compression) (test MUST fail before T044 implementation)
+- [ ] T044d [US1] Write performance test for page load in tests/performance/page-load.spec.ts: use Playwright to measure page load time on simulated 3G connection (1.6 Mbps down, 768 Kbps up, 300ms RTT) per constitution.md Principle V, verify First Contentful Paint (FCP) < 1.8s, verify Largest Contentful Paint (LCP) < 2.5s, verify Time to Interactive (TTI) < 3.5s, verify Cumulative Layout Shift (CLS) < 0.1, verify Total Blocking Time (TBT) < 300ms, verify total page weight < 500KB uncompressed, verify compressed HTML < 14KB (using Brotli/Gzip), fail test if any metric exceeds threshold per FR-040a constitution compliance (test MUST fail before T044 implementation)
 
 **Checkpoint**: All US1 tests written and FAILING - ready for US1 implementation (T026-T044)
 
@@ -184,7 +202,7 @@
 - [ ] T045a [P] [US1] Write unit test for size validation in tests/unit/inlining/size-validator.test.ts: test size calculation, verify failure when > 5MB, test warning when > 4MB (80% threshold), verify error message clarity, test suggested optimizations (test MUST fail before T045 implementation)
 - [ ] T045 [P] [US1] Implement HTML size validation in src/inlining/size-validator.ts: check final HTML file size after inlining, fail with clear error if > 5MB, log actual size and components contributing to size, suggest optimization strategies (unused CSS removal, image compression), exit with non-zero code if exceeded per FR-021 constraint
 
-### Additional Robustness Tasks
+### Additional Error Handling and Recovery Tasks
 
 - [ ] T046 [US1] Implement graceful shutdown handler in src/orchestrator/shutdown.ts: handle SIGTERM/SIGINT signals, wait up to 30 seconds for in-flight checks, track correlation IDs of interrupted checks, force exit after timeout, log shutdown progress per FR-032
 - [ ] T047 [US1] Implement CSV corruption recovery in src/storage/csv-recovery.ts: detect corrupted CSV on read (invalid headers, malformed rows), attempt repair by removing corrupted rows, create backup before repair, fall through to next tier if unrepairable, log detailed corruption analysis per FR-020e
@@ -237,7 +255,7 @@
 
 ### E2E Tests for US5
 
-- [ ] T052a [US5] Write E2E test for meta refresh behavior in tests/e2e/auto-refresh.spec.ts: use Playwright to load status page, verify meta refresh tag content matches settings.page_refresh from config.yaml (default 60s), verify page automatically refreshes after configured interval (wait 61s, check for page reload event), verify updated status displays after refresh (simulate status change, wait for refresh, verify new status visible), verify refresh works without JavaScript enabled (test MUST fail before T052 implementation)
+- [ ] T052a [US5] Write E2E test for meta refresh behavior in tests/e2e/auto-refresh.spec.ts: use Playwright to load status page, verify meta refresh tag content matches settings.page_refresh from config.yaml (default 60s), verify page automatically refreshes after configured interval (wait 61s, check for page reload event), verify updated status displays after refresh (simulate status change, wait for refresh, verify new status visible), verify refresh works without JavaScript enabled, test on 3G network throttling (1.6 Mbps down, 768 Kbps up, 300ms RTT) per SC-003 (test MUST fail before T052 implementation)
 - [ ] T053a [US5] Write E2E test for last update display in tests/e2e/last-update-display.spec.ts: use Playwright to load status page, verify prominent last update time displayed, verify page generation timestamp visible and distinct from individual service check times, verify "time since last check" shown for each service, verify timestamps in user-friendly format (relative time or ISO 8601 with local conversion) (test MUST fail before T053 implementation)
 
 **Checkpoint**: All US5 tests written and FAILING - ready for US5 implementation (T052-T053)
@@ -255,7 +273,7 @@
 ### Implementation for User Story 5
 
 - [ ] T052 [US5] Update base layout in _includes/layouts/base.njk: ensure meta refresh tag content matches settings.page_refresh from config.yaml (default 60s) per FR-029
-- [ ] T053 [US5] Update status page template in pages/index.njk: add prominent last update time display, show time since last check for each service, visual indication when page was generated (distinct from service check times) per FR-029b
+- [ ] T053 [US5] Update status page template in pages/index.njk: add prominent page generation timestamp at top using dual format from FR-029b (relative + absolute in `<time>` element), implement relative time calculation helper (Nunjucks macro or JavaScript for auto-update), show time since last check for each service using same dual format, ensure page generation timestamp visually distinct from service check times (different heading level or visual separator), verify semantic HTML `<time datetime>` for screen reader accessibility
 
 **Checkpoint**: User Stories 1, 2, AND 5 work - users see auto-updating categorized service status
 
@@ -339,7 +357,11 @@
 - [ ] T075 [P] Performance optimization: benchmark health check cycle time, HTML generation time, memory usage, set aggressive thresholds, document in performance tests per FR-040a
 - [ ] T076 [P] Accessibility validation: run axe-core tests via Playwright, verify WCAG 2.2 AAA compliance (color contrast 7:1 normal text, 4.5:1 large text), test with screen readers (NVDA, VoiceOver, JAWS), verify keyboard navigation, check focus indicators per FR-029a
 - [ ] T077 Final integration testing: end-to-end test full health check → CSV → 11ty → inlining → deployment cycle, verify CSV fallback chain, test graceful shutdown, validate all error paths
-- [ ] T078 [P] Establish performance baseline in tests/performance/baseline.md: run health checks against 5 sample services (response times: 100ms, 500ms, 1s, 2s, 5s), measure cycle time/memory/HTML generation, set thresholds at 80% of baseline (e.g., baseline 10s → threshold 8s) per spec.md FR-040a and Finding A1 remediation
+- [ ] T078 [P] Establish performance baseline in tests/performance/baseline.md: run health checks against 5 sample services (response times: 100ms, 500ms, 1s, 2s, 5s), measure health check cycle time, memory usage, and HTML generation time, document baseline measurements with timestamp and system specs (CPU cores, Node.js version), set thresholds at 80% of baseline using formula: threshold = baseline × 0.8 (rationale: 20% headroom tolerates measurement variance/noise from system load fluctuations, while catching meaningful regressions where actual performance degrades beyond 1.25x baseline, e.g., baseline 10s → threshold 8s → regression detected at >12.5s = 1.25x original), validate page load metrics meet constitution.md Principle V budgets (FCP < 1.8s, LCP < 2.5s, TTI < 3.5s, CLS < 0.1, TBT < 300ms on 3G), document rationale for 80% threshold selection, commit baseline.md to repository for CI reference
+- [ ] T079 [P] Research GitHub Pages CSP capabilities: use WebSearch to find "GitHub Pages Content-Security-Policy headers 2025", determine if GitHub Pages supports custom CSP headers, identify limitations (GitHub Pages serves static files with default headers), document findings in docs/security.md, identify CSP implementation strategy (meta tag in HTML vs HTTP headers), research CSP directives for self-contained HTML (all assets inline), cite sources per constitution.md Principle VIII
+- [ ] T080 [P] Add CSP meta tag to base layout in _includes/layouts/base.njk: implement `<meta http-equiv="Content-Security-Policy" content="...">` in HTML head, configure directives for self-contained HTML (default-src 'none', style-src 'unsafe-inline', script-src 'unsafe-inline', img-src data:, base-uri 'self', form-action 'none'), document rationale for 'unsafe-inline' (required for inlined CSS/JS in self-contained HTML), add nonce generation if feasible for inline scripts, reference CSP Level 3 specification
+- [ ] T081 [P] Write E2E test for CSP enforcement in tests/e2e/csp-enforcement.spec.ts: use Playwright to load status page, intercept security policy violations using page.on('console') and page.on('pageerror'), verify CSP header or meta tag present, test that external resource loads are blocked (inject test script attempting external fetch, verify blocked by CSP), verify inline styles and scripts execute successfully, verify page remains functional with CSP active, test CSP reporting (if implemented) per constitution.md Principle VI security requirement
+- [ ] T082 [P] Document Prometheus alerting rules in docs/monitoring.md: define alerting rules for operational response (rules require external Prometheus/AlertManager deployment, out of scope for MVP, documented for future operations teams), create monitoring.md with sections: (1) Metrics Catalog documenting each metric from FR-035 (health_checks_total, health_check_latency_seconds, services_failing) with labels and semantics, (2) Recommended Alerting Rules with PromQL expressions and thresholds (services_failing gauge > 0 for 10 minutes = "ServiceDown", health_check_latency_seconds histogram p95 > warning_threshold for 15 minutes = "ServiceDegraded", rate(health_checks_total{status="FAIL"}[5m]) > 0.05 = "HighErrorRate"), (3) Grafana Dashboard JSON for visualizing metrics (pre-built dashboard config importing metrics, showing service status overview, latency heatmaps, error rate graphs), (4) Runbook links for each alert explaining investigation steps
 
 ---
 
@@ -516,13 +538,14 @@ Task T044: Implement image-inliner.ts
 
 ## Total Task Summary
 
-- **Total Tasks**: 117 (implementation + tests + technical debt)
+- **Total Tasks**: 128 (ADRs + implementation + tests + technical debt + security + performance + monitoring)
+- **Phase 0 (ADRs)**: 5 tasks (prerequisite for all phases - architecture decisions)
 - **Phase 1 (Setup)**: 7 tasks
 - **Phase 2 (Foundational)**: 11 tasks (BLOCKS all user stories)
 - **Phase 3A (US6/US7 Tests - TDD)**: 5 tasks (added US6 tests, write first, must fail)
-- **Phase 3 (US7 Deployment - P1)**: 7 tasks (infrastructure)
+- **Phase 3 (US7 Deployment - P1)**: 9 tasks (infrastructure + Lighthouse CI + Pages setup split)
 - **Phase 4A (US1 Tests - TDD)**: 19 tasks (includes size validation test, write first, must fail)
-- **Phase 4 (US1 View Status - P1)**: 22 tasks (includes robustness tasks)
+- **Phase 4 (US1 View Status - P1)**: 22 tasks (includes error handling and recovery tasks)
 - **Phase 5A (US2 Tests - TDD)**: 3 tasks (write first, must fail)
 - **Phase 5 (US2 Tags - P2)**: 3 tasks
 - **Phase 6A (US5 Tests - TDD)**: 2 tasks (write first, must fail)
@@ -530,10 +553,10 @@ Task T044: Implement image-inliner.ts
 - **Phase 7 (US3 Historical - P3)**: 7 tasks (4 tests + 3 implementation)
 - **Phase 8 (US4 JSON API - P3)**: 8 tasks (4 tests + 4 implementation)
 - **Phase 9 (Technical Debt)**: 4 tasks (terminology standardization)
-- **Phase 10 (Polish)**: 13 tasks
+- **Phase 10 (Polish)**: 17 tasks (includes T079-T082 CSP + monitoring docs)
 
-**MVP Scope**: Phases 1-4 = 72 tasks (62% of total)
-- Setup (7) + Foundational (11) + US6/US7 Tests (5) + US7 Impl (7) + US1 Tests (19) + US1 Impl (22) + Integration test (1) = 72 tasks
+**MVP Scope**: Phases 0-4 = 79 tasks (62% of total)
+- ADRs (5) + Setup (7) + Foundational (11) + US6/US7 Tests (5) + US7 Impl (9) + US1 Tests (19) + US1 Impl (22) + Integration test (1) = 79 tasks
 
 **Test Coverage**: 51 test tasks ensuring TDD compliance
 - Unit tests: 25+ | Integration tests: 10+ | E2E tests: 12+ | Contract tests: 7+ | Accessibility tests: 1+ | Performance tests: 2+
