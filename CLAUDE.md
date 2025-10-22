@@ -50,21 +50,21 @@ This is the **GOV.UK Public Services Status Monitor** - a self-contained status 
 
 ```bash
 # Development
-npm run dev              # Run health check orchestrator in watch mode
-npx tsx src/index.ts     # Run orchestrator directly
+pnpm run dev             # Run health check orchestrator in watch mode
+pnpm exec tsx src/index.ts  # Run orchestrator directly
 
 # Testing
-npm test                 # Run all test suites (unit, e2e, accessibility, coverage, performance)
-npm run test:unit        # Run unit tests only
-npm run test:e2e         # Run E2E tests only
-npm run test:coverage    # Run with coverage report (80% minimum required)
+pnpm test                # Run all test suites (unit, e2e, accessibility, coverage, performance)
+pnpm run test:unit       # Run unit tests only
+pnpm run test:e2e        # Run E2E tests only
+pnpm run test:coverage   # Run with coverage report (80% minimum required)
 
 # Building
-npm run build            # Run health checks → 11ty → post-build inlining → output/index.html
+pnpm run build           # Run health checks → 11ty → post-build inlining → output/index.html
 
 # Linting
-npm run lint             # ESLint + Prettier
-npm run lint:fix         # Auto-fix linting issues
+pnpm run lint            # ESLint + Prettier
+pnpm run lint:fix        # Auto-fix linting issues
 ```
 
 ## Project Structure

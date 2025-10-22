@@ -3,7 +3,7 @@
 **Input**: Design documents from `/specs/001-govuk-status-monitor/`
 **Prerequisites**: plan.md ✓, spec.md ✓, research.md ✓, data-model.md ✓, contracts/ ✓, quickstart.md ✓
 
-**Tests**: Comprehensive test tasks included per Constitution Principle III (TDD) and spec.md FR-040a requirement for "npm test MUST execute all test suites...80% coverage"
+**Tests**: Comprehensive test tasks included per Constitution Principle III (TDD) and spec.md FR-040a requirement for "pnpm test MUST execute all test suites...80% coverage"
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -95,7 +95,7 @@
 
 ### Implementation for User Story 7
 
-- [ ] T019 [P] [US7] Create GitHub Actions workflow .github/workflows/test.yml: trigger on PR (all files except config.yaml), run npm test (unit, e2e, accessibility, coverage, performance suites), block merge if fails per FR-037, FR-040, FR-040a, FR-041
+- [ ] T019 [P] [US7] Create GitHub Actions workflow .github/workflows/test.yml: trigger on PR (all files except config.yaml), run pnpm test (unit, e2e, accessibility, coverage, performance suites), block merge if fails per FR-037, FR-040, FR-040a, FR-041
 - [ ] T020 [P] [US7] Create GitHub Actions workflow .github/workflows/smoke-test.yml: trigger on PR (config.yaml changes), workflow permissions contents:read pull-requests:write, validate config.yaml syntax/schema, execute health checks for all services, post formatted Markdown comment with results (service status, latency, HTTP codes), fail if comment cannot be posted, allow merge with warning if all services fail per FR-038, FR-038a, FR-038b
 - [ ] T021 [P] [US7] Create GitHub Actions workflow .github/workflows/deploy.yml: schedule cron "*/5 * * * *" (every 5 minutes), manual dispatch support, restore CSV from GitHub Actions cache (primary), fetch CSV from GitHub Pages if cache miss, create new CSV if both fail (first run), execute health checks, append results to CSV, save CSV to Actions cache (fail immediately if cache limit), generate static HTML/JSON, deploy to GitHub Pages using actions/upload-pages-artifact and actions/deploy-pages, include CSV in deployment, retain artifacts on mid-execution failure per FR-042, FR-042a, FR-020b, FR-020c, FR-020d, FR-020e
 - [ ] T022 [US7] Update test workflow with conditional logic: if PR changes both config.yaml and code, run application tests first (fail fast), only run smoke tests if application tests pass per FR-039, FR-039a

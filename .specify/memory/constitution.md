@@ -1,18 +1,23 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version Change: 1.1.0 → 1.1.1 (PATCH: Clarification of tool costs)
+Version Change: 1.1.1 → 1.1.2 (PATCH: Update package manager from npm to pnpm)
 Principles Modified:
-  - VIII. Research-Driven Technical Decisions: Added token cost guidance
+  - None (tooling clarification only)
 Sections Modified:
-  - Core Principles: Updated Principle VIII with cost-aware tool prioritization
-  - Development Process Guidance: Added cost guidance for each tool
+  - VI. Component Quality Standards: Updated dependency management from npm to pnpm
 Templates Status:
-  ✅ plan-template.md - No changes required
-  ✅ spec.md - No changes required
-  ✅ tasks-template.md - No changes required
-  ✅ speckit.constitution.md - This command file
-Follow-up TODOs: None
+  ✅ plan-template.md - No changes required (no package manager references)
+  ✅ spec-template.md - No changes required (no package manager references)
+  ✅ tasks-template.md - No changes required (no package manager references)
+  ⚠️ CLAUDE.md - Update required: Change npm commands to pnpm
+  ⚠️ tasks.md - Update required: Change npm test references to pnpm test
+  ⚠️ package.json - Update required: Consider adding pnpm-lock.yaml to .gitignore
+Follow-up TODOs:
+  - Update CLAUDE.md to use pnpm in all command examples
+  - Update tasks.md to use pnpm test in all test task descriptions
+  - Update .gitignore to include pnpm-lock.yaml
+  - Add packageManager field to package.json (e.g., "packageManager": "pnpm@8.0.0")
 -->
 
 # GDS Status Application Constitution
@@ -132,7 +137,7 @@ Follow-up TODOs: None
   - Follow OWASP Top 10 mitigation strategies
   - All user input MUST be validated server-side
   - No secrets in code; use environment variables and secret management
-  - Regular dependency updates; automated security scanning (npm audit, Snyk)
+  - Regular dependency updates; automated security scanning (pnpm audit, Snyk)
   - Content Security Policy (CSP) headers MUST be implemented
 
 **Rationale**: Quality standards prevent technical debt, ensure maintainability, and protect users. Code reviews spread knowledge and catch errors.
@@ -392,4 +397,4 @@ During all phases of development (specification, planning, implementation), team
 - When in doubt, refer to GDS Service Manual and GOV.UK Design System documentation
 - **Research supersedes assumptions**: When research tools are available, use them instead of relying on memory
 
-**Version**: 1.1.0 | **Ratified**: 2025-01-21 | **Last Amended**: 2025-10-22
+**Version**: 1.1.2 | **Ratified**: 2025-01-21 | **Last Amended**: 2025-10-22

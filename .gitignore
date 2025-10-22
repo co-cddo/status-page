@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-package-lock.json
 
 # Build outputs
 _site/
@@ -11,9 +10,7 @@ build/
 # Logs
 *.log
 logs/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+pnpm-debug.log*
 pino*.log*
 
 # Environment files
