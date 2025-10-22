@@ -25,10 +25,14 @@
       "Bash(find:*)",
       "Bash(awk:*)",
       "Read(///**)",
-      "Bash(git rev-parse:*)"
+      "Bash(git rev-parse:*)",
+      "Bash(test:*)",
+      "Bash(pnpm --version:*)",
+      "Bash(pnpm init)",
+      "Bash(pnpm add:*)"
     ],
     "deny": [],
     "ask": []
   },
-  "disableAllHooks": true
+  "disableAllHooks": false
 }

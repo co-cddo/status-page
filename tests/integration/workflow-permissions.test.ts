@@ -9,19 +9,7 @@ import { describe, test, expect } from 'vitest';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { load } from 'js-yaml';
-
-/**
- * GitHub Actions workflow structure types
- */
-interface GitHubActionsWorkflow {
-  name?: string;
-  on: unknown;
-  permissions?: Record<string, string>;
-  jobs: Record<string, {
-    permissions?: Record<string, string>;
-    steps: unknown[];
-  }>;
-}
+import type { GitHubActionsWorkflow } from '../types/github-workflow.js';
 
 /**
  * Expected permissions for each workflow per FR-037a least-privilege principle

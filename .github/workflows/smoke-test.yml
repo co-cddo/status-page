@@ -95,8 +95,8 @@ jobs:
             // Read smoke test results
             const results = JSON.parse(fs.readFileSync('smoke-test-results.json', 'utf-8'));
 
-            // Import formatSmokeTestComment function
-            const { formatSmokeTestComment } = await import('${{ github.workspace }}/src/workflows/format-smoke-test-comment.js');
+            // Import formatSmokeTestComment function (TypeScript via tsx loader)
+            const { formatSmokeTestComment } = await import('${{ github.workspace }}/src/workflows/format-smoke-test-comment.ts');
 
             // Generate comment
             const comment = formatSmokeTestComment(results);
