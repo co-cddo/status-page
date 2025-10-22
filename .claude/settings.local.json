@@ -23,7 +23,9 @@
       "mcp__context7__get-library-docs",
       "Bash(git -C /Users/cns/httpdocs/cddo/status log --oneline -20)",
       "Bash(find:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "Read(///**)",
+      "Bash(git rev-parse:*)"
     ],
     "deny": [],
     "ask": []
