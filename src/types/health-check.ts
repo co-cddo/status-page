@@ -23,9 +23,6 @@ export interface HealthCheckConfig {
   /** Full URL to check */
   url: string;
 
-  /** Service name (optional, derived from url if not provided) */
-  serviceName?: string;
-
   /** Request timeout in milliseconds */
   timeout: number;
 

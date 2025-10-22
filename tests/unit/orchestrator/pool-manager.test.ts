@@ -1,0 +1,1290 @@
+/**
+ * Unit tests for worker pool manager
+ * Tests pool initialization, worker allocation, result collection, graceful shutdown, crash recovery, metrics
+ *
+ * Per tasks.md T033a:
+ * - Test pool initialization (2x CPU cores default)
+ * - Test worker allocation from pool
+ * - Test result collection from workers
+ * - Test pool shutdown with graceful termination
+ * - Test pool recovery from worker crashes
+ * - Test pool metrics (active workers, queue depth)
+ *
+ * Tests MUST fail before T033 implementation (TDD principle)
+ */
+
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { Worker } from 'node:worker_threads';
+import { cpus } from 'node:os';
+import { WorkerPoolManager } from '../../../src/orchestrator/pool-manager.js';
+import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.js';
+
+// Mock worker_threads module
+vi.mock('node:worker_threads', () => ({
+  Worker: vi.fn(),
+}));
+
+// Mock os module for CPU count
+vi.mock('node:os', () => ({
+  cpus: vi.fn(() => [1, 2, 3, 4]), // Mock 4 CPUs for testing
+}));
+
+/**
+ * Worker task interface for pool management
+ */
+interface WorkerTask {
+  config: HealthCheckConfig;
+  resolve: (result: HealthCheckResult) => void;
+  reject: (error: Error) => void;
+}
+
+/**
+ * Pool metrics interface
+ */
+interface PoolMetrics {
+  totalWorkers: number;
+  activeWorkers: number;
+  idleWorkers: number;
+  queueDepth: number;
+  completedTasks: number;
+  failedTasks: number;
+  workerCrashes: number;
+}
+
+describe('Worker Pool Manager', () => {
+  let poolManager: WorkerPoolManager;
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  afterEach(async () => {
+    if (poolManager) {
+      await poolManager.shutdown();
+    }
+    vi.restoreAllMocks();
+  });
+
+  describe('Pool Initialization', () => {
+    it('should initialize pool with default size (2x CPU cores)', async () => {
+      // Arrange
+      const expectedPoolSize = 8; // 2x 4 CPUs from mock
+
+      // Act
+      poolManager = new WorkerPoolManager();
+      await poolManager.initialize();
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.totalWorkers).toBe(expectedPoolSize);
+      expect(metrics.idleWorkers).toBe(expectedPoolSize);
+      expect(metrics.activeWorkers).toBe(0);
+    });
+
+    it('should initialize pool with custom size when specified', async () => {
+      // Arrange
+      const customPoolSize = 4;
+
+      // Act
+      poolManager = new WorkerPoolManager({ poolSize: customPoolSize });
+      await poolManager.initialize();
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.totalWorkers).toBe(customPoolSize);
+    });
+
+    it('should initialize pool with minimum size of 1', async () => {
+      // Arrange
+      const minimumPoolSize = 1;
+
+      // Act
+      poolManager = new WorkerPoolManager({ poolSize: minimumPoolSize });
+      await poolManager.initialize();
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.totalWorkers).toBe(minimumPoolSize);
+    });
+
+    it('should create worker threads during initialization', async () => {
+      // Arrange
+      const poolSize = 4;
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      // Act
+      poolManager = new WorkerPoolManager({ poolSize });
+      await poolManager.initialize();
+
+      // Assert
+      expect(Worker).toHaveBeenCalledTimes(poolSize);
+    });
+
+    it('should initialize metrics to zero values', async () => {
+      // Act
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.activeWorkers).toBe(0);
+      expect(metrics.queueDepth).toBe(0);
+      expect(metrics.completedTasks).toBe(0);
+      expect(metrics.failedTasks).toBe(0);
+      expect(metrics.workerCrashes).toBe(0);
+    });
+
+    it('should reject initialization when already initialized', async () => {
+      // Arrange
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      // Act & Assert
+      await expect(poolManager.initialize()).rejects.toThrow('Pool already initialized');
+    });
+
+    it('should set up worker event listeners during initialization', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      // Act
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      // Assert
+      expect(mockWorker.on).toHaveBeenCalledWith('message', expect.any(Function));
+      expect(mockWorker.on).toHaveBeenCalledWith('error', expect.any(Function));
+      expect(mockWorker.on).toHaveBeenCalledWith('exit', expect.any(Function));
+    });
+  });
+
+  describe('Worker Allocation', () => {
+    it('should allocate idle worker for health check task', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'test-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'test-id',
+      };
+
+      // Act
+      const resultPromise = poolManager.executeHealthCheck(config);
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.activeWorkers).toBe(1);
+      expect(metrics.idleWorkers).toBe(1);
+      expect(mockWorker.postMessage).toHaveBeenCalledWith({
+        type: 'health-check',
+        config,
+      });
+    });
+
+    it('should queue task when all workers are busy', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      const config1: HealthCheckConfig = {
+        serviceName: 'service-1',
+        method: 'GET',
+        url: 'https://example.com/1',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'id-1',
+      };
+
+      const config2: HealthCheckConfig = {
+        serviceName: 'service-2',
+        method: 'GET',
+        url: 'https://example.com/2',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'id-2',
+      };
+
+      // Act
+      const task1 = poolManager.executeHealthCheck(config1);
+      const task2 = poolManager.executeHealthCheck(config2);
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.activeWorkers).toBe(1);
+      expect(metrics.queueDepth).toBe(1);
+    });
+
+    it('should allocate workers up to pool size limit', async () => {
+      // Arrange
+      const poolSize = 3;
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize });
+      await poolManager.initialize();
+
+      const configs: HealthCheckConfig[] = Array.from({ length: 5 }, (_, i) => ({
+        serviceName: `service-${i}`,
+        method: 'GET' as const,
+        url: `https://example.com/${i}`,
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: `id-${i}`,
+      }));
+
+      // Act
+      const tasks = configs.map((config) => poolManager.executeHealthCheck(config));
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.activeWorkers).toBe(3);
+      expect(metrics.queueDepth).toBe(2);
+    });
+
+    it('should return worker to idle pool after task completion', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'test-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'test-id',
+      };
+
+      // Act
+      const resultPromise = poolManager.executeHealthCheck(config);
+
+      // Simulate worker completing task
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        const result: HealthCheckResult = {
+          serviceName: 'test-service',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'test-id',
+        };
+        messageHandler({ type: 'health-check-result', result });
+      }
+
+      await resultPromise;
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.activeWorkers).toBe(0);
+      expect(metrics.idleWorkers).toBe(2);
+    });
+
+    it('should process queued tasks when worker becomes available', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      const config1: HealthCheckConfig = {
+        serviceName: 'service-1',
+        method: 'GET',
+        url: 'https://example.com/1',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'id-1',
+      };
+
+      const config2: HealthCheckConfig = {
+        serviceName: 'service-2',
+        method: 'GET',
+        url: 'https://example.com/2',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'id-2',
+      };
+
+      // Act
+      const task1 = poolManager.executeHealthCheck(config1);
+      const task2 = poolManager.executeHealthCheck(config2);
+
+      // Complete first task
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        const result1: HealthCheckResult = {
+          serviceName: 'service-1',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'id-1',
+        };
+        messageHandler({ type: 'health-check-result', result: result1 });
+      }
+
+      await task1;
+
+      // Assert - queued task should now be processing
+      expect(mockWorker.postMessage).toHaveBeenCalledTimes(2);
+      expect(mockWorker.postMessage).toHaveBeenNthCalledWith(2, {
+        type: 'health-check',
+        config: config2,
+      });
+    });
+  });
+
+  describe('Result Collection', () => {
+    it('should collect result from worker message', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'test-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'test-id',
+      };
+
+      const expectedResult: HealthCheckResult = {
+        serviceName: 'test-service',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'PASS',
+        latency_ms: 150,
+        http_status_code: 200,
+        expected_status: 200,
+        failure_reason: '',
+        correlation_id: 'test-id',
+      };
+
+      // Act
+      const resultPromise = poolManager.executeHealthCheck(config);
+
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        messageHandler({ type: 'health-check-result', result: expectedResult });
+      }
+
+      const result = await resultPromise;
+
+      // Assert
+      expect(result).toEqual(expectedResult);
+    });
+
+    it('should increment completed tasks counter on successful result', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'test-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'test-id',
+      };
+
+      // Act
+      const resultPromise = poolManager.executeHealthCheck(config);
+
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        const result: HealthCheckResult = {
+          serviceName: 'test-service',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'test-id',
+        };
+        messageHandler({ type: 'health-check-result', result });
+      }
+
+      await resultPromise;
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.completedTasks).toBe(1);
+    });
+
+    it('should handle worker error messages', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'error-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'error-id',
+      };
+
+      // Act
+      const resultPromise = poolManager.executeHealthCheck(config);
+
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        messageHandler({
+          type: 'health-check-result',
+          error: {
+            message: 'Network error',
+            code: 'ECONNREFUSED',
+            type: 'network',
+          },
+        });
+      }
+
+      // Assert
+      await expect(resultPromise).rejects.toThrow('Network error');
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.failedTasks).toBe(1);
+    });
+
+    it('should collect multiple results concurrently', async () => {
+      // Arrange
+      const poolSize = 3;
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Array<(message: unknown) => void> = [];
+      vi.mocked(Worker).mockImplementation(() => {
+        const worker = { ...mockWorker };
+        worker.on = vi.fn((event: string, handler: (message: unknown) => void) => {
+          if (event === 'message') {
+            messageHandlers.push(handler);
+          }
+          return worker;
+        });
+        return worker as unknown as Worker;
+      });
+
+      poolManager = new WorkerPoolManager({ poolSize });
+      await poolManager.initialize();
+
+      const configs: HealthCheckConfig[] = Array.from({ length: 3 }, (_, i) => ({
+        serviceName: `service-${i}`,
+        method: 'GET' as const,
+        url: `https://example.com/${i}`,
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: `id-${i}`,
+      }));
+
+      // Act
+      const tasks = configs.map((config) => poolManager.executeHealthCheck(config));
+
+      // Simulate all workers completing
+      messageHandlers.forEach((handler, i) => {
+        const result: HealthCheckResult = {
+          serviceName: `service-${i}`,
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: `id-${i}`,
+        };
+        handler({ type: 'health-check-result', result });
+      });
+
+      const results = await Promise.all(tasks);
+
+      // Assert
+      expect(results).toHaveLength(3);
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.completedTasks).toBe(3);
+    });
+  });
+
+  describe('Pool Shutdown', () => {
+    it('should gracefully shutdown pool within timeout', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn().mockResolvedValue(undefined),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      // Act
+      await poolManager.shutdown();
+
+      // Assert
+      expect(mockWorker.terminate).toHaveBeenCalledTimes(2);
+    });
+
+    it('should wait for in-flight tasks to complete before shutdown', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn().mockResolvedValue(undefined),
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'test-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'test-id',
+      };
+
+      const task = poolManager.executeHealthCheck(config);
+
+      // Act - initiate shutdown while task is in-flight
+      const shutdownPromise = poolManager.shutdown({ gracefulTimeout: 5000 });
+
+      // Complete task
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        const result: HealthCheckResult = {
+          serviceName: 'test-service',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'test-id',
+        };
+        messageHandler({ type: 'health-check-result', result });
+      }
+
+      await task;
+      await shutdownPromise;
+
+      // Assert
+      expect(mockWorker.terminate).toHaveBeenCalled();
+    });
+
+    it('should force terminate workers after graceful timeout', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn().mockResolvedValue(undefined),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'stuck-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'stuck-id',
+      };
+
+      // Start task that never completes
+      const task = poolManager.executeHealthCheck(config);
+
+      // Act - shutdown with short timeout
+      await poolManager.shutdown({ gracefulTimeout: 100 });
+
+      // Assert
+      expect(mockWorker.terminate).toHaveBeenCalled();
+    });
+
+    it('should reject new tasks after shutdown initiated', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn().mockResolvedValue(undefined),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      // Act
+      const shutdownPromise = poolManager.shutdown();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'test-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'test-id',
+      };
+
+      // Assert
+      await expect(poolManager.executeHealthCheck(config)).rejects.toThrow('Pool is shutting down');
+      await shutdownPromise;
+    });
+
+    it('should clear task queue on shutdown', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn().mockResolvedValue(undefined),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      // Queue multiple tasks
+      const configs: HealthCheckConfig[] = Array.from({ length: 5 }, (_, i) => ({
+        serviceName: `service-${i}`,
+        method: 'GET' as const,
+        url: `https://example.com/${i}`,
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: `id-${i}`,
+      }));
+
+      const tasks = configs.map((config) => poolManager.executeHealthCheck(config));
+
+      // Act
+      await poolManager.shutdown({ gracefulTimeout: 100 });
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.queueDepth).toBe(0);
+    });
+  });
+
+  describe('Worker Crash Recovery', () => {
+    it('should detect worker crash and replace worker', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const exitHandlers: Map<string, (code: number) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (code: number) => void) => {
+        if (event === 'exit') {
+          exitHandlers.set('exit', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      const initialWorkerCount = vi.mocked(Worker).mock.calls.length;
+
+      // Act - simulate worker crash
+      const exitHandler = exitHandlers.get('exit');
+      if (exitHandler) {
+        exitHandler(1); // Non-zero exit code indicates crash
+      }
+
+      // Wait for replacement worker to be created
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.workerCrashes).toBe(1);
+      expect(metrics.totalWorkers).toBe(2); // Pool size maintained
+      expect(vi.mocked(Worker).mock.calls.length).toBeGreaterThan(initialWorkerCount);
+    });
+
+    it('should retry task on worker crash', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const exitHandlers: Array<(code: number) => void> = [];
+      const messageHandlers: Array<(message: unknown) => void> = [];
+
+      vi.mocked(Worker).mockImplementation(() => {
+        const worker = { ...mockWorker };
+        worker.on = vi.fn((event: string, handler: (arg: unknown) => void) => {
+          if (event === 'exit') {
+            exitHandlers.push(handler as (code: number) => void);
+          } else if (event === 'message') {
+            messageHandlers.push(handler as (message: unknown) => void);
+          }
+          return worker;
+        });
+        return worker as unknown as Worker;
+      });
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'crash-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'crash-id',
+      };
+
+      // Act
+      const taskPromise = poolManager.executeHealthCheck(config);
+
+      // Simulate worker crash
+      if (exitHandlers[0]) {
+        exitHandlers[0](1);
+      }
+
+      // Wait for recovery
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      // Simulate replacement worker completing task
+      if (messageHandlers[1]) {
+        const result: HealthCheckResult = {
+          serviceName: 'crash-service',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'crash-id',
+        };
+        messageHandlers[1]({ type: 'health-check-result', result });
+      }
+
+      const result = await taskPromise;
+
+      // Assert
+      expect(result.serviceName).toBe('crash-service');
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.workerCrashes).toBe(1);
+    });
+
+    it('should handle multiple worker crashes', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const exitHandlers: Array<(code: number) => void> = [];
+      vi.mocked(Worker).mockImplementation(() => {
+        const worker = { ...mockWorker };
+        worker.on = vi.fn((event: string, handler: (code: number) => void) => {
+          if (event === 'exit') {
+            exitHandlers.push(handler);
+          }
+          return worker;
+        });
+        return worker as unknown as Worker;
+      });
+
+      poolManager = new WorkerPoolManager({ poolSize: 3 });
+      await poolManager.initialize();
+
+      // Act - simulate multiple crashes
+      for (let i = 0; i < 3; i++) {
+        if (exitHandlers[i]) {
+          exitHandlers[i](1);
+        }
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.workerCrashes).toBe(3);
+      expect(metrics.totalWorkers).toBe(3); // Pool size maintained
+    });
+
+    it('should handle worker error event', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const errorHandlers: Map<string, (error: Error) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (error: Error) => void) => {
+        if (event === 'error') {
+          errorHandlers.set('error', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      // Act - simulate worker error
+      const errorHandler = errorHandlers.get('error');
+      if (errorHandler) {
+        errorHandler(new Error('Worker thread error'));
+      }
+
+      // Assert - error should be logged but pool should remain operational
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.totalWorkers).toBe(1);
+    });
+  });
+
+  describe('Pool Metrics', () => {
+    it('should track active workers count', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 3 });
+      await poolManager.initialize();
+
+      const configs: HealthCheckConfig[] = Array.from({ length: 2 }, (_, i) => ({
+        serviceName: `service-${i}`,
+        method: 'GET' as const,
+        url: `https://example.com/${i}`,
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: `id-${i}`,
+      }));
+
+      // Act
+      const tasks = configs.map((config) => poolManager.executeHealthCheck(config));
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.activeWorkers).toBe(2);
+      expect(metrics.idleWorkers).toBe(1);
+    });
+
+    it('should track queue depth', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      const configs: HealthCheckConfig[] = Array.from({ length: 5 }, (_, i) => ({
+        serviceName: `service-${i}`,
+        method: 'GET' as const,
+        url: `https://example.com/${i}`,
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: `id-${i}`,
+      }));
+
+      // Act
+      const tasks = configs.map((config) => poolManager.executeHealthCheck(config));
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.queueDepth).toBe(3);
+    });
+
+    it('should track completed tasks', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Array<(message: unknown) => void> = [];
+      vi.mocked(Worker).mockImplementation(() => {
+        const worker = { ...mockWorker };
+        worker.on = vi.fn((event: string, handler: (message: unknown) => void) => {
+          if (event === 'message') {
+            messageHandlers.push(handler);
+          }
+          return worker;
+        });
+        return worker as unknown as Worker;
+      });
+
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      const configs: HealthCheckConfig[] = Array.from({ length: 2 }, (_, i) => ({
+        serviceName: `service-${i}`,
+        method: 'GET' as const,
+        url: `https://example.com/${i}`,
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: `id-${i}`,
+      }));
+
+      const tasks = configs.map((config) => poolManager.executeHealthCheck(config));
+
+      // Act - complete tasks
+      messageHandlers.forEach((handler, i) => {
+        const result: HealthCheckResult = {
+          serviceName: `service-${i}`,
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: `id-${i}`,
+        };
+        handler({ type: 'health-check-result', result });
+      });
+
+      await Promise.all(tasks);
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.completedTasks).toBe(2);
+    });
+
+    it('should track failed tasks', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'fail-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'fail-id',
+      };
+
+      // Act
+      const task = poolManager.executeHealthCheck(config);
+
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        messageHandler({
+          type: 'health-check-result',
+          error: {
+            message: 'Task failed',
+            type: 'unknown',
+          },
+        });
+      }
+
+      await expect(task).rejects.toThrow();
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.failedTasks).toBe(1);
+    });
+
+    it('should track worker crashes', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const exitHandlers: Map<string, (code: number) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (code: number) => void) => {
+        if (event === 'exit') {
+          exitHandlers.set('exit', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      // Act - simulate crash
+      const exitHandler = exitHandlers.get('exit');
+      if (exitHandler) {
+        exitHandler(1);
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      // Assert
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.workerCrashes).toBe(1);
+    });
+
+    it('should provide real-time metrics updates', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      const config: HealthCheckConfig = {
+        serviceName: 'metrics-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'metrics-id',
+      };
+
+      // Act - check metrics at different stages
+      const initialMetrics = poolManager.getMetrics();
+      expect(initialMetrics.activeWorkers).toBe(0);
+
+      const task = poolManager.executeHealthCheck(config);
+      const activeMetrics = poolManager.getMetrics();
+      expect(activeMetrics.activeWorkers).toBe(1);
+
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        const result: HealthCheckResult = {
+          serviceName: 'metrics-service',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'metrics-id',
+        };
+        messageHandler({ type: 'health-check-result', result });
+      }
+
+      await task;
+
+      const completedMetrics = poolManager.getMetrics();
+      expect(completedMetrics.activeWorkers).toBe(0);
+      expect(completedMetrics.completedTasks).toBe(1);
+    });
+  });
+});
