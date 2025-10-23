@@ -24,7 +24,7 @@ export default function () {
       generatedAt: new Date().toISOString(),
       services: Array.isArray(servicesArray) ? servicesArray : [],
     };
-  } catch (error) {
+  } catch {
     // If health.json doesn't exist yet (e.g., on first build), return empty state
     console.warn('health.json not found or invalid, using empty state');
     return {
