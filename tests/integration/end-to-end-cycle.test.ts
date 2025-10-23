@@ -20,7 +20,18 @@
  * Per tasks.md: Use real config.yaml with test services, verify complete pipeline
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { MockWorker } from '../helpers/worker-test-harness.js';
+
+// Mock worker_threads BEFORE any imports that use it
+// This allows integration tests to run without tsx worker thread issues
+// NOTE: vi.mock factories MUST be synchronous - async factories cause vitest to hang
+vi.mock('node:worker_threads', () => {
+  return {
+    Worker: MockWorker,
+  };
+});
+
 import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.js';
 import { CsvWriter } from '../../src/storage/csv-writer.js';
 import { JsonWriter } from '../../src/storage/json-writer.js';

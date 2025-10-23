@@ -474,9 +474,10 @@ describe('validateResponseHeaders (T027a - TDD Phase)', () => {
 
       const result = validateResponseHeaders(headers, expectedHeaders);
 
-      // Should fail due to whitespace (case-sensitive value matching)
+      // Headers API automatically trims whitespace per HTTP/1.1 spec (RFC 7230)
+      // So ' application/json ' becomes 'application/json' and matches
       expect(result).toBeDefined();
-      expect(result.valid).toBe(false);
+      expect(result.valid).toBe(true);
     });
 
     test('should handle headers with special characters', () => {

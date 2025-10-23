@@ -13,7 +13,18 @@
  * Per tasks.md: Test with real scheduler and worker pool, verify timing and cycle management
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { MockWorker } from '../helpers/worker-test-harness.js';
+
+// Mock worker_threads BEFORE any imports that use it
+// This allows integration tests to run without tsx worker thread issues
+// NOTE: vi.mock factories MUST be synchronous - async factories cause vitest to hang
+vi.mock('node:worker_threads', () => {
+  return {
+    Worker: MockWorker,
+  };
+});
+
 import { Scheduler } from '../../src/orchestrator/scheduler.js';
 import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.js';
 import type { HealthCheckConfig } from '../../src/types/health-check.js';

@@ -39,7 +39,7 @@ export function validateStatusCode(
 /**
  * Validates that expected text is found in response body
  * Uses case-sensitive substring matching
- * Per FR-014: Searches first 100KB of response (handled by caller)
+ * Per FR-014: Searches first 100KB of response only
  *
  * @param responseBody Response body text to search
  * @param expectedText Expected substring to find
@@ -49,7 +49,11 @@ export function validateResponseText(
   responseBody: string,
   expectedText: string
 ): ValidationResult {
-  const isValid = responseBody.includes(expectedText);
+  // Per FR-014: Only search first 100KB of response
+  const maxSearchLength = 100 * 1024; // 100KB in bytes
+  const searchBody = responseBody.slice(0, maxSearchLength);
+
+  const isValid = searchBody.includes(expectedText);
 
   return {
     valid: isValid,

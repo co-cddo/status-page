@@ -102,8 +102,9 @@ export class WorkerPoolManager {
    * Create a new worker thread
    */
   private createWorker(): Worker {
-    // Path to worker script (only use in production, mocked in tests)
-    const workerPath = join(__dirname, '../health-checks/worker.js');
+    // Path to worker script - use .ts extension since we're running via tsx
+    // tsx will handle TypeScript execution in worker threads via execArgv
+    const workerPath = join(__dirname, '../health-checks/worker.ts');
 
     // Create worker (will be mocked in tests)
     const worker = new Worker(workerPath, {
@@ -200,6 +201,8 @@ export class WorkerPoolManager {
       // Replace crashed worker (unless shutting down)
       if (!this.shuttingDown) {
         this.createWorker();
+        // Process re-queued task with the new worker
+        this.processNextTask();
       }
     }
   }

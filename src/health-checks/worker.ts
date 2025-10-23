@@ -11,6 +11,7 @@
  * - Handle errors with structured error objects
  */
 
+import { parentPort } from 'node:worker_threads';
 import { randomUUID } from 'node:crypto';
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.js';
 import { performHealthCheck } from './http-check.js';
@@ -135,4 +136,47 @@ export async function processHealthCheck(message: WorkerMessage): Promise<Worker
 
     return errorResult;
   }
+}
+
+/**
+ * Worker thread entry point
+ * When this file is executed as a worker thread, set up message listener
+ */
+if (parentPort) {
+  parentPort.on('message', async (message: WorkerMessage) => {
+    try {
+      const result = await processHealthCheck(message);
+      parentPort!.postMessage(result);
+    } catch (error) {
+      // Validation errors or critical failures
+      const err = error as Error;
+      // Handle expectedStatus being number or array
+      const expectedStatus = message.config?.expectedStatus;
+      const expectedStatusValue = typeof expectedStatus === 'number'
+        ? expectedStatus
+        : Array.isArray(expectedStatus) && expectedStatus.length > 0 && expectedStatus[0] !== undefined
+        ? expectedStatus[0]
+        : 200;
+
+      const errorResult: WorkerResult = {
+        type: 'health-check-result',
+        result: {
+          serviceName: message.config?.serviceName || 'unknown',
+          timestamp: new Date(),
+          method: message.config?.method || 'GET',
+          status: 'FAIL',
+          latency_ms: 0,
+          http_status_code: 0,
+          expected_status: expectedStatusValue,
+          failure_reason: err.message,
+          correlation_id: message.config?.correlationId || randomUUID(),
+        },
+        error: {
+          message: err.message,
+          type: 'validation',
+        },
+      };
+      parentPort!.postMessage(errorResult);
+    }
+  });
 }

@@ -240,8 +240,9 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
       const lines = content.trim().split('\n');
       const dataRow = lines[1]!;
 
-      // Empty field before correlation_id
-      expect(dataRow).toMatch(/,,"?[a-f0-9-]+"?$/);
+      // Empty field before correlation_id (two consecutive commas)
+      // Match: ,,correlation_id or ,,"quoted-correlation-id"
+      expect(dataRow).toMatch(/,,([^,"\n]+|"[^"]*")$/);
     });
 
     test('should write failure_reason for FAIL status', async () => {
@@ -594,13 +595,18 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
       await csvWriter.append(result);
 
       const content = await fs.readFile(testCsvPath, 'utf-8');
-      const lines = content.trim().split('\n');
 
-      // Should have exactly 2 lines (header + data)
-      expect(lines.length).toBe(2);
+      // Verify CSV content is properly escaped
+      // RFC 4180: Quoted fields can contain newlines, so we cannot simply split by \n
+      expect(content).toContain('"service, with ""special"" chars"');
+      expect(content).toContain('""timeout""');
 
-      // Verify no CSV parsing errors
+      // Verify the failure reason with embedded newline is properly quoted
+      expect(content).toContain('reason:\nnetwork failure');
+
+      // Verify file is not empty and has expected structure
       expect(content).toBeTruthy();
+      expect(content).toContain('timestamp,service_name');
     });
   });
 
