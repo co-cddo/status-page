@@ -39,6 +39,12 @@ jobs:
       - name: Install Playwright browsers
         run: pnpx playwright install --with-deps
 
+      - name: Build application
+        run: pnpm run build
+        continue-on-error: false
+        env:
+          NODE_ENV: test
+
       - name: Run e2e tests
         run: pnpm run test:e2e
         continue-on-error: false
