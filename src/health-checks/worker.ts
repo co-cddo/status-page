@@ -80,9 +80,8 @@ export async function processHealthCheck(message: WorkerMessage): Promise<Worker
       performHealthCheck
     );
 
-    // Emit Prometheus metrics
+    // Emit Prometheus metrics (recordHealthCheckResult handles both result recording and counter increment)
     recordHealthCheckResult(result);
-    incrementHealthCheckCounter(result.status, result.serviceName);
 
     // Return successful result
     return {
