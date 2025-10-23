@@ -13,10 +13,10 @@
 
 import { parentPort } from 'node:worker_threads';
 import { randomUUID } from 'node:crypto';
-import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.js';
-import { performHealthCheck } from './http-check.js';
-import { performHealthCheckWithRetry } from './retry-logic.js';
-import { recordHealthCheckResult, incrementHealthCheckCounter } from '../metrics/index.js';
+import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
+import { performHealthCheck } from './http-check.ts';
+import { performHealthCheckWithRetry } from './retry-logic.ts';
+import { recordHealthCheckResult, incrementHealthCheckCounter } from '../metrics/index.ts';
 
 export interface WorkerMessage {
   type: 'health-check';

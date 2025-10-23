@@ -4,7 +4,7 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { MockHttpServer, MockScenarios, createMockServerWithRoutes } from './mock-http-server.js';
+import { MockHttpServer, MockScenarios, createMockServerWithRoutes } from './mock-http-server.ts';
 
 describe('MockHttpServer', () => {
   let server: MockHttpServer;

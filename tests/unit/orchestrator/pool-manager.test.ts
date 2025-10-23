@@ -15,8 +15,8 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { Worker } from 'node:worker_threads';
-import { WorkerPoolManager } from '../../../src/orchestrator/pool-manager.js';
-import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.js';
+import { WorkerPoolManager } from '../../../src/orchestrator/pool-manager.ts';
+import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.ts';
 
 // Mock worker_threads module
 vi.mock('node:worker_threads', () => ({

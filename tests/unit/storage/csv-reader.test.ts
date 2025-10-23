@@ -15,8 +15,8 @@ import {
   CsvReader,
   type CsvValidationResult,
   type ConsecutiveFailures,
-} from '../../../src/storage/csv-reader.js';
-import type { HistoricalRecord } from '../../../src/types/health-check.js';
+} from '../../../src/storage/csv-reader.ts';
+import type { HistoricalRecord } from '../../../src/types/health-check.ts';
 
 describe('CsvReader (T031a - TDD Phase)', () => {
   const testDir = path.join(__dirname, 'test-csv-data');

@@ -10,7 +10,7 @@
  */
 
 import { stat } from 'fs/promises';
-import { createLogger } from '../logging/logger.js';
+import { createLogger } from '../logging/logger.ts';
 
 const logger = createLogger({ serviceName: 'size-validator' });
 

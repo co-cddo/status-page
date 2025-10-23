@@ -3,9 +3,9 @@
  * Per T020 (User Story 6): Generate formatted Markdown table with results
  */
 
-import type { HealthCheckResult } from '../types/health-check.js';
-import { escapeMarkdown, truncate } from '../utils/string.js';
-import { formatLatency } from '../utils/format.js';
+import type { HealthCheckResult } from '../types/health-check.ts';
+import { escapeMarkdown, truncate } from '../utils/string.ts';
+import { formatLatency } from '../utils/format.ts';
 
 /**
  * Validate a single health check result object

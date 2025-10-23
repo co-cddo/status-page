@@ -5,8 +5,8 @@
 
 import Ajv2020Import from 'ajv';
 import type { ErrorObject } from 'ajv';
-import type { Configuration } from '../types/config.js';
-import { configurationSchema, customValidationRules } from './schema.js';
+import type { Configuration } from '../types/config.ts';
+import { configurationSchema, customValidationRules } from './schema.ts';
 
 // Workaround for Ajv v8 ESM + TypeScript constructor issue
 // See: https://github.com/ajv-validator/ajv/issues/2132

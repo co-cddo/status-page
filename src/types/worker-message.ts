@@ -3,7 +3,7 @@
  * Per ADR-0001: Worker threads communicate via structured message passing
  */
 
-import type { HealthCheckConfig, HealthCheckResult, HealthCheckError } from './health-check.js';
+import type { HealthCheckConfig, HealthCheckResult, HealthCheckError } from './health-check.ts';
 
 /**
  * Message types for worker thread communication

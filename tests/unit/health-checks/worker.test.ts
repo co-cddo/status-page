@@ -14,8 +14,8 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.js';
-import { processHealthCheck } from '../../../src/health-checks/worker.js';
+import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.ts';
+import { processHealthCheck } from '../../../src/health-checks/worker.ts';
 
 // Mock worker_threads module
 vi.mock('node:worker_threads', () => ({
@@ -41,8 +41,8 @@ vi.mock('../../../src/metrics/index.js', () => ({
   incrementHealthCheckCounter: vi.fn(),
 }));
 
-import { performHealthCheckWithRetry } from '../../../src/health-checks/retry-logic.js';
-import { recordHealthCheckResult, incrementHealthCheckCounter } from '../../../src/metrics/index.js';
+import { performHealthCheckWithRetry } from '../../../src/health-checks/retry-logic.ts';
+import { recordHealthCheckResult, incrementHealthCheckCounter } from '../../../src/metrics/index.ts';
 
 /**
  * Worker message interface for inter-thread communication

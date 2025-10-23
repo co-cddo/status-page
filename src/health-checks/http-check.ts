@@ -14,10 +14,10 @@
  */
 
 import { randomUUID } from 'node:crypto';
-import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.js';
-import { validateStatusCode, validateResponseText, validateResponseHeaders } from './validation.js';
-import { getErrorMessage } from '../utils/error.js';
-import { createLogger } from '../logging/logger.js';
+import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
+import { validateStatusCode, validateResponseText, validateResponseHeaders } from './validation.ts';
+import { getErrorMessage } from '../utils/error.ts';
+import { createLogger } from '../logging/logger.ts';
 
 const MAX_RESPONSE_TEXT_SIZE = 100 * 1024; // 100KB per FR-014
 const logger = createLogger({ serviceName: 'health-check' });

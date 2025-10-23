@@ -6,8 +6,8 @@
  */
 
 import { describe, test, expect } from 'vitest';
-import { formatSmokeTestComment } from '../../src/workflows/format-smoke-test-comment.js';
-import type { HealthCheckResult } from '../../src/types/health-check.js';
+import { formatSmokeTestComment } from '../../src/workflows/format-smoke-test-comment.ts';
+import type { HealthCheckResult } from '../../src/types/health-check.ts';
 
 /**
  * Helper function to create mock HealthCheckResult with required properties

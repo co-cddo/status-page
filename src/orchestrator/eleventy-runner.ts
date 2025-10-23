@@ -12,7 +12,7 @@
 import { spawn, type ChildProcess } from 'node:child_process';
 import { readFile, access } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { ServiceStatusAPI } from '../types/health-check.js';
+import type { ServiceStatusAPI } from '../types/health-check.ts';
 
 export interface EleventyBuildOptions {
   dataDir?: string;

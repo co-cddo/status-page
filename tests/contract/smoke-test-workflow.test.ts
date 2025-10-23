@@ -8,7 +8,7 @@
 import { describe, test, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { load } from 'js-yaml';
-import type { GitHubActionsWorkflow, WorkflowStep } from '../types/github-workflow.js';
+import type { GitHubActionsWorkflow, WorkflowStep } from '../types/github-workflow.ts';
 
 describe('Smoke Test Workflow Contract (US6)', () => {
   const workflowPath = '.github/workflows/smoke-test.yml';

@@ -13,7 +13,7 @@
 
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
-import type { HealthCheckResult, ServiceStatusAPI } from '../types/health-check.js';
+import type { HealthCheckResult, ServiceStatusAPI } from '../types/health-check.ts';
 
 const STATUS_ORDER = { 'FAIL': 0, 'DEGRADED': 1, 'PASS': 2, 'PENDING': 3 };
 

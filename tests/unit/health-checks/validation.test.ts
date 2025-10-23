@@ -14,7 +14,7 @@ import {
   validateResponseText,
   validateResponseHeaders,
   type ValidationResult,
-} from '../../../src/health-checks/validation.js';
+} from '../../../src/health-checks/validation.ts';
 
 describe('validateStatusCode (T027a - TDD Phase)', () => {
   test('should return valid when status code matches expected', () => {

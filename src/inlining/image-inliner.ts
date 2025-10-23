@@ -12,7 +12,7 @@
 import { readFile } from 'fs/promises';
 import { dirname, join, resolve } from 'path';
 import type { CheerioAPI } from 'cheerio';
-import { createLogger } from '../logging/logger.js';
+import { createLogger } from '../logging/logger.ts';
 
 const logger = createLogger({ serviceName: 'image-inliner' });
 

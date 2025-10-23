@@ -13,9 +13,9 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { Scheduler } from '../../../src/orchestrator/scheduler.js';
-import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.js';
-import type { WorkerPoolManager } from '../../../src/orchestrator/pool-manager.js';
+import { Scheduler } from '../../../src/orchestrator/scheduler.ts';
+import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.ts';
+import type { WorkerPoolManager } from '../../../src/orchestrator/pool-manager.ts';
 
 /**
  * Scheduled check interface for priority queue

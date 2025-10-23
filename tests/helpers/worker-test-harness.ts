@@ -5,8 +5,8 @@
  */
 
 import { EventEmitter } from 'node:events';
-import { processHealthCheck } from '../../src/health-checks/worker.js';
-import type { WorkerMessage, WorkerResult } from '../../src/health-checks/worker.js';
+import { processHealthCheck } from '../../src/health-checks/worker.ts';
+import type { WorkerMessage, WorkerResult } from '../../src/health-checks/worker.ts';
 
 /**
  * Worker options interface (mirrors worker_threads.WorkerOptions subset)

@@ -68,9 +68,9 @@ vi.mock('node:worker_threads', () => ({
   parentPort: null, // Prevents worker entry point from executing in tests
 }));
 
-import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.js';
-import type { HealthCheckConfig, HealthCheckResult } from '../../src/types/health-check.js';
-import { MockHttpServer } from '../mocks/mock-http-server.js';
+import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.ts';
+import type { HealthCheckConfig, HealthCheckResult } from '../../src/types/health-check.ts';
+import { MockHttpServer } from '../mocks/mock-http-server.ts';
 
 describe('Worker Pool Integration', () => {
   let poolManager: WorkerPoolManager;

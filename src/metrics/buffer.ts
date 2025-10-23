@@ -3,7 +3,7 @@
  * Per FR-035a, FR-035b: In-memory buffer with configurable size, drop oldest when full
  */
 
-import { logger } from '../logging/logger.js';
+import { logger } from '../logging/logger.ts';
 
 /**
  * Buffered metric entry

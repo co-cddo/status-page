@@ -18,10 +18,10 @@
  */
 
 import { describe, it, expect, beforeAll, beforeEach, afterEach, afterAll } from 'vitest';
-import { Scheduler } from '../../src/orchestrator/scheduler.js';
-import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.js';
-import type { HealthCheckConfig } from '../../src/types/health-check.js';
-import { MockHttpServer } from '../mocks/mock-http-server.js';
+import { Scheduler } from '../../src/orchestrator/scheduler.ts';
+import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.ts';
+import type { HealthCheckConfig } from '../../src/types/health-check.ts';
+import { MockHttpServer } from '../mocks/mock-http-server.ts';
 
 describe('Scheduler Integration', () => {
   let scheduler: Scheduler;

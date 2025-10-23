@@ -12,18 +12,18 @@
  * - Run via tsx with Node.js 22+ native TypeScript support
  */
 
-import { loadConfiguration, ConfigurationLoadError } from './config/loader.js';
+import { loadConfiguration, ConfigurationLoadError } from './config/loader.ts';
 import {
   validateConfiguration,
   ConfigurationValidationError,
-} from './config/validator.js';
-import { logger, createChildLogger, flushLogs } from './logging/logger.js';
-import { generateCorrelationId } from './logging/correlation.js';
-import { startMetricsServer, stopMetricsServer } from './metrics/server.js';
-import { WorkerPoolManager } from './orchestrator/pool-manager.js';
-import { Scheduler } from './orchestrator/scheduler.js';
-import type { Configuration } from './types/config.js';
-import type { HealthCheckConfig } from './types/health-check.js';
+} from './config/validator.ts';
+import { logger, createChildLogger, flushLogs } from './logging/logger.ts';
+import { generateCorrelationId } from './logging/correlation.ts';
+import { startMetricsServer, stopMetricsServer } from './metrics/server.ts';
+import { WorkerPoolManager } from './orchestrator/pool-manager.ts';
+import { Scheduler } from './orchestrator/scheduler.ts';
+import type { Configuration } from './types/config.ts';
+import type { HealthCheckConfig } from './types/health-check.ts';
 
 /**
  * Application state

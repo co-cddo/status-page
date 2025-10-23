@@ -12,7 +12,7 @@
 import { describe, test, expect, beforeAll } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import { load } from 'js-yaml';
-import type { GitHubActionsWorkflow, WorkflowStep } from '../types/github-workflow.js';
+import type { GitHubActionsWorkflow, WorkflowStep } from '../types/github-workflow.ts';
 
 describe('Workflow Conditional Logic Integration (US7)', () => {
   let testWorkflow: GitHubActionsWorkflow;

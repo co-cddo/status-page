@@ -14,9 +14,9 @@
 
 import { appendFile, access, writeFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
-import type { HealthCheckResult } from '../types/health-check.js';
-import { escapeCsvValue, CSV_HEADER_LINE } from '../utils/csv.js';
-import { createLogger } from '../logging/logger.js';
+import type { HealthCheckResult } from '../types/health-check.ts';
+import { escapeCsvValue, CSV_HEADER_LINE } from '../utils/csv.ts';
+import { createLogger } from '../logging/logger.ts';
 
 const logger = createLogger({ serviceName: 'csv-writer' });
 

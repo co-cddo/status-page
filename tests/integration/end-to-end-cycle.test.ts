@@ -25,14 +25,14 @@
  */
 
 import { describe, it, expect, beforeAll, beforeEach, afterEach, afterAll } from 'vitest';
-import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.js';
-import { CsvWriter } from '../../src/storage/csv-writer.js';
-import { JsonWriter } from '../../src/storage/json-writer.js';
-import { EleventyRunner } from '../../src/orchestrator/eleventy-runner.js';
-import type { HealthCheckConfig, HealthCheckResult, ServiceStatusAPI } from '../../src/types/health-check.js';
+import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.ts';
+import { CsvWriter } from '../../src/storage/csv-writer.ts';
+import { JsonWriter } from '../../src/storage/json-writer.ts';
+import { EleventyRunner } from '../../src/orchestrator/eleventy-runner.ts';
+import type { HealthCheckConfig, HealthCheckResult, ServiceStatusAPI } from '../../src/types/health-check.ts';
 import { readFile, access, rm, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
-import { MockHttpServer } from '../mocks/mock-http-server.js';
+import { MockHttpServer } from '../mocks/mock-http-server.ts';
 
 const TEST_DIR = join(process.cwd(), 'tests', 'integration', 'test-output');
 const TEST_CSV_PATH = join(TEST_DIR, 'history.csv');

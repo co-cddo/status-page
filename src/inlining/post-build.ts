@@ -18,19 +18,19 @@
 import { readFile, writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
 import { load as cheerioLoad } from 'cheerio';
-import { createLogger } from '../logging/logger.js';
-import { inlineCSS, inlineCSSUrls } from './css-inliner.js';
-import { inlineJavaScript, verifyNoExternalScripts } from './js-inliner.js';
+import { createLogger } from '../logging/logger.ts';
+import { inlineCSS, inlineCSSUrls } from './css-inliner.ts';
+import { inlineJavaScript, verifyNoExternalScripts } from './js-inliner.ts';
 import {
   inlineImages,
   inlineCSSImages,
   verifyNoExternalImages,
-} from './image-inliner.js';
+} from './image-inliner.ts';
 import {
   validateHTMLSize,
   formatSize,
   type ComponentSizes,
-} from './size-validator.js';
+} from './size-validator.ts';
 
 const logger = createLogger({ serviceName: 'post-build' });
 

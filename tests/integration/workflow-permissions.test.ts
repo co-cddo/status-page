@@ -9,7 +9,7 @@ import { describe, test, expect } from 'vitest';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { load } from 'js-yaml';
-import type { GitHubActionsWorkflow } from '../types/github-workflow.js';
+import type { GitHubActionsWorkflow } from '../types/github-workflow.ts';
 
 /**
  * Expected permissions for each workflow per FR-037a least-privilege principle

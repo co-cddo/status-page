@@ -4,7 +4,7 @@
  * Validated using Ajv JSON Schema validator
  */
 
-import type { Configuration } from '../types/config.js';
+import type { Configuration } from '../types/config.ts';
 
 /**
  * JSON Schema for GlobalSettings

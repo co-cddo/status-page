@@ -4,8 +4,8 @@
  */
 
 import { createServer, type Server } from 'node:http';
-import { getMetrics } from './prometheus.js';
-import { logger } from '../logging/logger.js';
+import { getMetrics } from './prometheus.ts';
+import { logger } from '../logging/logger.ts';
 
 /**
  * Prometheus metrics server configuration

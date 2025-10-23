@@ -19,9 +19,9 @@ import { readFile, rm, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { randomUUID } from 'node:crypto';
-import type { HealthCheckResult } from '../../src/types/health-check.js';
-import { CsvWriter } from '../../src/storage/csv-writer.js';
-import { parseCsvLine, CSV_HEADERS } from '../../src/utils/csv.js';
+import type { HealthCheckResult } from '../../src/types/health-check.ts';
+import { CsvWriter } from '../../src/storage/csv-writer.ts';
+import { parseCsvLine, CSV_HEADERS } from '../../src/utils/csv.ts';
 
 /**
  * Helper to create mock HealthCheckResult

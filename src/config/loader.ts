@@ -6,7 +6,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { load as loadYaml } from 'js-yaml';
-import type { Configuration } from '../types/config.js';
+import type { Configuration } from '../types/config.ts';
 
 /**
  * Error thrown when configuration file cannot be loaded

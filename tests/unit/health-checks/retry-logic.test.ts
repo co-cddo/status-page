@@ -16,8 +16,8 @@ import {
   performHealthCheckWithRetry,
   shouldRetry,
   type RetryableError,
-} from '../../../src/health-checks/retry-logic.js';
-import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.js';
+} from '../../../src/health-checks/retry-logic.ts';
+import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.ts';
 
 // Extended type for test purposes to include error details
 interface HealthCheckResultWithError extends HealthCheckResult {

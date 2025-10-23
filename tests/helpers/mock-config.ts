@@ -4,7 +4,7 @@
  */
 
 import { randomUUID } from 'node:crypto';
-import type { HealthCheckConfig } from '../../src/types/health-check.js';
+import type { HealthCheckConfig } from '../../src/types/health-check.ts';
 
 export interface MockConfigOptions {
   url: string;

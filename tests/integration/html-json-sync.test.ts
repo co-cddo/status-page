@@ -20,9 +20,9 @@ import { readFile, writeFile, rm, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { randomUUID } from 'node:crypto';
-import type { HealthCheckResult, ServiceStatusAPI } from '../../src/types/health-check.js';
-import { CsvWriter } from '../../src/storage/csv-writer.js';
-import { JsonWriter } from '../../src/storage/json-writer.js';
+import type { HealthCheckResult, ServiceStatusAPI } from '../../src/types/health-check.ts';
+import { CsvWriter } from '../../src/storage/csv-writer.ts';
+import { JsonWriter } from '../../src/storage/json-writer.ts';
 
 /**
  * Helper to create mock HealthCheckResult

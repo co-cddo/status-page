@@ -3,8 +3,8 @@
  * Delegates to prometheus.ts for actual metrics recording
  */
 
-import type { HealthCheckResult, ServiceStatus } from '../types/health-check.js';
-import { recordHealthCheck } from './prometheus.js';
+import type { HealthCheckResult, ServiceStatus } from '../types/health-check.ts';
+import { recordHealthCheck } from './prometheus.ts';
 
 export function recordHealthCheckResult(result: HealthCheckResult): void {
   // Record health check with status and latency

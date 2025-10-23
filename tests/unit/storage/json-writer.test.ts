@@ -11,8 +11,8 @@
 import { describe, test, expect, beforeEach, afterEach } from 'vitest';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
-import { JsonWriter } from '../../../src/storage/json-writer.js';
-import type { HealthCheckResult, ServiceStatusAPI } from '../../../src/types/health-check.js';
+import { JsonWriter } from '../../../src/storage/json-writer.ts';
+import type { HealthCheckResult, ServiceStatusAPI } from '../../../src/types/health-check.ts';
 
 describe('JsonWriter (T032a - TDD Phase)', () => {
   const testDir = path.join(__dirname, 'test-json-data');

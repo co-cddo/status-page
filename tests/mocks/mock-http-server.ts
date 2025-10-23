@@ -402,7 +402,7 @@ export const MockScenarios = {
   async healthyService(options?: MockServerOptions): Promise<MockHttpServer> {
     return createMockServerWithRoutes({
       successRoutes: ['/health', '/status', '/api/health'],
-      options,
+      ...(options ? { options } : {}),
     });
   },
 
@@ -416,7 +416,7 @@ export const MockScenarios = {
         '/status': 503,
         '/api/health': 500,
       },
-      options,
+      ...(options ? { options } : {}),
     });
   },
 
@@ -558,7 +558,7 @@ export const MockScenarios = {
  */
 export const examples = {
   basicUsage: `
-    import { MockHttpServer } from './mocks/mock-http-server.js';
+    import { MockHttpServer } from './mocks/mock-http-server.ts';
 
     const server = new MockHttpServer();
     await server.start();
@@ -577,7 +577,7 @@ export const examples = {
   `,
 
   testScenario: `
-    import { MockScenarios } from './mocks/mock-http-server.js';
+    import { MockScenarios } from './mocks/mock-http-server.ts';
 
     describe('Health Check Tests', () => {
       let server: MockHttpServer;
@@ -630,7 +630,7 @@ export const examples = {
   `,
 
   timeoutTesting: `
-    import { MockScenarios } from './mocks/mock-http-server.js';
+    import { MockScenarios } from './mocks/mock-http-server.ts';
 
     it('should timeout after 1 second', async () => {
       const server = await MockScenarios.slowService(10000); // 10s delay
@@ -651,7 +651,7 @@ export const examples = {
   `,
 
   flakyBehavior: `
-    import { MockScenarios } from './mocks/mock-http-server.js';
+    import { MockScenarios } from './mocks/mock-http-server.ts';
 
     it('should handle flaky services', async () => {
       const server = await MockScenarios.flakyService(0.8); // 80% failure rate

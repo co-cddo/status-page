@@ -16,8 +16,8 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { spawn } from 'node:child_process';
 import { readFile, access } from 'node:fs/promises';
 import { join } from 'node:path';
-import { EleventyRunner } from '../../../src/orchestrator/eleventy-runner.js';
-import type { ServiceStatusAPI } from '../../../src/types/health-check.js';
+import { EleventyRunner } from '../../../src/orchestrator/eleventy-runner.ts';
+import type { ServiceStatusAPI } from '../../../src/types/health-check.ts';
 
 // Mock child_process module
 vi.mock('node:child_process', () => ({

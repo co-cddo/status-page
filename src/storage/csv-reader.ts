@@ -13,8 +13,8 @@
 
 import { readFile, access } from 'node:fs/promises';
 import { constants } from 'node:fs';
-import type { HistoricalRecord } from '../types/health-check.js';
-import { parseCsvLine, isValidStatus, CSV_HEADERS } from '../utils/csv.js';
+import type { HistoricalRecord } from '../types/health-check.ts';
+import { parseCsvLine, isValidStatus, CSV_HEADERS } from '../utils/csv.ts';
 
 export interface ConsecutiveFailures {
   [serviceName: string]: number;

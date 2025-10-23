@@ -15,8 +15,8 @@ import { Worker } from 'node:worker_threads';
 import { cpus } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.js';
-import type { WorkerMessage, WorkerResult } from '../health-checks/worker.js';
+import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
+import type { WorkerMessage, WorkerResult } from '../health-checks/worker.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

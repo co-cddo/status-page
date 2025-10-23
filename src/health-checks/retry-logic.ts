@@ -9,7 +9,7 @@
  * - NO retry for status/text/header validation failures
  */
 
-import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.js';
+import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 
 export interface RetryableError {
   type: 'network' | 'timeout' | 'validation' | 'http' | 'ssl';

@@ -47,6 +47,7 @@ export default defineConfig({
       'tests/unit/**/*.test.{ts,js}',
       'tests/integration/**/*.test.{ts,js}',
       'tests/contract/**/*.test.{ts,js}',
+      'tests/mocks/**/*.test.{ts,js}', // Mock infrastructure tests
     ],
 
     // Exclude patterns

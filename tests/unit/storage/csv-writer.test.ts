@@ -14,8 +14,8 @@ import { describe, test, expect, beforeEach, afterEach } from 'vitest';
 import { promises as fs } from 'node:fs';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { CsvWriter } from '../../../src/storage/csv-writer.js';
-import type { HealthCheckResult } from '../../../src/types/health-check.js';
+import { CsvWriter } from '../../../src/storage/csv-writer.ts';
+import type { HealthCheckResult } from '../../../src/types/health-check.ts';
 
 describe('CsvWriter (T030a - TDD Phase)', () => {
   const testDir = path.join(__dirname, 'test-output');

@@ -9,8 +9,8 @@
  */
 
 import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
-import { performHealthCheck } from '../../../src/health-checks/http-check.js';
-import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.js';
+import { performHealthCheck } from '../../../src/health-checks/http-check.ts';
+import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.ts';
 
 // Mock fetch globally to avoid real network calls
 const mockFetch = vi.fn();
