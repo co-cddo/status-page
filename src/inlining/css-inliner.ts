@@ -30,7 +30,11 @@ export interface CSSInlineResult {
  * @param htmlPath - Path to the HTML file (for resolving relative CSS paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineCSS($: CheerioAPI, htmlPath: string, siteRoot = '_site'): Promise<CSSInlineResult> {
+export async function inlineCSS(
+  $: CheerioAPI,
+  htmlPath: string,
+  siteRoot = '_site'
+): Promise<CSSInlineResult> {
   const result: CSSInlineResult = {
     success: true,
     inlinedCount: 0,

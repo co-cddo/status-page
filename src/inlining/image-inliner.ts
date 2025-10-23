@@ -31,7 +31,11 @@ export interface ImageInlineResult {
  * @param htmlPath - Path to the HTML file (for resolving relative image paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineImages($: CheerioAPI, htmlPath: string, siteRoot = '_site'): Promise<ImageInlineResult> {
+export async function inlineImages(
+  $: CheerioAPI,
+  htmlPath: string,
+  siteRoot = '_site'
+): Promise<ImageInlineResult> {
   const result: ImageInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -145,7 +149,11 @@ export async function inlineImages($: CheerioAPI, htmlPath: string, siteRoot = '
  * @param htmlPath - Path to the HTML file (for resolving relative paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineCSSImages($: CheerioAPI, htmlPath: string, siteRoot = '_site'): Promise<ImageInlineResult> {
+export async function inlineCSSImages(
+  $: CheerioAPI,
+  htmlPath: string,
+  siteRoot = '_site'
+): Promise<ImageInlineResult> {
   const result: ImageInlineResult = {
     success: true,
     inlinedCount: 0,

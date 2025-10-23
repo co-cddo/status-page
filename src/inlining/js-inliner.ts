@@ -30,7 +30,11 @@ export interface JSInlineResult {
  * @param htmlPath - Path to the HTML file (for resolving relative JS paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineJavaScript($: CheerioAPI, htmlPath: string, siteRoot = '_site'): Promise<JSInlineResult> {
+export async function inlineJavaScript(
+  $: CheerioAPI,
+  htmlPath: string,
+  siteRoot = '_site'
+): Promise<JSInlineResult> {
   const result: JSInlineResult = {
     success: true,
     inlinedCount: 0,
