@@ -1,0 +1,11 @@
+[
+  {
+    "name": "test-service",
+    "status": "PASS",
+    "latency_ms": 120,
+    "last_check_time": "2025-01-01T12:00:00.000Z",
+    "tags": [],
+    "http_status_code": 200,
+    "failure_reason": ""
+  }
+]

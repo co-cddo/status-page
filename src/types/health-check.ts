@@ -29,8 +29,8 @@ export interface HealthCheckConfig {
   /** Warning latency threshold in milliseconds */
   warningThreshold: number;
 
-  /** Maximum retry attempts */
-  maxRetries: number;
+  /** Maximum retry attempts (default: 3) */
+  maxRetries?: number;
 
   /** Expected HTTP status code(s) */
   expectedStatus: number | number[];

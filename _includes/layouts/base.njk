@@ -1,0 +1,89 @@
+{#
+  Base Layout for GOV.UK Status Monitoring Application
+
+  Requirements:
+  - Extend @x-govuk/govuk-eleventy-plugin base layout
+  - Page title "GOV.UK service status"
+  - Meta refresh tag for auto-updates (60 seconds default)
+  - NO Crown logo/official branding (FR-021, FR-029)
+  - WCAG 2.2 AAA accessible
+
+  Per FR-029: Meta refresh interval configured via settings.page_refresh in config.yaml
+  Per FR-029b: Display both relative and absolute timestamps using semantic HTML
+#}
+{% extends "@x-govuk/govuk-eleventy-plugin/layouts/base.njk" %}
+
+{% block head %}
+  {# Meta refresh tag for automatic page updates (no JavaScript required) #}
+  {# Default 60s refresh interval, configurable via settings.page_refresh #}
+  <meta http-equiv="refresh" content="{{ settings.page_refresh or 60 }}">
+
+  {# Ensure proper charset and viewport for accessibility #}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  {# Page description for SEO and accessibility #}
+  <meta name="description" content="Check the current operational status of GOV.UK public services and infrastructure components">
+
+  {# Additional accessibility metadata #}
+  <meta name="theme-color" content="#0b0c0c">
+{% endblock %}
+
+{% block pageTitle %}
+  {# Page title per FR-021 requirement #}
+  GOV.UK service status
+{% endblock %}
+
+{% block header %}
+  {# Custom header WITHOUT Crown logo (FR-021, FR-029) #}
+  {# Using GOV.UK Design System header component without organisationLogo #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: "GOV.UK service status",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {# Skip link for keyboard navigation accessibility (WCAG 2.2 AAA) #}
+  {{ govukSkipLink({
+    text: "Skip to main content",
+    href: "#main-content"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  {# Main content block to be overridden by page templates #}
+  {# Wrapped in semantic main element with ARIA landmark #}
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    {% block mainContent %}
+      {# Override this block in page templates #}
+    {% endblock %}
+  </main>
+{% endblock %}
+
+{% block footer %}
+  {# Minimal footer per FR-021 (no Crown copyright for non-official deployment) #}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "https://github.com/alphagov/govuk-frontend",
+          text: "Built with GOV.UK Design System"
+        }
+      ],
+      html: 'This is a status monitoring application. Not an official GOV.UK service.'
+    }
+  }) }}
+{% endblock %}
+
+{% block bodyEnd %}
+  {# Enhanced accessibility: Ensure focus management and keyboard navigation #}
+  {# GOV.UK Frontend JavaScript for progressive enhancement #}
+  <script>
+    // Initialize GOV.UK Frontend components
+    if (typeof window.GOVUKFrontend !== 'undefined') {
+      window.GOVUKFrontend.initAll();
+    }
+  </script>
+{% endblock %}

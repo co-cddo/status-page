@@ -56,6 +56,14 @@ describe('Worker Pool Manager', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+
+    // Set up proper Worker mock for all tests
+    const mockWorker = {
+      on: vi.fn(),
+      postMessage: vi.fn(),
+      terminate: vi.fn().mockResolvedValue(undefined),
+    };
+    vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
   });
 
   afterEach(async () => {

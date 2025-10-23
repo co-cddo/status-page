@@ -1,9 +1,20 @@
 /**
- * CSV reader implementation (stub for TDD)
- * TODO: Implement actual CSV reading logic per T031
+ * CSV reader implementation
+ * T031: Implement CSV reader for historical health check data
+ *
+ * Requirements:
+ * - Read history.csv
+ * - Validate format (headers present, parse sample rows)
+ * - Derive consecutive failure count from consecutive FAIL statuses per service
+ * - Handle corrupted CSV (log error, emit alert, return validation errors)
+ * - Verify fallback to next tier on corruption
+ * - Handle empty CSV file
  */
 
+import { readFile, access } from 'node:fs/promises';
+import { constants } from 'node:fs';
 import type { HistoricalRecord } from '../types/health-check.js';
+import { parseCsvLine, isValidStatus, CSV_HEADERS } from '../utils/csv.js';
 
 export interface ConsecutiveFailures {
   [serviceName: string]: number;
@@ -18,34 +29,277 @@ export interface CsvValidationResult {
   sampleRowsParsed?: number;
   alertEmitted?: boolean;
   suggestedAction?: string;
-  errors?: Array<{ row: number; message: string }>;
+  errors?: string[];
 }
+
+const EXPECTED_HEADERS = CSV_HEADERS;
 
 export class CsvReader {
   constructor(private filePath: string) {}
 
-  async read(): Promise<HistoricalRecord[]> {
-    // Stub implementation - tests should fail
-    throw new Error('Not implemented yet - TDD stub');
-  }
-
+  /**
+   * Reads and parses the CSV file
+   * Returns array of HistoricalRecord objects
+   */
   async readAll(): Promise<HistoricalRecord[]> {
-    // Stub implementation - tests should fail (alias for read)
-    throw new Error('Not implemented yet - TDD stub');
+    try {
+      // Check if file exists
+      const exists = await this.fileExists();
+      if (!exists) {
+        throw new Error(`CSV file not found: ${this.filePath}`);
+      }
+
+      // Read file content
+      const content = await readFile(this.filePath, 'utf-8');
+
+      // Handle empty file
+      if (content.trim() === '') {
+        return [];
+      }
+
+      // Parse CSV
+      const lines = content.split('\n').filter(line => line.trim() !== '');
+
+      if (lines.length === 0) {
+        return [];
+      }
+
+      // Validate and skip header row
+      const headers = lines[0].split(',').map(h => h.trim());
+      if (!this.validateHeaders(headers)) {
+        console.error(`CSV headers invalid. Expected: ${EXPECTED_HEADERS.join(',')}`);
+        return [];
+      }
+
+      // Parse data rows
+      const records: HistoricalRecord[] = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        try {
+          const record = this.parseRow(lines[i]);
+          if (record) {
+            records.push(record);
+          }
+        } catch (error) {
+          console.error(`Error parsing CSV row ${i + 1}: ${error}`);
+          // Continue parsing other rows
+        }
+      }
+
+      return records;
+
+    } catch (error) {
+      console.error(`CSV read failure: ${error}`);
+      return [];
+    }
   }
 
-  async getConsecutiveFailures(): Promise<ConsecutiveFailures> {
-    // Stub implementation - tests should fail
-    throw new Error('Not implemented yet - TDD stub');
-  }
-
+  /**
+   * Validates CSV file format
+   * Returns validation result with details
+   */
   async validate(): Promise<CsvValidationResult> {
-    // Stub implementation - tests should fail
-    throw new Error('Not implemented yet - TDD stub');
+    try {
+      // Check if file exists
+      const exists = await this.fileExists();
+      if (!exists) {
+        return {
+          valid: false,
+          hasHeaders: false,
+          empty: true,
+          suggestedAction: 'Create new CSV file',
+        };
+      }
+
+      // Read file content
+      const content = await readFile(this.filePath, 'utf-8');
+
+      // Handle empty file
+      if (content.trim() === '') {
+        return {
+          valid: false,
+          hasHeaders: false,
+          empty: true,
+        };
+      }
+
+      // Parse CSV
+      const lines = content.split('\n').filter(line => line.trim() !== '');
+
+      if (lines.length === 0) {
+        return {
+          valid: false,
+          hasHeaders: false,
+          empty: true,
+        };
+      }
+
+      // Validate headers
+      const headers = lines[0].split(',').map(h => h.trim());
+      const hasValidHeaders = this.validateHeaders(headers);
+
+      if (!hasValidHeaders) {
+        return {
+          valid: false,
+          hasHeaders: false,
+          corrupted: true,
+          fallbackSuggested: true,
+          suggestedAction: 'Headers invalid - fallback to next tier',
+          errors: [`Invalid headers: expected ${EXPECTED_HEADERS.join(',')}, got ${headers.join(',')}`],
+        };
+      }
+
+      // Parse sample rows (first 10 or all if less)
+      const sampleSize = Math.min(10, lines.length - 1);
+      let sampleRowsParsed = 0;
+      const errors: string[] = [];
+
+      for (let i = 1; i <= sampleSize; i++) {
+        try {
+          const record = this.parseRow(lines[i]);
+          if (record) {
+            sampleRowsParsed++;
+          }
+        } catch (error) {
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          errors.push(`Row ${i + 1}: ${errorMessage}`);
+        }
+      }
+
+      // If all sample rows failed to parse, CSV is corrupted
+      if (sampleRowsParsed === 0 && sampleSize > 0) {
+        return {
+          valid: false,
+          hasHeaders: true,
+          corrupted: true,
+          fallbackSuggested: true,
+          sampleRowsParsed: 0,
+          errors,
+          suggestedAction: 'CSV corrupted - fallback to next tier',
+        };
+      }
+
+      return {
+        valid: true,
+        hasHeaders: true,
+        empty: false,
+        sampleRowsParsed,
+        errors: errors.length > 0 ? errors : undefined,
+      };
+
+    } catch (error) {
+      return {
+        valid: false,
+        hasHeaders: false,
+        corrupted: true,
+        fallbackSuggested: true,
+        suggestedAction: `Read error: ${error}`,
+      };
+    }
   }
 
-  async getRecordsForService(serviceName: string, limit?: number): Promise<HistoricalRecord[]> {
-    // Stub implementation - tests should fail
-    throw new Error('Not implemented yet - TDD stub');
+  /**
+   * Derives consecutive failure count for each service
+   * Counts consecutive FAIL statuses from most recent records
+   */
+  async getConsecutiveFailures(): Promise<ConsecutiveFailures> {
+    const records = await this.readAll();
+    const failures: ConsecutiveFailures = {};
+
+    // Group records by service
+    const byService: { [key: string]: HistoricalRecord[] } = {};
+
+    for (const record of records) {
+      if (!byService[record.service_name]) {
+        byService[record.service_name] = [];
+      }
+      byService[record.service_name].push(record);
+    }
+
+    // For each service, count consecutive failures from most recent
+    for (const [serviceName, serviceRecords] of Object.entries(byService)) {
+      // Sort by timestamp descending (most recent first)
+      serviceRecords.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+
+      // Count consecutive failures from the start
+      let consecutiveCount = 0;
+      for (const record of serviceRecords) {
+        if (record.status === 'FAIL') {
+          consecutiveCount++;
+        } else {
+          break; // Stop at first non-failure
+        }
+      }
+
+      failures[serviceName] = consecutiveCount;
+    }
+
+    return failures;
+  }
+
+  /**
+   * Checks if file exists
+   */
+  private async fileExists(): Promise<boolean> {
+    try {
+      await access(this.filePath, constants.F_OK);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  /**
+   * Validates CSV headers match expected format
+   */
+  private validateHeaders(headers: string[]): boolean {
+    if (headers.length !== EXPECTED_HEADERS.length) {
+      return false;
+    }
+
+    for (let i = 0; i < headers.length; i++) {
+      if (headers[i] !== EXPECTED_HEADERS[i]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  /**
+   * Parses a single CSV row into HistoricalRecord
+   * Handles RFC 4180 quoted values
+   */
+  private parseRow(line: string): HistoricalRecord | null {
+    const values = parseCsvLine(line);
+
+    if (values.length !== 7) {
+      throw new Error(`Invalid number of columns: expected 7, got ${values.length}`);
+    }
+
+    const [timestamp, service_name, status, latency_ms, http_status_code, failure_reason, correlation_id] = values;
+
+    // Validate status using type guard from utils
+    if (!isValidStatus(status)) {
+      throw new Error(`Invalid status: ${status}`);
+    }
+
+    // Parse numbers
+    const latency = parseInt(latency_ms, 10);
+    const httpCode = parseInt(http_status_code, 10);
+
+    if (isNaN(latency) || isNaN(httpCode)) {
+      throw new Error('Invalid numeric values');
+    }
+
+    return {
+      timestamp,
+      service_name,
+      status, // TypeScript now knows this is the correct type thanks to isValidStatus type guard
+      latency_ms: latency,
+      http_status_code: httpCode,
+      failure_reason,
+      correlation_id,
+    };
   }
 }
