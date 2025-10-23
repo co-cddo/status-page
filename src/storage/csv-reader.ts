@@ -57,8 +57,8 @@ export class CsvReader {
         return [];
       }
 
-      // Parse CSV
-      const lines = content.split('\n').filter(line => line.trim() !== '');
+      // Parse CSV using RFC 4180-compliant line splitting
+      const lines = this.splitCsvLines(content);
 
       if (lines.length === 0) {
         return [];
@@ -96,8 +96,9 @@ export class CsvReader {
       return records;
 
     } catch (error) {
-      console.error(`CSV read failure: ${error}`);
-      return [];
+      // Re-throw errors instead of suppressing them
+      // This ensures missing file errors and other critical errors are not silently ignored
+      throw error;
     }
   }
 
@@ -130,8 +131,8 @@ export class CsvReader {
         };
       }
 
-      // Parse CSV
-      const lines = content.split('\n').filter(line => line.trim() !== '');
+      // Parse CSV using RFC 4180-compliant line splitting
+      const lines = this.splitCsvLines(content);
 
       if (lines.length === 0) {
         return {
@@ -284,6 +285,66 @@ export class CsvReader {
   }
 
   /**
+   * Splits CSV content into lines respecting RFC 4180 quoted fields
+   * Newlines inside quoted fields are preserved as part of the field value
+   */
+  private splitCsvLines(content: string): string[] {
+    const lines: string[] = [];
+    let currentLine = '';
+    let inQuotes = false;
+    let i = 0;
+
+    while (i < content.length) {
+      const char = content[i];
+      const next = content[i + 1];
+
+      if (char === '"') {
+        if (inQuotes && next === '"') {
+          // Double quote - add both quotes to line
+          currentLine += '""';
+          i += 2;
+        } else {
+          // Toggle quote state
+          inQuotes = !inQuotes;
+          currentLine += char;
+          i++;
+        }
+      } else if (char === '\n' && !inQuotes) {
+        // End of line (outside quotes)
+        if (currentLine.trim() !== '') {
+          lines.push(currentLine);
+        }
+        currentLine = '';
+        i++;
+      } else if (char === '\r' && next === '\n' && !inQuotes) {
+        // Windows line ending (outside quotes)
+        if (currentLine.trim() !== '') {
+          lines.push(currentLine);
+        }
+        currentLine = '';
+        i += 2;
+      } else if (char === '\r' && !inQuotes) {
+        // Mac line ending (outside quotes)
+        if (currentLine.trim() !== '') {
+          lines.push(currentLine);
+        }
+        currentLine = '';
+        i++;
+      } else {
+        currentLine += char;
+        i++;
+      }
+    }
+
+    // Add final line if not empty
+    if (currentLine.trim() !== '') {
+      lines.push(currentLine);
+    }
+
+    return lines;
+  }
+
+  /**
    * Checks if file exists
    */
   private async fileExists(): Promise<boolean> {
@@ -348,8 +409,11 @@ export class CsvReader {
     const latency = parseInt(latency_ms, 10);
     const httpCode = parseInt(http_status_code, 10);
 
-    if (isNaN(latency) || isNaN(httpCode)) {
-      throw new Error('Invalid numeric values');
+    if (isNaN(latency)) {
+      throw new Error(`Invalid latency_ms value: ${latency_ms}`);
+    }
+    if (isNaN(httpCode)) {
+      throw new Error(`Invalid http_status_code value: ${http_status_code}`);
     }
 
     return {

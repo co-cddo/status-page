@@ -524,7 +524,7 @@ describe('Eleventy Runner', () => {
       vi.mocked(readFile).mockResolvedValue('[]');
 
       // Act
-      // const _result_: EleventyBuildResult = await eleventyRunner.build();
+      await eleventyRunner.build();
 
       // Assert
       expect(access).toHaveBeenCalledWith(join(testOutputDir, 'index.html'));
