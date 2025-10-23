@@ -1,61 +1,21 @@
-# API Contracts
+# Data Contracts
 
-This directory contains the API contract specifications for the GOV.UK Public Services Status Monitor.
+This directory contains the data contracts for the machine-readable outputs of the GOV.UK Public Services Status Monitor.
 
-## Files
+## `status.json`
 
-### `status-api.openapi.yaml`
+The `status.json` file provides the current status of all monitored services. The OpenAPI specification for this file is defined in `status-api.openapi.yaml`.
 
-OpenAPI 3.0.3 specification for the JSON Status API endpoint.
+## `history.csv`
 
-**Endpoint**: `/api/status.json`
-**Method**: GET
-**Response Format**: JSON array of service status objects
+The `history.csv` file provides a historical log of all health check results. The file is a standard CSV with the following columns:
 
-**Key Points**:
-- Static JSON file (read-only API)
-- Updated after each health check cycle
-- Contains **current status only** (no historical data)
-- Historical data available via `/history.csv`
-
-## Validation
-
-To validate the OpenAPI specification:
-
-```bash
-npx @redocly/cli lint contracts/status-api.openapi.yaml
-```
-
-## Documentation Generation
-
-To generate interactive API documentation:
-
-```bash
-# Using Redoc
-npx @redocly/cli build-docs contracts/status-api.openapi.yaml --output api-docs.html
-
-# Using Swagger UI
-npx swagger-ui-watcher contracts/status-api.openapi.yaml
-```
-
-## TypeScript Type Generation
-
-To generate TypeScript types from the OpenAPI spec:
-
-```bash
-npx openapi-typescript contracts/status-api.openapi.yaml --output src/types/api.ts
-```
-
-## Contract Testing
-
-Contract tests verify that the generated JSON API conforms to this specification:
-
-```bash
-npm test -- tests/contract/status-api.test.ts
-```
-
-## References
-
-- [OpenAPI Specification](https://swagger.io/specification/)
-- [Feature Specification](../spec.md)
-- [Data Model](../data-model.md)
+| Column | Description |
+| :--- | :--- |
+| `timestamp` | The ISO 8601 timestamp of when the check was performed. |
+| `service_name` | The name of the service that was checked. |
+| `status` | The result of the health check. Can be `PASS`, `DEGRADED`, `FAIL`, or `THROTTLED`. |
+| `latency_ms` | The response latency in milliseconds. |
+| `http_status_code` | The HTTP status code received from the service. |
+| `failure_reason` | A description of why the check failed, if applicable. |
+| `correlation_id` | A UUID (v4) to correlate with logs. |

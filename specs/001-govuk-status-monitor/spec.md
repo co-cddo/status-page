@@ -7,6 +7,14 @@
 
 ## Clarifications
 
+### Session 2025-10-23
+
+- Q: The specification assumes monitoring fewer than 100 services initially. What is the anticipated medium-term (1-2 year) scaling target for the number of monitored services? → A: < 100 services. The current file-based architecture is sufficient for the foreseeable future.
+- Q: The specification mentions mitigating service overload with "reasonable check intervals." How should the system react if a monitored service starts rate-limiting the health checker (e.g., responding with HTTP 429 "Too Many Requests")? → A: Treat as a distinct 'THROTTLED' status, separate from 'FAILED'.
+- Q: The spec mentions CSV file growth as a risk, with manual rotation as the mitigation. Is there a defined data retention policy? For how long should historical data be kept available in the `history.csv` file? → A: Indefinitely. All historical data should be kept.
+- Q: If a service is "Degraded" for multiple consecutive checks, should it be escalated to "Failed" or just remain "Degraded"? → A: Remain 'DEGRADED'. 'DEGRADED' status accurately reflects performance issues without implying complete service unavailability.
+- Q: The spec is security-conscious, but lacks a process for reporting security vulnerabilities. Should a `SECURITY.md` file be created with instructions on how to report potential vulnerabilities? → A: No, security reporting can be handled through standard issue tracking.
+
 ### Session 2025-10-21
 
 - Q: How should the system handle HTTP redirects (301, 302, 307) - automatically follow them, treat as failures, or validate them? → A: The probe should be configured with the expected status code (e.g., 301) and validate the Location header matches the expected redirect URL. The system does not automatically follow redirects; instead it validates redirect responses when explicitly configured with expected status and Location header.
@@ -310,8 +318,9 @@ As a service operator, I need the status page to automatically update on a regul
 - **FR-014a**: System MUST validate response headers match expected header values when header validation is configured (e.g., Location header for redirects)
 - **FR-015**: System MUST record health checks as FAILED in CSV and JSON data when: network error occurs, timeout exceeded (exceeds configured timeout threshold), unexpected status code received, expected text not found, or expected header value mismatch (single failure marks service DOWN in data layer for accurate historical tracking)
 - **FR-015a**: System MUST require 2 consecutive check cycle failures (not within same cycle) before displaying a service as DOWN on the HTML status page to reduce noise from transient network issues for end users. "Consecutive" means successive check cycles - if cycle 1 FAIL → cycle 2 FAIL, display as DOWN. If cycle 1 FAIL → cycle 2 PASS → cycle 3 FAIL, counter resets (not consecutive). Consecutive failure count derived from recent CSV records per service (no separate column needed) - system counts consecutive FAIL statuses in CSV during HTML generation. If count >= 2, service displayed as DOWN.
-- **FR-015b**: System MUST record health checks as DEGRADED when response succeeds (passes all validations) but latency exceeds warning_threshold (default 2 seconds)
+- **FR-015b**: System MUST record health checks as DEGRADED when response succeeds (passes all validations) but latency exceeds warning_threshold (default 2 seconds). A service that is 'DEGRADED' for multiple consecutive checks MUST remain 'DEGRADED' and NOT be escalated to 'FAILED'.
 - **FR-016**: System MUST record failure reason (connection timeout, DNS failure, HTTP error code, text mismatch, header mismatch, etc.) for failed checks
+- **FR-016a**: System MUST treat HTTP 429 "Too Many Requests" as a distinct 'THROTTLED' status, separate from 'FAILED', and record the failure reason accordingly.
 - **FR-017**: System MUST support configurable timeout values per service (default 5 seconds if not specified); requests exceeding timeout are terminated and marked as FAILED
 - **FR-017a**: System MUST support configurable warning_threshold values per service (default 2 seconds if not specified); successful responses exceeding warning_threshold are marked as DEGRADED
 - **FR-017b**: System MUST support configurable retry logic (max_retries, default 3): retry failed health checks immediately (no delays, no exponential backoff) for network errors only (connection refused, DNS failure, timeout). Retries do NOT count toward "2 consecutive failures" threshold for HTML display. Non-network failures (status code mismatch, text validation failure, header mismatch) are NOT retried.
@@ -517,7 +526,7 @@ All services use tag-based categorization (e.g., "health", "driving licences", "
 - Services being monitored expose HTTP(S) endpoints suitable for polling without rate limiting concerns
 - YAML configuration will be managed manually (edited by administrators) rather than through a web UI
 - Browser-based auto-refresh using meta refresh tag (`<meta http-equiv="refresh" content="60">`) is used for status updates (60-second interval), providing broad compatibility including users with JavaScript disabled
-- Initial deployment will monitor fewer than 100 services (allowing simple file-based storage and single-process monitoring)
+- Initial deployment will monitor fewer than 100 services (allowing simple file-based storage and single-process monitoring). This scale is considered sufficient for the foreseeable future (1-2 year timeframe).
 - Tag labels displayed on a flat list provide sufficient visual categorization without requiring grouping, filtering, or hierarchical organization UI
 - Response text validation uses simple substring matching (not regex or complex pattern matching) within first 100KB of response body
 - POST payloads are valid JSON objects
@@ -599,8 +608,8 @@ All services use tag-based categorization (e.g., "health", "driving licences", "
 - **Single Point of Failure**: If monitoring service itself fails, status page becomes stale
   - *Mitigation*: Implement monitoring service health check and fallback messaging on status page indicating last successful update
 
-- **CSV File Growth**: Historical data in CSV format will grow unbounded over time
-  - *Mitigation*: Implement file rotation, archival, or migration to database when file size exceeds threshold
+- **CSV File Growth**: Historical data in CSV format will grow unbounded over time, as all historical data is to be kept indefinitely.
+  - *Mitigation*: Monitor CSV file size and implement manual archival or migration to a more scalable storage solution (e.g., database) when file size exceeds operational thresholds.
 
 - **Static Asset Staleness**: If generation process fails, status page shows outdated information
   - *Mitigation*: Include timestamp on status page and prominent warning if data is older than expected threshold
@@ -624,7 +633,7 @@ All services use tag-based categorization (e.g., "health", "driving licences", "
   - *Mitigation*: Document that smoke tests run from GitHub infrastructure; validate runner network access during setup; consider dedicated monitoring host for production checks if needed
 
 - **GitHub Actions Security in Open Source**: Open source repository workflows are publicly visible and could be exploited if permissions are not properly restricted
-  - *Mitigation*: Research and apply security best practices (via Perplexity/Context7) before implementation; explicitly define all workflow permissions using principle of least privilege; never rely on default permissive permissions; review GitHub's security hardening guides for Actions
+  - *Mitigation*: Research and apply security best practices (via Perplexity/Context7) before implementation; explicitly define all workflow permissions using principle of least privilege; never rely on default permissive permissions; review GitHub's security hardening guides for Actions. Security vulnerability reporting will be handled through standard issue tracking.
 
 - **Test Suite Maintenance**: Comprehensive test coverage (unit, e2e, a11y, coverage, performance) requires ongoing maintenance and can slow development if test execution time grows
   - *Mitigation*: Monitor test execution times; parallelize test suites where possible; ensure `npm test` provides clear failure messages for each suite to enable quick diagnosis; consider test suite optimization as technical debt item if execution exceeds 10 minutes
