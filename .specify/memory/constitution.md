@@ -1,32 +1,35 @@
 <!--
-Sync Impact Report - Version 1.2.0
+Sync Impact Report - Version 1.3.0
 ================================================================================
-Version Change: 1.1.0 → 1.2.0
-Rationale: MINOR version - Materially expanded Principle III (Test-Driven Development)
-           to require 100% test pass rate (zero tolerance for failures)
+Version Change: 1.2.0 → 1.3.0
+Rationale: MINOR version - Added two new testing principles (IX and X) regarding
+           test skipping prohibition and mock service requirements
 
-Modified Principles:
-- Principle III: Test-Driven Development (NON-NEGOTIABLE)
-  OLD: 80% minimum code coverage requirement
-  NEW: 100% test pass rate requirement + 80% minimum code coverage
-  Impact: Stricter quality gate - no test failures tolerated in any context
+Modified Principles: None
 
-Added Sections: None
+Added Sections:
+- Principle IX: No Test Skipping or TODOs (NON-NEGOTIABLE)
+  Impact: Prohibits test.skip, test.todo, it.skip, it.todo except during active TDD
+- Principle X: Mock Services for Testing (NON-NEGOTIABLE)
+  Impact: Requires all tests to use mock services instead of real external services
 
 Removed Sections: None
 
 Templates Status:
-✅ plan-template.md - Updated Constitution Check section to reflect 100% pass requirement
+✅ plan-template.md - No changes required (testing approach already documented)
 ✅ spec-template.md - No changes required (testing requirements already comprehensive)
-✅ tasks-template.md - Updated testing guidance to emphasize zero-failure requirement
-✅ CLAUDE.md - Updated testing requirements and development workflow sections
+✅ tasks-template.md - Updated to reference new testing principles
+✅ CLAUDE.md - Will need update to reference new testing principles
+✅ Test files - Will need audit to ensure compliance with new principles
 
 Follow-up TODOs:
 - RATIFICATION_DATE placeholder retained as TODO - requires project owner decision
-- Update CI/CD pipeline documentation to emphasize zero-tolerance test gate
-- Consider adding pre-commit hooks to run tests locally before push
+- Audit existing test files for any skipped/todo tests
+- Implement mock service infrastructure for integration tests
+- Update CI/CD documentation to reference new testing principles
 
 Previous Amendment History:
+- v1.2.0 (2025-10-23): Expanded Principle III with 100% test pass requirement
 - v1.1.0 (2025-10-22): Expanded CI/CD monitoring operations via gh CLI
 - v1.0.0 (2025-10-22): Initial constitution with 8 core principles
 
@@ -156,6 +159,38 @@ All technical implementation decisions MUST be based on documented research usin
 
 **Rationale**: Government services require audit trails for technical decisions. Research-driven decisions prevent security vulnerabilities, maintenance issues, and technical debt from undocumented assumptions.
 
+### IX. No Test Skipping or TODOs (NON-NEGOTIABLE)
+
+Tests MUST NOT be skipped or marked as todo except during active Test-Driven Development (TDD) red phase. This is a production application, not an MVP.
+
+**Requirements**:
+- Prohibited in production code: `test.skip()`, `test.todo()`, `it.skip()`, `it.todo()`, `describe.skip()`, `describe.todo()`
+- Prohibited in CI/CD: Any form of test exclusion, filtering, or conditional execution
+- Exception ONLY during active TDD red phase: Test may be marked todo while actively writing the test, but MUST be implemented before PR
+- All tests MUST execute on every test run - no conditional test execution based on environment
+- Flaky tests MUST be fixed immediately, not skipped or disabled
+- Tests that cannot be made reliable MUST be removed entirely, not left as skipped
+- Test suite MUST fail with non-zero exit code if any skipped/todo tests are detected
+
+**Rationale**: Skipped tests create false confidence in code quality and hide potential issues. Government services require complete test coverage with all tests actively validating functionality. There is no MVP phase - this is production software from day one.
+
+### X. Mock Services for Testing (NON-NEGOTIABLE)
+
+Tests MUST NOT call external services. All external dependencies MUST be mocked to ensure reliable, deterministic, and fast test execution.
+
+**Requirements**:
+- Integration tests MUST use mock HTTP servers to simulate external services
+- Mock services MUST simulate: successful responses, error responses (4xx, 5xx), timeouts, network failures, slow responses, flaky behavior
+- Test environment MUST NOT require internet connectivity
+- Mock services MUST be configurable to test all edge cases: good services, bad services, flaky services, slow services
+- Use tools like MSW (Mock Service Worker) or similar for HTTP mocking
+- Database interactions MUST use in-memory databases or test fixtures
+- File system operations MUST use virtual file systems or temp directories
+- Time-based tests MUST use controllable clock mocking
+- No real API keys, credentials, or external service endpoints in test code
+
+**Rationale**: External service dependencies make tests unreliable (network issues, service downtime), slow (network latency), and expensive (API costs). Government services require deterministic testing that can run in isolated environments. Mock services ensure tests are fast, reliable, and comprehensive in coverage of edge cases.
+
 ## Development Standards
 
 ### Code Review Requirements
@@ -188,6 +223,7 @@ All code MUST pass peer review before merge to main branch.
 - npm test MUST exit with non-zero code on any test failure
 - Skipped/ignored tests are not permitted - all tests must execute and pass
 - Flaky tests MUST be fixed immediately or removed (not skipped)
+- All tests MUST use mock services - no external service calls permitted
 
 ### Documentation Requirements
 
@@ -382,9 +418,9 @@ Constitution amendments require:
 
 ### Versioning Policy
 
-**Current Version**: 1.2.0
+**Current Version**: 1.3.0
 - **MAJOR** version: Backward-incompatible governance changes
 - **MINOR** version: New principles or expanded guidance
 - **PATCH** version: Clarifications and non-semantic refinements
 
-**Version**: 1.2.0 | **Ratified**: TODO(RATIFICATION_DATE): Requires project owner decision | **Last Amended**: 2025-10-23
+**Version**: 1.3.0 | **Ratified**: TODO(RATIFICATION_DATE): Requires project owner decision | **Last Amended**: 2025-10-23

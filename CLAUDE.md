@@ -203,7 +203,7 @@ Time-series data stored in `history.csv`:
 
 ## Constitutional Compliance
 
-This project adheres to strict governance principles in `.specify/memory/constitution.md` (v1.1.1):
+This project adheres to strict governance principles in `.specify/memory/constitution.md` (v1.3.0):
 
 ### Critical Principles
 
@@ -260,6 +260,21 @@ This project adheres to strict governance principles in `.specify/memory/constit
   - **Perplexity** (`mcp__perplexity-researcher__perplexity_ask`): Complex architectural decisions (token cost - use judiciously)
 - Decision documents (e.g., research.md) MUST cite sources
 - Do NOT implement from memory when research tools are available
+
+**IX. No Test Skipping or TODOs (NON-NEGOTIABLE)**
+- Tests MUST NOT be skipped or marked as todo except during active TDD red phase
+- Prohibited: `test.skip()`, `test.todo()`, `it.skip()`, `it.todo()`, `describe.skip()`, `describe.todo()`
+- This is a production application from day one, not an MVP
+- Flaky tests MUST be fixed immediately, not skipped or disabled
+- Test suite MUST fail with non-zero exit code if any skipped/todo tests are detected
+
+**X. Mock Services for Testing (NON-NEGOTIABLE)**
+- Tests MUST NOT call external services - all external dependencies MUST be mocked
+- Mock services MUST simulate: successful responses, errors (4xx, 5xx), timeouts, network failures
+- Use tools like MSW (Mock Service Worker) or similar for HTTP mocking
+- Database interactions MUST use in-memory databases or test fixtures
+- Time-based tests MUST use controllable clock mocking
+- No real API keys, credentials, or external service endpoints in test code
 
 ## Development Workflow
 
