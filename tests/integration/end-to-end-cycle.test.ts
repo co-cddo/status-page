@@ -18,20 +18,13 @@
  * - Various scenarios (all pass, some fail, some degraded, first run PENDING)
  *
  * Per tasks.md: Use real config.yaml with test services, verify complete pipeline
+ *
+ * Constitutional Compliance:
+ * - Principle IX: No skipped tests - all tests enabled and passing
+ * - Principle X: No external services - uses MockHttpServer for all HTTP calls
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { MockWorker } from '../helpers/worker-test-harness.js';
-
-// Mock worker_threads BEFORE any imports that use it
-// This allows integration tests to run without tsx worker thread issues
-// NOTE: vi.mock factories MUST be synchronous - async factories cause vitest to hang
-vi.mock('node:worker_threads', () => {
-  return {
-    Worker: MockWorker,
-  };
-});
-
+import { describe, it, expect, beforeAll, beforeEach, afterEach, afterAll } from 'vitest';
 import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.js';
 import { CsvWriter } from '../../src/storage/csv-writer.js';
 import { JsonWriter } from '../../src/storage/json-writer.js';
@@ -39,6 +32,7 @@ import { EleventyRunner } from '../../src/orchestrator/eleventy-runner.js';
 import type { HealthCheckConfig, HealthCheckResult, ServiceStatusAPI } from '../../src/types/health-check.js';
 import { readFile, access, rm, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
+import { MockHttpServer } from '../mocks/mock-http-server.js';
 
 const TEST_DIR = join(process.cwd(), 'tests', 'integration', 'test-output');
 const TEST_CSV_PATH = join(TEST_DIR, 'history.csv');
@@ -50,6 +44,36 @@ describe('Full Health Check Cycle', () => {
   let csvWriter: CsvWriter;
   let jsonWriter: JsonWriter;
   let eleventyRunner: EleventyRunner;
+  let mockServer: MockHttpServer;
+
+  beforeAll(async () => {
+    // Set up mock HTTP server with comprehensive routes
+    mockServer = new MockHttpServer();
+    await mockServer.start();
+
+    // Success routes
+    mockServer.addRoute({ method: 'GET', path: '/status/200', statusCode: 200, body: 'OK' });
+    mockServer.addRoute({ method: 'GET', path: '/status/201', statusCode: 201, body: 'Created' });
+
+    // Error routes
+    mockServer.addRoute({ method: 'GET', path: '/status/500', statusCode: 500, body: 'Internal Server Error' });
+    mockServer.addRoute({ method: 'GET', path: '/status/503', statusCode: 503, body: 'Service Unavailable' });
+
+    // Delay route for degraded testing (3 second delay)
+    mockServer.addRoute({
+      method: 'GET',
+      path: '/delay/3',
+      statusCode: 200,
+      body: 'Delayed response',
+      delay: 3000,
+    });
+  });
+
+  afterAll(async () => {
+    if (mockServer) {
+      await mockServer.stop();
+    }
+  });
 
   beforeEach(async () => {
     // Create test directories
@@ -60,7 +84,7 @@ describe('Full Health Check Cycle', () => {
     // Initialize components
     poolManager = new WorkerPoolManager({ poolSize: 4 });
     await poolManager.initialize();
-    
+
     csvWriter = new CsvWriter(TEST_CSV_PATH);
     jsonWriter = new JsonWriter(TEST_JSON_PATH);
     eleventyRunner = new EleventyRunner({
@@ -91,7 +115,7 @@ describe('Full Health Check Cycle', () => {
         {
           serviceName: 'service-1',
           method: 'GET',
-          url: 'https://httpbin.org/status/200',
+          url: `${mockServer.url}/status/200`,
           timeout: 10000,
           warningThreshold: 5000,
           maxRetries: 2,
@@ -101,7 +125,7 @@ describe('Full Health Check Cycle', () => {
         {
           serviceName: 'service-2',
           method: 'GET',
-          url: 'https://httpbin.org/status/201',
+          url: `${mockServer.url}/status/201`,
           timeout: 10000,
           warningThreshold: 5000,
           maxRetries: 2,
@@ -163,7 +187,7 @@ describe('Full Health Check Cycle', () => {
         {
           serviceName: 'passing-service',
           method: 'GET',
-          url: 'https://httpbin.org/status/200',
+          url: `${mockServer.url}/status/200`,
           timeout: 10000,
           warningThreshold: 5000,
           maxRetries: 1,
@@ -173,7 +197,7 @@ describe('Full Health Check Cycle', () => {
         {
           serviceName: 'failing-service',
           method: 'GET',
-          url: 'https://httpbin.org/status/500',
+          url: `${mockServer.url}/status/500`,
           timeout: 10000,
           warningThreshold: 5000,
           maxRetries: 1,
@@ -183,7 +207,7 @@ describe('Full Health Check Cycle', () => {
         {
           serviceName: 'degraded-service',
           method: 'GET',
-          url: 'https://httpbin.org/delay/3',
+          url: `${mockServer.url}/delay/3`,
           timeout: 10000,
           warningThreshold: 1000,
           maxRetries: 1,

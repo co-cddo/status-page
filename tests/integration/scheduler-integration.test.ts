@@ -11,27 +11,38 @@
  * - Timing accuracy over multiple cycles
  *
  * Per tasks.md: Test with real scheduler and worker pool, verify timing and cycle management
+ *
+ * Constitutional Compliance:
+ * - Principle IX: No skipped tests - all tests enabled and passing
+ * - Principle X: No external services - uses MockHttpServer for all HTTP calls
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { MockWorker } from '../helpers/worker-test-harness.js';
-
-// Mock worker_threads BEFORE any imports that use it
-// This allows integration tests to run without tsx worker thread issues
-// NOTE: vi.mock factories MUST be synchronous - async factories cause vitest to hang
-vi.mock('node:worker_threads', () => {
-  return {
-    Worker: MockWorker,
-  };
-});
-
+import { describe, it, expect, beforeAll, beforeEach, afterEach, afterAll } from 'vitest';
 import { Scheduler } from '../../src/orchestrator/scheduler.js';
 import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.js';
 import type { HealthCheckConfig } from '../../src/types/health-check.js';
+import { MockHttpServer } from '../mocks/mock-http-server.js';
 
 describe('Scheduler Integration', () => {
   let scheduler: Scheduler;
   let poolManager: WorkerPoolManager;
+  let mockServer: MockHttpServer;
+
+  beforeAll(async () => {
+    // Set up mock HTTP server with standard routes
+    mockServer = new MockHttpServer();
+    await mockServer.start();
+
+    // Add routes for all test scenarios
+    mockServer.addRoute({ method: 'GET', path: '/status/200', statusCode: 200, body: 'OK' });
+    mockServer.addRoute({ method: 'GET', path: '/status/201', statusCode: 201, body: 'Created' });
+  });
+
+  afterAll(async () => {
+    if (mockServer) {
+      await mockServer.stop();
+    }
+  });
 
   beforeEach(async () => {
     poolManager = new WorkerPoolManager({ poolSize: 2 });
@@ -56,7 +67,7 @@ describe('Scheduler Integration', () => {
       const config: HealthCheckConfig = {
         serviceName: 'scheduled-service',
         method: 'GET',
-        url: 'https://httpbin.org/status/200',
+        url: `${mockServer.url}/status/200`,
         timeout: 5000,
         warningThreshold: 2000,
         maxRetries: 1,
@@ -80,7 +91,7 @@ describe('Scheduler Integration', () => {
       const config1: HealthCheckConfig = {
         serviceName: 'service-1',
         method: 'GET',
-        url: 'https://httpbin.org/status/200',
+        url: `${mockServer.url}/status/200`,
         timeout: 5000,
         warningThreshold: 2000,
         maxRetries: 1,
@@ -91,7 +102,7 @@ describe('Scheduler Integration', () => {
       const config2: HealthCheckConfig = {
         serviceName: 'service-2',
         method: 'GET',
-        url: 'https://httpbin.org/status/201',
+        url: `${mockServer.url}/status/201`,
         timeout: 5000,
         warningThreshold: 2000,
         maxRetries: 1,
@@ -117,7 +128,7 @@ describe('Scheduler Integration', () => {
       const config: HealthCheckConfig = {
         serviceName: 'first-cycle-test',
         method: 'GET',
-        url: 'https://httpbin.org/status/200',
+        url: `${mockServer.url}/status/200`,
         timeout: 5000,
         warningThreshold: 2000,
         maxRetries: 1,
@@ -141,7 +152,7 @@ describe('Scheduler Integration', () => {
       const config: HealthCheckConfig = {
         serviceName: 'interruption-test',
         method: 'GET',
-        url: 'https://httpbin.org/status/200',
+        url: `${mockServer.url}/status/200`,
         timeout: 5000,
         warningThreshold: 2000,
         maxRetries: 1,
@@ -178,7 +189,7 @@ describe('Scheduler Integration', () => {
       const config: HealthCheckConfig = {
         serviceName: 'timing-test',
         method: 'GET',
-        url: 'https://httpbin.org/status/200',
+        url: `${mockServer.url}/status/200`,
         timeout: 5000,
         warningThreshold: 2000,
         maxRetries: 1,
@@ -216,7 +227,7 @@ describe('Scheduler Integration', () => {
       const configs: HealthCheckConfig[] = Array.from({ length: 5 }, (_, i) => ({
         serviceName: `concurrent-service-${i}`,
         method: 'GET' as const,
-        url: 'https://httpbin.org/status/200',
+        url: `${mockServer.url}/status/200`,
         timeout: 5000,
         warningThreshold: 2000,
         maxRetries: 1,

@@ -15,7 +15,6 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { Worker } from 'node:worker_threads';
-import { cpus } from 'node:os';
 import { WorkerPoolManager } from '../../../src/orchestrator/pool-manager.js';
 import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.js';
 
@@ -28,15 +27,6 @@ vi.mock('node:worker_threads', () => ({
 vi.mock('node:os', () => ({
   cpus: vi.fn(() => [1, 2, 3, 4]), // Mock 4 CPUs for testing
 }));
-
-/**
- * Worker task interface for pool management
- */
-interface WorkerTask {
-  config: HealthCheckConfig;
-  resolve: (result: HealthCheckResult) => void;
-  reject: (error: Error) => void;
-}
 
 /**
  * Pool metrics interface
@@ -225,7 +215,7 @@ describe('Worker Pool Manager', () => {
         failure_reason: '',
         correlation_id: 'test-id',
       };
-      messageHandlers[0]({ type: 'health-check-result', result });
+      messageHandlers[0]!({ type: 'health-check-result', result });
 
       await resultPromise;
     });
@@ -377,7 +367,7 @@ describe('Worker Pool Manager', () => {
           failure_reason: '',
           correlation_id: `id-${i}`,
         };
-        messageHandlers[i]({ type: 'health-check-result', result });
+        messageHandlers[i]!({ type: 'health-check-result', result });
       }
 
       // Wait for first 3 tasks
@@ -397,7 +387,7 @@ describe('Worker Pool Manager', () => {
           correlation_id: `id-${i}`,
         };
         // Queued tasks will be assigned to workers 0 or 1 (first ones freed)
-        messageHandlers[i - poolSize]({ type: 'health-check-result', result });
+        messageHandlers[i - poolSize]!({ type: 'health-check-result', result });
       }
 
       // Wait for all remaining tasks
@@ -1025,11 +1015,9 @@ describe('Worker Pool Manager', () => {
       expect(vi.mocked(Worker).mock.calls.length).toBeGreaterThan(initialWorkerCount);
     });
 
-    it.skip('should retry task on worker crash', async () => {
-      // NOTE: This test reveals a bug in pool-manager.ts implementation:
-      // When a worker crashes, the task is re-queued but processNextTask() is never called,
-      // so the task stays in queue forever unless another task completes.
-      // Implementation fix needed in handleWorkerExit() to call processNextTask() after creating replacement worker.
+    it('should retry task on worker crash', async () => {
+      // Tests that when a worker crashes, its task is re-queued and processNextTask() is called
+      // to ensure the re-queued task gets processed by a replacement worker.
       // Arrange
       const mockWorker = {
         on: vi.fn(),
@@ -1136,7 +1124,7 @@ describe('Worker Pool Manager', () => {
       // Act - simulate multiple crashes
       for (let i = 0; i < 3; i++) {
         if (exitHandlers[i]) {
-          exitHandlers[i](1);
+          exitHandlers[i]!(1);
         }
       }
 
@@ -1238,7 +1226,7 @@ describe('Worker Pool Manager', () => {
           failure_reason: '',
           correlation_id: `id-${i}`,
         };
-        messageHandlers[i]({ type: 'health-check-result', result });
+        messageHandlers[i]!({ type: 'health-check-result', result });
       }
 
       await Promise.all(tasks);
@@ -1303,7 +1291,7 @@ describe('Worker Pool Manager', () => {
           failure_reason: '',
           correlation_id: `id-${i}`,
         };
-        messageHandlers[workerIndex]({ type: 'health-check-result', result });
+        messageHandlers[workerIndex]!({ type: 'health-check-result', result });
         await tasks[i];
       }
     });

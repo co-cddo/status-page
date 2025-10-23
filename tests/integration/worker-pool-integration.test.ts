@@ -1,9 +1,13 @@
 /**
  * Integration tests for Worker Pool Manager
  * T033b: Worker pool integration test
+ *
+ * Constitutional Compliance:
+ * - Principle IX: No skipped tests - all tests enabled and passing
+ * - Principle X: No external services - uses MockHttpServer for all HTTP calls
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeAll, beforeEach, afterEach, afterAll, vi } from 'vitest';
 
 // Define MockWorker inline using vi.hoisted
 const { MockWorker } = vi.hoisted(() => {
@@ -66,9 +70,31 @@ vi.mock('node:worker_threads', () => ({
 
 import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.js';
 import type { HealthCheckConfig, HealthCheckResult } from '../../src/types/health-check.js';
+import { MockHttpServer } from '../mocks/mock-http-server.js';
 
 describe('Worker Pool Integration', () => {
   let poolManager: WorkerPoolManager;
+  let mockServer: MockHttpServer;
+
+  beforeAll(async () => {
+    // Set up mock HTTP server for worker threads to call
+    mockServer = new MockHttpServer();
+    await mockServer.start();
+
+    // Add route for testing
+    mockServer.addRoute({
+      method: 'GET',
+      path: '/status/200',
+      statusCode: 200,
+      body: 'OK',
+    });
+  });
+
+  afterAll(async () => {
+    if (mockServer) {
+      await mockServer.stop();
+    }
+  });
 
   beforeEach(async () => {
     poolManager = new WorkerPoolManager({ poolSize: 4 });
@@ -82,11 +108,11 @@ describe('Worker Pool Integration', () => {
   });
 
   describe('Real Worker Thread Execution', () => {
-    it('should execute health checks using real worker threads with actual HTTP requests', async () => {
+    it('should execute health checks using real worker threads with mock HTTP server', async () => {
       const config: HealthCheckConfig = {
-        serviceName: 'httpbin-status-200',
+        serviceName: 'mock-service-200',
         method: 'GET',
-        url: 'https://httpbin.org/status/200',
+        url: `${mockServer.url}/status/200`,
         timeout: 10000,
         warningThreshold: 5000,
         maxRetries: 3,
@@ -97,7 +123,7 @@ describe('Worker Pool Integration', () => {
       const result: HealthCheckResult = await poolManager.executeHealthCheck(config);
 
       expect(result).toBeDefined();
-      expect(result.serviceName).toBe('httpbin-status-200');
+      expect(result.serviceName).toBe('mock-service-200');
       expect(result.status).toBe('PASS');
       expect(result.http_status_code).toBe(200);
       expect(result.latency_ms).toBeGreaterThan(0);

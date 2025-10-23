@@ -1,34 +1,31 @@
 <!--
-Sync Impact Report - Version 1.3.0
+Sync Impact Report - Version 1.4.0
 ================================================================================
-Version Change: 1.2.0 → 1.3.0
-Rationale: MINOR version - Added two new testing principles (IX and X) regarding
-           test skipping prohibition and mock service requirements
+Version Change: 1.3.0 → 1.4.0
+Rationale: MINOR version - Added new CI/CD workflow principle (XI) regarding
+           regular GitHub pushes and continuous CI status monitoring
 
 Modified Principles: None
 
 Added Sections:
-- Principle IX: No Test Skipping or TODOs (NON-NEGOTIABLE)
-  Impact: Prohibits test.skip, test.todo, it.skip, it.todo except during active TDD
-- Principle X: Mock Services for Testing (NON-NEGOTIABLE)
-  Impact: Requires all tests to use mock services instead of real external services
+- Principle XI: Continuous Integration Workflow (NON-NEGOTIABLE)
+  Impact: Requires regular GitHub pushes and CI status monitoring via gh CLI
 
 Removed Sections: None
 
 Templates Status:
-✅ plan-template.md - No changes required (testing approach already documented)
-✅ spec-template.md - No changes required (testing requirements already comprehensive)
-✅ tasks-template.md - Updated to reference new testing principles
-✅ CLAUDE.md - Will need update to reference new testing principles
-✅ Test files - Will need audit to ensure compliance with new principles
+✅ plan-template.md - No changes required (CI/CD approach already documented)
+✅ spec-template.md - No changes required (testing requirements comprehensive)
+✅ tasks-template.md - No changes required (CI workflow implicit in process)
+✅ CLAUDE.md - Should reference new CI workflow principle
 
 Follow-up TODOs:
 - RATIFICATION_DATE placeholder retained as TODO - requires project owner decision
-- Audit existing test files for any skipped/todo tests
-- Implement mock service infrastructure for integration tests
-- Update CI/CD documentation to reference new testing principles
+- Update CLAUDE.md to reference Principle XI for CI workflow guidance
+- Add GitHub Actions workflow examples demonstrating gh CLI usage
 
 Previous Amendment History:
+- v1.3.0 (2025-10-23): Added Principles IX and X for test discipline
 - v1.2.0 (2025-10-23): Expanded Principle III with 100% test pass requirement
 - v1.1.0 (2025-10-22): Expanded CI/CD monitoring operations via gh CLI
 - v1.0.0 (2025-10-22): Initial constitution with 8 core principles
@@ -191,6 +188,42 @@ Tests MUST NOT call external services. All external dependencies MUST be mocked 
 
 **Rationale**: External service dependencies make tests unreliable (network issues, service downtime), slow (network latency), and expensive (API costs). Government services require deterministic testing that can run in isolated environments. Mock services ensure tests are fast, reliable, and comprehensive in coverage of edge cases.
 
+### XI. Continuous Integration Workflow (NON-NEGOTIABLE)
+
+All development work MUST follow continuous integration practices with regular GitHub pushes and active CI monitoring. Code stays on developer machines for hours, not days.
+
+**Requirements**:
+- Push to GitHub regularly throughout development session (minimum: after each completed task or every 2-4 hours)
+- Use `gh` CLI to monitor CI status after each push
+- MUST check CI status before ending work session - never leave broken builds
+- MUST fix failing CI checks immediately or revert the breaking commit
+- Feature branches MUST be kept up-to-date with main branch (regular merges/rebases)
+- Work-in-progress commits are acceptable and encouraged (use conventional commit prefixes: `wip:`, `test:`, `fix:`)
+- Use `gh pr checks <pr-number>` to monitor PR status before requesting review
+- Use `gh run watch` to monitor workflow execution in real-time
+- CI failures MUST NOT be ignored or deferred - treat as blocking issues
+- Push frequency increases during active debugging or when making breaking changes
+
+**CI Monitoring Commands**:
+```bash
+# After pushing code
+git push
+
+# Check latest workflow run status
+gh run list --limit 5
+
+# Watch specific workflow run
+gh run watch <run-id>
+
+# Check PR CI status
+gh pr checks <pr-number>
+
+# View failed workflow logs
+gh run view <run-id> --log-failed
+```
+
+**Rationale**: Regular pushes with CI monitoring provide early feedback on integration issues, prevent massive merge conflicts, create audit trail of progress, enable team visibility, and reduce risk of data loss. Government services require disciplined CI/CD practices to maintain code quality and deployment reliability. Broken CI builds represent integration failures that MUST be addressed immediately.
+
 ## Development Standards
 
 ### Code Review Requirements
@@ -202,7 +235,7 @@ All code MUST pass peer review before merge to main branch.
 - Minimum 1 reviewer for non-critical changes
 - Reviewers MUST verify: GDS Design System compliance, accessibility (WCAG 2.2 AAA), test coverage (80% minimum), **100% test pass rate**, performance budget compliance, constitution principle adherence
 - Protected main branch: Requires passing CI + code review approval
-- Conventional Commits format: feat:, fix:, docs:, test:, refactor:, chore:
+- Conventional Commits format: feat:, fix:, docs:, test:, refactor:, chore:, wip:
 
 ### Branching Strategy
 
@@ -211,6 +244,7 @@ All code MUST pass peer review before merge to main branch.
 - Merge via pull requests only
 - Delete feature branches after merge
 - No direct commits to main branch
+- Push feature branch regularly (see Principle XI)
 
 ### Testing Requirements
 
@@ -418,9 +452,9 @@ Constitution amendments require:
 
 ### Versioning Policy
 
-**Current Version**: 1.3.0
+**Current Version**: 1.4.0
 - **MAJOR** version: Backward-incompatible governance changes
 - **MINOR** version: New principles or expanded guidance
 - **PATCH** version: Clarifications and non-semantic refinements
 
-**Version**: 1.3.0 | **Ratified**: TODO(RATIFICATION_DATE): Requires project owner decision | **Last Amended**: 2025-10-23
+**Version**: 1.4.0 | **Ratified**: TODO(RATIFICATION_DATE): Requires project owner decision | **Last Amended**: 2025-10-23
