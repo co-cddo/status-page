@@ -12,6 +12,7 @@ import { describe, it, expect, beforeAll, beforeEach, afterEach, afterAll, vi } 
 // Define MockWorker inline using vi.hoisted
 const { MockWorker } = vi.hoisted(() => {
   // Import EventEmitter inside hoisted function to avoid initialization order issues
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { EventEmitter } = require('node:events');
 
   class MockWorkerClass extends EventEmitter {
