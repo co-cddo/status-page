@@ -16,7 +16,7 @@
  */
 
 import { readFile, writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
+import { basename, join } from 'path';
 import { load as cheerioLoad } from 'cheerio';
 import { createLogger } from '../logging/logger.ts';
 import { inlineCSS, inlineCSSUrls } from './css-inliner.ts';
@@ -65,7 +65,8 @@ async function main(): Promise<void> {
     // Determine input HTML file
     const inputFile = options.inputFile || 'index.html';
     const inputPath = join(options.inputDir, inputFile);
-    const outputPath = join(options.outputDir, inputFile);
+    // Output to flat structure - just use the filename, not the full path
+    const outputPath = join(options.outputDir, basename(inputFile));
 
     // Read HTML file
     logger.info({ file: inputPath }, 'Reading HTML file');

@@ -10,9 +10,10 @@
  */
 
 import { readFile } from 'fs/promises';
-import { dirname, join, resolve } from 'path';
+import { dirname, join } from 'path';
 import type { CheerioAPI } from 'cheerio';
 import { createLogger } from '../logging/logger.ts';
+import { extractPathFromUrl, safeResolvePath } from '../utils/url.ts';
 
 const logger = createLogger({ serviceName: 'image-inliner' });
 
@@ -30,7 +31,7 @@ export interface ImageInlineResult {
  * @param htmlPath - Path to the HTML file (for resolving relative image paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineImages($: CheerioAPI, htmlPath: string): Promise<ImageInlineResult> {
+export async function inlineImages($: CheerioAPI, htmlPath: string, siteRoot = '_site'): Promise<ImageInlineResult> {
   const result: ImageInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -77,10 +78,16 @@ export async function inlineImages($: CheerioAPI, htmlPath: string): Promise<Ima
     }
 
     try {
-      // Resolve image file path (handle both relative and absolute paths)
-      const imagePath = src.startsWith('/') ? join(htmlDir, src) : resolve(htmlDir, src);
+      // Extract path from URL if it's an absolute URL (http://localhost:8080/assets/image.png -> /assets/image.png)
+      const pathOnly = extractPathFromUrl(src);
 
-      logger.debug({ src, imagePath }, 'Reading image file');
+      // Resolve image file path with security validation (handle both relative and absolute paths)
+      // Absolute paths (starting with /) resolve from site root (strip leading /), relative paths from HTML directory
+      const imagePath = pathOnly.startsWith('/')
+        ? safeResolvePath(siteRoot, pathOnly.slice(1))
+        : safeResolvePath(htmlDir, pathOnly);
+
+      logger.debug({ src, pathOnly, imagePath }, 'Reading image file');
 
       // Read image file as buffer
       const imageBuffer = await readFile(imagePath);
@@ -138,7 +145,7 @@ export async function inlineImages($: CheerioAPI, htmlPath: string): Promise<Ima
  * @param htmlPath - Path to the HTML file (for resolving relative paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineCSSImages($: CheerioAPI, htmlPath: string): Promise<ImageInlineResult> {
+export async function inlineCSSImages($: CheerioAPI, htmlPath: string, siteRoot = '_site'): Promise<ImageInlineResult> {
   const result: ImageInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -186,10 +193,16 @@ export async function inlineCSSImages($: CheerioAPI, htmlPath: string): Promise<
       }
 
       try {
-        // Resolve file path
-        const imagePath = url.startsWith('/') ? join(htmlDir, url) : resolve(htmlDir, url);
+        // Extract path from URL if it's an absolute URL
+        const pathOnly = extractPathFromUrl(url);
 
-        logger.debug({ url, imagePath }, 'Reading CSS image file');
+        // Resolve file path with security validation
+        // Absolute paths (starting with /) resolve from site root (strip leading /), relative paths from HTML directory
+        const imagePath = pathOnly.startsWith('/')
+          ? safeResolvePath(siteRoot, pathOnly.slice(1))
+          : safeResolvePath(htmlDir, pathOnly);
+
+        logger.debug({ url, pathOnly, imagePath }, 'Reading CSS image file');
 
         // Read file and convert to data URI
         const imageBuffer = await readFile(imagePath);
@@ -251,7 +264,14 @@ export async function inlineCSSImages($: CheerioAPI, htmlPath: string): Promise<
       }
 
       try {
-        const imagePath = url.startsWith('/') ? join(htmlDir, url) : resolve(htmlDir, url);
+        // Extract path from URL if it's an absolute URL
+        const pathOnly = extractPathFromUrl(url);
+
+        // Resolve file path with security validation (BUG FIX: use siteRoot for absolute paths)
+        // Absolute paths (starting with /) resolve from site root (strip leading /), relative paths from HTML directory
+        const imagePath = pathOnly.startsWith('/')
+          ? safeResolvePath(siteRoot, pathOnly.slice(1))
+          : safeResolvePath(htmlDir, pathOnly);
 
         const imageBuffer = await readFile(imagePath);
         const mimeType = getImageMimeType(imagePath);

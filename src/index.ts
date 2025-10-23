@@ -19,6 +19,8 @@ import { generateCorrelationId } from './logging/correlation.ts';
 import { startMetricsServer, stopMetricsServer } from './metrics/server.ts';
 import { WorkerPoolManager } from './orchestrator/pool-manager.ts';
 import { Scheduler } from './orchestrator/scheduler.ts';
+import { JsonWriter } from './storage/json-writer.ts';
+import { CsvWriter } from './storage/csv-writer.ts';
 import type { Configuration } from './types/config.ts';
 import type { HealthCheckConfig } from './types/health-check.ts';
 
@@ -28,15 +30,23 @@ import type { HealthCheckConfig } from './types/health-check.ts';
 interface AppState {
   poolManager: WorkerPoolManager | null;
   scheduler: Scheduler | null;
+  jsonWriter: JsonWriter | null;
+  csvWriter: CsvWriter | null;
+  dataWriterTimer: NodeJS.Timeout | null;
   shutdownInProgress: boolean;
   shutdownStartTime: number | null;
+  serviceTags: Map<string, string[]>;
 }
 
 const state: AppState = {
   poolManager: null,
   scheduler: null,
+  jsonWriter: null,
+  csvWriter: null,
+  dataWriterTimer: null,
   shutdownInProgress: false,
   shutdownStartTime: null,
+  serviceTags: new Map(),
 };
 
 /**
@@ -182,6 +192,56 @@ function initializeScheduler(poolManager: WorkerPoolManager, config: Configurati
 }
 
 /**
+ * Write health check results to _data/health.json and history.csv
+ */
+async function writeHealthData(): Promise<void> {
+  if (!state.scheduler || !state.jsonWriter || !state.csvWriter) {
+    return;
+  }
+
+  try {
+    const results = state.scheduler.getLatestResults();
+    if (results.length > 0) {
+      // Write to JSON (overwrites with latest status)
+      await state.jsonWriter.write(results, state.serviceTags);
+
+      // Append to CSV (historical record)
+      await state.csvWriter.appendBatch(results);
+    }
+  } catch (error) {
+    logger.error({ err: error }, 'Failed to write health data');
+  }
+}
+
+/**
+ * Start periodic health data writer
+ * Writes _data/health.json every 10 seconds
+ */
+function startDataWriter(): void {
+  // Write immediately on start
+  writeHealthData().catch((error) => {
+    logger.error({ err: error }, 'Initial health data write failed');
+  });
+
+  // Then write every 10 seconds
+  state.dataWriterTimer = setInterval(() => {
+    writeHealthData().catch((error) => {
+      logger.error({ err: error }, 'Periodic health data write failed');
+    });
+  }, 10000);
+}
+
+/**
+ * Stop periodic health data writer
+ */
+function stopDataWriter(): void {
+  if (state.dataWriterTimer) {
+    clearInterval(state.dataWriterTimer);
+    state.dataWriterTimer = null;
+  }
+}
+
+/**
  * Graceful shutdown handler
  * Ensures clean shutdown within 30 seconds
  */
@@ -201,14 +261,20 @@ async function gracefulShutdown(signal: string): Promise<void> {
   shutdownLogger.info('Starting graceful shutdown');
 
   try {
-    // 1. Stop scheduler from triggering new health check cycles
+    // 1. Stop data writer and write final health data
+    shutdownLogger.info('Stopping data writer');
+    stopDataWriter();
+    await writeHealthData();
+    shutdownLogger.info('Final health data written');
+
+    // 2. Stop scheduler from triggering new health check cycles
     if (state.scheduler) {
       shutdownLogger.info('Stopping scheduler');
       await state.scheduler.stop();
       shutdownLogger.info('Scheduler stopped');
     }
 
-    // 2. Shutdown worker pool (waits for in-flight checks up to 30s)
+    // 3. Shutdown worker pool (waits for in-flight checks up to 30s)
     if (state.poolManager) {
       shutdownLogger.info('Shutting down worker pool');
       await state.poolManager.shutdown({ gracefulTimeout: 30000 });
@@ -223,7 +289,7 @@ async function gracefulShutdown(signal: string): Promise<void> {
       );
     }
 
-    // 3. Stop Prometheus metrics server
+    // 4. Stop Prometheus metrics server
     shutdownLogger.info('Stopping metrics server');
     await stopMetricsServer(5000);
     shutdownLogger.info('Metrics server stopped');
@@ -311,6 +377,13 @@ async function main(): Promise<void> {
     // 1. Load and validate configuration
     const config = loadAndValidateConfig();
 
+    // Extract service tags for JSON writer
+    for (const ping of config.pings) {
+      if (ping.tags && ping.tags.length > 0) {
+        state.serviceTags.set(ping.name, ping.tags);
+      }
+    }
+
     // 2. Start Prometheus metrics server
     const metricsPort = parseInt(process.env.PROMETHEUS_PORT ?? '9090', 10);
     mainLogger.info({ port: metricsPort }, 'Starting Prometheus metrics server');
@@ -323,6 +396,12 @@ async function main(): Promise<void> {
     state.scheduler = initializeScheduler(state.poolManager, config);
     state.scheduler.start();
     mainLogger.info('Scheduler started');
+
+    // 5. Initialize JSON and CSV writers, start periodic data writer
+    state.jsonWriter = new JsonWriter('_data/health.json');
+    state.csvWriter = new CsvWriter('history.csv');
+    startDataWriter();
+    mainLogger.info('Health data writer started (JSON + CSV)');
 
     // 5. Setup signal handlers for graceful shutdown
     process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));

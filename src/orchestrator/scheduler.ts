@@ -3,7 +3,7 @@
  * Manages periodic health check cycles using priority queue ordered by next check time
  */
 
-import type { HealthCheckConfig } from '../types/health-check.ts';
+import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 import type { WorkerPoolManager } from './pool-manager.ts';
 
 export interface ScheduledCheck {
@@ -31,6 +31,7 @@ export class Scheduler {
   private queue: ScheduledCheck[] = [];
   private schedulerTimer: NodeJS.Timeout | null = null;
   private inFlightChecks: Set<Promise<void>> = new Set();
+  private latestResults: Map<string, HealthCheckResult> = new Map();
 
   constructor(poolManager: WorkerPoolManager, options?: SchedulerOptions) {
     this.poolManager = poolManager;
@@ -228,7 +229,9 @@ export class Scheduler {
    */
   private async executeCheck(check: ScheduledCheck): Promise<void> {
     try {
-      await this.poolManager.executeHealthCheck(check.config);
+      const result = await this.poolManager.executeHealthCheck(check.config);
+      // Store latest result for this service
+      this.latestResults.set(check.config.serviceName, result);
     } catch (error) {
       // Log error but continue operation
       console.error(
@@ -257,5 +260,12 @@ export class Scheduler {
         this.scheduleNextCheck();
       }
     }
+  }
+
+  /**
+   * Get latest health check results for all services
+   */
+  getLatestResults(): HealthCheckResult[] {
+    return Array.from(this.latestResults.values());
   }
 }

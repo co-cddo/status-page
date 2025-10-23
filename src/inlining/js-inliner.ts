@@ -9,9 +9,10 @@
  */
 
 import { readFile } from 'fs/promises';
-import { dirname, join, resolve } from 'path';
+import { dirname, join } from 'path';
 import type { CheerioAPI } from 'cheerio';
 import { createLogger } from '../logging/logger.ts';
+import { extractPathFromUrl, safeResolvePath } from '../utils/url.ts';
 
 const logger = createLogger({ serviceName: 'js-inliner' });
 
@@ -29,7 +30,7 @@ export interface JSInlineResult {
  * @param htmlPath - Path to the HTML file (for resolving relative JS paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineJavaScript($: CheerioAPI, htmlPath: string): Promise<JSInlineResult> {
+export async function inlineJavaScript($: CheerioAPI, htmlPath: string, siteRoot = '_site'): Promise<JSInlineResult> {
   const result: JSInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -70,10 +71,16 @@ export async function inlineJavaScript($: CheerioAPI, htmlPath: string): Promise
     }
 
     try {
-      // Resolve JavaScript file path (handle both relative and absolute paths)
-      const jsPath = src.startsWith('/') ? join(htmlDir, src) : resolve(htmlDir, src);
+      // Extract path from URL if it's an absolute URL (http://localhost:8080/assets/file.js -> /assets/file.js)
+      const pathOnly = extractPathFromUrl(src);
 
-      logger.debug({ src, jsPath }, 'Reading JavaScript file');
+      // Resolve JavaScript file path with security validation (handle both relative and absolute paths)
+      // Absolute paths (starting with /) resolve from site root (strip leading /), relative paths from HTML directory
+      const jsPath = pathOnly.startsWith('/')
+        ? safeResolvePath(siteRoot, pathOnly.slice(1))
+        : safeResolvePath(htmlDir, pathOnly);
+
+      logger.debug({ src, pathOnly, jsPath }, 'Reading JavaScript file');
 
       // Read JavaScript file
       const jsContent = await readFile(jsPath, 'utf-8');

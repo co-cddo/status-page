@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/status.njk
 title: GOV.UK service status
 description: Current operational status of GOV.UK public services and infrastructure components
 ---
@@ -19,12 +19,10 @@ description: Current operational status of GOV.UK public services and infrastruc
   Schema: Array of ServiceStatusAPI objects per data-model.md
 #}
 
-{% from "components/service-status.njk" import serviceStatus %}
 {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "components/service-status.njk" import serviceStatus %}
 
-{% block mainContent %}
-
-  {# Page heading with generation timestamp #}
+{# Page heading with generation timestamp #}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
@@ -34,42 +32,40 @@ description: Current operational status of GOV.UK public services and infrastruc
       {# Page generation timestamp (dual format per FR-029b) #}
       <p class="govuk-body-l">
         Page generated:
-        <time datetime="{{ health.generatedAt or ('' | now) }}" class="govuk-!-font-weight-bold">
-          {{ health.generatedAt or ('' | now) }}
+        <time datetime="{{ health.generatedAt }}" class="govuk-!-font-weight-bold">
+          {{ health.generatedAt }}
         </time>
       </p>
     </div>
   </div>
 
   {# Alert banner if any services are down (high visibility for incidents) #}
-  {% set failedServices = health.services | selectattr("status", "equalto", "FAIL") | list %}
+  {% set failedServices = health.services | selectattr("status", "equalto", "FAIL") %}
   {% if failedServices.length > 0 %}
+    {% set serviceWord = "service is" if failedServices.length == 1 else "services are" %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
         {{ govukNotificationBanner({
           type: "important",
           titleText: "Service Alert",
-          html: "<p class='govuk-notification-banner__heading'>" +
-                failedServices.length +
-                (failedServices.length === 1 ? " service is" : " services are") +
-                " currently experiencing issues</p>"
+          titleId: "govuk-notification-banner-title-failed",
+          html: "<p class='govuk-notification-banner__heading'>" ~ failedServices.length ~ " " ~ serviceWord ~ " currently experiencing issues</p>"
         }) }}
       </div>
     </div>
   {% endif %}
 
   {# Success banner if all services operational #}
-  {% set operationalServices = health.services | selectattr("status", "equalto", "PASS") | list %}
-  {% if operationalServices.length === health.services.length and health.services.length > 0 %}
+  {% set operationalServices = health.services | selectattr("status", "equalto", "PASS") %}
+  {% if operationalServices.length == health.services.length and health.services.length > 0 %}
+    {% set serviceWord = "service is" if health.services.length == 1 else "services are" %}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
         {{ govukNotificationBanner({
           type: "success",
           titleText: "All Systems Operational",
-          html: "<p class='govuk-notification-banner__heading'>All " +
-                health.services.length +
-                (health.services.length === 1 ? " service is" : " services are") +
-                " operating normally</p>"
+          titleId: "govuk-notification-banner-title-success",
+          html: "<p class='govuk-notification-banner__heading'>All " ~ health.services.length ~ " " ~ serviceWord ~ " operating normally</p>"
         }) }}
       </div>
     </div>
@@ -86,7 +82,7 @@ description: Current operational status of GOV.UK public services and infrastruc
     <div class="govuk-grid-column-full">
 
       {# Failed services section #}
-      {% set failedServices = health.services | selectattr("status", "equalto", "FAIL") | list %}
+      {% set failedServices = health.services | selectattr("status", "equalto", "FAIL") %}
       {% if failedServices.length > 0 %}
         <section aria-labelledby="failed-services-heading">
           <h2 id="failed-services-heading" class="govuk-heading-l govuk-!-margin-top-6">
@@ -100,7 +96,7 @@ description: Current operational status of GOV.UK public services and infrastruc
       {% endif %}
 
       {# Degraded services section #}
-      {% set degradedServices = health.services | selectattr("status", "equalto", "DEGRADED") | list %}
+      {% set degradedServices = health.services | selectattr("status", "equalto", "DEGRADED") %}
       {% if degradedServices.length > 0 %}
         <section aria-labelledby="degraded-services-heading">
           <h2 id="degraded-services-heading" class="govuk-heading-l govuk-!-margin-top-6">
@@ -114,7 +110,7 @@ description: Current operational status of GOV.UK public services and infrastruc
       {% endif %}
 
       {# Operational services section #}
-      {% set operationalServices = health.services | selectattr("status", "equalto", "PASS") | list %}
+      {% set operationalServices = health.services | selectattr("status", "equalto", "PASS") %}
       {% if operationalServices.length > 0 %}
         <section aria-labelledby="operational-services-heading">
           <h2 id="operational-services-heading" class="govuk-heading-l govuk-!-margin-top-6">
@@ -128,7 +124,7 @@ description: Current operational status of GOV.UK public services and infrastruc
       {% endif %}
 
       {# Pending services section (awaiting first health check) #}
-      {% set pendingServices = health.services | selectattr("status", "equalto", "PENDING") | list %}
+      {% set pendingServices = health.services | selectattr("status", "equalto", "PENDING") %}
       {% if pendingServices.length > 0 %}
         <section aria-labelledby="pending-services-heading">
           <h2 id="pending-services-heading" class="govuk-heading-l govuk-!-margin-top-6">
@@ -146,7 +142,7 @@ description: Current operational status of GOV.UK public services and infrastruc
       {% endif %}
 
       {# Empty state (no services configured) #}
-      {% if health.services.length === 0 %}
+      {% if health.services.length == 0 %}
         <section aria-labelledby="no-services-heading">
           <h2 id="no-services-heading" class="govuk-heading-l govuk-!-margin-top-6">
             No services configured
@@ -199,5 +195,3 @@ description: Current operational status of GOV.UK public services and infrastruc
       </details>
     </div>
   </div>
-
-{% endblock %}

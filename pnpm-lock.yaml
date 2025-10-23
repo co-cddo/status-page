@@ -14,15 +14,27 @@ importers:
       '@x-govuk/govuk-eleventy-plugin':
         specifier: ^8.0.4
         version: 8.0.4(@types/markdown-it@14.1.2)(markdown-it@14.1.0)
+      '@x-govuk/govuk-prototype-components':
+        specifier: ^5.0.2
+        version: 5.0.2(govuk-frontend@5.13.0)
+      accessible-autocomplete:
+        specifier: ^3.0.1
+        version: 3.0.1
       ajv:
         specifier: ^8.17.1
         version: 8.17.1
       cheerio:
         specifier: ^1.1.2
         version: 1.1.2
+      govuk-frontend:
+        specifier: ^5.13.0
+        version: 5.13.0
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
+      markdown-it-govuk:
+        specifier: ^0.7.0
+        version: 0.7.0
       pino:
         specifier: ^10.1.0
         version: 10.1.0

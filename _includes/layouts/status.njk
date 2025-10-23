@@ -1,0 +1,21 @@
+{#
+  Status Page Layout
+
+  Extends the GOV.UK Eleventy Plugin base layout and adds:
+  - Meta refresh tag for auto-updates (60 seconds)
+  - Custom page title suffix
+  - Outputs page content via {{ content }} variable
+#}
+{% extends "layouts/base.njk" %}
+
+{% block pageTitle %}{{ title or "GOV.UK service status" }}{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  {# Meta refresh tag for automatic page updates (no JavaScript required) #}
+  <meta http-equiv="refresh" content="{{ settings.page_refresh or 60 }}">
+{% endblock %}
+
+{% block content %}
+  {{ content }}
+{% endblock %}

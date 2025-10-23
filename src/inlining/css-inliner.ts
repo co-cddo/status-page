@@ -9,9 +9,10 @@
  */
 
 import { readFile } from 'fs/promises';
-import { dirname, join, resolve } from 'path';
+import { dirname, join } from 'path';
 import type { CheerioAPI } from 'cheerio';
 import { createLogger } from '../logging/logger.ts';
+import { extractPathFromUrl, safeResolvePath } from '../utils/url.ts';
 
 const logger = createLogger({ serviceName: 'css-inliner' });
 
@@ -29,7 +30,7 @@ export interface CSSInlineResult {
  * @param htmlPath - Path to the HTML file (for resolving relative CSS paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineCSS($: CheerioAPI, htmlPath: string): Promise<CSSInlineResult> {
+export async function inlineCSS($: CheerioAPI, htmlPath: string, siteRoot = '_site'): Promise<CSSInlineResult> {
   const result: CSSInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -60,10 +61,16 @@ export async function inlineCSS($: CheerioAPI, htmlPath: string): Promise<CSSInl
     }
 
     try {
-      // Resolve CSS file path (handle both relative and absolute paths)
-      const cssPath = href.startsWith('/') ? join(htmlDir, href) : resolve(htmlDir, href);
+      // Extract path from URL if it's an absolute URL (http://localhost:8080/assets/file.css -> /assets/file.css)
+      const pathOnly = extractPathFromUrl(href);
 
-      logger.debug({ href, cssPath }, 'Reading CSS file');
+      // Resolve CSS file path with security validation (handle both relative and absolute paths)
+      // Absolute paths (starting with /) resolve from site root (strip leading /), relative paths from HTML directory
+      const cssPath = pathOnly.startsWith('/')
+        ? safeResolvePath(siteRoot, pathOnly.slice(1))
+        : safeResolvePath(htmlDir, pathOnly);
+
+      logger.debug({ href, pathOnly, cssPath }, 'Reading CSS file');
 
       // Read CSS file
       const cssContent = await readFile(cssPath, 'utf-8');
@@ -154,8 +161,8 @@ export async function inlineCSSUrls($: CheerioAPI, htmlPath: string): Promise<CS
       }
 
       try {
-        // Resolve file path
-        const filePath = url.startsWith('/') ? join(htmlDir, url) : resolve(htmlDir, url);
+        // Resolve file path with security validation
+        const filePath = safeResolvePath(htmlDir, url);
 
         // Read file and convert to data URI
         const fileContent = await readFile(filePath);

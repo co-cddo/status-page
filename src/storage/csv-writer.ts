@@ -21,73 +21,89 @@ import { createLogger } from '../logging/logger.ts';
 const logger = createLogger({ serviceName: 'csv-writer' });
 
 export class CsvWriter {
+  private writeLock: Promise<void> = Promise.resolve();
+
   constructor(private filePath: string) {}
 
   /**
    * Appends a single HealthCheckResult to the CSV file
    * Creates file with header if it doesn't exist
    * Per FR-016, FR-018, FR-020, FR-020a
+   * Uses in-memory mutex to prevent race conditions in concurrent writes
    */
   async append(result: HealthCheckResult): Promise<void> {
-    try {
-      // Check if file exists
-      const fileExists = await this.fileExists();
+    // Serialize write operations using promise chaining
+    this.writeLock = this.writeLock.then(async () => {
+      try {
+        // Check if file exists
+        const fileExists = await this.fileExists();
 
-      // If file doesn't exist, create it with header
-      if (!fileExists) {
-        await this.createFileWithHeader();
+        // If file doesn't exist, create it with header
+        if (!fileExists) {
+          await this.createFileWithHeader();
+        }
+
+        // Convert result to CSV row and append
+        const csvRow = this.toCsvRow(result);
+        await appendFile(this.filePath, csvRow + '\n', 'utf-8');
+      } catch (error) {
+        // Per FR-020a: Exit with non-zero code on write failure
+        logger.error({ error, filePath: this.filePath }, 'CSV write failure');
+        process.exit(1);
       }
+    });
 
-      // Convert result to CSV row and append
-      const csvRow = this.toCsvRow(result);
-      await appendFile(this.filePath, csvRow + '\n', 'utf-8');
-    } catch (error) {
-      // Per FR-020a: Exit with non-zero code on write failure
-      logger.error({ error, filePath: this.filePath }, 'CSV write failure');
-      process.exit(1);
-    }
+    // Wait for this write operation to complete
+    await this.writeLock;
   }
 
   /**
    * Appends multiple HealthCheckResults in a single write operation
    * More efficient for batch operations
+   * Uses in-memory mutex to prevent race conditions in concurrent writes
    */
   async appendBatch(results: HealthCheckResult[]): Promise<void> {
     if (results.length === 0) {
       return;
     }
 
-    try {
-      // Check if file exists
-      const fileExists = await this.fileExists();
+    // Serialize write operations using promise chaining
+    this.writeLock = this.writeLock.then(async () => {
+      try {
+        // Check if file exists
+        const fileExists = await this.fileExists();
 
-      // Prepare data to write
-      let data = '';
+        // Prepare data to write
+        let data = '';
 
-      // Add header if file doesn't exist
-      if (!fileExists) {
-        data += CSV_HEADER_LINE;
+        // Add header if file doesn't exist
+        if (!fileExists) {
+          data += CSV_HEADER_LINE;
+        }
+
+        // Convert all results to CSV rows
+        for (const result of results) {
+          data += this.toCsvRow(result) + '\n';
+        }
+
+        // Atomic write
+        if (fileExists) {
+          await appendFile(this.filePath, data, 'utf-8');
+        } else {
+          await writeFile(this.filePath, data, 'utf-8');
+        }
+      } catch (error) {
+        // Per FR-020a: Exit with non-zero code on write failure
+        logger.error(
+          { error, filePath: this.filePath, count: results.length },
+          'CSV batch write failure'
+        );
+        process.exit(1);
       }
+    });
 
-      // Convert all results to CSV rows
-      for (const result of results) {
-        data += this.toCsvRow(result) + '\n';
-      }
-
-      // Atomic write
-      if (fileExists) {
-        await appendFile(this.filePath, data, 'utf-8');
-      } else {
-        await writeFile(this.filePath, data, 'utf-8');
-      }
-    } catch (error) {
-      // Per FR-020a: Exit with non-zero code on write failure
-      logger.error(
-        { error, filePath: this.filePath, count: results.length },
-        'CSV batch write failure'
-      );
-      process.exit(1);
-    }
+    // Wait for this write operation to complete
+    await this.writeLock;
   }
 
   /**

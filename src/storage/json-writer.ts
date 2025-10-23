@@ -41,7 +41,7 @@ export class JsonWriter {
       // Sort by status: FAIL → DEGRADED → PASS → PENDING
       apiResults.sort((a, b) => STATUS_ORDER[a.status] - STATUS_ORDER[b.status]);
 
-      // Write to file with pretty formatting
+      // Write to file with pretty formatting (plain array)
       const json = JSON.stringify(apiResults, null, 2);
       await writeFile(this.filePath, json, 'utf-8');
     } catch (error) {
