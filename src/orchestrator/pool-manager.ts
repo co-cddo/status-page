@@ -166,11 +166,16 @@ export class WorkerPoolManager {
 
   /**
    * Handle worker error event
+   * Note: workerInfo parameter is required to maintain consistent handler signature
+   * with handleWorkerMessage and handleWorkerExit, but is not currently used.
+   * Kept for future error tracking/reporting enhancements.
    */
   private handleWorkerError(workerInfo: WorkerInfo, error: Error): void {
     // Log error but don't crash the pool
     // Worker error event doesn't mean the worker crashed
     console.error('Worker error:', error);
+    // workerInfo available for future use in error tracking
+    void workerInfo;
   }
 
   /**

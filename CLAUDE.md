@@ -53,11 +53,12 @@ This is the **GOV.UK Public Services Status Monitor** - a self-contained status 
 pnpm run dev             # Run health check orchestrator in watch mode
 pnpm exec tsx src/index.ts  # Run orchestrator directly
 
-# Testing
+# Testing (100% pass rate required - ZERO tolerance for failures)
 pnpm test                # Run all test suites (unit, e2e, accessibility, coverage, performance)
 pnpm run test:unit       # Run unit tests only
 pnpm run test:e2e        # Run E2E tests only
 pnpm run test:coverage   # Run with coverage report (80% minimum required)
+# NOTE: ANY test failure must be fixed immediately before new work proceeds
 
 # Building
 pnpm run build           # Run health checks → 11ty → post-build inlining → output/index.html
@@ -221,8 +222,11 @@ This project adheres to strict governance principles in `.specify/memory/constit
 
 **III. Test-Driven Development (NON-NEGOTIABLE)**
 - Write tests before implementation code
+- **100% test pass rate required - ZERO tolerance for failures in any context**
 - 80% minimum coverage (branch + line) - enforced in CI
-- All test suites run in CI/CD pipeline; failures block merges
+- All test suites run in CI/CD pipeline; any single failure blocks merges
+- Test failures MUST be fixed immediately before any new work proceeds
+- Skipped/ignored tests are treated as failures - all tests must run and pass
 - Test categories: unit, integration, e2e, accessibility, performance, contract
 
 **IV. Progressive Enhancement**

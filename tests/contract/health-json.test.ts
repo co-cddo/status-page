@@ -14,26 +14,27 @@
  */
 
 import { describe, test, expect, beforeAll } from 'vitest';
-import Ajv, { type JSONSchemaType } from 'ajv';
+import Ajv from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
-import type { ServiceStatusAPI, StatusAPI } from '../../src/types/health-check.js';
+import type { StatusAPI } from '../../src/types/health-check.js';
 
 describe('Health JSON Contract (US1)', () => {
-  let ajv: Ajv;
-  let schema: JSONSchemaType<StatusAPI>;
+  let ajv: InstanceType<typeof Ajv.default>;
+  // Use plain object schema instead of JSONSchemaType due to nullable field compatibility issues
+  let schema: Record<string, unknown>;
 
   beforeAll(() => {
     // Initialize Ajv with strict mode and formats support
-    ajv = new Ajv({ 
+    ajv = new Ajv.default({
       strict: true,
       allErrors: true,
-      verbose: true 
+      verbose: true
     });
-    addFormats(ajv);
+    addFormats.default(ajv);
 
     // Define JSON Schema based on OpenAPI ServiceStatusAPI definition
     // Per specs/001-govuk-status-monitor/contracts/status-api.openapi.yaml
-    const serviceStatusSchema: JSONSchemaType<ServiceStatusAPI> = {
+    const serviceStatusSchema = {
       type: 'object',
       required: ['name', 'status', 'latency_ms', 'last_check_time', 'tags', 'http_status_code', 'failure_reason'],
       properties: {
@@ -46,14 +47,12 @@ describe('Health JSON Contract (US1)', () => {
           enum: ['PENDING', 'PASS', 'DEGRADED', 'FAIL'],
         },
         latency_ms: {
-          type: 'integer',
-          nullable: true,
+          type: ['integer', 'null'],
           minimum: 0,
         },
         last_check_time: {
-          type: 'string',
+          type: ['string', 'null'],
           format: 'date-time',
-          nullable: true,
         },
         tags: {
           type: 'array',
@@ -64,8 +63,7 @@ describe('Health JSON Contract (US1)', () => {
           default: [],
         },
         http_status_code: {
-          type: 'integer',
-          nullable: true,
+          type: ['integer', 'null'],
           minimum: 0,
           maximum: 599,
         },
@@ -283,7 +281,6 @@ describe('Health JSON Contract (US1)', () => {
     ];
 
     // Verify order: FAIL services first
-    const failServices = data.filter(s => s.status === 'FAIL');
     const firstFailIndex = data.findIndex(s => s.status === 'FAIL');
     expect(firstFailIndex).toBe(0);
 
@@ -433,10 +430,11 @@ describe('Health JSON Contract (US1)', () => {
 
     // Verify business logic: PENDING services have null values
     const service = data[0];
-    expect(service.status).toBe('PENDING');
-    expect(service.latency_ms).toBe(null);
-    expect(service.last_check_time).toBe(null);
-    expect(service.http_status_code).toBe(null);
+    expect(service).toBeDefined();
+    expect(service!.status).toBe('PENDING');
+    expect(service!.latency_ms).toBe(null);
+    expect(service!.last_check_time).toBe(null);
+    expect(service!.http_status_code).toBe(null);
   });
 
   test('rejects empty service name', () => {

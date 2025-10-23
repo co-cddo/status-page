@@ -19,6 +19,15 @@ import {
 } from '../../../src/health-checks/retry-logic.js';
 import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.js';
 
+// Extended type for test purposes to include error details
+interface HealthCheckResultWithError extends HealthCheckResult {
+  error?: {
+    type: string;
+    code: string;
+    message: string;
+  };
+}
+
 describe('shouldRetry (T028a - TDD Phase)', () => {
   describe('Network Errors (Should Retry)', () => {
     test('should retry on connection refused errors', () => {
@@ -215,7 +224,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
         expectedStatus: [200],
       };
 
-      const networkError: HealthCheckResult = {
+      const networkError = {
         serviceName: config.url,
         timestamp: new Date(),
         method: 'GET',
@@ -230,7 +239,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           code: 'ECONNREFUSED',
           message: 'Connection refused',
         },
-      };
+      } as HealthCheckResult;
 
       // Mock health check to always fail with network error
       mockHealthCheck.mockResolvedValue(networkError);
@@ -265,7 +274,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'network',
           code: 'ECONNREFUSED',
         },
-      };
+      } as HealthCheckResultWithError;
 
       const successResult: HealthCheckResult = {
         serviceName: config.url,
@@ -315,7 +324,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'timeout',
           code: 'ETIMEDOUT',
         },
-      };
+      } as HealthCheckResultWithError;
 
       mockHealthCheck.mockResolvedValue(networkError);
 
@@ -350,7 +359,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'network',
           code: 'ENETUNREACH',
         },
-      };
+      } as HealthCheckResultWithError;
 
       mockHealthCheck.mockResolvedValue(networkError);
 
@@ -386,7 +395,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'network',
           code: 'ECONNREFUSED',
         },
-      };
+      } as HealthCheckResultWithError;
 
       mockHealthCheck.mockResolvedValue(networkError);
 
@@ -432,7 +441,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'validation',
           code: 'INVALID_STATUS',
         },
-      };
+      } as HealthCheckResultWithError;
 
       mockHealthCheck.mockResolvedValue(validationError);
 
@@ -466,7 +475,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'validation',
           code: 'TEXT_NOT_FOUND',
         },
-      };
+      } as HealthCheckResultWithError;
 
       mockHealthCheck.mockResolvedValue(validationError);
 
@@ -501,7 +510,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'validation',
           code: 'INVALID_HEADER',
         },
-      };
+      } as HealthCheckResultWithError;
 
       mockHealthCheck.mockResolvedValue(validationError);
 
@@ -535,7 +544,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'network',
           code: 'ECONNREFUSED',
         },
-      };
+      } as HealthCheckResultWithError;
 
       const successResult: HealthCheckResult = {
         serviceName: config.url,
@@ -587,7 +596,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'network',
           code: 'ECONNREFUSED',
         },
-      };
+      } as HealthCheckResultWithError;
 
       mockHealthCheck.mockResolvedValue(networkError);
 
@@ -653,7 +662,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'network',
           code: 'ECONNREFUSED',
         },
-      };
+      } as HealthCheckResultWithError;
 
       const validationError: HealthCheckResult = {
         serviceName: config.url,
@@ -669,7 +678,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'validation',
           code: 'INVALID_STATUS',
         },
-      };
+      } as HealthCheckResultWithError;
 
       // Network error (retry), then validation error (stop)
       mockHealthCheck
@@ -705,7 +714,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
           type: 'network',
           code: 'ECONNREFUSED',
         },
-      };
+      } as HealthCheckResultWithError;
 
       mockHealthCheck.mockResolvedValue(networkError);
 

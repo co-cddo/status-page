@@ -13,7 +13,7 @@
  * Per tasks.md: Test with real scheduler and worker pool, verify timing and cycle management
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { Scheduler } from '../../src/orchestrator/scheduler.js';
 import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.js';
 import type { HealthCheckConfig } from '../../src/types/health-check.js';

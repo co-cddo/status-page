@@ -17,7 +17,7 @@
  * This test MUST fail before T044 implementation (post-build asset inlining)
  */
 
-import { test, expect, type Page, type Request } from '@playwright/test';
+import { test, expect, type Request } from '@playwright/test';
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -62,7 +62,9 @@ function extractInlineStyles(html: string): string[] {
   let match;
 
   while ((match = styleRegex.exec(html)) !== null) {
-    matches.push(match[1]);
+    if (match[1]) {
+      matches.push(match[1]);
+    }
   }
 
   return matches;
@@ -78,7 +80,7 @@ function extractInlineScripts(html: string): string[] {
 
   while ((match = scriptRegex.exec(html)) !== null) {
     // Exclude scripts with src attribute
-    if (!match[0].includes('src=')) {
+    if (!match[0].includes('src=') && match[1]) {
       matches.push(match[1]);
     }
   }
@@ -96,13 +98,17 @@ function extractImageUrls(html: string): string[] {
   const imgRegex = /<img[^>]+src=["']([^"']+)["']/gi;
   let match;
   while ((match = imgRegex.exec(html)) !== null) {
-    urls.push(match[1]);
+    if (match[1]) {
+      urls.push(match[1]);
+    }
   }
 
   // Extract CSS background-image from inline styles
   const bgImageRegex = /background-image:\s*url\(["']?([^"')]+)["']?\)/gi;
   while ((match = bgImageRegex.exec(html)) !== null) {
-    urls.push(match[1]);
+    if (match[1]) {
+      urls.push(match[1]);
+    }
   }
 
   return urls;
@@ -308,7 +314,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
   const htmlPath = getOutputHtmlPath();
   const fileUrl = 'file://' + htmlPath;
 
-  test('page loads with zero external network requests', async ({ page, context }) => {
+  test('page loads with zero external network requests', async ({ page }) => {
     const externalRequests: Request[] = [];
 
     // Monitor all network requests
@@ -373,7 +379,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
     await context.close();
   });
 
-  test('page is functional without network connectivity', async ({ browser, context }) => {
+  test('page is functional without network connectivity', async ({ context }) => {
     // Simulate offline mode
     await context.setOffline(true);
 
@@ -449,17 +455,21 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
 
     // Verify GOV.UK Frontend is initialized
     const govukInitialized = await page.evaluate(() => {
-      return typeof (window as any).GOVUKFrontend !== 'undefined';
+      interface WindowWithGOVUK extends Window {
+        GOVUKFrontend?: unknown;
+      }
+      return typeof (window as WindowWithGOVUK).GOVUKFrontend !== 'undefined';
     });
 
     expect(govukInitialized).toBe(true);
 
     // Verify initAll was called
-    const initAllCalled = await page.evaluate(() => {
-      // Check if GOV.UK components have data-module attributes set
-      const components = document.querySelectorAll('[data-module]');
-      return components.length > 0;
-    });
+    // Note: Variable unused in current test, kept for documentation
+    // const _initAllCalled = await page.evaluate(() => {
+    //   // Check if GOV.UK components have data-module attributes set
+    //   const components = document.querySelectorAll('[data-module]');
+    //   return components.length > 0;
+    // });
 
     // May be true or false depending on whether components use data-module
     // Just verify no JavaScript errors occurred

@@ -106,8 +106,8 @@ describe('Full Health Check Cycle', () => {
 
       // Step 1: Verify health check results
       expect(results).toHaveLength(2);
-      expect(results[0].status).toBe('PASS');
-      expect(results[1].status).toBe('PASS');
+      expect(results[0]!.status).toBe('PASS');
+      expect(results[1]!.status).toBe('PASS');
 
       // Step 2: Write to CSV
       for (const result of results) {
@@ -201,9 +201,9 @@ describe('Full Health Check Cycle', () => {
       const jsonContent = await readFile(TEST_JSON_PATH, 'utf-8');
       const jsonData: ServiceStatusAPI[] = JSON.parse(jsonContent);
 
-      expect(jsonData[0].status).toBe('FAIL');
-      expect(jsonData[1].status).toBe('DEGRADED');
-      expect(jsonData[2].status).toBe('PASS');
+      expect(jsonData[0]!.status).toBe('FAIL');
+      expect(jsonData[1]!.status).toBe('DEGRADED');
+      expect(jsonData[2]!.status).toBe('PASS');
     }, 60000);
 
     it('should handle PENDING status on first run', async () => {
@@ -225,10 +225,10 @@ describe('Full Health Check Cycle', () => {
       const jsonContent = await readFile(TEST_JSON_PATH, 'utf-8');
       const jsonData: ServiceStatusAPI[] = JSON.parse(jsonContent);
 
-      expect(jsonData[0].status).toBe('PENDING');
-      expect(jsonData[0].latency_ms).toBeNull();
-      expect(jsonData[0].last_check_time).toBeNull();
-      expect(jsonData[0].http_status_code).toBeNull();
+      expect(jsonData[0]!.status).toBe('PENDING');
+      expect(jsonData[0]!.latency_ms).toBeNull();
+      expect(jsonData[0]!.last_check_time).toBeNull();
+      expect(jsonData[0]!.http_status_code).toBeNull();
     }, 10000);
   });
 
@@ -318,13 +318,13 @@ describe('Full Health Check Cycle', () => {
       const jsonData: ServiceStatusAPI[] = JSON.parse(jsonContent);
 
       const service = jsonData[0];
-      expect(service.name).toBe('schema-test-service');
-      expect(service.status).toBe('PASS');
-      expect(service.latency_ms).toBe(250);
-      expect(service.last_check_time).toBeTruthy();
-      expect(service.tags).toEqual(['api', 'production']);
-      expect(service.http_status_code).toBe(200);
-      expect(service.failure_reason).toBe('');
+      expect(service!.name).toBe('schema-test-service');
+      expect(service!.status).toBe('PASS');
+      expect(service!.latency_ms).toBe(250);
+      expect(service!.last_check_time).toBeTruthy();
+      expect(service!.tags).toEqual(['api', 'production']);
+      expect(service!.http_status_code).toBe(200);
+      expect(service!.failure_reason).toBe('');
     }, 10000);
   });
 

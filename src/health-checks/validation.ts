@@ -29,9 +29,10 @@ export function validateStatusCode(
 
   return {
     valid: isValid,
-    error: isValid ? undefined :
-      `Expected status ${Array.isArray(expectedStatus) ?
+    ...(isValid ? {} : {
+      error: `Expected status ${Array.isArray(expectedStatus) ?
         expectedStatus.join(' or ') : expectedStatus}, got ${actualStatus}`
+    })
   };
 }
 
@@ -52,7 +53,7 @@ export function validateResponseText(
 
   return {
     valid: isValid,
-    error: isValid ? undefined : `Expected text '${expectedText}' not found in response body`
+    ...(isValid ? {} : { error: `Expected text '${expectedText}' not found in response body` })
   };
 }
 
@@ -87,7 +88,7 @@ export function validateResponseHeaders(
 
   return {
     valid: failures.length === 0,
-    error: failures.length > 0 ? failures.join('; ') : undefined
+    ...(failures.length > 0 ? { error: failures.join('; ') } : {})
   };
 }
 
@@ -108,11 +109,12 @@ function getHeaderCaseInsensitive(headers: Headers, headerName: string): string 
 
   // Fallback: iterate through all headers with case-insensitive comparison
   const lowerName = headerName.toLowerCase();
-  for (const [name, value] of headers.entries()) {
-    if (name.toLowerCase() === lowerName) {
-      return value;
+  let result: string | null = null;
+  headers.forEach((value, name) => {
+    if (name.toLowerCase() === lowerName && !result) {
+      result = value;
     }
-  }
+  });
 
-  return null;
+  return result;
 }

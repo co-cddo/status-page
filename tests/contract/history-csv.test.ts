@@ -93,7 +93,8 @@ describe('CSV Format Contract (US1)', () => {
     expect(lines.length).toBeGreaterThan(0);
 
     const headerLine = lines[0];
-    const headers = headerLine.split(',');
+    expect(headerLine).toBeDefined();
+    const headers = headerLine!.split(',');
 
     // Verify column names
     expect(headers).toEqual(Array.from(CSV_HEADERS));
@@ -110,12 +111,14 @@ describe('CSV Format Contract (US1)', () => {
 
     // Skip header, parse data line
     const dataLine = lines[1];
-    const values = parseCsvLine(dataLine);
+    expect(dataLine).toBeDefined();
+    const values = parseCsvLine(dataLine!);
 
     // First column is timestamp
     const timestamp = values[0];
+    expect(timestamp).toBeDefined();
 
-    expect(isValidISO8601(timestamp)).toBe(true);
+    expect(isValidISO8601(timestamp!)).toBe(true);
     expect(timestamp).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
   });
 
@@ -151,8 +154,9 @@ describe('CSV Format Contract (US1)', () => {
 
     // Verify all statuses are uppercase
     for (const status of statuses) {
-      expect(status).toMatch(/^(PASS|DEGRADED|FAIL)$/);
-      expect(status).toBe(status.toUpperCase());
+      expect(status).toBeDefined();
+      expect(status!).toMatch(/^(PASS|DEGRADED|FAIL)$/);
+      expect(status!).toBe(status!.toUpperCase());
     }
   });
 
@@ -186,8 +190,9 @@ describe('CSV Format Contract (US1)', () => {
 
     // Verify all latencies are valid integers
     for (const latency of latencies) {
-      expect(latency).toMatch(/^\d+$/);
-      expect(Number.isInteger(parseInt(latency, 10))).toBe(true);
+      expect(latency).toBeDefined();
+      expect(latency!).toMatch(/^\d+$/);
+      expect(Number.isInteger(parseInt(latency!, 10))).toBe(true);
     }
   });
 
@@ -221,8 +226,9 @@ describe('CSV Format Contract (US1)', () => {
 
     // Verify all status codes are valid integers
     for (const code of statusCodes) {
-      expect(code).toMatch(/^\d+$/);
-      expect(Number.isInteger(parseInt(code, 10))).toBe(true);
+      expect(code).toBeDefined();
+      expect(code!).toMatch(/^\d+$/);
+      expect(Number.isInteger(parseInt(code!, 10))).toBe(true);
     }
   });
 
@@ -237,10 +243,11 @@ describe('CSV Format Contract (US1)', () => {
 
     // Parse data line
     const dataLine = lines[1];
-    const values = parseCsvLine(dataLine);
+    expect(dataLine).toBeDefined();
+    const values = parseCsvLine(dataLine!);
 
     // Last column is correlation_id
-    const correlationId = values[6];
+    const correlationId = values[6]!;
 
     expect(isValidUUIDv4(correlationId)).toBe(true);
     expect(correlationId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
@@ -311,11 +318,11 @@ describe('CSV Format Contract (US1)', () => {
     const lines = csvContent.trim().split('\n');
 
     // Parse data line with RFC 4180 parser
-    const dataLine = lines[1];
+    const dataLine = lines[1]!;
     const values = parseCsvLine(dataLine);
 
     // Service name should be preserved with commas
-    const serviceName = values[1];
+    const serviceName = values[1]!;
     expect(serviceName).toBe('Service with, commas');
   });
 
@@ -330,7 +337,8 @@ describe('CSV Format Contract (US1)', () => {
 
     // Parse data line
     const dataLine = lines[1];
-    const values = parseCsvLine(dataLine);
+    expect(dataLine).toBeDefined();
+    const values = parseCsvLine(dataLine!);
 
     // Service name should preserve quotes
     const serviceName = values[1];
@@ -362,7 +370,8 @@ describe('CSV Format Contract (US1)', () => {
 
     // Parse data line
     const dataLine = lines[1];
-    const values = parseCsvLine(dataLine);
+    expect(dataLine).toBeDefined();
+    const values = parseCsvLine(dataLine!);
 
     // Failure reason should be preserved
     const parsedFailureReason = values[5];
@@ -380,7 +389,8 @@ describe('CSV Format Contract (US1)', () => {
 
     // Parse data line
     const dataLine = lines[1];
-    const values = parseCsvLine(dataLine);
+    expect(dataLine).toBeDefined();
+    const values = parseCsvLine(dataLine!);
 
     // Verify all 7 columns present
     expect(values).toHaveLength(7);
@@ -388,13 +398,13 @@ describe('CSV Format Contract (US1)', () => {
     // Verify column order
     const [timestamp, serviceName, status, latency, httpCode, failureReason, correlationId] = values;
 
-    expect(isValidISO8601(timestamp)).toBe(true);
+    expect(isValidISO8601(timestamp!)).toBe(true);
     expect(serviceName).toBe('Test Service');
     expect(status).toBe('PASS');
     expect(latency).toBe('120');
     expect(httpCode).toBe('200');
     expect(failureReason).toBe('');
-    expect(isValidUUIDv4(correlationId)).toBe(true);
+    expect(isValidUUIDv4(correlationId!)).toBe(true);
   });
 
   test('handles batch writes correctly', async () => {
@@ -418,16 +428,16 @@ describe('CSV Format Contract (US1)', () => {
 
     // Verify all records are valid
     for (let i = 1; i < lines.length; i++) {
-      const values = parseCsvLine(lines[i]);
+      const values = parseCsvLine(lines[i]!);
       expect(values).toHaveLength(7);
 
       // Validate each field
-      expect(isValidISO8601(values[0])).toBe(true);
+      expect(isValidISO8601(values[0]!)).toBe(true);
       expect(values[1]).toBeTruthy();
       expect(['PASS', 'DEGRADED', 'FAIL']).toContain(values[2]);
-      expect(Number.isInteger(parseInt(values[3], 10))).toBe(true);
-      expect(Number.isInteger(parseInt(values[4], 10))).toBe(true);
-      expect(isValidUUIDv4(values[6])).toBe(true);
+      expect(Number.isInteger(parseInt(values[3]!, 10))).toBe(true);
+      expect(Number.isInteger(parseInt(values[4]!, 10))).toBe(true);
+      expect(isValidUUIDv4(values[6]!)).toBe(true);
     }
   });
 
@@ -483,8 +493,8 @@ describe('CSV Format Contract (US1)', () => {
     for (const line of dataLines) {
       const values = parseCsvLine(line);
       expect(values).toHaveLength(7);
-      expect(isValidISO8601(values[0])).toBe(true);
-      expect(isValidUUIDv4(values[6])).toBe(true);
+      expect(isValidISO8601(values[0]!)).toBe(true);
+      expect(isValidUUIDv4(values[6]!)).toBe(true);
     }
   });
 
@@ -501,7 +511,8 @@ describe('CSV Format Contract (US1)', () => {
 
     // Parse data line
     const dataLine = lines[1];
-    const values = parseCsvLine(dataLine);
+    expect(dataLine).toBeDefined();
+    const values = parseCsvLine(dataLine!);
 
     // Status should be FAIL, not PENDING
     const status = values[2];

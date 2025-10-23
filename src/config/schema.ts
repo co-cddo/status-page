@@ -4,13 +4,13 @@
  * Validated using Ajv JSON Schema validator
  */
 
-import type { JSONSchemaType } from 'ajv';
-import type { Configuration, GlobalSettings, ServiceDefinition } from '../types/config.js';
+import type { Configuration } from '../types/config.js';
 
 /**
  * JSON Schema for GlobalSettings
+ * Note: Using plain object instead of JSONSchemaType to avoid strictNullChecks complexity
  */
-const globalSettingsSchema: JSONSchemaType<GlobalSettings> = {
+const globalSettingsSchema = {
   type: 'object',
   properties: {
     check_interval: { type: 'integer', minimum: 10, nullable: true },
@@ -23,7 +23,7 @@ const globalSettingsSchema: JSONSchemaType<GlobalSettings> = {
     output_dir: { type: 'string', minLength: 1, nullable: true },
   },
   additionalProperties: false,
-};
+} as const;
 
 /**
  * JSON Schema for ExpectedValidation
@@ -59,8 +59,9 @@ const customHeaderSchema = {
 
 /**
  * JSON Schema for ServiceDefinition
+ * Note: Using plain object instead of JSONSchemaType to avoid strictNullChecks complexity
  */
-const serviceDefinitionSchema: JSONSchemaType<ServiceDefinition> = {
+const serviceDefinitionSchema = {
   type: 'object',
   properties: {
     name: {
@@ -120,13 +121,14 @@ const serviceDefinitionSchema: JSONSchemaType<ServiceDefinition> = {
   },
   required: ['name', 'protocol', 'method', 'resource', 'expected'],
   additionalProperties: false,
-};
+} as const;
 
 /**
  * JSON Schema for complete Configuration
  * This is the root schema for config.yaml
+ * Note: Using plain object instead of JSONSchemaType to avoid strictNullChecks complexity
  */
-export const configurationSchema: JSONSchemaType<Configuration> = {
+export const configurationSchema = {
   type: 'object',
   properties: {
     settings: {
@@ -141,7 +143,7 @@ export const configurationSchema: JSONSchemaType<Configuration> = {
   },
   required: ['pings'],
   additionalProperties: false,
-};
+} as const;
 
 /**
  * Custom validation rules beyond JSON Schema

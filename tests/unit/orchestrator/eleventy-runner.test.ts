@@ -14,7 +14,7 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { spawn } from 'node:child_process';
-import { readFile, access, mkdir, rm } from 'node:fs/promises';
+import { readFile, access } from 'node:fs/promises';
 import { join } from 'node:path';
 import { EleventyRunner } from '../../../src/orchestrator/eleventy-runner.js';
 import type { ServiceStatusAPI } from '../../../src/types/health-check.js';
@@ -34,13 +34,14 @@ vi.mock('node:fs/promises', () => ({
 
 /**
  * Eleventy build options interface
+ * Note: Interface defined for type documentation but not used in tests
  */
-interface EleventyBuildOptions {
-  dataDir?: string;
-  outputDir?: string;
-  timeout?: number;
-  quiet?: boolean;
-}
+// interface EleventyBuildOptions {
+//   dataDir?: string;
+//   outputDir?: string;
+//   timeout?: number;
+//   quiet?: boolean;
+// }
 
 /**
  * Eleventy build result interface
@@ -523,7 +524,7 @@ describe('Eleventy Runner', () => {
       vi.mocked(readFile).mockResolvedValue('[]');
 
       // Act
-      const result: EleventyBuildResult = await eleventyRunner.build();
+      // const _result_: EleventyBuildResult = await eleventyRunner.build();
 
       // Assert
       expect(access).toHaveBeenCalledWith(join(testOutputDir, 'index.html'));

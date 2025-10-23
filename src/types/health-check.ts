@@ -14,9 +14,6 @@ export type ServiceStatus = 'PENDING' | 'PASS' | 'DEGRADED' | 'FAIL';
  * Used by worker threads to perform HTTP checks
  */
 export interface HealthCheckConfig {
-  /** Service name */
-  serviceName: string;
-
   /** HTTP method */
   method: 'GET' | 'HEAD' | 'POST';
 
@@ -26,8 +23,8 @@ export interface HealthCheckConfig {
   /** Request timeout in milliseconds */
   timeout: number;
 
-  /** Warning latency threshold in milliseconds */
-  warningThreshold: number;
+  /** Warning latency threshold in milliseconds (default: 2000ms) */
+  warningThreshold?: number;
 
   /** Maximum retry attempts (default: 3) */
   maxRetries?: number;
@@ -50,8 +47,11 @@ export interface HealthCheckConfig {
   /** Optional POST request body */
   payload?: Record<string, unknown>;
 
-  /** Correlation ID for tracing */
-  correlationId: string;
+  /** Service name for reporting (defaults to URL if not provided) */
+  serviceName?: string;
+
+  /** Correlation ID for tracing (auto-generated if not provided) */
+  correlationId?: string;
 }
 
 /**

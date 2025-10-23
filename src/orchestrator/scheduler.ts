@@ -3,7 +3,7 @@
  * Manages periodic health check cycles using priority queue ordered by next check time
  */
 
-import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.js';
+import type { HealthCheckConfig } from '../types/health-check.js';
 import type { WorkerPoolManager } from './pool-manager.js';
 
 export interface ScheduledCheck {

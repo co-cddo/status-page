@@ -63,24 +63,24 @@ function parseServicesFromHtml(html: string): Array<{ name: string; status: stri
   const matches = html.matchAll(servicePattern);
 
   for (const match of matches) {
-    const serviceBlock = match[1];
+    const serviceBlock = match[1]!;
 
     // Extract service name (example: <h2>Service Name</h2>)
     const nameMatch = serviceBlock.match(/<h[23][^>]*>([^<]+)<\/h[23]>/i);
-    const name = nameMatch ? nameMatch[1].trim() : '';
+    const name = nameMatch ? nameMatch[1]!.trim() : '';
 
     // Extract status (example: class="status-pass" or data-status="PASS")
     let status = '';
     const statusMatch = serviceBlock.match(/(?:class="[^"]*status-(\w+)[^"]*"|data-status="(\w+)")/i);
     if (statusMatch) {
-      status = (statusMatch[1] || statusMatch[2]).toUpperCase();
+      status = (statusMatch[1]! || statusMatch[2]!).toUpperCase();
     }
 
     // Extract latency (example: <span class="latency">120 ms</span>)
     let latency: number | null = null;
     const latencyMatch = serviceBlock.match(/<[^>]*class="[^"]*latency[^"]*"[^>]*>(\d+)\s*ms/i);
     if (latencyMatch) {
-      latency = parseInt(latencyMatch[1], 10);
+      latency = parseInt(latencyMatch[1]!, 10);
     }
 
     if (name && status) {
@@ -212,10 +212,10 @@ describe('HTML/JSON Synchronization (US1)', () => {
     expect(jsonData).toHaveLength(4);
 
     // Verify sorting: FAIL → DEGRADED → PASS → PENDING
-    expect(jsonData[0].status).toBe('FAIL');
-    expect(jsonData[1].status).toBe('DEGRADED');
-    expect(jsonData[2].status).toBe('PASS');
-    expect(jsonData[3].status).toBe('PENDING');
+    expect(jsonData[0]!.status).toBe('FAIL');
+    expect(jsonData[1]!.status).toBe('DEGRADED');
+    expect(jsonData[2]!.status).toBe('PASS');
+    expect(jsonData[3]!.status).toBe('PENDING');
 
     // Mock HTML output with sorted services
     const mockHtml = `
@@ -255,8 +255,8 @@ describe('HTML/JSON Synchronization (US1)', () => {
 
     // Verify order matches
     for (let i = 0; i < jsonData.length; i++) {
-      expect(htmlServices[i].name).toBe(jsonData[i].name);
-      expect(htmlServices[i].status).toBe(jsonData[i].status);
+      expect(htmlServices[i]!.name).toBe(jsonData[i]!.name);
+      expect(htmlServices[i]!.status).toBe(jsonData[i]!.status);
     }
   });
 
@@ -271,10 +271,10 @@ describe('HTML/JSON Synchronization (US1)', () => {
     const jsonContent = await readFile(jsonPath, 'utf-8');
     const jsonData: ServiceStatusAPI[] = JSON.parse(jsonContent);
 
-    expect(jsonData[0].status).toBe('PENDING');
-    expect(jsonData[0].latency_ms).toBe(null);
-    expect(jsonData[0].last_check_time).toBe(null);
-    expect(jsonData[0].http_status_code).toBe(null);
+    expect(jsonData[0]!.status).toBe('PENDING');
+    expect(jsonData[0]!.latency_ms).toBe(null);
+    expect(jsonData[0]!.last_check_time).toBe(null);
+    expect(jsonData[0]!.http_status_code).toBe(null);
 
     // Mock HTML - PENDING services should not show latency
     const mockHtml = `
@@ -294,9 +294,9 @@ describe('HTML/JSON Synchronization (US1)', () => {
     const htmlContent = await readFile(htmlOutputPath, 'utf-8');
     const htmlServices = parseServicesFromHtml(htmlContent);
 
-    expect(htmlServices[0].name).toBe(jsonData[0].name);
-    expect(htmlServices[0].status).toBe(jsonData[0].status);
-    expect(htmlServices[0].latency).toBe(null);
+    expect(htmlServices[0]!.name).toBe(jsonData[0]!.name);
+    expect(htmlServices[0]!.status).toBe(jsonData[0]!.status);
+    expect(htmlServices[0]!.latency).toBe(null);
   });
 
   test('HTML and JSON both reflect failure reasons', async () => {
@@ -312,8 +312,8 @@ describe('HTML/JSON Synchronization (US1)', () => {
     const jsonData: ServiceStatusAPI[] = JSON.parse(jsonContent);
 
     // Verify failure reasons in JSON
-    expect(jsonData[0].failure_reason).toBe('Expected status 200, got 500');
-    expect(jsonData[1].failure_reason).toBe('Connection timeout after 5000ms');
+    expect(jsonData[0]!.failure_reason).toBe('Expected status 200, got 500');
+    expect(jsonData[1]!.failure_reason).toBe('Connection timeout after 5000ms');
 
     // HTML should also display failure reasons
     const mockHtml = `
@@ -362,8 +362,8 @@ describe('HTML/JSON Synchronization (US1)', () => {
     let jsonContent = await readFile(jsonPath, 'utf-8');
     let jsonData: ServiceStatusAPI[] = JSON.parse(jsonContent);
 
-    expect(jsonData[0].status).toBe('PASS');
-    expect(jsonData[1].status).toBe('PASS');
+    expect(jsonData[0]!.status).toBe('PASS');
+    expect(jsonData[1]!.status).toBe('PASS');
 
     // Second cycle - status changes
     await jsonWriter.write(cycle2Results);
@@ -371,8 +371,8 @@ describe('HTML/JSON Synchronization (US1)', () => {
     jsonContent = await readFile(jsonPath, 'utf-8');
     jsonData = JSON.parse(jsonContent);
 
-    expect(jsonData[0].status).toBe('FAIL');
-    expect(jsonData[1].status).toBe('DEGRADED');
+    expect(jsonData[0]!.status).toBe('FAIL');
+    expect(jsonData[1]!.status).toBe('DEGRADED');
 
     // Verify data structure remains consistent
     expect(jsonData).toHaveLength(2);
@@ -420,9 +420,9 @@ describe('HTML/JSON Synchronization (US1)', () => {
     const jsonData: ServiceStatusAPI[] = JSON.parse(jsonContent);
 
     // JsonWriter sorts by status: FAIL → DEGRADED → PASS
-    expect(jsonData[0].name).toBe('Service with "quotes"');
-    expect(jsonData[0].failure_reason).toContain('"Internal Server Error"');
-    expect(jsonData[1].name).toBe("Service with 'apostrophes'");
-    expect(jsonData[2].name).toBe('Service with, commas');
+    expect(jsonData[0]!.name).toBe('Service with "quotes"');
+    expect(jsonData[0]!.failure_reason).toContain('"Internal Server Error"');
+    expect(jsonData[1]!.name).toBe("Service with 'apostrophes'");
+    expect(jsonData[2]!.name).toBe('Service with, commas');
   });
 });

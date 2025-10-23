@@ -36,7 +36,7 @@
     "inlineSources": true,
 
     // Library support
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "types": ["node"],
 
     // Path mappings (if needed)

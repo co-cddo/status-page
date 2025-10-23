@@ -215,15 +215,21 @@ export class EleventyRunner {
         });
       } catch (error) {
         const duration = Date.now() - startTime;
-        return {
+        const errorResult: EleventyBuildResult = {
           success: false,
           outputPath: join(this.outputDir, 'index.html'),
           duration,
           error: {
             message: error instanceof Error ? error.message : 'Failed to spawn Eleventy process',
-            code: error instanceof Error && 'code' in error ? (error.code as string) : undefined,
           },
         };
+
+        // Add code only if it exists (exactOptionalPropertyTypes compliance)
+        if (error instanceof Error && 'code' in error && typeof error.code === 'string') {
+          errorResult.error!.code = error.code;
+        }
+
+        return errorResult;
       }
 
       // Capture stdout and stderr
@@ -245,13 +251,11 @@ export class EleventyRunner {
       // Wait for process to complete with timeout
       const result = await new Promise<{ code: number | null; signal: string | null; didTimeout: boolean }>(
         (resolve) => {
-          let didTimeout = false;
           let hasResolved = false;
 
           // Setup timeout
           const timeoutId = setTimeout(() => {
             if (!hasResolved) {
-              didTimeout = true;
               hasResolved = true;
               childProcess.kill('SIGTERM');
               resolve({ code: null, signal: 'SIGTERM', didTimeout: true });

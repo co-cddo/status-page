@@ -19,20 +19,22 @@ import type { WorkerPoolManager } from '../../../src/orchestrator/pool-manager.j
 
 /**
  * Scheduled check interface for priority queue
+ * Note: Interface defined for type documentation but not used in tests
  */
-interface ScheduledCheck {
-  config: HealthCheckConfig;
-  nextCheckTime: Date;
-  intervalMs: number;
-}
+// interface ScheduledCheck {
+//   config: HealthCheckConfig;
+//   nextCheckTime: Date;
+//   intervalMs: number;
+// }
 
 /**
  * Scheduler options interface
+ * Note: Interface defined for type documentation but not used in tests
  */
-interface SchedulerOptions {
-  defaultInterval?: number;
-  gracefulShutdownTimeout?: number;
-}
+// interface SchedulerOptions {
+//   defaultInterval?: number;
+//   gracefulShutdownTimeout?: number;
+// }
 
 describe('Health Check Scheduler', () => {
   let scheduler: Scheduler;
@@ -579,7 +581,7 @@ describe('Health Check Scheduler', () => {
 
       // Assert - should be rescheduled for next interval
       const scheduled = scheduler.getScheduledChecks();
-      const expectedNextCheck = new Date(baseTime.getTime() + interval * 2);
+      // const _expectedNextCheck = new Date(baseTime.getTime() + interval * 2);
       expect(scheduled[0]?.nextCheckTime.getTime()).toBeGreaterThan(baseTime.getTime() + interval);
     });
 

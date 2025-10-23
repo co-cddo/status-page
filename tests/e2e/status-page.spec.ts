@@ -20,7 +20,7 @@
  */
 
 import { test, expect, type Page } from '@playwright/test';
-import { readFileSync, existsSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 /**
@@ -44,59 +44,60 @@ function getStatusPagePath(): string {
 /**
  * Helper to load mock health data for testing
  * Creates realistic test data with all status states
+ * Note: Currently unused but kept for future test scenarios
  */
-function createMockHealthData() {
-  return {
-    generatedAt: new Date().toISOString(),
-    services: [
-      {
-        name: 'Test Service Failed',
-        status: 'FAIL',
-        latency_ms: 5100,
-        last_check_time: new Date(Date.now() - 30000).toISOString(),
-        tags: ['critical', 'api'],
-        http_status_code: 503,
-        failure_reason: 'Service unavailable: Connection timeout after 5000ms'
-      },
-      {
-        name: 'Test Service Degraded',
-        status: 'DEGRADED',
-        latency_ms: 2500,
-        last_check_time: new Date(Date.now() - 45000).toISOString(),
-        tags: ['monitoring'],
-        http_status_code: 200,
-        failure_reason: ''
-      },
-      {
-        name: 'Test Service Operational',
-        status: 'PASS',
-        latency_ms: 150,
-        last_check_time: new Date(Date.now() - 60000).toISOString(),
-        tags: ['core', 'production'],
-        http_status_code: 200,
-        failure_reason: ''
-      },
-      {
-        name: 'Test Service Pending',
-        status: 'PENDING',
-        latency_ms: null,
-        last_check_time: null,
-        tags: [],
-        http_status_code: null,
-        failure_reason: ''
-      },
-      {
-        name: 'Another Failed Service',
-        status: 'FAIL',
-        latency_ms: 3200,
-        last_check_time: new Date(Date.now() - 20000).toISOString(),
-        tags: [],
-        http_status_code: 404,
-        failure_reason: 'HTTP 404 Not Found'
-      }
-    ]
-  };
-}
+// function createMockHealthData() {
+//   return {
+//     generatedAt: new Date().toISOString(),
+//     services: [
+//       {
+//         name: 'Test Service Failed',
+//         status: 'FAIL',
+//         latency_ms: 5100,
+//         last_check_time: new Date(Date.now() - 30000).toISOString(),
+//         tags: ['critical', 'api'],
+//         http_status_code: 503,
+//         failure_reason: 'Service unavailable: Connection timeout after 5000ms'
+//       },
+//       {
+//         name: 'Test Service Degraded',
+//         status: 'DEGRADED',
+//         latency_ms: 2500,
+//         last_check_time: new Date(Date.now() - 45000).toISOString(),
+//         tags: ['monitoring'],
+//         http_status_code: 200,
+//         failure_reason: ''
+//       },
+//       {
+//         name: 'Test Service Operational',
+//         status: 'PASS',
+//         latency_ms: 150,
+//         last_check_time: new Date(Date.now() - 60000).toISOString(),
+//         tags: ['core', 'production'],
+//         http_status_code: 200,
+//         failure_reason: ''
+//       },
+//       {
+//         name: 'Test Service Pending',
+//         status: 'PENDING',
+//         latency_ms: null,
+//         last_check_time: null,
+//         tags: [],
+//         http_status_code: null,
+//         failure_reason: ''
+//       },
+//       {
+//         name: 'Another Failed Service',
+//         status: 'FAIL',
+//         latency_ms: 3200,
+//         last_check_time: new Date(Date.now() - 20000).toISOString(),
+//         tags: [],
+//         http_status_code: 404,
+//         failure_reason: 'HTTP 404 Not Found'
+//       }
+//     ]
+//   };
+// }
 
 /**
  * Helper to extract service names from page in display order
@@ -104,14 +105,14 @@ function createMockHealthData() {
 async function getServicesInDisplayOrder(page: Page): Promise<string[]> {
   // Get all service headings in DOM order
   const serviceHeadings = await page.locator('article h2, [role="article"] h2, [role="article"] h3').allTextContents();
-  return serviceHeadings.map(text => text.trim());
+  return serviceHeadings.map((text: string) => text.trim());
 }
 
 test.describe('Status Page Display (US1 - T039a)', () => {
   const pageUrl = getStatusPagePath();
   const isFileUrl = pageUrl.startsWith('file://');
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async () => {
     // Set longer timeout for file:// protocol
     test.setTimeout(isFileUrl ? 30000 : 60000);
   });
@@ -137,8 +138,9 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     // Parse interval (format: "60" or "60; url=...")
     const intervalMatch = content!.match(/^(\d+)/);
     expect(intervalMatch).toBeTruthy();
+    expect(intervalMatch![1]).toBeDefined();
 
-    const interval = parseInt(intervalMatch![1]);
+    const interval = parseInt(intervalMatch![1]!);
     expect(interval).toBeGreaterThan(0);
     expect(interval).toBeLessThanOrEqual(300); // Max 5 minutes
   });
@@ -183,7 +185,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const statusTags = await page.locator('.govuk-tag').allTextContents();
 
     if (statusTags.length === 0) {
-      test.skip('No services configured for sorting test');
+      test.skip('No services configured for sorting test', () => {});
       return;
     }
 
@@ -227,7 +229,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const serviceExists = await firstService.count() > 0;
 
     if (!serviceExists) {
-      test.skip('No services configured to validate display');
+      test.skip('No services configured to validate display', () => {});
       return;
     }
 
@@ -263,7 +265,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const exists = await operationalService.count() > 0;
 
     if (!exists) {
-      test.skip('No operational services to validate');
+      test.skip('No operational services to validate', () => {});
       return;
     }
 
@@ -288,7 +290,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const exists = await failedService.count() > 0;
 
     if (!exists) {
-      test.skip('No failed services to validate');
+      test.skip('No failed services to validate', () => {});
       return;
     }
 
@@ -310,7 +312,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const exists = await degradedService.count() > 0;
 
     if (!exists) {
-      test.skip('No degraded services to validate');
+      test.skip('No degraded services to validate', () => {});
       return;
     }
 
@@ -331,7 +333,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const exists = await pendingService.count() > 0;
 
     if (!exists) {
-      test.skip('No pending services to validate');
+      test.skip('No pending services to validate', () => {});
       return;
     }
 
@@ -356,7 +358,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const exists = await checkedService.count() > 0;
 
     if (!exists) {
-      test.skip('No checked services to validate timestamp');
+      test.skip('No checked services to validate timestamp', () => {});
       return;
     }
 
@@ -410,7 +412,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const services = await getServicesInDisplayOrder(page);
 
     if (services.length === 0) {
-      test.skip('No services to validate order');
+      test.skip('No services to validate order', () => {});
       return;
     }
 
@@ -458,7 +460,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const count = await statusTags.count();
 
     if (count === 0) {
-      test.skip('No status tags found');
+      test.skip('No status tags found', () => {});
       return;
     }
 
@@ -499,7 +501,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const serviceCount = await page.locator('article, [role="article"]').count();
 
     if (serviceCount > 0) {
-      test.skip('Services are configured, skipping empty state test');
+      test.skip('Services are configured, skipping empty state test', () => {});
       return;
     }
 
@@ -514,7 +516,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const failedServices = await page.locator('.govuk-tag--red').count();
 
     if (failedServices === 0) {
-      test.skip('No failed services to validate alert banner');
+      test.skip('No failed services to validate alert banner', () => {});
       return;
     }
 
@@ -534,7 +536,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const operationalServices = await page.locator('.govuk-tag--green').count();
 
     if (totalServices === 0 || operationalServices !== totalServices) {
-      test.skip('Not all services operational, skipping success banner test');
+      test.skip('Not all services operational, skipping success banner test', () => {});
       return;
     }
 

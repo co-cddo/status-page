@@ -1,33 +1,33 @@
 <!--
-Sync Impact Report - Version 1.1.0
+Sync Impact Report - Version 1.2.0
 ================================================================================
-Version Change: 1.0.0 → 1.1.0
-Rationale: MINOR version - Expanded guidance for CI/CD monitoring operations
+Version Change: 1.1.0 → 1.2.0
+Rationale: MINOR version - Materially expanded Principle III (Test-Driven Development)
+           to require 100% test pass rate (zero tolerance for failures)
 
-Modified Principles: None
+Modified Principles:
+- Principle III: Test-Driven Development (NON-NEGOTIABLE)
+  OLD: 80% minimum code coverage requirement
+  NEW: 100% test pass rate requirement + 80% minimum code coverage
+  Impact: Stricter quality gate - no test failures tolerated in any context
 
-Added Sections:
-- GitHub Repository Configuration > CI/CD Monitoring and Operations (via gh CLI)
-  * Workflow run status checking (gh run list, gh run view, gh run watch)
-  * PR status and required checks monitoring (gh pr checks)
-  * Failed workflow troubleshooting (gh run view --log-failed, gh run rerun)
-  * Deployment status monitoring (GitHub Pages, deployments)
-  * Programmatic workflow status checking for automation
+Added Sections: None
 
 Removed Sections: None
 
 Templates Status:
-✅ plan-template.md - No changes required (CI monitoring is operational, not planning)
-✅ spec-template.md - No changes required (CI monitoring is operational, not requirements)
-✅ tasks-template.md - No changes required (CI monitoring is operational, not implementation)
-✅ agent-file-template.md - No changes required
-✅ checklist-template.md - No changes required
+✅ plan-template.md - Updated Constitution Check section to reflect 100% pass requirement
+✅ spec-template.md - No changes required (testing requirements already comprehensive)
+✅ tasks-template.md - Updated testing guidance to emphasize zero-failure requirement
+✅ CLAUDE.md - Updated testing requirements and development workflow sections
 
 Follow-up TODOs:
 - RATIFICATION_DATE placeholder retained as TODO - requires project owner decision
-- Consider adding CI monitoring commands to quickstart.md for developer onboarding
+- Update CI/CD pipeline documentation to emphasize zero-tolerance test gate
+- Consider adding pre-commit hooks to run tests locally before push
 
 Previous Amendment History:
+- v1.1.0 (2025-10-22): Expanded CI/CD monitoring operations via gh CLI
 - v1.0.0 (2025-10-22): Initial constitution with 8 core principles
 
 ================================================================================
@@ -68,19 +68,22 @@ All features MUST meet WCAG 2.2 Level AAA accessibility standard. This exceeds t
 
 ### III. Test-Driven Development (NON-NEGOTIABLE)
 
-All code MUST be developed using test-driven development methodology. Tests must be written before implementation code.
+All code MUST be developed using test-driven development methodology. Tests must be written before implementation code. **100% of tests MUST pass at all times - zero tolerance for test failures.**
 
 **Requirements**:
 - Write tests first, implement second - strict Red-Green-Refactor cycle
 - `npm test` executes all test suites: unit, integration, e2e, accessibility, coverage, performance
+- **100% test pass rate requirement - ZERO failures tolerated in any context (local development, CI/CD, production)**
 - 80% minimum code coverage for both branch coverage AND line coverage
-- All test suites run in CI/CD pipeline; any test failure blocks PR merge
+- All test suites run in CI/CD pipeline; any single test failure blocks PR merge
 - Vitest for unit tests (fast feedback, native ESM/TypeScript support)
 - Playwright for e2e tests validating complete user journeys (User Stories 1-7)
 - Accessibility tests integrated via axe-core
 - Performance tests validate benchmarked thresholds
+- Test failures MUST be fixed immediately before any new work proceeds
+- Skipped/ignored tests are treated as failures - all tests must run and pass
 
-**Rationale**: TDD ensures code quality, prevents regressions, enables confident refactoring, and provides living documentation. Critical for government service reliability.
+**Rationale**: TDD ensures code quality, prevents regressions, enables confident refactoring, and provides living documentation. 100% pass rate is critical for government service reliability and public trust. Test failures indicate broken functionality or incorrect assumptions that MUST be resolved immediately.
 
 ### IV. Progressive Enhancement
 
@@ -162,7 +165,7 @@ All code MUST pass peer review before merge to main branch.
 **Requirements**:
 - Minimum 2 reviewers for critical paths (health check logic, asset generation, deployment workflows)
 - Minimum 1 reviewer for non-critical changes
-- Reviewers MUST verify: GDS Design System compliance, accessibility (WCAG 2.2 AAA), test coverage (80% minimum), performance budget compliance, constitution principle adherence
+- Reviewers MUST verify: GDS Design System compliance, accessibility (WCAG 2.2 AAA), test coverage (80% minimum), **100% test pass rate**, performance budget compliance, constitution principle adherence
 - Protected main branch: Requires passing CI + code review approval
 - Conventional Commits format: feat:, fix:, docs:, test:, refactor:, chore:
 
@@ -178,10 +181,13 @@ All code MUST pass peer review before merge to main branch.
 
 **Requirements**:
 - All test suites run in CI/CD pipeline on every PR
-- Test failures block PR merge (non-negotiable gate)
+- **100% test pass rate required - any single failure blocks PR merge (non-negotiable gate)**
+- Test failures MUST be resolved before any new work proceeds
 - 80% minimum coverage enforced in CI (both branch and line coverage)
 - Test categories: unit, integration, e2e (Playwright), accessibility (axe-core), performance (benchmarked thresholds), contract (API validation)
 - npm test MUST exit with non-zero code on any test failure
+- Skipped/ignored tests are not permitted - all tests must execute and pass
+- Flaky tests MUST be fixed immediately or removed (not skipped)
 
 ### Documentation Requirements
 
@@ -376,9 +382,9 @@ Constitution amendments require:
 
 ### Versioning Policy
 
-**Current Version**: 1.1.0
+**Current Version**: 1.2.0
 - **MAJOR** version: Backward-incompatible governance changes
 - **MINOR** version: New principles or expanded guidance
 - **PATCH** version: Clarifications and non-semantic refinements
 
-**Version**: 1.1.0 | **Ratified**: TODO(RATIFICATION_DATE): Requires project owner decision | **Last Amended**: 2025-10-22
+**Version**: 1.2.0 | **Ratified**: TODO(RATIFICATION_DATE): Requires project owner decision | **Last Amended**: 2025-10-23

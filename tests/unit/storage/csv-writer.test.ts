@@ -431,17 +431,6 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
     test('should throw error on disk space full (simulated)', async () => {
       // This would require mocking fs.writeFile to simulate ENOSPC error
       // For now, document the requirement
-      const _result_: HealthCheckResult = {
-        serviceName: 'test-service',
-        timestamp: new Date(),
-        method: 'GET',
-        status: 'PASS',
-        latency_ms: 120,
-        http_status_code: 200,
-        expected_status: 200,
-        failure_reason: '',
-        correlation_id: 'test-id',
-      };
 
       // Mock implementation would throw ENOSPC error
       // await expect(csvWriter.append(result)).rejects.toThrow('ENOSPC');

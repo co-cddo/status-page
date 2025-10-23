@@ -34,6 +34,7 @@ export async function performHealthCheck(
   const timestamp = new Date();
   const correlationId = config.correlationId || randomUUID();
   const serviceName = config.serviceName || config.url;
+  const warningThreshold = config.warningThreshold ?? 2000;
 
   logger.info({
     correlationId,
@@ -67,15 +68,19 @@ export async function performHealthCheck(
 
     try {
       // Perform HTTP request
-      const response = await fetch(config.url, {
+      const requestInit: RequestInit = {
         method: config.method,
         headers,
-        body: config.method === 'POST' && config.payload
-          ? JSON.stringify(config.payload)
-          : undefined,
         signal: controller.signal,
         redirect: 'manual', // Don't follow redirects automatically (FR-004a)
-      });
+      };
+
+      // Only add body if we have a payload (avoid undefined assignment with exactOptionalPropertyTypes)
+      if (config.method === 'POST' && config.payload) {
+        requestInit.body = JSON.stringify(config.payload);
+      }
+
+      const response = await fetch(config.url, requestInit);
 
       clearTimeout(timeoutId);
 
@@ -140,7 +145,7 @@ export async function performHealthCheck(
           latency_ms,
           error: failure_reason,
         }, 'Health check exceeded timeout');
-      } else if (latency_ms > config.warningThreshold) {
+      } else if (latency_ms > warningThreshold) {
         status = 'DEGRADED';
 
         logger.warn({
@@ -148,7 +153,7 @@ export async function performHealthCheck(
           service: serviceName,
           status: 'DEGRADED',
           latency_ms,
-          threshold: config.warningThreshold,
+          threshold: warningThreshold,
         }, 'Health check degraded (slow response)');
       } else {
         status = 'PASS';
@@ -161,7 +166,7 @@ export async function performHealthCheck(
         }, 'Health check passed');
       }
 
-      return {
+      const result: HealthCheckResult = {
         serviceName,
         timestamp,
         method: config.method,
@@ -170,13 +175,20 @@ export async function performHealthCheck(
         http_status_code: response.status,
         expected_status: typeof config.expectedStatus === 'number'
           ? config.expectedStatus
-          : config.expectedStatus[0],
-        textValidationResult: config.expectedText !== undefined ? textValidation.valid : undefined,
-        headerValidationResult: config.expectedHeaders ?
-          { validated: headersValidation.valid } : undefined,
+          : (config.expectedStatus[0] ?? 200),
         failure_reason,
         correlation_id: correlationId,
       };
+
+      // Add optional properties only if they exist (exactOptionalPropertyTypes compliance)
+      if (config.expectedText !== undefined) {
+        result.textValidationResult = textValidation.valid;
+      }
+      if (config.expectedHeaders) {
+        result.headerValidationResult = { validated: headersValidation.valid };
+      }
+
+      return result;
 
     } finally {
       clearTimeout(timeoutId);
@@ -207,7 +219,7 @@ export async function performHealthCheck(
       http_status_code: 0, // Connection failure
       expected_status: typeof config.expectedStatus === 'number'
         ? config.expectedStatus
-        : config.expectedStatus[0],
+        : (config.expectedStatus[0] ?? 200),
       failure_reason,
       correlation_id: correlationId,
     };
