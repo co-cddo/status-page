@@ -898,13 +898,18 @@ describe('Worker Pool Manager', () => {
       };
 
       // Start task that never completes
-      const task = poolManager.executeHealthCheck(config);
+      const task = poolManager.executeHealthCheck(config).catch(() => {
+        // Expected rejection after timeout during shutdown
+      });
 
       // Act - shutdown with short timeout
       await poolManager.shutdown({ gracefulTimeout: 100 });
 
       // Assert
       expect(mockWorker.terminate).toHaveBeenCalled();
+
+      // Wait for task promise to settle
+      await Promise.allSettled([task]);
     });
 
     it('should reject new tasks after shutdown initiated', async () => {
@@ -962,7 +967,11 @@ describe('Worker Pool Manager', () => {
         correlationId: `id-${i}`,
       }));
 
-      const tasks = configs.map((config) => poolManager.executeHealthCheck(config));
+      const tasks = configs.map((config) =>
+        poolManager.executeHealthCheck(config).catch(() => {
+          // Expected rejection during shutdown - catch to prevent unhandled rejection
+        })
+      );
 
       // Act
       await poolManager.shutdown({ gracefulTimeout: 100 });
@@ -970,6 +979,9 @@ describe('Worker Pool Manager', () => {
       // Assert
       const metrics: PoolMetrics = poolManager.getMetrics();
       expect(metrics.queueDepth).toBe(0);
+
+      // Wait for all task promises to settle
+      await Promise.allSettled(tasks);
     });
   });
 
