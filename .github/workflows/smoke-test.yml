@@ -108,7 +108,7 @@ jobs:
           console.log(\`Service status: \${passed} passed, \${degraded} degraded, \${failed} failed\`);
 
           if (failed > 0 || degraded > 0) {
-            console.log('⚠️ Warning: Some services are experiencing issues');
+            console.log('⚠️ Warning: widespread service failures detected');
           }
           "
 
