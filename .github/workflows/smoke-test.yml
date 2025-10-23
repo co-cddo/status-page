@@ -29,15 +29,14 @@ jobs:
         run: |
           node --import tsx/esm -e "
           import { loadConfiguration } from './src/config/loader.js';
-          import { validateConfig } from './src/config/validator.js';
+          import { validateConfigurationCLI } from './src/config/validator.js';
 
           try {
             const config = await loadConfiguration('config.yaml');
-            const errors = await validateConfig(config);
+            const isValid = validateConfigurationCLI(config);
 
-            if (errors.length > 0) {
-              console.error('Config validation errors:');
-              errors.forEach(err => console.error('  -', err));
+            if (!isValid) {
+              console.error('Config validation failed');
               process.exit(1);
             }
 
