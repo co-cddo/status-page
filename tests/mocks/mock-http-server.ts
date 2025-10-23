@@ -429,7 +429,7 @@ export const MockScenarios = {
         '/health': delayMs,
         '/slow': delayMs,
       },
-      options,
+      ...(options ? { options } : {}),
     });
   },
 
@@ -442,7 +442,7 @@ export const MockScenarios = {
         '/health': failureRate,
         '/flaky': failureRate,
       },
-      options,
+      ...(options ? { options } : {}),
     });
   },
 
