@@ -14,7 +14,7 @@
  */
 
 import { describe, test, expect, beforeAll } from 'vitest';
-import Ajv from 'ajv/dist/2020.ts';
+import Ajv from 'ajv/dist/2020';
 import addFormats from 'ajv-formats';
 import type { StatusAPI } from '../../src/types/health-check.ts';
 

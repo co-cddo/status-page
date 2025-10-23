@@ -34,7 +34,7 @@ const { MockWorker } = vi.hoisted(() => {
         if (this.terminated) return;
         
         try {
-          const { processHealthCheck } = await import('../../src/health-checks/worker.js');
+          const { processHealthCheck } = await import('../../src/health-checks/worker.ts');
           const result = await processHealthCheck(message as never);
           if (!this.terminated) {
             this.emit('message', result);

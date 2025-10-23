@@ -18,14 +18,16 @@ interface ErrorWithCause extends Error {
   cause?: NodeSystemError | Error;
 }
 
-export enum ErrorType {
-  TIMEOUT = 'timeout',
-  DNS_FAILURE = 'dns_failure',
-  CONNECTION_REFUSED = 'connection_refused',
-  SSL_TLS = 'ssl_tls',
-  NETWORK = 'network',
-  UNKNOWN = 'unknown',
-}
+export const ErrorType = {
+  TIMEOUT: 'timeout',
+  DNS_FAILURE: 'dns_failure',
+  CONNECTION_REFUSED: 'connection_refused',
+  SSL_TLS: 'ssl_tls',
+  NETWORK: 'network',
+  UNKNOWN: 'unknown',
+} as const;
+
+export type ErrorType = typeof ErrorType[keyof typeof ErrorType];
 
 /**
  * Maps error patterns to human-readable messages
