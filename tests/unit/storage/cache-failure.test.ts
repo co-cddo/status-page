@@ -67,8 +67,6 @@ class MockCacheManager {
 describe('GitHub Actions Cache Failure Scenarios (T030c - TDD Phase)', () => {
   let cacheManager: MockCacheManager;
   let mockFetch: Mock;
-  let mockReadFile: Mock;
-  let mockWriteFile: Mock;
 
   beforeEach(async () => {
     // Reset mocks
@@ -78,10 +76,10 @@ describe('GitHub Actions Cache Failure Scenarios (T030c - TDD Phase)', () => {
     mockFetch = vi.fn();
     global.fetch = mockFetch;
 
-    // Mock fs operations
+    // Mock fs operations (for future use when implementing CacheManager)
     const fs = await import('node:fs/promises');
-    mockReadFile = vi.mocked(fs.readFile);
-    mockWriteFile = vi.mocked(fs.writeFile);
+    vi.mocked(fs.readFile);
+    vi.mocked(fs.writeFile);
 
     // Initialize cache manager
     cacheManager = new MockCacheManager({

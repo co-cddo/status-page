@@ -14,23 +14,27 @@
  */
 
 import { describe, test, expect, beforeAll } from 'vitest';
-import Ajv from 'ajv/dist/2020';
-import addFormats from 'ajv-formats';
+import AjvModule from 'ajv';
+import addFormatsModule from 'ajv-formats';
 import type { StatusAPI } from '../../src/types/health-check.ts';
 
+// Handle ESM/CommonJS interop
+const Ajv = AjvModule.default || AjvModule;
+const addFormats = addFormatsModule.default || addFormatsModule;
+
 describe('Health JSON Contract (US1)', () => {
-  let ajv: InstanceType<typeof Ajv.default>;
+  let ajv: InstanceType<typeof Ajv>;
   // Use plain object schema instead of JSONSchemaType due to nullable field compatibility issues
   let schema: Record<string, unknown>;
 
   beforeAll(() => {
     // Initialize Ajv with strict mode and formats support
-    ajv = new Ajv.default({
+    ajv = new Ajv({
       strict: true,
       allErrors: true,
       verbose: true
     });
-    addFormats.default(ajv);
+    addFormats(ajv);
 
     // Define JSON Schema based on OpenAPI ServiceStatusAPI definition
     // Per specs/001-govuk-status-monitor/contracts/status-api.openapi.yaml
