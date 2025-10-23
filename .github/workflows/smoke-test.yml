@@ -120,13 +120,18 @@ jobs:
           EXISTING_COMMENT=$(gh pr view ${{ github.event.pull_request.number }} --json comments --jq '.comments[] | select(.body | contains("Smoke Test Results")) | .id' | head -1)
 
           if [ -n "$EXISTING_COMMENT" ]; then
-            # Update existing comment
-            gh api \
+            # Try to update existing comment
+            if gh api \
               --method PATCH \
               -H "Accept: application/vnd.github+json" \
               "/repos/${{ github.repository }}/issues/comments/$EXISTING_COMMENT" \
-              -f body="$(cat smoke-test-comment.md)"
-            echo "✓ Updated existing smoke test comment"
+              -f body="$(cat smoke-test-comment.md)" 2>/dev/null; then
+              echo "✓ Updated existing smoke test comment"
+            else
+              # Comment no longer exists, create new one
+              gh pr comment ${{ github.event.pull_request.number }} --body-file smoke-test-comment.md
+              echo "✓ Comment update failed, created new smoke test comment"
+            fi
           else
             # Create new comment
             gh pr comment ${{ github.event.pull_request.number }} --body-file smoke-test-comment.md
