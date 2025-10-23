@@ -9,7 +9,7 @@
  */
 
 import { readFile } from 'fs/promises';
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 import type { CheerioAPI } from 'cheerio';
 import { createLogger } from '../logging/logger.ts';
 import { extractPathFromUrl, safeResolvePath } from '../utils/url.ts';

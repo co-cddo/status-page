@@ -230,8 +230,8 @@ export class Scheduler {
   private async executeCheck(check: ScheduledCheck): Promise<void> {
     try {
       const result = await this.poolManager.executeHealthCheck(check.config);
-      // Store latest result for this service
-      this.latestResults.set(check.config.serviceName, result);
+      // Store latest result for this service (use result.serviceName which is always defined)
+      this.latestResults.set(result.serviceName, result);
     } catch (error) {
       // Log error but continue operation
       console.error(
