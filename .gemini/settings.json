@@ -1,0 +1,26 @@
+{
+  "ui": {
+    "showStatusInTitle": true,
+    "useFullWidth": true
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
+    },
+    "autoAccept": true
+  },
+  "ide": {
+    "enabled": true
+  },
+  "security": {
+    "folderTrust": {
+      "enabled": true
+    }
+  },
+  "experimental": {
+    "useModelRouter": true,
+    "codebaseInvestigatorSettings": {
+      "enabled": true
+    }
+  }
+}
