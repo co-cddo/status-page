@@ -31,3 +31,7 @@ yarn.lock
 # Temporary files
 *.tmp
 .cache/
+
+# Nunjucks templates - Prettier breaks the syntax
+pages/**/*.njk
+_includes/**/*.njk
