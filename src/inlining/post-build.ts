@@ -15,7 +15,7 @@
  *   node --import tsx/esm src/inlining/post-build.ts
  */
 
-import { readFile, writeFile, mkdir } from 'fs/promises';
+import { readFile, writeFile, mkdir, access, copyFile } from 'fs/promises';
 import { basename, join } from 'path';
 import { load as cheerioLoad } from 'cheerio';
 import { createLogger } from '../logging/logger.ts';
@@ -201,7 +201,7 @@ async function main(): Promise<void> {
     );
 
     // Step 5: Validate HTML file size (< 5MB constraint)
-    logger.info('Step 5/5: Validating HTML file size');
+    logger.info('Step 5/6: Validating HTML file size');
     const componentSizes: ComponentSizes = {
       totalCSS: stats.css.size,
       totalJS: stats.js.size,
@@ -261,6 +261,10 @@ async function main(): Promise<void> {
       console.warn('');
     }
 
+    // Step 6: Copy additional output files (API endpoint, history CSV)
+    logger.info('Step 6/6: Copying additional output files');
+    await copyAdditionalFiles(options.inputDir, options.outputDir);
+
     // Success!
     const duration = Date.now() - startTime;
     logger.info(
@@ -288,6 +292,62 @@ async function main(): Promise<void> {
     }
 
     process.exit(1);
+  }
+}
+
+/**
+ * Copy additional files required for deployment (API endpoint, history CSV)
+ */
+async function copyAdditionalFiles(inputDir: string, outputDir: string): Promise<void> {
+  // 1. Copy or generate /api/status.json
+  const apiDir = join(outputDir, 'api');
+  await mkdir(apiDir, { recursive: true });
+
+  // Try to copy from _data/health.json or _site/api/status.json
+  const healthDataPath = join('_data', 'health.json');
+  const apiSourcePath = join(inputDir, 'api', 'status.json');
+  const apiOutputPath = join(apiDir, 'status.json');
+
+  try {
+    // First try to copy from _site/api/status.json if it exists
+    await access(apiSourcePath);
+    await copyFile(apiSourcePath, apiOutputPath);
+    logger.info({ from: apiSourcePath, to: apiOutputPath }, 'Copied status.json API endpoint');
+  } catch {
+    // Fallback: copy from _data/health.json
+    try {
+      await access(healthDataPath);
+      await copyFile(healthDataPath, apiOutputPath);
+      logger.info({ from: healthDataPath, to: apiOutputPath }, 'Copied health.json as status.json API endpoint');
+    } catch {
+      // Create empty array if no source exists
+      await writeFile(apiOutputPath, JSON.stringify([]), 'utf-8');
+      logger.warn({ path: apiOutputPath }, 'Created empty status.json (no source data found)');
+    }
+  }
+
+  // 2. Copy or create history.csv
+  const historyCsvSource = join(inputDir, 'history.csv');
+  const historyCsvRoot = 'history.csv'; // Check root directory
+  const historyCsvOutput = join(outputDir, 'history.csv');
+
+  try {
+    // Try to copy from _site/history.csv
+    await access(historyCsvSource);
+    await copyFile(historyCsvSource, historyCsvOutput);
+    logger.info({ from: historyCsvSource, to: historyCsvOutput }, 'Copied history.csv');
+  } catch {
+    // Try to copy from root directory
+    try {
+      await access(historyCsvRoot);
+      await copyFile(historyCsvRoot, historyCsvOutput);
+      logger.info({ from: historyCsvRoot, to: historyCsvOutput }, 'Copied history.csv from root');
+    } catch {
+      // Create empty CSV with header if no source exists
+      const csvHeader = 'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id\n';
+      await writeFile(historyCsvOutput, csvHeader, 'utf-8');
+      logger.warn({ path: historyCsvOutput }, 'Created empty history.csv (no source data found)');
+    }
   }
 }
 
