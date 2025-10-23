@@ -85,62 +85,50 @@ jobs:
           console.log(\`Health checks completed: \${results.length} services\`);
           "
 
-      - name: Generate and post PR comment
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
+      - name: Generate PR comment markdown
+        run: |
+          node --import tsx/esm -e "
+          import { formatSmokeTestComment } from './src/workflows/format-smoke-test-comment.js';
+          import { readFileSync, writeFileSync } from 'fs';
 
-            // Read smoke test results
-            const results = JSON.parse(fs.readFileSync('smoke-test-results.json', 'utf-8'));
+          // Read smoke test results
+          const results = JSON.parse(readFileSync('smoke-test-results.json', 'utf-8'));
 
-            // Import formatSmokeTestComment function (TypeScript via tsx loader)
-            const { formatSmokeTestComment } = await import('${{ github.workspace }}/src/workflows/format-smoke-test-comment.ts');
+          // Generate comment markdown
+          const comment = formatSmokeTestComment(results);
 
-            // Generate comment
-            const comment = formatSmokeTestComment(results);
+          // Write comment to file for gh CLI
+          writeFileSync('smoke-test-comment.md', comment);
 
-            // Post comment to PR
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
+          // Log summary
+          const failed = results.filter(r => r.status === 'FAIL').length;
+          const degraded = results.filter(r => r.status === 'DEGRADED').length;
+          const passed = results.filter(r => r.status === 'PASS').length;
 
-            // Find existing smoke test comment
-            const botComment = comments.find(comment =>
-              comment.user.type === 'Bot' &&
-              comment.body.includes('Smoke Test Results')
-            );
+          console.log(\`Service status: \${passed} passed, \${degraded} degraded, \${failed} failed\`);
 
-            if (botComment) {
-              // Update existing comment
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: botComment.id,
-                body: comment
-              });
-              console.log('Updated existing smoke test comment');
-            } else {
-              // Create new comment
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: comment
-              });
-              console.log('Created new smoke test comment');
-            }
+          if (failed > 0 || degraded > 0) {
+            console.log('⚠️ Warning: Some services are experiencing issues');
+          }
+          "
 
-            // Log summary with warning for failures
-            const failed = results.filter(r => r.status === 'FAIL').length;
-            const degraded = results.filter(r => r.status === 'DEGRADED').length;
-            const passed = results.filter(r => r.status === 'PASS').length;
+      - name: Post PR comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Check if a smoke test comment already exists
+          EXISTING_COMMENT=$(gh pr view ${{ github.event.pull_request.number }} --json comments --jq '.comments[] | select(.body | contains("Smoke Test Results")) | .id' | head -1)
 
-            console.log(`Service status: ${passed} passed, ${degraded} degraded, ${failed} failed`);
-
-            // Include warning message for widespread failures if needed
-            if (failed > 0 || degraded > 0) {
-              console.log('⚠️ Warning: Some services are experiencing issues');
-            }
+          if [ -n "$EXISTING_COMMENT" ]; then
+            # Update existing comment
+            gh api \
+              --method PATCH \
+              -H "Accept: application/vnd.github+json" \
+              "/repos/${{ github.repository }}/issues/comments/$EXISTING_COMMENT" \
+              -f body="$(cat smoke-test-comment.md)"
+            echo "✓ Updated existing smoke test comment"
+          else
+            # Create new comment
+            gh pr comment ${{ github.event.pull_request.number }} --body-file smoke-test-comment.md
+            echo "✓ Created new smoke test comment"
+          fi
