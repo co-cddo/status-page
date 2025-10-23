@@ -88,7 +88,13 @@ export default defineConfig({
 
   // Web server for local development testing
   webServer: process.env.CI
-    ? undefined
+    ? {
+        // In CI, serve the built static files from output/ directory
+        command: 'npx http-server output -p 8080 --silent',
+        url: 'http://localhost:8080',
+        timeout: 120000,
+        reuseExistingServer: false,
+      }
     : {
         command: 'pnpm run dev',
         url: 'http://localhost:8080',
