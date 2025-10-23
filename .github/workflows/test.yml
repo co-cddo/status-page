@@ -40,7 +40,7 @@ jobs:
         run: pnpx playwright install --with-deps
 
       - name: Build application
-        run: pnpm run build
+        run: pnpm run build:inline
         continue-on-error: false
         env:
           NODE_ENV: test

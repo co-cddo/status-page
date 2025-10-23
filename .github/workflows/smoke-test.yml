@@ -28,11 +28,11 @@ jobs:
       - name: Validate config.yaml syntax and schema
         run: |
           node --import tsx/esm -e "
-          import { loadConfig } from './src/config/loader.js';
+          import { loadConfiguration } from './src/config/loader.js';
           import { validateConfig } from './src/config/validator.js';
 
           try {
-            const config = await loadConfig('config.yaml');
+            const config = await loadConfiguration('config.yaml');
             const errors = await validateConfig(config);
 
             if (errors.length > 0) {
@@ -52,11 +52,11 @@ jobs:
         id: health-checks
         run: |
           node --import tsx/esm -e "
-          import { loadConfig } from './src/config/loader.js';
+          import { loadConfiguration } from './src/config/loader.js';
           import { performHealthCheck } from './src/health-checks/http-check.js';
           import { writeFileSync } from 'fs';
 
-          const config = await loadConfig('config.yaml');
+          const config = await loadConfiguration('config.yaml');
           const results = [];
 
           // Run health checks for all configured services
