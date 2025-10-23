@@ -14,8 +14,7 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { parentPort } from 'node:worker_threads';
-import type { HealthCheckConfig, HealthCheckResult, ServiceStatus } from '../../../src/types/health-check.js';
+import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.js';
 import { processHealthCheck } from '../../../src/health-checks/worker.js';
 
 // Mock worker_threads module
@@ -42,7 +41,6 @@ vi.mock('../../../src/metrics/index.js', () => ({
   incrementHealthCheckCounter: vi.fn(),
 }));
 
-import { performHealthCheck } from '../../../src/health-checks/http-check.js';
 import { performHealthCheckWithRetry } from '../../../src/health-checks/retry-logic.js';
 import { recordHealthCheckResult, incrementHealthCheckCounter } from '../../../src/metrics/index.js';
 
@@ -501,7 +499,7 @@ describe('Health Check Worker', () => {
 
       // Assert
       expect(result.result.status).toBe('DEGRADED');
-      expect(result.result.latency_ms).toBeGreaterThan(config.warningThreshold);
+      expect(result.result.latency_ms).toBeGreaterThan(config.warningThreshold!);
       expect(result.result.latency_ms).toBeLessThan(config.timeout);
       expect(result.result.http_status_code).toBe(200);
       expect(result.result.failure_reason).toBe('');
@@ -584,7 +582,7 @@ describe('Health Check Worker', () => {
 
       // Assert
       expect(result.result.status).toBe('PASS');
-      expect(result.result.latency_ms).toBeLessThanOrEqual(config.warningThreshold);
+      expect(result.result.latency_ms).toBeLessThanOrEqual(config.warningThreshold!);
       expect(result.result.http_status_code).toBe(200);
       expect(result.result.failure_reason).toBe('');
     });

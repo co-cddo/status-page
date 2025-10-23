@@ -10,7 +10,7 @@
  * This test MUST fail before T030 implementation (TDD requirement)
  */
 
-import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, test, expect, beforeEach, afterEach } from 'vitest';
 import { promises as fs } from 'node:fs';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
@@ -431,7 +431,7 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
     test('should throw error on disk space full (simulated)', async () => {
       // This would require mocking fs.writeFile to simulate ENOSPC error
       // For now, document the requirement
-      const result: HealthCheckResult = {
+      const _result_: HealthCheckResult = {
         serviceName: 'test-service',
         timestamp: new Date(),
         method: 'GET',

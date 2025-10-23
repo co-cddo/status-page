@@ -11,6 +11,7 @@
  * - Handle errors with structured error objects
  */
 
+import { randomUUID } from 'node:crypto';
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.js';
 import { performHealthCheck } from './http-check.js';
 import { performHealthCheckWithRetry } from './retry-logic.js';
@@ -80,8 +81,9 @@ export async function processHealthCheck(message: WorkerMessage): Promise<Worker
       performHealthCheck
     );
 
-    // Emit Prometheus metrics (recordHealthCheckResult handles both result recording and counter increment)
+    // Emit Prometheus metrics
     recordHealthCheckResult(result);
+    incrementHealthCheckCounter(result.status, result.serviceName);
 
     // Return successful result
     return {
@@ -96,26 +98,41 @@ export async function processHealthCheck(message: WorkerMessage): Promise<Worker
     // Create error result
     const errorType = getErrorType(err.code);
 
+    // Create FAIL result for the error case
+    const failResult: HealthCheckResult = {
+      serviceName: config.serviceName || config.url,
+      timestamp: new Date(),
+      method: config.method,
+      status: 'FAIL',
+      latency_ms: 0,
+      http_status_code: 0,
+      expected_status: typeof config.expectedStatus === 'number'
+        ? config.expectedStatus
+        : (config.expectedStatus[0] ?? 200),
+      failure_reason: err.message,
+      correlation_id: config.correlationId || randomUUID(),
+    };
+
+    // CRITICAL: Emit Prometheus metrics for error cases too
+    // This ensures network failures, timeouts, and other exceptions are tracked
+    recordHealthCheckResult(failResult);
+
     // Return error result for health check execution errors
     // Note: We still return a WorkerResult but with an error field
-    return {
+    const errorResult: WorkerResult = {
       type: 'health-check-result',
-      result: {
-        serviceName: config.serviceName,
-        timestamp: new Date(),
-        method: config.method,
-        status: 'FAIL',
-        latency_ms: 0,
-        http_status_code: 0,
-        expected_status: config.expectedStatus,
-        failure_reason: err.message,
-        correlation_id: config.correlationId,
-      },
+      result: failResult,
       error: {
         message: err.message,
-        code: err.code,
         type: errorType,
       },
     };
+
+    // Add code only if it exists (exactOptionalPropertyTypes compliance)
+    if (err.code) {
+      errorResult.error!.code = err.code;
+    }
+
+    return errorResult;
   }
 }

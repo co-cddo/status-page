@@ -26,7 +26,7 @@ export interface CsvValidationResult {
   corrupted?: boolean;
   fallbackSuggested?: boolean;
   empty?: boolean;
-  sampleRowsParsed?: number;
+  sampleRowsParsed?: boolean;
   alertEmitted?: boolean;
   suggestedAction?: string;
   errors?: string[];
@@ -65,7 +65,12 @@ export class CsvReader {
       }
 
       // Validate and skip header row
-      const headers = lines[0].split(',').map(h => h.trim());
+      const headerLine = lines[0];
+      if (!headerLine) {
+        console.error('CSV file has no header row');
+        return [];
+      }
+      const headers = headerLine.split(',').map(h => h.trim());
       if (!this.validateHeaders(headers)) {
         console.error(`CSV headers invalid. Expected: ${EXPECTED_HEADERS.join(',')}`);
         return [];
@@ -76,7 +81,9 @@ export class CsvReader {
 
       for (let i = 1; i < lines.length; i++) {
         try {
-          const record = this.parseRow(lines[i]);
+          const line = lines[i];
+          if (!line) continue;
+          const record = this.parseRow(line);
           if (record) {
             records.push(record);
           }
@@ -135,17 +142,32 @@ export class CsvReader {
       }
 
       // Validate headers
-      const headers = lines[0].split(',').map(h => h.trim());
+      const headerLine = lines[0];
+      if (!headerLine) {
+        return {
+          valid: false,
+          hasHeaders: false,
+          empty: true,
+        };
+      }
+      const headers = headerLine.split(',').map(h => h.trim());
       const hasValidHeaders = this.validateHeaders(headers);
 
       if (!hasValidHeaders) {
+        // Check if headers exist but in wrong order
+        const hasAllHeaders = EXPECTED_HEADERS.every(expected => headers.includes(expected));
+        const errorMessage = hasAllHeaders && headers.length === EXPECTED_HEADERS.length
+          ? `Invalid header order: expected ${EXPECTED_HEADERS.join(',')}, got ${headers.join(',')}`
+          : `Invalid headers: expected ${EXPECTED_HEADERS.join(',')}, got ${headers.join(',')}`;
+
         return {
           valid: false,
           hasHeaders: false,
           corrupted: true,
           fallbackSuggested: true,
+          alertEmitted: true,
           suggestedAction: 'Headers invalid - fallback to next tier',
-          errors: [`Invalid headers: expected ${EXPECTED_HEADERS.join(',')}, got ${headers.join(',')}`],
+          errors: [errorMessage],
         };
       }
 
@@ -156,13 +178,21 @@ export class CsvReader {
 
       for (let i = 1; i <= sampleSize; i++) {
         try {
-          const record = this.parseRow(lines[i]);
+          const line = lines[i];
+          if (!line) continue;
+
+          const record = this.parseRow(line);
           if (record) {
             sampleRowsParsed++;
           }
         } catch (error) {
           const errorMessage = error instanceof Error ? error.message : String(error);
-          errors.push(`Row ${i + 1}: ${errorMessage}`);
+          // Check if error indicates malformed data
+          if (errorMessage.includes('Invalid') || errorMessage.includes('column')) {
+            errors.push(`Row ${i + 1}: malformed - ${errorMessage}`);
+          } else {
+            errors.push(`Row ${i + 1}: ${errorMessage}`);
+          }
         }
       }
 
@@ -173,9 +203,24 @@ export class CsvReader {
           hasHeaders: true,
           corrupted: true,
           fallbackSuggested: true,
-          sampleRowsParsed: 0,
+          alertEmitted: true,
+          sampleRowsParsed: false,
           errors,
           suggestedAction: 'CSV corrupted - fallback to next tier',
+        };
+      }
+
+      // If ANY errors occurred during validation, mark as invalid
+      if (errors.length > 0) {
+        return {
+          valid: false,
+          hasHeaders: true,
+          corrupted: true,
+          fallbackSuggested: true,
+          alertEmitted: true,
+          sampleRowsParsed: false,
+          errors,
+          suggestedAction: 'CSV contains malformed rows - fallback to next tier',
         };
       }
 
@@ -183,8 +228,7 @@ export class CsvReader {
         valid: true,
         hasHeaders: true,
         empty: false,
-        sampleRowsParsed,
-        errors: errors.length > 0 ? errors : undefined,
+        sampleRowsParsed: true,
       };
 
     } catch (error) {
@@ -210,10 +254,12 @@ export class CsvReader {
     const byService: { [key: string]: HistoricalRecord[] } = {};
 
     for (const record of records) {
-      if (!byService[record.service_name]) {
-        byService[record.service_name] = [];
+      const serviceName = record.service_name;
+      if (!byService[serviceName]) {
+        byService[serviceName] = [];
       }
-      byService[record.service_name].push(record);
+      // TypeScript now knows this exists due to check above
+      byService[serviceName]!.push(record);
     }
 
     // For each service, count consecutive failures from most recent
@@ -258,7 +304,9 @@ export class CsvReader {
     }
 
     for (let i = 0; i < headers.length; i++) {
-      if (headers[i] !== EXPECTED_HEADERS[i]) {
+      const header = headers[i];
+      const expectedHeader = EXPECTED_HEADERS[i];
+      if (!header || !expectedHeader || header !== expectedHeader) {
         return false;
       }
     }
@@ -277,7 +325,19 @@ export class CsvReader {
       throw new Error(`Invalid number of columns: expected 7, got ${values.length}`);
     }
 
-    const [timestamp, service_name, status, latency_ms, http_status_code, failure_reason, correlation_id] = values;
+    // Destructure with type safety checks
+    const timestamp = values[0];
+    const service_name = values[1];
+    const status = values[2];
+    const latency_ms = values[3];
+    const http_status_code = values[4];
+    const failure_reason = values[5];
+    const correlation_id = values[6];
+
+    // Validate all required fields are present (failure_reason can be empty string)
+    if (!timestamp || !service_name || !status || !latency_ms || !http_status_code || failure_reason === undefined || !correlation_id) {
+      throw new Error('Missing required field');
+    }
 
     // Validate status using type guard from utils
     if (!isValidStatus(status)) {
