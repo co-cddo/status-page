@@ -1,9 +1,9 @@
 # Quickstart: GOV.UK Status Monitor Development
 
-**Feature**: 001-govuk-status-monitor
-**Last Updated**: 2025-10-21
+**Feature**: 001-govuk-status-monitor **Last Updated**: 2025-10-21
 
-This guide helps developers quickly set up, run, and test the GOV.UK Public Services Status Monitor application.
+This guide helps developers quickly set up, run, and test the GOV.UK Public Services Status Monitor
+application.
 
 ## Table of Contents
 
@@ -22,6 +22,7 @@ This guide helps developers quickly set up, run, and test the GOV.UK Public Serv
 ### Required Software
 
 - **Node.js**: v22.11.0 or later (LTS recommended)
+
   ```bash
   node --version  # Should be >= 22.11.0
   ```
@@ -68,6 +69,7 @@ npm install
 ```
 
 This installs:
+
 - Eleventy v3+ (static site generator)
 - govuk-eleventy-plugin v4+ (GOV.UK Design System integration)
 - TypeScript v5.8+ (type safety)
@@ -84,6 +86,7 @@ npm run verify
 ```
 
 Expected output:
+
 ```
 ✓ Node.js version: 22.11.0
 ✓ npm version: 10.x.x
@@ -101,23 +104,23 @@ The application uses `config.yaml` to define monitored services:
 ```yaml
 # config.yaml (already exists in repo root)
 settings:
-  check_interval: 60        # Default check interval (seconds)
-  warning_threshold: 2      # Latency threshold for DEGRADED state (seconds)
-  timeout: 5                # HTTP timeout for FAILED state (seconds)
-  page_refresh: 60          # Browser auto-refresh interval (seconds)
-  worker_pool_size: 0       # 0 = auto (2x CPU cores)
-  history_file: "history.csv"
-  output_dir: "_site"
+  check_interval: 60 # Default check interval (seconds)
+  warning_threshold: 2 # Latency threshold for DEGRADED state (seconds)
+  timeout: 5 # HTTP timeout for FAILED state (seconds)
+  page_refresh: 60 # Browser auto-refresh interval (seconds)
+  worker_pool_size: 0 # 0 = auto (2x CPU cores)
+  history_file: 'history.csv'
+  output_dir: '_site'
 
 pings:
-  - name: "GOV.UK Homepage"
+  - name: 'GOV.UK Homepage'
     protocol: HTTPS
     method: GET
-    resource: "https://www.gov.uk"
-    tags: ["central government", "core services"]
+    resource: 'https://www.gov.uk'
+    tags: ['central government', 'core services']
     expected:
       status: 200
-      text: "Welcome to GOV.UK"
+      text: 'Welcome to GOV.UK'
 ```
 
 ### 2. Validate Configuration
@@ -127,6 +130,7 @@ npm run validate-config
 ```
 
 This checks:
+
 - Valid YAML syntax
 - Required fields present
 - Unique service names
@@ -143,7 +147,8 @@ DEBUG=info                    # Logging level: info, error, debug
 METRICS_BUFFER_SIZE=1000      # Max metrics to buffer when telemetry unavailable
 ```
 
-**Security Note**: When `DEBUG=debug`, full HTTP request/response bodies are logged. Only use in secure troubleshooting environments.
+**Security Note**: When `DEBUG=debug`, full HTTP request/response bodies are logged. Only use in
+secure troubleshooting environments.
 
 ## Running the Application
 
@@ -156,11 +161,13 @@ npm run dev
 ```
 
 This starts:
+
 1. **Health check service**: Executes checks every 60 seconds (configurable)
 2. **Eleventy dev server**: Auto-regenerates HTML on data changes
 3. **Browser**: Opens `http://localhost:8080` with live reload
 
 Expected output:
+
 ```
 [INFO] Starting GOV.UK Status Monitor
 [INFO] Loaded 3 services from config.yaml
@@ -199,6 +206,7 @@ npm test
 ```
 
 This executes:
+
 - Unit tests (Jest)
 - Integration tests (Jest)
 - Contract tests (JSON API schema validation)
@@ -296,6 +304,7 @@ npm run type-check
 ### Pre-commit Checks
 
 Automatically runs before each commit:
+
 - Linting
 - Type checking
 - Unit tests
@@ -356,14 +365,14 @@ npm run pre-commit
 
 ```yaml
 pings:
-  - name: "New Service"
+  - name: 'New Service'
     protocol: HTTPS
     method: GET
-    resource: "https://new-service.gov.uk/health"
-    tags: ["new category"]
+    resource: 'https://new-service.gov.uk/health'
+    tags: ['new category']
     expected:
       status: 200
-      text: "OK"
+      text: 'OK'
 ```
 
 2. Validate configuration:
@@ -423,12 +432,14 @@ DEBUG=debug npm run dev
 ```
 
 This logs:
+
 - Full HTTP request headers and bodies
 - Response headers and bodies
 - Detailed timing information
 - Correlation IDs for tracing
 
-**Security Warning**: Debug mode logs sensitive data (API keys, tokens). Only use in secure environments.
+**Security Warning**: Debug mode logs sensitive data (API keys, tokens). Only use in secure
+environments.
 
 ### Run Accessibility Audit
 
@@ -518,14 +529,16 @@ npm install
 **Solutions**:
 
 1. **Check network connectivity**:
+
    ```bash
    curl https://example.com
    ```
 
 2. **Increase timeout in config.yaml**:
+
    ```yaml
    settings:
-     timeout: 10  # Increase from 5 to 10 seconds
+     timeout: 10 # Increase from 5 to 10 seconds
    ```
 
 3. **Check firewall/proxy settings**
@@ -583,8 +596,10 @@ PORT=8081 npm run dev
 1. **Read the feature specification**: [spec.md](./spec.md)
 2. **Understand the data model**: [data-model.md](./data-model.md)
 3. **Review the implementation plan**: [plan.md](./plan.md)
-4. **Explore the API contract**: [contracts/status-api.openapi.yaml](./contracts/status-api.openapi.yaml)
-5. **Review the constitution**: [../.specify/memory/constitution.md](../../.specify/memory/constitution.md)
+4. **Explore the API contract**:
+   [contracts/status-api.openapi.yaml](./contracts/status-api.openapi.yaml)
+5. **Review the constitution**:
+   [../.specify/memory/constitution.md](../../.specify/memory/constitution.md)
 
 ## Additional Resources
 
@@ -599,6 +614,7 @@ PORT=8081 npm run dev
 ## Support
 
 For issues or questions:
+
 - Create an issue in the project repository
 - Contact the development team
 - Review the troubleshooting section above

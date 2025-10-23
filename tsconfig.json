@@ -45,22 +45,8 @@
       "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src/**/*",
-    "tests/**/*",
-    "eleventy.config.ts",
-    "_includes/**/*",
-    "_data/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "_site",
-    "dist",
-    "output",
-    "build",
-    "coverage",
-    ".github"
-  ],
+  "include": ["src/**/*", "tests/**/*", "eleventy.config.ts", "_includes/**/*", "_data/**/*"],
+  "exclude": ["node_modules", "_site", "dist", "output", "build", "coverage", ".github"],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"

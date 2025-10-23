@@ -259,7 +259,9 @@ describe('GitHub Actions Cache Failure Scenarios (T030c - TDD Phase)', () => {
 
       await cacheManager.restoreFromCache();
 
-      expect(consoleErrorSpy).toHaveBeenCalledWith(expect.stringMatching(/corrupt|invalid|validation/i));
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        expect.stringMatching(/corrupt|invalid|validation/i)
+      );
 
       consoleErrorSpy.mockRestore();
     });
@@ -445,7 +447,8 @@ describe('GitHub Actions Cache Failure Scenarios (T030c - TDD Phase)', () => {
     });
 
     it('should accept valid CSV with all required columns', async () => {
-      const validCsv = 'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id\n2025-01-01T00:00:00Z,test,PASS,100,200,,abc-123\n';
+      const validCsv =
+        'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id\n2025-01-01T00:00:00Z,test,PASS,100,200,,abc-123\n';
 
       mockFetch.mockResolvedValueOnce({
         ok: true,

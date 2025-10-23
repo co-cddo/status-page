@@ -29,10 +29,7 @@ export interface CSSInlineResult {
  * @param htmlPath - Path to the HTML file (for resolving relative CSS paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineCSS(
-  $: CheerioAPI,
-  htmlPath: string,
-): Promise<CSSInlineResult> {
+export async function inlineCSS($: CheerioAPI, htmlPath: string): Promise<CSSInlineResult> {
   const result: CSSInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -50,10 +47,7 @@ export async function inlineCSS(
     return result;
   }
 
-  logger.info(
-    { count: stylesheetLinks.length },
-    'Found CSS files to inline',
-  );
+  logger.info({ count: stylesheetLinks.length }, 'Found CSS files to inline');
 
   // Process each stylesheet sequentially to maintain order
   for (let i = 0; i < stylesheetLinks.length; i++) {
@@ -67,9 +61,7 @@ export async function inlineCSS(
 
     try {
       // Resolve CSS file path (handle both relative and absolute paths)
-      const cssPath = href.startsWith('/')
-        ? join(htmlDir, href)
-        : resolve(htmlDir, href);
+      const cssPath = href.startsWith('/') ? join(htmlDir, href) : resolve(htmlDir, href);
 
       logger.debug({ href, cssPath }, 'Reading CSS file');
 
@@ -91,7 +83,7 @@ export async function inlineCSS(
 
       logger.info(
         { href, size: cssSize, index: i + 1, total: stylesheetLinks.length },
-        'Inlined CSS file',
+        'Inlined CSS file'
       );
     } catch (error) {
       const errorMessage = `Failed to inline CSS file "${href}": ${error instanceof Error ? error.message : String(error)}`;
@@ -107,7 +99,7 @@ export async function inlineCSS(
       totalSize: result.totalSize,
       totalSizeKB: (result.totalSize / 1024).toFixed(2),
     },
-    'CSS inlining complete',
+    'CSS inlining complete'
   );
 
   return result;
@@ -121,10 +113,7 @@ export async function inlineCSS(
  * @param htmlPath - Path to the HTML file (for resolving relative paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineCSSUrls(
-  $: CheerioAPI,
-  htmlPath: string,
-): Promise<CSSInlineResult> {
+export async function inlineCSSUrls($: CheerioAPI, htmlPath: string): Promise<CSSInlineResult> {
   const result: CSSInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -166,9 +155,7 @@ export async function inlineCSSUrls(
 
       try {
         // Resolve file path
-        const filePath = url.startsWith('/')
-          ? join(htmlDir, url)
-          : resolve(htmlDir, url);
+        const filePath = url.startsWith('/') ? join(htmlDir, url) : resolve(htmlDir, url);
 
         // Read file and convert to data URI
         const fileContent = await readFile(filePath);
@@ -184,7 +171,10 @@ export async function inlineCSSUrls(
         result.inlinedCount++;
         result.totalSize += fileContent.length;
 
-        logger.debug({ url, filePath, size: fileContent.length }, 'Converted CSS url() to data URI');
+        logger.debug(
+          { url, filePath, size: fileContent.length },
+          'Converted CSS url() to data URI'
+        );
       } catch (error) {
         logger.warn({ url, error }, 'Failed to inline CSS url() reference');
         // Don't fail the entire process for CSS url() failures
@@ -202,7 +192,7 @@ export async function inlineCSSUrls(
   if (result.inlinedCount > 0) {
     logger.info(
       { inlinedCount: result.inlinedCount, totalSize: result.totalSize },
-      'CSS url() inlining complete',
+      'CSS url() inlining complete'
     );
   }
 

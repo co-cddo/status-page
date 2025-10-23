@@ -37,10 +37,10 @@ export default [
       'no-var': 'error',
       eqeqeq: ['error', 'always'],
 
-      // Code style (handled by Prettier, but keep some rules)
-      semi: ['error', 'always'],
-      quotes: ['error', 'single', { avoidEscape: true }],
-      'comma-dangle': ['error', 'always-multiline'],
+      // Code style (disable rules handled by Prettier)
+      semi: 'off', // Handled by Prettier
+      quotes: 'off', // Handled by Prettier
+      'comma-dangle': 'off', // Handled by Prettier
     },
   },
   {

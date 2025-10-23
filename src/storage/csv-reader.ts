@@ -42,64 +42,57 @@ export class CsvReader {
    * Returns array of HistoricalRecord objects
    */
   async readAll(): Promise<HistoricalRecord[]> {
-    try {
-      // Check if file exists
-      const exists = await this.fileExists();
-      if (!exists) {
-        throw new Error(`CSV file not found: ${this.filePath}`);
-      }
-
-      // Read file content
-      const content = await readFile(this.filePath, 'utf-8');
-
-      // Handle empty file
-      if (content.trim() === '') {
-        return [];
-      }
-
-      // Parse CSV using RFC 4180-compliant line splitting
-      const lines = this.splitCsvLines(content);
-
-      if (lines.length === 0) {
-        return [];
-      }
-
-      // Validate and skip header row
-      const headerLine = lines[0];
-      if (!headerLine) {
-        console.error('CSV file has no header row');
-        return [];
-      }
-      const headers = headerLine.split(',').map(h => h.trim());
-      if (!this.validateHeaders(headers)) {
-        console.error(`CSV headers invalid. Expected: ${EXPECTED_HEADERS.join(',')}`);
-        return [];
-      }
-
-      // Parse data rows
-      const records: HistoricalRecord[] = [];
-
-      for (let i = 1; i < lines.length; i++) {
-        try {
-          const line = lines[i];
-          if (!line) continue;
-          const record = this.parseRow(line);
-          if (record) {
-            records.push(record);
-          }
-        } catch (error) {
-          console.error(`Error parsing CSV row ${i + 1}: ${error}`);
-          // Continue parsing other rows
-        }
-      }
-
-      return records;
-
-    } catch (error) {
-      // Re-throw errors instead of suppressing them
-      // This ensures missing file errors and other critical errors are not silently ignored
-      throw error;
+    // Check if file exists
+    const exists = await this.fileExists();
+    if (!exists) {
+      throw new Error(`CSV file not found: ${this.filePath}`);
     }
+
+    // Read file content
+    const content = await readFile(this.filePath, 'utf-8');
+
+    // Handle empty file
+    if (content.trim() === '') {
+      return [];
+    }
+
+    // Parse CSV using RFC 4180-compliant line splitting
+    const lines = this.splitCsvLines(content);
+
+    if (lines.length === 0) {
+      return [];
+    }
+
+    // Validate and skip header row
+    const headerLine = lines[0];
+    if (!headerLine) {
+      console.error('CSV file has no header row');
+      return [];
+    }
+    const headers = headerLine.split(',').map((h) => h.trim());
+    if (!this.validateHeaders(headers)) {
+      console.error(`CSV headers invalid. Expected: ${EXPECTED_HEADERS.join(',')}`);
+      return [];
+    }
+
+    // Parse data rows
+    const records: HistoricalRecord[] = [];
+
+    for (let i = 1; i < lines.length; i++) {
+      try {
+        const line = lines[i];
+        if (!line) continue;
+        const record = this.parseRow(line);
+        if (record) {
+          records.push(record);
+        }
+      } catch (error) {
+        console.error(`Error parsing CSV row ${i + 1}: ${error}`);
+        // Continue parsing other rows
+      }
+    }
+
+    return records;
   }
 
   /**
@@ -151,15 +144,16 @@ export class CsvReader {
           empty: true,
         };
       }
-      const headers = headerLine.split(',').map(h => h.trim());
+      const headers = headerLine.split(',').map((h) => h.trim());
       const hasValidHeaders = this.validateHeaders(headers);
 
       if (!hasValidHeaders) {
         // Check if headers exist but in wrong order
-        const hasAllHeaders = EXPECTED_HEADERS.every(expected => headers.includes(expected));
-        const errorMessage = hasAllHeaders && headers.length === EXPECTED_HEADERS.length
-          ? `Invalid header order: expected ${EXPECTED_HEADERS.join(',')}, got ${headers.join(',')}`
-          : `Invalid headers: expected ${EXPECTED_HEADERS.join(',')}, got ${headers.join(',')}`;
+        const hasAllHeaders = EXPECTED_HEADERS.every((expected) => headers.includes(expected));
+        const errorMessage =
+          hasAllHeaders && headers.length === EXPECTED_HEADERS.length
+            ? `Invalid header order: expected ${EXPECTED_HEADERS.join(',')}, got ${headers.join(',')}`
+            : `Invalid headers: expected ${EXPECTED_HEADERS.join(',')}, got ${headers.join(',')}`;
 
         return {
           valid: false,
@@ -231,7 +225,6 @@ export class CsvReader {
         empty: false,
         sampleRowsParsed: true,
       };
-
     } catch (error) {
       return {
         valid: false,
@@ -266,7 +259,9 @@ export class CsvReader {
     // For each service, count consecutive failures from most recent
     for (const [serviceName, serviceRecords] of Object.entries(byService)) {
       // Sort by timestamp descending (most recent first)
-      serviceRecords.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+      serviceRecords.sort(
+        (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      );
 
       // Count consecutive failures from the start
       let consecutiveCount = 0;
@@ -396,7 +391,15 @@ export class CsvReader {
     const correlation_id = values[6];
 
     // Validate all required fields are present (failure_reason can be empty string)
-    if (!timestamp || !service_name || !status || !latency_ms || !http_status_code || failure_reason === undefined || !correlation_id) {
+    if (
+      !timestamp ||
+      !service_name ||
+      !status ||
+      !latency_ms ||
+      !http_status_code ||
+      failure_reason === undefined ||
+      !correlation_id
+    ) {
       throw new Error('Missing required field');
     }
 

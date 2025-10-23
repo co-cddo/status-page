@@ -3,16 +3,25 @@
 **Branch**: `001-govuk-status-monitor` | **Date**: 2025-10-22 | **Spec**: [spec.md](./spec.md)
 **Input**: Feature specification from `/specs/001-govuk-status-monitor/spec.md`
 
-**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
+**Note**: This template is filled in by the `/speckit.plan` command. See
+`.specify/templates/commands/plan.md` for the execution workflow.
 
 ## Summary
 
-Build a self-contained status monitoring application that performs periodic HTTP(S) health checks against configured public services and generates static HTML/JSON assets compliant with GOV.UK Design System. The application uses a hybrid orchestrator architecture where a Node.js/TypeScript process (run via tsx) orchestrates health checks via worker threads, writes results to _data/health.json, then invokes 11ty CLI to regenerate static assets. Generated HTML is self-contained (all CSS/JS/images inlined via post-build processing) and deployed to GitHub Pages every 5 minutes. Historical health data persists in CSV format with GitHub Actions cache as primary storage and GitHub Pages as fallback.
+Build a self-contained status monitoring application that performs periodic HTTP(S) health checks
+against configured public services and generates static HTML/JSON assets compliant with GOV.UK
+Design System. The application uses a hybrid orchestrator architecture where a Node.js/TypeScript
+process (run via tsx) orchestrates health checks via worker threads, writes results to
+\_data/health.json, then invokes 11ty CLI to regenerate static assets. Generated HTML is
+self-contained (all CSS/JS/images inlined via post-build processing) and deployed to GitHub Pages
+every 5 minutes. Historical health data persists in CSV format with GitHub Actions cache as primary
+storage and GitHub Pages as fallback.
 
 ## Technical Context
 
-**Language/Version**: TypeScript with Node.js 22+ (run via tsx, no compilation)
-**Primary Dependencies**:
+**Language/Version**: TypeScript with Node.js 22+ (run via tsx, no compilation) **Primary
+Dependencies**:
+
 - 11ty (Eleventy) v3+ static site generator
 - @x-govuk/govuk-eleventy-plugin for GOV.UK Design System integration
 - tsx for running TypeScript without compilation
@@ -23,16 +32,20 @@ Build a self-contained status monitoring application that performs periodic HTTP
 - uuid for correlation ID generation
 
 **Storage**:
+
 - CSV files for historical health check data (GitHub Actions cache + GitHub Pages fallback)
-- _data/health.json for 11ty data source (ephemeral, regenerated each cycle)
+- \_data/health.json for 11ty data source (ephemeral, regenerated each cycle)
 - config.yaml for service configuration (version controlled)
 
 **Testing**:
+
 - Vitest for unit tests (native ESM, TypeScript integration)
 - Playwright for e2e and accessibility tests (axe-core integration for WCAG 2.2 AAA)
-- npm test runs all suites: unit, e2e, accessibility, coverage (80% min), performance (benchmarked thresholds)
+- npm test runs all suites: unit, e2e, accessibility, coverage (80% min), performance (benchmarked
+  thresholds)
 
 **Target Platform**:
+
 - Node.js 22+ runtime (GitHub Actions runners for scheduled execution)
 - GitHub Pages for static HTML/JSON hosting
 - Prometheus for metrics scraping (port 9090)
@@ -40,12 +53,15 @@ Build a self-contained status monitoring application that performs periodic HTTP
 **Project Type**: Single Node.js application (hybrid orchestrator)
 
 **Performance Goals**:
-- Status page loads in < 2 seconds on 3G network connections: 1.6 Mbps down, 768 Kbps up, 300ms RTT (SC-003)
+
+- Status page loads in < 2 seconds on 3G network connections: 1.6 Mbps down, 768 Kbps up, 300ms RTT
+  (SC-003)
 - 95% of health checks complete within configured timeout under normal conditions (SC-004)
 - HTML generation completes within benchmarked thresholds (measured during development)
 - Self-contained HTML file < 5MB after asset inlining
 
 **Constraints**:
+
 - WCAG 2.2 AAA accessibility compliance (SC-007)
 - Single HTTP request per page load (zero external dependencies after asset inlining)
 - GitHub Actions cache limits (10GB per repository, 7-day eviction)
@@ -54,6 +70,7 @@ Build a self-contained status monitoring application that performs periodic HTTP
 - Worker pool sized to 2x CPU cores for concurrent health checks
 
 **Scale/Scope**:
+
 - Monitor < 100 services initially (allowing file-based CSV storage)
 - Health check cycle every 60 seconds (default, configurable per-service)
 - Scheduled GitHub Actions deployment every 5 minutes
@@ -61,18 +78,22 @@ Build a self-contained status monitoring application that performs periodic HTTP
 
 ## Constitution Check
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+_GATE: Must pass before Phase 0 research. Re-check after Phase 1 design._
 
 ### I. GDS Design System Compliance ✅ PASS
+
 - **Status**: Compliant
 - **Evidence**:
-  - Using 11ty GOV.UK plugin (@x-govuk/govuk-eleventy-plugin) which provides GOV.UK Frontend toolkit integration
+  - Using 11ty GOV.UK plugin (@x-govuk/govuk-eleventy-plugin) which provides GOV.UK Frontend toolkit
+    integration
   - Page title "GOV.UK service status" follows GDS guidance for services not yet on gov.uk domain
   - Using GOV.UK Design System tag components for service categorization
-  - Following GOV.UK Design System guidance for services not hosted on gov.uk domain (no Crown logo/official branding until on gov.uk)
+  - Following GOV.UK Design System guidance for services not hosted on gov.uk domain (no Crown
+    logo/official branding until on gov.uk)
   - Component usage documented in FR-021, FR-025
 
 ### II. Accessibility-First Development ✅ PASS
+
 - **Status**: Compliant
 - **Evidence**:
   - WCAG 2.2 AAA standard explicitly specified (FR-029a)
@@ -84,6 +105,7 @@ Build a self-contained status monitoring application that performs periodic HTTP
   - No reliance on color alone for conveying information
 
 ### III. Test-Driven Development ✅ PASS
+
 - **Status**: Compliant
 - **Evidence**:
   - npm test executes all test suites: unit, e2e, accessibility, coverage, performance (FR-040a)
@@ -94,6 +116,7 @@ Build a self-contained status monitoring application that performs periodic HTTP
   - Accessibility tests integrated via axe-core in Playwright
 
 ### IV. Progressive Enhancement ✅ PASS
+
 - **Status**: Compliant
 - **Evidence**:
   - HTML page auto-refreshes using meta refresh tag (works without JavaScript) - FR-029
@@ -104,6 +127,7 @@ Build a self-contained status monitoring application that performs periodic HTTP
   - Core content accessible with HTML and CSS only
 
 ### V. Performance Budgets ✅ PASS
+
 - **Status**: Compliant
 - **Evidence**:
   - SC-003: Status page loads in < 2 seconds (target)
@@ -111,9 +135,12 @@ Build a self-contained status monitoring application that performs periodic HTTP
   - Single HTTP request architecture minimizes network overhead
   - Performance tests validate benchmarked thresholds (FR-040a)
   - GitHub Pages CDN provides edge caching
-  - Lighthouse CI IS enforced in T024a (Phase 3 - US7 MVP infrastructure) to validate performance budgets automatically in CI pipeline (performance score ≥ 90, blocks merge if failed per constitution.md Principle V)
+  - Lighthouse CI IS enforced in T024a (Phase 3 - US7 MVP infrastructure) to validate performance
+    budgets automatically in CI pipeline (performance score ≥ 90, blocks merge if failed per
+    constitution.md Principle V)
 
 ### VI. Component Quality Standards ✅ PASS
+
 - **Status**: Compliant
 - **Evidence**:
   - Formal JSON Schema validation for config.yaml (FR-001, detailed error reporting)
@@ -125,11 +152,13 @@ Build a self-contained status monitoring application that performs periodic HTTP
   - Structured logging with correlation IDs for traceability (FR-033)
 
 ### VII. User Research & Data-Driven Decisions ✅ PASS
+
 - **Status**: Compliant
 - **Evidence**:
   - 13 measurable success criteria defined (SC-001 through SC-013)
   - User Stories 1-7 with specific acceptance scenarios
-  - Performance benchmarking approach: measure baseline, set aggressive thresholds, adjust frequently based on data
+  - Performance benchmarking approach: measure baseline, set aggressive thresholds, adjust
+    frequently based on data
   - Prometheus metrics telemetry for operational monitoring (FR-035)
   - CSV historical data enables uptime percentage calculations (SC-008)
 
@@ -298,15 +327,21 @@ tests/
     └── dependency-update.yml         # Dependabot PR handling
 ```
 
-**Structure Decision**: Single Node.js application with hybrid orchestrator architecture. Separates concerns between runtime health checking (Node.js orchestrator in src/), build-time HTML generation (11ty in _includes/, _data/, pages/), and post-build asset inlining (src/inlining/). No backend/frontend split needed as this is a static site generation workflow. Tests organized by type (unit, integration, e2e, accessibility, performance, contract) following TDD requirements from constitution.
+**Structure Decision**: Single Node.js application with hybrid orchestrator architecture. Separates
+concerns between runtime health checking (Node.js orchestrator in src/), build-time HTML generation
+(11ty in \_includes/, \_data/, pages/), and post-build asset inlining (src/inlining/). No
+backend/frontend split needed as this is a static site generation workflow. Tests organized by type
+(unit, integration, e2e, accessibility, performance, contract) following TDD requirements from
+constitution.
 
 ## Complexity Tracking
 
-*No constitution violations requiring justification.*
+_No constitution violations requiring justification._
 
 ## Phase 0: Research & Technical Decisions
 
 Research tasks to be dispatched:
+
 1. 11ty GOV.UK plugin configuration best practices
 2. Worker threads message passing patterns for health check results
 3. CSV format design for consecutive failure tracking

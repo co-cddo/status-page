@@ -8,9 +8,12 @@
 
 ## Context
 
-The GOV.UK Public Services Status Monitor needs to generate static HTML pages compliant with the GOV.UK Design System. According to FR-030, the application must use a static site generator that integrates with GOV.UK Frontend components and supports the hybrid orchestrator architecture.
+The GOV.UK Public Services Status Monitor needs to generate static HTML pages compliant with the
+GOV.UK Design System. According to FR-030, the application must use a static site generator that
+integrates with GOV.UK Frontend components and supports the hybrid orchestrator architecture.
 
 Key requirements are:
+
 - **GOV.UK Design System compliance**: Official component library integration
 - **Static HTML generation**: No client-side rendering required
 - **Data-driven templates**: Generate HTML from health check results in `_data/health.json`
@@ -20,13 +23,16 @@ Key requirements are:
 - **Build performance**: Fast regeneration for frequent health check updates
 - **Node.js 22 compatibility**: Works with modern Node.js features
 
-From research.md: "Eleventy v3+ added official TypeScript support through ESM, aligning perfectly with Node.js 22's module system and providing first-class TypeScript config files."
+From research.md: "Eleventy v3+ added official TypeScript support through ESM, aligning perfectly
+with Node.js 22's module system and providing first-class TypeScript config files."
 
 ## Decision
 
-We will use **Eleventy (11ty) v3+ with @x-govuk/govuk-eleventy-plugin v4+** as the static site generator.
+We will use **Eleventy (11ty) v3+ with @x-govuk/govuk-eleventy-plugin v4+** as the static site
+generator.
 
 Configuration approach:
+
 - **Template engine**: Nunjucks (`.njk` files)
 - **Config file**: `eleventy.config.js` (TypeScript via tsx)
 - **GOV.UK integration**: Use @x-govuk/govuk-eleventy-plugin for components and layouts
@@ -36,6 +42,7 @@ Configuration approach:
 - **Template organization**: `_includes/layouts/`, `_includes/components/`, `_includes/macros/`
 
 The hybrid orchestrator pattern:
+
 1. **Node.js orchestrator** runs health checks, writes `_data/health.json`
 2. **Eleventy build** invoked as subprocess (`npx @11ty/eleventy`)
 3. **Post-build script** inlines assets for self-contained HTML
@@ -44,7 +51,8 @@ The hybrid orchestrator pattern:
 
 ### Positive Consequences
 
-- **Official GDS alignment**: @x-govuk/govuk-eleventy-plugin maintained by X-GOVUK team ensures compliance
+- **Official GDS alignment**: @x-govuk/govuk-eleventy-plugin maintained by X-GOVUK team ensures
+  compliance
 - **Zero configuration**: Plugin provides pre-configured GOV.UK layouts and components
 - **TypeScript native**: Eleventy v3 supports TypeScript configs and templates
 - **Progressive enhancement**: Templates work as pure HTML, JavaScript is optional
@@ -68,30 +76,35 @@ The hybrid orchestrator pattern:
 **Description**: Use Next.js v14+ with Static Site Generation mode.
 
 **Pros**:
+
 - React ecosystem (widely adopted)
 - Built-in image optimization
 - API routes for JSON endpoint
 - Incremental Static Regeneration (ISR)
 
 **Cons**:
+
 - No official GOV.UK plugin (would require custom implementation)
 - React required for all templates (heavier runtime)
 - More complex build setup
 - Overkill for simple status page
 - Requires client-side JavaScript for hydration
 
-**Verdict**: Too complex and no GDS integration. Violates progressive enhancement principle by requiring React.
+**Verdict**: Too complex and no GDS integration. Violates progressive enhancement principle by
+requiring React.
 
 ### Option 2: Gatsby
 
 **Description**: Use Gatsby v5+ for static site generation.
 
 **Pros**:
+
 - React-based with extensive plugin ecosystem
 - GraphQL data layer
 - Good performance optimization
 
 **Cons**:
+
 - No GOV.UK plugin
 - GraphQL adds unnecessary complexity
 - Slower builds than Eleventy
@@ -105,11 +118,13 @@ The hybrid orchestrator pattern:
 **Description**: Use Hugo static site generator (written in Go).
 
 **Pros**:
+
 - Extremely fast builds (written in Go)
 - Zero JavaScript required
 - Simple template syntax
 
 **Cons**:
+
 - No GOV.UK plugin
 - Go templates are less flexible than Nunjucks
 - No TypeScript support for config
@@ -123,11 +138,13 @@ The hybrid orchestrator pattern:
 **Description**: Use Jekyll static site generator (Ruby-based).
 
 **Pros**:
+
 - GDS previously used Jekyll for documentation
 - Liquid templates similar to Nunjucks
 - GitHub Pages native support
 
 **Cons**:
+
 - Ruby dependency (not Node.js ecosystem)
 - Slower builds than Eleventy
 - No official GOV.UK Frontend v5+ plugin
@@ -141,11 +158,13 @@ The hybrid orchestrator pattern:
 **Description**: Write custom Node.js script to generate HTML from templates.
 
 **Pros**:
+
 - Full control over build process
 - Zero dependencies
 - Maximum performance
 
 **Cons**:
+
 - Must implement template rendering, partials, layouts manually
 - No GOV.UK plugin (must import components manually)
 - Reinventing wheel (template engines exist for a reason)
@@ -160,22 +179,30 @@ The hybrid orchestrator pattern:
 - [Eleventy TypeScript Support](https://www.11ty.dev/docs/languages/typescript/)
 - [@x-govuk/govuk-eleventy-plugin Documentation](https://x-govuk.github.io/govuk-eleventy-plugin/)
 - [@x-govuk/govuk-eleventy-plugin GitHub](https://github.com/x-govuk/govuk-eleventy-plugin)
-- [research.md](../../specs/001-govuk-status-monitor/research.md) - Section 2: govuk-eleventy-plugin Usage Patterns
-- [spec.md FR-030](../../specs/001-govuk-status-monitor/spec.md#functional-requirements) - Static site generation requirement
-- [spec.md FR-021](../../specs/001-govuk-status-monitor/spec.md#functional-requirements) - GOV.UK Design System compliance
+- [research.md](../../specs/001-govuk-status-monitor/research.md) - Section 2: govuk-eleventy-plugin
+  Usage Patterns
+- [spec.md FR-030](../../specs/001-govuk-status-monitor/spec.md#functional-requirements) - Static
+  site generation requirement
+- [spec.md FR-021](../../specs/001-govuk-status-monitor/spec.md#functional-requirements) - GOV.UK
+  Design System compliance
 
 ## Notes
 
 **Implementation Location**: `eleventy.config.js`, `_includes/`, `_data/`, `pages/`
 
-**Plugin Version**: @x-govuk/govuk-eleventy-plugin v4.0+ is specifically designed for Eleventy v3 with ESM support. Earlier versions (v2, v3) are incompatible with our Node.js 22 setup.
+**Plugin Version**: @x-govuk/govuk-eleventy-plugin v4.0+ is specifically designed for Eleventy v3
+with ESM support. Earlier versions (v2, v3) are incompatible with our Node.js 22 setup.
 
 **Template Organization**:
+
 - `_includes/layouts/base.njk` - Extends GOV.UK plugin base layout
 - `_includes/components/service-status.njk` - Service status display
 - `_includes/macros/status-indicator.njk` - Status visual indicators
 - `pages/index.njk` - Main status page (loads `_data/health.json`)
 
-**Build Trigger**: The orchestrator invokes Eleventy via subprocess after each health check cycle. Build failures are non-fatal - the orchestrator logs the error, retains the previous HTML, and continues health checks.
+**Build Trigger**: The orchestrator invokes Eleventy via subprocess after each health check cycle.
+Build failures are non-fatal - the orchestrator logs the error, retains the previous HTML, and
+continues health checks.
 
-**Future Considerations**: For real-time updates, consider Server-Sent Events (SSE) or WebSocket integration while maintaining the static HTML fallback for progressive enhancement.
+**Future Considerations**: For real-time updates, consider Server-Sent Events (SSE) or WebSocket
+integration while maintaining the static HTML fallback for progressive enhancement.

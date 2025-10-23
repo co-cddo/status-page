@@ -4,12 +4,12 @@
 version: 2
 updates:
   # npm dependencies (pnpm-based project)
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
-      time: "04:00"  # 4 AM UTC
-      timezone: "UTC"
+      interval: 'daily'
+      time: '04:00' # 4 AM UTC
+      timezone: 'UTC'
     open-pull-requests-limit: 10
 
     # Group updates by dependency type
@@ -17,72 +17,72 @@ updates:
       # Production dependencies
       dependencies:
         patterns:
-          - "@11ty/eleventy"
-          - "@x-govuk/govuk-eleventy-plugin"
-          - "ajv"
-          - "js-yaml"
-          - "pino"
-          - "prom-client"
-          - "uuid"
+          - '@11ty/eleventy'
+          - '@x-govuk/govuk-eleventy-plugin'
+          - 'ajv'
+          - 'js-yaml'
+          - 'pino'
+          - 'prom-client'
+          - 'uuid'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
 
       # Development dependencies
       devDependencies:
         patterns:
-          - "@axe-core/playwright"
-          - "@eslint/*"
-          - "@playwright/test"
-          - "@types/*"
-          - "eslint"
-          - "prettier"
-          - "tsx"
-          - "typescript"
-          - "typescript-eslint"
-          - "vitest"
+          - '@axe-core/playwright'
+          - '@eslint/*'
+          - '@playwright/test'
+          - '@types/*'
+          - 'eslint'
+          - 'prettier'
+          - 'tsx'
+          - 'typescript'
+          - 'typescript-eslint'
+          - 'vitest'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
 
     # Commit message prefix
     commit-message:
-      prefix: "chore(deps)"
-      prefix-development: "chore(deps-dev)"
-      include: "scope"
+      prefix: 'chore(deps)'
+      prefix-development: 'chore(deps-dev)'
+      include: 'scope'
 
     # Labels for pull requests
     labels:
-      - "dependencies"
-      - "automerge"
+      - 'dependencies'
+      - 'automerge'
 
     # Enable automatic rebasing
-    rebase-strategy: "auto"
+    rebase-strategy: 'auto'
 
     # Ignore major version updates (require manual review)
     ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
 
     # Target main branch
-    target-branch: "main"
+    target-branch: 'main'
 
   # GitHub Actions updates
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "04:00"
-      timezone: "UTC"
+      interval: 'weekly'
+      day: 'monday'
+      time: '04:00'
+      timezone: 'UTC'
     open-pull-requests-limit: 5
 
     commit-message:
-      prefix: "chore(actions)"
-      include: "scope"
+      prefix: 'chore(actions)'
+      include: 'scope'
 
     labels:
-      - "dependencies"
-      - "github-actions"
+      - 'dependencies'
+      - 'github-actions'
 
-    rebase-strategy: "auto"
+    rebase-strategy: 'auto'

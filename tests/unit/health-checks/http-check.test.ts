@@ -55,9 +55,12 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
       expect(result.timestamp).toBeInstanceOf(Date);
       expect(result.correlation_id).toBeTruthy();
       expect(result.failure_reason).toBe('');
-      expect(mockFetch).toHaveBeenCalledWith(config.url, expect.objectContaining({
-        method: 'GET',
-      }));
+      expect(mockFetch).toHaveBeenCalledWith(
+        config.url,
+        expect.objectContaining({
+          method: 'GET',
+        })
+      );
     });
 
     test('should perform HEAD request successfully', async () => {
@@ -74,9 +77,12 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
       expect(result.method).toBe('HEAD');
       expect(result.status).toBe('PASS');
       expect(result.http_status_code).toBe(200);
-      expect(mockFetch).toHaveBeenCalledWith(config.url, expect.objectContaining({
-        method: 'HEAD',
-      }));
+      expect(mockFetch).toHaveBeenCalledWith(
+        config.url,
+        expect.objectContaining({
+          method: 'HEAD',
+        })
+      );
     });
 
     test('should perform POST request with payload successfully', async () => {
@@ -94,10 +100,13 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
       expect(result.method).toBe('POST');
       expect(result.status).toBe('PASS');
       expect(result.http_status_code).toBe(200);
-      expect(mockFetch).toHaveBeenCalledWith(config.url, expect.objectContaining({
-        method: 'POST',
-        body: JSON.stringify({ key: 'value', test: 'data' }),
-      }));
+      expect(mockFetch).toHaveBeenCalledWith(
+        config.url,
+        expect.objectContaining({
+          method: 'POST',
+          body: JSON.stringify({ key: 'value', test: 'data' }),
+        })
+      );
     });
   });
 
@@ -341,7 +350,7 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
         status: 302,
         ok: false,
         headers: new Headers({
-          'location': 'https://example.com',
+          location: 'https://example.com',
         }),
         text: async () => 'Found',
       });
@@ -442,7 +451,9 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
   describe('Network Errors', () => {
     test('should handle DNS failure gracefully', async () => {
       // Override default mock to simulate DNS failure
-      mockFetch.mockRejectedValueOnce(new Error('getaddrinfo ENOTFOUND this-domain-definitely-does-not-exist-12345.com'));
+      mockFetch.mockRejectedValueOnce(
+        new Error('getaddrinfo ENOTFOUND this-domain-definitely-does-not-exist-12345.com')
+      );
 
       const config: HealthCheckConfig = {
         url: 'https://this-domain-definitely-does-not-exist-12345.com',
@@ -480,7 +491,9 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
 
     test('should handle SSL/TLS errors gracefully', async () => {
       // Override default mock to simulate SSL/TLS error
-      mockFetch.mockRejectedValueOnce(new Error('SSL certificate problem: certificate has expired'));
+      mockFetch.mockRejectedValueOnce(
+        new Error('SSL certificate problem: certificate has expired')
+      );
 
       const config: HealthCheckConfig = {
         url: 'https://expired.badssl.com/', // Certificate expired
@@ -578,7 +591,7 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
     test('should measure response latency in milliseconds', async () => {
       // Override default mock to simulate 1 second delay
       mockFetch.mockImplementationOnce(async () => {
-        await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // 1 second delay
         return {
           status: 200,
           ok: true,
@@ -693,7 +706,7 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
         status: 302,
         ok: false,
         headers: new Headers({
-          'location': 'https://test.example.com/redirected',
+          location: 'https://test.example.com/redirected',
         }),
         text: async () => 'Found',
       });

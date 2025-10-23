@@ -1,9 +1,7 @@
 # [Number]. [Title]
 
-**Date**: YYYY-MM-DD
-**Status**: [Proposed | Accepted | Deprecated | Superseded]
-**Deciders**: [List of people involved]
-**Consulted**: [Research tools used: Context7, WebSearch, WebFetch, Perplexity]
+**Date**: YYYY-MM-DD **Status**: [Proposed | Accepted | Deprecated | Superseded] **Deciders**: [List
+of people involved] **Consulted**: [Research tools used: Context7, WebSearch, WebFetch, Perplexity]
 
 ## Context
 
@@ -18,12 +16,15 @@ What is the change that we're proposing and/or doing?
 What becomes easier or more difficult to do because of this change?
 
 ### Positive Consequences
+
 - [e.g., Improved performance, Better maintainability]
 
 ### Negative Consequences
+
 - [e.g., Increased complexity, Additional dependencies]
 
 ### Risks
+
 - [e.g., Vendor lock-in, Learning curve]
 
 ## Alternatives Considered

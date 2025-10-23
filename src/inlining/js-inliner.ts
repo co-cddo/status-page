@@ -29,10 +29,7 @@ export interface JSInlineResult {
  * @param htmlPath - Path to the HTML file (for resolving relative JS paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineJavaScript(
-  $: CheerioAPI,
-  htmlPath: string,
-): Promise<JSInlineResult> {
+export async function inlineJavaScript($: CheerioAPI, htmlPath: string): Promise<JSInlineResult> {
   const result: JSInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -64,12 +61,9 @@ export async function inlineJavaScript(
 
     // Skip external scripts (http/https URLs)
     if (src.startsWith('http://') || src.startsWith('https://')) {
-      logger.warn(
-        { src },
-        'Skipping external script - cannot inline remote JavaScript',
-      );
+      logger.warn({ src }, 'Skipping external script - cannot inline remote JavaScript');
       result.errors.push(
-        `Cannot inline external script: "${src}". Self-contained HTML requires all scripts to be local.`,
+        `Cannot inline external script: "${src}". Self-contained HTML requires all scripts to be local.`
       );
       result.success = false;
       continue;
@@ -77,9 +71,7 @@ export async function inlineJavaScript(
 
     try {
       // Resolve JavaScript file path (handle both relative and absolute paths)
-      const jsPath = src.startsWith('/')
-        ? join(htmlDir, src)
-        : resolve(htmlDir, src);
+      const jsPath = src.startsWith('/') ? join(htmlDir, src) : resolve(htmlDir, src);
 
       logger.debug({ src, jsPath }, 'Reading JavaScript file');
 
@@ -113,7 +105,7 @@ export async function inlineJavaScript(
 
       logger.info(
         { src, size: jsSize, index: i + 1, total: scriptTags.length },
-        'Inlined JavaScript file',
+        'Inlined JavaScript file'
       );
     } catch (error) {
       const errorMessage = `Failed to inline JavaScript file "${src}": ${error instanceof Error ? error.message : String(error)}`;
@@ -129,7 +121,7 @@ export async function inlineJavaScript(
       totalSize: result.totalSize,
       totalSizeKB: (result.totalSize / 1024).toFixed(2),
     },
-    'JavaScript inlining complete',
+    'JavaScript inlining complete'
   );
 
   return result;
@@ -155,7 +147,7 @@ export function verifyNoExternalScripts($: CheerioAPI): string[] {
   if (externalScripts.length > 0) {
     logger.error(
       { count: externalScripts.length, scripts: externalScripts },
-      'External scripts detected - violates self-contained HTML requirement',
+      'External scripts detected - violates self-contained HTML requirement'
     );
   }
 

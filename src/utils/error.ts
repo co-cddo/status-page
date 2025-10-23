@@ -27,7 +27,7 @@ export const ErrorType = {
   UNKNOWN: 'unknown',
 } as const;
 
-export type ErrorType = typeof ErrorType[keyof typeof ErrorType];
+export type ErrorType = (typeof ErrorType)[keyof typeof ErrorType];
 
 /**
  * Maps error patterns to human-readable messages
@@ -61,7 +61,11 @@ export function classifyNetworkError(error: unknown): ErrorType {
   const errorMessage = error.message.toLowerCase();
 
   // Check for timeout errors
-  if (errorName === 'AbortError' || errorMessage.includes('timeout') || errorMessage.includes('etimedout')) {
+  if (
+    errorName === 'AbortError' ||
+    errorMessage.includes('timeout') ||
+    errorMessage.includes('etimedout')
+  ) {
     return ErrorType.TIMEOUT;
   }
 
@@ -76,12 +80,20 @@ export function classifyNetworkError(error: unknown): ErrorType {
   }
 
   // Check for SSL/TLS errors
-  if (errorMessage.includes('certificate') || errorMessage.includes('ssl') || errorMessage.includes('tls')) {
+  if (
+    errorMessage.includes('certificate') ||
+    errorMessage.includes('ssl') ||
+    errorMessage.includes('tls')
+  ) {
     return ErrorType.SSL_TLS;
   }
 
   // Other network errors
-  if (errorMessage.includes('enetunreach') || errorMessage.includes('econnreset') || errorMessage.includes('econnaborted')) {
+  if (
+    errorMessage.includes('enetunreach') ||
+    errorMessage.includes('econnreset') ||
+    errorMessage.includes('econnaborted')
+  ) {
     return ErrorType.NETWORK;
   }
 

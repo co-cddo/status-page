@@ -292,7 +292,7 @@ export class WorkerPoolManager {
     // Wait for in-flight tasks to complete (with timeout)
     const startTime = Date.now();
     while (this.hasActiveTasks() && Date.now() - startTime < gracefulTimeout) {
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise((resolve) => setTimeout(resolve, 100));
     }
 
     // Force reject any remaining in-flight tasks after timeout
@@ -304,14 +304,13 @@ export class WorkerPoolManager {
     }
 
     // Terminate all workers
-    const terminatePromises = this.workers
-      .map(workerInfo => {
-        // Defensive check for test environments
-        if (workerInfo.worker && typeof workerInfo.worker.terminate === 'function') {
-          return workerInfo.worker.terminate();
-        }
-        return Promise.resolve();
-      });
+    const terminatePromises = this.workers.map((workerInfo) => {
+      // Defensive check for test environments
+      if (workerInfo.worker && typeof workerInfo.worker.terminate === 'function') {
+        return workerInfo.worker.terminate();
+      }
+      return Promise.resolve();
+    });
     await Promise.all(terminatePromises);
 
     // Clear workers array

@@ -43,9 +43,7 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
         expect(paths).not.toEqual(['config.yaml']);
 
         // May exclude config.yaml explicitly
-        const hasConfigExclusion = paths.some((p: string) =>
-          p.includes('!config.yaml')
-        );
+        const hasConfigExclusion = paths.some((p: string) => p.includes('!config.yaml'));
 
         // Either has exclusion or includes other paths
         expect(
@@ -117,8 +115,8 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
     expect(firstJobKey).toBeDefined();
     const testJob = testWorkflow.jobs[firstJobKey!];
     expect(testJob).toBeDefined();
-    const testSteps = testJob!.steps.filter((step: WorkflowStep) =>
-      step.run?.includes('test') || step.run?.includes('vitest')
+    const testSteps = testJob!.steps.filter(
+      (step: WorkflowStep) => step.run?.includes('test') || step.run?.includes('vitest')
     );
 
     for (const step of testSteps) {
@@ -132,21 +130,26 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
 
     // Verify test workflow does not modify config.yaml
     const testWorkflowString = JSON.stringify(testWorkflow);
-    const hasConfigModification = testWorkflowString.match(/git\s+commit.*config\.yaml|sed\s+-i.*config\.yaml|echo.*>\s*config\.yaml/i);
+    const hasConfigModification = testWorkflowString.match(
+      /git\s+commit.*config\.yaml|sed\s+-i.*config\.yaml|echo.*>\s*config\.yaml/i
+    );
 
     expect(hasConfigModification).toBeNull();
 
     // Verify smoke test workflow does not modify application source code files
     // Check for actual file modification commands with word boundaries
     const smokeTestWorkflowString = JSON.stringify(smokeTestWorkflow);
-    const hasCodeModification = smokeTestWorkflowString.match(/\bgit\s+commit.*src\/|\bsed\s+-i.*src\/|\brm\s+-[rf]+.*src\/|\bmv\s+.*src\//i);
+    const hasCodeModification = smokeTestWorkflowString.match(
+      /\bgit\s+commit.*src\/|\bsed\s+-i.*src\/|\brm\s+-[rf]+.*src\/|\bmv\s+.*src\//i
+    );
 
     expect(hasCodeModification).toBeNull();
   });
 
   test('test workflow runs all test suites as specified in FR-040a', () => {
     // Per FR-040a: "pnpm test MUST execute all test suites"
-    const testJob = testWorkflow.jobs.test || testWorkflow.jobs['run-tests'] || testWorkflow.jobs.tests;
+    const testJob =
+      testWorkflow.jobs.test || testWorkflow.jobs['run-tests'] || testWorkflow.jobs.tests;
 
     expect(testJob).toBeDefined();
 
@@ -156,36 +159,39 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
     const requiredTests = ['unit', 'e2e', 'accessibility', 'coverage', 'performance'];
 
     for (const testType of requiredTests) {
-      const hasTestType = workflowString.includes(testType) ||
-                          workflowString.includes('pnpm test') ||
-                          workflowString.includes('vitest run');
+      const hasTestType =
+        workflowString.includes(testType) ||
+        workflowString.includes('pnpm test') ||
+        workflowString.includes('vitest run');
 
       expect(hasTestType).toBe(true);
     }
   });
 
   test('smoke test workflow validates config and runs health checks', () => {
-    const smokeTestJob = smokeTestWorkflow.jobs['smoke-test'] ||
-                         smokeTestWorkflow.jobs.test ||
-                         smokeTestWorkflow.jobs.validate;
+    const smokeTestJob =
+      smokeTestWorkflow.jobs['smoke-test'] ||
+      smokeTestWorkflow.jobs.test ||
+      smokeTestWorkflow.jobs.validate;
 
     expect(smokeTestJob).toBeDefined();
 
     const steps = smokeTestJob!.steps;
 
     // Should have validation step
-    const hasValidation = steps.some((step: WorkflowStep) =>
-      step.name?.toLowerCase().includes('validat') ||
-      step.run?.includes('validate-config')
+    const hasValidation = steps.some(
+      (step: WorkflowStep) =>
+        step.name?.toLowerCase().includes('validat') || step.run?.includes('validate-config')
     );
 
     expect(hasValidation).toBe(true);
 
     // Should have health check step
-    const hasHealthCheck = steps.some((step: WorkflowStep) =>
-      step.name?.toLowerCase().includes('health') ||
-      step.run?.includes('health-check') ||
-      step.run?.includes('smoke')
+    const hasHealthCheck = steps.some(
+      (step: WorkflowStep) =>
+        step.name?.toLowerCase().includes('health') ||
+        step.run?.includes('health-check') ||
+        step.run?.includes('smoke')
     );
 
     expect(hasHealthCheck).toBe(true);
@@ -216,8 +222,9 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
     expect(smokeTestJob).toBeDefined();
 
     // Test workflow critical steps should not have continue-on-error
-    const testCriticalSteps = testJob!.steps.filter((step: WorkflowStep) =>
-      step.run?.includes('test') || step.run?.includes('lint') || step.run?.includes('type-check')
+    const testCriticalSteps = testJob!.steps.filter(
+      (step: WorkflowStep) =>
+        step.run?.includes('test') || step.run?.includes('lint') || step.run?.includes('type-check')
     );
 
     for (const step of testCriticalSteps) {
@@ -225,8 +232,8 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
     }
 
     // Smoke test workflow validation should not have continue-on-error
-    const smokeTestCriticalSteps = smokeTestJob!.steps.filter((step: WorkflowStep) =>
-      step.run?.includes('validate') || step.run?.includes('health-check')
+    const smokeTestCriticalSteps = smokeTestJob!.steps.filter(
+      (step: WorkflowStep) => step.run?.includes('validate') || step.run?.includes('health-check')
     );
 
     for (const step of smokeTestCriticalSteps) {

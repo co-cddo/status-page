@@ -57,9 +57,7 @@ const state: MetricsServerState = {
  * console.log('Metrics available at http://localhost:9090/metrics');
  * ```
  */
-export async function startMetricsServer(
-  config: MetricsServerConfig = {}
-): Promise<void> {
+export async function startMetricsServer(config: MetricsServerConfig = {}): Promise<void> {
   // Merge with defaults
   state.config = {
     ...state.config,

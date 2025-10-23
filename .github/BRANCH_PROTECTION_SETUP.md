@@ -14,17 +14,20 @@
 **Enforcement Status**: Active
 
 **Target Branches**:
+
 - Branch name pattern: `main`
 
 ### Rules to Enable:
 
 #### ✅ Require Pull Request
+
 - **Required approvals**: 1
 - ☑ Dismiss stale pull request approvals when new commits are pushed
 - ☑ Require approval of the most recent reviewable push
 - ☑ Require conversation resolution before merging
 
 #### ✅ Require Status Checks
+
 - ☑ Require branches to be up to date before merging
 - **Required status checks**:
   - `test` (from test.yml workflow)
@@ -32,15 +35,19 @@
   - `smoke-test` (from smoke-test.yml workflow, only runs on config.yaml changes)
 
 #### ✅ Block Force Pushes
+
 - Prevents force pushes to protected branches
 
 #### ✅ Require Linear History
+
 - Enforces a linear commit history
 
 #### ✅ Restrict Deletions
+
 - Prevents deletion of the main branch
 
 **Bypass List**:
+
 - Repository administrators (for emergency fixes)
 
 ---
@@ -54,7 +61,8 @@ gh api repos/:owner/:repo/rulesets \
   --input .github/branch-protection-ruleset.json
 ```
 
-**Note**: The JSON format may need adjustment based on GitHub's API version. If the above fails, use Option 1 (GitHub UI).
+**Note**: The JSON format may need adjustment based on GitHub's API version. If the above fails, use
+Option 1 (GitHub UI).
 
 ---
 
@@ -105,12 +113,14 @@ gh api repos/:owner/:repo/branches/main/protection | jq
 If workflows fail to show as required checks:
 
 1. Trigger both workflows manually:
+
    ```bash
    gh workflow run test.yml
    gh workflow run smoke-test.yml
    ```
 
 2. Check actual workflow job names:
+
    ```bash
    gh run list --workflow=test.yml --limit=1
    gh api repos/:owner/:repo/actions/runs/{run_id}/jobs | jq '.jobs[].name'
@@ -121,6 +131,7 @@ If workflows fail to show as required checks:
 ### Can't Find Rulesets Option
 
 If your repository doesn't have the "Rulesets" option:
+
 - Use **Option 3** (Classic Branch Protection)
 - Rulesets are a newer GitHub feature and may not be available on all plans
 
@@ -129,6 +140,7 @@ If your repository doesn't have the "Rulesets" option:
 ## Per FR-041 Requirements
 
 This configuration ensures:
+
 - ✅ **PR Approval Required**: Prevents direct pushes to main
 - ✅ **CI Tests Must Pass**: Blocks merge if tests fail
 - ✅ **Config Changes Validated**: smoke-test.yml runs on config.yaml changes
@@ -140,6 +152,4 @@ This configuration ensures:
 
 ---
 
-**Last Updated**: 2025-10-22
-**Task**: T024
-**Related**: FR-041 (Branch Protection Requirements)
+**Last Updated**: 2025-10-22 **Task**: T024 **Related**: FR-041 (Branch Protection Requirements)

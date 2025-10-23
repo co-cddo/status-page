@@ -496,8 +496,8 @@ describe('MockHttpServer', () => {
         results.push(response.status);
       }
 
-      const successes = results.filter(status => status === 200).length;
-      const failures = results.filter(status => status === 503).length;
+      const successes = results.filter((status) => status === 200).length;
+      const failures = results.filter((status) => status === 503).length;
 
       // With 50% probability and 20 requests, expect roughly 50/50 split
       // Allow for statistical variance (30-70% range)

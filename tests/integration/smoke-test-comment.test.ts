@@ -134,9 +134,7 @@ describe('Smoke Test Comment Formatting (US6)', () => {
   test('truncates long failure reasons', () => {
     const longReason = 'A'.repeat(500); // Very long error message
 
-    const results: HealthCheckResult[] = [
-      createMockResult('Service', 'FAIL', 0, 500, longReason),
-    ];
+    const results: HealthCheckResult[] = [createMockResult('Service', 'FAIL', 0, 500, longReason)];
 
     const comment = formatSmokeTestComment(results);
 
@@ -169,9 +167,7 @@ describe('Smoke Test Comment Formatting (US6)', () => {
   });
 
   test('comment updates on subsequent runs', () => {
-    const initialResults: HealthCheckResult[] = [
-      createMockResult('A', 'PASS', 100, 200, ''),
-    ];
+    const initialResults: HealthCheckResult[] = [createMockResult('A', 'PASS', 100, 200, '')];
 
     const updatedResults: HealthCheckResult[] = [
       createMockResult('A', 'FAIL', 0, 500, 'Now failing'),
@@ -189,9 +185,7 @@ describe('Smoke Test Comment Formatting (US6)', () => {
   });
 
   test('includes timestamp in comment', () => {
-    const results: HealthCheckResult[] = [
-      createMockResult('A', 'PASS', 100, 200, ''),
-    ];
+    const results: HealthCheckResult[] = [createMockResult('A', 'PASS', 100, 200, '')];
 
     const comment = formatSmokeTestComment(results);
 

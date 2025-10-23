@@ -63,11 +63,12 @@ describe('Test Workflow Contract (US7)', () => {
     expect(testJob).toBeDefined();
 
     const steps = testJob!.steps;
-    const hasTestStep = steps.some((step: WorkflowStep) =>
-      step.name?.toLowerCase().includes('test') ||
-      step.run?.includes('pnpm test') ||
-      step.run?.includes('npm test') ||
-      step.run?.includes('vitest')
+    const hasTestStep = steps.some(
+      (step: WorkflowStep) =>
+        step.name?.toLowerCase().includes('test') ||
+        step.run?.includes('pnpm test') ||
+        step.run?.includes('npm test') ||
+        step.run?.includes('vitest')
     );
 
     expect(hasTestStep).toBe(true);
@@ -82,8 +83,8 @@ describe('Test Workflow Contract (US7)', () => {
     // Check for e2e or playwright test execution
     expect(
       workflowString.includes('e2e') ||
-      workflowString.includes('playwright') ||
-      workflowString.includes('test:e2e')
+        workflowString.includes('playwright') ||
+        workflowString.includes('test:e2e')
     ).toBe(true);
   });
 
@@ -96,8 +97,8 @@ describe('Test Workflow Contract (US7)', () => {
     // Check for accessibility test execution
     expect(
       workflowString.includes('accessibility') ||
-      workflowString.includes('a11y') ||
-      workflowString.includes('axe')
+        workflowString.includes('a11y') ||
+        workflowString.includes('axe')
     ).toBe(true);
   });
 
@@ -108,10 +109,9 @@ describe('Test Workflow Contract (US7)', () => {
     const workflowString = JSON.stringify(workflow);
 
     // Check for coverage execution
-    expect(
-      workflowString.includes('coverage') ||
-      workflowString.includes('test:coverage')
-    ).toBe(true);
+    expect(workflowString.includes('coverage') || workflowString.includes('test:coverage')).toBe(
+      true
+    );
   });
 
   test('workflow executes performance tests', () => {
@@ -123,8 +123,8 @@ describe('Test Workflow Contract (US7)', () => {
     // Check for performance test execution
     expect(
       workflowString.includes('performance') ||
-      workflowString.includes('perf') ||
-      workflowString.includes('benchmark')
+        workflowString.includes('perf') ||
+        workflowString.includes('benchmark')
     ).toBe(true);
   });
 
@@ -137,8 +137,8 @@ describe('Test Workflow Contract (US7)', () => {
     expect(testJob).toBeDefined();
 
     // Verify no continue-on-error for test steps
-    const testSteps = testJob!.steps.filter((step: WorkflowStep) =>
-      step.run?.includes('test') || step.run?.includes('vitest')
+    const testSteps = testJob!.steps.filter(
+      (step: WorkflowStep) => step.run?.includes('test') || step.run?.includes('vitest')
     );
 
     for (const step of testSteps) {
@@ -155,9 +155,7 @@ describe('Test Workflow Contract (US7)', () => {
     expect(testJob).toBeDefined();
 
     const steps = testJob!.steps;
-    const nodeStep = steps.find((step: WorkflowStep) =>
-      step.uses?.includes('actions/setup-node')
-    );
+    const nodeStep = steps.find((step: WorkflowStep) => step.uses?.includes('actions/setup-node'));
 
     expect(nodeStep).toBeDefined();
 
@@ -167,10 +165,10 @@ describe('Test Workflow Contract (US7)', () => {
       if (typeof nodeVersion === 'string') {
         expect(
           nodeVersion === '22' ||
-          nodeVersion === '22.x' ||
-          nodeVersion === 'lts/*' ||
-          nodeVersion.startsWith('22') ||
-          nodeVersion.includes('>=22')
+            nodeVersion === '22.x' ||
+            nodeVersion === 'lts/*' ||
+            nodeVersion.startsWith('22') ||
+            nodeVersion.includes('>=22')
         ).toBe(true);
       }
     }
@@ -183,10 +181,9 @@ describe('Test Workflow Contract (US7)', () => {
     const workflowString = JSON.stringify(workflow);
 
     // Check for pnpm installation
-    expect(
-      workflowString.includes('pnpm') ||
-      workflowString.includes('pnpm/action-setup')
-    ).toBe(true);
+    expect(workflowString.includes('pnpm') || workflowString.includes('pnpm/action-setup')).toBe(
+      true
+    );
   });
 
   test('workflow caches dependencies', () => {
@@ -198,10 +195,11 @@ describe('Test Workflow Contract (US7)', () => {
     expect(testJob).toBeDefined();
 
     const steps = testJob!.steps;
-    const hasCacheStep = steps.some((step: WorkflowStep) =>
-      step.uses?.includes('actions/cache') ||
-      step.with?.['cache'] === 'pnpm' ||
-      step.uses?.includes('setup-node-pnpm')  // Composite action that includes caching
+    const hasCacheStep = steps.some(
+      (step: WorkflowStep) =>
+        step.uses?.includes('actions/cache') ||
+        step.with?.['cache'] === 'pnpm' ||
+        step.uses?.includes('setup-node-pnpm') // Composite action that includes caching
     );
 
     expect(hasCacheStep).toBe(true);
@@ -214,10 +212,7 @@ describe('Test Workflow Contract (US7)', () => {
     const workflowString = JSON.stringify(workflow);
 
     // Check for linting execution
-    expect(
-      workflowString.includes('lint') ||
-      workflowString.includes('eslint')
-    ).toBe(true);
+    expect(workflowString.includes('lint') || workflowString.includes('eslint')).toBe(true);
   });
 
   test('workflow runs type checking', () => {
@@ -227,10 +222,7 @@ describe('Test Workflow Contract (US7)', () => {
     const workflowString = JSON.stringify(workflow);
 
     // Check for type checking execution
-    expect(
-      workflowString.includes('type-check') ||
-      workflowString.includes('tsc')
-    ).toBe(true);
+    expect(workflowString.includes('type-check') || workflowString.includes('tsc')).toBe(true);
   });
 
   test('workflow has descriptive job names', () => {
@@ -251,9 +243,9 @@ describe('Test Workflow Contract (US7)', () => {
     expect(testJob).toBeDefined();
 
     const steps = testJob!.steps;
-    const hasUploadStep = steps.some((step: WorkflowStep) =>
-      step.uses?.includes('actions/upload-artifact') ||
-      step.uses?.includes('codecov')
+    const hasUploadStep = steps.some(
+      (step: WorkflowStep) =>
+        step.uses?.includes('actions/upload-artifact') || step.uses?.includes('codecov')
     );
 
     // Should upload coverage artifact

@@ -73,10 +73,7 @@ export function assertHasProperty<T extends object, K extends string>(
  * const firstStep = steps[0]; // Now safe to access
  * ```
  */
-export function assertNotEmpty<T>(
-  arr: T[],
-  message?: string
-): asserts arr is [T, ...T[]] {
+export function assertNotEmpty<T>(arr: T[], message?: string): asserts arr is [T, ...T[]] {
   expect(arr.length).toBeGreaterThan(0);
   if (arr.length === 0) {
     throw new Error(message || 'Expected array to have at least one element');
@@ -97,10 +94,7 @@ export function assertNotEmpty<T>(
  * expect(result).toMatch(/\d+/);
  * ```
  */
-export function assertTruthy<T>(
-  value: T,
-  message?: string
-): asserts value is NonNullable<T> {
+export function assertTruthy<T>(value: T, message?: string): asserts value is NonNullable<T> {
   expect(value).toBeTruthy();
   if (!value) {
     throw new Error(message || 'Expected value to be truthy');

@@ -104,7 +104,9 @@ function getStatusPagePath(): string {
  */
 async function getServicesInDisplayOrder(page: Page): Promise<string[]> {
   // Get all service headings in DOM order
-  const serviceHeadings = await page.locator('article h2, [role="article"] h2, [role="article"] h3').allTextContents();
+  const serviceHeadings = await page
+    .locator('article h2, [role="article"] h2, [role="article"] h3')
+    .allTextContents();
   return serviceHeadings.map((text: string) => text.trim());
 }
 
@@ -178,7 +180,9 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     expect(serviceCount + emptyState).toBeGreaterThan(0);
   });
 
-  test('services are sorted by status priority (FAIL → DEGRADED → PASS → PENDING)', async ({ page }) => {
+  test('services are sorted by status priority (FAIL → DEGRADED → PASS → PENDING)', async ({
+    page,
+  }) => {
     await page.goto(pageUrl);
 
     // Get all service status indicators in DOM order
@@ -192,10 +196,10 @@ test.describe('Status Page Display (US1 - T039a)', () => {
 
     // Map tag text to priority (lower = higher priority, appears first)
     const statusPriority: Record<string, number> = {
-      'Down': 1,        // FAIL
-      'Degraded': 2,    // DEGRADED
-      'Operational': 3, // PASS
-      'Pending': 4      // PENDING
+      Down: 1, // FAIL
+      Degraded: 2, // DEGRADED
+      Operational: 3, // PASS
+      Pending: 4, // PENDING
     };
 
     // Verify services appear in priority order
@@ -213,7 +217,9 @@ test.describe('Status Page Display (US1 - T039a)', () => {
       // Current service priority should be >= previous priority
       if (priority < previousPriority) {
         failureCount++;
-        console.error(`Service sort order violation: ${cleanTag} (priority ${priority}) appears after priority ${previousPriority}`);
+        console.error(
+          `Service sort order violation: ${cleanTag} (priority ${priority}) appears after priority ${previousPriority}`
+        );
       }
 
       previousPriority = priority;
@@ -222,12 +228,14 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     expect(failureCount).toBe(0);
   });
 
-  test('each service displays required information (name, status, latency, HTTP code)', async ({ page }) => {
+  test('each service displays required information (name, status, latency, HTTP code)', async ({
+    page,
+  }) => {
     await page.goto(pageUrl);
 
     // Find first service article
     const firstService = page.locator('article, [role="article"]').first();
-    const serviceExists = await firstService.count() > 0;
+    const serviceExists = (await firstService.count()) > 0;
 
     // If no services exist, test passes (empty state is valid)
     if (!serviceExists) {
@@ -264,7 +272,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
 
     // Find a PASS service (Operational tag)
     const operationalService = page.locator('article:has(.govuk-tag--green)').first();
-    const exists = await operationalService.count() > 0;
+    const exists = (await operationalService.count()) > 0;
 
     // If no operational services exist, test passes
     if (!exists) {
@@ -290,7 +298,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
 
     // Find a FAIL service (Down tag, red)
     const failedService = page.locator('article:has(.govuk-tag--red)').first();
-    const exists = await failedService.count() > 0;
+    const exists = (await failedService.count()) > 0;
 
     // If no failed services exist, test passes
     if (!exists) {
@@ -303,7 +311,9 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     await expect(failureReason).toBeVisible();
 
     // Verify failure reason has meaningful content
-    const failureText = await failedService.locator('.govuk-error-message, .govuk-summary-list__value:has-text("failure")').textContent();
+    const failureText = await failedService
+      .locator('.govuk-error-message, .govuk-summary-list__value:has-text("failure")')
+      .textContent();
     expect(failureText).toBeTruthy();
     expect(failureText!.trim().length).toBeGreaterThan(5); // Not just empty or "N/A"
   });
@@ -313,7 +323,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
 
     // Find a DEGRADED service (yellow tag)
     const degradedService = page.locator('article:has(.govuk-tag--yellow)').first();
-    const exists = await degradedService.count() > 0;
+    const exists = (await degradedService.count()) > 0;
 
     // If no degraded services exist, test passes
     if (!exists) {
@@ -335,7 +345,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
 
     // Find a PENDING service (grey tag)
     const pendingService = page.locator('article:has(.govuk-tag--grey)').first();
-    const exists = await pendingService.count() > 0;
+    const exists = (await pendingService.count()) > 0;
 
     // If no pending services exist, test passes
     if (!exists) {
@@ -361,7 +371,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
 
     // Find a service with a check time (not PENDING)
     const checkedService = page.locator('article:has(time[datetime])').first();
-    const exists = await checkedService.count() > 0;
+    const exists = (await checkedService.count()) > 0;
 
     // If no checked services exist, test passes
     if (!exists) {
@@ -425,24 +435,32 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     }
 
     // Find index of first FAIL service (if any)
-    const firstFailIndex = await page.locator('.govuk-tag--red').first().count() > 0
-      ? await page.locator('.govuk-tag--red').first().evaluate((el: Element) => {
-          const article = el.closest('article');
-          if (!article) return -1;
-          const allArticles = Array.from(document.querySelectorAll('article'));
-          return allArticles.indexOf(article as HTMLElement);
-        })
-      : -1;
+    const firstFailIndex =
+      (await page.locator('.govuk-tag--red').first().count()) > 0
+        ? await page
+            .locator('.govuk-tag--red')
+            .first()
+            .evaluate((el: Element) => {
+              const article = el.closest('article');
+              if (!article) return -1;
+              const allArticles = Array.from(document.querySelectorAll('article'));
+              return allArticles.indexOf(article as HTMLElement);
+            })
+        : -1;
 
     // Find index of first PASS service (if any)
-    const firstPassIndex = await page.locator('.govuk-tag--green').first().count() > 0
-      ? await page.locator('.govuk-tag--green').first().evaluate((el: Element) => {
-          const article = el.closest('article');
-          if (!article) return -1;
-          const allArticles = Array.from(document.querySelectorAll('article'));
-          return allArticles.indexOf(article as HTMLElement);
-        })
-      : -1;
+    const firstPassIndex =
+      (await page.locator('.govuk-tag--green').first().count()) > 0
+        ? await page
+            .locator('.govuk-tag--green')
+            .first()
+            .evaluate((el: Element) => {
+              const article = el.closest('article');
+              if (!article) return -1;
+              const allArticles = Array.from(document.querySelectorAll('article'));
+              return allArticles.indexOf(article as HTMLElement);
+            })
+        : -1;
 
     // If both exist, FAIL should come before PASS
     if (firstFailIndex >= 0 && firstPassIndex >= 0) {
@@ -455,7 +473,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
 
     // Per WCAG 2.2 AAA: Skip link for keyboard navigation
     const skipLink = page.locator('a[href="#main-content"], a:has-text("Skip to")');
-    
+
     // Skip link may be visually hidden but should exist
     expect(await skipLink.count()).toBeGreaterThan(0);
   });
@@ -486,7 +504,11 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     await page.goto(pageUrl);
 
     // Page generation timestamp should be prominently placed
-    const pageTimestamp = page.locator('p:has-text("Page generated"), div:has-text("Page generated"), span:has-text("Page generated")').first();
+    const pageTimestamp = page
+      .locator(
+        'p:has-text("Page generated"), div:has-text("Page generated"), span:has-text("Page generated")'
+      )
+      .first();
     await expect(pageTimestamp).toBeVisible();
 
     // Service check times should be within service articles
@@ -495,8 +517,11 @@ test.describe('Status Page Display (US1 - T039a)', () => {
 
     if (serviceCount > 0) {
       // Page timestamp should appear before service timestamps in DOM
-      const pageTimestampY = await pageTimestamp.boundingBox().then(box => box?.y ?? 0);
-      const firstServiceY = await serviceTimestamps.first().boundingBox().then(box => box?.y ?? 0);
+      const pageTimestampY = await pageTimestamp.boundingBox().then((box) => box?.y ?? 0);
+      const firstServiceY = await serviceTimestamps
+        .first()
+        .boundingBox()
+        .then((box) => box?.y ?? 0);
 
       expect(pageTimestampY).toBeLessThan(firstServiceY);
     }
@@ -612,7 +637,7 @@ test.describe('Status Page Accessibility (US1 - T039a)', () => {
     for (let i = 0; i < count; i++) {
       const datetime = await timeElements.nth(i).getAttribute('datetime');
       expect(datetime).toBeTruthy();
-      
+
       // Should be parseable as ISO 8601
       const parsed = new Date(datetime!);
       expect(parsed.toString()).not.toBe('Invalid Date');

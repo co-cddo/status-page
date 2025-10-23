@@ -1,18 +1,18 @@
 pings:
-  - name: example 
+  - name: example
     protocol: HTTP
     method: GET
     resource: http://example.com
-    tags: 
+    tags:
       - health
       - driving licences
       - roads
       - ministry of foo
-    expected: 
+    expected:
       status: 200
-      text: "</html>"
+      text: '</html>'
   - name: example head
-    tags: 
+    tags:
       - health
       - justice
       - central government
@@ -26,26 +26,26 @@ pings:
     protocol: HTTP
     method: POST
     resource: http://example.com
-    payload: {"test": "testing"}
+    payload: { 'test': 'testing' }
     headers:
       - name: client
         value: gds-healthchecker
-    tags: 
+    tags:
       - health
       - driving licences
       - roads
       - ministry of foo
-    expected: 
+    expected:
       status: 411
-      text: "</HTML>"
+      text: '</HTML>'
 
   - name: example five
     protocol: HTTP
     method: GET
     resource: http://example.com
-    tags: 
+    tags:
       - health
-    expected: 
+    expected:
       status: 301
       headers:
         location: http://example.com/expected_redirect_url

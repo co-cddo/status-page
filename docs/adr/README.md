@@ -1,12 +1,15 @@
 # Architecture Decision Records (ADRs)
 
-This directory contains Architecture Decision Records (ADRs) for the GOV.UK Public Services Status Monitor project.
+This directory contains Architecture Decision Records (ADRs) for the GOV.UK Public Services Status
+Monitor project.
 
 ## What is an ADR?
 
-An Architecture Decision Record (ADR) is a document that captures an important architectural decision made along with its context and consequences.
+An Architecture Decision Record (ADR) is a document that captures an important architectural
+decision made along with its context and consequences.
 
 ADRs help teams:
+
 - **Understand the reasoning** behind past decisions
 - **Onboard new team members** by providing historical context
 - **Avoid revisiting** already-decided topics
@@ -17,6 +20,7 @@ ADRs help teams:
 ### When to Create an ADR
 
 Create an ADR when making a decision that:
+
 - Affects the project's architecture or technical direction
 - Has long-term implications
 - Involves trade-offs between multiple options
@@ -38,6 +42,7 @@ Create an ADR when making a decision that:
 Format: `####-title-with-dashes.md`
 
 Examples:
+
 - `0001-worker-threads-for-health-checks.md`
 - `0002-eleventy-static-site-generator.md`
 - `0015-migration-from-csv-to-postgresql.md`
@@ -53,14 +58,14 @@ Examples:
 
 ### Active ADRs
 
-| ADR | Title | Status | Date |
-|-----|-------|--------|------|
-| [0001](0001-worker-threads-for-health-checks.md) | Worker Threads for Concurrency | Accepted | 2025-10-22 |
-| [0002](0002-eleventy-static-site-generator.md) | Eleventy for Static Site Generation | Accepted | 2025-10-22 |
-| [0003](0003-post-build-asset-inlining.md) | Post-Build Asset Inlining | Accepted | 2025-10-22 |
-| [0004](0004-github-actions-cache-csv-storage.md) | GitHub Actions Cache for CSV Persistence | Accepted | 2025-10-22 |
+| ADR                                                | Title                                       | Status   | Date       |
+| -------------------------------------------------- | ------------------------------------------- | -------- | ---------- |
+| [0001](0001-worker-threads-for-health-checks.md)   | Worker Threads for Concurrency              | Accepted | 2025-10-22 |
+| [0002](0002-eleventy-static-site-generator.md)     | Eleventy for Static Site Generation         | Accepted | 2025-10-22 |
+| [0003](0003-post-build-asset-inlining.md)          | Post-Build Asset Inlining                   | Accepted | 2025-10-22 |
+| [0004](0004-github-actions-cache-csv-storage.md)   | GitHub Actions Cache for CSV Persistence    | Accepted | 2025-10-22 |
 | [0005](0005-csv-consecutive-failure-derivation.md) | CSV Format for Consecutive Failure Tracking | Accepted | 2025-10-22 |
-| [0006](0006-prometheus-cardinality-limits.md) | Prometheus Metrics Cardinality Management | Accepted | 2025-10-22 |
+| [0006](0006-prometheus-cardinality-limits.md)      | Prometheus Metrics Cardinality Management   | Accepted | 2025-10-22 |
 
 ### Superseded ADRs
 
@@ -68,13 +73,17 @@ Examples:
 
 ## Related Documentation
 
-- **Feature Specification**: [specs/001-govuk-status-monitor/spec.md](../../specs/001-govuk-status-monitor/spec.md)
-- **Implementation Plan**: [specs/001-govuk-status-monitor/plan.md](../../specs/001-govuk-status-monitor/plan.md)
-- **Technology Research**: [specs/001-govuk-status-monitor/research.md](../../specs/001-govuk-status-monitor/research.md)
+- **Feature Specification**:
+  [specs/001-govuk-status-monitor/spec.md](../../specs/001-govuk-status-monitor/spec.md)
+- **Implementation Plan**:
+  [specs/001-govuk-status-monitor/plan.md](../../specs/001-govuk-status-monitor/plan.md)
+- **Technology Research**:
+  [specs/001-govuk-status-monitor/research.md](../../specs/001-govuk-status-monitor/research.md)
 - **Project Constitution**: [.specify/memory/constitution.md](../../.specify/memory/constitution.md)
 
 ## Resources
 
 - [MADR (Markdown Architectural Decision Records)](https://adr.github.io/madr/)
 - [ADR GitHub Organization](https://adr.github.io/)
-- [Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) (original article by Michael Nygard)
+- [Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
+  (original article by Michael Nygard)

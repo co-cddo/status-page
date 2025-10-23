@@ -8,14 +8,13 @@
  */
 
 import { describe, it, expect, beforeAll, beforeEach, afterEach, afterAll, vi } from 'vitest';
+import { EventEmitter } from 'node:events';
 
 // Define MockWorker inline using vi.hoisted
 const { MockWorker } = vi.hoisted(() => {
-  const { EventEmitter } = require('node:events');
-  
   class MockWorkerClass extends EventEmitter {
     private terminated = false;
-    
+
     constructor(_path: string, _options?: Record<string, unknown>) {
       super();
       process.nextTick(() => {
@@ -24,15 +23,15 @@ const { MockWorker } = vi.hoisted(() => {
         }
       });
     }
-    
+
     postMessage(message: unknown): void {
       if (this.terminated) {
         throw new Error('Worker is terminated');
       }
-      
+
       setImmediate(async () => {
         if (this.terminated) return;
-        
+
         try {
           const { processHealthCheck } = await import('../../src/health-checks/worker.ts');
           const result = await processHealthCheck(message as never);
@@ -46,7 +45,7 @@ const { MockWorker } = vi.hoisted(() => {
         }
       });
     }
-    
+
     async terminate(): Promise<number> {
       if (this.terminated) {
         return 0;
@@ -58,7 +57,7 @@ const { MockWorker } = vi.hoisted(() => {
       return 0;
     }
   }
-  
+
   return { MockWorker: MockWorkerClass };
 });
 

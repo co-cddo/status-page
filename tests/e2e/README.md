@@ -1,13 +1,16 @@
 # E2E Tests for User Story 1 (Status Page)
 
-This directory contains comprehensive end-to-end tests for the GOV.UK Status Monitor application using Playwright.
+This directory contains comprehensive end-to-end tests for the GOV.UK Status Monitor application
+using Playwright.
 
 ## Test Files
 
 ### 1. `status-page.spec.ts` (T039a)
+
 **Purpose**: Validate status page display, service list rendering, and sorting
 
 **Coverage**:
+
 - Page title verification ("GOV.UK service status")
 - Meta refresh tag presence and configuration
 - Page generation timestamp display (semantic HTML with `<time>` elements)
@@ -28,6 +31,7 @@ This directory contains comprehensive end-to-end tests for the GOV.UK Status Mon
 **Test Count**: 30+ test cases across 3 describe blocks
 
 **Requirements Validated**:
+
 - FR-021: Page title and branding
 - FR-023: Service sorting by status
 - FR-026: Service display priority
@@ -38,9 +42,11 @@ This directory contains comprehensive end-to-end tests for the GOV.UK Status Mon
 - FR-029b: Timestamp display formats
 
 ### 2. `self-contained-html.spec.ts` (T044c)
+
 **Purpose**: Validate HTML self-containment, asset inlining, and network isolation
 
 **Coverage**:
+
 - HTML file size validation (< 5MB target)
 - CSS inlining verification (all styles in `<style>` tags)
 - JavaScript inlining verification (all scripts in `<script>` tags)
@@ -58,15 +64,18 @@ This directory contains comprehensive end-to-end tests for the GOV.UK Status Mon
 **Test Count**: 25+ test cases across 3 describe blocks
 
 **Requirements Validated**:
+
 - FR-021: Self-contained HTML requirement
 - Single HTTP request architecture
 - Offline functionality
 - Progressive enhancement
 
 ### 3. `deployment.spec.ts` (T025a - US7)
+
 **Purpose**: Validate deployed GitHub Pages site accessibility and functionality
 
 **Coverage**:
+
 - GitHub Pages URL accessibility
 - Page load performance (< 2 seconds)
 - Self-contained HTML (no external requests)
@@ -83,11 +92,13 @@ This directory contains comprehensive end-to-end tests for the GOV.UK Status Mon
 ## Running Tests
 
 ### Run All E2E Tests
+
 ```bash
 pnpm test:e2e
 ```
 
 ### Run Specific Test File
+
 ```bash
 pnpm test:e2e tests/e2e/status-page.spec.ts
 pnpm test:e2e tests/e2e/self-contained-html.spec.ts
@@ -95,11 +106,13 @@ pnpm test:e2e tests/e2e/deployment.spec.ts
 ```
 
 ### Run in Headed Mode (for debugging)
+
 ```bash
 pnpm exec playwright test tests/e2e/status-page.spec.ts --headed
 ```
 
 ### Run with UI Mode
+
 ```bash
 pnpm exec playwright test tests/e2e/status-page.spec.ts --ui
 ```
@@ -107,12 +120,15 @@ pnpm exec playwright test tests/e2e/status-page.spec.ts --ui
 ## Test Environment
 
 ### Prerequisites
+
 - **Build required**: Tests expect `_site/index.html` or `output/index.html` to exist
 - **Local server**: Some tests use `http://localhost:8080` as fallback
 - **GitHub Pages**: Deployment tests use `GITHUB_PAGES_URL` environment variable
 
 ### Test Data
-Tests use file:// protocol to load generated HTML directly, ensuring tests validate the actual build output.
+
+Tests use file:// protocol to load generated HTML directly, ensuring tests validate the actual build
+output.
 
 ## TDD Workflow
 
@@ -128,6 +144,7 @@ Current status: **Tests failing as expected** (implementation not yet complete)
 ## Browser Coverage
 
 Tests run against multiple browsers per `playwright.config.ts`:
+
 - **Chromium** (Desktop Chrome)
 - **Firefox** (Desktop Firefox)
 - **WebKit** (Desktop Safari)
@@ -137,6 +154,7 @@ Tests run against multiple browsers per `playwright.config.ts`:
 ## Accessibility Testing
 
 Status page tests include basic accessibility checks:
+
 - Semantic HTML structure
 - ARIA labels and landmarks
 - Skip links for keyboard navigation
@@ -148,6 +166,7 @@ Status page tests include basic accessibility checks:
 ## Performance Considerations
 
 Self-contained HTML tests verify:
+
 - File size < 5MB (critical threshold)
 - Compression ratio > 2x (gzip/brotli)
 - Whitespace ratio < 30%
@@ -156,6 +175,7 @@ Self-contained HTML tests verify:
 ## Network Isolation
 
 Key validation: Self-contained HTML works without network access
+
 - Loads from `file://` protocol
 - Zero external HTTP requests
 - Functions with JavaScript disabled
@@ -164,19 +184,25 @@ Key validation: Self-contained HTML works without network access
 ## Troubleshooting
 
 ### Tests Fail with "No output HTML file found"
+
 **Solution**: Run build first:
+
 ```bash
 pnpm run build:eleventy
 ```
 
 ### Tests Timeout
+
 **Solution**: Increase timeout in test file or command:
+
 ```bash
 pnpm exec playwright test --timeout=60000
 ```
 
 ### WebServer Errors
-**Solution**: Playwright config tries to start dev server. Ensure `src/index.ts` exists or disable webServer in config.
+
+**Solution**: Playwright config tries to start dev server. Ensure `src/index.ts` exists or disable
+webServer in config.
 
 ## Future Enhancements
 

@@ -310,10 +310,10 @@ describe('validateResponseHeaders (T027a - TDD Phase)', () => {
 
     test('should match header names all uppercase', () => {
       const headers = new Headers({
-        'AUTHORIZATION': 'Bearer token',
+        AUTHORIZATION: 'Bearer token',
       });
       const expectedHeaders = {
-        'authorization': 'Bearer token', // Lowercase
+        authorization: 'Bearer token', // Lowercase
       };
 
       const result = validateResponseHeaders(headers, expectedHeaders);
@@ -356,10 +356,10 @@ describe('validateResponseHeaders (T027a - TDD Phase)', () => {
 
     test('should handle Bearer token case-sensitivity', () => {
       const headers = new Headers({
-        'authorization': 'Bearer AbCdEf123',
+        authorization: 'Bearer AbCdEf123',
       });
       const expectedHeaders = {
-        'authorization': 'Bearer AbCdEf123', // Exact case
+        authorization: 'Bearer AbCdEf123', // Exact case
       };
 
       const result = validateResponseHeaders(headers, expectedHeaders);

@@ -21,16 +21,8 @@ import { load as cheerioLoad } from 'cheerio';
 import { createLogger } from '../logging/logger.ts';
 import { inlineCSS, inlineCSSUrls } from './css-inliner.ts';
 import { inlineJavaScript, verifyNoExternalScripts } from './js-inliner.ts';
-import {
-  inlineImages,
-  inlineCSSImages,
-  verifyNoExternalImages,
-} from './image-inliner.ts';
-import {
-  validateHTMLSize,
-  formatSize,
-  type ComponentSizes,
-} from './size-validator.ts';
+import { inlineImages, inlineCSSImages, verifyNoExternalImages } from './image-inliner.ts';
+import { validateHTMLSize, formatSize, type ComponentSizes } from './size-validator.ts';
 
 const logger = createLogger({ serviceName: 'post-build' });
 
@@ -62,7 +54,7 @@ async function main(): Promise<void> {
       outputDir: options.outputDir,
       inputFile: options.inputFile || 'index.html',
     },
-    'Starting post-build asset inlining',
+    'Starting post-build asset inlining'
   );
 
   try {
@@ -80,10 +72,7 @@ async function main(): Promise<void> {
     const htmlContent = await readFile(inputPath, 'utf-8');
     const originalSize = Buffer.byteLength(htmlContent, 'utf-8');
 
-    logger.info(
-      { size: formatSize(originalSize) },
-      'Original HTML file size',
-    );
+    logger.info({ size: formatSize(originalSize) }, 'Original HTML file size');
 
     // Load HTML with Cheerio
     const $ = cheerioLoad(htmlContent, {
@@ -146,7 +135,7 @@ async function main(): Promise<void> {
           imageErrors: imageResult.errors,
           cssImageErrors: cssImageResult.errors,
         },
-        'Image inlining failed',
+        'Image inlining failed'
       );
       process.exit(1);
     }
@@ -171,7 +160,7 @@ async function main(): Promise<void> {
         },
         totalInlined: formatSize(stats.totalInlinedSize),
       },
-      'Asset inlining statistics',
+      'Asset inlining statistics'
     );
 
     // Verify no external resources remain
@@ -185,7 +174,7 @@ async function main(): Promise<void> {
           externalScripts,
           externalImages,
         },
-        'External resources detected - violates self-contained HTML requirement',
+        'External resources detected - violates self-contained HTML requirement'
       );
       process.exit(1);
     }
@@ -205,12 +194,9 @@ async function main(): Promise<void> {
         originalSize: formatSize(originalSize),
         inlinedSize: formatSize(inlinedSize),
         increase: formatSize(inlinedSize - originalSize),
-        increasePercent: (
-          ((inlinedSize - originalSize) / originalSize) *
-          100
-        ).toFixed(1),
+        increasePercent: (((inlinedSize - originalSize) / originalSize) * 100).toFixed(1),
       },
-      'HTML file written successfully',
+      'HTML file written successfully'
     );
 
     // Step 5: Validate HTML file size (< 5MB constraint)
@@ -232,13 +218,13 @@ async function main(): Promise<void> {
           errors: sizeValidation.errors,
           suggestions: sizeValidation.suggestions,
         },
-        'HTML file size validation failed',
+        'HTML file size validation failed'
       );
 
       // Print suggestions to stderr for visibility
       console.error('\n❌ HTML FILE SIZE EXCEEDS 5MB LIMIT\n');
       console.error(
-        `   File size: ${sizeValidation.fileSizeMB.toFixed(2)}MB (maximum: ${sizeValidation.maxSizeMB}MB)\n`,
+        `   File size: ${sizeValidation.fileSizeMB.toFixed(2)}MB (maximum: ${sizeValidation.maxSizeMB}MB)\n`
       );
 
       if (sizeValidation.suggestions.length > 0) {
@@ -260,12 +246,12 @@ async function main(): Promise<void> {
           utilizationPercent: sizeValidation.utilizationPercent.toFixed(1),
           suggestions: sizeValidation.suggestions,
         },
-        'HTML file size is approaching 5MB limit',
+        'HTML file size is approaching 5MB limit'
       );
 
       console.warn('\n⚠️  HTML FILE SIZE WARNING\n');
       console.warn(
-        `   File size: ${sizeValidation.fileSizeMB.toFixed(2)}MB (${sizeValidation.utilizationPercent.toFixed(1)}% of maximum)\n`,
+        `   File size: ${sizeValidation.fileSizeMB.toFixed(2)}MB (${sizeValidation.utilizationPercent.toFixed(1)}% of maximum)\n`
       );
       console.warn('   Optimization suggestions:\n');
       sizeValidation.suggestions.forEach((suggestion, i) => {
@@ -282,24 +268,19 @@ async function main(): Promise<void> {
         outputFile: outputPath,
         finalSizeMB: sizeValidation.fileSizeMB.toFixed(2),
       },
-      'Post-build asset inlining completed successfully',
+      'Post-build asset inlining completed successfully'
     );
 
-    console.log(`\n✓ Self-contained HTML generated successfully`);
+    console.log('\n✓ Self-contained HTML generated successfully');
     console.log(`  Output: ${outputPath}`);
     console.log(
-      `  Size: ${sizeValidation.fileSizeMB.toFixed(2)}MB (${sizeValidation.utilizationPercent.toFixed(1)}% of maximum)`,
+      `  Size: ${sizeValidation.fileSizeMB.toFixed(2)}MB (${sizeValidation.utilizationPercent.toFixed(1)}% of maximum)`
     );
     console.log(`  Duration: ${(duration / 1000).toFixed(2)}s\n`);
   } catch (error) {
-    logger.error(
-      { error },
-      'Post-build asset inlining failed with unexpected error',
-    );
+    logger.error({ error }, 'Post-build asset inlining failed with unexpected error');
     console.error('\n❌ Post-build asset inlining failed\n');
-    console.error(
-      `   Error: ${error instanceof Error ? error.message : String(error)}\n`,
-    );
+    console.error(`   Error: ${error instanceof Error ? error.message : String(error)}\n`);
 
     if (error instanceof Error && error.stack) {
       logger.error({ stack: error.stack }, 'Error stack trace');

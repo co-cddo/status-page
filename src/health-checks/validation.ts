@@ -23,16 +23,20 @@ export function validateStatusCode(
   actualStatus: number,
   expectedStatus: number | number[]
 ): ValidationResult {
-  const isValid = typeof expectedStatus === 'number'
-    ? actualStatus === expectedStatus
-    : expectedStatus.includes(actualStatus);
+  const isValid =
+    typeof expectedStatus === 'number'
+      ? actualStatus === expectedStatus
+      : expectedStatus.includes(actualStatus);
 
   return {
     valid: isValid,
-    ...(isValid ? {} : {
-      error: `Expected status ${Array.isArray(expectedStatus) ?
-        expectedStatus.join(' or ') : expectedStatus}, got ${actualStatus}`
-    })
+    ...(isValid
+      ? {}
+      : {
+          error: `Expected status ${
+            Array.isArray(expectedStatus) ? expectedStatus.join(' or ') : expectedStatus
+          }, got ${actualStatus}`,
+        }),
   };
 }
 
@@ -45,10 +49,7 @@ export function validateStatusCode(
  * @param expectedText Expected substring to find
  * @returns ValidationResult with status and error message
  */
-export function validateResponseText(
-  responseBody: string,
-  expectedText: string
-): ValidationResult {
+export function validateResponseText(responseBody: string, expectedText: string): ValidationResult {
   // Per FR-014: Only search first 100KB of response
   const maxSearchLength = 100 * 1024; // 100KB in bytes
   const searchBody = responseBody.slice(0, maxSearchLength);
@@ -57,7 +58,7 @@ export function validateResponseText(
 
   return {
     valid: isValid,
-    ...(isValid ? {} : { error: `Expected text '${expectedText}' not found in response body` })
+    ...(isValid ? {} : { error: `Expected text '${expectedText}' not found in response body` }),
   };
 }
 
@@ -92,7 +93,7 @@ export function validateResponseHeaders(
 
   return {
     valid: failures.length === 0,
-    ...(failures.length > 0 ? { error: failures.join('; ') } : {})
+    ...(failures.length > 0 ? { error: failures.join('; ') } : {}),
   };
 }
 

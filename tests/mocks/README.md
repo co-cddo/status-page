@@ -2,7 +2,9 @@
 
 **Constitutional Compliance**: Principle X - Mock Services for Testing (NON-NEGOTIABLE)
 
-This directory contains mock service infrastructure to ensure all tests run without external dependencies. The mock HTTP server simulates real HTTP services without requiring internet connectivity.
+This directory contains mock service infrastructure to ensure all tests run without external
+dependencies. The mock HTTP server simulates real HTTP services without requiring internet
+connectivity.
 
 ## Why Mock Services?
 
@@ -222,8 +224,8 @@ for (let i = 0; i < 10; i++) {
 }
 
 // Should have a mix of PASS and FAIL
-expect(results.some(s => s === 'PASS')).toBe(true);
-expect(results.some(s => s === 'FAIL')).toBe(true);
+expect(results.some((s) => s === 'PASS')).toBe(true);
+expect(results.some((s) => s === 'FAIL')).toBe(true);
 
 await server.stop();
 ```
@@ -376,7 +378,7 @@ const configs: HealthCheckConfig[] = [
   { url: `${slowService.url}/health`, method: 'GET', timeout: 5000, expectedStatus: 200 },
 ];
 
-const results = await Promise.all(configs.map(c => performHealthCheck(c)));
+const results = await Promise.all(configs.map((c) => performHealthCheck(c)));
 
 expect(results[0].status).toBe('PASS');
 expect(results[1].status).toBe('FAIL');
@@ -477,7 +479,8 @@ const server = await createCustomScenario({
 
 ## Worker Thread Compatibility
 
-The mock server works seamlessly with worker threads because it's a real HTTP server listening on localhost:
+The mock server works seamlessly with worker threads because it's a real HTTP server listening on
+localhost:
 
 ```typescript
 // Main thread: Start mock server

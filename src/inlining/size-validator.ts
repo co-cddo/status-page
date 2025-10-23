@@ -48,7 +48,7 @@ const WARNING_THRESHOLD_BYTES = WARNING_THRESHOLD_MB * 1024 * 1024;
  */
 export async function validateHTMLSize(
   filePath: string,
-  componentSizes?: ComponentSizes,
+  componentSizes?: ComponentSizes
 ): Promise<SizeValidationResult> {
   const result: SizeValidationResult = {
     success: true,
@@ -75,7 +75,7 @@ export async function validateHTMLSize(
         maxMB: MAX_SIZE_MB,
         utilization: result.utilizationPercent.toFixed(1) + '%',
       },
-      'HTML file size validation',
+      'HTML file size validation'
     );
 
     // Check if size exceeds maximum
@@ -90,20 +90,14 @@ export async function validateHTMLSize(
           maxMB: MAX_SIZE_MB,
           excessMB: (result.fileSizeMB - MAX_SIZE_MB).toFixed(2),
         },
-        errorMessage,
+        errorMessage
       );
 
       // Generate optimization suggestions
-      result.suggestions = generateOptimizationSuggestions(
-        stats.size,
-        componentSizes,
-      );
+      result.suggestions = generateOptimizationSuggestions(stats.size, componentSizes);
 
       // Log suggestions
-      logger.info(
-        { suggestions: result.suggestions },
-        'Size reduction suggestions',
-      );
+      logger.info({ suggestions: result.suggestions }, 'Size reduction suggestions');
 
       return result;
     }
@@ -118,21 +112,18 @@ export async function validateHTMLSize(
           warningThresholdMB: WARNING_THRESHOLD_MB,
           remainingMB: (MAX_SIZE_MB - result.fileSizeMB).toFixed(2),
         },
-        warningMessage,
+        warningMessage
       );
 
       // Generate suggestions even at warning level
-      result.suggestions = generateOptimizationSuggestions(
-        stats.size,
-        componentSizes,
-      );
+      result.suggestions = generateOptimizationSuggestions(stats.size, componentSizes);
     } else {
       logger.info(
         {
           sizeMB: result.fileSizeMB.toFixed(2),
           remainingMB: (MAX_SIZE_MB - result.fileSizeMB).toFixed(2),
         },
-        'HTML file size is within acceptable limits',
+        'HTML file size is within acceptable limits'
       );
     }
 
@@ -155,14 +146,12 @@ export async function validateHTMLSize(
  */
 function generateOptimizationSuggestions(
   totalSize: number,
-  componentSizes?: ComponentSizes,
+  componentSizes?: ComponentSizes
 ): string[] {
   const suggestions: string[] = [];
 
   // General suggestions
-  suggestions.push(
-    'Consider minifying CSS and JavaScript files before inlining',
-  );
+  suggestions.push('Consider minifying CSS and JavaScript files before inlining');
   suggestions.push('Optimize images using compression tools (e.g., ImageOptim, TinyPNG)');
   suggestions.push('Remove unused CSS rules using PurgeCSS or similar tools');
 
@@ -173,7 +162,7 @@ function generateOptimizationSuggestions(
     if (totalImages > 2 * 1024 * 1024) {
       // Images > 2MB
       suggestions.push(
-        `Images account for ${(totalImages / (1024 * 1024)).toFixed(2)}MB - consider reducing image dimensions or using more aggressive compression`,
+        `Images account for ${(totalImages / (1024 * 1024)).toFixed(2)}MB - consider reducing image dimensions or using more aggressive compression`
       );
       suggestions.push('Convert PNG images to WebP format for better compression');
       suggestions.push('Use SVG for icons and simple graphics instead of raster images');
@@ -182,15 +171,17 @@ function generateOptimizationSuggestions(
     if (totalCSS > 500 * 1024) {
       // CSS > 500KB
       suggestions.push(
-        `CSS accounts for ${(totalCSS / 1024).toFixed(2)}KB - remove unused GOV.UK Design System styles`,
+        `CSS accounts for ${(totalCSS / 1024).toFixed(2)}KB - remove unused GOV.UK Design System styles`
       );
-      suggestions.push('Consider using critical CSS extraction to inline only above-the-fold styles');
+      suggestions.push(
+        'Consider using critical CSS extraction to inline only above-the-fold styles'
+      );
     }
 
     if (totalJS > 500 * 1024) {
       // JS > 500KB
       suggestions.push(
-        `JavaScript accounts for ${(totalJS / 1024).toFixed(2)}KB - ensure only necessary GOV.UK components are included`,
+        `JavaScript accounts for ${(totalJS / 1024).toFixed(2)}KB - ensure only necessary GOV.UK components are included`
       );
       suggestions.push('Consider tree-shaking to remove unused JavaScript code');
     }
@@ -198,7 +189,7 @@ function generateOptimizationSuggestions(
     if (baseHTML > 200 * 1024) {
       // HTML > 200KB
       suggestions.push(
-        `Base HTML accounts for ${(baseHTML / 1024).toFixed(2)}KB - review for unnecessarily verbose markup`,
+        `Base HTML accounts for ${(baseHTML / 1024).toFixed(2)}KB - review for unnecessarily verbose markup`
       );
     }
   }
@@ -207,9 +198,11 @@ function generateOptimizationSuggestions(
   if (totalSize > MAX_SIZE_BYTES * 1.5) {
     // More than 50% over limit
     suggestions.push(
-      'CRITICAL: File size significantly exceeds limit - consider fundamental architecture changes',
+      'CRITICAL: File size significantly exceeds limit - consider fundamental architecture changes'
     );
-    suggestions.push('Evaluate whether all inlined assets are truly necessary for self-contained HTML');
+    suggestions.push(
+      'Evaluate whether all inlined assets are truly necessary for self-contained HTML'
+    );
     suggestions.push('Consider lazy-loading non-critical images or splitting into multiple pages');
   }
 
@@ -219,10 +212,7 @@ function generateOptimizationSuggestions(
 /**
  * Log component size breakdown
  */
-function logComponentBreakdown(
-  componentSizes: ComponentSizes,
-  totalSize: number,
-): void {
+function logComponentBreakdown(componentSizes: ComponentSizes, totalSize: number): void {
   const { totalCSS, totalJS, totalImages, baseHTML } = componentSizes;
 
   logger.info(
@@ -254,7 +244,7 @@ function logComponentBreakdown(
         },
       },
     },
-    'Component size breakdown',
+    'Component size breakdown'
   );
 }
 

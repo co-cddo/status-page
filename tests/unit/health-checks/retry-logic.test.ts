@@ -681,9 +681,7 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
       } as HealthCheckResultWithError;
 
       // Network error (retry), then validation error (stop)
-      mockHealthCheck
-        .mockResolvedValueOnce(networkError)
-        .mockResolvedValueOnce(validationError);
+      mockHealthCheck.mockResolvedValueOnce(networkError).mockResolvedValueOnce(validationError);
 
       const result = await performHealthCheckWithRetry(config, mockHealthCheck);
 

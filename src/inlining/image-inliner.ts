@@ -30,10 +30,7 @@ export interface ImageInlineResult {
  * @param htmlPath - Path to the HTML file (for resolving relative image paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineImages(
-  $: CheerioAPI,
-  htmlPath: string,
-): Promise<ImageInlineResult> {
+export async function inlineImages($: CheerioAPI, htmlPath: string): Promise<ImageInlineResult> {
   const result: ImageInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -71,12 +68,9 @@ export async function inlineImages(
 
     // Skip external images (http/https URLs)
     if (src.startsWith('http://') || src.startsWith('https://')) {
-      logger.warn(
-        { src },
-        'Skipping external image - cannot inline remote images',
-      );
+      logger.warn({ src }, 'Skipping external image - cannot inline remote images');
       result.errors.push(
-        `Cannot inline external image: "${src}". Self-contained HTML requires all images to be local.`,
+        `Cannot inline external image: "${src}". Self-contained HTML requires all images to be local.`
       );
       result.success = false;
       continue;
@@ -84,9 +78,7 @@ export async function inlineImages(
 
     try {
       // Resolve image file path (handle both relative and absolute paths)
-      const imagePath = src.startsWith('/')
-        ? join(htmlDir, src)
-        : resolve(htmlDir, src);
+      const imagePath = src.startsWith('/') ? join(htmlDir, src) : resolve(htmlDir, src);
 
       logger.debug({ src, imagePath }, 'Reading image file');
 
@@ -116,7 +108,7 @@ export async function inlineImages(
           index: i + 1,
           total: imgTags.length,
         },
-        'Inlined image file',
+        'Inlined image file'
       );
     } catch (error) {
       const errorMessage = `Failed to inline image "${src}": ${error instanceof Error ? error.message : String(error)}`;
@@ -132,7 +124,7 @@ export async function inlineImages(
       totalSize: result.totalSize,
       totalSizeKB: (result.totalSize / 1024).toFixed(2),
     },
-    'Image inlining complete',
+    'Image inlining complete'
   );
 
   return result;
@@ -146,10 +138,7 @@ export async function inlineImages(
  * @param htmlPath - Path to the HTML file (for resolving relative paths)
  * @returns Result object with success status and statistics
  */
-export async function inlineCSSImages(
-  $: CheerioAPI,
-  htmlPath: string,
-): Promise<ImageInlineResult> {
+export async function inlineCSSImages($: CheerioAPI, htmlPath: string): Promise<ImageInlineResult> {
   const result: ImageInlineResult = {
     success: true,
     inlinedCount: 0,
@@ -198,9 +187,7 @@ export async function inlineCSSImages(
 
       try {
         // Resolve file path
-        const imagePath = url.startsWith('/')
-          ? join(htmlDir, url)
-          : resolve(htmlDir, url);
+        const imagePath = url.startsWith('/') ? join(htmlDir, url) : resolve(htmlDir, url);
 
         logger.debug({ url, imagePath }, 'Reading CSS image file');
 
@@ -220,7 +207,7 @@ export async function inlineCSSImages(
 
         logger.debug(
           { url, imagePath, size: imageBuffer.length },
-          'Converted CSS image url() to data URI',
+          'Converted CSS image url() to data URI'
         );
       } catch (error) {
         logger.warn({ url, error }, 'Failed to inline CSS image url() reference');
@@ -264,9 +251,7 @@ export async function inlineCSSImages(
       }
 
       try {
-        const imagePath = url.startsWith('/')
-          ? join(htmlDir, url)
-          : resolve(htmlDir, url);
+        const imagePath = url.startsWith('/') ? join(htmlDir, url) : resolve(htmlDir, url);
 
         const imageBuffer = await readFile(imagePath);
         const mimeType = getImageMimeType(imagePath);
@@ -295,7 +280,7 @@ export async function inlineCSSImages(
   if (result.inlinedCount > 0) {
     logger.info(
       { inlinedCount: result.inlinedCount, totalSize: result.totalSize },
-      'CSS image url() inlining complete',
+      'CSS image url() inlining complete'
     );
   }
 
@@ -340,7 +325,11 @@ export function verifyNoExternalImages($: CheerioAPI): string[] {
 
   $('img[src]').each((_, elem) => {
     const src = $(elem).attr('src');
-    if (src && !src.startsWith('data:') && (src.startsWith('http://') || src.startsWith('https://'))) {
+    if (
+      src &&
+      !src.startsWith('data:') &&
+      (src.startsWith('http://') || src.startsWith('https://'))
+    ) {
       externalImages.push(src);
     }
   });
@@ -348,7 +337,7 @@ export function verifyNoExternalImages($: CheerioAPI): string[] {
   if (externalImages.length > 0) {
     logger.error(
       { count: externalImages.length, images: externalImages },
-      'External images detected - violates self-contained HTML requirement',
+      'External images detected - violates self-contained HTML requirement'
     );
   }
 

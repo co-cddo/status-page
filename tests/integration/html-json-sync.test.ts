@@ -51,7 +51,9 @@ function createMockResult(
  * Helper to parse service data from HTML
  * Extracts service information from generated HTML
  */
-function parseServicesFromHtml(html: string): Array<{ name: string; status: string; latency: number | null }> {
+function parseServicesFromHtml(
+  html: string
+): Array<{ name: string; status: string; latency: number | null }> {
   const services: Array<{ name: string; status: string; latency: number | null }> = [];
 
   // Simple regex-based parsing (would use cheerio/jsdom in real implementation)
@@ -71,7 +73,9 @@ function parseServicesFromHtml(html: string): Array<{ name: string; status: stri
 
     // Extract status (example: class="status-pass" or data-status="PASS")
     let status = '';
-    const statusMatch = serviceBlock.match(/(?:class="[^"]*status-(\w+)[^"]*"|data-status="(\w+)")/i);
+    const statusMatch = serviceBlock.match(
+      /(?:class="[^"]*status-(\w+)[^"]*"|data-status="(\w+)")/i
+    );
     if (statusMatch) {
       status = (statusMatch[1]! || statusMatch[2]!).toUpperCase();
     }
@@ -145,7 +149,7 @@ describe('HTML/JSON Synchronization (US1)', () => {
     const jsonData: ServiceStatusAPI[] = JSON.parse(jsonContent);
 
     expect(jsonData).toHaveLength(3);
-    expect(jsonData.every(s => s.status === 'PASS')).toBe(true);
+    expect(jsonData.every((s) => s.status === 'PASS')).toBe(true);
 
     // Mock HTML output (in real implementation, this would invoke 11ty + inlining)
     // This will fail until HTML generation is implemented
@@ -184,7 +188,7 @@ describe('HTML/JSON Synchronization (US1)', () => {
 
     // Verify each service in JSON has matching data in HTML
     for (const jsonService of jsonData) {
-      const htmlService = htmlServices.find(s => s.name === jsonService.name);
+      const htmlService = htmlServices.find((s) => s.name === jsonService.name);
 
       expect(htmlService).toBeDefined();
       expect(htmlService?.status).toBe(jsonService.status);
@@ -261,9 +265,7 @@ describe('HTML/JSON Synchronization (US1)', () => {
   });
 
   test('HTML and JSON handle PENDING services with null values', async () => {
-    const results: HealthCheckResult[] = [
-      createMockResult('New Service', 'PENDING', 0, 0, ''),
-    ];
+    const results: HealthCheckResult[] = [createMockResult('New Service', 'PENDING', 0, 0, '')];
 
     const jsonWriter = new JsonWriter(jsonPath);
     await jsonWriter.write(results);
@@ -376,14 +378,15 @@ describe('HTML/JSON Synchronization (US1)', () => {
 
     // Verify data structure remains consistent
     expect(jsonData).toHaveLength(2);
-    expect(jsonData.every(s => s.name && s.status)).toBe(true);
+    expect(jsonData.every((s) => s.name && s.status)).toBe(true);
   });
 
   test('handles large number of services (50+)', async () => {
     const results: HealthCheckResult[] = [];
 
     for (let i = 0; i < 100; i++) {
-      const status = i % 4 === 0 ? 'FAIL' : i % 4 === 1 ? 'DEGRADED' : i % 4 === 2 ? 'PASS' : 'PENDING';
+      const status =
+        i % 4 === 0 ? 'FAIL' : i % 4 === 1 ? 'DEGRADED' : i % 4 === 2 ? 'PASS' : 'PENDING';
       results.push(createMockResult('Service ' + i, status, 100 + i, 200, ''));
     }
 
@@ -396,13 +399,16 @@ describe('HTML/JSON Synchronization (US1)', () => {
     expect(jsonData).toHaveLength(100);
 
     // Verify sorting is maintained
-    const failCount = jsonData.filter(s => s.status === 'FAIL').length;
-    const firstFail = jsonData.findIndex(s => s.status === 'FAIL');
-    const lastFail = jsonData.map((s, i) => s.status === 'FAIL' ? i : -1).filter(i => i !== -1).pop();
+    const failCount = jsonData.filter((s) => s.status === 'FAIL').length;
+    const firstFail = jsonData.findIndex((s) => s.status === 'FAIL');
+    const lastFail = jsonData
+      .map((s, i) => (s.status === 'FAIL' ? i : -1))
+      .filter((i) => i !== -1)
+      .pop();
 
     if (failCount > 0) {
       expect(firstFail).toBe(0);
-      expect(lastFail).toBeLessThan(jsonData.findIndex(s => s.status !== 'FAIL'));
+      expect(lastFail).toBeLessThan(jsonData.findIndex((s) => s.status !== 'FAIL'));
     }
   });
 

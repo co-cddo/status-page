@@ -1013,9 +1013,7 @@ describe('Health Check Scheduler', () => {
 
       const logSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-      vi.mocked(mockPoolManager.executeHealthCheck).mockRejectedValue(
-        new Error('Execution error')
-      );
+      vi.mocked(mockPoolManager.executeHealthCheck).mockRejectedValue(new Error('Execution error'));
 
       scheduler.scheduleService(config, 60000);
 
@@ -1045,9 +1043,7 @@ describe('Health Check Scheduler', () => {
         correlationId: 'pool-error-id',
       };
 
-      vi.mocked(mockPoolManager.executeHealthCheck).mockRejectedValue(
-        new Error('Pool exhausted')
-      );
+      vi.mocked(mockPoolManager.executeHealthCheck).mockRejectedValue(new Error('Pool exhausted'));
 
       scheduler.scheduleService(config, 60000);
 

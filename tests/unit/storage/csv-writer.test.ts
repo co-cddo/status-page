@@ -34,7 +34,7 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
     // Clean up test files
     try {
       await fs.rm(testDir, { recursive: true, force: true });
-    } catch (error) {
+    } catch {
       // Ignore cleanup errors
     }
   });
@@ -346,9 +346,7 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
       const lines = content.trim().split('\n');
 
       // Count header rows
-      const headerCount = lines.filter((line) =>
-        line.startsWith('timestamp,service_name')
-      ).length;
+      const headerCount = lines.filter((line) => line.startsWith('timestamp,service_name')).length;
 
       expect(headerCount).toBe(1);
       expect(lines.length).toBe(3); // 1 header + 2 data rows
@@ -432,7 +430,6 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
     test('should throw error on disk space full (simulated)', async () => {
       // This would require mocking fs.writeFile to simulate ENOSPC error
       // For now, document the requirement
-
       // Mock implementation would throw ENOSPC error
       // await expect(csvWriter.append(result)).rejects.toThrow('ENOSPC');
     });

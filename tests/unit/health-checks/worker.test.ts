@@ -42,7 +42,10 @@ vi.mock('../../../src/metrics/index.js', () => ({
 }));
 
 import { performHealthCheckWithRetry } from '../../../src/health-checks/retry-logic.ts';
-import { recordHealthCheckResult, incrementHealthCheckCounter } from '../../../src/metrics/index.ts';
+import {
+  recordHealthCheckResult,
+  incrementHealthCheckCounter,
+} from '../../../src/metrics/index.ts';
 
 /**
  * Worker message interface for inter-thread communication
@@ -125,7 +128,9 @@ describe('Health Check Worker', () => {
       } as unknown as WorkerMessage;
 
       // Act & Assert
-      await expect(processHealthCheck(invalidMessage)).rejects.toThrow('Invalid worker message type');
+      await expect(processHealthCheck(invalidMessage)).rejects.toThrow(
+        'Invalid worker message type'
+      );
     });
 
     it('should handle missing config in message', async () => {
@@ -135,7 +140,9 @@ describe('Health Check Worker', () => {
       } as unknown as WorkerMessage;
 
       // Act & Assert
-      await expect(processHealthCheck(invalidMessage)).rejects.toThrow('Missing config in worker message');
+      await expect(processHealthCheck(invalidMessage)).rejects.toThrow(
+        'Missing config in worker message'
+      );
     });
 
     it('should preserve correlation ID from message config', async () => {
@@ -868,9 +875,7 @@ describe('Health Check Worker', () => {
         await processHealthCheck(message);
 
         // Assert
-        expect(recordHealthCheckResult).toHaveBeenCalledWith(
-          expect.objectContaining({ method })
-        );
+        expect(recordHealthCheckResult).toHaveBeenCalledWith(expect.objectContaining({ method }));
       }
     });
   });
@@ -1289,9 +1294,7 @@ describe('Health Check Worker', () => {
         config,
       };
 
-      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(
-        new Error('Worker execution error')
-      );
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(new Error('Worker execution error'));
 
       // Act
       const result: WorkerResult = await processHealthCheck(message);

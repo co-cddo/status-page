@@ -17,13 +17,13 @@ export function escapeMarkdown(text: string): string {
   }
 
   return text
-    .replace(/\\/g, '\\\\')  // Escape backslashes first
-    .replace(/\|/g, '\\|')   // Pipe (table delimiter)
-    .replace(/\*/g, '\\*')   // Asterisk (bold/italic)
-    .replace(/_/g, '\\_')    // Underscore (italic)
-    .replace(/`/g, '\\`')    // Backtick (code)
-    .replace(/\[/g, '\\[')   // Opening bracket (link)
-    .replace(/\]/g, '\\]');  // Closing bracket (link)
+    .replace(/\\/g, '\\\\') // Escape backslashes first
+    .replace(/\|/g, '\\|') // Pipe (table delimiter)
+    .replace(/\*/g, '\\*') // Asterisk (bold/italic)
+    .replace(/_/g, '\\_') // Underscore (italic)
+    .replace(/`/g, '\\`') // Backtick (code)
+    .replace(/\[/g, '\\[') // Opening bracket (link)
+    .replace(/\]/g, '\\]'); // Closing bracket (link)
 }
 
 /**

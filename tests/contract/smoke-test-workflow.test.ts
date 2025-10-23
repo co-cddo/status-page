@@ -59,9 +59,9 @@ describe('Smoke Test Workflow Contract (US6)', () => {
     expect(smokeTestJob).toBeDefined();
 
     const steps = smokeTestJob!.steps;
-    const hasValidationStep = steps.some((step: WorkflowStep) =>
-      step.name?.toLowerCase().includes('validat') ||
-      step.run?.includes('config/validator')
+    const hasValidationStep = steps.some(
+      (step: WorkflowStep) =>
+        step.name?.toLowerCase().includes('validat') || step.run?.includes('config/validator')
     );
 
     expect(hasValidationStep).toBe(true);
@@ -76,10 +76,11 @@ describe('Smoke Test Workflow Contract (US6)', () => {
     expect(smokeTestJob).toBeDefined();
 
     const steps = smokeTestJob!.steps;
-    const hasHealthCheckStep = steps.some((step: WorkflowStep) =>
-      step.name?.toLowerCase().includes('health') ||
-      step.run?.includes('health-check') ||
-      step.run?.includes('smoke test')
+    const hasHealthCheckStep = steps.some(
+      (step: WorkflowStep) =>
+        step.name?.toLowerCase().includes('health') ||
+        step.run?.includes('health-check') ||
+        step.run?.includes('smoke test')
     );
 
     expect(hasHealthCheckStep).toBe(true);
@@ -96,10 +97,11 @@ describe('Smoke Test Workflow Contract (US6)', () => {
     const steps = smokeTestJob!.steps;
 
     // Look for comment posting step
-    const hasCommentStep = steps.some((step: WorkflowStep) =>
-      step.name?.toLowerCase().includes('comment') ||
-      step.uses?.includes('actions/github-script') ||
-      step.uses?.includes('marocchino/sticky-pull-request-comment')
+    const hasCommentStep = steps.some(
+      (step: WorkflowStep) =>
+        step.name?.toLowerCase().includes('comment') ||
+        step.uses?.includes('actions/github-script') ||
+        step.uses?.includes('marocchino/sticky-pull-request-comment')
     );
 
     expect(hasCommentStep).toBe(true);
@@ -131,9 +133,9 @@ describe('Smoke Test Workflow Contract (US6)', () => {
     const steps = smokeTestJob!.steps;
 
     // Find comment posting step
-    const commentStep = steps.find((step: WorkflowStep) =>
-      step.name?.toLowerCase().includes('comment') ||
-      step.uses?.includes('github-script')
+    const commentStep = steps.find(
+      (step: WorkflowStep) =>
+        step.name?.toLowerCase().includes('comment') || step.uses?.includes('github-script')
     );
 
     // Verify step does not have continue-on-error: true
@@ -151,8 +153,8 @@ describe('Smoke Test Workflow Contract (US6)', () => {
     // Check for warning logic
     expect(
       workflowString.includes('warning') ||
-      workflowString.includes('widespread') ||
-      workflowString.includes('multiple')
+        workflowString.includes('widespread') ||
+        workflowString.includes('multiple')
     ).toBe(true);
   });
 
@@ -167,9 +169,7 @@ describe('Smoke Test Workflow Contract (US6)', () => {
     const steps = smokeTestJob!.steps;
 
     // Find setup-node step
-    const nodeStep = steps.find((step: WorkflowStep) =>
-      step.uses?.includes('actions/setup-node')
-    );
+    const nodeStep = steps.find((step: WorkflowStep) => step.uses?.includes('actions/setup-node'));
 
     expect(nodeStep).toBeDefined();
 
@@ -180,10 +180,10 @@ describe('Smoke Test Workflow Contract (US6)', () => {
       if (typeof nodeVersion === 'string') {
         expect(
           nodeVersion === '22' ||
-          nodeVersion === '22.x' ||
-          nodeVersion === 'lts/*' ||
-          nodeVersion.startsWith('22') ||
-          nodeVersion.includes('>=22')
+            nodeVersion === '22.x' ||
+            nodeVersion === 'lts/*' ||
+            nodeVersion.startsWith('22') ||
+            nodeVersion.includes('>=22')
         ).toBe(true);
       }
     }

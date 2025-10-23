@@ -2,11 +2,13 @@
 
 ## GOV.UK Status Monitor Deployment
 
-This document describes the automated deployment workflow for the GOV.UK Status Monitor to GitHub Pages.
+This document describes the automated deployment workflow for the GOV.UK Status Monitor to GitHub
+Pages.
 
 ## Architecture Overview
 
 The status monitor uses a **scheduled GitHub Actions workflow** to:
+
 1. Execute health checks every 5 minutes
 2. Generate static HTML and JSON
 3. Deploy to GitHub Pages
@@ -20,7 +22,7 @@ The status monitor uses a **scheduled GitHub Actions workflow** to:
 
 ```yaml
 schedule:
-  - cron: '*/5 * * * *'  # Every 5 minutes
+  - cron: '*/5 * * * *' # Every 5 minutes
 ```
 
 ### Manual Trigger
@@ -92,9 +94,9 @@ Per FR-037a, the deployment workflow uses **least-privilege permissions**:
 
 ```yaml
 permissions:
-  contents: read      # Read repository code
-  pages: write        # Deploy to GitHub Pages
-  id-token: write     # OIDC token for Pages deployment
+  contents: read # Read repository code
+  pages: write # Deploy to GitHub Pages
+  id-token: write # OIDC token for Pages deployment
 ```
 
 ## Monitoring
@@ -124,6 +126,7 @@ gh api repos/:owner/:repo/pages/deployments --jq '.[0]'
 ### CSV Cache Miss
 
 If the CSV cache is unavailable:
+
 1. Workflow attempts to download CSV from GitHub Pages
 2. If that fails, creates a new CSV file
 3. Historical data before the cache miss is lost
@@ -133,6 +136,7 @@ If the CSV cache is unavailable:
 ### Deployment Failure
 
 Common causes:
+
 - Health checks timeout (increase `timeout` in `config.yaml`)
 - HTML exceeds 5MB limit (optimize inlined assets)
 - GitHub Pages quota exceeded (check repo settings)
@@ -142,6 +146,7 @@ Common causes:
 ### CSV Corruption
 
 The workflow validates CSV format before processing:
+
 - If corrupt, attempts fallback to GitHub Pages
 - If fallback fails, creates new CSV
 
@@ -149,13 +154,13 @@ The workflow validates CSV format before processing:
 
 ## Performance Targets
 
-| Metric | Target | Actual |
-|--------|--------|--------|
-| Health Check Duration | < 30s | Varies |
-| Build Duration | < 2 min | Varies |
-| Deployment Duration | < 1 min | Varies |
-| Total Workflow Duration | < 5 min | Varies |
-| HTML File Size | < 5MB | Monitored |
+| Metric                  | Target  | Actual    |
+| ----------------------- | ------- | --------- |
+| Health Check Duration   | < 30s   | Varies    |
+| Build Duration          | < 2 min | Varies    |
+| Deployment Duration     | < 1 min | Varies    |
+| Total Workflow Duration | < 5 min | Varies    |
+| HTML File Size          | < 5MB   | Monitored |
 
 ## Workflow Concurrency
 
@@ -172,11 +177,13 @@ This prevents race conditions and ensures CSV integrity.
 ## CSV Data Retention
 
 **Storage Strategy**:
+
 - GitHub Actions Cache (7 days retention)
 - GitHub Pages (permanent, updated every 5 minutes)
 - CSV grows over time - implement rotation if needed
 
 **Backup Strategy**:
+
 - CSV is included in every GitHub Pages deployment
 - Download CSV from Pages as backup: `wget https://{owner}.github.io/{repo}/history.csv`
 
@@ -189,5 +196,4 @@ This prevents race conditions and ensures CSV integrity.
 
 ---
 
-**Last Updated**: 2025-10-22
-**Version**: 1.0.0
+**Last Updated**: 2025-10-22 **Version**: 1.0.0

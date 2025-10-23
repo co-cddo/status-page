@@ -38,8 +38,8 @@ describe('Workflow Permissions Security (US7)', () => {
   });
 
   test('all workflows have explicit permissions section', () => {
-    const workflowFiles = readdirSync(workflowsDir).filter((file) =>
-      file.endsWith('.yml') || file.endsWith('.yaml')
+    const workflowFiles = readdirSync(workflowsDir).filter(
+      (file) => file.endsWith('.yml') || file.endsWith('.yaml')
     );
 
     expect(workflowFiles.length).toBeGreaterThan(0);
@@ -56,8 +56,8 @@ describe('Workflow Permissions Security (US7)', () => {
   });
 
   test('no workflows rely on default permissions', () => {
-    const workflowFiles = readdirSync(workflowsDir).filter((file) =>
-      file.endsWith('.yml') || file.endsWith('.yaml')
+    const workflowFiles = readdirSync(workflowsDir).filter(
+      (file) => file.endsWith('.yml') || file.endsWith('.yaml')
     );
 
     for (const file of workflowFiles) {
@@ -128,8 +128,8 @@ describe('Workflow Permissions Security (US7)', () => {
   });
 
   test('no workflow has contents: write permission', () => {
-    const workflowFiles = readdirSync(workflowsDir).filter((file) =>
-      file.endsWith('.yml') || file.endsWith('.yaml')
+    const workflowFiles = readdirSync(workflowsDir).filter(
+      (file) => file.endsWith('.yml') || file.endsWith('.yaml')
     );
 
     for (const file of workflowFiles) {
@@ -143,8 +143,8 @@ describe('Workflow Permissions Security (US7)', () => {
   });
 
   test('no workflow has excessive permissions', () => {
-    const workflowFiles = readdirSync(workflowsDir).filter((file) =>
-      file.endsWith('.yml') || file.endsWith('.yaml')
+    const workflowFiles = readdirSync(workflowsDir).filter(
+      (file) => file.endsWith('.yml') || file.endsWith('.yaml')
     );
 
     const dangerousPermissions = ['actions', 'packages', 'security-events', 'statuses', 'checks'];
@@ -162,8 +162,8 @@ describe('Workflow Permissions Security (US7)', () => {
   });
 
   test('workflows follow FR-037a security requirements', () => {
-    const workflowFiles = readdirSync(workflowsDir).filter((file) =>
-      file.endsWith('.yml') || file.endsWith('.yaml')
+    const workflowFiles = readdirSync(workflowsDir).filter(
+      (file) => file.endsWith('.yml') || file.endsWith('.yaml')
     );
 
     for (const file of workflowFiles) {
@@ -182,8 +182,8 @@ describe('Workflow Permissions Security (US7)', () => {
   });
 
   test('job-level permissions do not override workflow-level restrictions', () => {
-    const workflowFiles = readdirSync(workflowsDir).filter((file) =>
-      file.endsWith('.yml') || file.endsWith('.yaml')
+    const workflowFiles = readdirSync(workflowsDir).filter(
+      (file) => file.endsWith('.yml') || file.endsWith('.yaml')
     );
 
     for (const file of workflowFiles) {
@@ -210,8 +210,8 @@ describe('Workflow Permissions Security (US7)', () => {
   });
 
   test('all workflows are documented with permission rationale', () => {
-    const workflowFiles = readdirSync(workflowsDir).filter((file) =>
-      file.endsWith('.yml') || file.endsWith('.yaml')
+    const workflowFiles = readdirSync(workflowsDir).filter(
+      (file) => file.endsWith('.yml') || file.endsWith('.yaml')
     );
 
     for (const file of workflowFiles) {
@@ -221,8 +221,8 @@ describe('Workflow Permissions Security (US7)', () => {
       // Workflow should have comments explaining permissions
       expect(
         workflowYaml.includes('# Permissions') ||
-        workflowYaml.includes('# Per FR-037a') ||
-        workflowYaml.includes('# Least-privilege')
+          workflowYaml.includes('# Per FR-037a') ||
+          workflowYaml.includes('# Least-privilege')
       ).toBe(true);
     }
   });

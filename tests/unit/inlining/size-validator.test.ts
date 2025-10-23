@@ -253,8 +253,8 @@ describe('HTML Size Validator (T045a)', () => {
 
       const result = await validateHTMLSize(mockFilePath);
 
-      const hasCSSMinificationSuggestion = result.suggestions.some(s =>
-        s.toLowerCase().includes('css') && s.toLowerCase().includes('minif'),
+      const hasCSSMinificationSuggestion = result.suggestions.some(
+        (s) => s.toLowerCase().includes('css') && s.toLowerCase().includes('minif')
       );
       expect(hasCSSMinificationSuggestion).toBe(true);
     });
@@ -265,8 +265,10 @@ describe('HTML Size Validator (T045a)', () => {
 
       const result = await validateHTMLSize(mockFilePath);
 
-      const hasImageOptimizationSuggestion = result.suggestions.some(s =>
-        s.toLowerCase().includes('image') && (s.toLowerCase().includes('optim') || s.toLowerCase().includes('compress')),
+      const hasImageOptimizationSuggestion = result.suggestions.some(
+        (s) =>
+          s.toLowerCase().includes('image') &&
+          (s.toLowerCase().includes('optim') || s.toLowerCase().includes('compress'))
       );
       expect(hasImageOptimizationSuggestion).toBe(true);
     });
@@ -277,8 +279,8 @@ describe('HTML Size Validator (T045a)', () => {
 
       const result = await validateHTMLSize(mockFilePath);
 
-      const hasUnusedCSSSuggestion = result.suggestions.some(s =>
-        s.toLowerCase().includes('unused') && s.toLowerCase().includes('css'),
+      const hasUnusedCSSSuggestion = result.suggestions.some(
+        (s) => s.toLowerCase().includes('unused') && s.toLowerCase().includes('css')
       );
       expect(hasUnusedCSSSuggestion).toBe(true);
     });
@@ -297,8 +299,8 @@ describe('HTML Size Validator (T045a)', () => {
       const result = await validateHTMLSize(mockFilePath, componentSizes);
 
       // Should have suggestions about large images
-      const hasImageSuggestion = result.suggestions.some(s =>
-        s.toLowerCase().includes('image') && s.includes('3.00'),
+      const hasImageSuggestion = result.suggestions.some(
+        (s) => s.toLowerCase().includes('image') && s.includes('3.00')
       );
       expect(hasImageSuggestion).toBe(true);
     });
@@ -316,9 +318,7 @@ describe('HTML Size Validator (T045a)', () => {
 
       const result = await validateHTMLSize(mockFilePath, componentSizes);
 
-      const hasWebPSuggestion = result.suggestions.some(s =>
-        s.toLowerCase().includes('webp'),
-      );
+      const hasWebPSuggestion = result.suggestions.some((s) => s.toLowerCase().includes('webp'));
       expect(hasWebPSuggestion).toBe(true);
     });
 
@@ -335,8 +335,11 @@ describe('HTML Size Validator (T045a)', () => {
 
       const result = await validateHTMLSize(mockFilePath, componentSizes);
 
-      const hasPurgeCSSOrUnusedStyles = result.suggestions.some(s =>
-        s.toLowerCase().includes('unused') || s.toLowerCase().includes('purgecss') || s.toLowerCase().includes('critical css'),
+      const hasPurgeCSSOrUnusedStyles = result.suggestions.some(
+        (s) =>
+          s.toLowerCase().includes('unused') ||
+          s.toLowerCase().includes('purgecss') ||
+          s.toLowerCase().includes('critical css')
       );
       expect(hasPurgeCSSOrUnusedStyles).toBe(true);
     });
@@ -354,8 +357,9 @@ describe('HTML Size Validator (T045a)', () => {
 
       const result = await validateHTMLSize(mockFilePath, componentSizes);
 
-      const hasTreeShakingSuggestion = result.suggestions.some(s =>
-        s.toLowerCase().includes('tree-shaking') || s.toLowerCase().includes('unused javascript'),
+      const hasTreeShakingSuggestion = result.suggestions.some(
+        (s) =>
+          s.toLowerCase().includes('tree-shaking') || s.toLowerCase().includes('unused javascript')
       );
       expect(hasTreeShakingSuggestion).toBe(true);
     });

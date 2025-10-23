@@ -8,9 +8,13 @@
 
 ## Context
 
-The GOV.UK Public Services Status Monitor needs persistent storage for historical health check data in CSV format (FR-020). The application runs on scheduled GitHub Actions workflows (every 5 minutes), which are ephemeral - each workflow run starts with a clean environment. Historical data must persist across workflow runs without external dependencies.
+The GOV.UK Public Services Status Monitor needs persistent storage for historical health check data
+in CSV format (FR-020). The application runs on scheduled GitHub Actions workflows (every 5
+minutes), which are ephemeral - each workflow run starts with a clean environment. Historical data
+must persist across workflow runs without external dependencies.
 
 Key requirements:
+
 - **CSV persistence**: `history.csv` must survive across workflow runs
 - **Zero external dependencies**: No databases, object storage, or third-party services for MVP
 - **Automated**: No manual intervention required
@@ -20,12 +24,14 @@ Key requirements:
 - **Deployment included**: CSV must be accessible via GitHub Pages
 
 From spec.md FR-020b-e:
+
 - FR-020b: GitHub Actions cache is PRIMARY storage for CSV
 - FR-020c: Cache limit exceeded causes IMMEDIATE workflow failure
 - FR-020d: Network error fetching CSV from GitHub Pages causes IMMEDIATE workflow failure
 - FR-020e: CSV corruption triggers fallback to next tier with logging
 
 GitHub Actions cache constraints:
+
 - **10GB limit** per repository
 - **7-day eviction** if not accessed
 - **Manual rotation** required when cache fills
@@ -113,12 +119,14 @@ We will use **GitHub Actions cache as primary CSV storage** with a **three-tier 
 **Description**: Store CSV in AWS S3, Google Cloud Storage, or Azure Blob Storage.
 
 **Pros**:
+
 - Unlimited storage (effectively)
 - No eviction policies
 - High durability (99.999999999%)
 - Versioning support
 
 **Cons**:
+
 - External dependency (violates MVP constraint)
 - Requires credentials management (secrets in GitHub)
 - Costs money (even free tier requires credit card)
@@ -132,12 +140,14 @@ We will use **GitHub Actions cache as primary CSV storage** with a **three-tier 
 **Description**: Commit `history.csv` to repository on every workflow run.
 
 **Pros**:
+
 - Full version history (Git)
 - No size limits (effectively unlimited)
 - No eviction
 - Simple Git operations
 
 **Cons**:
+
 - Repository bloat (CSV grows over time, pollutes Git history)
 - Slow (commit + push takes 10-30 seconds)
 - Triggers unnecessary workflows (commit triggers other workflows)
@@ -151,29 +161,34 @@ We will use **GitHub Actions cache as primary CSV storage** with a **three-tier 
 **Description**: Use `actions/upload-artifact` and `actions/download-artifact` to persist CSV.
 
 **Pros**:
+
 - Simple API
 - No size limit per artifact (effectively unlimited)
 - Retained for 90 days (default)
 
 **Cons**:
+
 - Artifacts are workflow-specific (not shared across workflows)
-- Must download artifact from *previous* workflow (API call + auth)
+- Must download artifact from _previous_ workflow (API call + auth)
 - Slower than cache (30-60 seconds to download artifacts)
 - Retention policy (90 days max)
 - API rate limits
 
-**Verdict**: Artifacts are designed for build outputs, not persistent state. Cache is faster and easier.
+**Verdict**: Artifacts are designed for build outputs, not persistent state. Cache is faster and
+easier.
 
 ### Option 4: GitHub Gist
 
 **Description**: Store CSV as a GitHub Gist, update via API on every workflow run.
 
 **Pros**:
+
 - Simple HTTP API
 - Version history
 - Public or secret Gist options
 
 **Cons**:
+
 - Rate limits (5000 requests/hour)
 - Not designed for high-frequency updates
 - Requires token authentication
@@ -187,12 +202,14 @@ We will use **GitHub Actions cache as primary CSV storage** with a **three-tier 
 **Description**: Use hosted database to store historical records.
 
 **Pros**:
+
 - Structured queries
 - Indexes for fast lookups
 - Scalable
 - ACID guarantees
 
 **Cons**:
+
 - External dependency
 - Costs money
 - Requires credentials management
@@ -206,19 +223,23 @@ We will use **GitHub Actions cache as primary CSV storage** with a **three-tier 
 - [GitHub Actions Cache Documentation](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows)
 - [GitHub Actions Cache Limits](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-cache-usage-limits)
 - [GitHub Pages Documentation](https://docs.github.com/en/pages)
-- [spec.md FR-020b-e](../../specs/001-govuk-status-monitor/spec.md#functional-requirements) - CSV persistence requirements
+- [spec.md FR-020b-e](../../specs/001-govuk-status-monitor/spec.md#functional-requirements) - CSV
+  persistence requirements
 - [plan.md](../../specs/001-govuk-status-monitor/plan.md) - Hybrid orchestrator architecture
 
 ## Notes
 
 **Implementation Location**: `.github/workflows/deploy.yml`, `src/storage/cache-manager.ts`
 
-**Cache Key Strategy**: Use content-based hash (`hashFiles('history.csv')`) instead of date-based keys. This ensures:
+**Cache Key Strategy**: Use content-based hash (`hashFiles('history.csv')`) instead of date-based
+keys. This ensures:
+
 - Cache is only updated when CSV content changes
 - Identical CSV files reuse existing cache (saves API quota)
 - Immutable cache keys (cache is append-only)
 
 **Cache Size Monitoring**: Implement tooling to monitor cache usage:
+
 ```bash
 gh api repos/{owner}/{repo}/actions/cache/usage
 ```
@@ -226,12 +247,14 @@ gh api repos/{owner}/{repo}/actions/cache/usage
 Alert when cache usage exceeds 8GB (80% of 10GB limit).
 
 **CSV Rotation Strategy**: When CSV exceeds 100MB (configurable), implement rotation:
+
 1. Archive current CSV with timestamp: `history-2025-10-22.csv`
 2. Deploy archive to GitHub Pages
 3. Start new empty CSV
 4. Update cache with new empty CSV
 
 **Corruption Recovery**: If CSV is corrupted (invalid format, missing headers):
+
 1. Log error with correlation ID
 2. Emit alert (GitHub Actions annotation)
 3. Attempt repair (remove corrupted rows)
@@ -239,19 +262,23 @@ Alert when cache usage exceeds 8GB (80% of 10GB limit).
 5. If all tiers fail, create new CSV (data loss)
 
 **First Run Behavior**: On very first workflow run:
+
 - Cache miss (no cache exists)
 - Pages miss (no deployment yet)
 - Create new empty CSV with headers only
 - Subsequent runs use cache
 
 **Cache Eviction Mitigation**: The 7-day eviction is mitigated by:
+
 1. Workflow runs every 5 minutes (cache accessed frequently)
 2. GitHub Pages fallback serves as long-term backup
 3. Even if both fail, loss is minimal (historical data can be rebuilt over time)
 
 **Future Migration Path**: When scaling beyond 10GB cache limit:
+
 - **Option A**: Implement automated CSV rotation (archive old data)
 - **Option B**: Migrate to time-series database (TimescaleDB, InfluxDB)
 - **Option C**: Use external object storage (S3, GCS)
 
-This ADR documents the MVP approach. Migration to external storage is deferred until data volume justifies the operational complexity.
+This ADR documents the MVP approach. Migration to external storage is deferred until data volume
+justifies the operational complexity.

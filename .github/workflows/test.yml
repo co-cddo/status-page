@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'config.yaml'  # Config changes handled by smoke-test.yml
+      - 'config.yaml' # Config changes handled by smoke-test.yml
 
 # Per FR-037a: Explicit least-privilege permissions
 permissions:

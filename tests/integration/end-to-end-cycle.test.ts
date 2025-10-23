@@ -29,7 +29,11 @@ import { WorkerPoolManager } from '../../src/orchestrator/pool-manager.ts';
 import { CsvWriter } from '../../src/storage/csv-writer.ts';
 import { JsonWriter } from '../../src/storage/json-writer.ts';
 import { EleventyRunner } from '../../src/orchestrator/eleventy-runner.ts';
-import type { HealthCheckConfig, HealthCheckResult, ServiceStatusAPI } from '../../src/types/health-check.ts';
+import type {
+  HealthCheckConfig,
+  HealthCheckResult,
+  ServiceStatusAPI,
+} from '../../src/types/health-check.ts';
 import { readFile, access, rm, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { MockHttpServer } from '../mocks/mock-http-server.ts';
@@ -56,8 +60,18 @@ describe('Full Health Check Cycle', () => {
     mockServer.addRoute({ method: 'GET', path: '/status/201', statusCode: 201, body: 'Created' });
 
     // Error routes
-    mockServer.addRoute({ method: 'GET', path: '/status/500', statusCode: 500, body: 'Internal Server Error' });
-    mockServer.addRoute({ method: 'GET', path: '/status/503', statusCode: 503, body: 'Service Unavailable' });
+    mockServer.addRoute({
+      method: 'GET',
+      path: '/status/500',
+      statusCode: 500,
+      body: 'Internal Server Error',
+    });
+    mockServer.addRoute({
+      method: 'GET',
+      path: '/status/503',
+      statusCode: 503,
+      body: 'Service Unavailable',
+    });
 
     // Delay route for degraded testing (3 second delay)
     mockServer.addRoute({
@@ -152,8 +166,10 @@ describe('Full Health Check Cycle', () => {
       // Step 3: Verify CSV was created and formatted correctly
       const csvContent = await readFile(TEST_CSV_PATH, 'utf-8');
       const csvLines = csvContent.split('\n').filter((line) => line.trim());
-      
-      expect(csvLines[0]).toBe('timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id');
+
+      expect(csvLines[0]).toBe(
+        'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id'
+      );
       expect(csvLines).toHaveLength(3); // Header + 2 results
 
       // Step 4: Write to JSON
@@ -168,7 +184,7 @@ describe('Full Health Check Cycle', () => {
       const jsonData: ServiceStatusAPI[] = JSON.parse(jsonContent);
 
       expect(jsonData).toHaveLength(2);
-      
+
       jsonData.forEach((service) => {
         expect(service).toHaveProperty('name');
         expect(service).toHaveProperty('status');
@@ -177,7 +193,7 @@ describe('Full Health Check Cycle', () => {
         expect(service).toHaveProperty('tags');
         expect(service).toHaveProperty('http_status_code');
         expect(service).toHaveProperty('failure_reason');
-        
+
         expect(['PENDING', 'PASS', 'DEGRADED', 'FAIL']).toContain(service.status);
       });
     }, 60000);

@@ -41,7 +41,6 @@ export class CsvWriter {
       // Convert result to CSV row and append
       const csvRow = this.toCsvRow(result);
       await appendFile(this.filePath, csvRow + '\n', 'utf-8');
-
     } catch (error) {
       // Per FR-020a: Exit with non-zero code on write failure
       logger.error({ error, filePath: this.filePath }, 'CSV write failure');
@@ -81,10 +80,12 @@ export class CsvWriter {
       } else {
         await writeFile(this.filePath, data, 'utf-8');
       }
-
     } catch (error) {
       // Per FR-020a: Exit with non-zero code on write failure
-      logger.error({ error, filePath: this.filePath, count: results.length }, 'CSV batch write failure');
+      logger.error(
+        { error, filePath: this.filePath, count: results.length },
+        'CSV batch write failure'
+      );
       process.exit(1);
     }
   }

@@ -1,124 +1,39 @@
-{#
-  Status Indicator Macro
-
-  Visual indicators using GOV.UK tag components for service health status.
-
-  Requirements:
-  - PASS: green tag
-  - DEGRADED: yellow tag
-  - FAIL: red tag
-  - PENDING: grey tag
-  - Use GOV.UK Design System tag component (FR-027)
-  - WCAG 2.2 AAA accessible with proper ARIA labels
-
-  Usage:
-    {% from "macros/status-indicator.njk" import statusIndicator %}
-    {{ statusIndicator({ status: "PASS" }) }}
-
-  Parameters:
-  - status (string, required): Service status enum (PASS, DEGRADED, FAIL, PENDING)
-  - serviceName (string, optional): Service name for ARIA label context
-#}
-
-{% from "govuk/components/tag/macro.njk" import govukTag %}
-
-{#
-  Map status values to GOV.UK tag colors and accessible text
-  Per data-model.md ServiceStatus enum: PENDING | PASS | DEGRADED | FAIL
-#}
-{% macro statusIndicator(params) %}
-  {% set status = params.status | upper %}
-  {% set serviceName = params.serviceName %}
-
-  {# Determine tag color and text based on status #}
-  {% if status === "PASS" %}
-    {% set tagColor = "green" %}
-    {% set tagText = "Operational" %}
-    {% set ariaLabel = "Service is operational" %}
-  {% elif status === "DEGRADED" %}
-    {% set tagColor = "yellow" %}
-    {% set tagText = "Degraded" %}
-    {% set ariaLabel = "Service is experiencing degraded performance" %}
-  {% elif status === "FAIL" %}
-    {% set tagColor = "red" %}
-    {% set tagText = "Down" %}
-    {% set ariaLabel = "Service is down" %}
-  {% elif status === "PENDING" %}
-    {% set tagColor = "grey" %}
-    {% set tagText = "Pending" %}
-    {% set ariaLabel = "Service status is pending initial check" %}
-  {% else %}
-    {# Fallback for unknown status #}
-    {% set tagColor = "grey" %}
-    {% set tagText = "Unknown" %}
-    {% set ariaLabel = "Service status is unknown" %}
-  {% endif %}
-
-  {# Add service name to ARIA label if provided (WCAG 2.2 AAA context) #}
-  {% if serviceName %}
-    {% set ariaLabel = serviceName + ": " + ariaLabel %}
-  {% endif %}
-
-  {# Render GOV.UK tag component with accessible markup #}
-  {{ govukTag({
-    text: tagText,
-    classes: "govuk-tag--" + tagColor,
-    attributes: {
-      "aria-label": ariaLabel,
-      "role": "status"
-    }
-  }) }}
-{% endmacro %}
-
-{#
-  Status indicator with additional visual cue (icon) for enhanced accessibility
-  Per WCAG 2.2 AAA: Don't rely on color alone to convey information
-
-  This variant adds a text prefix for additional clarity beyond color
-#}
-{% macro statusIndicatorWithIcon(params) %}
-  {% set status = params.status | upper %}
-  {% set serviceName = params.serviceName %}
-
-  {# Status symbols for non-color identification (WCAG 2.2 AAA enhancement) #}
-  {% if status === "PASS" %}
-    {% set statusSymbol = "✓" %}
-    {% set tagColor = "green" %}
-    {% set tagText = "Operational" %}
-    {% set ariaLabel = "Service is operational" %}
-  {% elif status === "DEGRADED" %}
-    {% set statusSymbol = "⚠" %}
-    {% set tagColor = "yellow" %}
-    {% set tagText = "Degraded" %}
-    {% set ariaLabel = "Service is experiencing degraded performance" %}
-  {% elif status === "FAIL" %}
-    {% set statusSymbol = "✗" %}
-    {% set tagColor = "red" %}
-    {% set tagText = "Down" %}
-    {% set ariaLabel = "Service is down" %}
-  {% elif status === "PENDING" %}
-    {% set statusSymbol = "○" %}
-    {% set tagColor = "grey" %}
-    {% set tagText = "Pending" %}
-    {% set ariaLabel = "Service status is pending initial check" %}
-  {% else %}
-    {% set statusSymbol = "?" %}
-    {% set tagColor = "grey" %}
-    {% set tagText = "Unknown" %}
-    {% set ariaLabel = "Service status is unknown" %}
-  {% endif %}
-
-  {% if serviceName %}
-    {% set ariaLabel = serviceName + ": " + ariaLabel %}
-  {% endif %}
-
-  {# Render tag with symbol prefix (hidden from screen readers to avoid duplication) #}
-  {{ govukTag({
-    html: '<span aria-hidden="true">' + statusSymbol + ' </span>' + tagText,
-    classes: "govuk-tag--" + tagColor,
-    attributes: {
-      "aria-label": ariaLabel,
-      "role": "status"
-    }
-  }) }}
-{% endmacro %}
+{# Status Indicator Macro Visual indicators using GOV.UK tag components for service health status.
+Requirements: - PASS: green tag - DEGRADED: yellow tag - FAIL: red tag - PENDING: grey tag - Use
+GOV.UK Design System tag component (FR-027) - WCAG 2.2 AAA accessible with proper ARIA labels Usage:
+{% from "macros/status-indicator.njk" import statusIndicator %} {{ statusIndicator({ status: "PASS"
+}) }} Parameters: - status (string, required): Service status enum (PASS, DEGRADED, FAIL, PENDING) -
+serviceName (string, optional): Service name for ARIA label context #} {% from
+"govuk/components/tag/macro.njk" import govukTag %} {# Map status values to GOV.UK tag colors and
+accessible text Per data-model.md ServiceStatus enum: PENDING | PASS | DEGRADED | FAIL #} {% macro
+statusIndicator(params) %} {% set status = params.status | upper %} {% set serviceName =
+params.serviceName %} {# Determine tag color and text based on status #} {% if status === "PASS" %}
+{% set tagColor = "green" %} {% set tagText = "Operational" %} {% set ariaLabel = "Service is
+operational" %} {% elif status === "DEGRADED" %} {% set tagColor = "yellow" %} {% set tagText =
+"Degraded" %} {% set ariaLabel = "Service is experiencing degraded performance" %} {% elif status
+=== "FAIL" %} {% set tagColor = "red" %} {% set tagText = "Down" %} {% set ariaLabel = "Service is
+down" %} {% elif status === "PENDING" %} {% set tagColor = "grey" %} {% set tagText = "Pending" %}
+{% set ariaLabel = "Service status is pending initial check" %} {% else %} {# Fallback for unknown
+status #} {% set tagColor = "grey" %} {% set tagText = "Unknown" %} {% set ariaLabel = "Service
+status is unknown" %} {% endif %} {# Add service name to ARIA label if provided (WCAG 2.2 AAA
+context) #} {% if serviceName %} {% set ariaLabel = serviceName + ": " + ariaLabel %} {% endif %} {#
+Render GOV.UK tag component with accessible markup #} {{ govukTag({ text: tagText, classes:
+"govuk-tag--" + tagColor, attributes: { "aria-label": ariaLabel, "role": "status" } }) }} {%
+endmacro %} {# Status indicator with additional visual cue (icon) for enhanced accessibility Per
+WCAG 2.2 AAA: Don't rely on color alone to convey information This variant adds a text prefix for
+additional clarity beyond color #} {% macro statusIndicatorWithIcon(params) %} {% set status =
+params.status | upper %} {% set serviceName = params.serviceName %} {# Status symbols for non-color
+identification (WCAG 2.2 AAA enhancement) #} {% if status === "PASS" %} {% set statusSymbol = "✓" %}
+{% set tagColor = "green" %} {% set tagText = "Operational" %} {% set ariaLabel = "Service is
+operational" %} {% elif status === "DEGRADED" %} {% set statusSymbol = "⚠" %} {% set tagColor =
+"yellow" %} {% set tagText = "Degraded" %} {% set ariaLabel = "Service is experiencing degraded
+performance" %} {% elif status === "FAIL" %} {% set statusSymbol = "✗" %} {% set tagColor = "red" %}
+{% set tagText = "Down" %} {% set ariaLabel = "Service is down" %} {% elif status === "PENDING" %}
+{% set statusSymbol = "○" %} {% set tagColor = "grey" %} {% set tagText = "Pending" %} {% set
+ariaLabel = "Service status is pending initial check" %} {% else %} {% set statusSymbol = "?" %} {%
+set tagColor = "grey" %} {% set tagText = "Unknown" %} {% set ariaLabel = "Service status is
+unknown" %} {% endif %} {% if serviceName %} {% set ariaLabel = serviceName + ": " + ariaLabel %} {%
+endif %} {# Render tag with symbol prefix (hidden from screen readers to avoid duplication) #} {{
+govukTag({ html: '<span aria-hidden="true">' + statusSymbol + ' </span>' + tagText, classes:
+"govuk-tag--" + tagColor, attributes: { "aria-label": ariaLabel, "role": "status" } }) }} {%
+endmacro %}

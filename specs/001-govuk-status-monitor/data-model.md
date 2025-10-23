@@ -1,12 +1,11 @@
 # Data Model: GOV.UK Status Monitor
 
-**Feature**: 001-govuk-status-monitor
-**Date**: 2025-10-21
-**Specification**: [spec.md](./spec.md)
+**Feature**: 001-govuk-status-monitor **Date**: 2025-10-21 **Specification**: [spec.md](./spec.md)
 
 ## Overview
 
-This document defines the core data entities, their attributes, relationships, validation rules, and state transitions for the GOV.UK Public Services Status Monitor application.
+This document defines the core data entities, their attributes, relationships, validation rules, and
+state transitions for the GOV.UK Public Services Status Monitor application.
 
 ## Entity Diagrams
 
@@ -74,21 +73,25 @@ This document defines the core data entities, their attributes, relationships, v
 
 ### 1. Configuration
 
-**Description**: Root configuration object loaded from YAML file defining all monitoring settings and services.
+**Description**: Root configuration object loaded from YAML file defining all monitoring settings
+and services.
 
 **Attributes**:
+
 - `settings` (object, optional): Global configuration settings
   - `check_interval` (number, default: 60): Default interval between checks in seconds
   - `warning_threshold` (number, default: 2): Latency threshold for DEGRADED state in seconds
   - `timeout` (number, default: 5): HTTP timeout threshold for FAILED state in seconds
   - `page_refresh` (number, default: 60): Browser auto-refresh interval in seconds
   - `max_retries` (number, default: 3): Failed check retry attempts before marking as down
-  - `worker_pool_size` (number, default: 0): Concurrent health check workers (0 = auto: 2x CPU cores)
+  - `worker_pool_size` (number, default: 0): Concurrent health check workers (0 = auto: 2x CPU
+    cores)
   - `history_file` (string, default: "history.csv"): CSV file path for historical data
   - `output_dir` (string, default: "./output"): Directory for generated HTML/JSON
 - `pings` (array, required): Array of service definitions to monitor
 
 **Validation Rules**:
+
 - Configuration file must be valid YAML syntax (FR-007)
 - `pings` array must contain at least one service definition
 - All numeric settings must be positive integers
@@ -100,6 +103,7 @@ This document defines the core data entities, their attributes, relationships, v
 **State Transitions**: N/A (configuration is immutable after load)
 
 **Relationships**:
+
 - Contains 0..n `Service/Ping` entities
 - Configuration changes require service restart (FR-032)
 
@@ -110,11 +114,13 @@ This document defines the core data entities, their attributes, relationships, v
 **Description**: Represents a public service or infrastructure component being monitored.
 
 **Attributes**:
+
 - `name` (string, required): Display name for the service (must be unique)
 - `protocol` (enum, required): HTTP | HTTPS
 - `method` (enum, required): GET | HEAD | POST
 - `resource` (string, required): Full URL of the endpoint to check
-- `tags` (string[], optional): Category labels for visual identification (e.g., ["health", "driving licences"])
+- `tags` (string[], optional): Category labels for visual identification (e.g., ["health", "driving
+  licences"])
 - `expected` (ExpectedValidation, required): Validation criteria for determining health
 - `headers` (Header[], optional): Custom HTTP headers for requests
   - `name` (string): Header name
@@ -126,9 +132,11 @@ This document defines the core data entities, their attributes, relationships, v
 - `currentStatus` (enum, runtime): PENDING | PASS | DEGRADED | FAIL (runtime state)
 - `lastCheckTime` (Date, runtime): Timestamp of most recent health check
 - `lastLatency` (number, runtime): Response latency in milliseconds from most recent check
-- `consecutiveFailures` (number, runtime): Count of consecutive check failures (for HTML display threshold)
+- `consecutiveFailures` (number, runtime): Count of consecutive check failures (for HTML display
+  threshold)
 
 **Validation Rules**:
+
 - `name` must not be empty and must be unique across all services (FR-007a)
 - `resource` must be a valid HTTP/HTTPS URL
 - `protocol` and `method` must match allowed enum values
@@ -138,7 +146,8 @@ This document defines the core data entities, their attributes, relationships, v
 - Per-service `warning_threshold` must be < per-service `timeout`
 - `tags` array elements must be non-empty strings
 - Custom headers must have both `name` and `value` populated
-- If service is removed from config, it disappears from status display but historical CSV data is preserved (FR-007b)
+- If service is removed from config, it disappears from status display but historical CSV data is
+  preserved (FR-007b)
 
 **State Transitions**:
 
@@ -171,6 +180,7 @@ FAIL (validation failed or timeout exceeded)
 ```
 
 **Relationships**:
+
 - Belongs to `Configuration`
 - Has one `ExpectedValidation`
 - Has 0..n `Tag` references
@@ -184,6 +194,7 @@ FAIL (validation failed or timeout exceeded)
 **Description**: Validation criteria for determining service health from HTTP response.
 
 **Attributes**:
+
 - `status` (number, required): Expected HTTP status code (e.g., 200, 301, 404)
 - `text` (string, optional): Expected substring in response body (searches first 100KB per FR-014)
 - `headers` (object, optional): Expected response headers for validation
@@ -192,6 +203,7 @@ FAIL (validation failed or timeout exceeded)
   - Example: `{ "location": "http://example.com/redirect" }` for redirect validation (FR-004a)
 
 **Validation Rules**:
+
 - `status` must be a valid HTTP status code (100-599)
 - `text` validation uses case-sensitive substring matching
 - `text` search limited to first 100KB of response body (FR-014)
@@ -201,6 +213,7 @@ FAIL (validation failed or timeout exceeded)
 **State Transitions**: N/A (validation criteria are immutable)
 
 **Relationships**:
+
 - Belongs to one `Service/Ping`
 - Used by `HealthCheckResult` to determine pass/fail status
 
@@ -211,6 +224,7 @@ FAIL (validation failed or timeout exceeded)
 **Description**: Outcome of a single monitoring probe execution against a service.
 
 **Attributes**:
+
 - `serviceName` (string, required): Name of the service checked
 - `timestamp` (Date, required): ISO 8601 timestamp when check was executed
 - `method` (enum, required): HTTP method used (GET | HEAD | POST)
@@ -218,14 +232,17 @@ FAIL (validation failed or timeout exceeded)
 - `latency_ms` (number, required): Response latency in integer milliseconds
 - `http_status_code` (number, required): Actual HTTP status code received
 - `expected_status` (number, required): Expected HTTP status code from configuration
-- `textValidationResult` (boolean, optional): Whether expected text was found (null if not configured)
+- `textValidationResult` (boolean, optional): Whether expected text was found (null if not
+  configured)
 - `headerValidationResult` (object, optional): Header validation results (null if not configured)
   - Map of header name to boolean (pass/fail)
 - `failure_reason` (string, required): Human-readable failure description (empty string if passed)
-  - Examples: "Connection timeout", "DNS failure", "Expected status 200, got 500", "Expected text 'OK' not found", "Expected Location header 'http://example.com' not found"
+  - Examples: "Connection timeout", "DNS failure", "Expected status 200, got 500", "Expected text
+    'OK' not found", "Expected Location header 'http://example.com' not found"
 - `correlation_id` (string, required): UUID linking to structured logs for traceability (FR-036)
 
 **Validation Rules**:
+
 - `serviceName` must match a configured service
 - `timestamp` must be valid ISO 8601 format
 - `latency_ms` must be non-negative integer
@@ -261,6 +278,7 @@ Health check starts
 ```
 
 **Relationships**:
+
 - Produced by one `Service/Ping`
 - Converted to `HistoricalRecord` for CSV storage
 - Aggregated to update service `currentStatus` in status.json
@@ -272,6 +290,7 @@ Health check starts
 **Description**: Time-series data for service health stored in CSV format.
 
 **Attributes** (CSV columns):
+
 - `timestamp` (string, required): ISO 8601 timestamp (e.g., "2025-10-21T14:30:00.000Z")
 - `service_name` (string, required): Name of the service
 - `status` (enum, required): PASS | DEGRADED | FAIL (uppercase)
@@ -281,6 +300,7 @@ Health check starts
 - `correlation_id` (string, required): UUID for log traceability (FR-018)
 
 **Validation Rules**:
+
 - CSV must maintain strict column order
 - All fields are required (no null/empty except `failure_reason`)
 - `status` must be one of: PASS, DEGRADED, FAIL
@@ -292,6 +312,7 @@ Health check starts
 **State Transitions**: N/A (records are immutable once written)
 
 **Relationships**:
+
 - Derived from `HealthCheckResult`
 - Stored in CSV file (default: history.csv)
 - Consumed by external analytics/reporting tools
@@ -304,9 +325,11 @@ Health check starts
 **Description**: Category label displayed with each service for visual identification.
 
 **Attributes**:
+
 - `name` (string, required): Tag display name (e.g., "health", "ministry of foo", "roads")
 
 **Validation Rules**:
+
 - Tag names must be non-empty strings
 - Tags are case-sensitive for display purposes
 - No uniqueness constraint (multiple services can share tags)
@@ -315,6 +338,7 @@ Health check starts
 **State Transitions**: N/A (tags are static labels)
 
 **Relationships**:
+
 - Referenced by 0..n `Service/Ping` entities
 - Displayed as GOV.UK tag components on status page (FR-025)
 - Used for visual categorization in flat list (no filtering/grouping UI)
@@ -384,23 +408,24 @@ timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correla
 2025-10-21T14:30:00.000Z,example three,FAIL,0,0,Connection timeout,550e8400-e29b-41d4-a716-446655440002
 ```
 
-### JSON API Schema (_site/api/status.json)
+### JSON API Schema (\_site/api/status.json)
 
 ```typescript
 type StatusAPI = ServiceStatus[];
 
 interface ServiceStatus {
-  name: string;                    // Service display name
-  status: "PENDING" | "PASS" | "DEGRADED" | "FAIL";
-  latency_ms: number | null;       // null if PENDING
-  last_check_time: string | null;  // ISO 8601 timestamp, null if PENDING
-  tags: string[];                  // Empty array if no tags
+  name: string; // Service display name
+  status: 'PENDING' | 'PASS' | 'DEGRADED' | 'FAIL';
+  latency_ms: number | null; // null if PENDING
+  last_check_time: string | null; // ISO 8601 timestamp, null if PENDING
+  tags: string[]; // Empty array if no tags
   http_status_code: number | null; // null if PENDING
-  failure_reason: string;          // Empty string if passed
+  failure_reason: string; // Empty string if passed
 }
 ```
 
 Example:
+
 ```json
 [
   {
@@ -433,7 +458,7 @@ Example:
 ]
 ```
 
-### Eleventy Data File Schema (_data/services.json)
+### Eleventy Data File Schema (\_data/services.json)
 
 Identical to JSON API schema. This file feeds Eleventy templates to generate HTML.
 
@@ -447,20 +472,20 @@ interface Configuration {
 }
 
 interface GlobalSettings {
-  check_interval?: number;       // Default: 60
-  warning_threshold?: number;    // Default: 2
-  timeout?: number;              // Default: 5
-  page_refresh?: number;         // Default: 60
-  max_retries?: number;          // Default: 3
-  worker_pool_size?: number;     // Default: 0 (auto)
-  history_file?: string;         // Default: "history.csv"
-  output_dir?: string;           // Default: "./output"
+  check_interval?: number; // Default: 60
+  warning_threshold?: number; // Default: 2
+  timeout?: number; // Default: 5
+  page_refresh?: number; // Default: 60
+  max_retries?: number; // Default: 3
+  worker_pool_size?: number; // Default: 0 (auto)
+  history_file?: string; // Default: "history.csv"
+  output_dir?: string; // Default: "./output"
 }
 
 interface ServiceDefinition {
   name: string;
-  protocol: "HTTP" | "HTTPS";
-  method: "GET" | "HEAD" | "POST";
+  protocol: 'HTTP' | 'HTTPS';
+  method: 'GET' | 'HEAD' | 'POST';
   resource: string;
   tags?: string[];
   expected: ExpectedValidation;
@@ -483,7 +508,7 @@ interface CustomHeader {
 }
 
 // Runtime types
-type ServiceStatus = "PENDING" | "PASS" | "DEGRADED" | "FAIL";
+type ServiceStatus = 'PENDING' | 'PASS' | 'DEGRADED' | 'FAIL';
 
 interface Service extends ServiceDefinition {
   currentStatus: ServiceStatus;
@@ -495,7 +520,7 @@ interface Service extends ServiceDefinition {
 interface HealthCheckResult {
   serviceName: string;
   timestamp: Date;
-  method: "GET" | "HEAD" | "POST";
+  method: 'GET' | 'HEAD' | 'POST';
   status: ServiceStatus;
   latency_ms: number;
   http_status_code: number;
@@ -508,9 +533,9 @@ interface HealthCheckResult {
 
 // CSV record type
 interface HistoricalRecord {
-  timestamp: string;           // ISO 8601
+  timestamp: string; // ISO 8601
   service_name: string;
-  status: "PASS" | "DEGRADED" | "FAIL";
+  status: 'PASS' | 'DEGRADED' | 'FAIL';
   latency_ms: number;
   http_status_code: number;
   failure_reason: string;
@@ -534,21 +559,25 @@ type StatusAPI = ServiceStatusAPI[];
 ## Indexes and Performance Considerations
 
 ### CSV File
+
 - No indexes (append-only file)
 - Manual rotation/archival when file size exceeds threshold
 - Consider migration to time-series database for long-term retention
 
 ### In-Memory Service State
+
 - Services indexed by name (Map<string, Service>) for O(1) lookup
 - Priority queue for scheduling (next check time as priority)
 
 ### JSON API
+
 - Static file (no database queries)
 - Sorted in memory before writing: FAIL → DEGRADED → PASS → PENDING
 
 ## Migration Strategy
 
 Future extensibility for database-backed storage (per FR-019):
+
 - Maintain CSV writer interface to enable backend swapping
 - Create abstract `HistoryStorage` interface with implementations:
   - `CSVHistoryStorage` (current)

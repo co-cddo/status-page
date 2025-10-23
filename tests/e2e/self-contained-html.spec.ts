@@ -140,7 +140,9 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
 
     // Warn if approaching limit (> 4MB = 80% of limit)
     if (sizeInMB > 4) {
-      console.warn('WARNING: HTML file size is ' + sizeInMB.toFixed(2) + ' MB, approaching 5MB limit');
+      console.warn(
+        'WARNING: HTML file size is ' + sizeInMB.toFixed(2) + ' MB, approaching 5MB limit'
+      );
     }
   });
 
@@ -150,10 +152,9 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
     expect(inlineStyles.length).toBeGreaterThan(0);
 
     // Should contain GOV.UK Frontend CSS
-    const hasGovukCss = inlineStyles.some(style => 
-      style.includes('govuk-') || 
-      style.includes('.govuk-tag') ||
-      style.includes('.govuk-button')
+    const hasGovukCss = inlineStyles.some(
+      (style) =>
+        style.includes('govuk-') || style.includes('.govuk-tag') || style.includes('.govuk-button')
     );
 
     expect(hasGovukCss).toBe(true);
@@ -169,9 +170,8 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
     expect(inlineScripts.length).toBeGreaterThan(0);
 
     // Should contain GOV.UK Frontend JavaScript
-    const hasGovukJs = inlineScripts.some(script => 
-      script.includes('GOVUKFrontend') || 
-      script.includes('initAll')
+    const hasGovukJs = inlineScripts.some(
+      (script) => script.includes('GOVUKFrontend') || script.includes('initAll')
     );
 
     expect(hasGovukJs).toBe(true);
@@ -179,7 +179,9 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
 
   test('HTML has NO external CSS links', () => {
     // Should not have <link rel="stylesheet" href="..."> (except data URIs)
-    const externalCssLinks = htmlContent.match(/<link[^>]+rel=["']stylesheet["'][^>]+href=["'](?!data:)([^"']+)["']/gi);
+    const externalCssLinks = htmlContent.match(
+      /<link[^>]+rel=["']stylesheet["'][^>]+href=["'](?!data:)([^"']+)["']/gi
+    );
 
     expect(externalCssLinks).toBeNull();
   });
@@ -201,10 +203,10 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
     }
 
     // All images should be data URIs
-    const allDataUris = imageUrls.every(url => isDataUri(url));
-    
+    const allDataUris = imageUrls.every((url) => isDataUri(url));
+
     if (!allDataUris) {
-      const externalImages = imageUrls.filter(url => !isDataUri(url));
+      const externalImages = imageUrls.filter((url) => !isDataUri(url));
       console.error('External images found:', externalImages);
     }
 
@@ -214,9 +216,9 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
   test('HTML contains NO external resource references', () => {
     // Check for common external resource patterns (excluding data: URIs)
     const externalPatterns = [
-      /href=["'](?!data:|#|\/|mailto:)https?:\/\//gi,  // External links in href (allow anchors, relative, mailto)
-      /src=["'](?!data:|\/|#)https?:\/\//gi,           // External src (allow relative, data URIs)
-      /url\(["']?(?!data:)https?:\/\//gi,              // External URLs in CSS
+      /href=["'](?!data:|#|\/|mailto:)https?:\/\//gi, // External links in href (allow anchors, relative, mailto)
+      /src=["'](?!data:|\/|#)https?:\/\//gi, // External src (allow relative, data URIs)
+      /url\(["']?(?!data:)https?:\/\//gi, // External URLs in CSS
     ];
 
     const violations: string[] = [];
@@ -229,9 +231,10 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
     }
 
     // Filter out acceptable external links (e.g., footer links to GitHub)
-    const unacceptableViolations = violations.filter(v => 
-      !v.includes('github.com/alphagov') && // GOV.UK Design System link in footer is acceptable
-      !v.includes('mailto:') // Email links are acceptable
+    const unacceptableViolations = violations.filter(
+      (v) =>
+        !v.includes('github.com/alphagov') && // GOV.UK Design System link in footer is acceptable
+        !v.includes('mailto:') // Email links are acceptable
     );
 
     if (unacceptableViolations.length > 0) {
@@ -254,12 +257,10 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
       '.govuk-heading',
       '.govuk-body',
       '.govuk-summary-list',
-      '.govuk-notification-banner'
+      '.govuk-notification-banner',
     ];
 
-    const missingComponents = govukComponents.filter(component => 
-      !allCss.includes(component)
-    );
+    const missingComponents = govukComponents.filter((component) => !allCss.includes(component));
 
     if (missingComponents.length > 0) {
       console.error('Missing GOV.UK CSS components:', missingComponents);
@@ -273,14 +274,9 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
     const allJs = inlineScripts.join('\n');
 
     // Verify GOV.UK Frontend JavaScript is present
-    const govukJsPatterns = [
-      /GOVUKFrontend/,
-      /initAll/,
-    ];
+    const govukJsPatterns = [/GOVUKFrontend/, /initAll/];
 
-    const missingPatterns = govukJsPatterns.filter(pattern => 
-      !pattern.test(allJs)
-    );
+    const missingPatterns = govukJsPatterns.filter((pattern) => !pattern.test(allJs));
 
     if (missingPatterns.length > 0) {
       console.error('Missing GOV.UK JavaScript patterns:', missingPatterns);
@@ -318,7 +314,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
     const externalRequests: Request[] = [];
 
     // Monitor all network requests
-    page.on('request', request => {
+    page.on('request', (request) => {
       const url = request.url();
 
       // Track non-data-URI and non-file-protocol requests
@@ -333,7 +329,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
     // Verify zero external requests
     if (externalRequests.length > 0) {
       console.error('External network requests detected:');
-      externalRequests.forEach(req => {
+      externalRequests.forEach((req) => {
         console.error('  - ' + req.method() + ' ' + req.url());
       });
     }
@@ -362,7 +358,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
   test('page is functional with JavaScript disabled', async ({ browser }) => {
     // Create context with JavaScript disabled
     const context = await browser.newContext({
-      javaScriptEnabled: false
+      javaScriptEnabled: false,
     });
 
     const page = await context.newPage();
@@ -384,7 +380,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
     await context.setOffline(true);
 
     const page = await context.newPage();
-    
+
     // Load from file:// should work offline
     await page.goto(fileUrl);
 
@@ -417,8 +413,8 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
       await expect(firstTag).toBeVisible();
 
       // Verify tag has background color (CSS applied)
-      const backgroundColor = await firstTag.evaluate(el => 
-        window.getComputedStyle(el).backgroundColor
+      const backgroundColor = await firstTag.evaluate(
+        (el) => window.getComputedStyle(el).backgroundColor
       );
       expect(backgroundColor).not.toBe('rgba(0, 0, 0, 0)'); // Not transparent
     }
@@ -429,9 +425,9 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
 
     // Verify GOV.UK width container is constrained
     const container = page.locator('.govuk-width-container').first();
-    
-    if (await container.count() > 0) {
-      const width = await container.evaluate(el => {
+
+    if ((await container.count()) > 0) {
+      const width = await container.evaluate((el) => {
         return window.getComputedStyle(el).maxWidth;
       });
 
@@ -441,9 +437,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
 
     // Verify heading styles applied
     const h1 = page.locator('h1');
-    const fontSize = await h1.evaluate(el => 
-      window.getComputedStyle(el).fontSize
-    );
+    const fontSize = await h1.evaluate((el) => window.getComputedStyle(el).fontSize);
 
     // H1 should have larger font size than body
     const parsedSize = parseFloat(fontSize);
@@ -474,7 +468,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
     // May be true or false depending on whether components use data-module
     // Just verify no JavaScript errors occurred
     const jsErrors: string[] = [];
-    page.on('pageerror', error => {
+    page.on('pageerror', (error) => {
       jsErrors.push(error.message);
     });
 
@@ -501,7 +495,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
   test('all CSS is in <style> tags (not external stylesheets)', async ({ page }) => {
     const requests: string[] = [];
 
-    page.on('request', request => {
+    page.on('request', (request) => {
       const url = request.url();
       const resourceType = request.resourceType();
 
@@ -519,7 +513,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
   test('all JavaScript is in <script> tags (not external scripts)', async ({ page }) => {
     const requests: string[] = [];
 
-    page.on('request', request => {
+    page.on('request', (request) => {
       const url = request.url();
       const resourceType = request.resourceType();
 
@@ -537,7 +531,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
   test('all images are embedded (not external)', async ({ page }) => {
     const imageRequests: string[] = [];
 
-    page.on('request', request => {
+    page.on('request', (request) => {
       const url = request.url();
       const resourceType = request.resourceType();
 
@@ -555,7 +549,7 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
   test('all fonts are embedded (not external)', async ({ page }) => {
     const fontRequests: string[] = [];
 
-    page.on('request', request => {
+    page.on('request', (request) => {
       const url = request.url();
       const resourceType = request.resourceType();
 
@@ -583,7 +577,7 @@ test.describe('Self-Contained HTML Compression (US1 - T044c)', () => {
 
     // Verify HTML is compressible (contains repeated patterns)
     const estimatedCompressionRatio = estimateCompressionRatio(htmlContent);
-    
+
     console.log('Estimated compression ratio: ' + estimatedCompressionRatio.toFixed(2) + 'x');
 
     // Should achieve at least 2x compression (typical for HTML with CSS/JS)

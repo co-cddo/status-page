@@ -13,10 +13,7 @@
  */
 
 import { loadConfiguration, ConfigurationLoadError } from './config/loader.ts';
-import {
-  validateConfiguration,
-  ConfigurationValidationError,
-} from './config/validator.ts';
+import { validateConfiguration, ConfigurationValidationError } from './config/validator.ts';
 import { logger, createChildLogger, flushLogs } from './logging/logger.ts';
 import { generateCorrelationId } from './logging/correlation.ts';
 import { startMetricsServer, stopMetricsServer } from './metrics/server.ts';
@@ -80,7 +77,9 @@ function loadAndValidateConfig(): Configuration {
 
     // Unexpected error
     configLogger.fatal({ err: error }, 'Unexpected error loading configuration');
-    console.error(`\n❌ Unexpected error: ${error instanceof Error ? error.message : String(error)}\n`);
+    console.error(
+      `\n❌ Unexpected error: ${error instanceof Error ? error.message : String(error)}\n`
+    );
     process.exit(1);
   }
 }
@@ -96,9 +95,7 @@ async function initializeWorkerPool(config: Configuration): Promise<WorkerPoolMa
     const poolSize = config.settings?.worker_pool_size ?? 0;
     poolLogger.info({ configuredPoolSize: poolSize }, 'Initializing worker pool');
 
-    const poolManager = new WorkerPoolManager(
-      poolSize === 0 ? undefined : { poolSize }
-    );
+    const poolManager = new WorkerPoolManager(poolSize === 0 ? undefined : { poolSize });
 
     await poolManager.initialize();
 
@@ -118,10 +115,7 @@ async function initializeWorkerPool(config: Configuration): Promise<WorkerPoolMa
 /**
  * Initialize scheduler and schedule services
  */
-function initializeScheduler(
-  poolManager: WorkerPoolManager,
-  config: Configuration
-): Scheduler {
+function initializeScheduler(poolManager: WorkerPoolManager, config: Configuration): Scheduler {
   const correlationId = generateCorrelationId();
   const schedulerLogger = createChildLogger({ correlationId, phase: 'scheduler-init' });
 
@@ -142,7 +136,8 @@ function initializeScheduler(
     // Schedule all services from config
     for (const ping of config.pings) {
       const intervalMs = ping.interval ? ping.interval * 1000 : defaultInterval;
-      const warningThreshold = (ping.warning_threshold ?? config.settings?.warning_threshold ?? 2) * 1000;
+      const warningThreshold =
+        (ping.warning_threshold ?? config.settings?.warning_threshold ?? 2) * 1000;
       const timeout = (ping.timeout ?? config.settings?.timeout ?? 5) * 1000;
 
       // Build config with only defined optional properties

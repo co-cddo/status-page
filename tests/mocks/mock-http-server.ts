@@ -174,7 +174,9 @@ export class MockHttpServer {
     this.routes.set(key, route);
 
     if (this.options.verbose) {
-      console.log(`[MockHttpServer] Added route: ${route.method} ${route.path} → ${route.statusCode}`);
+      console.log(
+        `[MockHttpServer] Added route: ${route.method} ${route.path} → ${route.statusCode}`
+      );
     }
   }
 
@@ -247,14 +249,16 @@ export class MockHttpServer {
         console.log(`[MockHttpServer] No route found for ${method} ${path}`);
       }
       res.writeHead(404, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ error: 'Not Found', message: `No route configured for ${method} ${path}` }));
+      res.end(
+        JSON.stringify({ error: 'Not Found', message: `No route configured for ${method} ${path}` })
+      );
       return;
     }
 
     // Apply delay (route-specific or default)
     const delay = route.delay ?? this.options.defaultDelay;
     if (delay > 0) {
-      await new Promise(resolve => setTimeout(resolve, delay));
+      await new Promise((resolve) => setTimeout(resolve, delay));
     }
 
     // Handle flaky behavior
@@ -264,7 +268,9 @@ export class MockHttpServer {
         console.log(`[MockHttpServer] Flaky behavior triggered: ${flakyStatusCode}`);
       }
       res.writeHead(flakyStatusCode, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ error: 'Flaky Failure', message: 'Simulated intermittent failure' }));
+      res.end(
+        JSON.stringify({ error: 'Flaky Failure', message: 'Simulated intermittent failure' })
+      );
       return;
     }
 
@@ -291,9 +297,7 @@ export class MockHttpServer {
 
     // Write body
     if (route.body !== undefined) {
-      const body = typeof route.body === 'object'
-        ? JSON.stringify(route.body)
-        : route.body;
+      const body = typeof route.body === 'object' ? JSON.stringify(route.body) : route.body;
       res.end(body);
     } else {
       res.end();
@@ -436,7 +440,10 @@ export const MockScenarios = {
   /**
    * Create a flaky service scenario (intermittent failures)
    */
-  async flakyService(failureRate: number = 0.5, options?: MockServerOptions): Promise<MockHttpServer> {
+  async flakyService(
+    failureRate: number = 0.5,
+    options?: MockServerOptions
+  ): Promise<MockHttpServer> {
     return createMockServerWithRoutes({
       flakyRoutes: {
         '/health': failureRate,
@@ -472,8 +479,18 @@ export const MockScenarios = {
     // Error routes
     server.addRoute({ method: 'GET', path: '/status/400', statusCode: 400, body: 'Bad Request' });
     server.addRoute({ method: 'GET', path: '/status/404', statusCode: 404, body: 'Not Found' });
-    server.addRoute({ method: 'GET', path: '/status/500', statusCode: 500, body: 'Internal Server Error' });
-    server.addRoute({ method: 'GET', path: '/status/503', statusCode: 503, body: 'Service Unavailable' });
+    server.addRoute({
+      method: 'GET',
+      path: '/status/500',
+      statusCode: 500,
+      body: 'Internal Server Error',
+    });
+    server.addRoute({
+      method: 'GET',
+      path: '/status/503',
+      statusCode: 503,
+      body: 'Service Unavailable',
+    });
 
     // Redirect routes
     server.addRoute({

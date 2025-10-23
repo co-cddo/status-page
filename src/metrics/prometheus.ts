@@ -133,7 +133,13 @@ export function recordHealthCheck(
  */
 export function recordHealthCheckError(
   serviceName: string,
-  errorType: 'timeout' | 'network' | 'http_status' | 'text_validation' | 'header_validation' | 'unknown'
+  errorType:
+    | 'timeout'
+    | 'network'
+    | 'http_status'
+    | 'text_validation'
+    | 'header_validation'
+    | 'unknown'
 ): void {
   healthCheckErrors.labels(serviceName, errorType).inc();
 }

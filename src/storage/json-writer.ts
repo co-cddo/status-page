@@ -15,7 +15,7 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import type { HealthCheckResult, ServiceStatusAPI } from '../types/health-check.ts';
 
-const STATUS_ORDER = { 'FAIL': 0, 'DEGRADED': 1, 'PASS': 2, 'PENDING': 3 };
+const STATUS_ORDER = { FAIL: 0, DEGRADED: 1, PASS: 2, PENDING: 3 };
 
 export class JsonWriter {
   constructor(private filePath: string) {}
@@ -24,14 +24,19 @@ export class JsonWriter {
    * Writes health check results to JSON file in ServiceStatusAPI format
    * Per FR-022, FR-028a: Sort by status (FAIL → DEGRADED → PASS → PENDING)
    */
-  async write(results: HealthCheckResult[], tags: Map<string, string[]> = new Map()): Promise<void> {
+  async write(
+    results: HealthCheckResult[],
+    tags: Map<string, string[]> = new Map()
+  ): Promise<void> {
     try {
       // Ensure directory exists
       const dir = dirname(this.filePath);
       await mkdir(dir, { recursive: true });
 
       // Convert results to API format
-      const apiResults: ServiceStatusAPI[] = results.map(result => this.toServiceStatusAPI(result, tags));
+      const apiResults: ServiceStatusAPI[] = results.map((result) =>
+        this.toServiceStatusAPI(result, tags)
+      );
 
       // Sort by status: FAIL → DEGRADED → PASS → PENDING
       apiResults.sort((a, b) => STATUS_ORDER[a.status] - STATUS_ORDER[b.status]);
@@ -39,7 +44,6 @@ export class JsonWriter {
       // Write to file with pretty formatting
       const json = JSON.stringify(apiResults, null, 2);
       await writeFile(this.filePath, json, 'utf-8');
-
     } catch (error) {
       // Per FR-028a: Exit with non-zero code on write failure
       console.error(`JSON write failure: ${error}`);
@@ -51,7 +55,10 @@ export class JsonWriter {
    * Converts HealthCheckResult to ServiceStatusAPI format
    * Per FR-022: Include all required fields with proper null handling for PENDING
    */
-  private toServiceStatusAPI(result: HealthCheckResult, tags: Map<string, string[]>): ServiceStatusAPI {
+  private toServiceStatusAPI(
+    result: HealthCheckResult,
+    tags: Map<string, string[]>
+  ): ServiceStatusAPI {
     const isPending = result.status === 'PENDING';
 
     return {

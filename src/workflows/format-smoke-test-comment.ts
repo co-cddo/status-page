@@ -37,7 +37,9 @@ function isValidHealthCheckResult(result: unknown, index: number): result is Hea
   }
 
   if (typeof r.http_status_code !== 'number') {
-    console.warn(`Invalid result at index ${index}: invalid http_status_code "${r.http_status_code}"`);
+    console.warn(
+      `Invalid result at index ${index}: invalid http_status_code "${r.http_status_code}"`
+    );
     return false;
   }
 
@@ -70,9 +72,7 @@ export function formatSmokeTestComment(results: HealthCheckResult[]): string {
   }
 
   // Filter out invalid results with warnings
-  const validResults = results.filter((result, index) =>
-    isValidHealthCheckResult(result, index)
-  );
+  const validResults = results.filter((result, index) => isValidHealthCheckResult(result, index));
 
   const timestamp = new Date().toISOString();
 
@@ -83,9 +83,9 @@ export function formatSmokeTestComment(results: HealthCheckResult[]): string {
 
   // Calculate summary statistics
   const total = validResults.length;
-  const passed = validResults.filter(r => r.status === 'PASS').length;
-  const degraded = validResults.filter(r => r.status === 'DEGRADED').length;
-  const failed = validResults.filter(r => r.status === 'FAIL').length;
+  const passed = validResults.filter((r) => r.status === 'PASS').length;
+  const degraded = validResults.filter((r) => r.status === 'DEGRADED').length;
+  const failed = validResults.filter((r) => r.status === 'FAIL').length;
   const failureRate = failed / total;
 
   // Build comment sections using array join for better performance
@@ -93,29 +93,31 @@ export function formatSmokeTestComment(results: HealthCheckResult[]): string {
 
   // Add warning section if >50% failures
   if (failureRate > 0.5) {
-    parts.push(`## ⚠️ WARNING: Widespread Failures Detected\n\n`);
-    parts.push(`**${failed} of ${total} services (${Math.round(failureRate * 100)}%) failed health checks.**\n\n`);
-    parts.push(`This may indicate:\n`);
-    parts.push(`- Configuration errors in \`config.yaml\`\n`);
-    parts.push(`- Network connectivity issues\n`);
-    parts.push(`- Incorrect service URLs or validation criteria\n`);
-    parts.push(`- Services experiencing widespread outages\n\n`);
-    parts.push(`**Please review the failure reasons below carefully before merging this PR.**\n\n`);
+    parts.push('## ⚠️ WARNING: Widespread Failures Detected\n\n');
+    parts.push(
+      `**${failed} of ${total} services (${Math.round(failureRate * 100)}%) failed health checks.**\n\n`
+    );
+    parts.push('This may indicate:\n');
+    parts.push('- Configuration errors in `config.yaml`\n');
+    parts.push('- Network connectivity issues\n');
+    parts.push('- Incorrect service URLs or validation criteria\n');
+    parts.push('- Services experiencing widespread outages\n\n');
+    parts.push('**Please review the failure reasons below carefully before merging this PR.**\n\n');
   }
 
   // Add summary section
-  parts.push(`## Smoke Test Results Summary\n\n`);
+  parts.push('## Smoke Test Results Summary\n\n');
   parts.push(`**Total Services:** ${total}\n`);
   parts.push(`- ✅ **Passed:** ${passed}\n`);
   parts.push(`- ⚠️ **Degraded:** ${degraded}\n`);
   parts.push(`- ❌ **Failed:** ${failed}\n\n`);
 
   // Add results table
-  parts.push(`## Detailed Results\n\n`);
-  parts.push(`| Service | Status | Latency | HTTP Code | Failure Reason |\n`);
-  parts.push(`|---------|--------|---------|-----------|----------------|\n`);
+  parts.push('## Detailed Results\n\n');
+  parts.push('| Service | Status | Latency | HTTP Code | Failure Reason |\n');
+  parts.push('|---------|--------|---------|-----------|----------------|\n');
 
-  validResults.forEach(result => {
+  validResults.forEach((result) => {
     const serviceName = escapeMarkdown(result.serviceName);
     const status = result.status;
     const latency = formatLatency(result.latency_ms);

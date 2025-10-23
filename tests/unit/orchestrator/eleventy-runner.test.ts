@@ -468,11 +468,7 @@ describe('Eleventy Runner', () => {
       await eleventyRunner.build();
 
       // Assert
-      expect(spawn).toHaveBeenCalledWith(
-        'npx',
-        ['@11ty/eleventy', '--quiet'],
-        expect.any(Object)
-      );
+      expect(spawn).toHaveBeenCalledWith('npx', ['@11ty/eleventy', '--quiet'], expect.any(Object));
     });
   });
 

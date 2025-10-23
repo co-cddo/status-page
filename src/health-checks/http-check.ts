@@ -27,21 +27,22 @@ const logger = createLogger({ serviceName: 'health-check' });
  * @param config Health check configuration
  * @returns Health check result with status, latency, and validation results
  */
-export async function performHealthCheck(
-  config: HealthCheckConfig
-): Promise<HealthCheckResult> {
+export async function performHealthCheck(config: HealthCheckConfig): Promise<HealthCheckResult> {
   const startTime = performance.now();
   const timestamp = new Date();
   const correlationId = config.correlationId || randomUUID();
   const serviceName = config.serviceName || config.url;
   const warningThreshold = config.warningThreshold ?? 2000;
 
-  logger.info({
-    correlationId,
-    service: serviceName,
-    method: config.method,
-    url: config.url,
-  }, 'Starting health check');
+  logger.info(
+    {
+      correlationId,
+      service: serviceName,
+      method: config.method,
+      url: config.url,
+    },
+    'Starting health check'
+  );
 
   try {
     // Prepare request options
@@ -52,7 +53,7 @@ export async function performHealthCheck(
       Object.assign(headers, config.customHeaders);
     }
     if (config.headers) {
-      config.headers.forEach(h => {
+      config.headers.forEach((h) => {
         headers[h.name] = h.value;
       });
     }
@@ -100,14 +101,12 @@ export async function performHealthCheck(
       // Validate response headers if configured
       let headersValidation: { valid: boolean; error?: string } = { valid: true };
       if (config.expectedHeaders) {
-        headersValidation = validateResponseHeaders(
-          response.headers,
-          config.expectedHeaders
-        );
+        headersValidation = validateResponseHeaders(response.headers, config.expectedHeaders);
       }
 
       // Determine overall status and failure reason
-      const allValidationsPassed = statusValidation.valid && textValidation.valid && headersValidation.valid;
+      const allValidationsPassed =
+        statusValidation.valid && textValidation.valid && headersValidation.valid;
       let status: HealthCheckResult['status'];
       let failure_reason = '';
 
@@ -126,44 +125,56 @@ export async function performHealthCheck(
         }
         failure_reason = errors.join('; ');
 
-        logger.error({
-          correlationId,
-          service: serviceName,
-          status: 'FAIL',
-          latency_ms,
-          error: failure_reason,
-        }, 'Health check failed validation');
+        logger.error(
+          {
+            correlationId,
+            service: serviceName,
+            status: 'FAIL',
+            latency_ms,
+            error: failure_reason,
+          },
+          'Health check failed validation'
+        );
       } else if (latency_ms > config.timeout) {
         // Should not happen since we aborted, but safety check
         status = 'FAIL';
         failure_reason = 'Timeout exceeded';
 
-        logger.error({
-          correlationId,
-          service: serviceName,
-          status: 'FAIL',
-          latency_ms,
-          error: failure_reason,
-        }, 'Health check exceeded timeout');
+        logger.error(
+          {
+            correlationId,
+            service: serviceName,
+            status: 'FAIL',
+            latency_ms,
+            error: failure_reason,
+          },
+          'Health check exceeded timeout'
+        );
       } else if (latency_ms > warningThreshold) {
         status = 'DEGRADED';
 
-        logger.warn({
-          correlationId,
-          service: serviceName,
-          status: 'DEGRADED',
-          latency_ms,
-          threshold: warningThreshold,
-        }, 'Health check degraded (slow response)');
+        logger.warn(
+          {
+            correlationId,
+            service: serviceName,
+            status: 'DEGRADED',
+            latency_ms,
+            threshold: warningThreshold,
+          },
+          'Health check degraded (slow response)'
+        );
       } else {
         status = 'PASS';
 
-        logger.info({
-          correlationId,
-          service: serviceName,
-          status: 'PASS',
-          latency_ms,
-        }, 'Health check passed');
+        logger.info(
+          {
+            correlationId,
+            service: serviceName,
+            status: 'PASS',
+            latency_ms,
+          },
+          'Health check passed'
+        );
       }
 
       const result: HealthCheckResult = {
@@ -173,9 +184,10 @@ export async function performHealthCheck(
         status,
         latency_ms,
         http_status_code: response.status,
-        expected_status: typeof config.expectedStatus === 'number'
-          ? config.expectedStatus
-          : (config.expectedStatus[0] ?? 200),
+        expected_status:
+          typeof config.expectedStatus === 'number'
+            ? config.expectedStatus
+            : (config.expectedStatus[0] ?? 200),
         failure_reason,
         correlation_id: correlationId,
       };
@@ -189,11 +201,9 @@ export async function performHealthCheck(
       }
 
       return result;
-
     } finally {
       clearTimeout(timeoutId);
     }
-
   } catch (error) {
     const endTime = performance.now();
     const latency_ms = Math.round(endTime - startTime);
@@ -201,14 +211,18 @@ export async function performHealthCheck(
     // Handle network errors and timeouts
     const failure_reason = getErrorMessage(error);
 
-    logger.error({
-      correlationId,
-      service: serviceName,
-      status: 'FAIL',
-      latency_ms,
-      error: failure_reason,
-      errorDetails: error instanceof Error ? { name: error.name, message: error.message } : undefined,
-    }, 'Health check failed with network error');
+    logger.error(
+      {
+        correlationId,
+        service: serviceName,
+        status: 'FAIL',
+        latency_ms,
+        error: failure_reason,
+        errorDetails:
+          error instanceof Error ? { name: error.name, message: error.message } : undefined,
+      },
+      'Health check failed with network error'
+    );
 
     return {
       serviceName,
@@ -217,9 +231,10 @@ export async function performHealthCheck(
       status: 'FAIL',
       latency_ms,
       http_status_code: 0, // Connection failure
-      expected_status: typeof config.expectedStatus === 'number'
-        ? config.expectedStatus
-        : (config.expectedStatus[0] ?? 200),
+      expected_status:
+        typeof config.expectedStatus === 'number'
+          ? config.expectedStatus
+          : (config.expectedStatus[0] ?? 200),
       failure_reason,
       correlation_id: correlationId,
     };

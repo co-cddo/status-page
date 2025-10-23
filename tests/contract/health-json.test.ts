@@ -32,7 +32,7 @@ describe('Health JSON Contract (US1)', () => {
     ajv = new Ajv({
       strict: true,
       allErrors: true,
-      verbose: true
+      verbose: true,
     });
     addFormats(ajv);
 
@@ -40,7 +40,15 @@ describe('Health JSON Contract (US1)', () => {
     // Per specs/001-govuk-status-monitor/contracts/status-api.openapi.yaml
     const serviceStatusSchema = {
       type: 'object',
-      required: ['name', 'status', 'latency_ms', 'last_check_time', 'tags', 'http_status_code', 'failure_reason'],
+      required: [
+        'name',
+        'status',
+        'latency_ms',
+        'last_check_time',
+        'tags',
+        'http_status_code',
+        'failure_reason',
+      ],
       properties: {
         name: {
           type: 'string',
@@ -90,7 +98,7 @@ describe('Health JSON Contract (US1)', () => {
   test('validates array structure', () => {
     const validData: StatusAPI = [];
     const validate = ajv.compile(schema);
-    
+
     expect(validate(validData)).toBe(true);
     if (!validate(validData)) {
       console.error('Validation errors:', validate.errors);
@@ -285,31 +293,37 @@ describe('Health JSON Contract (US1)', () => {
     ];
 
     // Verify order: FAIL services first
-    const firstFailIndex = data.findIndex(s => s.status === 'FAIL');
+    const firstFailIndex = data.findIndex((s) => s.status === 'FAIL');
     expect(firstFailIndex).toBe(0);
 
     // DEGRADED services after FAIL
-    const degradedServices = data.filter(s => s.status === 'DEGRADED');
-    const firstDegradedIndex = data.findIndex(s => s.status === 'DEGRADED');
+    const degradedServices = data.filter((s) => s.status === 'DEGRADED');
+    const firstDegradedIndex = data.findIndex((s) => s.status === 'DEGRADED');
     if (degradedServices.length > 0) {
       expect(firstDegradedIndex).toBeGreaterThan(firstFailIndex === -1 ? -1 : firstFailIndex);
     }
 
     // PASS services after DEGRADED
-    const passServices = data.filter(s => s.status === 'PASS');
-    const firstPassIndex = data.findIndex(s => s.status === 'PASS');
+    const passServices = data.filter((s) => s.status === 'PASS');
+    const firstPassIndex = data.findIndex((s) => s.status === 'PASS');
     if (passServices.length > 0) {
-      const lastDegradedIndex = data.map((s, i) => s.status === 'DEGRADED' ? i : -1).filter(i => i !== -1).pop();
+      const lastDegradedIndex = data
+        .map((s, i) => (s.status === 'DEGRADED' ? i : -1))
+        .filter((i) => i !== -1)
+        .pop();
       if (lastDegradedIndex !== undefined) {
         expect(firstPassIndex).toBeGreaterThan(lastDegradedIndex);
       }
     }
 
     // PENDING services last
-    const pendingServices = data.filter(s => s.status === 'PENDING');
-    const firstPendingIndex = data.findIndex(s => s.status === 'PENDING');
+    const pendingServices = data.filter((s) => s.status === 'PENDING');
+    const firstPendingIndex = data.findIndex((s) => s.status === 'PENDING');
     if (pendingServices.length > 0) {
-      const lastPassIndex = data.map((s, i) => s.status === 'PASS' ? i : -1).filter(i => i !== -1).pop();
+      const lastPassIndex = data
+        .map((s, i) => (s.status === 'PASS' ? i : -1))
+        .filter((i) => i !== -1)
+        .pop();
       if (lastPassIndex !== undefined) {
         expect(firstPendingIndex).toBeGreaterThan(lastPassIndex);
       }

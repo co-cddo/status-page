@@ -73,7 +73,7 @@ export class EleventyRunner {
     // Check file exists
     try {
       await access(healthJsonPath);
-    } catch (error) {
+    } catch {
       throw new Error(`health.json not found at ${healthJsonPath}`);
     }
 
@@ -82,7 +82,9 @@ export class EleventyRunner {
     try {
       jsonContent = await readFile(healthJsonPath, 'utf-8');
     } catch (error) {
-      throw new Error(`Failed to read health.json: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Failed to read health.json: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
 
     // Handle case where readFile returns undefined (shouldn't happen in real code, but tests may mock it)
@@ -95,7 +97,9 @@ export class EleventyRunner {
     try {
       parsedData = JSON.parse(jsonContent);
     } catch (error) {
-      throw new Error(`Invalid JSON in health.json: ${error instanceof Error ? error.message : 'Parse error'}`);
+      throw new Error(
+        `Invalid JSON in health.json: ${error instanceof Error ? error.message : 'Parse error'}`
+      );
     }
 
     // Validate is array
@@ -120,24 +124,34 @@ export class EleventyRunner {
         throw new Error(`Schema validation failed: Missing required field 'status' at index ${i}`);
       }
       if (!('latency_ms' in service)) {
-        throw new Error(`Schema validation failed: Missing required field 'latency_ms' at index ${i}`);
+        throw new Error(
+          `Schema validation failed: Missing required field 'latency_ms' at index ${i}`
+        );
       }
       if (!('last_check_time' in service)) {
-        throw new Error(`Schema validation failed: Missing required field 'last_check_time' at index ${i}`);
+        throw new Error(
+          `Schema validation failed: Missing required field 'last_check_time' at index ${i}`
+        );
       }
       if (!('tags' in service)) {
         throw new Error(`Schema validation failed: Missing required field 'tags' at index ${i}`);
       }
       if (!('http_status_code' in service)) {
-        throw new Error(`Schema validation failed: Missing required field 'http_status_code' at index ${i}`);
+        throw new Error(
+          `Schema validation failed: Missing required field 'http_status_code' at index ${i}`
+        );
       }
       if (!('failure_reason' in service)) {
-        throw new Error(`Schema validation failed: Missing required field 'failure_reason' at index ${i}`);
+        throw new Error(
+          `Schema validation failed: Missing required field 'failure_reason' at index ${i}`
+        );
       }
 
       // Validate status enum
-      if (!VALID_STATUSES.includes(service.status as typeof VALID_STATUSES[number])) {
-        throw new Error(`Invalid status value '${service.status}' at index ${i}. Must be one of: ${VALID_STATUSES.join(', ')}`);
+      if (!VALID_STATUSES.includes(service.status as (typeof VALID_STATUSES)[number])) {
+        throw new Error(
+          `Invalid status value '${service.status}' at index ${i}. Must be one of: ${VALID_STATUSES.join(', ')}`
+        );
       }
 
       // Validate types
@@ -148,13 +162,19 @@ export class EleventyRunner {
       // For PENDING status, certain fields can be null
       if (service.status === 'PENDING') {
         if (service.latency_ms !== null && typeof service.latency_ms !== 'number') {
-          throw new Error(`Schema validation failed: 'latency_ms' must be number or null at index ${i}`);
+          throw new Error(
+            `Schema validation failed: 'latency_ms' must be number or null at index ${i}`
+          );
         }
         if (service.last_check_time !== null && typeof service.last_check_time !== 'string') {
-          throw new Error(`Schema validation failed: 'last_check_time' must be string or null at index ${i}`);
+          throw new Error(
+            `Schema validation failed: 'last_check_time' must be string or null at index ${i}`
+          );
         }
         if (service.http_status_code !== null && typeof service.http_status_code !== 'number') {
-          throw new Error(`Schema validation failed: 'http_status_code' must be number or null at index ${i}`);
+          throw new Error(
+            `Schema validation failed: 'http_status_code' must be number or null at index ${i}`
+          );
         }
       } else {
         // For other statuses, these fields must be present
@@ -162,10 +182,14 @@ export class EleventyRunner {
           throw new Error(`Schema validation failed: 'latency_ms' must be a number at index ${i}`);
         }
         if (typeof service.last_check_time !== 'string') {
-          throw new Error(`Schema validation failed: 'last_check_time' must be a string at index ${i}`);
+          throw new Error(
+            `Schema validation failed: 'last_check_time' must be a string at index ${i}`
+          );
         }
         if (typeof service.http_status_code !== 'number') {
-          throw new Error(`Schema validation failed: 'http_status_code' must be a number at index ${i}`);
+          throw new Error(
+            `Schema validation failed: 'http_status_code' must be a number at index ${i}`
+          );
         }
       }
 
@@ -173,7 +197,9 @@ export class EleventyRunner {
         throw new Error(`Schema validation failed: 'tags' must be an array at index ${i}`);
       }
       if (typeof service.failure_reason !== 'string') {
-        throw new Error(`Schema validation failed: 'failure_reason' must be a string at index ${i}`);
+        throw new Error(
+          `Schema validation failed: 'failure_reason' must be a string at index ${i}`
+        );
       }
     }
 
@@ -233,12 +259,12 @@ export class EleventyRunner {
       }
 
       // Capture stdout and stderr
-      let stdout = '';
+      let _stdout = '';
       let stderr = '';
 
       if (childProcess.stdout) {
         childProcess.stdout.on('data', (data: Buffer) => {
-          stdout += data.toString();
+          _stdout += data.toString();
         });
       }
 
@@ -249,29 +275,31 @@ export class EleventyRunner {
       }
 
       // Wait for process to complete with timeout
-      const result = await new Promise<{ code: number | null; signal: string | null; didTimeout: boolean }>(
-        (resolve) => {
-          let hasResolved = false;
+      const result = await new Promise<{
+        code: number | null;
+        signal: string | null;
+        didTimeout: boolean;
+      }>((resolve) => {
+        let hasResolved = false;
 
-          // Setup timeout
-          const timeoutId = setTimeout(() => {
-            if (!hasResolved) {
-              hasResolved = true;
-              childProcess.kill('SIGTERM');
-              resolve({ code: null, signal: 'SIGTERM', didTimeout: true });
-            }
-          }, this.timeout);
+        // Setup timeout
+        const timeoutId = setTimeout(() => {
+          if (!hasResolved) {
+            hasResolved = true;
+            childProcess.kill('SIGTERM');
+            resolve({ code: null, signal: 'SIGTERM', didTimeout: true });
+          }
+        }, this.timeout);
 
-          // Wait for process to complete
-          childProcess.on('close', (code: number | null, signal: string | null) => {
-            if (!hasResolved) {
-              hasResolved = true;
-              clearTimeout(timeoutId);
-              resolve({ code, signal, didTimeout: false });
-            }
-          });
-        }
-      );
+        // Wait for process to complete
+        childProcess.on('close', (code: number | null, signal: string | null) => {
+          if (!hasResolved) {
+            hasResolved = true;
+            clearTimeout(timeoutId);
+            resolve({ code, signal, didTimeout: false });
+          }
+        });
+      });
 
       const duration = Date.now() - startTime;
       const { code, signal, didTimeout } = result;

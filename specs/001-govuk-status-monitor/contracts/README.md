@@ -1,6 +1,7 @@
 # API Contracts
 
-This directory contains the API contract specifications for the GOV.UK Public Services Status Monitor.
+This directory contains the API contract specifications for the GOV.UK Public Services Status
+Monitor.
 
 ## Files
 
@@ -8,11 +9,11 @@ This directory contains the API contract specifications for the GOV.UK Public Se
 
 OpenAPI 3.0.3 specification for the JSON Status API endpoint.
 
-**Endpoint**: `/api/status.json`
-**Method**: GET
-**Response Format**: JSON array of service status objects
+**Endpoint**: `/api/status.json` **Method**: GET **Response Format**: JSON array of service status
+objects
 
 **Key Points**:
+
 - Static JSON file (read-only API)
 - Updated after each health check cycle
 - Contains **current status only** (no historical data)

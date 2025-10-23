@@ -2,8 +2,8 @@ name: Deploy Status Page
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Every 5 minutes
-  workflow_dispatch:       # Manual trigger support
+    - cron: '*/5 * * * *' # Every 5 minutes
+  workflow_dispatch: # Manual trigger support
 
 # Per FR-037a: Least-privilege permissions for GitHub Pages deployment
 permissions:

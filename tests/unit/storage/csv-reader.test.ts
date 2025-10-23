@@ -31,7 +31,7 @@ describe('CsvReader (T031a - TDD Phase)', () => {
   afterEach(async () => {
     try {
       await fs.rm(testDir, { recursive: true, force: true });
-    } catch (error) {
+    } catch {
       // Ignore cleanup errors
     }
   });
@@ -142,7 +142,9 @@ describe('CsvReader (T031a - TDD Phase)', () => {
 
     test('should handle large CSV files efficiently', async () => {
       // Generate 1000 records
-      const records = ['timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id'];
+      const records = [
+        'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id',
+      ];
       for (let i = 0; i < 1000; i++) {
         const timestamp = new Date(2025, 0, 1, 12, i % 60, i % 60).toISOString();
         records.push(`${timestamp},service-${i % 10},PASS,${100 + i},200,,id-${i}`);
@@ -173,7 +175,7 @@ describe('CsvReader (T031a - TDD Phase)', () => {
     });
 
     test('should fail validation when headers are missing', async () => {
-      const csvContent = `2025-01-01T12:00:00.000Z,test-service,PASS,120,200,,test-id`;
+      const csvContent = '2025-01-01T12:00:00.000Z,test-service,PASS,120,200,,test-id';
 
       await fs.writeFile(testCsvPath, csvContent, 'utf-8');
 
@@ -225,7 +227,7 @@ this,is,not,valid,data
 
       expect(validation.valid).toBe(false);
       expect(validation.errors).toBeTruthy();
-      expect(validation.errors!.some(e => e.includes('malformed'))).toBe(true);
+      expect(validation.errors!.some((e) => e.includes('malformed'))).toBe(true);
     });
 
     test('should validate column count matches headers', async () => {
@@ -239,7 +241,7 @@ this,is,not,valid,data
 
       expect(validation.valid).toBe(false);
       expect(validation.errors).toBeTruthy();
-      expect(validation.errors!.some(e => e.includes('column'))).toBe(true);
+      expect(validation.errors!.some((e) => e.includes('column'))).toBe(true);
     });
   });
 
@@ -333,7 +335,7 @@ this,is,not,valid,data
 
   describe('Corrupted CSV Handling', () => {
     test('should detect and report corrupted CSV', async () => {
-      const csvContent = `This is not a valid CSV file at all`;
+      const csvContent = 'This is not a valid CSV file at all';
 
       await fs.writeFile(testCsvPath, csvContent, 'utf-8');
 
@@ -368,11 +370,11 @@ CORRUPTED DATA HERE`;
 
       expect(validation.valid).toBe(false);
       expect(validation.errors).toBeTruthy();
-      expect(validation.errors!.some(e => e.includes('latency'))).toBe(true);
+      expect(validation.errors!.some((e) => e.includes('latency'))).toBe(true);
     });
 
     test('should emit alert for corrupted CSV', async () => {
-      const csvContent = `CORRUPTED`;
+      const csvContent = 'CORRUPTED';
 
       await fs.writeFile(testCsvPath, csvContent, 'utf-8');
 
@@ -384,7 +386,7 @@ CORRUPTED DATA HERE`;
     });
 
     test('should suggest fallback to next tier on corruption', async () => {
-      const csvContent = `CORRUPTED DATA`;
+      const csvContent = 'CORRUPTED DATA';
 
       await fs.writeFile(testCsvPath, csvContent, 'utf-8');
 
@@ -416,7 +418,8 @@ CORRUPTED DATA HERE`;
     });
 
     test('should handle CSV with headers only (no data)', async () => {
-      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id`;
+      const csvContent =
+        'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id';
 
       await fs.writeFile(testCsvPath, csvContent, 'utf-8');
 
@@ -426,7 +429,8 @@ CORRUPTED DATA HERE`;
     });
 
     test('should validate CSV with headers only as valid', async () => {
-      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id`;
+      const csvContent =
+        'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id';
 
       await fs.writeFile(testCsvPath, csvContent, 'utf-8');
 

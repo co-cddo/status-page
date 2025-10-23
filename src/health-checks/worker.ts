@@ -77,10 +77,7 @@ export async function processHealthCheck(message: WorkerMessage): Promise<Worker
   try {
     // Execute health check with retry logic
     // Pass performHealthCheck function to retry logic
-    const result: HealthCheckResult = await performHealthCheckWithRetry(
-      config,
-      performHealthCheck
-    );
+    const result: HealthCheckResult = await performHealthCheckWithRetry(config, performHealthCheck);
 
     // Emit Prometheus metrics
     recordHealthCheckResult(result);
@@ -91,7 +88,6 @@ export async function processHealthCheck(message: WorkerMessage): Promise<Worker
       type: 'health-check-result',
       result,
     };
-
   } catch (error) {
     // Handle unexpected errors during health check execution with structured error objects
     const err = error as Error & { code?: string };
@@ -107,9 +103,10 @@ export async function processHealthCheck(message: WorkerMessage): Promise<Worker
       status: 'FAIL',
       latency_ms: 0,
       http_status_code: 0,
-      expected_status: typeof config.expectedStatus === 'number'
-        ? config.expectedStatus
-        : (config.expectedStatus[0] ?? 200),
+      expected_status:
+        typeof config.expectedStatus === 'number'
+          ? config.expectedStatus
+          : (config.expectedStatus[0] ?? 200),
       failure_reason: err.message,
       correlation_id: config.correlationId || randomUUID(),
     };
@@ -152,11 +149,14 @@ if (parentPort) {
       const err = error as Error;
       // Handle expectedStatus being number or array
       const expectedStatus = message.config?.expectedStatus;
-      const expectedStatusValue = typeof expectedStatus === 'number'
-        ? expectedStatus
-        : Array.isArray(expectedStatus) && expectedStatus.length > 0 && expectedStatus[0] !== undefined
-        ? expectedStatus[0]
-        : 200;
+      const expectedStatusValue =
+        typeof expectedStatus === 'number'
+          ? expectedStatus
+          : Array.isArray(expectedStatus) &&
+              expectedStatus.length > 0 &&
+              expectedStatus[0] !== undefined
+            ? expectedStatus[0]
+            : 200;
 
       const errorResult: WorkerResult = {
         type: 'health-check-result',

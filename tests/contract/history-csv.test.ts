@@ -143,7 +143,7 @@ describe('CSV Format Contract (US1)', () => {
 
     expect(dataLines).toHaveLength(3);
 
-    const statuses = dataLines.map(line => {
+    const statuses = dataLines.map((line) => {
       const values = parseCsvLine(line);
       return values[2]; // status column
     });
@@ -179,7 +179,7 @@ describe('CSV Format Contract (US1)', () => {
     // Parse data lines
     const dataLines = lines.slice(1);
 
-    const latencies = dataLines.map(line => {
+    const latencies = dataLines.map((line) => {
       const values = parseCsvLine(line);
       return values[3]; // latency_ms column
     });
@@ -215,7 +215,7 @@ describe('CSV Format Contract (US1)', () => {
     // Parse data lines
     const dataLines = lines.slice(1);
 
-    const statusCodes = dataLines.map(line => {
+    const statusCodes = dataLines.map((line) => {
       const values = parseCsvLine(line);
       return values[4]; // http_status_code column
     });
@@ -250,7 +250,9 @@ describe('CSV Format Contract (US1)', () => {
     const correlationId = values[6]!;
 
     expect(isValidUUIDv4(correlationId)).toBe(true);
-    expect(correlationId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
+    expect(correlationId).toMatch(
+      /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+    );
   });
 
   test('validates empty failure_reason for passing services', async () => {
@@ -271,7 +273,7 @@ describe('CSV Format Contract (US1)', () => {
     // Parse data lines
     const dataLines = lines.slice(1);
 
-    const failureReasons = dataLines.map(line => {
+    const failureReasons = dataLines.map((line) => {
       const values = parseCsvLine(line);
       return values[5]; // failure_reason column
     });
@@ -299,7 +301,7 @@ describe('CSV Format Contract (US1)', () => {
     // Parse data lines
     const dataLines = lines.slice(1);
 
-    const failureReasons = dataLines.map(line => {
+    const failureReasons = dataLines.map((line) => {
       const values = parseCsvLine(line);
       return values[5]; // failure_reason column
     });
@@ -396,7 +398,8 @@ describe('CSV Format Contract (US1)', () => {
     expect(values).toHaveLength(7);
 
     // Verify column order
-    const [timestamp, serviceName, status, latency, httpCode, failureReason, correlationId] = values;
+    const [timestamp, serviceName, status, latency, httpCode, failureReason, correlationId] =
+      values;
 
     expect(isValidISO8601(timestamp!)).toBe(true);
     expect(serviceName).toBe('Test Service');

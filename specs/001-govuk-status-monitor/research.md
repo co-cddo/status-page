@@ -1,7 +1,6 @@
 # Research: GOV.UK Status Monitor Technology Stack
 
-**Research Date**: 2025-10-21
-**Research Depth**: Deep Research Mode (15 searches performed)
+**Research Date**: 2025-10-21 **Research Depth**: Deep Research Mode (15 searches performed)
 **Target Compatibility**: Node.js 22 LTS, Eleventy v3, WCAG 2.2 AA (AAA where feasible)
 
 ---
@@ -10,29 +9,36 @@
 
 ### Decision: Use Node.js 22's Native TypeScript Support with tsx Fallback
 
-**Primary Approach**: Utilize Node.js 22.6+ `--experimental-strip-types` flag for native TypeScript execution
-**Fallback Approach**: Use `tsx` package for compatibility and transform support
+**Primary Approach**: Utilize Node.js 22.6+ `--experimental-strip-types` flag for native TypeScript
+execution **Fallback Approach**: Use `tsx` package for compatibility and transform support
 
 ### Rationale
 
-1. **Native Performance**: Node.js 22.6 introduced experimental TypeScript support via type stripping, which removes type annotations without transpilation, maintaining source map accuracy and improving performance
-2. **Zero Build Step**: Type stripping eliminates the need for separate compilation, enabling direct execution of `.ts` files
-3. **Eleventy v3 Compatibility**: Eleventy 3.0.0 added official TypeScript support through ESM, aligning perfectly with Node.js 22's module system
-4. **Future-Proof**: Node.js 22.18.0+ enables type stripping by default, making this the standard path forward
-5. **Progressive Enhancement**: Can use `--experimental-transform-types` flag for advanced TypeScript features (enums, namespaces) when needed
+1. **Native Performance**: Node.js 22.6 introduced experimental TypeScript support via type
+   stripping, which removes type annotations without transpilation, maintaining source map accuracy
+   and improving performance
+2. **Zero Build Step**: Type stripping eliminates the need for separate compilation, enabling direct
+   execution of `.ts` files
+3. **Eleventy v3 Compatibility**: Eleventy 3.0.0 added official TypeScript support through ESM,
+   aligning perfectly with Node.js 22's module system
+4. **Future-Proof**: Node.js 22.18.0+ enables type stripping by default, making this the standard
+   path forward
+5. **Progressive Enhancement**: Can use `--experimental-transform-types` flag for advanced
+   TypeScript features (enums, namespaces) when needed
 
 ### Alternatives Considered
 
-| Approach | Pros | Cons | Verdict |
-|----------|------|------|---------|
-| **tsx package** | Mature, reliable, supports all TS features | Additional dependency, slower than native | Recommended fallback |
-| **tsc compilation** | Full type checking, standard approach | Separate build step, slower development | Use for CI/CD type checking only |
-| **esbuild** | Fast builds, bundle optimization | Adds complexity, overkill for SSG | Not needed for this use case |
-| **SWC** | Very fast, Rust-based | Less mature TypeScript support | Too aggressive for government service |
+| Approach            | Pros                                       | Cons                                      | Verdict                               |
+| ------------------- | ------------------------------------------ | ----------------------------------------- | ------------------------------------- |
+| **tsx package**     | Mature, reliable, supports all TS features | Additional dependency, slower than native | Recommended fallback                  |
+| **tsc compilation** | Full type checking, standard approach      | Separate build step, slower development   | Use for CI/CD type checking only      |
+| **esbuild**         | Fast builds, bundle optimization           | Adds complexity, overkill for SSG         | Not needed for this use case          |
+| **SWC**             | Very fast, Rust-based                      | Less mature TypeScript support            | Too aggressive for government service |
 
 ### Implementation Notes
 
 **package.json Configuration**:
+
 ```json
 {
   "type": "module",
@@ -53,6 +59,7 @@
 ```
 
 **tsconfig.json Configuration**:
+
 ```json
 {
   "compilerOptions": {
@@ -76,10 +83,11 @@
 ```
 
 **eleventy.config.ts Example**:
+
 ```typescript
 import type { UserConfig } from '@11ty/eleventy';
 
-export default function(eleventyConfig: UserConfig) {
+export default function (eleventyConfig: UserConfig) {
   // Enable TypeScript templates
   eleventyConfig.addExtension(['11ty.ts', '11ty.tsx'], {
     key: '11ty.js',
@@ -90,11 +98,11 @@ export default function(eleventyConfig: UserConfig) {
       input: 'src',
       output: '_site',
       includes: '_includes',
-      data: '_data'
+      data: '_data',
     },
     dataTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',
-    markdownTemplateEngine: 'njk'
+    markdownTemplateEngine: 'njk',
   };
 }
 ```
@@ -112,14 +120,17 @@ await $`npx tsc node_modules/@11ty/eleventy/src/UserConfig.js
         --moduleResolution nodenext --module nodenext --target esnext`;
 ```
 
-**Recommended TypeScript Version**: 5.8+ for optimal compatibility with `verbatimModuleSyntax` and `erasableSyntaxOnly` options
+**Recommended TypeScript Version**: 5.8+ for optimal compatibility with `verbatimModuleSyntax` and
+`erasableSyntaxOnly` options
 
 ### Key Constraints
 
 1. **ESM Required**: Must use `"type": "module"` in package.json or `.mts` extensions
-2. **Front Matter Limitation**: TypeScript templates cannot use front matter; use `export const data = {}` instead
+2. **Front Matter Limitation**: TypeScript templates cannot use front matter; use
+   `export const data = {}` instead
 3. **Node.js 22.6+ Required**: Type stripping requires Node.js 22.6 or later
-4. **Type Checking Separate**: Native type stripping doesn't perform type checking; run `tsc --noEmit` in CI/CD
+4. **Type Checking Separate**: Native type stripping doesn't perform type checking; run
+   `tsc --noEmit` in CI/CD
 
 ### References
 
@@ -134,44 +145,48 @@ await $`npx tsc node_modules/@11ty/eleventy/src/UserConfig.js
 
 ### Decision: Use @x-govuk/govuk-eleventy-plugin v4.0+ with Nunjucks Templates
 
-**Plugin**: `@x-govuk/govuk-eleventy-plugin@^4.0.0`
-**Template Engine**: Nunjucks (`.njk`)
-**GOV.UK Frontend**: Bundled with plugin
+**Plugin**: `@x-govuk/govuk-eleventy-plugin@^4.0.0` **Template Engine**: Nunjucks (`.njk`) **GOV.UK
+Frontend**: Bundled with plugin
 
 ### Rationale
 
-1. **Official GDS Alignment**: Maintained by the X-GOVUK team, ensures compliance with GOV.UK Design System standards
+1. **Official GDS Alignment**: Maintained by the X-GOVUK team, ensures compliance with GOV.UK Design
+   System standards
 2. **Zero Configuration**: Provides pre-configured layouts, components, and styling out of the box
 3. **Eleventy v3 Native**: Designed specifically for Eleventy v3 with ESM support
 4. **Built-in Features**: Includes search, tagging, RSS feeds, sitemaps, and SCSS compilation
-5. **Progressive Enhancement**: Components work as pure HTML, with JavaScript enhancements layered on top
+5. **Progressive Enhancement**: Components work as pure HTML, with JavaScript enhancements layered
+   on top
 6. **WCAG 2.2 AA Compliant**: GOV.UK Frontend is fully compliant with WCAG 2.2 AA standards
 
 ### Alternatives Considered
 
-| Approach | Pros | Cons | Verdict |
-|----------|------|------|---------|
+| Approach                   | Pros                                 | Cons                                           | Verdict                |
+| -------------------------- | ------------------------------------ | ---------------------------------------------- | ---------------------- |
 | **Manual GOV.UK Frontend** | Full control, no plugin dependencies | High maintenance, manual accessibility testing | Too resource-intensive |
-| **Custom layouts** | Tailored to specific needs | Risk of non-compliance, duplication | Unnecessary complexity |
-| **NHS Eleventy Plugin** | Similar architecture | NHS-specific branding, not GDS | Wrong design system |
+| **Custom layouts**         | Tailored to specific needs           | Risk of non-compliance, duplication            | Unnecessary complexity |
+| **NHS Eleventy Plugin**    | Similar architecture                 | NHS-specific branding, not GDS                 | Wrong design system    |
 
 ### Implementation Notes
 
 **Installation**:
+
 ```bash
 npm install @x-govuk/govuk-eleventy-plugin
 ```
 
 **Requirements**:
+
 - Node.js v22 or later
 - Eleventy v3 or later
 
 **Basic Configuration** (eleventy.config.ts):
+
 ```typescript
 import { govukEleventyPlugin } from '@x-govuk/govuk-eleventy-plugin';
 import type { UserConfig } from '@11ty/eleventy';
 
-export default function(eleventyConfig: UserConfig) {
+export default function (eleventyConfig: UserConfig) {
   // Register the GOV.UK plugin
   eleventyConfig.addPlugin(govukEleventyPlugin, {
     header: {
@@ -180,26 +195,24 @@ export default function(eleventyConfig: UserConfig) {
       productName: 'GOV.UK Service Status Monitor',
       search: {
         indexPath: '/search.json',
-        sitemapPath: '/sitemap'
-      }
+        sitemapPath: '/sitemap',
+      },
     },
     footer: {
       meta: {
         items: [
           {
             href: '/accessibility',
-            text: 'Accessibility'
+            text: 'Accessibility',
           },
           {
             href: '/privacy',
-            text: 'Privacy policy'
-          }
-        ]
-      }
+            text: 'Privacy policy',
+          },
+        ],
+      },
     },
-    stylesheets: [
-      '/assets/custom.css'
-    ]
+    stylesheets: ['/assets/custom.css'],
   });
 
   return {
@@ -210,8 +223,8 @@ export default function(eleventyConfig: UserConfig) {
       input: 'src',
       output: '_site',
       includes: '_includes',
-      layouts: '_layouts'
-    }
+      layouts: '_layouts',
+    },
   };
 }
 ```
@@ -221,29 +234,29 @@ export default function(eleventyConfig: UserConfig) {
 ```typescript
 interface GovukEleventyPluginOptions {
   header?: {
-    organisationLogo?: string;           // e.g., 'royal-arms', 'single-identity'
-    organisationName?: string;           // e.g., 'Cabinet Office'
-    productName?: string;                // Displayed in header
-    homepageUrl?: string;                // Default: '/'
-    navigationItems?: NavigationItem[];  // Top-level navigation
-    search?: SearchConfig;               // Search functionality
+    organisationLogo?: string; // e.g., 'royal-arms', 'single-identity'
+    organisationName?: string; // e.g., 'Cabinet Office'
+    productName?: string; // Displayed in header
+    homepageUrl?: string; // Default: '/'
+    navigationItems?: NavigationItem[]; // Top-level navigation
+    search?: SearchConfig; // Search functionality
   };
   footer?: {
     meta?: {
-      items?: FooterLink[];              // Footer meta links
-      html?: string;                     // Custom footer HTML
+      items?: FooterLink[]; // Footer meta links
+      html?: string; // Custom footer HTML
     };
     contentLicence?: {
-      html?: string;                     // License text/HTML
+      html?: string; // License text/HTML
     };
     copyright?: {
-      text?: string;                     // Copyright notice
+      text?: string; // Copyright notice
     };
   };
-  stylesheets?: string[];                // Additional CSS files
-  headIcons?: string;                    // Path to favicon assets
-  opengraphImageUrl?: string;            // Social media preview image
-  themeColor?: string;                   // Browser theme color
+  stylesheets?: string[]; // Additional CSS files
+  headIcons?: string; // Path to favicon assets
+  opengraphImageUrl?: string; // Social media preview image
+  themeColor?: string; // Browser theme color
   feedOptions?: {
     // RSS feed configuration
   };
@@ -251,6 +264,7 @@ interface GovukEleventyPluginOptions {
 ```
 
 **Page Template Example** (src/index.md):
+
 ```markdown
 ---
 layout: page
@@ -299,6 +313,7 @@ All services are operational.
 **Custom Nunjucks Search Paths**:
 
 The plugin configures Nunjucks search paths in this order:
+
 1. Plugin directory
 2. `govuk-frontend/dist`
 3. Prototype components
@@ -309,14 +324,17 @@ To override plugin templates, reverse the precedence:
 ```typescript
 import nunjucks from 'nunjucks';
 
-const nunjucksEnvironment = nunjucks.configure([
-  'src/_includes',              // Your overrides first
-  'node_modules/@x-govuk/govuk-eleventy-plugin/layouts',
-  'node_modules/govuk-frontend/dist'
-], {
-  autoescape: true,
-  noCache: true
-});
+const nunjucksEnvironment = nunjucks.configure(
+  [
+    'src/_includes', // Your overrides first
+    'node_modules/@x-govuk/govuk-eleventy-plugin/layouts',
+    'node_modules/govuk-frontend/dist',
+  ],
+  {
+    autoescape: true,
+    noCache: true,
+  }
+);
 
 eleventyConfig.setLibrary('njk', nunjucksEnvironment);
 ```
@@ -354,14 +372,18 @@ export function createGovukConfig(config: GovukPluginConfig) {
 
 ### Accessibility Compliance
 
-**WCAG 2.2 AA**: The GOV.UK Design System is fully compliant with WCAG 2.2 Level AA as of January 2024.
+**WCAG 2.2 AA**: The GOV.UK Design System is fully compliant with WCAG 2.2 Level AA as of
+January 2024.
 
-**WCAG 2.2 AAA**: The Design System does NOT guarantee AAA compliance. AAA criteria are pursued only where:
+**WCAG 2.2 AAA**: The Design System does NOT guarantee AAA compliance. AAA criteria are pursued only
+where:
+
 - Team capacity exists for implementation
 - Feasibility factors are met (technical, design, content)
 - Individual components may exceed AA where practical
 
 **Key Accessibility Features**:
+
 - Semantic HTML structure
 - Proper heading hierarchy
 - ARIA labels where appropriate
@@ -379,7 +401,9 @@ GOV.UK components follow progressive enhancement principles:
 2. **CSS Layer**: Visual styling enhances presentation
 3. **JavaScript Layer**: Additional interactions (accordion, character count, etc.)
 
-**JavaScript Failure Rate**: GDS research shows 1.1% of GOV.UK visitors don't receive JavaScript enhancements due to:
+**JavaScript Failure Rate**: GDS research shows 1.1% of GOV.UK visitors don't receive JavaScript
+enhancements due to:
+
 - Corporate firewalls
 - Mobile network providers modifying content
 - Personal firewall/antivirus software
@@ -391,7 +415,9 @@ GOV.UK components follow progressive enhancement principles:
 ### Migration Path from v2 to v3
 
 If upgrading from plugin v2:
-- Review [Upgrading from v2 to v3 guide](https://x-govuk.github.io/govuk-eleventy-plugin/upgrading/2-to-3/)
+
+- Review
+  [Upgrading from v2 to v3 guide](https://x-govuk.github.io/govuk-eleventy-plugin/upgrading/2-to-3/)
 - Update Node.js to v22+
 - Update Eleventy to v3+
 - Change configuration to ESM format
@@ -411,29 +437,31 @@ If upgrading from plugin v2:
 
 ### Decision: Use Native Fetch API with AbortSignal.timeout() and Promise.allSettled()
 
-**HTTP Client**: Native `fetch()` API (Node.js 18+)
-**Concurrency**: `Promise.allSettled()` for parallel execution
-**Timeout**: `AbortSignal.timeout()` for request cancellation
-**Error Handling**: Structured error objects with retry capability
+**HTTP Client**: Native `fetch()` API (Node.js 18+) **Concurrency**: `Promise.allSettled()` for
+parallel execution **Timeout**: `AbortSignal.timeout()` for request cancellation **Error Handling**:
+Structured error objects with retry capability
 
 ### Rationale
 
-1. **Zero Dependencies**: Native fetch eliminates external HTTP client dependencies (axios, got, etc.)
-2. **Built-in Timeout Support**: `AbortSignal.timeout()` provides clean timeout handling without manual AbortController management
-3. **Resilient Concurrency**: `Promise.allSettled()` continues execution even if individual checks fail, perfect for health monitoring
+1. **Zero Dependencies**: Native fetch eliminates external HTTP client dependencies (axios, got,
+   etc.)
+2. **Built-in Timeout Support**: `AbortSignal.timeout()` provides clean timeout handling without
+   manual AbortController management
+3. **Resilient Concurrency**: `Promise.allSettled()` continues execution even if individual checks
+   fail, perfect for health monitoring
 4. **Node.js 22 LTS**: All features are stable in Node.js 22 (LTS until April 2027)
 5. **Type Safety**: Native fetch has excellent TypeScript support
 6. **Performance**: Native implementation is optimized and doesn't require external process spawning
 
 ### Alternatives Considered
 
-| Approach | Pros | Cons | Verdict |
-|----------|------|------|---------|
-| **axios + axios-retry** | Popular, rich ecosystem, interceptors | External dependency, heavier bundle | Unnecessary for this use case |
-| **got** | Promise-based, retry built-in | Another dependency | Native fetch is sufficient |
-| **node-fetch** | Familiar API | Deprecated in favor of native fetch | Use native instead |
-| **undici** | Very fast, modern | Unnecessary with native fetch | Overkill |
-| **Worker threads** | CPU isolation | Health checks are I/O bound, not CPU | Wrong problem domain |
+| Approach                | Pros                                  | Cons                                 | Verdict                       |
+| ----------------------- | ------------------------------------- | ------------------------------------ | ----------------------------- |
+| **axios + axios-retry** | Popular, rich ecosystem, interceptors | External dependency, heavier bundle  | Unnecessary for this use case |
+| **got**                 | Promise-based, retry built-in         | Another dependency                   | Native fetch is sufficient    |
+| **node-fetch**          | Familiar API                          | Deprecated in favor of native fetch  | Use native instead            |
+| **undici**              | Very fast, modern                     | Unnecessary with native fetch        | Overkill                      |
+| **Worker threads**      | CPU isolation                         | Health checks are I/O bound, not CPU | Wrong problem domain          |
 
 ### Implementation Notes
 
@@ -444,9 +472,9 @@ If upgrading from plugin v2:
 
 export interface HealthCheckConfig {
   url: string;
-  timeout: number;              // milliseconds
+  timeout: number; // milliseconds
   method?: 'GET' | 'HEAD';
-  expectedStatus?: number[];    // e.g., [200, 204]
+  expectedStatus?: number[]; // e.g., [200, 204]
   headers?: Record<string, string>;
 }
 
@@ -454,8 +482,8 @@ export interface HealthCheckResult {
   url: string;
   status: 'healthy' | 'unhealthy' | 'timeout' | 'error';
   statusCode?: number;
-  responseTime: number;         // milliseconds
-  timestamp: string;            // ISO 8601
+  responseTime: number; // milliseconds
+  timestamp: string; // ISO 8601
   error?: {
     message: string;
     code: string;
@@ -463,9 +491,7 @@ export interface HealthCheckResult {
   };
 }
 
-export async function performHealthCheck(
-  config: HealthCheckConfig
-): Promise<HealthCheckResult> {
+export async function performHealthCheck(config: HealthCheckConfig): Promise<HealthCheckResult> {
   const startTime = Date.now();
   const timestamp = new Date().toISOString();
 
@@ -475,7 +501,7 @@ export async function performHealthCheck(
       headers: config.headers,
       signal: AbortSignal.timeout(config.timeout),
       // Don't follow redirects for health checks
-      redirect: 'manual'
+      redirect: 'manual',
     });
 
     const responseTime = Date.now() - startTime;
@@ -487,9 +513,8 @@ export async function performHealthCheck(
       status: isHealthy ? 'healthy' : 'unhealthy',
       statusCode: response.status,
       responseTime,
-      timestamp
+      timestamp,
     };
-
   } catch (error) {
     const responseTime = Date.now() - startTime;
 
@@ -504,8 +529,8 @@ export async function performHealthCheck(
           error: {
             message: `Request timeout after ${config.timeout}ms`,
             code: 'ETIMEDOUT',
-            type: 'timeout'
-          }
+            type: 'timeout',
+          },
         };
       }
 
@@ -519,8 +544,8 @@ export async function performHealthCheck(
           error: {
             message: error.message,
             code: 'ENETWORK',
-            type: 'network'
-          }
+            type: 'network',
+          },
         };
       }
     }
@@ -534,8 +559,8 @@ export async function performHealthCheck(
       error: {
         message: error instanceof Error ? error.message : 'Unknown error',
         code: 'EUNKNOWN',
-        type: 'unknown'
-      }
+        type: 'unknown',
+      },
     };
   }
 }
@@ -557,26 +582,24 @@ export interface HealthCheckSummary {
   results: HealthCheckResult[];
 }
 
-export async function runHealthChecks(
-  configs: HealthCheckConfig[]
-): Promise<HealthCheckSummary> {
+export async function runHealthChecks(configs: HealthCheckConfig[]): Promise<HealthCheckSummary> {
   const startTime = Date.now();
   const timestamp = new Date().toISOString();
 
   // Execute all health checks concurrently
   const settledResults = await Promise.allSettled(
-    configs.map(config => performHealthCheck(config))
+    configs.map((config) => performHealthCheck(config))
   );
 
   // Extract successful results
   const results = settledResults
-    .filter((result): result is PromiseFulfilledResult<HealthCheckResult> =>
-      result.status === 'fulfilled'
+    .filter(
+      (result): result is PromiseFulfilledResult<HealthCheckResult> => result.status === 'fulfilled'
     )
-    .map(result => result.value);
+    .map((result) => result.value);
 
   // Handle rejected promises (shouldn't happen with our error handling)
-  const rejectedCount = settledResults.filter(r => r.status === 'rejected').length;
+  const rejectedCount = settledResults.filter((r) => r.status === 'rejected').length;
   if (rejectedCount > 0) {
     console.error(`${rejectedCount} health checks threw unexpected errors`);
   }
@@ -584,13 +607,13 @@ export async function runHealthChecks(
   // Calculate summary statistics
   const summary: HealthCheckSummary = {
     totalChecks: results.length,
-    healthyCount: results.filter(r => r.status === 'healthy').length,
-    unhealthyCount: results.filter(r => r.status === 'unhealthy').length,
-    timeoutCount: results.filter(r => r.status === 'timeout').length,
-    errorCount: results.filter(r => r.status === 'error').length,
+    healthyCount: results.filter((r) => r.status === 'healthy').length,
+    unhealthyCount: results.filter((r) => r.status === 'unhealthy').length,
+    timeoutCount: results.filter((r) => r.status === 'timeout').length,
+    errorCount: results.filter((r) => r.status === 'error').length,
     totalDuration: Date.now() - startTime,
     timestamp,
-    results
+    results,
   };
 
   return summary;
@@ -629,8 +652,8 @@ export async function performHealthCheckWithCancellation(
 ```typescript
 export interface RetryConfig {
   maxRetries: number;
-  initialDelay: number;     // milliseconds
-  maxDelay: number;         // milliseconds
+  initialDelay: number; // milliseconds
+  maxDelay: number; // milliseconds
   backoffMultiplier: number; // e.g., 2 for exponential
 }
 
@@ -660,7 +683,7 @@ export async function performHealthCheckWithRetry(
     );
 
     // Wait before retry
-    await new Promise(resolve => setTimeout(resolve, delay));
+    await new Promise((resolve) => setTimeout(resolve, delay));
   }
 
   return lastResult!;
@@ -679,27 +702,27 @@ const services: HealthCheckConfig[] = [
   {
     url: 'https://www.gov.uk',
     timeout: 5000,
-    expectedStatus: [200]
+    expectedStatus: [200],
   },
   {
     url: 'https://www.gov.uk/api/search.json',
     timeout: 5000,
-    expectedStatus: [200]
+    expectedStatus: [200],
   },
   {
     url: 'https://publishing-api.publishing.service.gov.uk/healthcheck',
     timeout: 10000,
-    expectedStatus: [200]
-  }
+    expectedStatus: [200],
+  },
 ];
 
-export default async function() {
+export default async function () {
   const summary = await runHealthChecks(services);
 
   return {
     status: summary,
     generatedAt: summary.timestamp,
-    healthyPercentage: (summary.healthyCount / summary.totalChecks) * 100
+    healthyPercentage: (summary.healthyCount / summary.totalChecks) * 100,
   };
 }
 ```
@@ -708,7 +731,9 @@ export default async function() {
 
 **Concurrency Limits**:
 
-While `Promise.allSettled()` executes all promises concurrently, HTTP clients typically respect system limits. Node.js uses connection pooling with defaults:
+While `Promise.allSettled()` executes all promises concurrently, HTTP clients typically respect
+system limits. Node.js uses connection pooling with defaults:
+
 - `maxSockets`: 15 per host (can be increased)
 - `keepAlive`: Reuses connections
 
@@ -739,6 +764,7 @@ async function runHealthChecksInBatches(
 **Memory Management**:
 
 Each health check result is small (~200 bytes), but for historical tracking:
+
 - Store only recent results (e.g., last 1000)
 - Use streaming CSV writing for long-term storage
 - Implement log rotation
@@ -763,7 +789,7 @@ describe('performHealthCheck', () => {
   it('should mark healthy service as healthy', async () => {
     const result = await performHealthCheck({
       url: 'https://httpbin.org/status/200',
-      timeout: 5000
+      timeout: 5000,
     });
 
     expect(result.status).toBe('healthy');
@@ -773,7 +799,7 @@ describe('performHealthCheck', () => {
   it('should timeout after specified duration', async () => {
     const result = await performHealthCheck({
       url: 'https://httpbin.org/delay/10',
-      timeout: 1000
+      timeout: 1000,
     });
 
     expect(result.status).toBe('timeout');
@@ -784,7 +810,7 @@ describe('performHealthCheck', () => {
   it('should handle network errors gracefully', async () => {
     const result = await performHealthCheck({
       url: 'https://this-domain-does-not-exist-12345.com',
-      timeout: 5000
+      timeout: 5000,
     });
 
     expect(result.status).toBe('error');
@@ -807,13 +833,13 @@ describe('performHealthCheck', () => {
 
 ### Decision: Use fast-csv with TypeScript Types and Atomic Append Pattern
 
-**Library**: `fast-csv` (specifically `@fast-csv/format`)
-**Version**: `^5.0.0` (latest stable)
+**Library**: `fast-csv` (specifically `@fast-csv/format`) **Version**: `^5.0.0` (latest stable)
 **Pattern**: Class-based wrapper with Promise API and atomic writes
 
 ### Rationale
 
-1. **Performance**: fast-csv is one of the fastest CSV libraries for Node.js, built specifically for performance
+1. **Performance**: fast-csv is one of the fastest CSV libraries for Node.js, built specifically for
+   performance
 2. **TypeScript Native**: Built with TypeScript, providing first-class type definitions
 3. **Streaming API**: Memory-efficient for large datasets
 4. **Append Support**: Native support for appending with header control
@@ -822,16 +848,17 @@ describe('performHealthCheck', () => {
 
 ### Alternatives Considered
 
-| Approach | Pros | Cons | Verdict |
-|----------|------|------|---------|
-| **csv-writer** | Simple API, good docs | Slower than fast-csv, less flexible | Performance not optimal |
-| **papaparse** | Excellent browser support | Designed for browser, heavier | Browser-first, not ideal for Node |
-| **csv-stringify** | Part of node-csv suite | More verbose API | Less ergonomic |
-| **Manual fs.appendFile** | Zero dependencies | Error-prone, no escaping, no types | Too risky for production |
+| Approach                 | Pros                      | Cons                                | Verdict                           |
+| ------------------------ | ------------------------- | ----------------------------------- | --------------------------------- |
+| **csv-writer**           | Simple API, good docs     | Slower than fast-csv, less flexible | Performance not optimal           |
+| **papaparse**            | Excellent browser support | Designed for browser, heavier       | Browser-first, not ideal for Node |
+| **csv-stringify**        | Part of node-csv suite    | More verbose API                    | Less ergonomic                    |
+| **Manual fs.appendFile** | Zero dependencies         | Error-prone, no escaping, no types  | Too risky for production          |
 
 ### Implementation Notes
 
 **Installation**:
+
 ```bash
 npm install fast-csv
 npm install --save-dev @types/node
@@ -873,7 +900,7 @@ export class CsvWriter<T extends CsvRow> {
       includeEndRowDelimiter: options.includeEndRowDelimiter ?? true,
       quote: options.quote ?? true,
       escape: options.escape ?? '"',
-      delimiter: options.delimiter ?? ','
+      delimiter: options.delimiter ?? ',',
     };
   }
 
@@ -881,11 +908,10 @@ export class CsvWriter<T extends CsvRow> {
    * Create new CSV file, overwriting if exists
    */
   async create(rows: T[]): Promise<void> {
-    return this.writeToFile(
-      fs.createWriteStream(this.filePath),
-      rows,
-      { ...this.writeOptions, writeHeaders: true }
-    );
+    return this.writeToFile(fs.createWriteStream(this.filePath), rows, {
+      ...this.writeOptions,
+      writeHeaders: true,
+    });
   }
 
   /**
@@ -896,11 +922,10 @@ export class CsvWriter<T extends CsvRow> {
     // Check if file exists to determine if headers are needed
     const fileExists = fs.existsSync(this.filePath);
 
-    return this.writeToFile(
-      fs.createWriteStream(this.filePath, { flags: 'a' }),
-      rows,
-      { ...this.writeOptions, writeHeaders: !fileExists }
-    );
+    return this.writeToFile(fs.createWriteStream(this.filePath, { flags: 'a' }), rows, {
+      ...this.writeOptions,
+      writeHeaders: !fileExists,
+    });
   }
 
   /**
@@ -971,7 +996,7 @@ interface HealthCheckCsvRow {
 // Initialize CSV writer
 const csvWriter = new CsvWriter<HealthCheckCsvRow>({
   headers: ['timestamp', 'url', 'status', 'statusCode', 'responseTime', 'errorMessage'],
-  path: './data/health-checks.csv'
+  path: './data/health-checks.csv',
 });
 
 // Create new file (first time)
@@ -987,7 +1012,7 @@ function healthCheckToCsvRow(result: HealthCheckResult): HealthCheckCsvRow {
     status: result.status,
     statusCode: result.statusCode ?? null,
     responseTime: result.responseTime,
-    errorMessage: result.error?.message ?? null
+    errorMessage: result.error?.message ?? null,
   };
 }
 
@@ -1025,7 +1050,7 @@ export class AtomicCsvWriter<T extends CsvRow> extends CsvWriter<T> {
       // Create temp writer
       const tempWriter = new CsvWriter<T>({
         ...this.options,
-        path: tempPath
+        path: tempPath,
       });
 
       // Append to temp file
@@ -1104,8 +1129,8 @@ import * as path from 'path';
 import { CsvWriter, CsvWriterOptions, CsvRow } from './csv-writer.js';
 
 export interface RotatingCsvWriterOptions extends CsvWriterOptions {
-  maxFileSize: number;  // bytes
-  maxFiles: number;     // number of rotated files to keep
+  maxFileSize: number; // bytes
+  maxFiles: number; // number of rotated files to keep
 }
 
 export class RotatingCsvWriter<T extends CsvRow> extends CsvWriter<T> {
@@ -1164,7 +1189,7 @@ const rotatingWriter = new RotatingCsvWriter<HealthCheckCsvRow>({
   headers: ['timestamp', 'url', 'status', 'statusCode', 'responseTime', 'errorMessage'],
   path: './data/health-checks.csv',
   maxFileSize: 10 * 1024 * 1024, // 10MB
-  maxFiles: 5  // Keep 5 rotated files
+  maxFiles: 5, // Keep 5 rotated files
 });
 
 // Automatically rotates when file exceeds 10MB
@@ -1174,6 +1199,7 @@ await rotatingWriter.append(csvRows);
 ### Performance Benchmarks
 
 fast-csv performance characteristics:
+
 - **Write speed**: ~1M rows/minute on modern hardware
 - **Memory usage**: ~50MB for 100k rows (streaming)
 - **Overhead**: Minimal (<5%) compared to raw fs.appendFile
@@ -1185,14 +1211,17 @@ try {
   await csvWriter.append(rows);
 } catch (error) {
   if (error instanceof Error) {
-    logger.error({
-      error: {
-        message: error.message,
-        stack: error.stack
+    logger.error(
+      {
+        error: {
+          message: error.message,
+          stack: error.stack,
+        },
+        filePath: csvWriter.filePath,
+        rowCount: rows.length,
       },
-      filePath: csvWriter.filePath,
-      rowCount: rows.length
-    }, 'Failed to write CSV');
+      'Failed to write CSV'
+    );
   }
   throw error;
 }
@@ -1215,7 +1244,7 @@ describe('CsvWriter', () => {
   beforeEach(() => {
     writer = new CsvWriter({
       headers: ['name', 'age'],
-      path: testPath
+      path: testPath,
     });
   });
 
@@ -1228,7 +1257,7 @@ describe('CsvWriter', () => {
   it('should create new CSV with headers', async () => {
     await writer.create([
       { name: 'Alice', age: 30 },
-      { name: 'Bob', age: 25 }
+      { name: 'Bob', age: 25 },
     ]);
 
     const content = fs.readFileSync(testPath, 'utf-8');
@@ -1260,9 +1289,8 @@ describe('CsvWriter', () => {
 
 ### Decision: Use Pino Logger with Child Loggers and Correlation IDs
 
-**Library**: `pino` + `pino-http` (for HTTP middleware)
-**Version**: `pino@^9.0.0`, `pino-http@^10.0.0`
-**Pattern**: Request-scoped child loggers with correlation ID tracking
+**Library**: `pino` + `pino-http` (for HTTP middleware) **Version**: `pino@^9.0.0`,
+`pino-http@^10.0.0` **Pattern**: Request-scoped child loggers with correlation ID tracking
 
 ### Rationale
 
@@ -1276,16 +1304,17 @@ describe('CsvWriter', () => {
 
 ### Alternatives Considered
 
-| Approach | Pros | Cons | Verdict |
-|----------|------|------|---------|
-| **Winston** | Most popular (12M+ downloads), flexible transports | Slower, poor defaults, requires heavy config | Too slow for high-volume |
-| **Bunyan** | Good structured logging, mature | Development stalled, less active | Pino is spiritual successor |
-| **Log4js** | Familiar to Java devs | Not optimized for Node.js async | Wrong paradigm |
-| **Console.log** | Zero dependencies | No structure, no levels, no context | Unacceptable for production |
+| Approach        | Pros                                               | Cons                                         | Verdict                     |
+| --------------- | -------------------------------------------------- | -------------------------------------------- | --------------------------- |
+| **Winston**     | Most popular (12M+ downloads), flexible transports | Slower, poor defaults, requires heavy config | Too slow for high-volume    |
+| **Bunyan**      | Good structured logging, mature                    | Development stalled, less active             | Pino is spiritual successor |
+| **Log4js**      | Familiar to Java devs                              | Not optimized for Node.js async              | Wrong paradigm              |
+| **Console.log** | Zero dependencies                                  | No structure, no levels, no context          | Unacceptable for production |
 
 ### Implementation Notes
 
 **Installation**:
+
 ```bash
 npm install pino pino-http pino-pretty
 ```
@@ -1310,8 +1339,8 @@ const loggerOptions: LoggerOptions = {
         formatters: {
           level: (label) => {
             return { level: label };
-          }
-        }
+          },
+        },
       }
     : {
         transport: {
@@ -1320,15 +1349,15 @@ const loggerOptions: LoggerOptions = {
             colorize: true,
             translateTime: 'HH:MM:ss.l',
             ignore: 'pid,hostname',
-            singleLine: false
-          }
-        }
+            singleLine: false,
+          },
+        },
       }),
 
   // Base context included in all logs
   base: {
     env: process.env.NODE_ENV,
-    service: 'govuk-status-monitor'
+    service: 'govuk-status-monitor',
   },
 
   // Timestamp in ISO 8601 format
@@ -1337,8 +1366,8 @@ const loggerOptions: LoggerOptions = {
   // Serialize errors properly
   serializers: {
     err: pino.stdSerializers.err,
-    error: pino.stdSerializers.err
-  }
+    error: pino.stdSerializers.err,
+  },
 };
 
 export const logger: Logger = pino(loggerOptions);
@@ -1407,15 +1436,15 @@ export const loggingMiddleware = pinoHttp({
       path: req.path,
       headers: {
         host: req.headers.host,
-        userAgent: req.headers['user-agent']
+        userAgent: req.headers['user-agent'],
       },
       remoteAddress: req.ip,
-      remotePort: req.socket?.remotePort
+      remotePort: req.socket?.remotePort,
     }),
     res: (res) => ({
       statusCode: res.statusCode,
-      headers: res.getHeaders()
-    })
+      headers: res.getHeaders(),
+    }),
   },
 
   // Custom log message format
@@ -1432,7 +1461,7 @@ export const loggingMiddleware = pinoHttp({
   },
   customErrorMessage: (req, res, err) => {
     return `${req.method} ${req.url} ${res.statusCode} - ${err.message}`;
-  }
+  },
 });
 ```
 
@@ -1495,7 +1524,7 @@ export async function monitorServices() {
   // Create child logger with monitoring context
   const monitorLogger = logger.child({
     context: 'service-monitor',
-    correlationId: randomUUID()
+    correlationId: randomUUID(),
   });
 
   monitorLogger.info('Starting service monitoring cycle');
@@ -1506,7 +1535,7 @@ export async function monitorServices() {
     // Create child logger per service
     const serviceLogger = monitorLogger.child({
       serviceId: service.id,
-      serviceName: service.name
+      serviceName: service.name,
     });
 
     try {
@@ -1518,15 +1547,12 @@ export async function monitorServices() {
         {
           status: status.status,
           statusCode: status.statusCode,
-          duration
+          duration,
         },
         'Service health check completed'
       );
     } catch (error) {
-      serviceLogger.error(
-        { err: error },
-        'Service health check failed'
-      );
+      serviceLogger.error({ err: error }, 'Service health check failed');
     }
   }
 
@@ -1543,7 +1569,7 @@ logger.info(
     userId: '123',
     action: 'login',
     ip: '192.168.1.1',
-    duration: 245
+    duration: 245,
   },
   'User login successful'
 );
@@ -1557,7 +1583,7 @@ logger.error(
     err: error,
     userId: '123',
     operation: 'database-query',
-    query: 'SELECT * FROM users'
+    query: 'SELECT * FROM users',
   },
   'Database query failed'
 );
@@ -1569,12 +1595,12 @@ logger.error(error);
 **Log Levels**:
 
 ```typescript
-logger.trace({ detail: 'data' }, 'Very verbose debugging');  // 10
-logger.debug({ state: 'value' }, 'Debugging information');   // 20
+logger.trace({ detail: 'data' }, 'Very verbose debugging'); // 10
+logger.debug({ state: 'value' }, 'Debugging information'); // 20
 logger.info({ event: 'happened' }, 'Informational message'); // 30
-logger.warn({ issue: 'found' }, 'Warning message');          // 40
-logger.error({ err: error }, 'Error occurred');              // 50
-logger.fatal({ err: error }, 'Fatal error, exiting');        // 60
+logger.warn({ issue: 'found' }, 'Warning message'); // 40
+logger.error({ err: error }, 'Error occurred'); // 50
+logger.fatal({ err: error }, 'Fatal error, exiting'); // 60
 ```
 
 **Redacting Sensitive Information**:
@@ -1594,18 +1620,21 @@ const loggerOptions: LoggerOptions = {
       'authorization',
       'cookie',
       'headers.authorization',
-      'headers.cookie'
+      'headers.cookie',
     ],
-    remove: true  // or censor: '[REDACTED]'
-  }
+    remove: true, // or censor: '[REDACTED]'
+  },
 };
 
 // Usage
-logger.info({
-  username: 'alice',
-  password: 'secret123',  // Will be removed
-  token: 'abc123'         // Will be removed
-}, 'User authenticated');
+logger.info(
+  {
+    username: 'alice',
+    password: 'secret123', // Will be removed
+    token: 'abc123', // Will be removed
+  },
+  'User authenticated'
+);
 ```
 
 **Log Rotation with Pino Transports**:
@@ -1628,9 +1657,9 @@ const logger = pino({
           file: './logs/app.log',
           frequency: 'daily',
           size: '10m',
-          mkdir: true
+          mkdir: true,
         },
-        level: 'info'
+        level: 'info',
       },
       // Write errors to separate file
       {
@@ -1639,17 +1668,17 @@ const logger = pino({
           file: './logs/error.log',
           frequency: 'daily',
           size: '10m',
-          mkdir: true
+          mkdir: true,
         },
-        level: 'error'
+        level: 'error',
       },
       // Also log to stdout for container logs
       {
         target: 'pino-pretty',
-        level: 'info'
-      }
-    ]
-  }
+        level: 'info',
+      },
+    ],
+  },
 });
 ```
 
@@ -1686,7 +1715,7 @@ export function getLogger(): Logger {
 
 // Usage in any function
 async function someDeepFunction() {
-  const log = getLogger();  // Automatically includes correlation ID
+  const log = getLogger(); // Automatically includes correlation ID
   log.info('Doing something deep in the call stack');
 }
 ```
@@ -1704,7 +1733,7 @@ export async function fetchExternalApi(url: string) {
   const logger = getLogger();
 
   const headers: Record<string, string> = {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   };
 
   // Propagate correlation ID to downstream services
@@ -1720,7 +1749,7 @@ export async function fetchExternalApi(url: string) {
     {
       url,
       status: response.status,
-      headers: Object.fromEntries(response.headers.entries())
+      headers: Object.fromEntries(response.headers.entries()),
     },
     'External API response'
   );
@@ -1765,12 +1794,14 @@ export async function fetchExternalApi(url: string) {
 ### Performance Characteristics
 
 Pino performance metrics:
+
 - **Throughput**: 50k+ log entries/second
 - **Overhead**: <1ms per log statement
 - **Memory**: Minimal buffering, async writes
 - **CPU**: <5% overhead in production workloads
 
 Comparison to Winston:
+
 - **5-8x faster** in benchmarks
 - **Lower memory usage** due to streaming
 - **Better async handling** prevents event loop blocking
@@ -1800,7 +1831,7 @@ describe('Logger', () => {
     expect(logs[0]).toMatchObject({
       level: 30,
       correlationId: 'test-123',
-      msg: 'test message'
+      msg: 'test message',
     });
   });
 });
@@ -1820,15 +1851,15 @@ describe('Logger', () => {
 
 ### Technology Stack
 
-| Component | Choice | Version | Rationale |
-|-----------|--------|---------|-----------|
-| **Node.js** | Node.js LTS | 22.11+ | Native TypeScript, active LTS until April 2027 |
-| **TypeScript** | TypeScript | 5.8+ | Native Node.js support with `--experimental-strip-types` |
-| **Static Site Generator** | Eleventy | 3.0+ | TypeScript support, ESM, GOV.UK plugin compatibility |
-| **GOV.UK Components** | govuk-eleventy-plugin | 4.0+ | Official GDS alignment, WCAG 2.2 AA compliant |
-| **HTTP Client** | Native Fetch | Built-in | Zero dependencies, AbortSignal support |
-| **CSV Library** | fast-csv | 5.0+ | Performance, TypeScript native, streaming |
-| **Logging** | Pino | 9.0+ | Performance, structured JSON, correlation IDs |
+| Component                 | Choice                | Version  | Rationale                                                |
+| ------------------------- | --------------------- | -------- | -------------------------------------------------------- |
+| **Node.js**               | Node.js LTS           | 22.11+   | Native TypeScript, active LTS until April 2027           |
+| **TypeScript**            | TypeScript            | 5.8+     | Native Node.js support with `--experimental-strip-types` |
+| **Static Site Generator** | Eleventy              | 3.0+     | TypeScript support, ESM, GOV.UK plugin compatibility     |
+| **GOV.UK Components**     | govuk-eleventy-plugin | 4.0+     | Official GDS alignment, WCAG 2.2 AA compliant            |
+| **HTTP Client**           | Native Fetch          | Built-in | Zero dependencies, AbortSignal support                   |
+| **CSV Library**           | fast-csv              | 5.0+     | Performance, TypeScript native, streaming                |
+| **Logging**               | Pino                  | 9.0+     | Performance, structured JSON, correlation IDs            |
 
 ### Key Architecture Principles
 
@@ -1978,4 +2009,7 @@ npm run monitor
 
 **End of Research Document**
 
-*This research provides a comprehensive technical foundation for implementing the GOV.UK Status Monitor using modern TypeScript, Eleventy v3, and production-grade Node.js libraries while maintaining full compliance with GOV.UK Design System standards and WCAG 2.2 AA accessibility requirements.*
+_This research provides a comprehensive technical foundation for implementing the GOV.UK Status
+Monitor using modern TypeScript, Eleventy v3, and production-grade Node.js libraries while
+maintaining full compliance with GOV.UK Design System standards and WCAG 2.2 AA accessibility
+requirements._

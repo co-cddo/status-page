@@ -34,19 +34,19 @@ function getGitHubPagesUrl(): string {
 
     if (typeof repository === 'string') {
       // Format: "github:owner/repo" or "owner/repo" or "https://github.com/owner/repo"
-      const match = repository.match(/(?:github:|https:\/\/github\.com\/)?([^\/]+)\/([^\/\.]+)/);
+      const match = repository.match(/(?:github:|https:\/\/github.com\/)?([^/]+)\/([^/.]+)/);
       if (match) {
         const [, owner, repo] = match;
         return `https://${owner}.github.io/${repo}`;
       }
     } else if (repository && repository.url) {
-      const match = repository.url.match(/github\.com\/([^\/]+)\/([^\/\.]+)/);
+      const match = repository.url.match(/github.com\/([^/]+)\/([^/.]+)/);
       if (match) {
         const [, owner, repo] = match;
         return `https://${owner}.github.io/${repo}`;
       }
     }
-  } catch (error) {
+  } catch {
     // Fall through to local fallback
   }
 
@@ -92,7 +92,7 @@ test.describe('Deployed Status Page (US7)', () => {
     const externalRequests: string[] = [];
 
     // Monitor all network requests
-    page.on('request', request => {
+    page.on('request', (request) => {
       const url = request.url();
 
       // Track external requests (not same-origin, not data URIs)
@@ -164,7 +164,9 @@ test.describe('Deployed Status Page (US7)', () => {
     await expect(serviceList).toBeVisible();
 
     // Verify at least one service is displayed (or "no services" message)
-    const hasServices = await page.locator('.service-status, .govuk-summary-list, [data-testid="service"]').count();
+    const hasServices = await page
+      .locator('.service-status, .govuk-summary-list, [data-testid="service"]')
+      .count();
     const hasEmptyState = await page.locator('text=/no services|currently monitoring/i').count();
 
     expect(hasServices + hasEmptyState).toBeGreaterThan(0);
@@ -230,7 +232,7 @@ test.describe('Deployed Status Page (US7)', () => {
   test('status page works without JavaScript', async ({ browser }) => {
     // Create new context with JavaScript disabled
     const context = await browser.newContext({
-      javaScriptEnabled: false
+      javaScriptEnabled: false,
     });
 
     const pageNoJs = await context.newPage();
@@ -304,28 +306,28 @@ test.describe('Deployed Status Page (US7)', () => {
   test('page serves correct MIME types for assets', async ({ page }) => {
     const responses: { url: string; contentType: string }[] = [];
 
-    page.on('response', response => {
+    page.on('response', (response) => {
       const contentType = response.headers()['content-type'] || '';
       responses.push({
         url: response.url(),
-        contentType
+        contentType,
       });
     });
 
     await page.goto(pageUrl, { waitUntil: 'networkidle' });
 
     // Verify HTML
-    const htmlResponse = responses.find(r => r.url === pageUrl);
+    const htmlResponse = responses.find((r) => r.url === pageUrl);
     expect(htmlResponse?.contentType).toContain('text/html');
 
     // Verify JSON API
-    const jsonResponse = responses.find(r => r.url.includes('status.json'));
+    const jsonResponse = responses.find((r) => r.url.includes('status.json'));
     if (jsonResponse) {
       expect(jsonResponse.contentType).toMatch(/application\/json|text\/plain/);
     }
 
     // Verify CSV
-    const csvResponse = responses.find(r => r.url.includes('.csv'));
+    const csvResponse = responses.find((r) => r.url.includes('.csv'));
     if (csvResponse) {
       expect(csvResponse.contentType).toMatch(/text\/csv|text\/plain|application\/csv/);
     }

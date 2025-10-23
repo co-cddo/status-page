@@ -63,10 +63,11 @@ describe('Deploy Workflow Contract (US7)', () => {
     expect(deployJob).toBeDefined();
 
     const steps = deployJob!.steps;
-    const hasCacheRestoreStep = steps.some((step: WorkflowStep) =>
-      step.uses?.includes('actions/cache') ||
-      step.name?.toLowerCase().includes('restore') ||
-      step.name?.toLowerCase().includes('cache')
+    const hasCacheRestoreStep = steps.some(
+      (step: WorkflowStep) =>
+        step.uses?.includes('actions/cache') ||
+        step.name?.toLowerCase().includes('restore') ||
+        step.name?.toLowerCase().includes('cache')
     );
 
     expect(hasCacheRestoreStep).toBe(true);
@@ -81,8 +82,8 @@ describe('Deploy Workflow Contract (US7)', () => {
     // Check for fallback logic
     expect(
       workflowString.includes('gh-pages') ||
-      workflowString.includes('fallback') ||
-      workflowString.includes('download.*csv')
+        workflowString.includes('fallback') ||
+        workflowString.includes('download.*csv')
     ).toBe(true);
   });
 
@@ -95,10 +96,11 @@ describe('Deploy Workflow Contract (US7)', () => {
     expect(deployJob).toBeDefined();
 
     const steps = deployJob!.steps;
-    const hasHealthCheckStep = steps.some((step: WorkflowStep) =>
-      step.name?.toLowerCase().includes('health') ||
-      step.run?.includes('health-check') ||
-      step.run?.includes('orchestrator')
+    const hasHealthCheckStep = steps.some(
+      (step: WorkflowStep) =>
+        step.name?.toLowerCase().includes('health') ||
+        step.run?.includes('health-check') ||
+        step.run?.includes('orchestrator')
     );
 
     expect(hasHealthCheckStep).toBe(true);
@@ -112,8 +114,7 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     // Check for status.json generation
     expect(
-      workflowString.includes('status.json') ||
-      workflowString.includes('_data/health.json')
+      workflowString.includes('status.json') || workflowString.includes('_data/health.json')
     ).toBe(true);
   });
 
@@ -126,11 +127,12 @@ describe('Deploy Workflow Contract (US7)', () => {
     expect(deployJob).toBeDefined();
 
     const steps = deployJob!.steps;
-    const hasEleventyStep = steps.some((step: WorkflowStep) =>
-      step.name?.toLowerCase().includes('eleventy') ||
-      step.name?.toLowerCase().includes('build') ||
-      step.run?.includes('eleventy') ||
-      step.run?.includes('pnpm run build')
+    const hasEleventyStep = steps.some(
+      (step: WorkflowStep) =>
+        step.name?.toLowerCase().includes('eleventy') ||
+        step.name?.toLowerCase().includes('build') ||
+        step.run?.includes('eleventy') ||
+        step.run?.includes('pnpm run build')
     );
 
     expect(hasEleventyStep).toBe(true);
@@ -143,10 +145,7 @@ describe('Deploy Workflow Contract (US7)', () => {
     const workflowString = JSON.stringify(workflow);
 
     // Check for inlining step
-    expect(
-      workflowString.includes('inline') ||
-      workflowString.includes('post-build')
-    ).toBe(true);
+    expect(workflowString.includes('inline') || workflowString.includes('post-build')).toBe(true);
   });
 
   test('workflow deploys to GitHub Pages', () => {
@@ -158,9 +157,10 @@ describe('Deploy Workflow Contract (US7)', () => {
     expect(deployJob).toBeDefined();
 
     const steps = deployJob!.steps;
-    const hasDeployStep = steps.some((step: WorkflowStep) =>
-      step.uses?.includes('actions/deploy-pages') ||
-      step.uses?.includes('peaceiris/actions-gh-pages')
+    const hasDeployStep = steps.some(
+      (step: WorkflowStep) =>
+        step.uses?.includes('actions/deploy-pages') ||
+        step.uses?.includes('peaceiris/actions-gh-pages')
     );
 
     expect(hasDeployStep).toBe(true);
@@ -175,9 +175,10 @@ describe('Deploy Workflow Contract (US7)', () => {
     expect(deployJob).toBeDefined();
 
     const steps = deployJob!.steps;
-    const hasUploadStep = steps.some((step: WorkflowStep) =>
-      step.uses?.includes('actions/upload-pages-artifact') ||
-      step.uses?.includes('actions/upload-artifact')
+    const hasUploadStep = steps.some(
+      (step: WorkflowStep) =>
+        step.uses?.includes('actions/upload-pages-artifact') ||
+        step.uses?.includes('actions/upload-artifact')
     );
 
     expect(hasUploadStep).toBe(true);
@@ -192,8 +193,8 @@ describe('Deploy Workflow Contract (US7)', () => {
     // Verify artifact includes index.html, status.json, history.csv
     expect(
       workflowString.includes('index.html') ||
-      workflowString.includes('_site') ||
-      workflowString.includes('output')
+        workflowString.includes('_site') ||
+        workflowString.includes('output')
     ).toBe(true);
   });
 
@@ -206,9 +207,10 @@ describe('Deploy Workflow Contract (US7)', () => {
     expect(deployJob).toBeDefined();
 
     const steps = deployJob!.steps;
-    const hasCacheSaveStep = steps.some((step: WorkflowStep) =>
-      (step.uses?.includes('actions/cache') && step.name?.toLowerCase().includes('save')) ||
-      step.name?.toLowerCase().includes('cache.*csv')
+    const hasCacheSaveStep = steps.some(
+      (step: WorkflowStep) =>
+        (step.uses?.includes('actions/cache') && step.name?.toLowerCase().includes('save')) ||
+        step.name?.toLowerCase().includes('cache.*csv')
     );
 
     expect(hasCacheSaveStep).toBe(true);
@@ -225,9 +227,8 @@ describe('Deploy Workflow Contract (US7)', () => {
     const steps = deployJob!.steps;
 
     // Check for failure handling steps
-    const hasFailureHandling = steps.some((step: WorkflowStep) =>
-      step.if?.includes('failure') ||
-      step.if?.includes('always')
+    const hasFailureHandling = steps.some(
+      (step: WorkflowStep) => step.if?.includes('failure') || step.if?.includes('always')
     );
 
     expect(hasFailureHandling).toBe(true);
@@ -242,9 +243,7 @@ describe('Deploy Workflow Contract (US7)', () => {
     expect(deployJob).toBeDefined();
 
     const steps = deployJob!.steps;
-    const nodeStep = steps.find((step: WorkflowStep) =>
-      step.uses?.includes('actions/setup-node')
-    );
+    const nodeStep = steps.find((step: WorkflowStep) => step.uses?.includes('actions/setup-node'));
 
     expect(nodeStep).toBeDefined();
 
@@ -254,10 +253,10 @@ describe('Deploy Workflow Contract (US7)', () => {
       if (typeof nodeVersion === 'string') {
         expect(
           nodeVersion === '22' ||
-          nodeVersion === '22.x' ||
-          nodeVersion === 'lts/*' ||
-          nodeVersion.startsWith('22') ||
-          nodeVersion.includes('>=22')
+            nodeVersion === '22.x' ||
+            nodeVersion === 'lts/*' ||
+            nodeVersion.startsWith('22') ||
+            nodeVersion.includes('>=22')
         ).toBe(true);
       }
     }
@@ -300,10 +299,9 @@ describe('Deploy Workflow Contract (US7)', () => {
     const workflowString = JSON.stringify(workflow);
 
     // Check for CSV validation
-    expect(
-      workflowString.includes('validate.*csv') ||
-      workflowString.includes('check.*csv')
-    ).toBe(true);
+    expect(workflowString.includes('validate.*csv') || workflowString.includes('check.*csv')).toBe(
+      true
+    );
   });
 
   test('workflow handles CSV corruption gracefully', () => {
@@ -315,8 +313,8 @@ describe('Deploy Workflow Contract (US7)', () => {
     // Check for corruption handling or new file creation
     expect(
       workflowString.includes('corrupt') ||
-      workflowString.includes('fallback') ||
-      workflowString.includes('create.*new')
+        workflowString.includes('fallback') ||
+        workflowString.includes('create.*new')
     ).toBe(true);
   });
 
@@ -329,8 +327,8 @@ describe('Deploy Workflow Contract (US7)', () => {
     // Check for metrics or logging
     expect(
       workflowString.includes('metrics') ||
-      workflowString.includes('prometheus') ||
-      workflowString.includes('log')
+        workflowString.includes('prometheus') ||
+        workflowString.includes('log')
     ).toBe(true);
   });
 });

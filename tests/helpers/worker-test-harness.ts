@@ -70,7 +70,7 @@ export class MockWorker extends EventEmitter {
     }
 
     this.terminated = true;
-    
+
     // Emit exit event asynchronously
     process.nextTick(() => {
       this.emit('exit', 0);
