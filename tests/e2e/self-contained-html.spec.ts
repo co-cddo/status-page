@@ -383,9 +383,14 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
     await context.close();
   });
 
-  test('page is functional without network connectivity', async ({ context }) => {
+  test('page is functional without network connectivity', async ({ context, browserName }) => {
     // Simulate offline mode
-    await context.setOffline(true);
+    // Note: WebKit has issues with setOffline(true) + file:// URLs
+    // file:// URLs don't make network requests anyway, so skip setOffline for webkit
+    const shouldSetOffline = browserName !== 'webkit';
+    if (shouldSetOffline) {
+      await context.setOffline(true);
+    }
 
     const page = await context.newPage();
 
@@ -397,7 +402,9 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
     await expect(page.locator('main')).toBeVisible();
 
     // Restore online mode
-    await context.setOffline(false);
+    if (shouldSetOffline) {
+      await context.setOffline(false);
+    }
   });
 
   test('GOV.UK Design System components render correctly', async ({ page }) => {

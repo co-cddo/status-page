@@ -247,8 +247,9 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     const serviceName = firstService.locator('h2, h3');
     await expect(serviceName).toBeVisible();
 
-    // Verify status indicator (GOV.UK tag)
-    const statusTag = firstService.locator('.govuk-tag');
+    // Verify status indicator (GOV.UK tag with role="status")
+    // Use role="status" to select only the status tag, not category tags
+    const statusTag = firstService.locator('[role="status"]');
     await expect(statusTag).toBeVisible();
 
     // Verify status tag has accessible ARIA label
