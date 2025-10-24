@@ -316,8 +316,28 @@ test.describe('Deployed Status Page (US7)', () => {
 
     await page.goto(pageUrl, { waitUntil: 'networkidle' });
 
-    // Verify HTML
-    const htmlResponse = responses.find((r) => r.url === pageUrl);
+    // Normalize URLs for comparison (remove trailing slashes, handle localhost vs GitHub Pages)
+    const normalizeUrl = (url: string) => {
+      const normalized = url.replace(/\/$/, ''); // Remove trailing slash
+      // For localhost, normalize to just the base URL
+      if (normalized.includes('localhost')) {
+        return normalized.split('?')[0]; // Remove query params
+      }
+      return normalized;
+    };
+
+    const normalizedPageUrl = normalizeUrl(pageUrl);
+
+    // Verify HTML - find response that matches the page URL (handle trailing slashes and index.html)
+    const htmlResponse = responses.find((r) => {
+      const normalizedResponseUrl = normalizeUrl(r.url);
+      return (
+        normalizedResponseUrl === normalizedPageUrl ||
+        normalizedResponseUrl === `${normalizedPageUrl}/index.html` ||
+        normalizedResponseUrl === `${normalizedPageUrl}/`
+      );
+    });
+
     expect(htmlResponse?.contentType).toContain('text/html');
 
     // Verify JSON API
