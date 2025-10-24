@@ -79,8 +79,8 @@ function extractInlineScripts(html: string): string[] {
   let match;
 
   while ((match = scriptRegex.exec(html)) !== null) {
-    // Exclude scripts with src attribute
-    if (!match[0].includes('src=') && match[1]) {
+    // Exclude scripts with actual src attribute (not data-inlined-from or other attributes containing "src=")
+    if (!match[0].match(/\ssrc=["']/) && match[1]) {
       matches.push(match[1]);
     }
   }
