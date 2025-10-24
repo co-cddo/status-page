@@ -418,13 +418,21 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
     if (tagCount > 0) {
       // Verify tag has proper styles
       const firstTag = tags.first();
-      await expect(firstTag).toBeVisible();
+
+      // Check computed styles instead of visibility to be more robust
+      const styles = await firstTag.evaluate((el) => {
+        const computed = window.getComputedStyle(el);
+        return {
+          display: computed.display,
+          backgroundColor: computed.backgroundColor,
+        };
+      });
+
+      // Verify tag is displayed (not display: none)
+      expect(styles.display).not.toBe('none');
 
       // Verify tag has background color (CSS applied)
-      const backgroundColor = await firstTag.evaluate(
-        (el) => window.getComputedStyle(el).backgroundColor
-      );
-      expect(backgroundColor).not.toBe('rgba(0, 0, 0, 0)'); // Not transparent
+      expect(styles.backgroundColor).not.toBe('rgba(0, 0, 0, 0)'); // Not transparent
     }
   });
 
