@@ -318,7 +318,10 @@ async function copyAdditionalFiles(inputDir: string, outputDir: string): Promise
     try {
       await access(healthDataPath);
       await copyFile(healthDataPath, apiOutputPath);
-      logger.info({ from: healthDataPath, to: apiOutputPath }, 'Copied health.json as status.json API endpoint');
+      logger.info(
+        { from: healthDataPath, to: apiOutputPath },
+        'Copied health.json as status.json API endpoint'
+      );
     } catch {
       // Create empty array if no source exists
       await writeFile(apiOutputPath, JSON.stringify([]), 'utf-8');
@@ -344,7 +347,8 @@ async function copyAdditionalFiles(inputDir: string, outputDir: string): Promise
       logger.info({ from: historyCsvRoot, to: historyCsvOutput }, 'Copied history.csv from root');
     } catch {
       // Create empty CSV with header if no source exists
-      const csvHeader = 'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id\n';
+      const csvHeader =
+        'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id\n';
       await writeFile(historyCsvOutput, csvHeader, 'utf-8');
       logger.warn({ path: historyCsvOutput }, 'Created empty history.csv (no source data found)');
     }
