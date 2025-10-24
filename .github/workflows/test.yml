@@ -40,7 +40,7 @@ jobs:
         run: pnpx playwright install --with-deps
 
       - name: Generate test health data
-        run: timeout 60 pnpm run check-once || true
+        run: timeout 90 pnpm run check-once || true
         continue-on-error: false
         env:
           NODE_ENV: test
