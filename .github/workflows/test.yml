@@ -39,6 +39,12 @@ jobs:
       - name: Install Playwright browsers
         run: pnpx playwright install --with-deps
 
+      - name: Generate test health data
+        run: timeout 60 pnpm run check-once || true
+        continue-on-error: false
+        env:
+          NODE_ENV: test
+
       - name: Build application
         run: pnpm run build:inline
         continue-on-error: false
