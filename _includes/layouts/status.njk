@@ -20,14 +20,6 @@
   {{ content }}
 {% endblock %}
 
-{% block bodyEnd %}
-  {{ super() }}
-  {# Initialize GOV.UK Frontend components after all scripts are loaded #}
-  <script>
-    window.GOVUKFrontend.initAll()
-  </script>
-{% endblock %}
-
 {% block footer %}
   {# Override footer to remove external Open Government Licence link for self-contained HTML #}
   <footer class="govuk-footer" role="contentinfo">

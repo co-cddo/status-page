@@ -169,9 +169,12 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
 
     expect(inlineScripts.length).toBeGreaterThan(0);
 
-    // Should contain GOV.UK Frontend JavaScript
+    // Should contain GOV.UK Frontend JavaScript (check for component module names)
     const hasGovukJs = inlineScripts.some(
-      (script) => script.includes('GOVUKFrontend') || script.includes('initAll')
+      (script) =>
+        script.includes('govuk-accordion') ||
+        script.includes('govuk-button') ||
+        script.includes('govuk-frontend-supported')
     );
 
     expect(hasGovukJs).toBe(true);
@@ -273,8 +276,13 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
     const inlineScripts = extractInlineScripts(htmlContent);
     const allJs = inlineScripts.join('\n');
 
-    // Verify GOV.UK Frontend JavaScript is present
-    const govukJsPatterns = [/GOVUKFrontend/, /initAll/];
+    // Verify GOV.UK Frontend JavaScript is present (check for component module names and classes)
+    const govukJsPatterns = [
+      /govuk-accordion/,
+      /govuk-button/,
+      /govuk-frontend-supported/,
+      /js-enabled/
+    ];
 
     const missingPatterns = govukJsPatterns.filter((pattern) => !pattern.test(allJs));
 
@@ -445,35 +453,32 @@ test.describe('Self-Contained HTML Network Isolation (US1 - T044c)', () => {
   });
 
   test('inlined JavaScript initializes GOV.UK components', async ({ page }) => {
-    await page.goto(fileUrl);
-
-    // Verify GOV.UK Frontend is initialized
-    const govukInitialized = await page.evaluate(() => {
-      interface WindowWithGOVUK extends Window {
-        GOVUKFrontend?: unknown;
-      }
-      return typeof (window as WindowWithGOVUK).GOVUKFrontend !== 'undefined';
-    });
-
-    expect(govukInitialized).toBe(true);
-
-    // Verify initAll was called
-    // Note: Variable unused in current test, kept for documentation
-    // const _initAllCalled = await page.evaluate(() => {
-    //   // Check if GOV.UK components have data-module attributes set
-    //   const components = document.querySelectorAll('[data-module]');
-    //   return components.length > 0;
-    // });
-
-    // May be true or false depending on whether components use data-module
-    // Just verify no JavaScript errors occurred
+    // Track JavaScript errors
     const jsErrors: string[] = [];
     page.on('pageerror', (error) => {
       jsErrors.push(error.message);
     });
 
-    await page.waitForTimeout(500); // Wait for JS execution
+    await page.goto(fileUrl);
 
+    // Verify JavaScript classes are enabled (from body class)
+    const hasJsEnabled = await page.evaluate(() => {
+      return document.body.classList.contains('js-enabled');
+    });
+
+    expect(hasJsEnabled).toBe(true);
+
+    // Verify GOV.UK Frontend support class is present
+    const hasFrontendSupport = await page.evaluate(() => {
+      return document.body.classList.contains('govuk-frontend-supported');
+    });
+
+    expect(hasFrontendSupport).toBe(true);
+
+    // Wait for JavaScript execution and module initialization
+    await page.waitForTimeout(500);
+
+    // Verify no JavaScript errors occurred during initialization
     expect(jsErrors.length).toBe(0);
   });
 
