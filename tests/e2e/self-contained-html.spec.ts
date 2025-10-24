@@ -281,7 +281,7 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
       /govuk-accordion/,
       /govuk-button/,
       /govuk-frontend-supported/,
-      /js-enabled/
+      /js-enabled/,
     ];
 
     const missingPatterns = govukJsPatterns.filter((pattern) => !pattern.test(allJs));
