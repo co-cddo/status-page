@@ -27,12 +27,9 @@ export default function (eleventyConfig) {
     // Page title suffix
     titleSuffix: 'GOV.UK service status',
 
-    // Icons - use default GOV.UK icons from plugin
-    icons: {
-      mask: '/assets/rebrand/images/govuk-icon-mask.svg',
-      shortcut: '/assets/rebrand/images/favicon.ico',
-      touch: '/assets/rebrand/images/govuk-icon-180.png',
-    },
+    // Icons - disabled for self-contained HTML requirement (FR-021)
+    // External icon links would violate the no-external-dependencies constraint
+    icons: false,
 
     // Markdown configuration
     markdown: {
