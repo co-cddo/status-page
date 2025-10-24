@@ -290,7 +290,7 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
     expect(htmlContent).toMatch(/<!DOCTYPE html>/i);
     expect(htmlContent).toMatch(/<html[^>]*>/i);
     expect(htmlContent).toMatch(/<head>/i);
-    expect(htmlContent).toMatch(/<body>/i);
+    expect(htmlContent).toMatch(/<body[^>]*>/i); // Match opening body tag with attributes
     expect(htmlContent).toMatch(/<\/html>/i);
 
     // Verify charset is specified
