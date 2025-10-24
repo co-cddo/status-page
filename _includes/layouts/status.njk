@@ -16,8 +16,15 @@
   <meta http-equiv="refresh" content="{{ settings.page_refresh or 60 }}">
 {% endblock %}
 
-{% block content %}
-  {{ content }}
+{% block main %}
+  <div class="govuk-width-container {%- if containerClasses %} {{ containerClasses }}{% endif %}">
+    {% block beforeContent %}{% endblock %}
+    <main class="govuk-main-wrapper {%- if mainClasses %} {{ mainClasses }}{% endif %}" id="main-content" role="main"{%- if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+    </main>
+  </div>
 {% endblock %}
 
 {% block footer %}
