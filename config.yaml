@@ -1,10 +1,21 @@
 settings:
-  check_interval: 300
-  warning_threshold: 2
-  timeout: 10
-  page_refresh: 300
-  max_retries: 3
-  worker_pool_size: 0
+  check_interval: 300  # Default seconds between checks (5 minutes)
+  warning_threshold: 2  # Seconds before status becomes DEGRADED
+  timeout: 10  # Seconds before request fails
+  page_refresh: 300  # Browser auto-refresh interval (seconds)
+  max_retries: 3  # Retry attempts for failed requests
+  worker_pool_size: 0  # 0 = auto-detect (2x CPU cores)
+
+# TEXT VALIDATION:
+# Services with 'text:' perform case-sensitive substring matching on page content.
+# This detects error pages vs working content (e.g., text: "Apply for" matches page
+# containing "Apply for your first provisional driving licence").
+#
+# SEARCH SERVICES:
+# Services with search functionality have two entries:
+# 1. GET request to verify search form loads
+# 2. POST request with "- Search" suffix to verify search functionality works
+# Search POST payloads use realistic test data (e.g., postcode: "SW1A 2AA")
 pings:
   - name: Apply for First Provisional Driving Licence
     protocol: HTTPS
@@ -1935,7 +1946,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/apply-free-school-meals
     payload:
-      postcode: ""
+      postcode: SW1A 2AA
     tags:
       - education
       - benefits
@@ -1950,7 +1961,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/apply-council-tax-reduction
     payload:
-      postcode: ""
+      postcode: SW1A 2AA
     tags:
       - benefits
       - council-tax
@@ -2014,7 +2025,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/apply-for-council-housing
     payload:
-      postcode: ""
+      postcode: SW1A 2AA
     tags:
       - housing
       - council
