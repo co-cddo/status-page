@@ -9,7 +9,7 @@ import type { HealthCheckConfig, HealthCheckResult, HealthCheckError } from './h
  * Message types for worker thread communication
  * Note: Using const object instead of enum for Node.js 22 TypeScript compatibility
  */
-export const WorkerMessageType = {
+export const WorkerMessageTypes = {
   /** Execute health check */
   HEALTH_CHECK: 'HEALTH_CHECK',
 
@@ -20,13 +20,13 @@ export const WorkerMessageType = {
   PING: 'PING',
 } as const;
 
-export type WorkerMessageType = (typeof WorkerMessageType)[keyof typeof WorkerMessageType];
+export type WorkerMessageType = (typeof WorkerMessageTypes)[keyof typeof WorkerMessageTypes];
 
 /**
  * Result types for worker responses
  * Note: Using const object instead of enum for Node.js 22 TypeScript compatibility
  */
-export const WorkerResultType = {
+export const WorkerResultTypes = {
   /** Health check completed successfully */
   SUCCESS: 'SUCCESS',
 
@@ -43,7 +43,7 @@ export const WorkerResultType = {
   TERMINATED: 'TERMINATED',
 } as const;
 
-export type WorkerResultType = (typeof WorkerResultType)[keyof typeof WorkerResultType];
+export type WorkerResultType = (typeof WorkerResultTypes)[keyof typeof WorkerResultTypes];
 
 /**
  * Message sent from main thread to worker thread
@@ -51,15 +51,15 @@ export type WorkerResultType = (typeof WorkerResultType)[keyof typeof WorkerResu
  */
 export type WorkerMessage =
   | {
-      type: WorkerMessageType.HEALTH_CHECK;
+      type: typeof WorkerMessageTypes.HEALTH_CHECK;
       payload: HealthCheckConfig;
     }
   | {
-      type: WorkerMessageType.TERMINATE;
+      type: typeof WorkerMessageTypes.TERMINATE;
       payload?: undefined;
     }
   | {
-      type: WorkerMessageType.PING;
+      type: typeof WorkerMessageTypes.PING;
       payload?: undefined;
     };
 
@@ -69,23 +69,23 @@ export type WorkerMessage =
  */
 export type WorkerResult =
   | {
-      type: WorkerResultType.SUCCESS;
+      type: typeof WorkerResultTypes.SUCCESS;
       payload: HealthCheckResult;
     }
   | {
-      type: WorkerResultType.ERROR;
+      type: typeof WorkerResultTypes.ERROR;
       payload: WorkerErrorPayload;
     }
   | {
-      type: WorkerResultType.READY;
+      type: typeof WorkerResultTypes.READY;
       payload?: undefined;
     }
   | {
-      type: WorkerResultType.PONG;
+      type: typeof WorkerResultTypes.PONG;
       payload?: undefined;
     }
   | {
-      type: WorkerResultType.TERMINATED;
+      type: typeof WorkerResultTypes.TERMINATED;
       payload?: undefined;
     };
 
@@ -156,7 +156,7 @@ export interface WorkerPoolStats {
  * Worker state
  * Note: Using const object instead of enum for Node.js 22 TypeScript compatibility
  */
-export const WorkerState = {
+export const WorkerStates = {
   IDLE: 'IDLE',
   BUSY: 'BUSY',
   TERMINATING: 'TERMINATING',
@@ -164,7 +164,7 @@ export const WorkerState = {
   ERROR: 'ERROR',
 } as const;
 
-export type WorkerState = (typeof WorkerState)[keyof typeof WorkerState];
+export type WorkerState = (typeof WorkerStates)[keyof typeof WorkerStates];
 
 /**
  * Worker metadata for pool management
