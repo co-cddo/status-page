@@ -133,7 +133,9 @@ export async function startMetricsServer(config: MetricsServerConfig = {}): Prom
  * @param timeout - Maximum time to wait for graceful shutdown in milliseconds (default: TIMEOUTS.METRICS_SHUTDOWN)
  * @returns Promise that resolves when server is stopped
  */
-export async function stopMetricsServer(timeout: number = TIMEOUTS.METRICS_SHUTDOWN): Promise<void> {
+export async function stopMetricsServer(
+  timeout: number = TIMEOUTS.METRICS_SHUTDOWN
+): Promise<void> {
   if (!state.isRunning || !state.server) {
     logger.debug('Metrics server not running');
     return;
