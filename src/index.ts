@@ -384,19 +384,14 @@ async function runOnce(config: Configuration): Promise<void> {
     state.csvWriter = new CsvWriter('history.csv');
 
     // Run all health checks once
+    // Note: runOnce() uses Promise.all() internally, so all results are
+    // guaranteed to be in latestResults map when this returns
     onceLogger.info('Executing all health checks');
     await state.scheduler.runOnce();
-
-    // Wait a moment for results to propagate
-    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     // Write final health data
     onceLogger.info('Writing health data');
     await writeHealthData();
-
-    // Cleanup
-    onceLogger.info('Shutting down worker pool');
-    await state.poolManager.shutdown({ gracefulTimeout: 5000 });
 
     const duration = Date.now() - startTime;
     const results = state.scheduler.getLatestResults();
@@ -417,13 +412,18 @@ async function runOnce(config: Configuration): Promise<void> {
     onceLogger.fatal({ err: error }, 'Fatal error during once-mode execution');
     console.error('\n❌ Fatal error:', error instanceof Error ? error.message : String(error));
 
-    // Attempt cleanup
-    if (state.poolManager) {
-      await state.poolManager.shutdown({ gracefulTimeout: 5000 });
-    }
     await flushLogs();
-
     process.exit(1);
+  } finally {
+    // Ensure worker pool cleanup always happens
+    if (state.poolManager) {
+      try {
+        onceLogger.info('Shutting down worker pool');
+        await state.poolManager.shutdown({ gracefulTimeout: 5000 });
+      } catch (cleanupError) {
+        onceLogger.error({ err: cleanupError }, 'Error during pool shutdown');
+      }
+    }
   }
 }
 

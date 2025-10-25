@@ -294,10 +294,24 @@ export class Scheduler {
         const result = await this.poolManager.executeHealthCheck(check.config);
         this.latestResults.set(result.serviceName, result);
       } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : String(error);
         console.error(
           `Health check failed for ${check.config.serviceName}:`,
-          error instanceof Error ? error.message : String(error)
+          errorMessage
         );
+
+        // Store failed result so service appears in output
+        const failedResult: HealthCheckResult = {
+          serviceName: check.config.serviceName,
+          status: 'FAIL',
+          timestamp: new Date().toISOString(),
+          latency_ms: 0,
+          http_status_code: 0,
+          failure_reason: errorMessage,
+          correlation_id: check.config.correlationId,
+          method: check.config.method,
+        };
+        this.latestResults.set(check.config.serviceName, failedResult);
       }
     });
 
