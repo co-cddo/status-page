@@ -61,7 +61,7 @@
     "@playwright/test": "^1.56.1",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.9.1",
-    "@vitest/coverage-v8": "^4.0.1",
+    "@vitest/coverage-v8": "^4.0.3",
     "ajv-formats": "^3.0.1",
     "eslint": "^9.38.0",
     "http-server": "^14.1.1",
