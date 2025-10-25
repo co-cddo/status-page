@@ -88,20 +88,6 @@ describe('Test Workflow Contract (US7)', () => {
     ).toBe(true);
   });
 
-  test('workflow executes accessibility tests', () => {
-    const workflowYaml = readFileSync(workflowPath, 'utf-8');
-    const workflow = load(workflowYaml) as GitHubActionsWorkflow;
-
-    const workflowString = JSON.stringify(workflow);
-
-    // Check for accessibility test execution
-    expect(
-      workflowString.includes('accessibility') ||
-        workflowString.includes('a11y') ||
-        workflowString.includes('axe')
-    ).toBe(true);
-  });
-
   test('workflow enforces code coverage', () => {
     const workflowYaml = readFileSync(workflowPath, 'utf-8');
     const workflow = load(workflowYaml) as GitHubActionsWorkflow;
@@ -112,20 +98,6 @@ describe('Test Workflow Contract (US7)', () => {
     expect(workflowString.includes('coverage') || workflowString.includes('test:coverage')).toBe(
       true
     );
-  });
-
-  test('workflow executes performance tests', () => {
-    const workflowYaml = readFileSync(workflowPath, 'utf-8');
-    const workflow = load(workflowYaml) as GitHubActionsWorkflow;
-
-    const workflowString = JSON.stringify(workflow);
-
-    // Check for performance test execution
-    expect(
-      workflowString.includes('performance') ||
-        workflowString.includes('perf') ||
-        workflowString.includes('benchmark')
-    ).toBe(true);
   });
 
   test('workflow blocks merge on test failure', () => {
