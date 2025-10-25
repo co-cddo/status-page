@@ -67,46 +67,16 @@ export class EleventyRunner {
   /**
    * Validate _data/health.json input file
    * Checks file exists, is valid JSON, and matches ServiceStatusAPI schema
+   * Refactored to use helper methods (Issue #17)
    */
   async validateInput(): Promise<boolean> {
     const healthJsonPath = join(this.dataDir, 'health.json');
 
-    // Check file exists
-    try {
-      await access(healthJsonPath);
-    } catch {
-      throw new Error(`health.json not found at ${healthJsonPath}`);
-    }
+    // Read and parse JSON file
+    const parsedData = await this.readAndParseJson(healthJsonPath);
 
-    // Read and parse JSON
-    let jsonContent: string;
-    try {
-      jsonContent = await readFile(healthJsonPath, 'utf-8');
-    } catch (error) {
-      throw new Error(
-        `Failed to read health.json: ${error instanceof Error ? error.message : 'Unknown error'}`
-      );
-    }
-
-    // Handle case where readFile returns undefined (shouldn't happen in real code, but tests may mock it)
-    if (!jsonContent) {
-      // If file exists but is empty or undefined, treat as empty array
-      return true;
-    }
-
-    let parsedData: unknown;
-    try {
-      parsedData = JSON.parse(jsonContent);
-    } catch (error) {
-      throw new Error(
-        `Invalid JSON in health.json: ${error instanceof Error ? error.message : 'Parse error'}`
-      );
-    }
-
-    // Validate is array
-    if (!Array.isArray(parsedData)) {
-      throw new Error('Schema validation failed: health.json must be an array');
-    }
+    // Validate array structure
+    this.validateArrayStructure(parsedData);
 
     // Empty array is valid
     if (parsedData.length === 0) {
@@ -114,97 +84,193 @@ export class EleventyRunner {
     }
 
     // Validate each service object
-    for (let i = 0; i < parsedData.length; i++) {
-      const service = parsedData[i] as Partial<ServiceStatusAPI>;
+    this.validateServiceObjects(parsedData);
 
-      // Check required fields exist
-      if (!service.name) {
-        throw new Error(`Schema validation failed: Missing required field 'name' at index ${i}`);
-      }
-      if (!service.status) {
-        throw new Error(`Schema validation failed: Missing required field 'status' at index ${i}`);
-      }
-      if (!('latency_ms' in service)) {
-        throw new Error(
-          `Schema validation failed: Missing required field 'latency_ms' at index ${i}`
-        );
-      }
-      if (!('last_check_time' in service)) {
-        throw new Error(
-          `Schema validation failed: Missing required field 'last_check_time' at index ${i}`
-        );
-      }
-      if (!('tags' in service)) {
-        throw new Error(`Schema validation failed: Missing required field 'tags' at index ${i}`);
-      }
-      if (!('http_status_code' in service)) {
-        throw new Error(
-          `Schema validation failed: Missing required field 'http_status_code' at index ${i}`
-        );
-      }
-      if (!('failure_reason' in service)) {
-        throw new Error(
-          `Schema validation failed: Missing required field 'failure_reason' at index ${i}`
-        );
-      }
+    return true;
+  }
 
-      // Validate status enum
-      if (!VALID_STATUSES.includes(service.status as (typeof VALID_STATUSES)[number])) {
+  /**
+   * Reads and parses JSON file
+   * Extracted to reduce complexity of validateInput()
+   */
+  private async readAndParseJson(filePath: string): Promise<unknown> {
+    // Check file exists
+    try {
+      await access(filePath);
+    } catch {
+      throw new Error(`health.json not found at ${filePath}`);
+    }
+
+    // Read JSON file
+    let jsonContent: string;
+    try {
+      jsonContent = await readFile(filePath, 'utf-8');
+    } catch (error) {
+      throw new Error(
+        `Failed to read health.json: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
+    }
+
+    // Handle empty content
+    if (!jsonContent) {
+      return [];
+    }
+
+    // Parse JSON
+    try {
+      return JSON.parse(jsonContent);
+    } catch (error) {
+      throw new Error(
+        `Invalid JSON in health.json: ${error instanceof Error ? error.message : 'Parse error'}`
+      );
+    }
+  }
+
+  /**
+   * Validates that parsed data is an array
+   * Extracted to reduce complexity of validateInput()
+   */
+  private validateArrayStructure(parsedData: unknown): asserts parsedData is unknown[] {
+    if (!Array.isArray(parsedData)) {
+      throw new Error('Schema validation failed: health.json must be an array');
+    }
+  }
+
+  /**
+   * Validates all service objects in the array
+   * Extracted to reduce complexity of validateInput()
+   */
+  private validateServiceObjects(services: unknown[]): void {
+    for (let i = 0; i < services.length; i++) {
+      const service = services[i] as Partial<ServiceStatusAPI>;
+      this.validateServiceObject(service, i);
+    }
+  }
+
+  /**
+   * Validates a single service object
+   * Extracted to reduce complexity of validateInput()
+   */
+  private validateServiceObject(service: Partial<ServiceStatusAPI>, index: number): void {
+    this.validateRequiredFields(service, index);
+    this.validateStatusEnum(service, index);
+    this.validateFieldTypes(service, index);
+  }
+
+  /**
+   * Validates all required fields are present
+   * Extracted to reduce complexity and repetition
+   */
+  private validateRequiredFields(service: Partial<ServiceStatusAPI>, index: number): void {
+    const requiredFields: Array<keyof ServiceStatusAPI> = [
+      'name',
+      'status',
+      'latency_ms',
+      'last_check_time',
+      'tags',
+      'http_status_code',
+      'failure_reason',
+    ];
+
+    for (const field of requiredFields) {
+      if (!(field in service)) {
         throw new Error(
-          `Invalid status value '${service.status}' at index ${i}. Must be one of: ${VALID_STATUSES.join(', ')}`
-        );
-      }
-
-      // Validate types
-      if (typeof service.name !== 'string') {
-        throw new Error(`Schema validation failed: 'name' must be a string at index ${i}`);
-      }
-
-      // For PENDING status, certain fields can be null
-      if (service.status === 'PENDING') {
-        if (service.latency_ms !== null && typeof service.latency_ms !== 'number') {
-          throw new Error(
-            `Schema validation failed: 'latency_ms' must be number or null at index ${i}`
-          );
-        }
-        if (service.last_check_time !== null && typeof service.last_check_time !== 'string') {
-          throw new Error(
-            `Schema validation failed: 'last_check_time' must be string or null at index ${i}`
-          );
-        }
-        if (service.http_status_code !== null && typeof service.http_status_code !== 'number') {
-          throw new Error(
-            `Schema validation failed: 'http_status_code' must be number or null at index ${i}`
-          );
-        }
-      } else {
-        // For other statuses, these fields must be present
-        if (typeof service.latency_ms !== 'number') {
-          throw new Error(`Schema validation failed: 'latency_ms' must be a number at index ${i}`);
-        }
-        if (typeof service.last_check_time !== 'string') {
-          throw new Error(
-            `Schema validation failed: 'last_check_time' must be a string at index ${i}`
-          );
-        }
-        if (typeof service.http_status_code !== 'number') {
-          throw new Error(
-            `Schema validation failed: 'http_status_code' must be a number at index ${i}`
-          );
-        }
-      }
-
-      if (!Array.isArray(service.tags)) {
-        throw new Error(`Schema validation failed: 'tags' must be an array at index ${i}`);
-      }
-      if (typeof service.failure_reason !== 'string') {
-        throw new Error(
-          `Schema validation failed: 'failure_reason' must be a string at index ${i}`
+          `Schema validation failed: Missing required field '${field}' at index ${index}`
         );
       }
     }
+  }
 
-    return true;
+  /**
+   * Validates status enum value
+   * Extracted to reduce complexity
+   */
+  private validateStatusEnum(service: Partial<ServiceStatusAPI>, index: number): void {
+    if (!service.status) {
+      throw new Error(`Schema validation failed: Missing required field 'status' at index ${index}`);
+    }
+
+    if (!VALID_STATUSES.includes(service.status as (typeof VALID_STATUSES)[number])) {
+      throw new Error(
+        `Invalid status value '${service.status}' at index ${index}. Must be one of: ${VALID_STATUSES.join(', ')}`
+      );
+    }
+  }
+
+  /**
+   * Validates field types based on status
+   * Extracted to reduce complexity and handle PENDING vs non-PENDING logic
+   */
+  private validateFieldTypes(service: Partial<ServiceStatusAPI>, index: number): void {
+    // Name must always be a string
+    if (typeof service.name !== 'string') {
+      throw new Error(`Schema validation failed: 'name' must be a string at index ${index}`);
+    }
+
+    // Tags must always be an array
+    if (!Array.isArray(service.tags)) {
+      throw new Error(`Schema validation failed: 'tags' must be an array at index ${index}`);
+    }
+
+    // Failure reason must always be a string
+    if (typeof service.failure_reason !== 'string') {
+      throw new Error(
+        `Schema validation failed: 'failure_reason' must be a string at index ${index}`
+      );
+    }
+
+    // For PENDING status, certain fields can be null
+    if (service.status === 'PENDING') {
+      this.validatePendingServiceFields(service, index);
+    } else {
+      this.validateNonPendingServiceFields(service, index);
+    }
+  }
+
+  /**
+   * Validates field types for PENDING services (allows null values)
+   * Extracted to separate PENDING-specific validation logic
+   */
+  private validatePendingServiceFields(service: Partial<ServiceStatusAPI>, index: number): void {
+    if (service.latency_ms !== null && typeof service.latency_ms !== 'number') {
+      throw new Error(
+        `Schema validation failed: 'latency_ms' must be number or null at index ${index}`
+      );
+    }
+
+    if (service.last_check_time !== null && typeof service.last_check_time !== 'string') {
+      throw new Error(
+        `Schema validation failed: 'last_check_time' must be string or null at index ${index}`
+      );
+    }
+
+    if (service.http_status_code !== null && typeof service.http_status_code !== 'number') {
+      throw new Error(
+        `Schema validation failed: 'http_status_code' must be number or null at index ${index}`
+      );
+    }
+  }
+
+  /**
+   * Validates field types for non-PENDING services (requires non-null values)
+   * Extracted to separate non-PENDING validation logic
+   */
+  private validateNonPendingServiceFields(service: Partial<ServiceStatusAPI>, index: number): void {
+    if (typeof service.latency_ms !== 'number') {
+      throw new Error(`Schema validation failed: 'latency_ms' must be a number at index ${index}`);
+    }
+
+    if (typeof service.last_check_time !== 'string') {
+      throw new Error(
+        `Schema validation failed: 'last_check_time' must be a string at index ${index}`
+      );
+    }
+
+    if (typeof service.http_status_code !== 'number') {
+      throw new Error(
+        `Schema validation failed: 'http_status_code' must be a number at index ${index}`
+      );
+    }
   }
 
   /**
