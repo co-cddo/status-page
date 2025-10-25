@@ -19,8 +19,8 @@ import { generateCorrelationId } from './logging/correlation.ts';
 import { startMetricsServer, stopMetricsServer } from './metrics/server.ts';
 import { WorkerPoolManager } from './orchestrator/pool-manager.ts';
 import { Scheduler } from './orchestrator/scheduler.ts';
-import { JsonWriter } from './storage/json-writer.ts';
-import { CsvWriter } from './storage/csv-writer.ts';
+import { storageFactory } from './storage/index.ts';
+import type { ICsvWriter, IJsonWriter } from './storage/index.ts';
 import type { Configuration } from './types/config.ts';
 import type { HealthCheckConfig } from './types/health-check.ts';
 import { TIMEOUTS } from './constants/timeouts.ts';
@@ -32,8 +32,8 @@ import { getErrorMessage } from './utils/error.ts';
 interface AppState {
   poolManager: WorkerPoolManager | null;
   scheduler: Scheduler | null;
-  jsonWriter: JsonWriter | null;
-  csvWriter: CsvWriter | null;
+  jsonWriter: IJsonWriter | null;
+  csvWriter: ICsvWriter | null;
   dataWriterTimer: NodeJS.Timeout | null;
   shutdownInProgress: boolean;
   shutdownStartTime: number | null;
@@ -379,9 +379,9 @@ async function runOnce(config: Configuration): Promise<void> {
     // Initialize scheduler (but don't start it)
     state.scheduler = initializeScheduler(state.poolManager, config);
 
-    // Initialize JSON and CSV writers
-    state.jsonWriter = new JsonWriter('_data/health.json');
-    state.csvWriter = new CsvWriter('history.csv');
+    // Initialize JSON and CSV writers using factory pattern
+    state.jsonWriter = storageFactory.createWriter('json', { filePath: '_data/health.json' });
+    state.csvWriter = storageFactory.createWriter('csv', { filePath: 'history.csv' });
 
     // Run all health checks once
     // Note: runOnce() uses Promise.all() internally, so all results are
@@ -480,9 +480,9 @@ async function main(): Promise<void> {
     state.scheduler.start();
     mainLogger.info('Scheduler started');
 
-    // 5. Initialize JSON and CSV writers, start periodic data writer
-    state.jsonWriter = new JsonWriter('_data/health.json');
-    state.csvWriter = new CsvWriter('history.csv');
+    // 5. Initialize JSON and CSV writers using factory pattern, start periodic data writer
+    state.jsonWriter = storageFactory.createWriter('json', { filePath: '_data/health.json' });
+    state.csvWriter = storageFactory.createWriter('csv', { filePath: 'history.csv' });
     startDataWriter();
     mainLogger.info('Health data writer started (JSON + CSV)');
 
