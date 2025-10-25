@@ -15,15 +15,25 @@
 import { appendFile, access, writeFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import type { HealthCheckResult } from '../types/health-check.ts';
+import type { ICsvWriter } from './interfaces.ts';
 import { escapeCsvValue, CSV_HEADER_LINE } from '../utils/csv.ts';
 import { createLogger } from '../logging/logger.ts';
 
 const logger = createLogger({ serviceName: 'csv-writer' });
 
-export class CsvWriter {
+export class CsvWriter implements ICsvWriter {
   private writeLock: Promise<void> = Promise.resolve();
 
   constructor(private filePath: string) {}
+
+  /**
+   * Writes multiple HealthCheckResults to the CSV file
+   * Implements IStorageWriter.write() interface
+   * Delegates to appendBatch() for actual implementation
+   */
+  async write(data: HealthCheckResult[]): Promise<void> {
+    return this.appendBatch(data);
+  }
 
   /**
    * Appends a single HealthCheckResult to the CSV file
