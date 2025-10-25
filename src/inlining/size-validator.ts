@@ -11,6 +11,7 @@
 
 import { stat } from 'fs/promises';
 import { createLogger } from '../logging/logger.ts';
+import { getErrorMessage } from '../utils/error.ts';
 
 const logger = createLogger({ serviceName: 'size-validator' });
 
@@ -133,7 +134,7 @@ export async function validateHTMLSize(
     }
   } catch (error) {
     result.success = false;
-    const errorMessage = `Failed to validate HTML size: ${error instanceof Error ? error.message : String(error)}`;
+    const errorMessage = `Failed to validate HTML size: ${getErrorMessage(error)}`;
     result.errors.push(errorMessage);
     logger.error({ filePath, error }, errorMessage);
   }

@@ -23,6 +23,7 @@ import { inlineCSS, inlineCSSUrls } from './css-inliner.ts';
 import { inlineJavaScript, verifyNoExternalScripts } from './js-inliner.ts';
 import { inlineImages, inlineCSSImages, verifyNoExternalImages } from './image-inliner.ts';
 import { validateHTMLSize, formatSize, type ComponentSizes } from './size-validator.ts';
+import { getErrorMessage } from '../utils/error.ts';
 
 const logger = createLogger({ serviceName: 'post-build' });
 
@@ -285,7 +286,7 @@ async function main(): Promise<void> {
   } catch (error) {
     logger.error({ error }, 'Post-build asset inlining failed with unexpected error');
     console.error('\n❌ Post-build asset inlining failed\n');
-    console.error(`   Error: ${error instanceof Error ? error.message : String(error)}\n`);
+    console.error(`   Error: ${getErrorMessage(error)}\n`);
 
     if (error instanceof Error && error.stack) {
       logger.error({ stack: error.stack }, 'Error stack trace');

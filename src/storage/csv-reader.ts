@@ -16,6 +16,7 @@ import { constants } from 'node:fs';
 import type { HistoricalRecord } from '../types/health-check.ts';
 import { parseCsvLine, isValidStatus, CSV_HEADERS } from '../utils/csv.ts';
 import { createLogger } from '../logging/logger.ts';
+import { getErrorMessage } from '../utils/error.ts';
 
 const logger = createLogger({ serviceName: 'csv-reader' });
 
@@ -190,7 +191,7 @@ export class CsvReader {
             sampleRowsParsed++;
           }
         } catch (error) {
-          const errorMessage = error instanceof Error ? error.message : String(error);
+          const errorMessage = getErrorMessage(error);
           // Check if error indicates malformed data
           if (errorMessage.includes('Invalid') || errorMessage.includes('column')) {
             errors.push(`Row ${i + 1}: malformed - ${errorMessage}`);

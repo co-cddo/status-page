@@ -17,6 +17,9 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 import type { WorkerMessage, WorkerResult } from '../health-checks/worker.ts';
+import { createLogger } from '../logging/logger.ts';
+
+const logger = createLogger({ serviceName: 'pool-manager' });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -174,9 +177,14 @@ export class WorkerPoolManager {
   private handleWorkerError(workerInfo: WorkerInfo, error: Error): void {
     // Log error but don't crash the pool
     // Worker error event doesn't mean the worker crashed
-    console.error('Worker error:', error);
-    // workerInfo available for future use in error tracking
-    void workerInfo;
+    logger.error(
+      {
+        err: error,
+        workerId: workerInfo.worker.threadId,
+        currentTask: workerInfo.currentTask?.serviceName,
+      },
+      'Worker error occurred'
+    );
   }
 
   /**

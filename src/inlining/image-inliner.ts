@@ -14,6 +14,7 @@ import { dirname } from 'path';
 import type { CheerioAPI } from 'cheerio';
 import { createLogger } from '../logging/logger.ts';
 import { extractPathFromUrl, safeResolvePath } from '../utils/url.ts';
+import { getErrorMessage } from '../utils/error.ts';
 
 const logger = createLogger({ serviceName: 'image-inliner' });
 
@@ -122,7 +123,7 @@ export async function inlineImages(
         'Inlined image file'
       );
     } catch (error) {
-      const errorMessage = `Failed to inline image "${src}": ${error instanceof Error ? error.message : String(error)}`;
+      const errorMessage = `Failed to inline image "${src}": ${getErrorMessage(error)}`;
       logger.error({ src, error }, errorMessage);
       result.errors.push(errorMessage);
       result.success = false;

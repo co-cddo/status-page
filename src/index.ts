@@ -24,6 +24,7 @@ import { CsvWriter } from './storage/csv-writer.ts';
 import type { Configuration } from './types/config.ts';
 import type { HealthCheckConfig } from './types/health-check.ts';
 import { TIMEOUTS } from './constants/timeouts.ts';
+import { getErrorMessage } from './utils/error.ts';
 
 /**
  * Application state
@@ -88,9 +89,7 @@ function loadAndValidateConfig(): Configuration {
 
     // Unexpected error
     configLogger.fatal({ err: error }, 'Unexpected error loading configuration');
-    console.error(
-      `\n❌ Unexpected error: ${error instanceof Error ? error.message : String(error)}\n`
-    );
+    console.error(`\n❌ Unexpected error: ${getErrorMessage(error)}\n`);
     process.exit(1);
   }
 }
@@ -411,7 +410,7 @@ async function runOnce(config: Configuration): Promise<void> {
     process.exit(0);
   } catch (error) {
     onceLogger.fatal({ err: error }, 'Fatal error during once-mode execution');
-    console.error('\n❌ Fatal error:', error instanceof Error ? error.message : String(error));
+    console.error('\n❌ Fatal error:', getErrorMessage(error));
 
     await flushLogs();
     process.exit(1);
@@ -509,7 +508,7 @@ async function main(): Promise<void> {
     // Application is now running and will continue until signal received
   } catch (error) {
     mainLogger.fatal({ err: error }, 'Fatal error during startup');
-    console.error('\n❌ Fatal error:', error instanceof Error ? error.message : String(error));
+    console.error('\n❌ Fatal error:', getErrorMessage(error));
 
     // Attempt cleanup
     if (state.poolManager) {

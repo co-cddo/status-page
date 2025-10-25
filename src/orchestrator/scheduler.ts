@@ -6,6 +6,7 @@
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 import type { WorkerPoolManager } from './pool-manager.ts';
 import { createLogger } from '../logging/logger.ts';
+import { getErrorMessage } from '../utils/error.ts';
 
 const logger = createLogger({ serviceName: 'scheduler' });
 
@@ -301,11 +302,19 @@ export class Scheduler {
         const result = await this.poolManager.executeHealthCheck(check.config);
         this.latestResults.set(result.serviceName, result);
       } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : String(error);
-        console.error(`Health check failed for ${check.config.serviceName}:`, errorMessage);
+        const errorMessage = getErrorMessage(error);
+        const serviceName = check.config.serviceName || check.config.url;
+
+        logger.error(
+          {
+            err: error,
+            serviceName,
+            url: check.config.url,
+          },
+          'Health check failed in runOnce'
+        );
 
         // Store failed result so service appears in output
-        const serviceName = check.config.serviceName || check.config.url;
         const correlationId = check.config.correlationId || 'unknown';
         const expectedStatus = Array.isArray(check.config.expectedStatus)
           ? check.config.expectedStatus[0] || 0

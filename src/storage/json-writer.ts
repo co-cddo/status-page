@@ -14,6 +14,9 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import type { HealthCheckResult, ServiceStatusAPI } from '../types/health-check.ts';
+import { createLogger } from '../logging/logger.ts';
+
+const logger = createLogger({ serviceName: 'json-writer' });
 
 const STATUS_ORDER = { FAIL: 0, DEGRADED: 1, PASS: 2, PENDING: 3 };
 
@@ -45,9 +48,9 @@ export class JsonWriter {
       const json = JSON.stringify(apiResults, null, 2);
       await writeFile(this.filePath, json, 'utf-8');
     } catch (error) {
-      // Per FR-028a: Exit with non-zero code on write failure
-      console.error(`JSON write failure: ${error}`);
-      process.exit(1);
+      // Per FR-028a: Log error and propagate to caller
+      logger.error({ err: error, filePath: this.filePath }, 'JSON write failure');
+      throw new Error(`Failed to write JSON to ${this.filePath}: ${error}`);
     }
   }
 

@@ -19,8 +19,8 @@ import { validateStatusCode, validateResponseText, validateResponseHeaders } fro
 import { getErrorMessage } from '../utils/error.ts';
 import { createLogger } from '../logging/logger.ts';
 import { validateUrlForSSRF } from '../utils/ssrf-protection.ts';
+import { SIZE_LIMITS } from '../constants/sizes.ts';
 
-const MAX_RESPONSE_TEXT_SIZE = 100 * 1024; // 100KB per FR-014
 const logger = createLogger({ serviceName: 'health-check' });
 
 /**
@@ -246,7 +246,7 @@ export async function performHealthCheck(config: HealthCheckConfig): Promise<Hea
 }
 
 /**
- * Reads response text up to MAX_RESPONSE_TEXT_SIZE (100KB)
+ * Reads response text up to SIZE_LIMITS.MAX_RESPONSE_TEXT (100KB)
  * Per FR-014: Search only first 100KB of response body
  */
 async function getResponseText(response: Response): Promise<string> {
@@ -260,7 +260,7 @@ async function getResponseText(response: Response): Promise<string> {
   let bytesRead = 0;
 
   try {
-    while (bytesRead < MAX_RESPONSE_TEXT_SIZE) {
+    while (bytesRead < SIZE_LIMITS.MAX_RESPONSE_TEXT) {
       const { done, value } = await reader.read();
       if (done) break;
 
@@ -268,9 +268,9 @@ async function getResponseText(response: Response): Promise<string> {
       const chunk = decoder.decode(value, { stream: true });
       text += chunk;
 
-      if (bytesRead >= MAX_RESPONSE_TEXT_SIZE) {
-        // Truncate to MAX_RESPONSE_TEXT_SIZE
-        text = text.substring(0, MAX_RESPONSE_TEXT_SIZE);
+      if (bytesRead >= SIZE_LIMITS.MAX_RESPONSE_TEXT) {
+        // Truncate to SIZE_LIMITS.MAX_RESPONSE_TEXT
+        text = text.substring(0, SIZE_LIMITS.MAX_RESPONSE_TEXT);
         break;
       }
     }
