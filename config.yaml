@@ -1,6 +1,7 @@
-# GOV.UK Public Services - Example Health Check Configuration
-# This is a comprehensive collection of 500+ high-priority UK government services
-# Based on comprehensive research conducted 25 October 2025
+# GOV.UK Public Services - Comprehensive Health Check Configuration
+# Focus: Actual transactional services (*.service.gov.uk and verified service endpoints)
+# Total services configured: 176
+# Research date: 25 October 2025
 
 settings:
   check_interval: 300 # 5 minutes default
@@ -12,4492 +13,1476 @@ settings:
 
 pings:
   # ============================================================================
-  # TIER 1: CRITICAL SERVICES (High Volume, Core Government Services)
+  # TIER 1: CRITICAL SERVICES
+  # Essential government infrastructure - Check every 60 seconds
   # ============================================================================
 
-  # GOV.UK Core Platform
-  - name: 'GOV.UK Homepage'
+  - name: 'Apply for First Provisional Driving Licence'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/'
-    tags: ['tier-1', 'govuk', 'core', 'homepage']
+    resource: 'https://www.gov.uk/apply-first-provisional-driving-licence'
+    tags: ["motoring","driving-licence","dvla"]
     expected:
       status: 200
     interval: 60
 
-  - name: 'GOV.UK Services Search'
+  - name: 'Apply for National Insurance Number'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/search/services'
-    tags: ['tier-1', 'govuk', 'search']
+    resource: 'https://www.gov.uk/apply-national-insurance-number'
+    tags: ["national-insurance","hmrc"]
     expected:
       status: 200
     interval: 60
 
-  # GOV.UK One Login (Identity Platform)
-  - name: 'GOV.UK One Login'
+  - name: 'Book a Coronavirus Vaccination'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.sign-in.service.gov.uk/'
-    tags: ['tier-1', 'identity', 'login', 'authentication']
+    resource: 'https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/'
+    tags: ["health","nhs","vaccination"]
     expected:
       status: 200
     interval: 60
 
-  # HMRC - Tax Services
-  - name: 'HMRC Online Services Login'
+  - name: 'Companies House Identity Service'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/log-in-register-hmrc-online-services'
-    tags: ['tier-1', 'hmrc', 'tax', 'login']
+    resource: 'https://identity.company-information.service.gov.uk/'
+    tags: ["business","companies-house","authentication"]
     expected:
       status: 200
     interval: 60
 
-  - name: 'HMRC Tax Service Portal'
+  - name: 'Corporation Tax Online'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.tax.service.gov.uk/'
-    tags: ['tier-1', 'hmrc', 'tax', 'service-domain']
-    expected:
-      status: 200
-    interval: 60
-    timeout: 15
-
-  # DWP - Benefits and Pensions
-  - name: 'Universal Credit - Sign In'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/sign-in-universal-credit'
-    tags: ['tier-1', 'dwp', 'benefits', 'universal-credit', 'login']
+    resource: 'https://www.tax.service.gov.uk/corporation-tax/'
+    tags: ["tax","corporation-tax","hmrc"]
     expected:
       status: 200
     interval: 60
 
-  - name: 'Universal Credit - Information'
+  - name: 'DfE Sign-in'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/universal-credit'
-    tags: ['tier-1', 'dwp', 'benefits', 'universal-credit']
-    expected:
-      status: 200
-    interval: 300
-
-  # NHS Services
-  - name: 'NHS.UK Homepage'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/'
-    tags: ['tier-1', 'nhs', 'health', 'homepage']
+    resource: 'https://services.signin.education.gov.uk/'
+    tags: ["education","authentication","dfe"]
     expected:
       status: 200
     interval: 60
 
-  - name: 'NHS 111 Online'
+  - name: 'Driving Theory Test Booking'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/book-theory-test'
+    tags: ["motoring","driving-test","dvsa"]
+    expected:
+      status: 200
+    interval: 60
+
+  - name: 'ETA Application Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.apply-eta.service.gov.uk/'
+    tags: ["immigration","travel","home-office"]
+    expected:
+      status: 200
+    interval: 60
+
+  - name: 'EU Settlement Scheme'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.apply-for-eu-settled-status.service.gov.uk/'
+    tags: ["immigration","eu-settlement","home-office"]
+    expected:
+      status: 200
+    interval: 60
+
+  - name: 'General Register Office - Order Certificates'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gro.gov.uk/'
+    tags: ["life-events","certificates","gro"]
+    expected:
+      status: 200
+    interval: 60
+
+  - name: 'NHS 111 Online'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
     resource: 'https://111.nhs.uk/'
-    tags: ['tier-1', 'nhs', 'emergency', '111']
+    tags: ["health","nhs","urgent-care"]
     expected:
       status: 200
     interval: 60
 
-  # ============================================================================
-  # TIER 2: HIGH PRIORITY SERVICES (Frequent Citizen Use)
-  # ============================================================================
-
-  # DVLA - Vehicle and Driver Services
-  - name: 'Tax Your Vehicle'
+  - name: 'NHS App'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/vehicle-tax'
-    tags: ['tier-2', 'dvla', 'vehicle', 'tax']
+    resource: 'https://www.nhs.uk/nhs-app/'
+    tags: ["health","nhs","primary-care"]
     expected:
       status: 200
+    interval: 60
 
-  - name: 'Check Vehicle Tax Status'
+  - name: 'NHS Login'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/check-vehicle-tax'
-    tags: ['tier-2', 'dvla', 'vehicle', 'tax-check']
+    resource: 'https://www.nhs.uk/nhs-services/online-services/nhs-login/'
+    tags: ["health","nhs","authentication"]
     expected:
       status: 200
+    interval: 60
 
-  - name: 'Check MOT History'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-mot-history'
-    tags: ['tier-2', 'dvla', 'dvsa', 'mot', 'vehicle']
-    expected:
-      status: 200
-
-  - name: 'Check MOT Status'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-mot-status'
-    tags: ['tier-2', 'dvla', 'dvsa', 'mot', 'vehicle']
-    expected:
-      status: 200
-
-  - name: 'Check MOT Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://check-mot.service.gov.uk/'
-    tags: ['tier-2', 'dvsa', 'mot', 'service-domain']
-    expected:
-      status: 200
-
-  - name: 'View Driving Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/view-driving-licence'
-    tags: ['tier-2', 'dvla', 'driving-licence', 'view']
-    expected:
-      status: 200
-
-  - name: 'Driver and Vehicles Account'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/driver-vehicles-account'
-    tags: ['tier-2', 'dvla', 'account', 'login']
-    expected:
-      status: 200
-
-  # Companies House
-  - name: 'Find and Update Company Information'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://find-and-update.company-information.service.gov.uk/'
-    tags: ['tier-2', 'companies-house', 'business', 'search']
-    expected:
-      status: 200
-
-  - name: 'Get Information About a Company'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/get-information-about-a-company'
-    tags: ['tier-2', 'companies-house', 'business', 'information']
-    expected:
-      status: 200
-
-  # Student Finance
-  - name: 'Student Finance Login'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/student-finance-register-login'
-    tags: ['tier-2', 'education', 'student-finance', 'login']
-    expected:
-      status: 200
-
-  - name: 'Apply for Student Finance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-online-for-student-finance'
-    tags: ['tier-2', 'education', 'student-finance', 'apply']
-    expected:
-      status: 200
-
-  # Childcare
-  - name: 'Sign In to Childcare Account'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/sign-in-childcare-account'
-    tags: ['tier-2', 'childcare', 'account', 'login']
-    expected:
-      status: 200
-
-  - name: 'Tax-Free Childcare'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/tax-free-childcare'
-    tags: ['tier-2', 'childcare', 'tax-free', 'benefits']
-    expected:
-      status: 200
-
-  # Home Office - Passports and Immigration
-  - name: 'Apply/Renew Passport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-renew-passport'
-    tags: ['tier-2', 'home-office', 'passport', 'application']
-    expected:
-      status: 200
-
-  - name: 'Check UK Visa Requirements'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-uk-visa'
-    tags: ['tier-2', 'home-office', 'immigration', 'visa']
-    expected:
-      status: 200
-
-  - name: 'eVisa - Immigration Status'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/evisa'
-    tags: ['tier-2', 'home-office', 'immigration', 'evisa']
-    expected:
-      status: 200
-
-  - name: 'Electronic Travel Authorisation (ETA)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/eta'
-    tags: ['tier-2', 'home-office', 'immigration', 'eta']
-    expected:
-      status: 200
-
-  # ============================================================================
-  # TIER 3: STANDARD SERVICES (Regular Use, Information Services)
-  # ============================================================================
-
-  # HMRC - Additional Tax Services
-  - name: 'Self Assessment Tax Return'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/file-your-self-assessment-tax-return'
-    tags: ['tier-3', 'hmrc', 'tax', 'self-assessment']
-    expected:
-      status: 200
-
-  - name: 'Check Income Tax'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-income-tax'
-    tags: ['tier-3', 'hmrc', 'tax', 'check']
-    expected:
-      status: 200
-
-  - name: 'National Insurance Record'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-national-insurance-record'
-    tags: ['tier-3', 'hmrc', 'ni', 'check']
-    expected:
-      status: 200
-
-  - name: 'Child Benefit'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/child-benefit'
-    tags: ['tier-3', 'hmrc', 'benefits', 'child-benefit']
-    expected:
-      status: 200
-
-  # DWP - Additional Benefits
-  - name: 'State Pension'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/state-pension'
-    tags: ['tier-3', 'dwp', 'pensions', 'state-pension']
-    expected:
-      status: 200
-
-  - name: 'Check State Pension Forecast'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-state-pension'
-    tags: ['tier-3', 'dwp', 'pensions', 'forecast']
-    expected:
-      status: 200
-
-  - name: 'Personal Independence Payment (PIP)'
+  - name: 'Personal Independence Payment'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
     resource: 'https://www.gov.uk/pip'
-    tags: ['tier-3', 'dwp', 'benefits', 'pip', 'disability']
+    tags: ["benefits","disability","dwp"]
     expected:
       status: 200
+    interval: 60
 
-  - name: 'Jobseekers Allowance'
+  - name: 'Personal Tax Account'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/jobseekers-allowance'
-    tags: ['tier-3', 'dwp', 'benefits', 'jsa']
+    resource: 'https://www.tax.service.gov.uk/personal-account'
+    tags: ["tax","hmrc","personal"]
     expected:
       status: 200
+    interval: 60
 
-  # Environment and Rural Services
-  - name: 'Check for Flooding'
+  - name: 'Register to Vote'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/check-flooding'
-    tags: ['tier-3', 'environment', 'flooding', 'check']
+    resource: 'https://www.register-to-vote.service.gov.uk/'
+    tags: ["voting","democracy","electoral-commission"]
     expected:
       status: 200
+    interval: 60
 
-  - name: 'Check for Flooding Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://check-for-flooding.service.gov.uk/'
-    tags: ['tier-3', 'environment', 'flooding', 'service-domain']
-    expected:
-      status: 200
-
-  - name: 'Rural Payments Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.ruralpayments.service.gov.uk/'
-    tags: ['tier-3', 'defra', 'farming', 'rural-payments']
-    expected:
-      status: 200
-    timeout: 15
-
-  - name: 'Buy Fishing Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/fishing-licences'
-    tags: ['tier-3', 'environment', 'fishing', 'licence']
-    expected:
-      status: 200
-
-  - name: 'Get Fishing Licence Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://get-fishing-licence.service.gov.uk/'
-    tags: ['tier-3', 'environment', 'fishing', 'service-domain']
-    expected:
-      status: 200
-
-  # Trade and Customs
-  - name: 'Trade Tariff Tool'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/trade-tariff'
-    tags: ['tier-3', 'trade', 'customs', 'tariff']
-    expected:
-      status: 200
-
-  - name: 'Trade Tariff Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.trade-tariff.service.gov.uk/'
-    tags: ['tier-3', 'trade', 'customs', 'service-domain']
-    expected:
-      status: 200
-
-  # Electoral Services
-  - name: 'Register to Vote'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/register-to-vote'
-    tags: ['tier-3', 'electoral', 'voting', 'registration']
-    expected:
-      status: 200
-
-  - name: 'Parliament Petitions'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://petition.parliament.uk/'
-    tags: ['tier-3', 'parliament', 'petitions', 'democracy']
-    expected:
-      status: 200
-
-  # Life Events
-  - name: 'Order Birth/Death/Marriage Certificate'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/order-copy-birth-death-marriage-certificate'
-    tags: ['tier-3', 'registrar', 'certificates', 'life-events']
-    expected:
-      status: 200
-
-  - name: 'Apply for Blue Badge'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-blue-badge'
-    tags: ['tier-3', 'disability', 'blue-badge', 'parking']
-    expected:
-      status: 200
-
-  # Planning and Building
-  - name: 'Planning Permission England/Wales'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/planning-permission-england-wales'
-    tags: ['tier-3', 'planning', 'building', 'permission']
-    expected:
-      status: 200
-
-  - name: 'Find Energy Certificate'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-energy-certificate'
-    tags: ['tier-3', 'energy', 'epc', 'certificates']
-    expected:
-      status: 200
-
-  # ============================================================================
-  # TIER 4: PLATFORM AND API SERVICES
-  # ============================================================================
-
-  # GOV.UK Platform Services
-  - name: 'GOV.UK Notify'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.notifications.service.gov.uk/'
-    tags: ['tier-4', 'govuk', 'platform', 'notify']
-    expected:
-      status: 200
-    interval: 600
-
-  - name: 'GOV.UK Pay'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.payments.service.gov.uk/'
-    tags: ['tier-4', 'govuk', 'platform', 'pay']
-    expected:
-      status: 200
-    interval: 600
-
-  - name: 'Digital Marketplace'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.digitalmarketplace.service.gov.uk/'
-    tags: ['tier-4', 'govuk', 'procurement', 'marketplace']
-    expected:
-      status: 200
-    interval: 900
-
-  # API and Data Services
-  - name: 'GOV.UK API Catalogue'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.api.gov.uk/'
-    tags: ['tier-4', 'api', 'catalogue', 'integration']
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Data.gov.uk Portal'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.data.gov.uk/'
-    tags: ['tier-4', 'data', 'open-data', 'portal']
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Environment Data Portal'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://environment.data.gov.uk/'
-    tags: ['tier-4', 'data', 'environment', 'api']
-    expected:
-      status: 200
-    interval: 900
-
-  # ============================================================================
-  # Additional High-Value Services
-  # ============================================================================
-
-  # Ministry of Justice
-  - name: 'Find a Court or Tribunal'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-court-tribunal'
-    tags: ['tier-3', 'moj', 'courts', 'search']
-    expected:
-      status: 200
-
-  - name: 'Prison Visits'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/prison-visits'
-    tags: ['tier-3', 'moj', 'prisons', 'visits']
-    expected:
-      status: 200
-
-  # Transport
-  - name: 'Pay Dartford Crossing Charge'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/pay-dartford-crossing-charge'
-    tags: ['tier-3', 'transport', 'tolls', 'dartford']
-    expected:
-      status: 200
-
-  # Additional DVLA
-  - name: 'Book Driving Test'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/book-driving-test'
-    tags: ['tier-2', 'dvla', 'driving-test', 'booking']
-    expected:
-      status: 200
-
-  - name: 'Change Driving Test'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/change-driving-test'
-    tags: ['tier-2', 'dvla', 'driving-test', 'change']
-    expected:
-      status: 200
-
-  - name: 'Tell DVLA Vehicle Sold/Bought'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/sold-bought-vehicle'
-    tags: ['tier-2', 'dvla', 'vehicle', 'transfer']
-    expected:
-      status: 200
-
-  # ============================================================================
-  # DEPARTMENT ORGANISATIONS - MINISTERIAL DEPARTMENTS
-  # ============================================================================
-
-  - name: 'Prime Minister''s Office, 10 Downing Street'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street'
-    tags: ["government","department","ministerial","executive"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Attorney General''s Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/attorney-generals-office'
-    tags: ["government","department","ministerial","legal"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Cabinet Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/cabinet-office'
-    tags: ["government","department","ministerial","executive"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Department for Business and Trade'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/department-for-business-and-trade'
-    tags: ["government","department","ministerial","business","trade"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Department for Culture, Media and Sport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/department-for-culture-media-and-sport'
-    tags: ["government","department","ministerial","culture","media","sport"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Department for Education'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/department-for-education'
-    tags: ["government","department","ministerial","education"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Department for Energy Security and Net Zero'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/department-for-energy-security-and-net-zero'
-    tags: ["government","department","ministerial","energy","climate"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Department for Environment, Food and Rural Affairs'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs'
-    tags: ["government","department","ministerial","environment","agriculture"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Department for Science, Innovation and Technology'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology'
-    tags: ["government","department","ministerial","science","technology"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Department for Transport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/department-for-transport'
-    tags: ["government","department","ministerial","transport"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Department for Work and Pensions'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/department-for-work-pensions'
-    tags: ["government","department","ministerial","benefits","pensions"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Department of Health and Social Care'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/department-of-health-and-social-care'
-    tags: ["government","department","ministerial","health","social-care"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Foreign, Commonwealth and Development Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/foreign-commonwealth-development-office'
-    tags: ["government","department","ministerial","foreign-affairs","development"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'HM Treasury'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/hm-treasury'
-    tags: ["government","department","ministerial","finance","economy"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Home Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/home-office'
-    tags: ["government","department","ministerial","immigration","security"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Ministry of Defence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/ministry-of-defence'
-    tags: ["government","department","ministerial","defence","military"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Ministry of Housing, Communities and Local Government'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/ministry-of-housing-communities-local-government'
-    tags: ["government","department","ministerial","housing","local-government"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Ministry of Justice'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/ministry-of-justice'
-    tags: ["government","department","ministerial","justice","legal"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Northern Ireland Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/northern-ireland-office'
-    tags: ["government","department","ministerial","northern-ireland"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Office of the Advocate General for Scotland'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/office-of-the-advocate-general-for-scotland'
-    tags: ["government","department","ministerial","scotland","legal"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Scotland Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/scotland-office'
-    tags: ["government","department","ministerial","scotland"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'UK Export Finance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/uk-export-finance'
-    tags: ["government","department","ministerial","export","finance"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Wales Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/wales-office'
-    tags: ["government","department","ministerial","wales"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # DEPARTMENT ORGANISATIONS - EXECUTIVE AGENCIES
-  # ============================================================================
-
-  - name: 'Companies House'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/companies-house'
-    tags: ["government","agency","business","companies"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Companies House - Find and Update Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://find-and-update.company-information.service.gov.uk'
-    tags: ["government","agency","business","companies","service"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Driver and Vehicle Licensing Agency (DVLA)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/driver-and-vehicle-licensing-agency'
-    tags: ["government","agency","driving","vehicles"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'HM Prison and Probation Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/hm-prison-and-probation-service'
-    tags: ["government","agency","justice","prisons"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Intellectual Property Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/intellectual-property-office'
-    tags: ["government","agency","business","intellectual-property"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Met Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/met-office'
-    tags: ["government","agency","weather","climate"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'UK Visas and Immigration'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/uk-visas-and-immigration'
-    tags: ["government","agency","immigration","visas"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Environment Agency'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/environment-agency'
-    tags: ["government","agency","environment","regulation"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Health and Safety Executive'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/health-and-safety-executive'
-    tags: ["government","agency","health","safety","regulation"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'HM Land Registry'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/land-registry'
-    tags: ["government","agency","property","land"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'HM Courts & Tribunals Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service'
-    tags: ["government","agency","justice","courts"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Medicines and Healthcare products Regulatory Agency'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/medicines-and-healthcare-products-regulatory-agency'
-    tags: ["government","agency","health","medicines","regulation"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Driver and Vehicle Standards Agency'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency'
-    tags: ["government","agency","driving","vehicles","mot"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Rural Payments Agency'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/rural-payments-agency'
-    tags: ["government","agency","agriculture","farming"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Education and Skills Funding Agency'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/education-and-skills-funding-agency'
-    tags: ["government","agency","education","funding"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # DEPARTMENT ORGANISATIONS - NON-MINISTERIAL DEPARTMENTS & REGULATORS
-  # ============================================================================
-
-  - name: 'HM Revenue and Customs (HMRC)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/hm-revenue-customs'
-    tags: ["government","non-ministerial","tax","hmrc"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'HMRC Online Services Sign In'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/log-in-register-hmrc-online-services'
-    tags: ["government","hmrc","tax","service","login"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Food Standards Agency'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/food-standards-agency'
-    tags: ["government","non-ministerial","food","safety"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Office of Gas and Electricity Markets (Ofgem)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.ofgem.gov.uk'
-    tags: ["government","regulator","energy","utilities"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Office of Communications (Ofcom)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.ofcom.org.uk'
-    tags: ["government","regulator","communications","broadcasting"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Office for Standards in Education (Ofsted)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/ofsted'
-    tags: ["government","regulator","education","inspection"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Water Services Regulation Authority (Ofwat)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.ofwat.gov.uk'
-    tags: ["government","regulator","water","utilities"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Civil Aviation Authority'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.caa.co.uk'
-    tags: ["government","regulator","aviation","transport"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Financial Conduct Authority'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.fca.org.uk'
-    tags: ["government","regulator","finance","banking"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Gambling Commission'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gamblingcommission.gov.uk'
-    tags: ["government","regulator","gambling","licensing"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Competition and Markets Authority'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/competition-and-markets-authority'
-    tags: ["government","non-ministerial","competition","markets"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'UK Statistics Authority'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/uk-statistics-authority'
-    tags: ["government","non-ministerial","statistics","data"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Office for National Statistics'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.ons.gov.uk'
-    tags: ["government","statistics","data","census"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Crown Prosecution Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/crown-prosecution-service'
-    tags: ["government","non-ministerial","justice","prosecution"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Serious Fraud Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/serious-fraud-office'
-    tags: ["government","non-ministerial","justice","fraud"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'National Crime Agency'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/national-crime-agency'
-    tags: ["government","agency","crime","law-enforcement"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # GOV.UK BROWSE - MAIN CATEGORIES
-  # ============================================================================
-
-  - name: 'Browse - Benefits'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/benefits'
-    tags: ["browse","benefits","welfare"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Births, Deaths, Marriages and Care'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/births-deaths-marriages'
-    tags: ["browse","registry","life-events"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Business and Self-Employed'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/business'
-    tags: ["browse","business","self-employed"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Childcare and Parenting'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/childcare-parenting'
-    tags: ["browse","childcare","parenting","families"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Citizenship and Living in the UK'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/citizenship'
-    tags: ["browse","citizenship","immigration"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Crime, Justice and the Law'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/justice'
-    tags: ["browse","justice","crime","legal"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Disabled People'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/disabilities'
-    tags: ["browse","disability","accessibility"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Driving and Transport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/driving'
-    tags: ["browse","driving","transport","vehicles"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Education and Learning'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/education'
-    tags: ["browse","education","schools","learning"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Employing People'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/employing-people'
-    tags: ["browse","employment","employers","hr"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Environment and Countryside'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/environment-countryside'
-    tags: ["browse","environment","countryside","nature"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Housing and Local Services'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/housing-local-services'
-    tags: ["browse","housing","local-services","councils"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Money and Tax'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/tax'
-    tags: ["browse","tax","money","finance"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Passports, Travel and Living Abroad'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/abroad'
-    tags: ["browse","passports","travel","abroad"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Visas and Immigration'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/visas-immigration'
-    tags: ["browse","visas","immigration"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Browse - Working, Jobs and Pensions'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/working'
-    tags: ["browse","working","jobs","pensions"]
-    expected:
-      status: 200
-    interval: 1800
-
-
-  # ============================================================================
-  # GOV.UK SERVICES - TOP SERVICES
-  # ============================================================================
-
-  - name: 'Universal Credit - Sign In (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/sign-in-universal-credit'
-    tags: ["service","benefits","universal-credit","welfare"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Check MOT History (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-mot-history'
-    tags: ["service","vehicles","mot","driving"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Get Information About a Company (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/get-information-about-a-company'
-    tags: ["service","business","companies-house"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Tax Your Vehicle (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/vehicle-tax'
-    tags: ["service","vehicles","tax","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Check If a Vehicle Is Taxed'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-vehicle-tax'
-    tags: ["service","vehicles","tax","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Check MOT Status (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-mot-status'
-    tags: ["service","vehicles","mot"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'View or Share Driving Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/view-driving-licence'
-    tags: ["service","driving","licence","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Student Finance Login (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/student-finance-register-login'
-    tags: ["service","education","student-finance","loans"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Get Electronic Travel Authorisation (ETA)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/eta'
-    tags: ["service","immigration","travel","visas"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Get Vehicle Information from DVLA'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/get-vehicle-information-from-dvla'
-    tags: ["service","vehicles","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Book Driving Test (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/book-driving-test'
-    tags: ["service","driving","test"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Change Driving Test (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/change-driving-test'
-    tags: ["service","driving","test"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Sign In to Childcare Account (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/sign-in-childcare-account'
-    tags: ["service","childcare","benefits"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Tell DVLA - Sold, Bought or Transferred Vehicle'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/sold-bought-vehicle'
-    tags: ["service","vehicles","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'eVisa - Online Immigration Status'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/evisa'
-    tags: ["service","immigration","visas","digital"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Find Energy Certificate (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-energy-certificate'
-    tags: ["service","property","energy","epc"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Pay Dartford Crossing Charge (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/pay-dartford-crossing-charge'
-    tags: ["service","transport","toll","payment"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Check If You Need a UK Visa'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-uk-visa'
-    tags: ["service","immigration","visas"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for Blue Badge (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-blue-badge'
-    tags: ["service","disability","parking","blue-badge"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Register to Vote (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/register-to-vote'
-    tags: ["service","electoral","voting","democracy"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Find a Register Office'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/register-offices'
-    tags: ["service","registry","births","deaths","marriages"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # GOV.UK SERVICES - DRIVING & VEHICLES
-  # ============================================================================
-
-  - name: 'Get a Vehicle Log Book (V5C)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/vehicle-log-book'
-    tags: ["service","vehicles","v5c","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Change Address on V5C'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/change-address-v5c'
-    tags: ["service","vehicles","v5c","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Vehicle Registration'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/vehicle-registration'
-    tags: ["service","vehicles","registration","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Renew Adult Passport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/renew-adult-passport'
-    tags: ["service","passport","travel"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for First UK Passport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-first-adult-passport'
-    tags: ["service","passport","travel"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Renew Driving Licence'
+  - name: 'Renew Driving Licence'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
     resource: 'https://www.gov.uk/renew-driving-licence'
-    tags: ["service","driving","licence","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Exchange Foreign Driving Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/exchange-foreign-driving-licence'
-    tags: ["service","driving","licence","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Report Driving Licence Lost or Stolen'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-driving-licence-lost-stolen'
-    tags: ["service","driving","licence","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Change Name on Driving Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/change-name-driving-licence'
-    tags: ["service","driving","licence","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Change Address on Driving Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/change-address-driving-licence'
-    tags: ["service","driving","licence","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Book Theory Test'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/book-theory-test'
-    tags: ["service","driving","test","theory"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Book Motorcycle Test'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/book-motorcycle-test'
-    tags: ["service","driving","test","motorcycle"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'SORN - Statutory Off Road Notification'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/make-a-sorn'
-    tags: ["service","vehicles","sorn","dvla"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for Disabled Parking Badge'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/disabled-parking-badge'
-    tags: ["service","disability","parking","blue-badge"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Calculate Vehicle Tax Rates'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/vehicle-tax-rate-tables'
-    tags: ["service","vehicles","tax"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # GOV.UK SERVICES - BENEFITS & FINANCE
-  # ============================================================================
-
-  - name: 'Universal Credit - Overview'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/universal-credit'
-    tags: ["service","benefits","universal-credit"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply Online for Student Finance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-online-for-student-finance'
-    tags: ["service","education","student-finance"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Child Benefit (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/child-benefit'
-    tags: ["service","benefits","child-benefit","families"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Child Tax Credit'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/child-tax-credit'
-    tags: ["service","benefits","tax-credits","families"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Employment and Support Allowance (ESA)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/employment-support-allowance'
-    tags: ["service","benefits","esa","disability"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Personal Independence Payment (PIP) (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/pip'
-    tags: ["service","benefits","pip","disability"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'State Pension (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/state-pension'
-    tags: ["service","benefits","pension","retirement"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Pension Credit'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/pension-credit'
-    tags: ["service","benefits","pension","retirement"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Jobseeker''s Allowance (JSA)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/jobseekers-allowance'
-    tags: ["service","benefits","jsa","unemployment"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Carer''s Allowance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/carers-allowance'
-    tags: ["service","benefits","carers"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Disability Living Allowance (DLA)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/dla-disability-living-allowance-benefit'
-    tags: ["service","benefits","dla","disability"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Attendance Allowance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/attendance-allowance'
-    tags: ["service","benefits","attendance-allowance","disability"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Council Tax Reduction'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-council-tax-reduction'
-    tags: ["service","benefits","council-tax","local"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Housing Benefit'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/housing-benefit'
-    tags: ["service","benefits","housing"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Cold Weather Payment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/cold-weather-payment'
-    tags: ["service","benefits","heating","winter"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Winter Fuel Payment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/winter-fuel-payment'
-    tags: ["service","benefits","heating","winter"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Maternity Allowance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/maternity-allowance'
-    tags: ["service","benefits","maternity","families"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Statutory Sick Pay (SSP)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/statutory-sick-pay'
-    tags: ["service","benefits","sick-pay","employment"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Bereavement Support Payment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/bereavement-support-payment'
-    tags: ["service","benefits","bereavement"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Legal Aid'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/legal-aid'
-    tags: ["service","justice","legal-aid"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # GOV.UK SERVICES - BUSINESS
-  # ============================================================================
-
-  - name: 'Register as an Employer'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/register-employer'
-    tags: ["service","business","employers","paye"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Search for Trade Mark'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/search-for-trademark'
-    tags: ["service","business","intellectual-property","trademarks"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Search for Patent'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/search-for-patent'
-    tags: ["service","business","intellectual-property","patents"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Check If You Need an Environmental Permit'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/guidance/check-if-you-need-an-environmental-permit'
-    tags: ["service","business","environment","permits"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Waste Environmental Permits'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/guidance/waste-environmental-permits'
-    tags: ["service","business","environment","waste"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Set Up a Limited Company'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/limited-company-formation'
-    tags: ["service","business","companies","incorporation"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'File Company Accounts'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/file-your-company-accounts-and-tax-return'
-    tags: ["service","business","companies","accounts"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for EORI Number'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/eori'
-    tags: ["service","business","customs","import-export"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Find Commodity Code'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/trade-tariff'
-    tags: ["service","business","customs","import-export"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Register for VAT'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/vat-registration'
-    tags: ["service","business","tax","vat"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'File VAT Return'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/file-your-vat-return'
-    tags: ["service","business","tax","vat"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Register for Corporation Tax'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/limited-company-formation/set-up-your-company-for-corporation-tax'
-    tags: ["service","business","tax","corporation-tax"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Submit Self Assessment Tax Return'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/self-assessment-tax-returns'
-    tags: ["service","business","tax","self-assessment"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Register for Self Assessment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/register-for-self-assessment'
-    tags: ["service","business","tax","self-assessment"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'CIS - Construction Industry Scheme'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/what-is-the-construction-industry-scheme'
-    tags: ["service","business","tax","construction"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # SCOTLAND - MYGOV.SCOT SERVICES
-  # ============================================================================
-
-  - name: 'mygov.scot - Home'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot'
-    tags: ["scotland","portal","services"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'mygov.scot - Benefits'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/browse/benefits'
-    tags: ["scotland","benefits","welfare"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'mygov.scot - Housing'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/browse/housing'
-    tags: ["scotland","housing","council-tax"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'mygov.scot - Health and Social Care'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/browse/health-social-care'
-    tags: ["scotland","health","social-care"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'mygov.scot - Working and Jobs'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/browse/working-jobs'
-    tags: ["scotland","employment","jobs"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'mygov.scot - Driving and Transport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/browse/driving-transport'
-    tags: ["scotland","driving","transport"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'mygov.scot - Education and Training'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/browse/education-training'
-    tags: ["scotland","education","training"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'mygov.scot - Business'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/browse/business'
-    tags: ["scotland","business"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'mygov.scot - Birth, Death and Family'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/browse/birth-death-family'
-    tags: ["scotland","registry","life-events"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'mygov.scot - Crime, Justice and Law'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/browse/crime-justice-law'
-    tags: ["scotland","justice","legal"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'mygov.scot - Apply for Blue Badge'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.mygov.scot/apply-blue-badge'
-    tags: ["scotland","disability","parking","blue-badge"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'gov.scot - Scottish Government Home'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.scot'
-    tags: ["scotland","government"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'gov.scot - Digital Policy'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.scot/policies/digital'
-    tags: ["scotland","government","digital"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # WALES - GOV.WALES SERVICES
-  # ============================================================================
-
-  - name: 'gov.wales - Home (English)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.wales'
-    tags: ["wales","government","english"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'llyw.cymru - Home (Welsh)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.llyw.cymru'
-    tags: ["wales","government","welsh","cymraeg"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'gov.wales - Welsh Language'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.wales/welsh-language'
-    tags: ["wales","welsh-language","cymraeg"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'gov.wales - Welsh Language Support'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.wales/welsh-language-support-and-services'
-    tags: ["wales","welsh-language","support"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'cymraeg.llyw.cymru - Welsh Promotion'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://cymraeg.llyw.cymru'
-    tags: ["wales","welsh-language","promotion"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # NORTHERN IRELAND - NIDIRECT SERVICES
-  # ============================================================================
-
-  - name: 'nidirect - Home'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nidirect.gov.uk'
-    tags: ["northern-ireland","portal","services"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'nidirect - Government'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nidirect.gov.uk/information-and-services/government-citizens-and-rights/government'
-    tags: ["northern-ireland","government"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'nidirect - Government Departments'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nidirect.gov.uk/contacts/government-departments-in-northern-ireland'
-    tags: ["northern-ireland","government","departments"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'nidirect - Benefits and Money'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nidirect.gov.uk/information-and-services/benefits-and-money'
-    tags: ["northern-ireland","benefits","finance"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'nidirect - Births, Deaths and Marriages'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nidirect.gov.uk/information-and-services/government-citizens-and-rights/births-deaths-marriages-and-civil'
-    tags: ["northern-ireland","registry","life-events"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'nidirect - OpenDataNI Portal'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nidirect.gov.uk/services/opendatani-portal'
-    tags: ["northern-ireland","data","open-data"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'nidirect - Employment and Support Allowance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nidirect.gov.uk/articles/employment-and-support-allowance'
-    tags: ["northern-ireland","benefits","esa"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'nidirect - Personal Independence Payment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nidirect.gov.uk/articles/personal-independence-payment-pip'
-    tags: ["northern-ireland","benefits","pip","disability"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'nidirect - Universal Credit'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nidirect.gov.uk/articles/universal-credit-if-youre-claiming-other-benefits-or-tax-credits'
-    tags: ["northern-ireland","benefits","universal-credit"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # NHS DIGITAL SERVICES
-  # ============================================================================
-
-  - name: 'NHS - Main Website'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk'
-    tags: ["nhs","health","services"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS 111 Online (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://111.nhs.uk'
-    tags: ["nhs","health","emergency","111"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS Online Services'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/nhs-services/gps/online-health-and-prescription-services'
-    tags: ["nhs","health","online","digital"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS App'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/nhs-app'
-    tags: ["nhs","health","app","digital"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS Digital - Homepage'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://digital.nhs.uk'
-    tags: ["nhs","health","digital","services"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS Digital - Register with GP'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://digital.nhs.uk/services/register-with-a-gp-surgery-service'
-    tags: ["nhs","health","gp","registration"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS - Find Services'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/service-search'
-    tags: ["nhs","health","services","search"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS - Find a Pharmacy'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/service-search/pharmacy/find-a-pharmacy'
-    tags: ["nhs","health","pharmacy"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS - Find a Dentist'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/service-search/find-a-dentist'
-    tags: ["nhs","health","dentist"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS - Find a GP'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/service-search/find-a-gp'
-    tags: ["nhs","health","gp"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS England - Homepage'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.england.nhs.uk'
-    tags: ["nhs","health","england"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS - Mental Health Services'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/mental-health'
-    tags: ["nhs","health","mental-health"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS - Conditions A-Z'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/conditions'
-    tags: ["nhs","health","conditions"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS - Medicines A-Z'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/medicines'
-    tags: ["nhs","health","medicines"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'NHS - Live Well'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/live-well'
-    tags: ["nhs","health","wellbeing"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # ENVIRONMENT & PLANNING
-  # ============================================================================
-
-  - name: 'Environment Agency - Public Register'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://environment.data.gov.uk/public-register/view/index'
-    tags: ["environment","permits","regulation"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Check Flood Risk'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-flood-risk'
-    tags: ["environment","flooding","planning"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Planning Permission'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/housing-local-services/planning-permission-regulations-information'
-    tags: ["planning","local-services","building"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'Check Planning Applications'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-local-council'
-    tags: ["planning","local-services","councils"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'HM Land Registry (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/search-property-information-land-registry'
-    tags: ["property","land","registry"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Check Local Air Quality'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-local-air-quality'
-    tags: ["environment","air-quality","pollution"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # EDUCATION SERVICES
-  # ============================================================================
-
-  - name: 'Find School Performance Data'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/school-performance-tables'
-    tags: ["education","schools","performance"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for Primary School Place'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-for-primary-school-place'
-    tags: ["education","schools","admissions"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for Secondary School Place'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-for-secondary-school-place'
-    tags: ["education","schools","admissions"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Student Finance - Overview'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/student-finance'
-    tags: ["education","student-finance","university"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Student Finance England'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://studentfinance.campaign.gov.uk'
-    tags: ["education","student-finance","england"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Find Apprenticeships'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-apprenticeship'
-    tags: ["education","apprenticeships","training"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Childcare Choices'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/childcare-calculator'
-    tags: ["education","childcare","families"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Free School Meals'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-free-school-meals'
-    tags: ["education","schools","benefits"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # JUSTICE & LEGAL SERVICES
-  # ============================================================================
-
-  - name: 'HM Courts & Tribunals Service (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service'
-    tags: ["justice","courts","tribunals"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Find Court or Tribunal'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-court-tribunal'
-    tags: ["justice","courts","search"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Make Money Claim Online'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/make-money-claim'
-    tags: ["justice","claims","civil"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Respond to Money Claim'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/respond-money-claim'
-    tags: ["justice","claims","civil"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Divorce Application'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/divorce'
-    tags: ["justice","family","divorce"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for Probate'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/applying-for-probate'
-    tags: ["justice","probate","wills"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Make Court Claim for Money'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/make-court-claim-for-money'
-    tags: ["justice","claims","civil"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Criminal Records Check'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/request-copy-criminal-record'
-    tags: ["justice","criminal-records","dbs"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'DBS Check'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/dbs-check-applicant-criminal-record'
-    tags: ["justice","criminal-records","dbs"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # IMMIGRATION & BORDERS
-  # ============================================================================
-
-  - name: 'Apply for UK Visa'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-to-come-to-the-uk'
-    tags: ["immigration","visas","applications"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Extend UK Visa'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/extend-uk-visa'
-    tags: ["immigration","visas","extensions"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for Settlement (ILR)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/settle-in-the-uk'
-    tags: ["immigration","settlement","ilr"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for British Citizenship'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-citizenship-british-nationality'
-    tags: ["immigration","citizenship","nationality"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Skilled Worker Visa'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/skilled-worker-visa'
-    tags: ["immigration","visas","work"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Student Visa'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/student-visa'
-    tags: ["immigration","visas","students"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Family Visa'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/uk-family-visa'
-    tags: ["immigration","visas","family"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Transfer Visa to New Passport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/transfer-visa'
-    tags: ["immigration","visas","transfer"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'UK Border Control'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/uk-border-control'
-    tags: ["immigration","borders","travel"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # LOCAL GOVERNMENT - KEY SERVICES
-  # ============================================================================
-
-  - name: 'Find Local Council'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-local-council'
-    tags: ["local-government","councils","search"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Report Potholes and Street Problems'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-pothole'
-    tags: ["local-government","highways","maintenance"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Council Tax Bands'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/council-tax-bands'
-    tags: ["local-government","council-tax"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Challenge Council Tax Band'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/challenge-council-tax-band'
-    tags: ["local-government","council-tax"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Report Missed Bin Collection'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-missed-bin-collection'
-    tags: ["local-government","waste","recycling"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Find Recycling Centre'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/recycling-collections'
-    tags: ["local-government","waste","recycling"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Report Noise Nuisance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/how-to-resolve-neighbour-disputes/overview'
-    tags: ["local-government","environmental-health","noise"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Report Fly-Tipping'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-fly-tipping'
-    tags: ["local-government","environmental-health","waste"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Report Abandoned Vehicle'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-abandoned-vehicle'
-    tags: ["local-government","highways","parking"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Apply for Parking Permit'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-for-parking-permit'
-    tags: ["local-government","parking","permits"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # DATA & STATISTICS
-  # ============================================================================
-
-  - name: 'data.gov.uk'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.data.gov.uk'
-    tags: ["data","open-data","statistics"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Office for National Statistics (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.ons.gov.uk'
-    tags: ["statistics","data","census"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'UK Census 2021'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://census.gov.uk'
-    tags: ["statistics","census","data"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # CAREERS & EMPLOYMENT
-  # ============================================================================
-
-  - name: 'Find a Job'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-a-job'
-    tags: ["employment","jobs","careers"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'National Careers Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://nationalcareers.service.gov.uk'
-    tags: ["employment","careers","advice"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Check Employment Rights'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/browse/working/rights-trade-unions'
-    tags: ["employment","rights","workers"]
-    expected:
-      status: 200
-    interval: 1800
-
-  - name: 'National Minimum Wage'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/national-minimum-wage-rates'
-    tags: ["employment","wages","rights"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Statutory Maternity Pay'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/maternity-pay-leave'
-    tags: ["employment","maternity","benefits"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Statutory Paternity Pay'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/paternity-pay-leave'
-    tags: ["employment","paternity","benefits"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # ADDITIONAL CORE SERVICES
-  # ============================================================================
-
-  - name: 'GOV.UK Notify (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.notifications.service.gov.uk'
-    tags: ["digital","notifications","platform"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'GOV.UK Pay (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.payments.service.gov.uk'
-    tags: ["digital","payments","platform"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'GOV.UK Design System'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://design-system.service.gov.uk'
-    tags: ["digital","design","standards"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Performance Platform'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/performance'
-    tags: ["digital","performance","data"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Petitions - UK Government and Parliament'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://petition.parliament.uk'
-    tags: ["democracy","petitions","parliament"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'UK Parliament'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.parliament.uk'
-    tags: ["parliament","democracy","legislation"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'Legislation.gov.uk'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.legislation.gov.uk'
-    tags: ["legislation","law","statutes"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'National Archives'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nationalarchives.gov.uk'
-    tags: ["archives","history","records"]
-    expected:
-      status: 200
-    interval: 900
-
-  - name: 'UK Web Archive'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nationalarchives.gov.uk/webarchive'
-    tags: ["archives","web","history"]
-    expected:
-      status: 200
-    interval: 900
-
-
-  # ============================================================================
-  # ADDITIONAL SERVICE ENDPOINTS AND VARIATIONS
-  # HEAD Method Checks and Sub-pages for Critical Services
-  # ============================================================================
-
-  # HEAD method checks for critical services (fast availability checks)
-  - name: 'GOV.UK Homepage (HEAD Check)'
-    protocol: HTTPS
-    method: HEAD
-    resource: 'https://www.gov.uk/'
-    tags: ['tier-1', 'govuk', 'core', 'head-check']
+    tags: ["motoring","driving-licence","dvla"]
     expected:
       status: 200
     interval: 60
 
-  - name: 'NHS.UK Homepage (HEAD Check)'
+  - name: 'Self Assessment Online'  # Escape single quotes for YAML
     protocol: HTTPS
-    method: HEAD
-    resource: 'https://www.nhs.uk/'
-    tags: ['tier-1', 'nhs', 'health', 'head-check']
+    method: GET
+    resource: 'https://www.tax.service.gov.uk/self-assessment/'
+    tags: ["tax","self-assessment","hmrc"]
     expected:
       status: 200
     interval: 60
 
-  - name: 'HMRC Tax Portal (HEAD Check)'
+  - name: 'Student Finance England'  # Escape single quotes for YAML
     protocol: HTTPS
-    method: HEAD
-    resource: 'https://www.tax.service.gov.uk/'
-    tags: ['tier-1', 'hmrc', 'tax', 'head-check']
+    method: GET
+    resource: 'https://www.student-finance.service.gov.uk/'
+    tags: ["education","finance","slc"]
     expected:
       status: 200
     interval: 60
 
-  - name: 'Universal Credit Portal (HEAD Check)'
+  - name: 'Tax-Free Childcare Account'  # Escape single quotes for YAML
     protocol: HTTPS
-    method: HEAD
-    resource: 'https://www.gov.uk/universal-credit'
-    tags: ['tier-1', 'dwp', 'benefits', 'head-check']
+    method: GET
+    resource: 'https://www.childcare-support.service.gov.uk/'
+    tags: ["childcare","tax","hmrc"]
     expected:
       status: 200
     interval: 60
 
+  - name: 'Universal Credit Account'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.universal-credit.service.gov.uk/'
+    tags: ["benefits","universal-credit","dwp"]
+    expected:
+      status: 200
+    interval: 60
+
+  - name: 'VAT Online'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.tax.service.gov.uk/vat/'
+    tags: ["tax","vat","hmrc"]
+    expected:
+      status: 200
+    interval: 60
+
+  - name: 'Vehicle Tax (Tax Your Vehicle)'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/vehicle-tax'
+    tags: ["motoring","tax","dvla"]
+    expected:
+      status: 200
+    interval: 60
+
+  - name: 'Visa Application Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.visa4uk.fco.gov.uk/'
+    tags: ["immigration","visas","home-office"]
+    expected:
+      status: 200
+    interval: 60
 
   # ============================================================================
-  # DVLA EXTENDED
+  # TIER 2: HIGH-VOLUME SERVICES
+  # Major citizen-facing transactional services - Check every 5 minutes
   # ============================================================================
 
-  - name: 'Driving Theory Test'
+  - name: '16 to 19 Bursary Fund'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/book-theory-test'
-    tags: ["tier-2","dvla","theory-test"]
+    resource: 'https://www.gov.uk/1619-bursary-fund'
+    tags: ["education","bursaries","dfe"]
     expected:
       status: 200
 
-  - name: 'Cancel Driving Test'
+  - name: 'AccessNI - Criminal Records Check Northern Ireland'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/cancel-driving-test'
-    tags: ["tier-2","dvla","driving-test"]
+    resource: 'https://www.nidirect.gov.uk/campaigns/accessni-criminal-record-checks'
+    tags: ["criminal-records","northern-ireland","accessni"]
     expected:
       status: 200
 
-  - name: 'Exchange Foreign Driving Licence (2)'
+  - name: 'Anti-Money Laundering Supervision'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/exchange-foreign-driving-licence'
-    tags: ["tier-2","dvla","driving-licence"]
+    resource: 'https://www.tax.service.gov.uk/anti-money-laundering/'
+    tags: ["compliance","hmrc","supervision"]
     expected:
       status: 200
 
-  - name: 'Add Driving Qualification to Licence'
+  - name: 'Apply for Divorce'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/add-driving-qualification-to-licence'
-    tags: ["tier-2","dvla","driving-licence"]
+    resource: 'https://www.apply-divorce.service.gov.uk/'
+    tags: ["justice","family","divorce","hmcts"]
     expected:
       status: 200
 
-  - name: 'Report Lost or Stolen Driving Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-lost-or-stolen-driving-licence'
-    tags: ["tier-2","dvla","driving-licence"]
-    expected:
-      status: 200
-
-  - name: 'Renew Photo on Driving Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/renew-photo-driving-licence'
-    tags: ["tier-2","dvla","driving-licence"]
-    expected:
-      status: 200
-
-  - name: 'Update Name on Driving Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/change-name-driving-licence'
-    tags: ["tier-2","dvla","driving-licence"]
-    expected:
-      status: 200
-
-  - name: 'Report Insurance Invalid'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/vehicle-insurance'
-    tags: ["tier-2","dvla","vehicle","insurance"]
-    expected:
-      status: 200
-
-  - name: 'Book Theory Test (Motorcycle)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/book-theory-test'
-    tags: ["tier-2","dvla","motorcycle"]
-    expected:
-      status: 200
-
-  - name: 'Book Practical Driving Test'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/book-practical-driving-test'
-    tags: ["tier-2","dvla","driving-test"]
-    expected:
-      status: 200
-
-  - name: 'Check Driving Licence Penalty Points'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/check-driving-licence-points'
-    tags: ["tier-2","dvla","driving-licence"]
-    expected:
-      status: 200
-
-  - name: 'DVLA Contact Forms'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/contact-the-dvla'
-    tags: ["tier-3","dvla","support"]
-    expected:
-      status: 200
-
-  - name: 'Renew Vehicle Tax Reminder'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/vehicle-tax-reminder'
-    tags: ["tier-2","dvla","vehicle"]
-    expected:
-      status: 200
-
-  - name: 'Personalised Registration Numbers'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/personalised-vehicle-registration-numbers'
-    tags: ["tier-3","dvla","vehicle"]
-    expected:
-      status: 200
-
-  - name: 'Scrap Your Vehicle'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/scrap-your-vehicle'
-    tags: ["tier-2","dvla","vehicle"]
-    expected:
-      status: 200
-
-
-  # ============================================================================
-  # HMRC EXTENDED
-  # ============================================================================
-
-  - name: 'Register for Self Assessment (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/register-for-self-assessment'
-    tags: ["tier-3","hmrc","tax"]
-    expected:
-      status: 200
-
-  - name: 'Change Self Assessment Details'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/tell-hmrc-change-of-details'
-    tags: ["tier-3","hmrc","tax"]
-    expected:
-      status: 200
-
-  - name: 'Estimate Self Assessment Tax Bill'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/estimate-self-assessment-tax-bill'
-    tags: ["tier-3","hmrc","tax"]
-    expected:
-      status: 200
-
-  - name: 'Expenses if Self-Employed'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/expenses-if-youre-self-employed'
-    tags: ["tier-3","hmrc","tax"]
-    expected:
-      status: 200
-
-  - name: 'Tax on Foreign Income'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/tax-foreign-income'
-    tags: ["tier-3","hmrc","tax"]
-    expected:
-      status: 200
-
-  - name: 'Tax on Savings Interest'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-tax-free-interest-on-savings'
-    tags: ["tier-3","hmrc","tax"]
-    expected:
-      status: 200
-
-  - name: 'Get Tax Code'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/tax-codes'
-    tags: ["tier-3","hmrc","tax"]
-    expected:
-      status: 200
-
-  - name: 'Claim Marriage Allowance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/marriage-allowance'
-    tags: ["tier-3","hmrc","tax"]
-    expected:
-      status: 200
-
-  - name: 'Help Paying HMRC Debt'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/difficulties-paying-hmrc'
-    tags: ["tier-3","hmrc","support"]
-    expected:
-      status: 200
-
-  - name: 'Check Employment Status for Tax'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/guidance/check-employment-status-for-tax'
-    tags: ["tier-3","hmrc","tax"]
-    expected:
-      status: 200
-
-  - name: 'Register as an Employer (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/register-employer'
-    tags: ["tier-3","hmrc","business"]
-    expected:
-      status: 200
-
-  - name: 'Report Changes Affect Tax Credits'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/changes-affect-tax-credits'
-    tags: ["tier-3","hmrc","tax-credits"]
-    expected:
-      status: 200
-
-  - name: 'Renew Tax Credits'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/manage-your-tax-credits'
-    tags: ["tier-3","hmrc","tax-credits"]
-    expected:
-      status: 200
-
-  - name: 'Pay Corporation Tax'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/pay-corporation-tax'
-    tags: ["tier-3","hmrc","business"]
-    expected:
-      status: 200
-
-  - name: 'Register for VAT (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/vat-registration'
-    tags: ["tier-3","hmrc","business"]
-    expected:
-      status: 200
-
-  - name: 'Submit VAT Return'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/submit-vat-return'
-    tags: ["tier-3","hmrc","business"]
-    expected:
-      status: 200
-
-  - name: 'Pay VAT Bill'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/pay-vat'
-    tags: ["tier-3","hmrc","business"]
-    expected:
-      status: 200
-
-  - name: 'Reclaim VAT'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/reclaim-vat'
-    tags: ["tier-3","hmrc","business"]
-    expected:
-      status: 200
-
-  - name: 'National Minimum Wage Rates'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/national-minimum-wage-rates'
-    tags: ["tier-3","hmrc","employment"]
-    expected:
-      status: 200
-
-  - name: 'Report Employer PAYE'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/running-payroll'
-    tags: ["tier-3","hmrc","business"]
-    expected:
-      status: 200
-
-
-  # ============================================================================
-  # DWP EXTENDED
-  # ============================================================================
-
-  - name: 'Apply Maternity Allowance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/maternity-allowance'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Apply for Winter Fuel Payment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/winter-fuel-payment'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Apply for Cold Weather Payment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/cold-weather-payment'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Claim Funeral Expenses Payment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/funeral-payments'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Report Change Universal Credit'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-benefits-change-circumstances'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Check Benefit Overpayment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/benefit-overpayments'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Statutory Sick Pay (SSP) (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/statutory-sick-pay'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Child Maintenance Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/child-maintenance'
-    tags: ["tier-3","dwp","child-maintenance"]
-    expected:
-      status: 200
-
-  - name: 'Widowed Parents Allowance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/widowed-parents-allowance'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Industrial Injuries Disablement Benefit'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/industrial-injuries-disablement-benefit'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Apply for Budgeting Loan'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/budgeting-help-benefits'
-    tags: ["tier-3","dwp","benefits"]
-    expected:
-      status: 200
-
-  - name: 'Check State Pension Age'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/state-pension-age'
-    tags: ["tier-3","dwp","pensions"]
-    expected:
-      status: 200
-
-  - name: 'Defer State Pension'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/deferring-state-pension'
-    tags: ["tier-3","dwp","pensions"]
-    expected:
-      status: 200
-
-  - name: 'Contact Pension Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/contact-pension-service'
-    tags: ["tier-3","dwp","pensions"]
-    expected:
-      status: 200
-
-  - name: 'Find Lost Pension'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-pension-contact-details'
-    tags: ["tier-3","dwp","pensions"]
-    expected:
-      status: 200
-
-
-  # ============================================================================
-  # HOME OFFICE EXTENDED
-  # ============================================================================
-
-  - name: 'Biometric Residence Permits'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/biometric-residence-permits'
-    tags: ["tier-2","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Prove Right to Work'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/prove-right-to-work'
-    tags: ["tier-2","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Prove Right to Rent'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/prove-right-to-rent'
-    tags: ["tier-2","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Report Lost/Stolen Passport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-a-lost-or-stolen-passport'
-    tags: ["tier-2","home-office","passport"]
-    expected:
-      status: 200
-
-  - name: 'Passport Advice Line'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/passport-advice-line'
-    tags: ["tier-3","home-office","passport"]
-    expected:
-      status: 200
-
-  - name: 'Travel Document for Refugees'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/travel-document-refugee'
-    tags: ["tier-3","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Sponsor Licence'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/uk-visa-sponsorship-employers'
-    tags: ["tier-3","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Certificate of Sponsorship'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/certificate-of-sponsorship'
-    tags: ["tier-3","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Apply for British Citizenship (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-citizenship-born-uk'
-    tags: ["tier-2","home-office","citizenship"]
-    expected:
-      status: 200
-
-  - name: 'Life in the UK Test'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/life-in-the-uk-test'
-    tags: ["tier-2","home-office","citizenship"]
-    expected:
-      status: 200
-
-  - name: 'English Language Requirements'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/english-language'
-    tags: ["tier-3","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Family Visas'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/uk-family-visa'
-    tags: ["tier-2","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Student Visa Guidance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/student-visa'
-    tags: ["tier-2","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Tier 2 Work Visa'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/tier-2-general'
-    tags: ["tier-2","home-office","immigration"]
-    expected:
-      status: 200
-
-  - name: 'Global Talent Visa'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/global-talent'
-    tags: ["tier-2","home-office","immigration"]
-    expected:
-      status: 200
-
-
-  # ============================================================================
-  # NHS EXTENDED
-  # ============================================================================
-
-  - name: 'NHS COVID-19 Services'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/conditions/coronavirus-covid-19/'
-    tags: ["tier-3","nhs","covid"]
-    expected:
-      status: 200
-
-  - name: 'Find NHS Dentist'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/service-search/find-a-dentist'
-    tags: ["tier-3","nhs","dental"]
-    expected:
-      status: 200
-
-  - name: 'Find Pharmacy'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/service-search/pharmacy/find-a-pharmacy'
-    tags: ["tier-3","nhs","pharmacy"]
-    expected:
-      status: 200
-
-  - name: 'NHS Health A-Z'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/conditions/'
-    tags: ["tier-3","nhs","information"]
-    expected:
-      status: 200
-
-  - name: 'NHS Mental Health Services'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/mental-health/'
-    tags: ["tier-3","nhs","mental-health"]
-    expected:
-      status: 200
-
-  - name: 'NHS Organ Donation'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.organdonation.nhs.uk/'
-    tags: ["tier-3","nhs","organ-donation"]
-    expected:
-      status: 200
-
-  - name: 'NHS Blood Donation'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.blood.co.uk/'
-    tags: ["tier-3","nhs","blood-donation"]
-    expected:
-      status: 200
-
-  - name: 'NHS Cervical Screening'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/conditions/cervical-screening/'
-    tags: ["tier-3","nhs","screening"]
-    expected:
-      status: 200
-
-  - name: 'NHS Breast Screening'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/conditions/breast-screening-mammogram/'
-    tags: ["tier-3","nhs","screening"]
-    expected:
-      status: 200
-
-  - name: 'NHS Bowel Cancer Screening'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/conditions/bowel-cancer-screening/'
-    tags: ["tier-3","nhs","screening"]
-    expected:
-      status: 200
-
-  - name: 'NHS Vaccinations'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/conditions/vaccinations/'
-    tags: ["tier-3","nhs","vaccinations"]
-    expected:
-      status: 200
-
-  - name: 'NHS Maternity Services'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/pregnancy/'
-    tags: ["tier-3","nhs","maternity"]
-    expected:
-      status: 200
-
-  - name: 'NHS Child Health 0-5'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/start4life/'
-    tags: ["tier-3","nhs","children"]
-    expected:
-      status: 200
-
-  - name: 'NHS Sexual Health Services'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/live-well/sexual-health/'
-    tags: ["tier-3","nhs","sexual-health"]
-    expected:
-      status: 200
-
-  - name: 'NHS Healthcheck'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.nhs.uk/conditions/nhs-health-check/'
-    tags: ["tier-3","nhs","health-check"]
-    expected:
-      status: 200
-
-
-  # ============================================================================
-  # EDUCATION EXTENDED
-  # ============================================================================
-
-  - name: 'Find School England'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-school-england'
-    tags: ["tier-3","education","schools"]
-    expected:
-      status: 200
-
-  - name: 'Find School Performance Data (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.compare-school-performance.service.gov.uk/'
-    tags: ["tier-3","education","schools"]
-    expected:
-      status: 200
-
-  - name: 'School Admissions'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/schools-admissions'
-    tags: ["tier-3","education","schools"]
-    expected:
-      status: 200
-
-  - name: 'Home Education'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/home-education'
-    tags: ["tier-3","education","home-education"]
-    expected:
-      status: 200
-
-  - name: 'Free School Meals (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-free-school-meals'
-    tags: ["tier-3","education","schools"]
-    expected:
-      status: 200
-
-  - name: 'School Transport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/school-transport'
-    tags: ["tier-3","education","schools"]
-    expected:
-      status: 200
-
-  - name: 'School Complaints'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/complain-about-school'
-    tags: ["tier-3","education","schools"]
-    expected:
-      status: 200
-
-  - name: 'Find Apprenticeship'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-apprenticeship'
-    tags: ["tier-2","education","apprenticeships"]
-    expected:
-      status: 200
-
-  - name: 'Find Traineeship'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-traineeship'
-    tags: ["tier-3","education","traineeships"]
-    expected:
-      status: 200
-
-  - name: 'Further Education Courses'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/further-education-courses'
-    tags: ["tier-3","education","further-education"]
-    expected:
-      status: 200
-
-  - name: 'Student Loans Repayment'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/repaying-your-student-loan'
-    tags: ["tier-2","education","student-finance"]
-    expected:
-      status: 200
-
-  - name: 'Postgraduate Loans'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/postgraduate-loan'
-    tags: ["tier-3","education","student-finance"]
-    expected:
-      status: 200
-
-  - name: 'Disabled Students Allowance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/disabled-students-allowance-dsa'
-    tags: ["tier-3","education","student-finance"]
-    expected:
-      status: 200
-
-  - name: 'Special Educational Needs'
+  - name: 'Apply for EHCP (Education, Health and Care Plan)'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
     resource: 'https://www.gov.uk/children-with-special-educational-needs'
-    tags: ["tier-3","education","sen"]
+    tags: ["education","sen","dfe"]
     expected:
       status: 200
 
-  - name: 'Education Health Care Plans'
+  - name: 'Apply for Free School Meals'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help'
-    tags: ["tier-3","education","sen"]
+    resource: 'https://www.gov.uk/apply-free-school-meals'
+    tags: ["education","benefits","dfe"]
     expected:
       status: 200
 
-
-  # ============================================================================
-  # BUSINESS EXTENDED
-  # ============================================================================
-
-  - name: 'Set Up Limited Company'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/limited-company-formation'
-    tags: ["tier-3","business","companies"]
-    expected:
-      status: 200
-
-  - name: 'File Company Accounts (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/file-your-company-accounts-and-tax-return'
-    tags: ["tier-3","business","companies"]
-    expected:
-      status: 200
-
-  - name: 'File Company Annual Return'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/file-an-annual-return-with-companies-house'
-    tags: ["tier-3","business","companies"]
-    expected:
-      status: 200
-
-  - name: 'Close Limited Company'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/strike-off-your-company-from-companies-register'
-    tags: ["tier-3","business","companies"]
-    expected:
-      status: 200
-
-  - name: 'Change Company Director'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/appoint-directors'
-    tags: ["tier-3","business","companies"]
-    expected:
-      status: 200
-
-  - name: 'File Company Confirmation Statement'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/file-company-confirmation-statement'
-    tags: ["tier-3","business","companies"]
-    expected:
-      status: 200
-
-  - name: 'Register Trademark'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/how-to-register-a-trade-mark'
-    tags: ["tier-3","business","ip"]
-    expected:
-      status: 200
-
-  - name: 'Search for Trademark'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/search-for-trademark'
-    tags: ["tier-3","business","ip"]
-    expected:
-      status: 200
-
-  - name: 'Apply for Patent'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/patent-your-invention'
-    tags: ["tier-3","business","ip"]
-    expected:
-      status: 200
-
-  - name: 'Search for Patent (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/search-for-patent'
-    tags: ["tier-3","business","ip"]
-    expected:
-      status: 200
-
-  - name: 'Register Design'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/register-a-design'
-    tags: ["tier-3","business","ip"]
-    expected:
-      status: 200
-
-  - name: 'Copyright Guidance'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/copyright'
-    tags: ["tier-3","business","ip"]
-    expected:
-      status: 200
-
-  - name: 'Customs Declaration Service'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/guidance/customs-declaration-service'
-    tags: ["tier-3","business","customs"]
-    expected:
-      status: 200
-
-  - name: 'Get EORI Number'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/eori'
-    tags: ["tier-3","business","trade"]
-    expected:
-      status: 200
-
-  - name: 'Export Goods'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/starting-to-export'
-    tags: ["tier-3","business","trade"]
-    expected:
-      status: 200
-
-  - name: 'Import Goods'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/starting-to-import'
-    tags: ["tier-3","business","trade"]
-    expected:
-      status: 200
-
-  - name: 'Business Support Finder'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/business-support-helpline'
-    tags: ["tier-3","business","support"]
-    expected:
-      status: 200
-
-  - name: 'Apply for Business Grant'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/business-finance-support'
-    tags: ["tier-3","business","finance"]
-    expected:
-      status: 200
-
-  - name: 'Employing People'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/employing-staff'
-    tags: ["tier-3","business","employment"]
-    expected:
-      status: 200
-
-  - name: 'Workplace Pensions'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/workplace-pensions-employers'
-    tags: ["tier-3","business","pensions"]
-    expected:
-      status: 200
-
-
-  # ============================================================================
-  # LOCAL GOVERNMENT EXTENDED
-  # ============================================================================
-
-  - name: 'Find Local Council (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/find-local-council'
-    tags: ["tier-3","local-government"]
-    expected:
-      status: 200
-
-  - name: 'Council Tax Bands (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/council-tax-bands'
-    tags: ["tier-3","local-government","council-tax"]
-    expected:
-      status: 200
-
-  - name: 'Council Tax Appeals'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/council-tax-appeals'
-    tags: ["tier-3","local-government","council-tax"]
-    expected:
-      status: 200
-
-  - name: 'Challenge Council Tax Band (2)'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/challenge-council-tax-band'
-    tags: ["tier-3","local-government","council-tax"]
-    expected:
-      status: 200
-
-  - name: 'Council Tax Discount'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/apply-for-council-tax-discount'
-    tags: ["tier-3","local-government","council-tax"]
-    expected:
-      status: 200
-
-  - name: 'Business Rates'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/introduction-to-business-rates'
-    tags: ["tier-3","local-government","business"]
-    expected:
-      status: 200
-
-  - name: 'Parking Permits'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/parking-permits'
-    tags: ["tier-3","local-government","parking"]
-    expected:
-      status: 200
-
-  - name: 'Park and Ride'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/park-ride'
-    tags: ["tier-3","local-government","transport"]
-    expected:
-      status: 200
-
-  - name: 'Rubbish Collection'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/rubbish-collection-schedule'
-    tags: ["tier-3","local-government","waste"]
-    expected:
-      status: 200
-
-  - name: 'Recycling Services'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/recycling-collections'
-    tags: ["tier-3","local-government","recycling"]
-    expected:
-      status: 200
-
-  - name: 'Report Pothole'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-pothole'
-    tags: ["tier-3","local-government","roads"]
-    expected:
-      status: 200
-
-  - name: 'Street Lighting'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-street-light-problem'
-    tags: ["tier-3","local-government","streets"]
-    expected:
-      status: 200
-
-  - name: 'Noise Complaints'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-noise-pollution-to-council'
-    tags: ["tier-3","local-government","environment"]
-    expected:
-      status: 200
-
-  - name: 'Apply for Housing Benefit'
+  - name: 'Apply for Housing Benefit'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
     resource: 'https://www.gov.uk/housing-benefit'
-    tags: ["tier-3","local-government","housing"]
+    tags: ["benefits","housing","dwp"]
     expected:
       status: 200
 
-  - name: 'Council Housing'
+  - name: 'Apply for Probate'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.apply-for-probate.service.gov.uk/'
+    tags: ["justice","probate","hmcts"]
+    expected:
+      status: 200
+
+  - name: 'Apply for Teacher Training'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.apply-for-teacher-training.service.gov.uk/'
+    tags: ["education","training","dfe"]
+    expected:
+      status: 200
+
+  - name: 'Apprenticeship Service for Employers'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://accounts.manage-apprenticeships.service.gov.uk/'
+    tags: ["education","apprenticeships","employers","dfe"]
+    expected:
+      status: 200
+
+  - name: 'Attendance Allowance'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/attendance-allowance'
+    tags: ["benefits","disability","elderly","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Bereavement Support Payment'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/bereavement-support-payment'
+    tags: ["benefits","bereavement","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Blue Badge Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.apply-blue-badge.service.gov.uk/'
+    tags: ["disability","parking","dft"]
+    expected:
+      status: 200
+
+  - name: 'British Citizenship Application'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/apply-citizenship'
+    tags: ["immigration","citizenship","home-office"]
+    expected:
+      status: 200
+
+  - name: 'Budgeting Loans'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/budgeting-help-benefits'
+    tags: ["benefits","loans","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Building Control Portal'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://buildingcontrol.planningportal.co.uk/'
+    tags: ["building-control","planning","mhclg"]
+    expected:
+      status: 200
+
+  - name: 'Carer''s Allowance Application'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.carersallowance.service.gov.uk/'
+    tags: ["benefits","carers","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Challenge a Planning Application'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/challenge-planning-application'
+    tags: ["planning","appeals","pins"]
+    expected:
+      status: 200
+
+  - name: 'Change Vehicle Details on V5C'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/change-vehicle-details-registration-certificate'
+    tags: ["motoring","v5c","dvla"]
+    expected:
+      status: 200
+
+  - name: 'Check Duties and Customs for Exporting'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/check-duties-customs-exporting'
+    tags: ["trade","customs","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Check Employment Status for Tax'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/guidance/check-employment-status-for-tax'
+    tags: ["tax","employment","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Check National Insurance Record'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/check-national-insurance-record'
+    tags: ["national-insurance","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Check State Pension Age'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/state-pension-age'
+    tags: ["pensions","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Check State Pension Forecast'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/check-state-pension'
+    tags: ["pensions","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Child Benefit Online'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.tax.service.gov.uk/child-benefit/'
+    tags: ["benefits","child-benefit","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Childcare Choices'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.childcarechoices.gov.uk/'
+    tags: ["childcare","parents","dfe"]
+    expected:
+      status: 200
+
+  - name: 'Claim State Pension'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/claim-state-pension-online'
+    tags: ["pensions","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Compare School and College Performance'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.compare-school-performance.service.gov.uk/'
+    tags: ["education","schools","dfe"]
+    expected:
+      status: 200
+
+  - name: 'Council Tax Support'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/apply-council-tax-reduction'
+    tags: ["benefits","council-tax","local-authorities"]
+    expected:
+      status: 200
+
+  - name: 'Course Directory'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://coursedirectory.nationalcareers.service.gov.uk/'
+    tags: ["education","training","dfe"]
+    expected:
+      status: 200
+
+  - name: 'Customs Declaration Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.tax.service.gov.uk/customs/'
+    tags: ["customs","trade","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Digital Marketplace'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.digitalmarketplace.service.gov.uk/'
+    tags: ["procurement","suppliers","business","gds"]
+    expected:
+      status: 200
+
+  - name: 'Disability Living Allowance'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/disability-living-allowance-children'
+    tags: ["benefits","disability","children","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Disclosure Scotland'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.mygov.scot/disclosure-types/'
+    tags: ["criminal-records","scotland","disclosure"]
+    expected:
+      status: 200
+
+  - name: 'Employment and Support Allowance'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/employment-support-allowance'
+    tags: ["benefits","esa","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Employment Tribunal'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.employmenttribunals.service.gov.uk/'
+    tags: ["justice","employment","tribunal","hmcts"]
+    expected:
+      status: 200
+
+  - name: 'Environmental Permit Application'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/environmental-permit'
+    tags: ["environment","permits","environment-agency"]
+    expected:
+      status: 200
+
+  - name: 'Export Health Certificates'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/export-health-certificates'
+    tags: ["trade","exports","defra"]
+    expected:
+      status: 200
+
+  - name: 'Export Support Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.great.gov.uk/'
+    tags: ["trade","exports","dbt"]
+    expected:
+      status: 200
+
+  - name: 'Find and Compare Schools in England'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/school-performance-tables'
+    tags: ["education","schools","dfe"]
+    expected:
+      status: 200
+
+  - name: 'Find Government Grants'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.find-government-grants.service.gov.uk/'
+    tags: ["grants","funding","business","cabinet-office"]
+    expected:
+      status: 200
+
+  - name: 'Fishing Licence Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/fishing-licences/buy-a-fishing-licence'
+    tags: ["environment","fishing","environment-agency"]
+    expected:
+      status: 200
+
+  - name: 'Food Standards Agency - Register Food Business'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.food.gov.uk/contact/businesses/services/register-a-new-food-business'
+    tags: ["food-safety","business","fsa"]
+    expected:
+      status: 200
+
+  - name: 'Get an EORI Number'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/eori'
+    tags: ["trade","customs","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Get Information about Schools'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://get-information-schools.service.gov.uk/'
+    tags: ["education","schools","dfe"]
+    expected:
+      status: 200
+
+  - name: 'Get Into Teaching Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://getintoteaching.education.gov.uk/'
+    tags: ["education","careers","dfe"]
+    expected:
+      status: 200
+
+  - name: 'Get Vehicle Information from DVLA'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/get-vehicle-information-from-dvla'
+    tags: ["motoring","vehicle-data","dvla"]
+    expected:
+      status: 200
+
+  - name: 'Help to Save'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/help-to-save'
+    tags: ["savings","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Immigration and Asylum Tribunal'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.immigrationappeal.service.gov.uk/'
+    tags: ["justice","immigration","tribunal","hmcts"]
+    expected:
+      status: 200
+
+  - name: 'Jobseeker''s Allowance'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/jobseekers-allowance'
+    tags: ["benefits","jsa","dwp"]
+    expected:
+      status: 200
+
+  - name: 'Marriage Allowance Application'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.tax.service.gov.uk/marriage-allowance/'
+    tags: ["tax","allowances","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'MOT Reminder Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.reminders.mot-testing.service.gov.uk/'
+    tags: ["motoring","mot","dvsa"]
+    expected:
+      status: 200
+
+  - name: 'MyHMCTS - Professional Users'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.myhmcts.service.gov.uk/'
+    tags: ["justice","courts","professionals","hmcts"]
+    expected:
+      status: 200
+
+  - name: 'National Careers Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://nationalcareers.service.gov.uk/'
+    tags: ["careers","education","dfe"]
+    expected:
+      status: 200
+
+  - name: 'National Insurance Credits'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/national-insurance-credits'
+    tags: ["national-insurance","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'NHS e-Referral Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.nhs.uk/using-the-nhs/nhs-services/hospitals/nhs-e-referral-service/'
+    tags: ["health","nhs","referrals"]
+    expected:
+      status: 200
+
+  - name: 'NHS Jobs'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.jobs.nhs.uk/'
+    tags: ["health","nhs","recruitment"]
+    expected:
+      status: 200
+
+  - name: 'Online Civil Money Claims'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.moneyclaims.service.gov.uk/'
+    tags: ["justice","civil","claims","hmcts"]
+    expected:
+      status: 200
+
+  - name: 'Organ Donation Register'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.organdonation.nhs.uk/'
+    tags: ["health","nhs","organ-donation"]
+    expected:
+      status: 200
+
+  - name: 'Passport Identity Confirmation'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.passport.service.gov.uk/confirm-identity'
+    tags: ["identity","passport","home-office"]
+    expected:
+      status: 200
+
+  - name: 'Pet Travel Scheme'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/pet-travel-information'
+    tags: ["travel","pets","defra"]
+    expected:
+      status: 200
+
+  - name: 'Planning Inspectorate Appeals'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/appeal-planning-decision'
+    tags: ["planning","appeals","pins"]
+    expected:
+      status: 200
+
+  - name: 'Planning Portal'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.planningportal.co.uk/'
+    tags: ["planning","building-control","mhclg"]
+    expected:
+      status: 200
+
+  - name: 'Prison Visits Booking'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/prison-visits'
+    tags: ["justice","prisons","moj"]
+    expected:
+      status: 200
+
+  - name: 'Register for PAYE'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.tax.service.gov.uk/eligibility-for-paye/'
+    tags: ["tax","paye","employers","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Report Environmental Incident'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/report-an-environmental-incident'
+    tags: ["environment","incidents","environment-agency"]
+    expected:
+      status: 200
+
+  - name: 'Report Your Customs Duty'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/report-customs-duty'
+    tags: ["trade","customs","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Sign up for Flood Warnings'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.fws.environment-agency.gov.uk/'
+    tags: ["environment","flooding","environment-agency"]
+    expected:
+      status: 200
+
+  - name: 'Social Security and Child Support Tribunal'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.appeal-benefit-decision.service.gov.uk/'
+    tags: ["justice","tribunal","benefits","hmcts"]
+    expected:
+      status: 200
+
+  - name: 'SORN (Statutory Off Road Notification)'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/make-a-sorn'
+    tags: ["motoring","sorn","dvla"]
+    expected:
+      status: 200
+
+  - name: 'Student Loan Repayment'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/sign-in-to-manage-your-student-loan-balance'
+    tags: ["education","finance","repayment","slc"]
+    expected:
+      status: 200
+
+  - name: 'Tax Credits Online'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.tax.service.gov.uk/tax-credits-service/'
+    tags: ["benefits","tax-credits","hmrc"]
+    expected:
+      status: 200
+
+  - name: 'Teaching Regulation Agency'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://teacherservices.education.gov.uk/'
+    tags: ["education","teachers","dfe"]
+    expected:
+      status: 200
+
+  - name: 'Tell DVLA You''ve Sold Your Vehicle'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/sold-bought-vehicle'
+    tags: ["motoring","vehicle-sale","dvla"]
+    expected:
+      status: 200
+
+  - name: 'Travel to UK with Biometric Residence Permit'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/biometric-residence-permits'
+    tags: ["immigration","brp","home-office"]
+    expected:
+      status: 200
+
+  - name: 'UK Immigration Account'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/view-prove-immigration-status'
+    tags: ["immigration","status","home-office"]
+    expected:
+      status: 200
+
+  - name: 'UK Intellectual Property Office - Trademarks'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://trademarks.ipo.gov.uk/'
+    tags: ["intellectual-property","trademarks","ipo"]
+    expected:
+      status: 200
+
+  - name: 'Update DBS Certificate'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/dbs-update-service'
+    tags: ["criminal-records","dbs","home-office"]
+    expected:
+      status: 200
+
+  - name: 'Valuation Office Agency - Business Rates'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.tax.service.gov.uk/business-rates-valuation/'
+    tags: ["business","rates","voa"]
+    expected:
+      status: 200
+
+  - name: 'Vehicle Enquiry Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.vehicleenquiry.service.gov.uk/'
+    tags: ["motoring","vehicle-data","dvla"]
+    expected:
+      status: 200
+
+  - name: 'View Driving Licence'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/view-driving-licence'
+    tags: ["motoring","driving-licence","dvla"]
+    expected:
+      status: 200
+
+  - name: 'View GP Health Record'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.nhs.uk/using-the-nhs/nhs-services/gps/gp-online-services/'
+    tags: ["health","nhs","gp"]
+    expected:
+      status: 200
+
+  - name: 'Waste Carrier Registration'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/waste-carrier-or-broker-registration'
+    tags: ["environment","waste","environment-agency"]
+    expected:
+      status: 200
+
+  - name: 'Winter Fuel Payment'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/winter-fuel-payment'
+    tags: ["benefits","fuel","dwp"]
+    expected:
+      status: 200
+
+  # ============================================================================
+  # TIER 3: ADDITIONAL SERVICES
+  # Other verified transactional services - Check every 5 minutes
+  # ============================================================================
+
+  - name: 'Apply for Blue Badge'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/apply-blue-badge'
+    tags: ["disability","parking","blue-badge","high-volume"]
+    expected:
+      status: 200
+
+  - name: 'Apply for Council Housing'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
     resource: 'https://www.gov.uk/apply-for-council-housing'
-    tags: ["tier-3","local-government","housing"]
+    tags: ["housing","council","social-housing"]
     expected:
       status: 200
 
-
-  # ============================================================================
-  # HOUSING AND WELFARE SERVICES
-  # ============================================================================
-
-  - name: 'Rent Your Home'
+  - name: 'Apply for Passport'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/renting-out-a-property'
-    tags: ['tier-3', 'housing', 'landlord']
+    resource: 'https://www.passport.service.gov.uk/'
+    tags: ["passport","identity","home-office","high-volume"]
     expected:
       status: 200
 
-  - name: 'Private Renting Rights'
+  - name: 'Book Driving Test'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/private-renting'
-    tags: ['tier-3', 'housing', 'tenant']
+    resource: 'https://www.gov.uk/book-driving-test'
+    tags: ["driving","test","dvsa","high-volume"]
     expected:
       status: 200
 
-  - name: 'Evicting Tenants'
+  - name: 'Book Theory Test'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/evicting-tenants'
-    tags: ['tier-3', 'housing', 'landlord']
+    resource: 'https://www.book-theory-test.service.gov.uk/'
+    tags: ["driving","test","dvsa","booking"]
     expected:
       status: 200
 
-  - name: 'Tenancy Deposit Protection'
+  - name: 'Buy Fishing Licence'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/tenancy-deposit-protection'
-    tags: ['tier-3', 'housing', 'tenant']
+    resource: 'https://www.gov.uk/fishing-licences'
+    tags: ["fishing","licence","environment-agency"]
     expected:
       status: 200
 
-  - name: 'Right to Buy'
+  - name: 'Check for Flooding'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/right-to-buy-buying-your-council-home'
-    tags: ['tier-3', 'housing', 'council']
+    resource: 'https://check-for-flooding.service.gov.uk/'
+    tags: ["flooding","environment","alerts","environment-agency"]
     expected:
       status: 200
 
-  - name: 'Help to Buy ISA'
+  - name: 'Check MOT History'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/affordable-home-ownership-schemes/help-to-buy-isa'
-    tags: ['tier-3', 'housing', 'savings']
+    resource: 'https://www.check-mot.service.gov.uk/'
+    tags: ["vehicles","mot","dvsa","high-volume"]
     expected:
       status: 200
 
-  - name: 'Stamp Duty Land Tax'
+  - name: 'Check MOT Status'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/stamp-duty-land-tax'
-    tags: ['tier-3', 'housing', 'tax']
+    resource: 'https://www.gov.uk/check-mot-status'
+    tags: ["vehicles","mot","dvsa","high-volume"]
     expected:
       status: 200
 
-  - name: 'Homelessness Help'
+  - name: 'Check Vehicle Tax'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/homeless-help'
-    tags: ['tier-3', 'housing', 'homeless']
+    resource: 'https://www.gov.uk/check-vehicle-tax'
+    tags: ["vehicles","tax","dvla","high-volume"]
     expected:
       status: 200
 
-  - name: 'Housing Disrepair'
+  - name: 'Claim Redundancy Payment'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/report-disrepair-council-property'
-    tags: ['tier-3', 'housing', 'repairs']
+    resource: 'https://claim.redundancy-payments.service.gov.uk/'
+    tags: ["employment","redundancy","payments","insolvency-service"]
     expected:
       status: 200
 
-  - name: 'Energy Performance Certificates'
+  - name: 'Companies House WebFiling'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/buy-sell-your-home/energy-performance-certificates'
-    tags: ['tier-3', 'housing', 'energy']
+    resource: 'https://ewf.companieshouse.gov.uk/'
+    tags: ["companies-house","filing","legacy"]
     expected:
       status: 200
 
-  # ============================================================================
-  # EMPLOYMENT AND WORKPLACE RIGHTS
-  # ============================================================================
-
-  - name: 'Employment Rights'
+  - name: 'Companies House WebFiling Login'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/employment-status'
-    tags: ['tier-3', 'employment', 'rights']
+    resource: 'https://idam-ui.company-information.service.gov.uk/'
+    tags: ["companies-house","authentication","filing"]
     expected:
       status: 200
 
-  - name: 'Dismiss Staff'
+  - name: 'Contact DVSA'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/dismissal'
-    tags: ['tier-3', 'employment', 'employer']
+    resource: 'https://contact-dvsa.service.gov.uk/'
+    tags: ["vehicles","dvsa","contact","reporting"]
     expected:
       status: 200
 
-  - name: 'Redundancy Rights'
+  - name: 'Education MyServices'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/redundancy-your-rights'
-    tags: ['tier-3', 'employment', 'redundancy']
+    resource: 'https://form.education.gov.uk/'
+    tags: ["education","forms","dfe"]
     expected:
       status: 200
 
-  - name: 'Unfair Dismissal'
+  - name: 'Environment Agency Public Registers'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/dismissal/unfair-and-constructive-dismissal'
-    tags: ['tier-3', 'employment', 'rights']
+    resource: 'https://environment.data.gov.uk/public-register/view/index'
+    tags: ["environment","data","registers","environment-agency"]
     expected:
       status: 200
 
-  - name: 'Discrimination at Work'
+  - name: 'Explore Education Statistics'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/discrimination-your-rights'
-    tags: ['tier-3', 'employment', 'rights']
+    resource: 'https://explore-education-statistics.service.gov.uk/'
+    tags: ["education","statistics","data","dfe"]
     expected:
       status: 200
 
-  - name: 'Maternity Leave'
+  - name: 'Find a Court or Tribunal'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/maternity-pay-leave'
-    tags: ['tier-3', 'employment', 'maternity']
+    resource: 'https://www.find-court-tribunal.service.gov.uk/'
+    tags: ["courts","tribunals","justice","hmcts"]
     expected:
       status: 200
 
-  - name: 'Paternity Leave'
+  - name: 'Find an Apprenticeship'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/paternity-pay-leave'
-    tags: ['tier-3', 'employment', 'paternity']
+    resource: 'https://www.findapprenticeship.service.gov.uk/'
+    tags: ["apprenticeships","education","jobs","dfe"]
     expected:
       status: 200
 
-  - name: 'Shared Parental Leave'
+  - name: 'Find and Update Company Information'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/shared-parental-leave-and-pay'
-    tags: ['tier-3', 'employment', 'parental']
+    resource: 'https://find-and-update.company-information.service.gov.uk/'
+    tags: ["companies-house","business","companies","high-volume"]
     expected:
       status: 200
 
-  - name: 'Holiday Entitlement'
+  - name: 'Find Apprenticeship Training'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/holiday-entitlement-rights'
-    tags: ['tier-3', 'employment', 'holidays']
+    resource: 'https://findapprenticeshiptraining.apprenticeships.education.gov.uk/'
+    tags: ["apprenticeships","training","education","dfe"]
     expected:
       status: 200
 
-  - name: 'Flexible Working'
+  - name: 'Flood Action Campaign'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/flexible-working'
-    tags: ['tier-3', 'employment', 'flexible']
+    resource: 'https://floodaction.campaign.gov.uk/'
+    tags: ["flooding","campaign","environment-agency"]
     expected:
       status: 200
 
-  # ============================================================================
-  # TRAVEL AND TRANSPORT
-  # ============================================================================
-
-  - name: 'Driving Disqualifications'
+  - name: 'Flood Map for Planning'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/driving-disqualifications'
-    tags: ['tier-3', 'transport', 'driving']
+    resource: 'https://flood-map-for-planning.service.gov.uk/'
+    tags: ["flooding","planning","environment-agency"]
     expected:
       status: 200
 
-  - name: 'Driving Abroad'
+  - name: 'GOV.UK Account Home'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/driving-abroad'
-    tags: ['tier-3', 'transport', 'international']
+    resource: 'https://home.account.gov.uk/'
+    tags: ["identity","account","gds"]
     expected:
       status: 200
 
-  - name: 'International Driving Permit'
+  - name: 'GOV.UK Account Sign In'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/international-driving-permit'
-    tags: ['tier-3', 'transport', 'international']
+    resource: 'https://signin.account.gov.uk/'
+    tags: ["identity","authentication","account","gds"]
     expected:
       status: 200
 
-  - name: 'Road Tax Refund'
+  - name: 'GOV.UK Forms'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/vehicle-tax-refund'
-    tags: ['tier-3', 'transport', 'tax']
+    resource: 'https://www.forms.service.gov.uk/'
+    tags: ["forms","platform","gds","critical"]
     expected:
       status: 200
 
-  - name: 'Import Vehicle UK'
+  - name: 'GOV.UK Main Portal'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/importing-vehicles-into-the-uk'
-    tags: ['tier-3', 'transport', 'import']
+    resource: 'https://www.gov.uk/'
+    tags: ["portal","main","gds","critical"]
     expected:
       status: 200
 
-  - name: 'Disabled Parking Badge'
+  - name: 'GOV.UK Notify'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/blue-badge-scheme-information-council'
-    tags: ['tier-3', 'transport', 'disability']
+    resource: 'https://www.notifications.service.gov.uk/'
+    tags: ["notifications","platform","gds","critical"]
     expected:
       status: 200
 
-  - name: 'Appeal Parking Fine'
+  - name: 'GOV.UK One Login'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/appeal-parking-fine'
-    tags: ['tier-3', 'transport', 'parking']
+    resource: 'https://www.sign-in.service.gov.uk/'
+    tags: ["identity","authentication","gds","critical"]
     expected:
       status: 200
 
-  - name: 'Congestion Charge'
+  - name: 'GOV.UK One Login Admin'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/congestion-charge'
-    tags: ['tier-3', 'transport', 'congestion']
+    resource: 'https://admin.sign-in.service.gov.uk/'
+    tags: ["identity","authentication","admin","gds"]
     expected:
       status: 200
 
-  - name: 'Clean Air Zones'
+  - name: 'GOV.UK Pay'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/clean-air-zones'
-    tags: ['tier-3', 'transport', 'environment']
+    resource: 'https://www.payments.service.gov.uk/'
+    tags: ["payments","platform","gds","critical"]
     expected:
       status: 200
 
-  - name: 'Travel Advice'
+  - name: 'HMRC Online Services'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/foreign-travel-advice'
-    tags: ['tier-3', 'travel', 'international']
+    resource: 'https://www.tax.service.gov.uk/'
+    tags: ["tax","hmrc","revenue","high-volume"]
     expected:
       status: 200
 
-  # ============================================================================
-  # CONSUMER AND MONEY
-  # ============================================================================
-
-  - name: 'Get Debt Advice'
+  - name: 'Make a Lasting Power of Attorney'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/get-debt-advice'
-    tags: ['tier-3', 'money', 'debt']
+    resource: 'https://www.lastingpowerofattorney.service.gov.uk/'
+    tags: ["lpa","legal","opg","ministry-of-justice"]
     expected:
       status: 200
 
-  - name: 'Bankruptcy'
+  - name: 'Manage Apprenticeships'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/bankruptcy'
-    tags: ['tier-3', 'money', 'bankruptcy']
+    resource: 'https://manage-apprenticeships.service.gov.uk/'
+    tags: ["apprenticeships","employers","dfe"]
     expected:
       status: 200
 
-  - name: 'Individual Voluntary Arrangement'
+  - name: 'My Apprenticeships'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/options-for-dealing-with-your-debts/individual-voluntary-arrangements'
-    tags: ['tier-3', 'money', 'debt']
+    resource: 'https://my.apprenticeships.education.gov.uk/'
+    tags: ["apprenticeships","education","dfe"]
     expected:
       status: 200
 
-  - name: 'Consumer Rights'
+  - name: 'Planning Appeals Casework Portal'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/consumer-protection-rights'
-    tags: ['tier-3', 'consumer', 'rights']
+    resource: 'https://acp.planninginspectorate.gov.uk/'
+    tags: ["planning","appeals","planning-inspectorate"]
     expected:
       status: 200
 
-  - name: 'Complain About Business'
+  - name: 'Register to Vote'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/complain-about-business'
-    tags: ['tier-3', 'consumer', 'complaints']
+    resource: 'https://www.registertovote.service.gov.uk/'
+    tags: ["electoral","democracy","cabinet-office","high-volume"]
     expected:
       status: 200
 
-  - name: 'Product Safety'
+  - name: 'Renew Adult Passport'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/product-safety-for-manufacturers'
-    tags: ['tier-3', 'consumer', 'safety']
+    resource: 'https://www.gov.uk/renew-adult-passport'
+    tags: ["passport","renewal","home-office","high-volume"]
     expected:
       status: 200
 
-  - name: 'Scams and Fraud'
+  - name: 'Request DBS Check'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/report-suspicious-emails-websites-phishing'
-    tags: ['tier-3', 'consumer', 'fraud']
+    resource: 'https://www.gov.uk/request-copy-criminal-record'
+    tags: ["dbs","criminal-records","security","home-office"]
     expected:
       status: 200
 
-  - name: 'Inheritance Tax'
+  - name: 'Rural Payments Service'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/inheritance-tax'
-    tags: ['tier-3', 'money', 'tax']
+    resource: 'https://www.ruralpayments.service.gov.uk/'
+    tags: ["agriculture","payments","rpa","defra"]
     expected:
       status: 200
 
-  - name: 'Wills and Probate'
+  - name: 'Search Property Information (Land Registry)'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/wills-probate-inheritance'
-    tags: ['tier-3', 'money', 'wills']
+    resource: 'https://search-property-information.service.gov.uk/'
+    tags: ["land-registry","property","hmlr"]
     expected:
       status: 200
 
-  - name: 'Power of Attorney'
+  - name: 'Sign In to Universal Credit'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/power-of-attorney'
-    tags: ['tier-3', 'legal', 'power-of-attorney']
+    resource: 'https://www.gov.uk/sign-in-universal-credit'
+    tags: ["benefits","universal-credit","authentication","dwp","high-volume"]
     expected:
       status: 200
 
-  # ============================================================================
-  # LICENSING AND PERMITS
-  # ============================================================================
-
-  - name: 'Shotgun Certificate'
+  - name: 'Submit Social Housing Data (CORE)'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/shotgun-and-firearm-certificates'
-    tags: ['tier-3', 'licensing', 'firearms']
+    resource: 'https://submit-social-housing-data.communities.gov.uk/'
+    tags: ["housing","data","mhclg"]
     expected:
       status: 200
 
-  - name: 'Alcohol Licence'
+  - name: 'UK Parliament Petitions'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/guidance/alcohol-licensing'
-    tags: ['tier-3', 'licensing', 'alcohol']
+    resource: 'https://petition.parliament.uk/'
+    tags: ["petitions","democracy","parliament"]
     expected:
       status: 200
 
-  - name: 'Entertainment Licence'
+  - name: 'Universal Credit'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/licence-to-provide-entertainment'
-    tags: ['tier-3', 'licensing', 'entertainment']
+    resource: 'https://www.gov.uk/universal-credit'
+    tags: ["benefits","universal-credit","dwp","high-volume"]
     expected:
       status: 200
 
-  - name: 'Street Trading Licence'
+  - name: 'Use a Lasting Power of Attorney'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/apply-for-a-licence/street-trading-licence'
-    tags: ['tier-3', 'licensing', 'street-trading']
+    resource: 'https://use-lasting-power-of-attorney.service.gov.uk/'
+    tags: ["lpa","legal","opg","ministry-of-justice"]
     expected:
       status: 200
 
-  - name: 'Animal Boarding Licence'
+  - name: 'Use Land and Property Data'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/animal-boarding-establishment-licence'
-    tags: ['tier-3', 'licensing', 'animals']
+    resource: 'https://use-land-property-data.service.gov.uk/'
+    tags: ["land-registry","property","data","hmlr"]
     expected:
       status: 200
 
-  - name: 'Pet Shop Licence'
+  - name: 'Vehicle Enquiry Service'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/pet-shop-licence'
-    tags: ['tier-3', 'licensing', 'animals']
+    resource: 'https://vehicleenquiry.service.gov.uk/'
+    tags: ["vehicles","tax","dvla","high-volume"]
     expected:
       status: 200
 
-  - name: 'Zoo Licence'
+  - name: 'View a Lasting Power of Attorney'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/zoo-licence'
-    tags: ['tier-3', 'licensing', 'animals']
+    resource: 'https://view-lasting-power-of-attorney.service.gov.uk/'
+    tags: ["lpa","legal","opg","ministry-of-justice"]
     expected:
       status: 200
 
-  - name: 'Taxi Licence'
+  - name: 'Visa and Immigration Services'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/taxi-driver-licence'
-    tags: ['tier-3', 'licensing', 'taxi']
+    resource: 'https://visas-immigration.service.gov.uk/'
+    tags: ["visa","immigration","home-office","high-volume"]
     expected:
       status: 200
 
-  - name: 'HGV Licence'
+  - name: 'Waste Carriers Registration'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/become-lorry-bus-driver'
-    tags: ['tier-3', 'licensing', 'hgv']
-    expected:
-      status: 200
-
-  - name: 'CPC Qualification HGV Drivers'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/cpc-for-lorry-and-bus-drivers'
-    tags: ['tier-3', 'licensing', 'hgv']
+    resource: 'https://wastecarriersregistration.service.gov.uk/'
+    tags: ["waste","environment","registration","environment-agency"]
     expected:
       status: 200
 
   # ============================================================================
-  # PETS AND ANIMALS
+  # TIER 4: SPECIALIZED SERVICES
+  # Department-specific services - Check every 15 minutes
   # ============================================================================
 
-  - name: 'Pet Passport'
+  - name: 'Foreign Influence Registration Scheme'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/take-pet-abroad'
-    tags: ['tier-3', 'animals', 'travel']
+    resource: 'https://foreign-influence-registration-scheme.service.gov.uk/'
+    tags: ["compliance","registration","home-office"]
     expected:
       status: 200
+    interval: 900
 
-  - name: 'Import Pets'
+  - name: 'Innovation Funding Service'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/bring-pet-to-great-britain'
-    tags: ['tier-3', 'animals', 'import']
+    resource: 'https://apply-for-innovation-funding.service.gov.uk/'
+    tags: ["innovation","funding","business","ukri"]
     expected:
       status: 200
-
-  - name: 'Microchip Dog'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/get-your-dog-microchipped'
-    tags: ['tier-3', 'animals', 'dogs']
-    expected:
-      status: 200
-
-  - name: 'Dangerous Dogs'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/control-dog-public'
-    tags: ['tier-3', 'animals', 'dogs']
-    expected:
-      status: 200
-
-  - name: 'Horse Passport'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/horse-passport'
-    tags: ['tier-3', 'animals', 'horses']
-    expected:
-      status: 200
-
-  - name: 'Farm Animal Welfare'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/guidance/animal-welfare'
-    tags: ['tier-3', 'animals', 'farming']
-    expected:
-      status: 200
-
-  - name: 'Report Animal Cruelty'
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.gov.uk/report-animal-cruelty'
-    tags: ['tier-3', 'animals', 'welfare']
-    expected:
-      status: 200
-
+    interval: 900
 
   # ============================================================================
-  # FINAL ADDITIONAL SERVICES
+  # TIER 5: STANDARD SERVICES
+  # Supporting and reference services - Check every 15 minutes
   # ============================================================================
 
-  - name: 'Lasting Power of Attorney (Property and Finance)'
+  - name: 'Animal Health and Welfare Gateway'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/power-of-attorney/make-lasting-power'
-    tags: ['tier-3', 'legal', 'lpa']
+    resource: 'https://www.gov.uk/animal-health-welfare'
+    tags: ["agriculture","animals","defra"]
     expected:
       status: 200
+    interval: 900
 
-  - name: 'Lasting Power of Attorney (Health and Welfare)'
+  - name: 'Apply for Flood Risk Activity Permit'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/power-of-attorney/overview'
-    tags: ['tier-3', 'legal', 'lpa']
+    resource: 'https://www.gov.uk/apply-flood-risk-activity-permit'
+    tags: ["environment","permits","environment-agency"]
     expected:
       status: 200
+    interval: 900
 
-  - name: 'Court of Protection'
+  - name: 'Apprenticeship Provider Service'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/courts-tribunals/court-of-protection'
-    tags: ['tier-3', 'moj', 'courts']
+    resource: 'https://providers.apprenticeships.education.gov.uk/'
+    tags: ["education","apprenticeships","providers","dfe"]
     expected:
       status: 200
+    interval: 900
 
-  - name: 'Apply for Gender Recognition Certificate'
+  - name: 'Check Learning Records Service'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/apply-gender-recognition-certificate'
-    tags: ['tier-3', 'identity', 'gender-recognition']
+    resource: 'https://www.gov.uk/guidance/learning-records-service-lrs'
+    tags: ["education","records","dfe"]
     expected:
       status: 200
+    interval: 900
 
-  - name: 'Change Name by Deed Poll'
+  - name: 'Cold Weather Payment'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/change-name-deed-poll'
-    tags: ['tier-3', 'identity', 'name-change']
+    resource: 'https://www.gov.uk/cold-weather-payment'
+    tags: ["benefits","weather","dwp"]
     expected:
       status: 200
+    interval: 900
 
-  - name: 'Civil Partnership'
+  - name: 'Fire and Rescue Incident Recording System'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/government/publications/civil-partnerships-information-pack'
-    tags: ['tier-3', 'registrar', 'civil-partnership']
+    resource: 'https://www.gov.uk/government/collections/fire-statistics'
+    tags: ["fire-rescue","data","home-office"]
     expected:
       status: 200
+    interval: 900
 
-  - name: 'Marriage and Civil Partnership Abroad'
+  - name: 'Guardian''s Allowance'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/marriage-abroad'
-    tags: ['tier-3', 'registrar', 'international']
+    resource: 'https://www.gov.uk/guardians-allowance'
+    tags: ["benefits","children","dwp"]
     expected:
       status: 200
+    interval: 900
 
-  - name: 'Divorce in England and Wales'
+  - name: 'Industrial Injuries Disablement Benefit'  # Escape single quotes for YAML
     protocol: HTTPS
     method: GET
-    resource: 'https://www.gov.uk/divorce'
-    tags: ['tier-3', 'legal', 'divorce']
+    resource: 'https://www.gov.uk/industrial-injuries-disablement-benefit'
+    tags: ["benefits","disability","industrial","dwp"]
     expected:
       status: 200
+    interval: 900
+
+  - name: 'National Tutoring Programme'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/guidance/national-tutoring-programme'
+    tags: ["education","tutoring","dfe"]
+    expected:
+      status: 200
+    interval: 900
+
+  - name: 'Personalised Registration Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/personalised-vehicle-registration-numbers'
+    tags: ["motoring","registration","dvla"]
+    expected:
+      status: 200
+    interval: 900
+
+  - name: 'Register of Training Providers'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://register-of-training-providers.education.gov.uk/'
+    tags: ["education","training","dfe"]
+    expected:
+      status: 200
+    interval: 900
+
+  - name: 'Registered Design Service'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.registered-design.service.gov.uk/'
+    tags: ["intellectual-property","design","ipo"]
+    expected:
+      status: 200
+    interval: 900
+
+  - name: 'Regulated Professions Register'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.regulated-professions.service.gov.uk/'
+    tags: ["professions","registration","dbe"]
+    expected:
+      status: 200
+    interval: 900
+
+  - name: 'Report Immigration Crime'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/report-immigration-crime'
+    tags: ["immigration","enforcement","home-office"]
+    expected:
+      status: 200
+    interval: 900
+
+  - name: 'Report Notifiable Disease in Animals'  # Escape single quotes for YAML
+    protocol: HTTPS
+    method: GET
+    resource: 'https://www.gov.uk/guidance/report-notifiable-diseases-in-animals'
+    tags: ["agriculture","animals","defra"]
+    expected:
+      status: 200
+    interval: 900
 
