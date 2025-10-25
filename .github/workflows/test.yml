@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Uses composite action that includes actions/cache for pnpm dependencies
       - name: Setup Node.js and pnpm
