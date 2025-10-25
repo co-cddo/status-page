@@ -490,8 +490,9 @@ describe('MockHttpServer', () => {
       });
 
       // Make multiple requests to verify probabilistic behavior
+      // Use 100 samples for better statistical stability
       const results: number[] = [];
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 100; i++) {
         const response = await fetch(`${server.url}/sometimes-fail`);
         results.push(response.status);
       }
@@ -499,12 +500,13 @@ describe('MockHttpServer', () => {
       const successes = results.filter((status) => status === 200).length;
       const failures = results.filter((status) => status === 503).length;
 
-      // With 50% probability and 20 requests, expect roughly 50/50 split
+      // With 50% probability and 100 requests, expect roughly 50/50 split
       // Allow for statistical variance (30-70% range)
-      expect(successes).toBeGreaterThan(4); // At least 20%
-      expect(successes).toBeLessThan(16); // At most 80%
-      expect(failures).toBeGreaterThan(4); // At least 20%
-      expect(failures).toBeLessThan(16); // At most 80%
+      // With 100 samples, probability of being outside this range is < 0.1%
+      expect(successes).toBeGreaterThan(30); // At least 30%
+      expect(successes).toBeLessThan(70); // At most 70%
+      expect(failures).toBeGreaterThan(30); // At least 30%
+      expect(failures).toBeLessThan(70); // At most 70%
     }, 10000);
   });
 
