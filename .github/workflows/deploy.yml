@@ -65,50 +65,7 @@ jobs:
           fi
 
       - name: Execute health checks
-        run: |
-          node --import tsx/esm -e "
-          import { loadConfig } from './src/config/loader.js';
-          import { performHealthCheck } from './src/health-checks/http-check.js';
-          import { appendHealthCheckResult } from './src/storage/csv-writer.js';
-          import { writeHealthJSON } from './src/storage/json-writer.js';
-
-          const config = await loadConfig('config.yaml');
-          const results = [];
-
-          console.log('Running health checks for', config.pings.length, 'services...');
-
-          for (const service of config.pings) {
-            try {
-              const result = await performHealthCheck(service);
-              results.push(result);
-
-              // Append to CSV (creates file if doesn't exist)
-              await appendHealthCheckResult(result);
-
-              console.log(\`✓ \${service.name}: \${result.status}\`);
-            } catch (error) {
-              console.error(\`✗ \${service.name}: FAIL -\`, error.message);
-
-              const failedResult = {
-                serviceName: service.name,
-                timestamp: new Date().toISOString(),
-                status: 'FAIL',
-                latency_ms: 0,
-                http_status_code: 0,
-                failure_reason: error.message,
-                correlation_id: crypto.randomUUID()
-              };
-
-              results.push(failedResult);
-              await appendHealthCheckResult(failedResult);
-            }
-          }
-
-          // Write _data/health.json for 11ty
-          await writeHealthJSON(results);
-
-          console.log('Health checks completed:', results.length, 'services checked');
-          "
+        run: pnpm run check-once
 
       - name: Run Eleventy build
         run: pnpm run build:eleventy
