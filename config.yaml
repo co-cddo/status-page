@@ -221,7 +221,7 @@ pings:
       - slc
     expected:
       status: 200
-      text: We're sorry, there is
+      text: Student loans
     interval: 60
   - name: Tax-Free Childcare Account
     protocol: HTTPS
@@ -675,7 +675,7 @@ pings:
       - environment-agency
     expected:
       status: 200
-      text: ERROR_404
+      text: environmental permit
   - name: Export Health Certificates
     protocol: HTTPS
     method: GET
@@ -793,7 +793,7 @@ pings:
       - hmrc
     expected:
       status: 200
-      text: ERROR_404
+      text: Help to Save
   - name: Immigration and Asylum Tribunal
     protocol: HTTPS
     method: GET
@@ -933,7 +933,7 @@ pings:
       - defra
     expected:
       status: 200
-      text: ERROR_404
+      text: pet travel
   - name: Planning Inspectorate Appeals
     protocol: HTTPS
     method: GET
@@ -999,7 +999,7 @@ pings:
       - hmrc
     expected:
       status: 200
-      text: ERROR_404
+      text: customs duty
   - name: Sign up for Flood Warnings
     protocol: HTTPS
     method: GET
@@ -1054,7 +1054,7 @@ pings:
       - hmrc
     expected:
       status: 200
-      text: Sorry, this service is
+      text: Tax credits
   - name: Teaching Regulation Agency
     protocol: HTTPS
     method: GET
@@ -1808,7 +1808,7 @@ pings:
       - dfe
     expected:
       status: 200
-      text: ERROR_404
+      text: Learning Records Service
     interval: 900
   - name: Cold Weather Payment
     protocol: HTTPS
@@ -1869,7 +1869,7 @@ pings:
       - dfe
     expected:
       status: 200
-      text: ERROR_404
+      text: National Tutoring Programme
     interval: 900
   - name: Personalised Registration Service
     protocol: HTTPS
@@ -1939,7 +1939,7 @@ pings:
       - defra
     expected:
       status: 200
-      text: ERROR_404
+      text: notifiable disease
     interval: 900
   - name: Apply for Free School Meals - Search
     protocol: HTTPS
