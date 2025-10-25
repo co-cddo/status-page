@@ -45,8 +45,12 @@ export function validateStatusCode(
  * Uses case-sensitive substring matching
  * Per FR-014: Searches first 100KB of response only
  *
+ * Supports inverse patterns: If expectedText starts with '!', the validation
+ * succeeds if the text is NOT found (useful for detecting error pages).
+ * Example: '!We're sorry' will PASS if "We're sorry" is not in the response
+ *
  * @param responseBody Response body text to search
- * @param expectedText Expected substring to find
+ * @param expectedText Expected substring to find (or '!substring' to ensure absence)
  * @returns ValidationResult with status and error message
  */
 export function validateResponseText(responseBody: string, expectedText: string): ValidationResult {
@@ -54,6 +58,22 @@ export function validateResponseText(responseBody: string, expectedText: string)
   const maxSearchLength = 100 * 1024; // 100KB in bytes
   const searchBody = responseBody.slice(0, maxSearchLength);
 
+  // Check for inverse pattern (text that should NOT be present)
+  if (expectedText.startsWith('!')) {
+    const textToAvoid = expectedText.slice(1); // Remove '!' prefix
+    const isValid = !searchBody.includes(textToAvoid);
+
+    return {
+      valid: isValid,
+      ...(isValid
+        ? {}
+        : {
+            error: `Found forbidden text '${textToAvoid}' in response body (inverse pattern validation failed)`,
+          }),
+    };
+  }
+
+  // Normal pattern: text should be present
   const isValid = searchBody.includes(expectedText);
 
   return {

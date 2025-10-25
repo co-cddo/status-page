@@ -8,8 +8,17 @@ settings:
 
 # TEXT VALIDATION:
 # Services with 'text:' perform case-sensitive substring matching on page content.
-# This detects error pages vs working content (e.g., text: "Apply for" matches page
-# containing "Apply for your first provisional driving licence").
+# This detects error pages vs working content.
+#
+# POSITIVE PATTERNS (text must be present):
+#   text: "Apply for"  → PASS if "Apply for" found in response
+#
+# INVERSE PATTERNS (text must NOT be present - prefix with !):
+#   text: "!We're sorry"  → PASS if "We're sorry" NOT found in response
+#   text: "!unavailable"  → PASS if "unavailable" NOT found in response
+#
+# Inverse patterns detect error states. If a service shows "We're sorry" or
+# "unavailable", it's down and health check should FAIL.
 #
 # SEARCH SERVICES:
 # Services with search functionality have two entries:
