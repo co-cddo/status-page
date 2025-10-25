@@ -194,3 +194,14 @@ export function createStructuredError(error: unknown) {
     originalError: error instanceof Error ? error : new Error(String(error)),
   };
 }
+
+/**
+ * Extracts a single expected status code from number or array
+ * Handles both single status code and array of status codes
+ *
+ * @param expectedStatus Single status code or array of acceptable codes
+ * @returns Single status code (first element if array, or the number itself)
+ */
+export function getExpectedStatusValue(expectedStatus: number | number[]): number {
+  return Array.isArray(expectedStatus) ? (expectedStatus[0] ?? 200) : expectedStatus;
+}

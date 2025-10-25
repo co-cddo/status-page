@@ -16,10 +16,11 @@
 import { randomUUID } from 'node:crypto';
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 import { validateStatusCode, validateResponseText, validateResponseHeaders } from './validation.ts';
-import { getErrorMessage } from '../utils/error.ts';
+import { getErrorMessage, getExpectedStatusValue } from '../utils/error.ts';
 import { createLogger } from '../logging/logger.ts';
+import { validateUrlForSSRF } from '../utils/ssrf-protection.ts';
+import { SIZE_LIMITS } from '../constants/sizes.ts';
 
-const MAX_RESPONSE_TEXT_SIZE = 100 * 1024; // 100KB per FR-014
 const logger = createLogger({ serviceName: 'health-check' });
 
 /**
@@ -45,6 +46,9 @@ export async function performHealthCheck(config: HealthCheckConfig): Promise<Hea
   );
 
   try {
+    // Validate URL for SSRF protection
+    validateUrlForSSRF(config.url);
+
     // Prepare request options
     const headers: Record<string, string> = {};
 
@@ -184,10 +188,7 @@ export async function performHealthCheck(config: HealthCheckConfig): Promise<Hea
         status,
         latency_ms,
         http_status_code: response.status,
-        expected_status:
-          typeof config.expectedStatus === 'number'
-            ? config.expectedStatus
-            : (config.expectedStatus[0] ?? 200),
+        expected_status: getExpectedStatusValue(config.expectedStatus),
         failure_reason,
         correlation_id: correlationId,
       };
@@ -231,10 +232,7 @@ export async function performHealthCheck(config: HealthCheckConfig): Promise<Hea
       status: 'FAIL',
       latency_ms,
       http_status_code: 0, // Connection failure
-      expected_status:
-        typeof config.expectedStatus === 'number'
-          ? config.expectedStatus
-          : (config.expectedStatus[0] ?? 200),
+      expected_status: getExpectedStatusValue(config.expectedStatus),
       failure_reason,
       correlation_id: correlationId,
     };
@@ -242,7 +240,7 @@ export async function performHealthCheck(config: HealthCheckConfig): Promise<Hea
 }
 
 /**
- * Reads response text up to MAX_RESPONSE_TEXT_SIZE (100KB)
+ * Reads response text up to SIZE_LIMITS.MAX_RESPONSE_TEXT (100KB)
  * Per FR-014: Search only first 100KB of response body
  */
 async function getResponseText(response: Response): Promise<string> {
@@ -256,7 +254,7 @@ async function getResponseText(response: Response): Promise<string> {
   let bytesRead = 0;
 
   try {
-    while (bytesRead < MAX_RESPONSE_TEXT_SIZE) {
+    while (bytesRead < SIZE_LIMITS.MAX_RESPONSE_TEXT) {
       const { done, value } = await reader.read();
       if (done) break;
 
@@ -264,9 +262,9 @@ async function getResponseText(response: Response): Promise<string> {
       const chunk = decoder.decode(value, { stream: true });
       text += chunk;
 
-      if (bytesRead >= MAX_RESPONSE_TEXT_SIZE) {
-        // Truncate to MAX_RESPONSE_TEXT_SIZE
-        text = text.substring(0, MAX_RESPONSE_TEXT_SIZE);
+      if (bytesRead >= SIZE_LIMITS.MAX_RESPONSE_TEXT) {
+        // Truncate to SIZE_LIMITS.MAX_RESPONSE_TEXT
+        text = text.substring(0, SIZE_LIMITS.MAX_RESPONSE_TEXT);
         break;
       }
     }

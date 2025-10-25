@@ -53,60 +53,61 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
     }
   });
 
-  test('smoke test workflow triggers ONLY on config.yaml PRs', () => {
+  test('smoke test workflow triggers on all PRs for required checks', () => {
+    // IMPORTANT: Smoke test must run on ALL PRs (not just config.yaml changes)
+    // because it's configured as a required check in branch protection.
+    //
+    // Why this is necessary:
+    // - GitHub branch protection marks a check as "required"
+    // - If the workflow doesn't run on a PR (due to path filtering), the check is "pending"
+    // - A pending required check blocks the PR from being merged
+    // - Therefore, required checks MUST run on all PRs to provide a pass/fail status
+    //
+    // See: .github/BRANCH_PROTECTION_SETUP.md for full context
     expect(smokeTestWorkflow.on).toBeDefined();
 
     if (typeof smokeTestWorkflow.on !== 'string' && !Array.isArray(smokeTestWorkflow.on)) {
+      // Smoke test now runs on all PRs to satisfy branch protection requirements
+      // It should NOT have a paths filter (or paths should be undefined)
       const paths = smokeTestWorkflow.on.pull_request?.paths;
 
-      expect(paths).toBeDefined();
-      expect(paths).toContain('config.yaml');
-
-      // Should be limited to config.yaml only
-      expect(paths?.length).toBeLessThanOrEqual(2); // Allow for variations like 'config.yml'
+      // Either paths is undefined (runs on all files) or doesn't restrict to config.yaml only
+      expect(paths === undefined || paths === null).toBe(true);
     }
   });
 
-  test('workflows do not run concurrently on same PR (fail-fast behavior)', () => {
-    // Per FR-039a: If both config and code change, run app tests first
-    // Smoke tests should wait for app tests to complete
+  test('workflows can run concurrently on same PR as independent checks', () => {
+    // Both workflows now run on all PRs to satisfy branch protection requirements
+    // They run as independent required checks
 
-    // Check if smoke test workflow has dependency on test workflow
+    // Check that smoke test workflow no longer has path filter
     if (typeof smokeTestWorkflow.on !== 'string' && !Array.isArray(smokeTestWorkflow.on)) {
       const hasPathFilter = smokeTestWorkflow.on.pull_request?.paths;
 
-      // Smoke tests are path-filtered to config.yaml, so they won't run
-      // on code changes. This provides natural fail-fast behavior.
-      expect(hasPathFilter).toBeDefined();
+      // Smoke tests now run on all PRs (no path filter)
+      expect(hasPathFilter === undefined || hasPathFilter === null).toBe(true);
     }
 
-    // Alternative: Check if there's explicit job dependency
-    // (though path filtering is the cleaner approach)
     const smokeTestJobs = Object.values(smokeTestWorkflow.jobs);
     const testJobs = Object.values(testWorkflow.jobs);
 
-    // Verify workflows are properly isolated by path filters
+    // Verify both workflows have jobs
     expect(smokeTestJobs.length).toBeGreaterThan(0);
     expect(testJobs.length).toBeGreaterThan(0);
   });
 
-  test('smoke test workflow does not run if application tests fail', () => {
-    // Per FR-039: Application tests must pass before smoke tests run
+  test('both workflows are required checks enforced by branch protection', () => {
+    // Both workflows now run on all PRs as independent required checks
+    // Branch protection requires BOTH to pass before merge
 
-    // Path-based filtering ensures smoke tests only run on config.yaml changes
+    // Check that smoke test workflow runs on all PRs (no path filter)
     if (typeof smokeTestWorkflow.on !== 'string' && !Array.isArray(smokeTestWorkflow.on)) {
       const paths = smokeTestWorkflow.on.pull_request?.paths;
 
-      // Smoke tests are isolated to config.yaml PRs
-      expect(paths).toContain('config.yaml');
+      // Smoke tests run on all PRs (no path restriction)
+      expect(paths === undefined || paths === null).toBe(true);
     }
 
-    // In a scenario where BOTH config and code change:
-    // - Test workflow runs (triggered by code changes)
-    // - Smoke test workflow runs (triggered by config changes)
-    // - Branch protection rules require BOTH to pass before merge
-    //
-    // This is handled by GitHub branch protection, not workflow logic.
     // Verify test workflow does not have continue-on-error
     const testJobKeys = Object.keys(testWorkflow.jobs);
     expect(testJobKeys.length).toBeGreaterThan(0);

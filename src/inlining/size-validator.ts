@@ -11,6 +11,8 @@
 
 import { stat } from 'fs/promises';
 import { createLogger } from '../logging/logger.ts';
+import { getErrorMessage } from '../utils/error.ts';
+import { SIZE_LIMITS } from '../constants/sizes.ts';
 
 const logger = createLogger({ serviceName: 'size-validator' });
 
@@ -133,7 +135,7 @@ export async function validateHTMLSize(
     }
   } catch (error) {
     result.success = false;
-    const errorMessage = `Failed to validate HTML size: ${error instanceof Error ? error.message : String(error)}`;
+    const errorMessage = `Failed to validate HTML size: ${getErrorMessage(error)}`;
     result.errors.push(errorMessage);
     logger.error({ filePath, error }, errorMessage);
   }
@@ -159,7 +161,7 @@ function generateOptimizationSuggestions(
   if (componentSizes) {
     const { totalCSS, totalJS, totalImages, baseHTML } = componentSizes;
 
-    if (totalImages > 2 * 1024 * 1024) {
+    if (totalImages > SIZE_LIMITS.IMAGE_WARNING) {
       // Images > 2MB
       suggestions.push(
         `Images account for ${(totalImages / (1024 * 1024)).toFixed(2)}MB - consider reducing image dimensions or using more aggressive compression`

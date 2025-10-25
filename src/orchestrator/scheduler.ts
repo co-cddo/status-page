@@ -5,6 +5,11 @@
 
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 import type { WorkerPoolManager } from './pool-manager.ts';
+import { createLogger } from '../logging/logger.ts';
+import { getErrorMessage, getExpectedStatusValue } from '../utils/error.ts';
+import { TIMEOUTS } from '../constants/timeouts.ts';
+
+const logger = createLogger({ serviceName: 'scheduler' });
 
 export interface ScheduledCheck {
   config: HealthCheckConfig;
@@ -35,8 +40,8 @@ export class Scheduler {
 
   constructor(poolManager: WorkerPoolManager, options?: SchedulerOptions) {
     this.poolManager = poolManager;
-    this.defaultInterval = options?.defaultInterval ?? 60000; // Default 60 seconds
-    this.gracefulShutdownTimeout = options?.gracefulShutdownTimeout ?? 30000; // Default 30 seconds
+    this.defaultInterval = options?.defaultInterval ?? TIMEOUTS.DEFAULT_CHECK_INTERVAL;
+    this.gracefulShutdownTimeout = options?.gracefulShutdownTimeout ?? TIMEOUTS.GRACEFUL_SHUTDOWN;
   }
 
   start(): void {
@@ -234,9 +239,13 @@ export class Scheduler {
       this.latestResults.set(result.serviceName, result);
     } catch (error) {
       // Log error but continue operation
-      console.error(
-        `Health check failed for ${check.config.serviceName}:`,
-        error instanceof Error ? error.message : String(error)
+      logger.error(
+        {
+          err: error,
+          serviceName: check.config.serviceName,
+          url: check.config.url,
+        },
+        'Health check failed'
       );
     }
 
@@ -294,24 +303,33 @@ export class Scheduler {
         const result = await this.poolManager.executeHealthCheck(check.config);
         this.latestResults.set(result.serviceName, result);
       } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : String(error);
-        console.error(
-          `Health check failed for ${check.config.serviceName}:`,
-          errorMessage
+        const errorMessage = getErrorMessage(error);
+        const serviceName = check.config.serviceName || check.config.url;
+
+        logger.error(
+          {
+            err: error,
+            serviceName,
+            url: check.config.url,
+          },
+          'Health check failed in runOnce'
         );
 
         // Store failed result so service appears in output
+        const correlationId = check.config.correlationId || 'unknown';
+
         const failedResult: HealthCheckResult = {
-          serviceName: check.config.serviceName,
+          serviceName,
           status: 'FAIL',
-          timestamp: new Date().toISOString(),
+          timestamp: new Date(),
           latency_ms: 0,
           http_status_code: 0,
+          expected_status: getExpectedStatusValue(check.config.expectedStatus),
           failure_reason: errorMessage,
-          correlation_id: check.config.correlationId,
+          correlation_id: correlationId,
           method: check.config.method,
         };
-        this.latestResults.set(check.config.serviceName, failedResult);
+        this.latestResults.set(serviceName, failedResult);
       }
     });
 

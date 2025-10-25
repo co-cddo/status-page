@@ -30,9 +30,9 @@
 
 - ☑ Require branches to be up to date before merging
 - **Required status checks**:
-  - `test` (from test.yml workflow)
-  - `Run All Tests` (job name from test.yml)
-  - `smoke-test` (from smoke-test.yml workflow, only runs on config.yaml changes)
+  - `Run All Tests` (from test.yml workflow)
+  - `Validate Config and Run Health Checks` (from smoke-test.yml workflow, runs on all PRs as
+    required check)
 
 #### ✅ Block Force Pushes
 
@@ -74,8 +74,8 @@ If rulesets aren't available, use classic branch protection:
 gh api repos/:owner/:repo/branches/main/protection \
   -X PUT \
   -f required_status_checks[strict]=true \
-  -f required_status_checks[contexts][]=test \
-  -f required_status_checks[contexts][]="Run All Tests" \
+  -f 'required_status_checks[contexts][]="Run All Tests"' \
+  -f 'required_status_checks[contexts][]="Validate Config and Run Health Checks"' \
   -f required_pull_request_reviews[required_approving_review_count]=1 \
   -f required_pull_request_reviews[dismiss_stale_reviews]=true \
   -f required_pull_request_reviews[require_code_owner_reviews]=false \
@@ -96,8 +96,8 @@ After setting up branch protection, verify it's working:
 gh api repos/:owner/:repo/branches/main/protection | jq
 
 # Expected output should show:
-# - required_status_checks with contexts: ["test", "Run All Tests"]
-# - required_pull_request_reviews with required_approving_review_count: 1
+# - required_status_checks with contexts: ["Run All Tests", "Validate Config and Run Health Checks"]
+# - required_pull_request_reviews with required_approving_review_count: 1 (optional)
 # - enforce_admins: false
 # - required_linear_history: true
 # - allow_force_pushes: false
@@ -141,12 +141,16 @@ If your repository doesn't have the "Rulesets" option:
 
 This configuration ensures:
 
-- ✅ **PR Approval Required**: Prevents direct pushes to main
+- ✅ **PR Approval Required** (Optional): Can require code review before merge
 - ✅ **CI Tests Must Pass**: Blocks merge if tests fail
-- ✅ **Config Changes Validated**: smoke-test.yml runs on config.yaml changes
-- ✅ **Application Tests Run**: test.yml runs on code changes
+- ✅ **Config Validation on All PRs**: smoke-test.yml validates config on every PR (required check)
+- ✅ **Application Tests Run**: test.yml runs comprehensive test suite
 - ✅ **No Force Pushes**: Protects commit history
 - ✅ **Linear History**: Enforces clean commit graph
+
+**Note**: The smoke-test workflow runs on all PRs (not just config.yaml changes) because it is
+configured as a required check in branch protection. GitHub requires that status checks be present
+on all PRs for the protection to work correctly.
 
 **Status**: Per FR-041, this is a **one-time setup task** performed by repository administrator.
 
