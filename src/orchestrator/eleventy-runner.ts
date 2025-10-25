@@ -187,7 +187,9 @@ export class EleventyRunner {
    */
   private validateStatusEnum(service: Partial<ServiceStatusAPI>, index: number): void {
     if (!service.status) {
-      throw new Error(`Schema validation failed: Missing required field 'status' at index ${index}`);
+      throw new Error(
+        `Schema validation failed: Missing required field 'status' at index ${index}`
+      );
     }
 
     if (!VALID_STATUSES.includes(service.status as (typeof VALID_STATUSES)[number])) {
