@@ -363,15 +363,9 @@ describe('SSRF Protection', () => {
       process.env.NODE_ENV = 'production';
 
       // These would normally be blocked but should pass with skipValidation
-      expect(() =>
-        validateUrlForSSRF('http://localhost', { skipValidation: true })
-      ).not.toThrow();
-      expect(() =>
-        validateUrlForSSRF('http://127.0.0.1', { skipValidation: true })
-      ).not.toThrow();
-      expect(() =>
-        validateUrlForSSRF('http://10.0.0.1', { skipValidation: true })
-      ).not.toThrow();
+      expect(() => validateUrlForSSRF('http://localhost', { skipValidation: true })).not.toThrow();
+      expect(() => validateUrlForSSRF('http://127.0.0.1', { skipValidation: true })).not.toThrow();
+      expect(() => validateUrlForSSRF('http://10.0.0.1', { skipValidation: true })).not.toThrow();
       expect(() =>
         validateUrlForSSRF('http://192.168.1.1', { skipValidation: true })
       ).not.toThrow();
@@ -383,12 +377,12 @@ describe('SSRF Protection', () => {
     it('should still validate when skipValidation is false', () => {
       process.env.NODE_ENV = 'production';
 
-      expect(() =>
-        validateUrlForSSRF('http://localhost', { skipValidation: false })
-      ).toThrow('Blocked: Localhost access not allowed');
-      expect(() =>
-        validateUrlForSSRF('http://127.0.0.1', { skipValidation: false })
-      ).toThrow('Blocked: Localhost access not allowed');
+      expect(() => validateUrlForSSRF('http://localhost', { skipValidation: false })).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://127.0.0.1', { skipValidation: false })).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
     });
 
     it('should still validate when skipValidation is undefined', () => {
