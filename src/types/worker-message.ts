@@ -7,37 +7,43 @@ import type { HealthCheckConfig, HealthCheckResult, HealthCheckError } from './h
 
 /**
  * Message types for worker thread communication
+ * Note: Using const object instead of enum for Node.js 22 TypeScript compatibility
  */
-export enum WorkerMessageType {
+export const WorkerMessageType = {
   /** Execute health check */
-  HEALTH_CHECK = 'HEALTH_CHECK',
+  HEALTH_CHECK: 'HEALTH_CHECK',
 
   /** Terminate worker gracefully */
-  TERMINATE = 'TERMINATE',
+  TERMINATE: 'TERMINATE',
 
   /** Health check ping (keep-alive) */
-  PING = 'PING',
-}
+  PING: 'PING',
+} as const;
+
+export type WorkerMessageType = (typeof WorkerMessageType)[keyof typeof WorkerMessageType];
 
 /**
  * Result types for worker responses
+ * Note: Using const object instead of enum for Node.js 22 TypeScript compatibility
  */
-export enum WorkerResultType {
+export const WorkerResultType = {
   /** Health check completed successfully */
-  SUCCESS = 'SUCCESS',
+  SUCCESS: 'SUCCESS',
 
   /** Health check failed */
-  ERROR = 'ERROR',
+  ERROR: 'ERROR',
 
   /** Worker is ready */
-  READY = 'READY',
+  READY: 'READY',
 
   /** Pong response to ping */
-  PONG = 'PONG',
+  PONG: 'PONG',
 
   /** Worker terminating */
-  TERMINATED = 'TERMINATED',
-}
+  TERMINATED: 'TERMINATED',
+} as const;
+
+export type WorkerResultType = (typeof WorkerResultType)[keyof typeof WorkerResultType];
 
 /**
  * Message sent from main thread to worker thread
@@ -148,14 +154,17 @@ export interface WorkerPoolStats {
 
 /**
  * Worker state
+ * Note: Using const object instead of enum for Node.js 22 TypeScript compatibility
  */
-export enum WorkerState {
-  IDLE = 'IDLE',
-  BUSY = 'BUSY',
-  TERMINATING = 'TERMINATING',
-  TERMINATED = 'TERMINATED',
-  ERROR = 'ERROR',
-}
+export const WorkerState = {
+  IDLE: 'IDLE',
+  BUSY: 'BUSY',
+  TERMINATING: 'TERMINATING',
+  TERMINATED: 'TERMINATED',
+  ERROR: 'ERROR',
+} as const;
+
+export type WorkerState = (typeof WorkerState)[keyof typeof WorkerState];
 
 /**
  * Worker metadata for pool management
