@@ -1,10 +1,13 @@
 # Adding New Storage Formats
 
-This guide explains how to add support for new storage formats (e.g., Parquet, SQLite, PostgreSQL) to the GOV.UK Public Services Status Monitor.
+This guide explains how to add support for new storage formats (e.g., Parquet, SQLite, PostgreSQL)
+to the GOV.UK Public Services Status Monitor.
 
 ## Overview
 
-The storage abstraction layer uses the **Factory + Strategy** design patterns to enable easy extensibility. All storage implementations conform to common interfaces, making it straightforward to add new formats without modifying existing code.
+The storage abstraction layer uses the **Factory + Strategy** design patterns to enable easy
+extensibility. All storage implementations conform to common interfaces, making it straightforward
+to add new formats without modifying existing code.
 
 ## Architecture
 
@@ -346,6 +349,7 @@ export class SqliteWriter implements IStorageWriter {
 ## Support
 
 For questions or issues:
+
 - Review existing implementations in `src/storage/`
 - Consult the test files in `tests/unit/storage/`
 - See the architecture documentation in `CLAUDE.md`
