@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+_site/
+dist/
+build/
+output/
+*.tsbuildinfo
+
+# Logs
+*.log
+logs/
+pnpm-debug.log*
+pino*.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+.playwright/
+
+# Generated data files
+history.csv
+_data/health.json
+_data/services.json
+
+# Temporary files
+*.tmp
+.cache/

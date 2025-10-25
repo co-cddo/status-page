@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+_site/
+dist/
+build/
+output/
+*.tsbuildinfo
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Generated data files
+history.csv
+_data/health.json
+_data/services.json
+
+# Temporary files
+*.tmp
+.cache/
+
+# Config files (already linted differently)
+*.config.js
+*.config.ts

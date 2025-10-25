@@ -1,0 +1,42 @@
+# Eleventy ignore file
+# Only build pages/ directory, ignore all documentation and project files
+
+# Documentation
+README.md
+CLAUDE.md
+CONTRIBUTING.md
+LICENSE
+
+# Specifications and planning
+specs/
+.specify/
+
+# Source code
+src/
+
+# Tests
+tests/
+*.test.ts
+*.test.js
+
+# Configuration and tooling
+.github/
+.claude/
+node_modules/
+.git/
+
+# Build artifacts
+_site/
+output/
+dist/
+
+# Data files (handled separately)
+history.csv
+# Note: _data/ is NOT ignored - Eleventy needs access to load data files
+
+# Integration test summaries
+INTEGRATION_TESTS_SUMMARY.md
+
+# Any other markdown files not in pages/
+!pages/**/*.md
+!pages/**/*.njk

@@ -1,0 +1,158 @@
+{#
+  Service Status Component
+
+  Displays comprehensive health information for a single service.
+
+  Requirements (FR-027, FR-027a):
+  - Service name
+  - Status indicator (PASS/DEGRADED/FAIL/PENDING)
+  - Last check time (relative + absolute per FR-029b)
+  - Latency in milliseconds
+  - HTTP status code
+  - Failure reason (if status is FAIL)
+  - Tags (if configured)
+  - Use GOV.UK Design System components
+  - WCAG 2.2 AAA accessible
+
+  Usage:
+    {% from "components/service-status.njk" import serviceStatus %}
+    {{ serviceStatus({ service: serviceData }) }}
+
+  Parameters:
+  - service (object, required): Service data from _data/health.json
+    - name (string): Service display name
+    - status (string): PASS | DEGRADED | FAIL | PENDING
+    - latency_ms (number|null): Response latency in milliseconds
+    - last_check_time (string|null): ISO 8601 timestamp
+    - tags (array): Array of tag strings
+    - http_status_code (number|null): HTTP status code received
+    - failure_reason (string): Failure description (empty if passed)
+#}
+
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "macros/status-indicator.njk" import statusIndicator %}
+
+{% macro serviceStatus(params) %}
+  {% set service = params.service %}
+
+  {# Service container with semantic HTML and ARIA landmarks #}
+  <article class="govuk-!-margin-bottom-6" aria-labelledby="service-{{ service.name | replace(' ', '-') | lower }}">
+
+    {# Service name and status indicator in header #}
+    <header class="govuk-!-margin-bottom-2">
+      <h2 id="service-{{ service.name | replace(' ', '-') | lower }}" class="govuk-heading-m govuk-!-margin-bottom-2">
+        {{ service.name }}
+      </h2>
+
+      {# Status indicator using macro #}
+      <div class="govuk-!-margin-bottom-3">
+        {{ statusIndicator({
+          status: service.status,
+          serviceName: service.name
+        }) }}
+      </div>
+    </header>
+
+    {# Service tags (if configured) per FR-024, FR-025 #}
+    {% if service.tags and service.tags.length > 0 %}
+      <div class="govuk-!-margin-bottom-3" role="list" aria-label="Service categories">
+        {% for tag in service.tags %}
+          <span role="listitem">
+            {{ govukTag({
+              text: tag,
+              classes: "govuk-tag--blue govuk-!-margin-right-2"
+            }) }}
+          </span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {# Service details using GOV.UK summary list component #}
+    {% set summaryRows = [] %}
+
+    {# Last check time (dual format: relative + absolute per FR-029b) #}
+    {% if service.last_check_time %}
+      {% set summaryRows = (summaryRows.push({
+        key: { text: "Last checked" },
+        value: {
+          html: '<time datetime="' + service.last_check_time + '">' +
+                service.last_check_time +
+                '</time>'
+        }
+      }), summaryRows) %}
+    {% else %}
+      {% set summaryRows = (summaryRows.push({
+        key: { text: "Last checked" },
+        value: { text: "Not yet checked" }
+      }), summaryRows) %}
+    {% endif %}
+
+    {# Response latency (only show if not PENDING) #}
+    {% if service.latency_ms !== null %}
+      {% set summaryRows = (summaryRows.push({
+        key: { text: "Response time" },
+        value: { text: service.latency_ms + " ms" }
+      }), summaryRows) %}
+    {% endif %}
+
+    {# HTTP status code (only show if not PENDING) #}
+    {% if service.http_status_code !== null %}
+      {% set summaryRows = (summaryRows.push({
+        key: { text: "HTTP status" },
+        value: { text: service.http_status_code }
+      }), summaryRows) %}
+    {% endif %}
+
+    {# Failure reason (only show if FAIL status and reason provided) #}
+    {% if service.status === "FAIL" and service.failure_reason %}
+      {% set summaryRows = (summaryRows.push({
+        key: { text: "Failure reason" },
+        value: {
+          html: '<span class="govuk-error-message">' + service.failure_reason + '</span>'
+        }
+      }), summaryRows) %}
+    {% endif %}
+
+    {# Render summary list with service details #}
+    {{ govukSummaryList({
+      classes: "govuk-summary-list--no-border",
+      rows: summaryRows
+    }) }}
+
+  </article>
+
+  {# Visual separator between services (except for last service) #}
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" aria-hidden="true">
+{% endmacro %}
+
+{#
+  Compact service status variant for dense layouts
+  Shows only critical information (name, status, latency)
+#}
+{% macro serviceStatusCompact(params) %}
+  {% set service = params.service %}
+
+  <div class="govuk-!-margin-bottom-3" role="article" aria-labelledby="service-compact-{{ service.name | replace(' ', '-') | lower }}">
+    <div class="govuk-!-display-flex govuk-!-flex-direction-row govuk-!-align-items-center">
+
+      {# Service name #}
+      <h3 id="service-compact-{{ service.name | replace(' ', '-') | lower }}" class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-right-2" style="flex: 1;">
+        {{ service.name }}
+      </h3>
+
+      {# Latency (if available) #}
+      {% if service.latency_ms !== null %}
+        <span class="govuk-body-s govuk-!-margin-right-2" aria-label="Response time">
+          {{ service.latency_ms }} ms
+        </span>
+      {% endif %}
+
+      {# Status indicator #}
+      {{ statusIndicator({
+        status: service.status,
+        serviceName: service.name
+      }) }}
+    </div>
+  </div>
+{% endmacro %}

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+_site/
+dist/
+build/
+output/
+*.tsbuildinfo
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Generated data files
+history.csv
+_data/health.json
+_data/services.json
+
+# Package manager
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Temporary files
+*.tmp
+.cache/
+
+# Nunjucks templates - Prettier breaks the syntax
+pages/**/*.njk
+_includes/**/*.njk

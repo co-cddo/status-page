@@ -1,0 +1,139 @@
+name: Smoke Test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'config.yaml'
+
+# Per FR-037a: Least-privilege permissions
+permissions:
+  contents: read
+  pull-requests: write
+
+# Note: Comment includes warning section for widespread failures
+jobs:
+  smoke-test:
+    name: Validate Config and Run Health Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: Validate config.yaml syntax and schema
+        run: |
+          node --import tsx/esm -e "
+          import { loadConfiguration } from './src/config/loader.js';
+          import { validateConfigurationCLI } from './src/config/validator.js';
+
+          try {
+            const config = await loadConfiguration('config.yaml');
+            const isValid = validateConfigurationCLI(config);
+
+            if (!isValid) {
+              console.error('Config validation failed');
+              process.exit(1);
+            }
+
+            console.log('✓ Config validation passed');
+          } catch (error) {
+            console.error('Config validation failed:', error.message);
+            process.exit(1);
+          }
+          "
+
+      - name: Run smoke test health checks
+        id: health-checks
+        run: |
+          node --import tsx/esm -e "
+          import { loadConfiguration } from './src/config/loader.js';
+          import { performHealthCheck } from './src/health-checks/http-check.js';
+          import { writeFileSync } from 'fs';
+
+          const config = await loadConfiguration('config.yaml');
+          const results = [];
+
+          // Run health checks for all configured services
+          for (const service of config.pings) {
+            try {
+              const result = await performHealthCheck(service);
+              results.push({
+                serviceName: service.name,
+                status: result.status,
+                latency_ms: result.latency_ms,
+                http_status_code: result.http_status_code,
+                failure_reason: result.failure_reason || ''
+              });
+            } catch (error) {
+              results.push({
+                serviceName: service.name,
+                status: 'FAIL',
+                latency_ms: 0,
+                http_status_code: 0,
+                failure_reason: error.message
+              });
+            }
+          }
+
+          // Write results to file for comment generation
+          writeFileSync('smoke-test-results.json', JSON.stringify(results, null, 2));
+          console.log(\`Health checks completed: \${results.length} services\`);
+          "
+
+      - name: Generate PR comment markdown
+        run: |
+          node --import tsx/esm -e "
+          import { formatSmokeTestComment } from './src/workflows/format-smoke-test-comment.js';
+          import { readFileSync, writeFileSync } from 'fs';
+
+          // Read smoke test results
+          const results = JSON.parse(readFileSync('smoke-test-results.json', 'utf-8'));
+
+          // Generate comment markdown
+          const comment = formatSmokeTestComment(results);
+
+          // Write comment to file for gh CLI
+          writeFileSync('smoke-test-comment.md', comment);
+
+          // Log summary
+          const failed = results.filter(r => r.status === 'FAIL').length;
+          const degraded = results.filter(r => r.status === 'DEGRADED').length;
+          const passed = results.filter(r => r.status === 'PASS').length;
+
+          console.log(\`Service status: \${passed} passed, \${degraded} degraded, \${failed} failed\`);
+
+          if (failed > 0 || degraded > 0) {
+            console.log('⚠️ Warning: widespread service failures detected');
+          }
+          "
+
+      - name: Post PR comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Check if a smoke test comment already exists
+          EXISTING_COMMENT=$(gh pr view ${{ github.event.pull_request.number }} --json comments --jq '.comments[] | select(.body | contains("Smoke Test Results")) | .id' | head -1)
+
+          if [ -n "$EXISTING_COMMENT" ]; then
+            # Try to update existing comment
+            if gh api \
+              --method PATCH \
+              -H "Accept: application/vnd.github+json" \
+              "/repos/${{ github.repository }}/issues/comments/$EXISTING_COMMENT" \
+              -f body="$(cat smoke-test-comment.md)" 2>/dev/null; then
+              echo "✓ Updated existing smoke test comment"
+            else
+              # Comment no longer exists, create new one
+              gh pr comment ${{ github.event.pull_request.number }} --body-file smoke-test-comment.md
+              echo "✓ Comment update failed, created new smoke test comment"
+            fi
+          else
+            # Create new comment
+            gh pr comment ${{ github.event.pull_request.number }} --body-file smoke-test-comment.md
+            echo "✓ Created new smoke test comment"
+          fi

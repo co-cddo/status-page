@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__perplexity-researcher__perplexity_ask",
+      "WebSearch",
+      "WebFetch(domain:design-system.service.gov.uk)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(.specify/scripts/bash/setup-plan.sh:*)",
+      "WebFetch(domain:frontend.design-system.service.gov.uk)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.11ty.dev)",
+      "WebFetch(domain:x-govuk.github.io)",
+      "WebFetch(domain:betterstack.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:c2fo.github.io)",
+      "WebFetch(domain:bennypowers.dev)",
+      "Bash(.specify/scripts/bash/update-agent-context.sh:*)",
+      "Bash(gh auth:*)",
+      "Bash(git push:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(git -C /Users/cns/httpdocs/cddo/status log --oneline -20)",
+      "Bash(find:*)",
+      "Bash(awk:*)",
+      "Read(///**)",
+      "Bash(git rev-parse:*)",
+      "Bash(test:*)",
+      "Bash(pnpm --version:*)",
+      "Bash(pnpm init)",
+      "Bash(pnpm add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "disableAllHooks": false
+}

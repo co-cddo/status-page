@@ -1,0 +1,43 @@
+{#
+  Status Page Layout
+
+  Extends the GOV.UK Eleventy Plugin base layout and adds:
+  - Meta refresh tag for auto-updates (60 seconds)
+  - Custom page title suffix
+  - Outputs page content via {{ content }} variable
+#}
+{% extends "layouts/base.njk" %}
+
+{% block pageTitle %}{{ title or "GOV.UK service status" }}{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  {# Meta refresh tag for automatic page updates (no JavaScript required) #}
+  <meta http-equiv="refresh" content="{{ settings.page_refresh or 60 }}">
+{% endblock %}
+
+{% block main %}
+  <div class="govuk-width-container {%- if containerClasses %} {{ containerClasses }}{% endif %}">
+    {% block beforeContent %}{% endblock %}
+    <main class="govuk-main-wrapper {%- if mainClasses %} {{ mainClasses }}{% endif %}" id="main-content" role="main"{%- if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+    </main>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {# Override footer to remove external Open Government Licence link for self-contained HTML #}
+  <footer class="govuk-footer" role="contentinfo">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item">
+          <span class="govuk-footer__licence-description">
+            All content is available under the Open Government Licence v3.0, except where otherwise stated
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+{% endblock %}

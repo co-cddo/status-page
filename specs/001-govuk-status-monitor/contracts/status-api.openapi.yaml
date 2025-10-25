@@ -1,0 +1,289 @@
+openapi: 3.0.3
+info:
+  title: GOV.UK Public Services Status Monitor API
+  description: |
+    JSON API providing current health status for all monitored public services.
+
+    This API is generated as a static JSON file (`_site/api/status.json`) by the
+    GOV.UK Status Monitor background service. It provides **current status only** -
+    historical data is available via the CSV file (`history.csv`) accessed directly.
+
+    **Key Features:**
+    - Read-only API (static JSON file)
+    - Current status snapshot updated after each health check cycle
+    - Services sorted by priority: FAIL → DEGRADED → PASS → PENDING
+    - Compliant with GOV.UK Design System standards
+    - WCAG 2.2 AAA accessibility compliance
+  version: 1.0.0
+  contact:
+    name: GOV.UK Status Monitor Team
+    url: https://status.gov.uk
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://status.gov.uk/api
+    description: Production API endpoint
+  - url: http://localhost:8080/api
+    description: Local development endpoint
+
+tags:
+  - name: Status
+    description: Service health status operations
+
+paths:
+  /status.json:
+    get:
+      summary: Get current service status
+      description: |
+        Retrieve current health status for all monitored public services.
+
+        **Response Structure:**
+        - Array of service objects sorted by priority (FAIL → DEGRADED → PASS → PENDING)
+        - Services without tags appear in response with empty `tags` array
+        - `failure_reason` is empty string for passing services
+        - `last_check_time`, `latency_ms`, and `http_status_code` are null for PENDING services
+
+        **Historical Data:**
+        For historical performance data, access the CSV file directly at `/history.csv`.
+      operationId: getCurrentStatus
+      tags:
+        - Status
+      responses:
+        '200':
+          description: Successful response with current service status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+              examples:
+                mixedStatuses:
+                  summary: Mixed service statuses
+                  value:
+                    - name: 'GOV.UK Verify'
+                      status: 'FAIL'
+                      latency_ms: 0
+                      last_check_time: '2025-10-21T14:30:00.000Z'
+                      tags: ['authentication', 'identity', 'central government']
+                      http_status_code: 0
+                      failure_reason: 'Connection timeout'
+                    - name: 'DVLA Vehicle Tax'
+                      status: 'DEGRADED'
+                      latency_ms: 2500
+                      last_check_time: '2025-10-21T14:30:15.000Z'
+                      tags: ['driving licences', 'roads', 'ministry of transport']
+                      http_status_code: 200
+                      failure_reason: ''
+                    - name: 'NHS Digital API'
+                      status: 'PASS'
+                      latency_ms: 120
+                      last_check_time: '2025-10-21T14:30:30.000Z'
+                      tags: ['health', 'ministry of health']
+                      http_status_code: 200
+                      failure_reason: ''
+                    - name: 'New Service'
+                      status: 'PENDING'
+                      latency_ms: null
+                      last_check_time: null
+                      tags: []
+                      http_status_code: null
+                      failure_reason: ''
+                allHealthy:
+                  summary: All services healthy
+                  value:
+                    - name: 'GOV.UK Verify'
+                      status: 'PASS'
+                      latency_ms: 95
+                      last_check_time: '2025-10-21T14:30:00.000Z'
+                      tags: ['authentication', 'identity']
+                      http_status_code: 200
+                      failure_reason: ''
+                    - name: 'DVLA Vehicle Tax'
+                      status: 'PASS'
+                      latency_ms: 150
+                      last_check_time: '2025-10-21T14:30:15.000Z'
+                      tags: ['driving licences', 'roads']
+                      http_status_code: 200
+                      failure_reason: ''
+        '404':
+          description: Status file not found (generation may have failed)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: 'Status file not found'
+                message: 'The status data file has not been generated yet or generation failed.'
+
+components:
+  schemas:
+    StatusResponse:
+      type: array
+      description: Array of service status objects sorted by priority (FAIL → DEGRADED → PASS → PENDING)
+      items:
+        $ref: '#/components/schemas/ServiceStatus'
+      minItems: 0
+      example:
+        - name: 'GOV.UK Verify'
+          status: 'PASS'
+          latency_ms: 120
+          last_check_time: '2025-10-21T14:30:00.000Z'
+          tags: ['authentication', 'identity', 'central government']
+          http_status_code: 200
+          failure_reason: ''
+
+    ServiceStatus:
+      type: object
+      description: Current health status for a single monitored service
+      required:
+        - name
+        - status
+        - latency_ms
+        - last_check_time
+        - tags
+        - http_status_code
+        - failure_reason
+      properties:
+        name:
+          type: string
+          description: Display name of the monitored service (unique across all services)
+          example: 'GOV.UK Verify'
+          minLength: 1
+
+        status:
+          type: string
+          description: |
+            Current health status:
+            - PENDING: Service configured but not yet checked (newly added)
+            - PASS: Passing all validations, latency within warning threshold
+            - DEGRADED: Passing validations but latency exceeds warning threshold
+            - FAIL: Validation failed or timeout exceeded
+          enum:
+            - PENDING
+            - PASS
+            - DEGRADED
+            - FAIL
+          example: 'PASS'
+
+        latency_ms:
+          type: integer
+          nullable: true
+          description: |
+            Response latency in milliseconds from most recent health check.
+            Null if status is PENDING (no check completed yet).
+          example: 120
+          minimum: 0
+
+        last_check_time:
+          type: string
+          format: date-time
+          nullable: true
+          description: |
+            ISO 8601 timestamp of the most recent health check.
+            Null if status is PENDING (no check completed yet).
+          example: '2025-10-21T14:30:00.000Z'
+
+        tags:
+          type: array
+          description: |
+            Category labels for visual identification (e.g., department, service type).
+            Empty array if service has no tags configured.
+            Services without tags are displayed in "Untagged Services" section on HTML page.
+          items:
+            type: string
+            minLength: 1
+          example: ['health', 'driving licences', 'roads', 'ministry of foo']
+          default: []
+
+        http_status_code:
+          type: integer
+          nullable: true
+          description: |
+            HTTP status code received from the service endpoint.
+            0 for connection failures (DNS, network errors).
+            Null if status is PENDING (no check completed yet).
+          example: 200
+          minimum: 0
+          maximum: 599
+
+        failure_reason:
+          type: string
+          description: |
+            Human-readable failure description.
+            Empty string if service passed all validations (PASS or DEGRADED status).
+            Examples: "Connection timeout", "Expected status 200, got 500", "Expected text 'OK' not found"
+          example: ''
+          default: ''
+
+    Error:
+      type: object
+      description: Error response for failed requests
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Short error identifier
+          example: 'Status file not found'
+        message:
+          type: string
+          description: Detailed error message
+          example: 'The status data file has not been generated yet or generation failed.'
+
+  examples:
+    PendingService:
+      summary: Service pending first health check
+      value:
+        name: 'New Service'
+        status: 'PENDING'
+        latency_ms: null
+        last_check_time: null
+        tags: []
+        http_status_code: null
+        failure_reason: ''
+
+    PassingService:
+      summary: Healthy service passing all checks
+      value:
+        name: 'NHS Digital API'
+        status: 'PASS'
+        latency_ms: 120
+        last_check_time: '2025-10-21T14:30:00.000Z'
+        tags: ['health', 'ministry of health']
+        http_status_code: 200
+        failure_reason: ''
+
+    DegradedService:
+      summary: Service with high latency but passing validations
+      value:
+        name: 'DVLA Vehicle Tax'
+        status: 'DEGRADED'
+        latency_ms: 2500
+        last_check_time: '2025-10-21T14:30:00.000Z'
+        tags: ['driving licences', 'roads', 'ministry of transport']
+        http_status_code: 200
+        failure_reason: ''
+
+    FailedService:
+      summary: Service failing health check
+      value:
+        name: 'GOV.UK Verify'
+        status: 'FAIL'
+        latency_ms: 0
+        last_check_time: '2025-10-21T14:30:00.000Z'
+        tags: ['authentication', 'identity', 'central government']
+        http_status_code: 0
+        failure_reason: 'Connection timeout'
+
+    UntaggedService:
+      summary: Service without category tags
+      value:
+        name: 'Internal API'
+        status: 'PASS'
+        latency_ms: 85
+        last_check_time: '2025-10-21T14:30:00.000Z'
+        tags: []
+        http_status_code: 200
+        failure_reason: ''
