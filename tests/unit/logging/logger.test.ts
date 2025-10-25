@@ -195,7 +195,9 @@ describe('Structured JSON Logger', () => {
       const logOutput: LogEntry[] = [];
 
       // Capture log output by accessing the underlying stream
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.info({ password: 'secret123', message: 'User login' });
 
@@ -214,7 +216,9 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.info({ token: 'abc123token', message: 'API request' });
 
@@ -232,7 +236,9 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.info({ apiKey: 'key-abc123', message: 'External API call' });
 
@@ -250,7 +256,9 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.info({ api_key: 'key-xyz789', message: 'Config loaded' });
 
@@ -268,7 +276,9 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.info({ authorization: 'Bearer token123', message: 'Auth check' });
 
@@ -286,7 +296,9 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.info({
         headers: { authorization: 'Bearer secret', 'content-type': 'application/json' },
@@ -309,7 +321,9 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.info({ secret: 'my-secret-value', message: 'Config check' });
 
@@ -327,7 +341,9 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.info({ accessToken: 'access-xyz', message: 'OAuth flow' });
 
@@ -345,7 +361,9 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.info({
         password: 'pass123',
@@ -501,7 +519,9 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger({ level: 'trace' });
       const logOutput: LogEntry[] = [];
 
-      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       logger.trace('trace message');
       logger.debug('debug message');
@@ -522,7 +542,9 @@ describe('Structured JSON Logger', () => {
       const child = createChildLogger({ correlationId });
       const logOutput: LogEntry[] = [];
 
-      (child as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
+      (child as LoggerWithStream).on('data', (chunk: Buffer) =>
+        logOutput.push(JSON.parse(chunk.toString()))
+      );
 
       child.info('Test message with correlation ID');
 
