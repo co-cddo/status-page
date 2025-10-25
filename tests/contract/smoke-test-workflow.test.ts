@@ -18,18 +18,18 @@ describe('Smoke Test Workflow Contract (US6)', () => {
     expect(() => readFileSync(workflowPath, 'utf-8')).not.toThrow();
   });
 
-  test('workflow triggers only on config.yaml changes', () => {
+  test('workflow triggers on all PRs for required checks', () => {
     const workflowYaml = readFileSync(workflowPath, 'utf-8');
     const workflow = load(workflowYaml) as GitHubActionsWorkflow;
 
-    // Verify pull_request trigger with path filter
+    // Verify pull_request trigger without path filter (runs on all PRs)
     expect(workflow.on).toBeDefined();
     if (typeof workflow.on !== 'string' && !Array.isArray(workflow.on)) {
       expect(workflow.on.pull_request).toBeDefined();
-      expect(workflow.on.pull_request?.paths).toContain('config.yaml');
 
-      // Should not trigger on all file changes
-      expect(workflow.on.pull_request?.paths).not.toContain('**/*');
+      // Should NOT have paths filter (so it runs on all PRs for branch protection)
+      const paths = workflow.on.pull_request?.paths;
+      expect(paths === undefined || paths === null).toBe(true);
     }
   });
 
