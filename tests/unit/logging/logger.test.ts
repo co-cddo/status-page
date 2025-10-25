@@ -8,7 +8,6 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { type Logger as PinoLogger } from 'pino';
 import {
   createLogger,
   createChildLogger,
@@ -16,8 +15,15 @@ import {
   isLogLevelEnabled,
   safeStringify,
   LOG_LEVELS,
-  type LogLevel,
 } from '../../../src/logging/logger.js';
+
+/**
+ * Type for logger with stream access (for testing)
+ * Pino logger has an internal stream that emits 'data' events
+ */
+type LoggerWithStream = ReturnType<typeof createLogger> & {
+  on: (event: string, callback: (chunk: Buffer) => void) => void;
+};
 
 /**
  * Interface for parsed log entry from Pino output
@@ -152,7 +158,7 @@ describe('Structured JSON Logger', () => {
       createLogger();
 
       expect(consoleErrorSpy).toHaveBeenCalled();
-      const warningMessage = consoleErrorSpy.mock.calls[0][0];
+      const warningMessage = consoleErrorSpy.mock.calls[0]![0];
       expect(warningMessage).toContain('WARNING');
       expect(warningMessage).toContain('Debug logging enabled');
       expect(warningMessage).toContain('Sensitive data');
@@ -188,8 +194,8 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      // Capture log output
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      // Capture log output by accessing the underlying stream
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.info({ password: 'secret123', message: 'User login' });
 
@@ -197,7 +203,7 @@ describe('Structured JSON Logger', () => {
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.password).toBeUndefined();
           resolve();
         }, 50);
@@ -208,14 +214,14 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.info({ token: 'abc123token', message: 'API request' });
 
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.token).toBeUndefined();
           resolve();
         }, 50);
@@ -226,14 +232,14 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.info({ apiKey: 'key-abc123', message: 'External API call' });
 
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.apiKey).toBeUndefined();
           resolve();
         }, 50);
@@ -244,14 +250,14 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.info({ api_key: 'key-xyz789', message: 'Config loaded' });
 
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.api_key).toBeUndefined();
           resolve();
         }, 50);
@@ -262,14 +268,14 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.info({ authorization: 'Bearer token123', message: 'Auth check' });
 
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.authorization).toBeUndefined();
           resolve();
         }, 50);
@@ -280,7 +286,7 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.info({
         headers: { authorization: 'Bearer secret', 'content-type': 'application/json' },
@@ -290,10 +296,10 @@ describe('Structured JSON Logger', () => {
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.headers).toBeDefined();
-          expect(log.headers.authorization).toBeUndefined();
-          expect(log.headers['content-type']).toBe('application/json');
+          expect(log.headers!.authorization).toBeUndefined();
+          expect(log.headers!['content-type']).toBe('application/json');
           resolve();
         }, 50);
       });
@@ -303,14 +309,14 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.info({ secret: 'my-secret-value', message: 'Config check' });
 
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.secret).toBeUndefined();
           resolve();
         }, 50);
@@ -321,14 +327,14 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.info({ accessToken: 'access-xyz', message: 'OAuth flow' });
 
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.accessToken).toBeUndefined();
           resolve();
         }, 50);
@@ -339,7 +345,7 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger();
       const logOutput: LogEntry[] = [];
 
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.info({
         password: 'pass123',
@@ -352,7 +358,7 @@ describe('Structured JSON Logger', () => {
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.password).toBeUndefined();
           expect(log.token).toBeUndefined();
           expect(log.apiKey).toBeUndefined();
@@ -495,7 +501,7 @@ describe('Structured JSON Logger', () => {
       const logger = createLogger({ level: 'trace' });
       const logOutput: LogEntry[] = [];
 
-      logger.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (logger as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       logger.trace('trace message');
       logger.debug('debug message');
@@ -516,14 +522,14 @@ describe('Structured JSON Logger', () => {
       const child = createChildLogger({ correlationId });
       const logOutput: LogEntry[] = [];
 
-      child.on('data', (chunk) => logOutput.push(JSON.parse(chunk.toString())));
+      (child as LoggerWithStream).on('data', (chunk: Buffer) => logOutput.push(JSON.parse(chunk.toString())));
 
       child.info('Test message with correlation ID');
 
       return new Promise<void>((resolve) => {
         setTimeout(() => {
           expect(logOutput.length).toBeGreaterThan(0);
-          const log = logOutput[0];
+          const log = logOutput[0]!;
           expect(log.correlationId).toBe(correlationId);
           resolve();
         }, 50);

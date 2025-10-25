@@ -272,7 +272,7 @@ describe('Correlation ID Utilities', () => {
       });
 
       it('should allow creating new contexts after clear', () => {
-        const context1 = CorrelationContext.create();
+        CorrelationContext.create();
         CorrelationContext.clear();
 
         const context2 = CorrelationContext.create();
