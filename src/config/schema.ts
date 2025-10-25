@@ -32,7 +32,13 @@ const expectedValidationSchema = {
   type: 'object',
   properties: {
     status: { type: 'integer', minimum: 100, maximum: 599 },
-    text: { type: 'string', nullable: true },
+    text: {
+      type: 'string',
+      nullable: true,
+      description:
+        'Text to validate in response body (case-sensitive substring). ' +
+        'Prefix with ! for inverse matching - text must NOT be present (e.g., "!We\'re sorry" fails if error message found)',
+    },
     headers: {
       type: 'object',
       additionalProperties: { type: 'string' },

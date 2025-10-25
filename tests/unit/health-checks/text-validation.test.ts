@@ -56,9 +56,7 @@ describe('validateResponseText', () => {
       const result = validateResponseText(body, "!We're sorry");
 
       expect(result.valid).toBe(false);
-      expect(result.error).toBe(
-        "Found forbidden text 'We're sorry' in response body (inverse pattern validation failed)"
-      );
+      expect(result.error).toBe("Service returned error page: found 'We're sorry' in response");
     });
 
     it('should detect error pages with "unavailable"', () => {
@@ -106,11 +104,22 @@ describe('validateResponseText', () => {
       expect(result.valid).toBe(true); // Empty string is always found
     });
 
-    it('should handle empty forbidden text (inverse)', () => {
+    it('should reject empty forbidden text (inverse)', () => {
       const result = validateResponseText('Some content', '!');
-      // Empty string after ! will be found in any content, so should fail
       expect(result.valid).toBe(false);
-      expect(result.error).toContain('Found forbidden text');
+      expect(result.error).toBe("Invalid inverse pattern '!' - use '!text' to check text is NOT present");
+    });
+
+    it('should reject double negation (!!)', () => {
+      const result = validateResponseText('Some content', '!!error');
+      expect(result.valid).toBe(false);
+      expect(result.error).toBe("Invalid inverse pattern '!!error' - use '!text' to check text is NOT present");
+    });
+
+    it('should reject triple negation (!!!)', () => {
+      const result = validateResponseText('Some content', '!!!error');
+      expect(result.valid).toBe(false);
+      expect(result.error).toContain('Invalid inverse pattern');
     });
 
     it('should handle exact 100KB response', () => {

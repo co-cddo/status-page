@@ -41,6 +41,25 @@ export function validateStatusCode(
 }
 
 /**
+ * Parses a text pattern to determine if it's inverse (prefixed with !)
+ * Validates against double negation or empty patterns
+ *
+ * @param pattern Text pattern (e.g., "Welcome" or "!error")
+ * @returns Parsed pattern with inverse flag and text, or validation error
+ */
+function parseTextPattern(pattern: string): { isInverse: boolean; text: string } | { error: string } {
+  if (pattern === '!' || pattern.startsWith('!!')) {
+    return { error: `Invalid inverse pattern '${pattern}' - use '!text' to check text is NOT present` };
+  }
+
+  if (pattern.startsWith('!')) {
+    return { isInverse: true, text: pattern.slice(1) };
+  }
+
+  return { isInverse: false, text: pattern };
+}
+
+/**
  * Validates that expected text is found in response body
  * Uses case-sensitive substring matching
  * Per FR-014: Searches first 100KB of response only
@@ -58,27 +77,29 @@ export function validateResponseText(responseBody: string, expectedText: string)
   const maxSearchLength = 100 * 1024; // 100KB in bytes
   const searchBody = responseBody.slice(0, maxSearchLength);
 
-  // Check for inverse pattern (text that should NOT be present)
-  if (expectedText.startsWith('!')) {
-    const textToAvoid = expectedText.slice(1); // Remove '!' prefix
-    const isValid = !searchBody.includes(textToAvoid);
+  // Parse and validate the pattern
+  const parsed = parseTextPattern(expectedText);
+  if ('error' in parsed) {
+    return { valid: false, error: parsed.error };
+  }
 
+  const { isInverse, text } = parsed;
+  const textFound = searchBody.includes(text);
+
+  if (isInverse) {
     return {
-      valid: isValid,
-      ...(isValid
+      valid: !textFound,
+      ...(!textFound
         ? {}
         : {
-            error: `Found forbidden text '${textToAvoid}' in response body (inverse pattern validation failed)`,
+            error: `Service returned error page: found '${text}' in response`,
           }),
     };
   }
 
-  // Normal pattern: text should be present
-  const isValid = searchBody.includes(expectedText);
-
   return {
-    valid: isValid,
-    ...(isValid ? {} : { error: `Expected text '${expectedText}' not found in response body` }),
+    valid: textFound,
+    ...(textFound ? {} : { error: `Expected text '${text}' not found in response body` }),
   };
 }
 
