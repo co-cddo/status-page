@@ -356,6 +356,78 @@ function handleUncaughtException(error: Error, origin: string): void {
 }
 
 /**
+ * Run all health checks once and exit (CI mode)
+ */
+async function runOnce(config: Configuration): Promise<void> {
+  const startTime = Date.now();
+  const correlationId = generateCorrelationId();
+  const onceLogger = createChildLogger({ correlationId, phase: 'once-mode' });
+
+  onceLogger.info({ serviceCount: config.pings.length }, 'Running health checks once (CI mode)');
+
+  try {
+    // Extract service tags for JSON writer
+    for (const ping of config.pings) {
+      if (ping.tags && ping.tags.length > 0) {
+        state.serviceTags.set(ping.name, ping.tags);
+      }
+    }
+
+    // Initialize worker pool
+    state.poolManager = await initializeWorkerPool(config);
+
+    // Initialize scheduler (but don't start it)
+    state.scheduler = initializeScheduler(state.poolManager, config);
+
+    // Initialize JSON and CSV writers
+    state.jsonWriter = new JsonWriter('_data/health.json');
+    state.csvWriter = new CsvWriter('history.csv');
+
+    // Run all health checks once
+    onceLogger.info('Executing all health checks');
+    await state.scheduler.runOnce();
+
+    // Wait a moment for results to propagate
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Write final health data
+    onceLogger.info('Writing health data');
+    await writeHealthData();
+
+    // Cleanup
+    onceLogger.info('Shutting down worker pool');
+    await state.poolManager.shutdown({ gracefulTimeout: 5000 });
+
+    const duration = Date.now() - startTime;
+    const results = state.scheduler.getLatestResults();
+    onceLogger.info(
+      {
+        durationMs: duration,
+        checksCompleted: results.length,
+        passCount: results.filter((r) => r.status === 'PASS').length,
+        degradedCount: results.filter((r) => r.status === 'DEGRADED').length,
+        failCount: results.filter((r) => r.status === 'FAIL').length,
+      },
+      'Health checks completed successfully'
+    );
+
+    await flushLogs();
+    process.exit(0);
+  } catch (error) {
+    onceLogger.fatal({ err: error }, 'Fatal error during once-mode execution');
+    console.error('\n❌ Fatal error:', error instanceof Error ? error.message : String(error));
+
+    // Attempt cleanup
+    if (state.poolManager) {
+      await state.poolManager.shutdown({ gracefulTimeout: 5000 });
+    }
+    await flushLogs();
+
+    process.exit(1);
+  }
+}
+
+/**
  * Main orchestrator function
  */
 async function main(): Promise<void> {
@@ -363,12 +435,16 @@ async function main(): Promise<void> {
   const correlationId = generateCorrelationId();
   const mainLogger = createChildLogger({ correlationId, phase: 'startup' });
 
+  // Check for --once flag
+  const onceMode = process.argv.includes('--once');
+
   mainLogger.info(
     {
       nodeVersion: process.version,
       platform: process.platform,
       arch: process.arch,
       pid: process.pid,
+      mode: onceMode ? 'once' : 'daemon',
     },
     'GOV.UK Status Monitor starting'
   );
@@ -377,6 +453,13 @@ async function main(): Promise<void> {
     // 1. Load and validate configuration
     const config = loadAndValidateConfig();
 
+    // If in once mode, run checks and exit
+    if (onceMode) {
+      await runOnce(config);
+      return; // Exit handled in runOnce
+    }
+
+    // Continue with normal daemon mode
     // Extract service tags for JSON writer
     for (const ping of config.pings) {
       if (ping.tags && ping.tags.length > 0) {

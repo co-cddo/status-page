@@ -268,4 +268,39 @@ export class Scheduler {
   getLatestResults(): HealthCheckResult[] {
     return Array.from(this.latestResults.values());
   }
+
+  /**
+   * Run all scheduled health checks once and exit (CI mode)
+   * Does not reschedule checks after completion
+   */
+  async runOnce(): Promise<void> {
+    if (this.state === SchedulerState.RUNNING) {
+      throw new Error('Cannot run once - scheduler is already running');
+    }
+    if (this.state === SchedulerState.SHUTTING_DOWN) {
+      throw new Error('Cannot run once - scheduler is shutting down');
+    }
+
+    // Collect all scheduled checks
+    const checksToRun = [...this.queue];
+
+    if (checksToRun.length === 0) {
+      return;
+    }
+
+    // Execute all checks concurrently and wait for completion
+    const checkPromises = checksToRun.map(async (check) => {
+      try {
+        const result = await this.poolManager.executeHealthCheck(check.config);
+        this.latestResults.set(result.serviceName, result);
+      } catch (error) {
+        console.error(
+          `Health check failed for ${check.config.serviceName}:`,
+          error instanceof Error ? error.message : String(error)
+        );
+      }
+    });
+
+    await Promise.all(checkPromises);
+  }
 }
