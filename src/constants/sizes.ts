@@ -29,6 +29,12 @@ export const SIZE_LIMITS = {
   HTML_WARNING: 200 * 1024, // 200 KB
 
   /**
+   * Warning threshold for individual image file size (2 MB)
+   * Used in: inlining/size-validator.ts
+   */
+  IMAGE_WARNING: 2 * 1024 * 1024, // 2 MB
+
+  /**
    * Maximum response body text to read for validation (100 KB)
    * Per spec.md FR-014
    */
