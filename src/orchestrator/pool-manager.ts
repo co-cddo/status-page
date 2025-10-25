@@ -181,7 +181,7 @@ export class WorkerPoolManager {
       {
         err: error,
         workerId: workerInfo.worker.threadId,
-        currentTask: workerInfo.currentTask?.serviceName,
+        currentTask: workerInfo.currentTask?.config.serviceName,
       },
       'Worker error occurred'
     );
