@@ -258,7 +258,7 @@ describe('Configuration Validator', () => {
             expected: { status: 200 },
           },
         ],
-      } as Configuration;
+      } as unknown as Configuration;
 
       expect(() => validateConfiguration(config)).toThrow(ConfigurationValidationError);
 
@@ -284,7 +284,7 @@ describe('Configuration Validator', () => {
             expected: { status: 200 },
           },
         ],
-      } as Configuration;
+      } as unknown as Configuration;
 
       expect(() => validateConfiguration(config)).toThrow(ConfigurationValidationError);
     });
@@ -302,7 +302,7 @@ describe('Configuration Validator', () => {
             expected: { status: 200 },
           },
         ],
-      } as Configuration;
+      } as unknown as Configuration;
 
       expect(() => validateConfiguration(config)).toThrow(ConfigurationValidationError);
 
@@ -961,7 +961,7 @@ describe('Configuration Validator', () => {
 
       expect(result).toBe(false);
       expect(consoleErrorSpy).toHaveBeenCalled();
-      expect(consoleErrorSpy.mock.calls[0][0]).toContain('❌ Configuration validation failed');
+      expect(consoleErrorSpy.mock.calls[0]![0]).toContain('❌ Configuration validation failed');
 
       consoleErrorSpy.mockRestore();
     });

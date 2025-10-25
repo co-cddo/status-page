@@ -36,11 +36,11 @@ describe('Configuration Loader', () => {
 
         expect(config).toBeDefined();
         expect(config.pings).toHaveLength(1);
-        expect(config.pings[0].name).toBe('Minimal Service');
-        expect(config.pings[0].protocol).toBe('HTTP');
-        expect(config.pings[0].method).toBe('GET');
-        expect(config.pings[0].resource).toBe('http://example.com');
-        expect(config.pings[0].expected.status).toBe(200);
+        expect(config.pings[0]!.name).toBe('Minimal Service');
+        expect(config.pings[0]!.protocol).toBe('HTTP');
+        expect(config.pings[0]!.method).toBe('GET');
+        expect(config.pings[0]!.resource).toBe('http://example.com');
+        expect(config.pings[0]!.expected.status).toBe(200);
       });
 
       it('should resolve relative paths correctly', () => {
@@ -225,7 +225,7 @@ pings:
           const config = loadConfigurationWithFallback('/non/existent/path.yaml');
 
           expect(config).toBeDefined();
-          expect(config.pings[0].name).toBe('Fallback Test');
+          expect(config.pings[0]!.name).toBe('Fallback Test');
         } finally {
           process.chdir(originalCwd);
           rmSync(TEMP_DIR, { recursive: true, force: true });
@@ -282,7 +282,7 @@ pings:
           const config = loadConfigurationWithFallback();
 
           expect(config).toBeDefined();
-          expect(config.pings[0].name).toBe('No Preferred Path');
+          expect(config.pings[0]!.name).toBe('No Preferred Path');
         } finally {
           process.chdir(originalCwd);
           rmSync(TEMP_DIR, { recursive: true, force: true });
