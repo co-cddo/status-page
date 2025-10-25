@@ -19,6 +19,15 @@ describe('Smoke Test Workflow Contract (US6)', () => {
   });
 
   test('workflow triggers on all PRs for required checks', () => {
+    // IMPORTANT: This workflow is configured as a required check in branch protection.
+    // Required checks MUST run on all PRs to avoid blocking merges with "pending" status.
+    //
+    // Context: If a workflow uses path filtering (e.g., only runs on config.yaml changes),
+    // and a PR doesn't change those files, the check will be "pending" instead of "pass".
+    // GitHub branch protection will block the merge if any required check is pending.
+    //
+    // Solution: Required checks must not use path filtering - they must run on all PRs
+    // and provide a definitive pass/fail status.
     const workflowYaml = readFileSync(workflowPath, 'utf-8');
     const workflow = load(workflowYaml) as GitHubActionsWorkflow;
 

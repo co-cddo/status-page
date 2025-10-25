@@ -54,6 +54,16 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
   });
 
   test('smoke test workflow triggers on all PRs for required checks', () => {
+    // IMPORTANT: Smoke test must run on ALL PRs (not just config.yaml changes)
+    // because it's configured as a required check in branch protection.
+    //
+    // Why this is necessary:
+    // - GitHub branch protection marks a check as "required"
+    // - If the workflow doesn't run on a PR (due to path filtering), the check is "pending"
+    // - A pending required check blocks the PR from being merged
+    // - Therefore, required checks MUST run on all PRs to provide a pass/fail status
+    //
+    // See: .github/BRANCH_PROTECTION_SETUP.md for full context
     expect(smokeTestWorkflow.on).toBeDefined();
 
     if (typeof smokeTestWorkflow.on !== 'string' && !Array.isArray(smokeTestWorkflow.on)) {
