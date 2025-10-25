@@ -19,10 +19,7 @@
  * @param options.skipValidation If true, skip SSRF validation (for testing only)
  * @throws Error if URL is blocked for security reasons
  */
-export function validateUrlForSSRF(
-  url: string,
-  options?: { skipValidation?: boolean }
-): void {
+export function validateUrlForSSRF(url: string, options?: { skipValidation?: boolean }): void {
   // Allow tests to bypass validation
   if (options?.skipValidation || process.env.NODE_ENV === 'test') {
     return;
@@ -32,7 +29,7 @@ export function validateUrlForSSRF(
 
   try {
     parsed = new URL(url);
-  } catch (error) {
+  } catch {
     throw new Error(`Invalid URL format: ${url}`);
   }
 

@@ -1,6 +1,8 @@
 # GOV.UK Public Services Status Monitor
 
-A self-contained status monitoring application that performs periodic HTTP(S) health checks against configured public services and generates static HTML/JSON assets compliant with the GOV.UK Design System.
+A self-contained status monitoring application that performs periodic HTTP(S) health checks against
+configured public services and generates static HTML/JSON assets compliant with the GOV.UK Design
+System.
 
 ## Features
 
@@ -15,7 +17,7 @@ A self-contained status monitoring application that performs periodic HTTP(S) he
 
 ## Quick Start
 
-###  Prerequisites
+### Prerequisites
 
 - **Node.js**: 22.0.0 or later
 - **pnpm**: 9.0.0 or later
@@ -41,10 +43,10 @@ Edit `config.yaml` to define the services you want to monitor:
 
 ```yaml
 settings:
-  check_interval: 60        # Default interval in seconds
-  warning_threshold: 2      # Latency threshold for DEGRADED (seconds)
-  timeout: 5                # HTTP timeout for FAILED (seconds)
-  max_retries: 3            # Network error retries
+  check_interval: 60 # Default interval in seconds
+  warning_threshold: 2 # Latency threshold for DEGRADED (seconds)
+  timeout: 5 # HTTP timeout for FAILED (seconds)
+  max_retries: 3 # Network error retries
 
 pings:
   - name: 'GOV.UK Homepage'
@@ -91,7 +93,8 @@ pnpm run build
 
 ### Deployment
 
-The application is designed to run on GitHub Actions with scheduled deployments every 5 minutes to GitHub Pages.
+The application is designed to run on GitHub Actions with scheduled deployments every 5 minutes to
+GitHub Pages.
 
 See `.github/workflows/deploy.yml` for the deployment workflow.
 
@@ -160,6 +163,7 @@ pnpm test
 ## Configuration Schema
 
 Configuration files are validated against JSON Schema. See:
+
 - Schema definition: `src/config/schema.ts`
 - Example config: `config.example.yaml`
 - Full specification: `specs/001-govuk-status-monitor/spec.md`
@@ -176,12 +180,12 @@ This application meets **WCAG 2.2 Level AAA** standards:
 
 ## Performance Budgets
 
-| Metric              | Target     |
-|---------------------|------------|
-| Page Load Time      | < 2s       |
-| Self-Contained HTML | < 5MB      |
+| Metric              | Target             |
+| ------------------- | ------------------ |
+| Page Load Time      | < 2s               |
+| Self-Contained HTML | < 5MB              |
 | Health Check Cycle  | 95% within timeout |
-| Status Update       | < 2min     |
+| Status Update       | < 2min             |
 
 ## Security
 
@@ -195,17 +199,17 @@ This application meets **WCAG 2.2 Level AAA** standards:
 
 ### Common Issues
 
-**Problem**: Tests failing with "Worker not a constructor"
-**Solution**: Ensure you're using vitest 2.1.9 or compatible version
+**Problem**: Tests failing with "Worker not a constructor" **Solution**: Ensure you're using vitest
+2.1.9 or compatible version
 
-**Problem**: SSRF validation blocking localhost
-**Solution**: SSRF protection is automatically disabled when `NODE_ENV=test`
+**Problem**: SSRF validation blocking localhost **Solution**: SSRF protection is automatically
+disabled when `NODE_ENV=test`
 
-**Problem**: Coverage tool version mismatch
-**Solution**: Run `pnpm update vitest @vitest/coverage-v8` to sync versions
+**Problem**: Coverage tool version mismatch **Solution**: Run
+`pnpm update vitest @vitest/coverage-v8` to sync versions
 
-**Problem**: Dependabot security alert
-**Solution**: See `.github/workflows/dependency-update.yml` for automated handling
+**Problem**: Dependabot security alert **Solution**: See `.github/workflows/dependency-update.yml`
+for automated handling
 
 ### Debug Mode
 

@@ -302,10 +302,7 @@ export class Scheduler {
         this.latestResults.set(result.serviceName, result);
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : String(error);
-        console.error(
-          `Health check failed for ${check.config.serviceName}:`,
-          errorMessage
-        );
+        console.error(`Health check failed for ${check.config.serviceName}:`, errorMessage);
 
         // Store failed result so service appears in output
         const serviceName = check.config.serviceName || check.config.url;
