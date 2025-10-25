@@ -16,7 +16,7 @@
 import { randomUUID } from 'node:crypto';
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 import { validateStatusCode, validateResponseText, validateResponseHeaders } from './validation.ts';
-import { getErrorMessage } from '../utils/error.ts';
+import { getErrorMessage, getExpectedStatusValue } from '../utils/error.ts';
 import { createLogger } from '../logging/logger.ts';
 import { validateUrlForSSRF } from '../utils/ssrf-protection.ts';
 import { SIZE_LIMITS } from '../constants/sizes.ts';
@@ -188,10 +188,7 @@ export async function performHealthCheck(config: HealthCheckConfig): Promise<Hea
         status,
         latency_ms,
         http_status_code: response.status,
-        expected_status:
-          typeof config.expectedStatus === 'number'
-            ? config.expectedStatus
-            : (config.expectedStatus[0] ?? 200),
+        expected_status: getExpectedStatusValue(config.expectedStatus),
         failure_reason,
         correlation_id: correlationId,
       };
@@ -235,10 +232,7 @@ export async function performHealthCheck(config: HealthCheckConfig): Promise<Hea
       status: 'FAIL',
       latency_ms,
       http_status_code: 0, // Connection failure
-      expected_status:
-        typeof config.expectedStatus === 'number'
-          ? config.expectedStatus
-          : (config.expectedStatus[0] ?? 200),
+      expected_status: getExpectedStatusValue(config.expectedStatus),
       failure_reason,
       correlation_id: correlationId,
     };

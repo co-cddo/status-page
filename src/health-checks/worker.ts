@@ -17,6 +17,7 @@ import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check
 import { performHealthCheck } from './http-check.ts';
 import { performHealthCheckWithRetry } from './retry-logic.ts';
 import { recordHealthCheckResult, incrementHealthCheckCounter } from '../metrics/index.ts';
+import { getExpectedStatusValue } from '../utils/error.ts';
 
 export interface WorkerMessage {
   type: 'health-check';
@@ -103,10 +104,7 @@ export async function processHealthCheck(message: WorkerMessage): Promise<Worker
       status: 'FAIL',
       latency_ms: 0,
       http_status_code: 0,
-      expected_status:
-        typeof config.expectedStatus === 'number'
-          ? config.expectedStatus
-          : (config.expectedStatus[0] ?? 200),
+      expected_status: getExpectedStatusValue(config.expectedStatus),
       failure_reason: err.message,
       correlation_id: config.correlationId || randomUUID(),
     };
@@ -147,16 +145,6 @@ if (parentPort) {
     } catch (error) {
       // Validation errors or critical failures
       const err = error as Error;
-      // Handle expectedStatus being number or array
-      const expectedStatus = message.config?.expectedStatus;
-      const expectedStatusValue =
-        typeof expectedStatus === 'number'
-          ? expectedStatus
-          : Array.isArray(expectedStatus) &&
-              expectedStatus.length > 0 &&
-              expectedStatus[0] !== undefined
-            ? expectedStatus[0]
-            : 200;
 
       const errorResult: WorkerResult = {
         type: 'health-check-result',
@@ -167,7 +155,7 @@ if (parentPort) {
           status: 'FAIL',
           latency_ms: 0,
           http_status_code: 0,
-          expected_status: expectedStatusValue,
+          expected_status: getExpectedStatusValue(message.config?.expectedStatus ?? 200),
           failure_reason: err.message,
           correlation_id: message.config?.correlationId || randomUUID(),
         },

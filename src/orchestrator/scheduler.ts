@@ -6,7 +6,7 @@
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 import type { WorkerPoolManager } from './pool-manager.ts';
 import { createLogger } from '../logging/logger.ts';
-import { getErrorMessage } from '../utils/error.ts';
+import { getErrorMessage, getExpectedStatusValue } from '../utils/error.ts';
 
 const logger = createLogger({ serviceName: 'scheduler' });
 
@@ -316,9 +316,6 @@ export class Scheduler {
 
         // Store failed result so service appears in output
         const correlationId = check.config.correlationId || 'unknown';
-        const expectedStatus = Array.isArray(check.config.expectedStatus)
-          ? check.config.expectedStatus[0] || 0
-          : check.config.expectedStatus;
 
         const failedResult: HealthCheckResult = {
           serviceName,
@@ -326,7 +323,7 @@ export class Scheduler {
           timestamp: new Date(),
           latency_ms: 0,
           http_status_code: 0,
-          expected_status: expectedStatus,
+          expected_status: getExpectedStatusValue(check.config.expectedStatus),
           failure_reason: errorMessage,
           correlation_id: correlationId,
           method: check.config.method,
