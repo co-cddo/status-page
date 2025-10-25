@@ -57,11 +57,28 @@ jobs:
           const results = [];
 
           // Run health checks for all configured services
-          for (const service of config.pings) {
+          for (const ping of config.pings) {
             try {
-              const result = await performHealthCheck(service);
+              // Map config.yaml structure to HealthCheckConfig
+              // This matches the mapping in src/index.ts
+              const healthCheckConfig = {
+                serviceName: ping.name,
+                method: ping.method,
+                url: ping.resource,
+                timeout: (ping.timeout ?? config.settings?.timeout ?? 5) * 1000,
+                warningThreshold: (ping.warning_threshold ?? config.settings?.warning_threshold ?? 2) * 1000,
+                maxRetries: config.settings?.max_retries ?? 3,
+                expectedStatus: ping.expected.status,
+                expectedText: ping.expected.text,
+                expectedHeaders: ping.expected.headers,
+                payload: ping.payload,
+                headers: ping.headers,
+                customHeaders: ping.headers?.reduce((acc, h) => ({ ...acc, [h.name]: h.value }), {})
+              };
+
+              const result = await performHealthCheck(healthCheckConfig);
               results.push({
-                serviceName: service.name,
+                serviceName: ping.name,
                 status: result.status,
                 latency_ms: result.latency_ms,
                 http_status_code: result.http_status_code,
@@ -69,7 +86,7 @@ jobs:
               });
             } catch (error) {
               results.push({
-                serviceName: service.name,
+                serviceName: ping.name,
                 status: 'FAIL',
                 latency_ms: 0,
                 http_status_code: 0,
