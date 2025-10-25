@@ -107,7 +107,7 @@ export function validateUrlForSSRF(
 function isPrivateIPv4Range172(hostname: string): boolean {
   const parts = hostname.split('.');
 
-  if (parts.length !== 4 || parts[0] !== '172') {
+  if (parts.length !== 4 || parts[0] !== '172' || !parts[1]) {
     return false;
   }
 

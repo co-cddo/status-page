@@ -308,17 +308,24 @@ export class Scheduler {
         );
 
         // Store failed result so service appears in output
+        const serviceName = check.config.serviceName || check.config.url;
+        const correlationId = check.config.correlationId || 'unknown';
+        const expectedStatus = Array.isArray(check.config.expectedStatus)
+          ? check.config.expectedStatus[0] || 0
+          : check.config.expectedStatus;
+
         const failedResult: HealthCheckResult = {
-          serviceName: check.config.serviceName,
+          serviceName,
           status: 'FAIL',
-          timestamp: new Date().toISOString(),
+          timestamp: new Date(),
           latency_ms: 0,
           http_status_code: 0,
+          expected_status: expectedStatus,
           failure_reason: errorMessage,
-          correlation_id: check.config.correlationId,
+          correlation_id: correlationId,
           method: check.config.method,
         };
-        this.latestResults.set(check.config.serviceName, failedResult);
+        this.latestResults.set(serviceName, failedResult);
       }
     });
 
