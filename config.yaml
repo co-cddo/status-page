@@ -1,7 +1,21 @@
 # GOV.UK Public Services - Comprehensive Health Check Configuration
-# Focus: Actual transactional services (*.service.gov.uk and verified service endpoints)
-# Total services configured: 176
+# Focus: Transactional services and key government endpoints
+# Total services configured: 174 (unique)
 # Research date: 25 October 2025
+#
+# TIER DEFINITIONS:
+# - Tier 1 (Critical, 60s): Essential services - benefit applications, emergency services,
+#   authentication systems. If down, citizens blocked from essential rights/benefits.
+# - Tier 2 (High-volume, 300s): Frequently used services with >1M monthly users.
+#   Major transactions like tax, vehicle, and passport services.
+# - Tier 3 (Additional, 300s): Other verified transactional services including gov.uk/*
+#   landing pages that provide access to transactions.
+# - Tier 4 (Specialized, 900s): Department-specific services with lower volume.
+# - Tier 5 (Standard, 900s): Supporting services, registers, and reference data.
+#
+# NOTE: Some services monitor gov.uk/* landing pages which provide access to transactions
+# rather than direct *.service.gov.uk endpoints. This is intentional to monitor
+# citizen-facing entry points.
 
 settings:
   check_interval: 300 # 5 minutes default
@@ -148,15 +162,6 @@ pings:
     method: GET
     resource: 'https://www.tax.service.gov.uk/personal-account'
     tags: ["tax","hmrc","personal"]
-    expected:
-      status: 200
-    interval: 60
-
-  - name: 'Register to Vote'  # Escape single quotes for YAML
-    protocol: HTTPS
-    method: GET
-    resource: 'https://www.register-to-vote.service.gov.uk/'
-    tags: ["voting","democracy","electoral-commission"]
     expected:
       status: 200
     interval: 60
@@ -1288,14 +1293,6 @@ pings:
     method: GET
     resource: 'https://use-land-property-data.service.gov.uk/'
     tags: ["land-registry","property","data","hmlr"]
-    expected:
-      status: 200
-
-  - name: 'Vehicle Enquiry Service'  # Escape single quotes for YAML
-    protocol: HTTPS
-    method: GET
-    resource: 'https://vehicleenquiry.service.gov.uk/'
-    tags: ["vehicles","tax","dvla","high-volume"]
     expected:
       status: 200
 
