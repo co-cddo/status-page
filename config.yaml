@@ -1086,7 +1086,7 @@ pings:
       - home-office
     expected:
       status: 200
-      text: "eVisas: access and use your online immigration status"
+      text: 'eVisas: access and use your online immigration status'
   - name: UK Intellectual Property Office - Trademarks
     protocol: HTTPS
     method: GET
@@ -1935,7 +1935,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/apply-free-school-meals
     payload:
-      postcode: ""
+      postcode: ''
     tags:
       - education
       - benefits
@@ -1950,7 +1950,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/apply-council-tax-reduction
     payload:
-      postcode: ""
+      postcode: ''
     tags:
       - benefits
       - council-tax
@@ -2014,7 +2014,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/apply-for-council-housing
     payload:
-      postcode: ""
+      postcode: ''
     tags:
       - housing
       - council
@@ -2029,8 +2029,8 @@ pings:
     method: POST
     resource: https://www.findapprenticeship.service.gov.uk/
     payload:
-      what: ""
-      where: ""
+      what: ''
+      where: ''
     tags:
       - apprenticeships
       - education
@@ -2046,7 +2046,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/
     payload:
-      q: ""
+      q: ''
     tags:
       - portal
       - main
