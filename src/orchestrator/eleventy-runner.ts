@@ -13,6 +13,7 @@ import { spawn, type ChildProcess } from 'node:child_process';
 import { readFile, access } from 'node:fs/promises';
 import { join } from 'node:path';
 import type { ServiceStatusAPI } from '../types/health-check.ts';
+import { TIMEOUTS } from '../constants/timeouts.ts';
 
 export interface EleventyBuildOptions {
   dataDir?: string;
@@ -47,7 +48,7 @@ export class EleventyRunner {
   constructor(options?: EleventyBuildOptions) {
     this.dataDir = options?.dataDir ?? '_data';
     this.outputDir = options?.outputDir ?? 'output';
-    this.timeout = options?.timeout ?? 120000; // 120 seconds default
+    this.timeout = options?.timeout ?? TIMEOUTS.ELEVENTY_BUILD_TIMEOUT;
     this.quiet = options?.quiet ?? false;
   }
 

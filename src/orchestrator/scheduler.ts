@@ -7,6 +7,7 @@ import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check
 import type { WorkerPoolManager } from './pool-manager.ts';
 import { createLogger } from '../logging/logger.ts';
 import { getErrorMessage, getExpectedStatusValue } from '../utils/error.ts';
+import { TIMEOUTS } from '../constants/timeouts.ts';
 
 const logger = createLogger({ serviceName: 'scheduler' });
 
@@ -39,8 +40,8 @@ export class Scheduler {
 
   constructor(poolManager: WorkerPoolManager, options?: SchedulerOptions) {
     this.poolManager = poolManager;
-    this.defaultInterval = options?.defaultInterval ?? 60000; // Default 60 seconds
-    this.gracefulShutdownTimeout = options?.gracefulShutdownTimeout ?? 30000; // Default 30 seconds
+    this.defaultInterval = options?.defaultInterval ?? TIMEOUTS.DEFAULT_CHECK_INTERVAL;
+    this.gracefulShutdownTimeout = options?.gracefulShutdownTimeout ?? TIMEOUTS.GRACEFUL_SHUTDOWN;
   }
 
   start(): void {

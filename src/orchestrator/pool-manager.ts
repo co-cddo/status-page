@@ -18,6 +18,7 @@ import { dirname, join } from 'node:path';
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 import type { WorkerMessage, WorkerResult } from '../health-checks/worker.ts';
 import { createLogger } from '../logging/logger.ts';
+import { TIMEOUTS } from '../constants/timeouts.ts';
 
 const logger = createLogger({ serviceName: 'pool-manager' });
 
@@ -287,7 +288,7 @@ export class WorkerPoolManager {
 
     // Use shorter default timeout (5s) to avoid hanging in tests
     // Production can override with longer timeout if needed
-    const gracefulTimeout = options?.gracefulTimeout ?? 5000;
+    const gracefulTimeout = options?.gracefulTimeout ?? TIMEOUTS.WORKER_SHUTDOWN;
 
     // Clear task queue and reject pending tasks
     while (this.taskQueue.length > 0) {
