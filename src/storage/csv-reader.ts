@@ -15,6 +15,9 @@ import { readFile, access } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import type { HistoricalRecord } from '../types/health-check.ts';
 import { parseCsvLine, isValidStatus, CSV_HEADERS } from '../utils/csv.ts';
+import { createLogger } from '../logging/logger.ts';
+
+const logger = createLogger({ serviceName: 'csv-reader' });
 
 export interface ConsecutiveFailures {
   [serviceName: string]: number;
@@ -66,12 +69,15 @@ export class CsvReader {
     // Validate and skip header row
     const headerLine = lines[0];
     if (!headerLine) {
-      console.error('CSV file has no header row');
+      logger.error({ filePath: this.filePath }, 'CSV file has no header row');
       return [];
     }
     const headers = headerLine.split(',').map((h) => h.trim());
     if (!this.validateHeaders(headers)) {
-      console.error(`CSV headers invalid. Expected: ${EXPECTED_HEADERS.join(',')}`);
+      logger.error(
+        { filePath: this.filePath, expected: EXPECTED_HEADERS.join(','), got: headers.join(',') },
+        'CSV headers invalid'
+      );
       return [];
     }
 
@@ -87,7 +93,10 @@ export class CsvReader {
           records.push(record);
         }
       } catch (error) {
-        console.error(`Error parsing CSV row ${i + 1}: ${error}`);
+        logger.error(
+          { err: error, rowNumber: i + 1, filePath: this.filePath },
+          'Error parsing CSV row'
+        );
         // Continue parsing other rows
       }
     }

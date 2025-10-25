@@ -5,6 +5,9 @@
 
 import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check.ts';
 import type { WorkerPoolManager } from './pool-manager.ts';
+import { createLogger } from '../logging/logger.ts';
+
+const logger = createLogger({ serviceName: 'scheduler' });
 
 export interface ScheduledCheck {
   config: HealthCheckConfig;
@@ -234,9 +237,13 @@ export class Scheduler {
       this.latestResults.set(result.serviceName, result);
     } catch (error) {
       // Log error but continue operation
-      console.error(
-        `Health check failed for ${check.config.serviceName}:`,
-        error instanceof Error ? error.message : String(error)
+      logger.error(
+        {
+          err: error,
+          serviceName: check.config.serviceName,
+          url: check.config.url,
+        },
+        'Health check failed'
       );
     }
 
