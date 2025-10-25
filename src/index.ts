@@ -23,6 +23,7 @@ import { JsonWriter } from './storage/json-writer.ts';
 import { CsvWriter } from './storage/csv-writer.ts';
 import type { Configuration } from './types/config.ts';
 import type { HealthCheckConfig } from './types/health-check.ts';
+import { TIMEOUTS } from './constants/timeouts.ts';
 
 /**
  * Application state
@@ -131,7 +132,7 @@ function initializeScheduler(poolManager: WorkerPoolManager, config: Configurati
 
   try {
     const defaultInterval = (config.settings?.check_interval ?? 60) * 1000; // Convert to ms
-    const gracefulShutdownTimeout = 30000; // 30 seconds
+    const gracefulShutdownTimeout = TIMEOUTS.GRACEFUL_SHUTDOWN;
 
     schedulerLogger.info(
       { defaultIntervalMs: defaultInterval, gracefulShutdownTimeoutMs: gracefulShutdownTimeout },
@@ -228,7 +229,7 @@ function startDataWriter(): void {
     writeHealthData().catch((error) => {
       logger.error({ err: error }, 'Periodic health data write failed');
     });
-  }, 10000);
+  }, TIMEOUTS.DATA_WRITE_INTERVAL);
 }
 
 /**
@@ -277,7 +278,7 @@ async function gracefulShutdown(signal: string): Promise<void> {
     // 3. Shutdown worker pool (waits for in-flight checks up to 30s)
     if (state.poolManager) {
       shutdownLogger.info('Shutting down worker pool');
-      await state.poolManager.shutdown({ gracefulTimeout: 30000 });
+      await state.poolManager.shutdown({ gracefulTimeout: TIMEOUTS.GRACEFUL_SHUTDOWN });
       const metrics = state.poolManager.getMetrics();
       shutdownLogger.info(
         {
@@ -291,7 +292,7 @@ async function gracefulShutdown(signal: string): Promise<void> {
 
     // 4. Stop Prometheus metrics server
     shutdownLogger.info('Stopping metrics server');
-    await stopMetricsServer(5000);
+    await stopMetricsServer(TIMEOUTS.METRICS_SHUTDOWN);
     shutdownLogger.info('Metrics server stopped');
 
     // 4. Flush logs
@@ -419,7 +420,7 @@ async function runOnce(config: Configuration): Promise<void> {
     if (state.poolManager) {
       try {
         onceLogger.info('Shutting down worker pool');
-        await state.poolManager.shutdown({ gracefulTimeout: 5000 });
+        await state.poolManager.shutdown({ gracefulTimeout: TIMEOUTS.WORKER_SHUTDOWN });
       } catch (cleanupError) {
         onceLogger.error({ err: cleanupError }, 'Error during pool shutdown');
       }
@@ -512,9 +513,9 @@ async function main(): Promise<void> {
 
     // Attempt cleanup
     if (state.poolManager) {
-      await state.poolManager.shutdown({ gracefulTimeout: 5000 });
+      await state.poolManager.shutdown({ gracefulTimeout: TIMEOUTS.WORKER_SHUTDOWN });
     }
-    await stopMetricsServer(5000);
+    await stopMetricsServer(TIMEOUTS.METRICS_SHUTDOWN);
     await flushLogs();
 
     process.exit(1);

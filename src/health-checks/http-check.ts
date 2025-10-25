@@ -18,6 +18,7 @@ import type { HealthCheckConfig, HealthCheckResult } from '../types/health-check
 import { validateStatusCode, validateResponseText, validateResponseHeaders } from './validation.ts';
 import { getErrorMessage } from '../utils/error.ts';
 import { createLogger } from '../logging/logger.ts';
+import { validateUrlForSSRF } from '../utils/ssrf-protection.ts';
 
 const MAX_RESPONSE_TEXT_SIZE = 100 * 1024; // 100KB per FR-014
 const logger = createLogger({ serviceName: 'health-check' });
@@ -45,6 +46,9 @@ export async function performHealthCheck(config: HealthCheckConfig): Promise<Hea
   );
 
   try {
+    // Validate URL for SSRF protection
+    validateUrlForSSRF(config.url);
+
     // Prepare request options
     const headers: Record<string, string> = {};
 
