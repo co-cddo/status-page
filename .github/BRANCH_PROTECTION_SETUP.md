@@ -31,7 +31,8 @@
 - ☑ Require branches to be up to date before merging
 - **Required status checks**:
   - `Run All Tests` (from test.yml workflow)
-  - `Validate Config and Run Health Checks` (from smoke-test.yml workflow, runs on all PRs as required check)
+  - `Validate Config and Run Health Checks` (from smoke-test.yml workflow, runs on all PRs as
+    required check)
 
 #### ✅ Block Force Pushes
 
@@ -147,7 +148,9 @@ This configuration ensures:
 - ✅ **No Force Pushes**: Protects commit history
 - ✅ **Linear History**: Enforces clean commit graph
 
-**Note**: The smoke-test workflow runs on all PRs (not just config.yaml changes) because it is configured as a required check in branch protection. GitHub requires that status checks be present on all PRs for the protection to work correctly.
+**Note**: The smoke-test workflow runs on all PRs (not just config.yaml changes) because it is
+configured as a required check in branch protection. GitHub requires that status checks be present
+on all PRs for the protection to work correctly.
 
 **Status**: Per FR-041, this is a **one-time setup task** performed by repository administrator.
 
