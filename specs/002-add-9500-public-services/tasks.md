@@ -21,8 +21,8 @@
 **Purpose**: Install discovery tools, create validation scripts structure, initialize research data directories
 
 - [X] T001 Install Node.js dependencies for validation (undici, ajv, yaml, normalize-url) via npm install
-- [ ] T002 [P] Install Subfinder v2.6+ via go install for DNS enumeration
-- [ ] T003 [P] Install Amass v4+ via go install for comprehensive DNS discovery
+- [X] T002 [P] Install Subfinder v2.6+ via go install for DNS enumeration
+- [X] T003 [P] Install Amass v4+ via go install for comprehensive DNS discovery
 - [X] T004 [P] Create research data directory structure at specs/002-add-9500-public-services/research-data/ with subdirectories: discovered/, validated/, reports/
 - [X] T005 [P] Create validation scripts directory structure at scripts/ for validate-services.ts, deduplicate.ts, transform-to-yaml.ts, validate-config.ts
 - [ ] T006 Configure Subfinder API keys in ~/.config/subfinder/provider-config.yaml (Censys, VirusTotal, GitHub, SecurityTrails free tier)
@@ -43,11 +43,11 @@
 - [X] T010 [P] Implement redirect resolution script in scripts/resolve-redirects.ts using undici with max 5 hops, circular redirect detection, redirect chain tracking
 - [X] T011 [P] Implement deduplication script in scripts/deduplicate.ts using canonical URL Set for O(1) lookup, mark is_duplicate flag
 - [X] T012 [P] Implement accessibility validation script in scripts/validate-accessibility.ts with HTTP status checks (200/301/302/401/403 = accessible), latency measurement, retry logic (3 attempts)
-- [ ] T013 Implement tag application script in scripts/apply-tags.ts reading taxonomy.json, applying tags by department/service-type/geography/criticality/channel/lifecycle
-- [ ] T014 [P] Implement service entry transformation script in scripts/transform-to-entries.ts converting Discovered Services to Service Entry format per data-model.md
-- [ ] T015 [P] Implement category grouping script in scripts/group-by-category.ts organizing services by 15 predefined categories from categories.json
-- [ ] T016 Implement YAML generation script in scripts/generate-yaml.ts using yaml package (eemeli) with programmatic comment insertion, section headers
-- [ ] T017 [P] Implement JSON Schema validation script in scripts/validate-schema.ts using ajv to validate discovered-services.json against contracts/service-discovery-api.json
+- [X] T013 Implement tag application script in scripts/apply-tags.ts reading taxonomy.json, applying tags by department/service-type/geography/criticality/channel/lifecycle
+- [X] T014 [P] Implement service entry transformation script in scripts/transform-to-entries.ts converting Discovered Services to Service Entry format per data-model.md
+- [ ] T015 [P] Implement category grouping script in scripts/group-by-category.ts organizing services by 15 predefined categories from categories.json (MERGED INTO T016)
+- [X] T016 Implement YAML generation script in scripts/generate-yaml.ts using yaml package (eemeli) with programmatic comment insertion, section headers
+- [ ] T017 [P] Implement JSON Schema validation script in scripts/validate-schema.ts using ajv to validate discovered-services.json against contracts/service-discovery-api.json (DEFERRED - schema validation handled by validate-config.ts)
 - [X] T018 Implement config.yaml validation script in scripts/validate-config.ts to verify final config against existing JSON Schema
 - [X] T019 [P] Create research progress reporting script in scripts/generate-report.ts for statistics (total discovered, validation pass/fail, coverage by department/type)
 

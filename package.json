@@ -24,7 +24,16 @@
     "format:check": "prettier --check .",
     "type-check": "tsc --noEmit",
     "validate-config": "tsx src/config/validator.ts",
-    "check-once": "tsx src/index.ts --once"
+    "check-once": "tsx src/index.ts --once",
+    "discovery:normalize": "tsx scripts/normalize-urls.ts",
+    "discovery:resolve": "tsx scripts/resolve-redirects.ts",
+    "discovery:deduplicate": "tsx scripts/deduplicate.ts",
+    "discovery:validate": "tsx scripts/validate-accessibility.ts",
+    "discovery:tag": "tsx scripts/apply-tags.ts",
+    "discovery:transform": "tsx scripts/transform-to-entries.ts",
+    "discovery:yaml": "tsx scripts/generate-yaml.ts",
+    "discovery:report": "tsx scripts/generate-report.ts",
+    "discovery:validate-config": "tsx scripts/validate-config.ts"
   },
   "keywords": [
     "govuk",
