@@ -134,7 +134,9 @@ export function formatSmokeTestComment(results: HealthCheckResult[]): string {
         ? truncate(escapeMarkdown(result.failure_reason), 100)
         : '-';
 
-      tableLines.push(`| ${serviceName} | ${status} | ${latency} | ${httpCode} | ${failureReason} |\n`);
+      tableLines.push(
+        `| ${serviceName} | ${status} | ${latency} | ${httpCode} | ${failureReason} |\n`
+      );
     });
 
     return tableLines.join('');
@@ -158,7 +160,9 @@ export function formatSmokeTestComment(results: HealthCheckResult[]): string {
   if (passedResults.length > 0) {
     parts.push('## ✅ PASS\n\n');
     parts.push('<details>\n');
-    parts.push(`<summary>Show ${passedResults.length} passing check${passedResults.length === 1 ? '' : 's'}</summary>\n\n`);
+    parts.push(
+      `<summary>Show ${passedResults.length} passing check${passedResults.length === 1 ? '' : 's'}</summary>\n\n`
+    );
     parts.push(renderTable(passedResults));
     parts.push('</details>\n\n');
   }
