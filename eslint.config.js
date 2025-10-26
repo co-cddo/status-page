@@ -45,13 +45,40 @@ export default [
   },
   {
     ignores: [
+      // Dependencies
       'node_modules',
+
+      // Build outputs
       '_site',
       'dist',
       'output',
       'build',
+      '**/*.tsbuildinfo',
+
+      // Logs
+      '**/*.log',
+      'logs',
+
+      // Test coverage
       'coverage',
-      '*.config.js',
+      '.nyc_output',
+      'playwright-report',
+      'test-results',
+
+      // Generated data files
+      'history.csv',
+      '_data/health.json',
+      '_data/services.json',
+
+      // Temporary files
+      '**/*.tmp',
+      '.cache',
+
+      // Config files (already linted differently)
+      '**/*.config.js',
+      '**/*.config.ts',
+
+      // CI/CD
       '.github',
     ],
   },
