@@ -9,7 +9,7 @@ import {
   isAbsoluteUrl,
   isAbsolutePath,
   safeResolvePath,
-} from '@/utils/url';
+} from '@/utils/url.js';
 import { resolve } from 'path';
 
 describe('extractPathFromUrl', () => {

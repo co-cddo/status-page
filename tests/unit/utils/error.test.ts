@@ -11,7 +11,7 @@ import {
   isRetryableError,
   createStructuredError,
   getExpectedStatusValue,
-} from '@/utils/error';
+} from '@/utils/error.js';
 
 describe('classifyNetworkError', () => {
   describe('Timeout errors', () => {

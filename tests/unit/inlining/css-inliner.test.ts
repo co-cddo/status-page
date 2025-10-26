@@ -10,8 +10,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { load } from 'cheerio';
 import type { CheerioAPI } from 'cheerio';
 import * as fs from 'fs/promises';
-import { inlineCSS, inlineCSSUrls, type CSSInlineResult } from '@/inlining/css-inliner';
-import * as urlUtils from '@/utils/url';
+import { inlineCSS, inlineCSSUrls } from '@/inlining/css-inliner.js';
+import * as urlUtils from '@/utils/url.js';
 
 // Mock dependencies
 vi.mock('fs/promises');
@@ -25,8 +25,8 @@ vi.mock('@/logging/logger', () => ({
 }));
 
 // Mock url utilities
-vi.mock('@/utils/url', async () => {
-  const actual = await vi.importActual<typeof urlUtils>('@/utils/url');
+vi.mock('@/utils/url.js', async () => {
+  const actual = await vi.importActual<typeof urlUtils>('@/utils/url.js');
   return {
     ...actual,
     extractPathFromUrl: vi.fn((url: string) => actual.extractPathFromUrl(url)),

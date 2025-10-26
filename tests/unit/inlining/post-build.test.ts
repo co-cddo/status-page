@@ -13,10 +13,10 @@ import { describe, it, expect, vi, beforeEach, afterEach, type MockedFunction } 
 import * as fs from 'fs/promises';
 import { load } from 'cheerio';
 import type { CheerioAPI } from 'cheerio';
-import type { CSSInlineResult } from '@/inlining/css-inliner';
-import type { JSInlineResult } from '@/inlining/js-inliner';
-import type { ImageInlineResult } from '@/inlining/image-inliner';
-import type { SizeValidationResult } from '@/inlining/size-validator';
+import type { CSSInlineResult } from '@/inlining/css-inliner.js';
+import type { JSInlineResult } from '@/inlining/js-inliner.js';
+import type { ImageInlineResult } from '@/inlining/image-inliner.js';
+import type { SizeValidationResult } from '@/inlining/size-validator.js';
 
 // Setup mocks
 let mockLogger: {
@@ -52,28 +52,28 @@ vi.mock('@/logging/logger', () => ({
   },
 }));
 
-vi.mock('@/inlining/css-inliner', () => ({
+vi.mock('@/inlining/css-inliner.js', () => ({
   inlineCSS: vi.fn(),
   inlineCSSUrls: vi.fn(),
 }));
 
-vi.mock('@/inlining/js-inliner', () => ({
+vi.mock('@/inlining/js-inliner.js', () => ({
   inlineJavaScript: vi.fn(),
   verifyNoExternalScripts: vi.fn(),
 }));
 
-vi.mock('@/inlining/image-inliner', () => ({
+vi.mock('@/inlining/image-inliner.js', () => ({
   inlineImages: vi.fn(),
   inlineCSSImages: vi.fn(),
   verifyNoExternalImages: vi.fn(),
 }));
 
-vi.mock('@/inlining/size-validator', () => ({
+vi.mock('@/inlining/size-validator.js', () => ({
   validateHTMLSize: vi.fn(),
   formatSize: vi.fn((size: number) => `${(size / 1024).toFixed(2)} KB`),
 }));
 
-vi.mock('@/utils/error', () => ({
+vi.mock('@/utils/error.js', () => ({
   getErrorMessage: vi.fn((error: unknown) => {
     if (error instanceof Error) {
       return error.message;
@@ -84,10 +84,10 @@ vi.mock('@/utils/error', () => ({
 
 // Dynamic imports after mocking
 async function importMockedModules(): Promise<void> {
-  const cssModule = await import('@/inlining/css-inliner');
-  const jsModule = await import('@/inlining/js-inliner');
-  const imageModule = await import('@/inlining/image-inliner');
-  const sizeModule = await import('@/inlining/size-validator');
+  const cssModule = await import('@/inlining/css-inliner.js');
+  const jsModule = await import('@/inlining/js-inliner.js');
+  const imageModule = await import('@/inlining/image-inliner.js');
+  const sizeModule = await import('@/inlining/size-validator.js');
 
   mockInlineCSS = cssModule.inlineCSS as MockedFunction<() => Promise<CSSInlineResult>>;
   mockInlineCSSUrls = cssModule.inlineCSSUrls as MockedFunction<() => Promise<CSSInlineResult>>;
@@ -101,10 +101,6 @@ async function importMockedModules(): Promise<void> {
 }
 
 describe('Post-Build Asset Inlining Orchestration', () => {
-  let mockProcessExit: MockedFunction<(code?: number) => never>;
-  let mockConsoleLog: MockedFunction<typeof console.log>;
-  let mockConsoleError: MockedFunction<typeof console.error>;
-  let mockConsoleWarn: MockedFunction<typeof console.warn>;
   let originalArgv: string[];
 
   beforeEach(async () => {
@@ -122,15 +118,15 @@ describe('Post-Build Asset Inlining Orchestration', () => {
 
     vi.mocked(load).mockReturnValue(mockCheerioInstance);
 
-    // Mock process.exit
-    mockProcessExit = vi.spyOn(process, 'exit').mockImplementation((code?: number) => {
+    // Mock process.exit - accept string | number | null | undefined as per Node.js types
+    vi.spyOn(process, 'exit').mockImplementation((code?: string | number | null | undefined) => {
       throw new Error(`process.exit(${code})`);
-    }) as MockedFunction<(code?: number) => never>;
+    }) as unknown as MockedFunction<(code?: number) => never>;
 
     // Mock console methods
-    mockConsoleLog = vi.spyOn(console, 'log').mockImplementation(() => {});
-    mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
-    mockConsoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
 
     // Mock Date.now for consistent timing
     vi.spyOn(Date, 'now').mockReturnValue(1000000);
@@ -182,6 +178,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
 
     mockValidateHTMLSize.mockResolvedValue({
       success: true,
+      fileSizeBytes: 2621440,
       fileSizeMB: 2.5,
       maxSizeMB: 5,
       utilizationPercent: 50,
@@ -479,6 +476,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
     it('should fail validation when size exceeds limit', async () => {
       mockValidateHTMLSize.mockResolvedValue({
         success: false,
+        fileSizeBytes: 6815744,
         fileSizeMB: 6.5,
         maxSizeMB: 5,
         utilizationPercent: 130,
@@ -497,6 +495,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
     it('should provide warnings when approaching limit', async () => {
       mockValidateHTMLSize.mockResolvedValue({
         success: true,
+        fileSizeBytes: 4404019,
         fileSizeMB: 4.2,
         maxSizeMB: 5,
         utilizationPercent: 84,
@@ -723,7 +722,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
 
       await fs.mkdir('output', { recursive: true });
       const htmlContent = await fs.readFile('_site/index.html', 'utf-8');
-      const $ = load(htmlContent);
+      load(htmlContent);
 
       const cssResult = await mockInlineCSS();
 
@@ -741,7 +740,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
       // Run through workflow
       await fs.mkdir('output', { recursive: true });
       const htmlContent = await fs.readFile('_site/index.html', 'utf-8');
-      const $ = load(htmlContent);
+      load(htmlContent);
 
       await mockInlineCSS();
       await mockInlineCSSUrls();
@@ -763,6 +762,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
     it('should stop workflow on size validation failure', async () => {
       mockValidateHTMLSize.mockResolvedValue({
         success: false,
+        fileSizeBytes: 6815744,
         fileSizeMB: 6.5,
         maxSizeMB: 5,
         utilizationPercent: 130,

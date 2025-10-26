@@ -688,22 +688,22 @@ describe('CorrelationContext', () => {
 
       // Verify all exist
       for (let i = 0; i < 10; i++) {
-        expect(CorrelationContext.get(contexts[i])).toBe(ids[i]);
+        expect(CorrelationContext.get(contexts[i]!)).toBe(ids[i]);
       }
 
       // Delete half
       for (let i = 0; i < 5; i++) {
-        CorrelationContext.delete(contexts[i]);
+        CorrelationContext.delete(contexts[i]!);
       }
 
       // Verify deleted
       for (let i = 0; i < 5; i++) {
-        expect(CorrelationContext.get(contexts[i])).toBeUndefined();
+        expect(CorrelationContext.get(contexts[i]!)).toBeUndefined();
       }
 
       // Verify remaining
       for (let i = 5; i < 10; i++) {
-        expect(CorrelationContext.get(contexts[i])).toBe(ids[i]);
+        expect(CorrelationContext.get(contexts[i]!)).toBe(ids[i]);
       }
     });
 

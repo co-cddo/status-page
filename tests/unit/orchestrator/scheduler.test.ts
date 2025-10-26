@@ -2098,9 +2098,8 @@ describe('Health Check Scheduler', () => {
         correlationId: 'slow-id',
       };
 
-      let resolveHealthCheck: ((value: HealthCheckResult) => void) | undefined;
-      const healthCheckPromise = new Promise<HealthCheckResult>((resolve) => {
-        resolveHealthCheck = resolve;
+      const healthCheckPromise = new Promise<HealthCheckResult>(() => {
+        // Promise intentionally never resolves to simulate timeout scenario
       });
 
       vi.mocked(mockPoolManager.executeHealthCheck).mockReturnValue(healthCheckPromise);

@@ -5,9 +5,9 @@
  * Covers FR-001: Load config.yaml using js-yaml
  */
 
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { join } from 'node:path';
-import { writeFileSync, mkdirSync, rmSync, readFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import {
   loadConfiguration,
   loadConfigurationWithFallback,

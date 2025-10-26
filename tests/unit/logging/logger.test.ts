@@ -18,7 +18,6 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import type { Logger as PinoLogger } from 'pino';
 import {
   createLogger,
   createChildLogger,
@@ -28,7 +27,6 @@ import {
   safeStringify,
   LOG_LEVELS,
   type LogLevel,
-  type LoggerConfig,
 } from '../../../src/logging/logger.js';
 
 describe('Logger Module', () => {
@@ -296,8 +294,9 @@ describe('Logger Module', () => {
         const logger = createLogger();
         const logOutput: string[] = [];
 
-        // Capture log output
-        logger.on('data', (chunk) => {
+        // Capture log output (cast to EventEmitter to access stream events)
+        type LoggerWithEvents = { on: (event: string, callback: (chunk: string) => void) => void };
+        (logger as unknown as LoggerWithEvents).on('data', (chunk: string) => {
           logOutput.push(chunk);
         });
 
@@ -312,7 +311,8 @@ describe('Logger Module', () => {
         const logger = createLogger();
         const logOutput: string[] = [];
 
-        logger.on('data', (chunk) => {
+        type LoggerWithEvents = { on: (event: string, callback: (chunk: string) => void) => void };
+        (logger as unknown as LoggerWithEvents).on('data', (chunk: string) => {
           logOutput.push(chunk);
         });
 
@@ -326,7 +326,8 @@ describe('Logger Module', () => {
         const logger = createLogger();
         const logOutput: string[] = [];
 
-        logger.on('data', (chunk) => {
+        type LoggerWithEvents = { on: (event: string, callback: (chunk: string) => void) => void };
+        (logger as unknown as LoggerWithEvents).on('data', (chunk: string) => {
           logOutput.push(chunk);
         });
 

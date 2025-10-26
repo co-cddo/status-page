@@ -18,7 +18,6 @@ import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import {
   inlineJavaScript,
   verifyNoExternalScripts,
-  type JSInlineResult,
 } from '../../../src/inlining/js-inliner.ts';
 import { readFile } from 'fs/promises';
 import * as cheerio from 'cheerio';

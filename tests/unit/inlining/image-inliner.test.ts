@@ -24,7 +24,6 @@ import {
   inlineImages,
   inlineCSSImages,
   verifyNoExternalImages,
-  type ImageInlineResult,
 } from '../../../src/inlining/image-inliner.ts';
 import { readFile } from 'fs/promises';
 import type { CheerioAPI } from 'cheerio';
@@ -223,7 +222,6 @@ describe('Image Inliner (T044)', () => {
       const $ = createMockCheerio(html);
 
       const mockImageBuffer = Buffer.from('test-image-content');
-      const expectedBase64 = mockImageBuffer.toString('base64');
       vi.mocked(readFile).mockResolvedValue(mockImageBuffer);
 
       await inlineImages($, mockHtmlPath, mockSiteRoot);

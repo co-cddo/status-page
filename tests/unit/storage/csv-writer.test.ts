@@ -718,10 +718,11 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
 
   describe('Process Exit Behavior (FR-020a)', () => {
     test('should call process.exit(1) on append failure', async () => {
-      // Mock process.exit to prevent test from actually exiting
+      // Mock process.exit to prevent test from actually exiting - type cast needed for Vitest compatibility
+      type ProcessExitMock = typeof process.exit;
       const exitSpy = vi.spyOn(process, 'exit').mockImplementation((() => {
         throw new Error('process.exit called');
-      }) as (code?: number) => never);
+      }) as ProcessExitMock);
 
       // Create invalid writer
       const invalidWriter = new CsvWriter('/invalid/path/that/does/not/exist/test.csv');
@@ -748,10 +749,11 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
     });
 
     test('should call process.exit(1) on appendBatch failure', async () => {
-      // Mock process.exit to prevent test from actually exiting
+      // Mock process.exit to prevent test from actually exiting - type cast needed for Vitest compatibility
+      type ProcessExitMock = typeof process.exit;
       const exitSpy = vi.spyOn(process, 'exit').mockImplementation((() => {
         throw new Error('process.exit called');
-      }) as (code?: number) => never);
+      }) as ProcessExitMock);
 
       // Create invalid writer
       const invalidWriter = new CsvWriter('/invalid/path/that/does/not/exist/test.csv');

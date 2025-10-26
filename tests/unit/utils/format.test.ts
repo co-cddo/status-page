@@ -4,7 +4,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { formatLatency, formatTimestamp } from '@/utils/format';
+import { formatLatency, formatTimestamp } from '@/utils/format.js';
 
 describe('formatLatency', () => {
   describe('Valid millisecond values', () => {

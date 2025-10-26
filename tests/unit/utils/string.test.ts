@@ -4,7 +4,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { escapeMarkdown, truncate } from '@/utils/string';
+import { escapeMarkdown, truncate } from '@/utils/string.js';
 
 describe('escapeMarkdown', () => {
   describe('Valid string inputs', () => {
