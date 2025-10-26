@@ -45,3 +45,10 @@ _data/services.json
 # Temporary files
 *.tmp
 .cache/
+
+# Temporary documentation and analysis files
+# Prevent accidental commit of development/review artifacts
+*_SUMMARY.md
+*_FINDINGS.md
+*-summary-*.md
+OODA_CYCLE_*.md
