@@ -44,6 +44,25 @@ export default [
     },
   },
   {
+    // Browser environment for front-end JavaScript (Issue #30)
+    files: ['assets/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2024,
+      sourceType: 'module',
+      globals: {
+        // Browser globals
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        console: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+      },
+    },
+  },
+  {
     ignores: [
       // Dependencies
       'node_modules',

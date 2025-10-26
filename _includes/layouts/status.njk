@@ -41,3 +41,10 @@
     </div>
   </footer>
 {% endblock %}
+
+{% block bodyEnd %}
+  {# Progressive enhancement: Localize timestamps with JavaScript (Issue #30) #}
+  {# Script loads after DOM is ready for progressive enhancement #}
+  {# Page works without JavaScript - shows UTC timestamps by default #}
+  <script type="module" src="/assets/timestamp-localization.js"></script>
+{% endblock %}
