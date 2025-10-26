@@ -217,34 +217,28 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
   });
 
   test('HTML contains NO external resource references', () => {
-    // Check for common external resource patterns (excluding data: URIs)
-    const externalPatterns = [
-      /href=["'](?!data:|#|\/|mailto:)https?:\/\//gi, // External links in href (allow anchors, relative, mailto)
-      /src=["'](?!data:|\/|#)https?:\/\//gi, // External src (allow relative, data URIs)
-      /url\(["']?(?!data:)https?:\/\//gi, // External URLs in CSS
+    // Check for external resources that would prevent the HTML from being self-contained
+    // Note: External href links (navigation links) are allowed as they don't break self-containment
+    // The page can still be viewed offline; the links just won't work without internet
+    const externalResourcePatterns = [
+      /src=["'](?!data:|\/|#)https?:\/\//gi, // External src (images, scripts, etc. should be inlined)
+      /url\(["']?(?!data:)https?:\/\//gi, // External URLs in CSS (should be inlined)
     ];
 
     const violations: string[] = [];
 
-    for (const pattern of externalPatterns) {
+    for (const pattern of externalResourcePatterns) {
       const matches = htmlContent.match(pattern);
       if (matches) {
         violations.push(...matches);
       }
     }
 
-    // Filter out acceptable external links (e.g., footer links to GitHub)
-    const unacceptableViolations = violations.filter(
-      (v) =>
-        !v.includes('github.com/alphagov') && // GOV.UK Design System link in footer is acceptable
-        !v.includes('mailto:') // Email links are acceptable
-    );
-
-    if (unacceptableViolations.length > 0) {
-      console.error('External resources found:', unacceptableViolations);
+    if (violations.length > 0) {
+      console.error('External resources found that break self-containment:', violations);
     }
 
-    expect(unacceptableViolations.length).toBe(0);
+    expect(violations.length).toBe(0);
   });
 
   test('GOV.UK Design System CSS is inlined', () => {

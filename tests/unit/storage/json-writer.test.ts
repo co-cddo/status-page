@@ -303,6 +303,54 @@ describe('JsonWriter (T032a - TDD Phase)', () => {
 
       expect(parsed[0]?.failure_reason).toBe('');
     });
+
+    test('should map resource field correctly when provided', async () => {
+      const results: HealthCheckResult[] = [
+        {
+          serviceName: 'test-service',
+          timestamp: new Date('2025-01-01T12:00:00.000Z'),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 120,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'test-id',
+        },
+      ];
+
+      const resources = new Map([['test-service', 'https://example.com/test']]);
+
+      await jsonWriter.write(results, undefined, resources);
+
+      const content = await fs.readFile(testJsonPath, 'utf-8');
+      const parsed: ServiceStatusAPI[] = JSON.parse(content);
+
+      expect(parsed[0]?.resource).toBe('https://example.com/test');
+    });
+
+    test('should have empty resource field when not provided', async () => {
+      const results: HealthCheckResult[] = [
+        {
+          serviceName: 'test-service',
+          timestamp: new Date('2025-01-01T12:00:00.000Z'),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 120,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'test-id',
+        },
+      ];
+
+      await jsonWriter.write(results);
+
+      const content = await fs.readFile(testJsonPath, 'utf-8');
+      const parsed: ServiceStatusAPI[] = JSON.parse(content);
+
+      expect(parsed[0]?.resource).toBe('');
+    });
   });
 
   describe('Sorting (FAIL → DEGRADED → PASS → PENDING)', () => {
@@ -665,6 +713,7 @@ describe('JsonWriter (T032a - TDD Phase)', () => {
       expect(service).toHaveProperty('tags');
       expect(service).toHaveProperty('http_status_code');
       expect(service).toHaveProperty('failure_reason');
+      expect(service).toHaveProperty('resource');
     });
 
     test('should have correct field types per OpenAPI schema', async () => {

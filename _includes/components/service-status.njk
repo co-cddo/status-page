@@ -42,7 +42,7 @@
     {# Service name and status indicator in header #}
     <header class="govuk-!-margin-bottom-2">
       <h2 id="service-{{ service.name | replace(' ', '-') | lower }}" class="govuk-heading-m govuk-!-margin-bottom-2">
-        {{ service.name }}
+        <a href="{{ service.resource }}" class="govuk-link" rel="external">{{ service.name }}</a>
       </h2>
 
       {# Status indicator using macro #}
@@ -138,7 +138,7 @@
 
       {# Service name #}
       <h3 id="service-compact-{{ service.name | replace(' ', '-') | lower }}" class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-right-2" style="flex: 1;">
-        {{ service.name }}
+        <a href="{{ service.resource }}" class="govuk-link" rel="external">{{ service.name }}</a>
       </h3>
 
       {# Latency (if available) #}

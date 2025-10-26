@@ -159,6 +159,7 @@ describe('Eleventy Runner', () => {
           tags: ['api'],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://test.example.com',
         },
       ];
 
@@ -193,6 +194,7 @@ describe('Eleventy Runner', () => {
           tags: ['frontend'],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://test.example.com',
         },
         {
           name: 'service-2',
@@ -202,6 +204,7 @@ describe('Eleventy Runner', () => {
           tags: ['backend'],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://test.example.com',
         },
       ];
 
@@ -242,6 +245,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://test.example.com',
         },
       ];
 
@@ -275,6 +279,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: null,
           failure_reason: '',
+          resource: 'https://test.example.com',
         },
       ];
 
@@ -958,6 +963,7 @@ describe('Eleventy Runner', () => {
         tags: [`tag-${i % 10}`],
         http_status_code: 200,
         failure_reason: '',
+        resource: 'https://test.example.com',
       }));
 
       const mockProcess = {
@@ -993,6 +999,7 @@ describe('Eleventy Runner', () => {
           tags: ['special-chars'],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://test.example.com',
         },
       ];
 
