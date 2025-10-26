@@ -6,8 +6,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "tsx src/index.ts",
-    "build": "tsx scripts/build-js.ts && eleventy",
-    "build:inline": "tsx scripts/build-js.ts && eleventy && tsx src/inlining/post-build.ts",
+    "build": "tsx scripts/build-js.ts && eleventy && tsx src/inlining/post-build.ts",
     "build:eleventy": "eleventy",
     "build:js": "tsx scripts/build-js.ts",
     "start": "node --import tsx/esm src/index.ts",
