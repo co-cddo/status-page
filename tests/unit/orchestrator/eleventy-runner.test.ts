@@ -267,6 +267,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://example.com',
         },
       ];
 
@@ -359,6 +360,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://example.com',
         },
       ];
 
@@ -382,6 +384,7 @@ describe('Eleventy Runner', () => {
           tags: 'not-an-array', // Should be array
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://example.com',
         },
       ];
 
@@ -405,6 +408,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: 200,
           failure_reason: null, // Should be string
+          resource: 'https://example.com',
         },
       ];
 
@@ -428,6 +432,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: null,
           failure_reason: '',
+          resource: 'https://example.com',
         },
       ];
 
@@ -451,6 +456,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: null,
           failure_reason: '',
+          resource: 'https://example.com',
         },
       ];
 
@@ -474,6 +480,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: 'invalid', // Should be number or null
           failure_reason: '',
+          resource: 'https://example.com',
         },
       ];
 
@@ -497,6 +504,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://example.com',
         },
       ];
 
@@ -520,6 +528,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://example.com',
         },
       ];
 
@@ -543,6 +552,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: null, // Should be number for non-PENDING
           failure_reason: 'Connection timeout',
+          resource: 'https://example.com',
         },
       ];
 
