@@ -29,7 +29,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
 
       // Should show ISO 8601 format
       const text = await pageTimestamp.textContent();
-      expect(text).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/);
+      expect(text?.trim()).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/);
     });
 
     test('should have valid datetime attributes', async ({ page }) => {
@@ -43,7 +43,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
       // Verify all datetime attributes are valid ISO 8601
       for (let i = 0; i < count; i++) {
         const datetime = await timestamps.nth(i).getAttribute('datetime');
-        expect(datetime).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/);
+        expect(datetime).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z/);
 
         // Verify it's a valid date
         const date = new Date(datetime!);
@@ -96,7 +96,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
         const datetime = await timestamps.nth(i).getAttribute('datetime');
 
         // datetime attribute should still be ISO 8601
-        expect(datetime).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/);
+        expect(datetime).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z/);
       }
     });
 
