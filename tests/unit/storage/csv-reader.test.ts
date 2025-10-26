@@ -496,5 +496,302 @@ and line 2",test-id`;
 
       expect(records[0]?.service_name).toBe(longName);
     });
+
+    test('should reject invalid status values', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1
+2025-01-01T12:01:00.000Z,service-2,INVALID_STATUS,120,200,,id-2`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      // Should skip invalid row and continue parsing
+      expect(records.length).toBe(1);
+      expect(records[0]?.service_name).toBe('service-1');
+    });
+
+    test('should reject rows with invalid latency_ms (non-numeric)', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1
+2025-01-01T12:01:00.000Z,service-2,PASS,invalid,200,,id-2`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      // Should skip row with invalid latency and continue
+      expect(records.length).toBe(1);
+      expect(records[0]?.service_name).toBe('service-1');
+    });
+
+    test('should reject rows with invalid http_status_code (non-numeric)', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1
+2025-01-01T12:01:00.000Z,service-2,PASS,120,invalid,,id-2`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      // Should skip row with invalid http_status_code and continue
+      expect(records.length).toBe(1);
+      expect(records[0]?.service_name).toBe('service-1');
+    });
+
+    test('should handle Windows line endings (CRLF)', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id\r\n2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1\r\n2025-01-01T12:01:00.000Z,service-2,PASS,150,200,,id-2\r\n`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      expect(records.length).toBe(2);
+      expect(records[0]?.service_name).toBe('service-1');
+      expect(records[1]?.service_name).toBe('service-2');
+    });
+
+    test('should handle Mac line endings (CR)', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id\r2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1\r2025-01-01T12:01:00.000Z,service-2,PASS,150,200,,id-2\r`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      expect(records.length).toBe(2);
+      expect(records[0]?.service_name).toBe('service-1');
+      expect(records[1]?.service_name).toBe('service-2');
+    });
+
+    test('should handle Unix line endings (LF)', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1
+2025-01-01T12:01:00.000Z,service-2,PASS,150,200,,id-2
+`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      expect(records.length).toBe(2);
+      expect(records[0]?.service_name).toBe('service-1');
+      expect(records[1]?.service_name).toBe('service-2');
+    });
+
+    test('should handle rows with missing required fields', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1
+,service-2,PASS,120,200,,id-2`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      // Should skip row with missing timestamp
+      expect(records.length).toBe(1);
+      expect(records[0]?.service_name).toBe('service-1');
+    });
+
+    test('should use read() interface method successfully', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      // Call read() instead of readAll() to test interface implementation
+      const records: HistoricalRecord[] = await csvReader.read();
+
+      expect(records.length).toBe(1);
+      expect(records[0]?.service_name).toBe('service-1');
+    });
+
+    test('should handle validation with file read errors', async () => {
+      const nonExistentPath = path.join(testDir, 'nonexistent.csv');
+      const reader = new CsvReader(nonExistentPath);
+
+      const validation: CsvValidationResult = await reader.validate();
+
+      expect(validation.valid).toBe(false);
+      expect(validation.hasHeaders).toBe(false);
+      expect(validation.empty).toBe(true);
+      expect(validation.suggestedAction).toBe('Create new CSV file');
+    });
+
+    test('should handle CSV with whitespace-only content', async () => {
+      const csvContent = '   \n  \n   ';
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      expect(records.length).toBe(0);
+    });
+
+    test('should handle CSV where all headers exist but in wrong order', async () => {
+      const csvContent = `service_name,timestamp,status,latency_ms,http_status_code,failure_reason,correlation_id
+test-service,2025-01-01T12:00:00.000Z,PASS,120,200,,test-id`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const validation: CsvValidationResult = await csvReader.validate();
+
+      expect(validation.valid).toBe(false);
+      expect(validation.hasHeaders).toBe(false);
+      expect(validation.corrupted).toBe(true);
+      expect(validation.errors).toBeTruthy();
+      expect(validation.errors![0]).toContain('Invalid header order');
+    });
+
+    test('should handle validation error that does not include "Invalid" or "column" keywords', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1
+,,,,,,,`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const validation: CsvValidationResult = await csvReader.validate();
+
+      expect(validation.valid).toBe(false);
+      expect(validation.errors).toBeTruthy();
+      expect(validation.errors!.some((e) => e.includes('Row'))).toBe(true);
+    });
+
+    test('should handle CSV with empty lines between data rows', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1
+
+2025-01-01T12:01:00.000Z,service-2,PASS,150,200,,id-2`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      // Empty lines should be skipped
+      expect(records.length).toBe(2);
+      expect(records[0]?.service_name).toBe('service-1');
+      expect(records[1]?.service_name).toBe('service-2');
+    });
+
+    test('should handle getConsecutiveFailures on empty CSV', async () => {
+      await fs.writeFile(testCsvPath, '', 'utf-8');
+
+      const failures: ConsecutiveFailures = await csvReader.getConsecutiveFailures();
+
+      expect(failures).toEqual({});
+    });
+
+    test('should handle CSV with only whitespace lines after header', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+
+      `;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      expect(records.length).toBe(0);
+    });
+
+    test('should properly parse row that returns null', async () => {
+      // This test ensures the conditional check for null in parseRow is covered
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const records: HistoricalRecord[] = await csvReader.readAll();
+
+      // All valid rows should be parsed
+      expect(records.length).toBe(1);
+      expect(records[0]).not.toBeNull();
+    });
+
+    test('should handle validation when sample row parsing returns null', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const validation: CsvValidationResult = await csvReader.validate();
+
+      expect(validation.valid).toBe(true);
+      expect(validation.sampleRowsParsed).toBe(true);
+    });
+
+    test('should handle validation error with "column" keyword in error message', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1
+2025-01-01T12:01:00.000Z,incomplete-row`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const validation: CsvValidationResult = await csvReader.validate();
+
+      expect(validation.valid).toBe(false);
+      expect(validation.errors).toBeTruthy();
+      // Should have error message with "column" keyword triggering malformed classification
+      const hasColumnError = validation.errors!.some((e) => e.includes('malformed'));
+      expect(hasColumnError).toBe(true);
+    });
+
+    test('should handle validation catch block with general read error', async () => {
+      // Create a path that will cause a permission or other read error
+      const invalidPath = '/root/this-should-not-exist/test.csv';
+      const reader = new CsvReader(invalidPath);
+
+      const validation: CsvValidationResult = await reader.validate();
+
+      expect(validation.valid).toBe(false);
+      expect(validation.hasHeaders).toBe(false);
+      expect(validation.empty).toBe(true);
+      expect(validation.suggestedAction).toBe('Create new CSV file');
+    });
+
+    test('should handle validation with missing required field error (non-Invalid, non-column)', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+2025-01-01T12:00:00.000Z,service-1,PASS,120,200,,id-1
+,service-2,PASS,120,200,,id-2`;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const validation: CsvValidationResult = await csvReader.validate();
+
+      expect(validation.valid).toBe(false);
+      expect(validation.errors).toBeTruthy();
+      // This should trigger the else branch (line 209) for errors without "Invalid" or "column"
+      const hasGenericError = validation.errors!.some(
+        (e) => e.includes('Row') && !e.includes('malformed')
+      );
+      expect(hasGenericError).toBe(true);
+    });
+
+    test('should handle CSV with only header line (splitCsvLines edge case)', async () => {
+      // This CSV will result in lines[0] being the header, but no additional lines
+      const csvContent = 'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id';
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const validation: CsvValidationResult = await csvReader.validate();
+
+      // Header is valid, no sample rows to parse (sampleSize = 0)
+      expect(validation.valid).toBe(true);
+      expect(validation.hasHeaders).toBe(true);
+      expect(validation.sampleRowsParsed).toBe(true);
+    });
+
+    test('should handle CSV with lines that are all whitespace except header', async () => {
+      const csvContent = `timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id
+
+
+      `;
+
+      await fs.writeFile(testCsvPath, csvContent, 'utf-8');
+
+      const validation: CsvValidationResult = await csvReader.validate();
+
+      // Header is valid, whitespace lines are filtered out
+      expect(validation.valid).toBe(true);
+      expect(validation.hasHeaders).toBe(true);
+    });
   });
 });

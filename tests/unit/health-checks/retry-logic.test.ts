@@ -15,6 +15,7 @@ import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
 import {
   performHealthCheckWithRetry,
   shouldRetry,
+  classifyError,
   type RetryableError,
 } from '../../../src/health-checks/retry-logic.ts';
 import type { HealthCheckConfig, HealthCheckResult } from '../../../src/types/health-check.ts';
@@ -611,6 +612,104 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
     });
   });
 
+  describe('shouldRetry with HealthCheckResult (Lines 51-56)', () => {
+    test('should retry on ECONNREFUSED in failure_reason', () => {
+      const result: HealthCheckResult = {
+        serviceName: 'https://example.com',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'FAIL',
+        latency_ms: 0,
+        http_status_code: 0,
+        expected_status: 200,
+        failure_reason: 'ECONNREFUSED - Connection refused by server',
+        correlation_id: 'test-id',
+      };
+
+      expect(shouldRetry(result)).toBe(true);
+    });
+
+    test('should retry on ENOTFOUND in failure_reason', () => {
+      const result: HealthCheckResult = {
+        serviceName: 'https://example.com',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'FAIL',
+        latency_ms: 0,
+        http_status_code: 0,
+        expected_status: 200,
+        failure_reason: 'ENOTFOUND - DNS lookup failed',
+        correlation_id: 'test-id',
+      };
+
+      expect(shouldRetry(result)).toBe(true);
+    });
+
+    test('should retry on ENETUNREACH in failure_reason', () => {
+      const result: HealthCheckResult = {
+        serviceName: 'https://example.com',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'FAIL',
+        latency_ms: 0,
+        http_status_code: 0,
+        expected_status: 200,
+        failure_reason: 'Network error: ENETUNREACH',
+        correlation_id: 'test-id',
+      };
+
+      expect(shouldRetry(result)).toBe(true);
+    });
+
+    test('should retry on ECONNRESET in failure_reason', () => {
+      const result: HealthCheckResult = {
+        serviceName: 'https://example.com',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'FAIL',
+        latency_ms: 0,
+        http_status_code: 0,
+        expected_status: 200,
+        failure_reason: 'Connection error: ECONNRESET',
+        correlation_id: 'test-id',
+      };
+
+      expect(shouldRetry(result)).toBe(true);
+    });
+
+    test('should retry on ECONNABORTED in failure_reason', () => {
+      const result: HealthCheckResult = {
+        serviceName: 'https://example.com',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'FAIL',
+        latency_ms: 0,
+        http_status_code: 0,
+        expected_status: 200,
+        failure_reason: 'Connection aborted: ECONNABORTED',
+        correlation_id: 'test-id',
+      };
+
+      expect(shouldRetry(result)).toBe(true);
+    });
+
+    test('should retry on getaddrinfo in failure_reason', () => {
+      const result: HealthCheckResult = {
+        serviceName: 'https://example.com',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'FAIL',
+        latency_ms: 0,
+        http_status_code: 0,
+        expected_status: 200,
+        failure_reason: 'getaddrinfo failed for host',
+        correlation_id: 'test-id',
+      };
+
+      expect(shouldRetry(result)).toBe(true);
+    });
+  });
+
   describe('Edge Cases', () => {
     test('should handle first attempt success (no retries needed)', async () => {
       const config: HealthCheckConfig = {
@@ -721,5 +820,187 @@ describe('performHealthCheckWithRetry (T028a - TDD Phase)', () => {
       // Correlation ID should be preserved through retries
       expect(result.correlation_id).toBe('preserved-id-12345');
     });
+  });
+});
+
+describe('classifyError (Lines 116-140)', () => {
+  test('should classify validation errors (non-zero status code)', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 120,
+      http_status_code: 404,
+      expected_status: 200,
+      failure_reason: 'Expected status 200, got 404',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('validation');
+  });
+
+  test('should classify timeout errors', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 5000,
+      http_status_code: 0,
+      expected_status: 200,
+      failure_reason: 'Request timeout after 5000ms',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('timeout');
+  });
+
+  test('should classify SSL/TLS certificate errors', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 0,
+      http_status_code: 0,
+      expected_status: 200,
+      failure_reason: 'SSL certificate has expired',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('ssl');
+  });
+
+  test('should classify SSL handshake errors', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 0,
+      http_status_code: 0,
+      expected_status: 200,
+      failure_reason: 'SSL handshake failed',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('ssl');
+  });
+
+  test('should classify TLS errors', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 0,
+      http_status_code: 0,
+      expected_status: 200,
+      failure_reason: 'TLS protocol version mismatch',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('ssl');
+  });
+
+  test('should classify connection refused errors', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 0,
+      http_status_code: 0,
+      expected_status: 200,
+      failure_reason: 'Connection refused by server',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('network');
+  });
+
+  test('should classify DNS lookup failures', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 0,
+      http_status_code: 0,
+      expected_status: 200,
+      failure_reason: 'DNS lookup failed - ENOTFOUND',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('network');
+  });
+
+  test('should classify ECONNREFUSED errors', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 0,
+      http_status_code: 0,
+      expected_status: 200,
+      failure_reason: 'ECONNREFUSED',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('network');
+  });
+
+  test('should classify ENOTFOUND errors', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 0,
+      http_status_code: 0,
+      expected_status: 200,
+      failure_reason: 'getaddrinfo ENOTFOUND example.com',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('network');
+  });
+
+  test('should default to network type for unknown errors', () => {
+    const result: HealthCheckResult = {
+      serviceName: 'https://example.com',
+      timestamp: new Date(),
+      method: 'GET',
+      status: 'FAIL',
+      latency_ms: 0,
+      http_status_code: 0,
+      expected_status: 200,
+      failure_reason: 'Unknown network error occurred',
+      correlation_id: 'test-id',
+    };
+
+    const errorType = classifyError(result);
+
+    expect(errorType).toBe('network');
   });
 });

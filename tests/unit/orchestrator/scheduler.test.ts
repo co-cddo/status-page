@@ -1672,6 +1672,497 @@ describe('Health Check Scheduler', () => {
     });
   });
 
+  describe('runOnce Method (CI Mode)', () => {
+    it('should run all scheduled checks once without rescheduling', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const configs: HealthCheckConfig[] = [
+        {
+          serviceName: 'once-service-1',
+          method: 'GET',
+          url: 'https://example.com/1',
+          timeout: 5000,
+          warningThreshold: 2000,
+          maxRetries: 3,
+          expectedStatus: 200,
+          correlationId: 'once-id-1',
+        },
+        {
+          serviceName: 'once-service-2',
+          method: 'GET',
+          url: 'https://example.com/2',
+          timeout: 5000,
+          warningThreshold: 2000,
+          maxRetries: 3,
+          expectedStatus: 200,
+          correlationId: 'once-id-2',
+        },
+      ];
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockImplementation((config) =>
+        Promise.resolve({
+          serviceName: config.serviceName || 'test',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: config.correlationId || 'test-id',
+        })
+      );
+
+      configs.forEach((config) => scheduler.scheduleService(config, 60000));
+
+      // Act
+      await scheduler.runOnce();
+
+      // Assert
+      expect(mockPoolManager.executeHealthCheck).toHaveBeenCalledTimes(2);
+      expect(mockPoolManager.executeHealthCheck).toHaveBeenCalledWith(configs[0]);
+      expect(mockPoolManager.executeHealthCheck).toHaveBeenCalledWith(configs[1]);
+    });
+
+    it('should store results in latestResults map', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const config: HealthCheckConfig = {
+        serviceName: 'result-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'result-id',
+      };
+
+      const result: HealthCheckResult = {
+        serviceName: 'result-service',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'PASS',
+        latency_ms: 150,
+        http_status_code: 200,
+        expected_status: 200,
+        failure_reason: '',
+        correlation_id: 'result-id',
+      };
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockResolvedValue(result);
+      scheduler.scheduleService(config, 60000);
+
+      // Act
+      await scheduler.runOnce();
+
+      // Assert
+      const results = scheduler.getLatestResults();
+      expect(results).toHaveLength(1);
+      expect(results[0]).toEqual(result);
+    });
+
+    it('should handle errors during runOnce and store failed results', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const config: HealthCheckConfig = {
+        serviceName: 'failing-once-service',
+        method: 'GET',
+        url: 'https://example.com/fail',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'fail-once-id',
+      };
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockRejectedValue(new Error('Network error'));
+      scheduler.scheduleService(config, 60000);
+
+      // Act
+      await scheduler.runOnce();
+
+      // Assert - should store failed result
+      const results = scheduler.getLatestResults();
+      expect(results).toHaveLength(1);
+      expect(results[0]?.status).toBe('FAIL');
+      expect(results[0]?.serviceName).toBe('failing-once-service');
+      expect(results[0]?.failure_reason).toBe('Network error');
+    });
+
+    it('should throw error if scheduler is already running', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+      scheduler.start();
+
+      // Act & Assert
+      await expect(scheduler.runOnce()).rejects.toThrow(
+        'Cannot run once - scheduler is already running'
+      );
+    });
+
+    it('should throw error if scheduler is shutting down', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+      const config: HealthCheckConfig = {
+        serviceName: 'test-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'test-id',
+      };
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockImplementation(
+        () =>
+          new Promise(() => {
+            // Never resolves to keep scheduler in shutting down state
+          })
+      );
+
+      scheduler.scheduleService(config, 60000);
+      scheduler.start();
+      await vi.advanceTimersByTimeAsync(60000);
+
+      // Initiate shutdown (will be in SHUTTING_DOWN state)
+      const shutdownPromise = scheduler.stop();
+
+      // Act & Assert
+      await expect(scheduler.runOnce()).rejects.toThrow(
+        'Cannot run once - scheduler is shutting down'
+      );
+
+      // Cleanup
+      await vi.advanceTimersByTimeAsync(30000);
+      await shutdownPromise;
+    });
+
+    it('should handle empty queue gracefully in runOnce', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      // Act - runOnce with no scheduled services
+      await scheduler.runOnce();
+
+      // Assert
+      expect(mockPoolManager.executeHealthCheck).not.toHaveBeenCalled();
+      const results = scheduler.getLatestResults();
+      expect(results).toHaveLength(0);
+    });
+
+    it('should handle missing serviceName and use URL instead', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const config: HealthCheckConfig = {
+        method: 'GET',
+        url: 'https://example.com/no-name',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'no-name-id',
+      };
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockRejectedValue(new Error('Test error'));
+      scheduler.scheduleService(config, 60000);
+
+      // Act
+      await scheduler.runOnce();
+
+      // Assert - should use URL as serviceName
+      const results = scheduler.getLatestResults();
+      expect(results).toHaveLength(1);
+      expect(results[0]?.serviceName).toBe('https://example.com/no-name');
+    });
+
+    it('should handle missing correlationId with fallback', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const config: HealthCheckConfig = {
+        serviceName: 'no-correlation-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        // No correlationId provided
+      };
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockRejectedValue(new Error('Test error'));
+      scheduler.scheduleService(config, 60000);
+
+      // Act
+      await scheduler.runOnce();
+
+      // Assert - should use 'unknown' as correlationId
+      const results = scheduler.getLatestResults();
+      expect(results).toHaveLength(1);
+      expect(results[0]?.correlation_id).toBe('unknown');
+    });
+
+    it('should execute all checks concurrently', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const configs: HealthCheckConfig[] = Array.from({ length: 5 }, (_, i) => ({
+        serviceName: `concurrent-once-${i}`,
+        method: 'GET' as const,
+        url: `https://example.com/${i}`,
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: `concurrent-once-${i}`,
+      }));
+
+      let executionOrder: number[] = [];
+      vi.mocked(mockPoolManager.executeHealthCheck).mockImplementation((config) => {
+        const index = parseInt(config.serviceName?.split('-')[2] || '0');
+        executionOrder.push(index);
+        return Promise.resolve({
+          serviceName: config.serviceName || 'test',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: config.correlationId || 'test-id',
+        });
+      });
+
+      configs.forEach((config) => scheduler.scheduleService(config, 60000));
+
+      // Act
+      await scheduler.runOnce();
+
+      // Assert - all should execute (order may vary due to concurrency)
+      expect(executionOrder).toHaveLength(5);
+      expect(mockPoolManager.executeHealthCheck).toHaveBeenCalledTimes(5);
+    });
+  });
+
+  describe('Latest Results Tracking', () => {
+    it('should return empty array when no checks have been executed', () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      // Act
+      const results = scheduler.getLatestResults();
+
+      // Assert
+      expect(results).toEqual([]);
+    });
+
+    it('should update latest results after each check execution', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const config: HealthCheckConfig = {
+        serviceName: 'latest-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'latest-id',
+      };
+
+      const result1: HealthCheckResult = {
+        serviceName: 'latest-service',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'PASS',
+        latency_ms: 100,
+        http_status_code: 200,
+        expected_status: 200,
+        failure_reason: '',
+        correlation_id: 'latest-id',
+      };
+
+      const result2: HealthCheckResult = {
+        serviceName: 'latest-service',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'FAIL',
+        latency_ms: 0,
+        http_status_code: 500,
+        expected_status: 200,
+        failure_reason: 'Server error',
+        correlation_id: 'latest-id',
+      };
+
+      vi.mocked(mockPoolManager.executeHealthCheck)
+        .mockResolvedValueOnce(result1)
+        .mockResolvedValueOnce(result2);
+
+      scheduler.scheduleService(config, 60000);
+      scheduler.start();
+
+      // Act - execute first check
+      await vi.advanceTimersByTimeAsync(60000);
+      let results = scheduler.getLatestResults();
+      expect(results[0]?.status).toBe('PASS');
+
+      // Act - execute second check
+      await vi.advanceTimersByTimeAsync(60000);
+      results = scheduler.getLatestResults();
+
+      // Assert - should have updated to FAIL
+      expect(results[0]?.status).toBe('FAIL');
+    });
+
+    it('should maintain separate results for different services', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const configs: HealthCheckConfig[] = [
+        {
+          serviceName: 'service-a',
+          method: 'GET',
+          url: 'https://example.com/a',
+          timeout: 5000,
+          warningThreshold: 2000,
+          maxRetries: 3,
+          expectedStatus: 200,
+          correlationId: 'id-a',
+        },
+        {
+          serviceName: 'service-b',
+          method: 'GET',
+          url: 'https://example.com/b',
+          timeout: 5000,
+          warningThreshold: 2000,
+          maxRetries: 3,
+          expectedStatus: 200,
+          correlationId: 'id-b',
+        },
+      ];
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockImplementation((config) =>
+        Promise.resolve({
+          serviceName: config.serviceName || 'test',
+          timestamp: new Date(),
+          method: 'GET',
+          status: config.serviceName === 'service-a' ? 'PASS' : 'FAIL',
+          latency_ms: 100,
+          http_status_code: config.serviceName === 'service-a' ? 200 : 500,
+          expected_status: 200,
+          failure_reason: config.serviceName === 'service-a' ? '' : 'Server error',
+          correlation_id: config.correlationId || 'test-id',
+        })
+      );
+
+      configs.forEach((config) => scheduler.scheduleService(config, 60000));
+      scheduler.start();
+
+      // Act
+      await vi.advanceTimersByTimeAsync(60000);
+
+      // Assert
+      const results = scheduler.getLatestResults();
+      expect(results).toHaveLength(2);
+
+      const serviceA = results.find((r) => r.serviceName === 'service-a');
+      const serviceB = results.find((r) => r.serviceName === 'service-b');
+
+      expect(serviceA?.status).toBe('PASS');
+      expect(serviceB?.status).toBe('FAIL');
+    });
+  });
+
+  describe('Graceful Shutdown Timeout', () => {
+    it('should wait for in-flight checks up to timeout', async () => {
+      // Arrange
+      const gracefulTimeout = 2000;
+      scheduler = new Scheduler(mockPoolManager, { gracefulShutdownTimeout: gracefulTimeout });
+
+      const config: HealthCheckConfig = {
+        serviceName: 'slow-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'slow-id',
+      };
+
+      let resolveHealthCheck: ((value: HealthCheckResult) => void) | undefined;
+      const healthCheckPromise = new Promise<HealthCheckResult>((resolve) => {
+        resolveHealthCheck = resolve;
+      });
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockReturnValue(healthCheckPromise);
+
+      scheduler.scheduleService(config, 60000);
+      scheduler.start();
+
+      await vi.advanceTimersByTimeAsync(60000);
+
+      // Act - start shutdown
+      const shutdownPromise = scheduler.stop();
+      const startTime = Date.now();
+
+      // Don't resolve the check - let it timeout
+      await vi.advanceTimersByTimeAsync(gracefulTimeout);
+      await shutdownPromise;
+
+      // Assert
+      const elapsedTime = Date.now() - startTime;
+      expect(elapsedTime).toBeGreaterThanOrEqual(gracefulTimeout);
+      expect(scheduler.isRunning()).toBe(false);
+    });
+
+    it('should complete immediately if no in-flight checks', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+      scheduler.start();
+
+      // Act
+      const startTime = Date.now();
+      await scheduler.stop();
+      const elapsedTime = Date.now() - startTime;
+
+      // Assert - should complete almost immediately
+      expect(elapsedTime).toBeLessThan(100);
+      expect(scheduler.isRunning()).toBe(false);
+    });
+
+    it('should handle stop when already stopped', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      // Act & Assert - should not throw
+      await scheduler.stop();
+      await scheduler.stop(); // Call again when already stopped
+
+      expect(scheduler.isRunning()).toBe(false);
+    });
+
+    it('should retrieve configured graceful shutdown timeout', () => {
+      // Arrange
+      const customTimeout = 15000;
+      scheduler = new Scheduler(mockPoolManager, { gracefulShutdownTimeout: customTimeout });
+
+      // Act
+      const timeout = scheduler.getTimeout();
+
+      // Assert
+      expect(timeout).toBe(customTimeout);
+    });
+  });
+
   describe('Edge Cases', () => {
     it('should handle zero interval (immediate execution)', async () => {
       // Arrange
@@ -1709,6 +2200,157 @@ describe('Health Check Scheduler', () => {
 
       // Assert
       expect(mockPoolManager.executeHealthCheck).toHaveBeenCalled();
+    });
+
+    it('should reschedule check when queue was empty', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const config: HealthCheckConfig = {
+        serviceName: 'empty-queue-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'empty-queue-id',
+      };
+
+      const result: HealthCheckResult = {
+        serviceName: 'empty-queue-service',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'PASS',
+        latency_ms: 100,
+        http_status_code: 200,
+        expected_status: 200,
+        failure_reason: '',
+        correlation_id: 'empty-queue-id',
+      };
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockResolvedValue(result);
+
+      scheduler.scheduleService(config, 1000);
+      scheduler.start();
+
+      // Act - execute first check (queue becomes empty after execution)
+      await vi.advanceTimersByTimeAsync(1000);
+      expect(mockPoolManager.executeHealthCheck).toHaveBeenCalledTimes(1);
+
+      // Assert - check should be rescheduled
+      await vi.advanceTimersByTimeAsync(1000);
+      expect(mockPoolManager.executeHealthCheck).toHaveBeenCalledTimes(2);
+    });
+
+    it('should update timer when rescheduled check becomes first in queue', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const config1: HealthCheckConfig = {
+        serviceName: 'fast-service',
+        method: 'GET',
+        url: 'https://example.com/fast',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'fast-id',
+      };
+
+      const config2: HealthCheckConfig = {
+        serviceName: 'slow-service',
+        method: 'GET',
+        url: 'https://example.com/slow',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'slow-id',
+      };
+
+      const result: HealthCheckResult = {
+        serviceName: 'test',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'PASS',
+        latency_ms: 100,
+        http_status_code: 200,
+        expected_status: 200,
+        failure_reason: '',
+        correlation_id: 'test-id',
+      };
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockResolvedValue(result);
+
+      // Schedule fast service with 1s interval, slow with 5s
+      scheduler.scheduleService(config1, 1000);
+      scheduler.scheduleService(config2, 5000);
+      scheduler.start();
+
+      // Act - fast service executes and reschedules for 1s later
+      await vi.advanceTimersByTimeAsync(1000);
+
+      // Fast service should execute again before slow service
+      await vi.advanceTimersByTimeAsync(1000);
+
+      // Assert - fast service should have executed twice, slow service not yet
+      const calls = vi.mocked(mockPoolManager.executeHealthCheck).mock.calls;
+      const fastCalls = calls.filter(call => call[0]?.serviceName === 'fast-service');
+      expect(fastCalls).toHaveLength(2);
+    });
+
+    it('should schedule service while running and reschedule timer', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const config1: HealthCheckConfig = {
+        serviceName: 'initial-service',
+        method: 'GET',
+        url: 'https://example.com/initial',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'initial-id',
+      };
+
+      const config2: HealthCheckConfig = {
+        serviceName: 'added-service',
+        method: 'GET',
+        url: 'https://example.com/added',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'added-id',
+      };
+
+      const result: HealthCheckResult = {
+        serviceName: 'test',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'PASS',
+        latency_ms: 100,
+        http_status_code: 200,
+        expected_status: 200,
+        failure_reason: '',
+        correlation_id: 'test-id',
+      };
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockResolvedValue(result);
+
+      scheduler.scheduleService(config1, 5000); // 5 seconds
+      scheduler.start();
+
+      // Act - add another service with shorter interval while running
+      await vi.advanceTimersByTimeAsync(500);
+      scheduler.scheduleService(config2, 1000); // 1 second (will be due first)
+
+      // Assert - added service should execute before initial service
+      await vi.advanceTimersByTimeAsync(1000);
+      expect(mockPoolManager.executeHealthCheck).toHaveBeenCalledWith(config2);
+      expect(mockPoolManager.executeHealthCheck).not.toHaveBeenCalledWith(config1);
     });
 
     it('should handle very large intervals', () => {
@@ -1840,6 +2482,74 @@ describe('Health Check Scheduler', () => {
 
       // Assert - should only be called once (not rescheduled)
       expect(mockPoolManager.executeHealthCheck).toHaveBeenCalledTimes(1);
+    });
+
+    it('should handle start with no scheduled services', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      // Act - start with empty queue
+      scheduler.start();
+
+      // Advance time - nothing should happen
+      await vi.advanceTimersByTimeAsync(60000);
+
+      // Assert - no checks should execute
+      expect(mockPoolManager.executeHealthCheck).not.toHaveBeenCalled();
+      expect(scheduler.isRunning()).toBe(true);
+    });
+
+    it('should not reschedule if stopped during check execution', async () => {
+      // Arrange
+      scheduler = new Scheduler(mockPoolManager);
+
+      const config: HealthCheckConfig = {
+        serviceName: 'stop-during-check',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'stop-check-id',
+      };
+
+      let resolveCheck: ((value: HealthCheckResult) => void) | undefined;
+      const checkPromise = new Promise<HealthCheckResult>((resolve) => {
+        resolveCheck = resolve;
+      });
+
+      vi.mocked(mockPoolManager.executeHealthCheck).mockReturnValue(checkPromise);
+
+      scheduler.scheduleService(config, 1000);
+      scheduler.start();
+
+      // Trigger check
+      await vi.advanceTimersByTimeAsync(1000);
+
+      // Stop scheduler while check is in-flight
+      const stopPromise = scheduler.stop();
+
+      // Resolve check after stop initiated
+      if (resolveCheck) {
+        resolveCheck({
+          serviceName: 'stop-during-check',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'stop-check-id',
+        });
+      }
+
+      await stopPromise;
+
+      // Assert - check should have been called once, but not rescheduled
+      expect(mockPoolManager.executeHealthCheck).toHaveBeenCalledTimes(1);
+      expect(scheduler.isRunning()).toBe(false);
     });
   });
 });
