@@ -67,11 +67,8 @@ jobs:
       - name: Execute health checks
         run: pnpm run check-once
 
-      - name: Run Eleventy build
-        run: pnpm run build:eleventy
-
-      - name: Run post-build asset inlining
-        run: node --import tsx/esm src/inlining/post-build.js
+      - name: Build application (JS + Eleventy + Inlining)
+        run: pnpm run build
 
       - name: Copy CSV and JSON to output directory
         run: |
