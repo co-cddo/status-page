@@ -107,8 +107,8 @@ jobs:
             COVERAGE=$(node -e "console.log(JSON.parse(require('fs').readFileSync('coverage/coverage-summary.json')).total.lines.pct)")
             echo "Code coverage: ${COVERAGE}%"
 
-            # Determine threshold based on grace period
-            if [[ "$CURRENT_DATE" < "$GRACE_PERIOD_END" ]]; then
+            # Determine threshold based on grace period (inclusive of end date)
+            if [[ "$CURRENT_DATE" < "$GRACE_PERIOD_END" ]] || [[ "$CURRENT_DATE" == "$GRACE_PERIOD_END" ]]; then
               THRESHOLD=53
               echo "⚠️  GRACE PERIOD ACTIVE until $GRACE_PERIOD_END"
               echo "📊 Current threshold: ${THRESHOLD}% (temporary)"
