@@ -163,7 +163,8 @@ describe('Workflow Conditional Logic Integration (US7)', () => {
       const hasTestType =
         workflowString.includes(testType) ||
         workflowString.includes('pnpm test') ||
-        workflowString.includes('vitest run');
+        workflowString.includes('vitest run') ||
+        workflowString.includes('test:coverage');
 
       expect(hasTestType).toBe(true);
     }

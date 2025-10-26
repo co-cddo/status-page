@@ -20,7 +20,7 @@ export default defineConfig({
     // Coverage configuration (per constitution.md - 80% minimum)
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'json', 'html', 'lcov'],
+      reporter: ['text', 'json', 'json-summary', 'html', 'lcov'],
       reportsDirectory: './coverage',
 
       // Coverage thresholds (enforced - fail if below)

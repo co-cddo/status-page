@@ -90,7 +90,7 @@ jobs:
       #   continue-on-error: false
 
       - name: Run all tests with coverage
-        run: pnpm test
+        run: pnpm run test:coverage
         continue-on-error: false
 
       - name: Check coverage threshold (80% minimum per FR-040a)
