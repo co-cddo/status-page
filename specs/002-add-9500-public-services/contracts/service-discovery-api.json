@@ -1,0 +1,551 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://status.gov.uk/schemas/service-discovery-api.json",
+  "title": "Service Discovery API",
+  "description": "JSON Schema for discovered UK public services before transformation to config.yaml",
+  "type": "object",
+  "required": ["metadata", "services"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Collection metadata and discovery statistics",
+      "required": [
+        "discovery_date",
+        "total_discovered",
+        "total_validated",
+        "total_duplicates",
+        "total_added_to_config"
+      ],
+      "properties": {
+        "discovery_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when discovery process started"
+        },
+        "total_discovered": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of services discovered (before deduplication)"
+        },
+        "total_validated": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of services that passed validation"
+        },
+        "total_duplicates": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of duplicate services detected"
+        },
+        "total_added_to_config": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of services added to config.yaml (validated, non-duplicates)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "services": {
+      "type": "array",
+      "description": "Array of discovered services",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/DiscoveredService"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "DiscoveredService": {
+      "type": "object",
+      "description": "Intermediate representation of a discovered public service",
+      "required": [
+        "url",
+        "canonical_url",
+        "http_method",
+        "expected_status",
+        "department",
+        "service_type",
+        "criticality",
+        "tags",
+        "discovery_source",
+        "is_duplicate",
+        "last_verified"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://",
+          "description": "Original discovered service URL"
+        },
+        "canonical_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://",
+          "description": "Final destination URL after following all redirects"
+        },
+        "http_method": {
+          "type": "string",
+          "enum": ["GET", "HEAD", "POST"],
+          "description": "HTTP method for health check requests"
+        },
+        "expected_status": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 599,
+          "description": "Expected HTTP status code for healthy service"
+        },
+        "validation_text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "description": "Unique substring expected in response body for positive validation"
+        },
+        "validation_text_inverse": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "description": "Text that should NOT appear in response (error page detection)"
+        },
+        "department": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Primary owning department (lowercase, hyphenated)"
+        },
+        "service_type": {
+          "type": "string",
+          "enum": [
+            "application",
+            "booking",
+            "information",
+            "payment",
+            "authentication",
+            "search",
+            "reporting",
+            "licensing",
+            "registration",
+            "case-management",
+            "appointment",
+            "portal",
+            "api"
+          ],
+          "description": "Functional service category"
+        },
+        "criticality": {
+          "type": "string",
+          "enum": ["critical", "high-volume", "standard"],
+          "description": "Service criticality tier"
+        },
+        "geography": {
+          "type": "array",
+          "description": "Geographic scope of service",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "tags": {
+          "type": "array",
+          "description": "Complete tag set from 74-tag taxonomy",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "maxLength": 100
+          },
+          "minItems": 2,
+          "maxItems": 10,
+          "uniqueItems": true
+        },
+        "discovery_source": {
+          "$ref": "#/definitions/ResearchSource"
+        },
+        "redirect_chain": {
+          "type": "array",
+          "description": "Array of URLs in redirect sequence (original to final)",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "minItems": 2,
+          "maxItems": 6
+        },
+        "is_duplicate": {
+          "type": "boolean",
+          "description": "Whether this URL duplicates another canonical_url"
+        },
+        "duplicate_of": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://",
+          "description": "Canonical URL this service duplicates (required if is_duplicate=true)"
+        },
+        "last_verified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when accessibility was last validated"
+        },
+        "check_interval": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 86400,
+          "description": "Override default check interval in seconds"
+        },
+        "warning_threshold": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 60,
+          "description": "Override default latency warning threshold in seconds"
+        },
+        "timeout": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 120,
+          "description": "Override default timeout in seconds"
+        },
+        "custom_headers": {
+          "type": "array",
+          "description": "Custom HTTP headers for requests",
+          "items": {
+            "$ref": "#/definitions/CustomHeader"
+          },
+          "minItems": 1
+        },
+        "post_payload": {
+          "type": "object",
+          "description": "POST request body (JSON, only valid when http_method=POST)"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Human-readable discovery context or special handling notes"
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "description": "If is_duplicate=true, duplicate_of must be present",
+          "if": {
+            "properties": {
+              "is_duplicate": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "required": ["duplicate_of"]
+          }
+        },
+        {
+          "description": "If http_method=POST, post_payload should be present",
+          "if": {
+            "properties": {
+              "http_method": {
+                "const": "POST"
+              }
+            }
+          },
+          "then": {
+            "required": ["post_payload"]
+          }
+        },
+        {
+          "description": "warning_threshold must be less than timeout",
+          "if": {
+            "required": ["warning_threshold", "timeout"]
+          },
+          "then": {
+            "properties": {
+              "warning_threshold": {
+                "type": "number"
+              },
+              "timeout": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        {
+          "description": "At least one validation method must be configured",
+          "anyOf": [
+            {
+              "required": ["validation_text"]
+            },
+            {
+              "required": ["validation_text_inverse"]
+            },
+            {
+              "properties": {
+                "expected_status": {
+                  "enum": [200, 301, 302, 401, 403]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ResearchSource": {
+      "type": "object",
+      "description": "Metadata documenting service discovery method",
+      "required": ["discovery_method", "discovery_date", "discovered_by"],
+      "properties": {
+        "discovery_method": {
+          "type": "string",
+          "enum": [
+            "dns-enumeration",
+            "certificate-transparency",
+            "web-search",
+            "gov-directory",
+            "api-discovery",
+            "manual",
+            "github-search",
+            "wayback-machine",
+            "procurement-database",
+            "third-party-aggregator"
+          ],
+          "description": "Method used to discover this service"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of discovery source (e.g., search result page, directory page)"
+        },
+        "discovery_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when service was discovered"
+        },
+        "discovered_by": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "Tool or person name (e.g., 'subfinder', 'crt.sh', 'manual review')"
+        },
+        "search_query": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Exact search query or command used (for reproducibility)"
+        },
+        "tool_version": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9.\\-]+$",
+          "maxLength": 50,
+          "description": "Version of discovery tool (e.g., 'subfinder v2.6.3')"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Additional context about discovery process"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CustomHeader": {
+      "type": "object",
+      "description": "Custom HTTP header for requests",
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[A-Za-z0-9-]+$",
+          "description": "HTTP header name"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000,
+          "description": "HTTP header value"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ValidationResult": {
+      "type": "object",
+      "description": "Outcome of service accessibility validation",
+      "required": [
+        "url",
+        "canonical_url",
+        "is_accessible",
+        "http_status",
+        "latency_ms",
+        "validation_passed",
+        "redirect_count",
+        "failure_reason",
+        "timestamp",
+        "retry_count"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://",
+          "description": "Original service URL being validated"
+        },
+        "canonical_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://",
+          "description": "Final URL after redirect resolution"
+        },
+        "is_accessible": {
+          "type": "boolean",
+          "description": "Whether service responds successfully"
+        },
+        "http_status": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 599,
+          "description": "Actual HTTP status code (0 if connection failed)"
+        },
+        "latency_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Response time in milliseconds"
+        },
+        "validation_passed": {
+          "type": "boolean",
+          "description": "Whether all validation criteria met"
+        },
+        "text_validation_passed": {
+          "type": "boolean",
+          "description": "Whether expected text found (null if not configured)"
+        },
+        "redirect_chain": {
+          "type": "array",
+          "description": "Array of redirect URLs (original to final)",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "minItems": 2,
+          "maxItems": 6
+        },
+        "redirect_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Number of redirects followed"
+        },
+        "failure_reason": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Human-readable failure explanation (empty if passed)"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when validation was performed"
+        },
+        "retry_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3,
+          "description": "Number of retry attempts for network errors"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TagTaxonomy": {
+      "type": "object",
+      "description": "Tag definition from hierarchical taxonomy",
+      "required": ["tag_name", "tag_category", "description", "usage_count"],
+      "properties": {
+        "tag_name": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "maxLength": 100,
+          "description": "Tag identifier (lowercase, hyphenated)"
+        },
+        "tag_category": {
+          "type": "string",
+          "enum": [
+            "department",
+            "service-type",
+            "geography",
+            "criticality",
+            "channel",
+            "lifecycle"
+          ],
+          "description": "Tag category dimension"
+        },
+        "parent_tag": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "maxLength": 100,
+          "description": "Parent tag for hierarchical relationships"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "description": "Human-readable tag explanation"
+        },
+        "usage_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of services using this tag"
+        },
+        "display_order": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 999,
+          "description": "Sort order for tag display"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ServiceCategory": {
+      "type": "object",
+      "description": "Logical grouping for config.yaml organization",
+      "required": [
+        "category_name",
+        "tag_pattern",
+        "display_order",
+        "description",
+        "service_count"
+      ],
+      "properties": {
+        "category_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "Display name for category section"
+        },
+        "tag_pattern": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "Tag pattern defining membership (e.g., 'hmrc', 'nhs + booking')"
+        },
+        "display_order": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 999,
+          "description": "Sort order in config.yaml (1=highest priority)"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "description": "YAML comment text explaining category"
+        },
+        "service_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of services in this category"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
