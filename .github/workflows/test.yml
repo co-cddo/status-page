@@ -36,8 +36,31 @@ jobs:
         run: pnpm run test:unit
         continue-on-error: false
 
+      # Cache Playwright browsers to speed up CI builds (issue #33)
+      # Cache key is based on Playwright version from package.json for proper invalidation
+      - name: Get installed Playwright version
+        id: playwright-version
+        run: |
+          PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@playwright/test'])")
+          echo "PLAYWRIGHT_VERSION=$PLAYWRIGHT_VERSION" >> $GITHUB_ENV
+          echo "Playwright version: $PLAYWRIGHT_VERSION"
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+
+      # Install browsers only if cache miss; always install OS dependencies
       - name: Install Playwright browsers
         run: pnpx playwright install --with-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      - name: Install Playwright OS dependencies
+        run: pnpx playwright install-deps
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
 
       - name: Generate test health data
         run: timeout 90 pnpm run check-once || true
