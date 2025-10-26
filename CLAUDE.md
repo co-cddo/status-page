@@ -223,7 +223,7 @@ available)
 
 ## Constitutional Compliance
 
-This project adheres to strict governance principles in `.specify/memory/constitution.md` (v1.3.0):
+This project adheres to strict governance principles in `.specify/memory/constitution.md` (v1.5.0):
 
 ### Critical Principles
 
@@ -308,6 +308,28 @@ This project adheres to strict governance principles in `.specify/memory/constit
 - Database interactions MUST use in-memory databases or test fixtures
 - Time-based tests MUST use controllable clock mocking
 - No real API keys, credentials, or external service endpoints in test code
+
+**XI. Continuous Integration Workflow (NON-NEGOTIABLE)**
+
+- Push to GitHub regularly throughout development (minimum: after each task or every 2-4 hours)
+- Use `gh` CLI to monitor CI status after each push
+- MUST check CI status before ending work session - never leave broken builds
+- MUST fix failing CI checks immediately or revert breaking commits
+- Work-in-progress commits acceptable with conventional prefixes (`wip:`, `test:`, `fix:`)
+- CI failures are blocking issues - never ignore or defer
+
+**XII. Efficient Context Management via Subagents (NON-NEGOTIABLE)**
+
+- When using `gh` CLI with polling operations (`gh run watch`, `gh pr checks --watch`), MUST
+  delegate to subagent using Task tool
+- Subagent polls aggressively until completion and returns comprehensive results
+- Main agent continues productive work while subagent monitors in background
+- Apply to: GitHub Actions monitoring, PR status checking, deployment monitoring, any operation
+  requiring repeated checks with sleep/delay intervals
+- Implementation: Use Task tool with subagent_type=general-purpose with detailed monitoring
+  instructions
+- Rationale: Preserves main agent context for productive work, maximizes efficiency during CI/CD
+  operations
 
 ## Development Workflow
 
