@@ -85,6 +85,7 @@ describe('Smoke Test Comment Formatting (US6)', () => {
     expect(comment).toMatch(/passed.*2/i);
     expect(comment).toMatch(/degraded.*1/i);
     expect(comment).toMatch(/failed.*2/i);
+    expect(comment).toMatch(/pending.*0/i); // No pending in this test
   });
 
   test('includes warning section for widespread failures', () => {
