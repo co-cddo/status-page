@@ -17,8 +17,8 @@ import { readFileSync, writeFileSync } from 'fs';
 interface ValidationResult {
   url: string;
   canonical_url: string;
-  validation_passed: boolean;
-  http_status: number;
+  validation_passed?: boolean;
+  http_status?: number;
 }
 
 interface TagTaxonomy {
@@ -238,7 +238,9 @@ function applyTags(
   const taggedServices: TaggedService[] = [];
 
   for (const service of services) {
-    if (!service.validation_passed) {
+    // Skip only if validation_passed field exists AND is false
+    // If field doesn't exist, treat as passed (for discovery data without validation)
+    if ('validation_passed' in service && !service.validation_passed) {
       continue; // Skip failed validations
     }
 
@@ -297,6 +299,20 @@ function main() {
 
   console.log(`Reading taxonomy from: ${taxonomyFile}`);
   const taxonomy = JSON.parse(readFileSync(taxonomyFile, 'utf-8'));
+
+  // Validate input structure
+  if (!Array.isArray(services) || services.length === 0) {
+    console.error('ERROR: Input file must contain non-empty array');
+    process.exit(1);
+  }
+
+  // Check for optional validation_passed field
+  const hasValidationField = services.some(s => 'validation_passed' in s);
+  const skipCount = services.filter(s => 'validation_passed' in s && !s.validation_passed).length;
+  console.log(`Input structure check: ${hasValidationField ? 'validation_passed field present' : 'validation_passed field MISSING (treating all as valid)'}`);
+  if (skipCount > 0) {
+    console.log(`  Will skip ${skipCount} services with validation_passed=false`);
+  }
 
   console.log(`Applying tags to ${services.length} services...`);
   const taggedServices = applyTags(services, taxonomy);

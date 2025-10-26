@@ -20,8 +20,8 @@ interface TaggedService {
   criticality: string;
   geography: string[];
   tags: string[];
-  http_status: number;
-  validation_passed: boolean;
+  http_status?: number;  // Optional - may not be present in discovery data
+  validation_passed?: boolean;  // Optional - may not be present in discovery data
 }
 
 interface ServiceEntry {
@@ -136,7 +136,8 @@ function transformToEntries(services: TaggedService[]): ServiceEntry[] {
   const nameSet = new Set<string>();
 
   for (const service of services) {
-    if (!service.validation_passed) {
+    // Skip only if explicitly marked as validation failed (not just missing field)
+    if (service.validation_passed === false) {
       continue; // Skip failed services
     }
 
@@ -159,7 +160,7 @@ function transformToEntries(services: TaggedService[]): ServiceEntry[] {
       resource: service.canonical_url,
       tags: service.tags,
       expected: {
-        status: service.http_status,
+        status: service.http_status || 200, // Default to 200 if not validated yet
       },
       interval: getCheckInterval(service.criticality),
       warning_threshold: getWarningThreshold(service.criticality),
