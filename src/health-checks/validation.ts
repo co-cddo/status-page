@@ -47,9 +47,13 @@ export function validateStatusCode(
  * @param pattern Text pattern (e.g., "Welcome" or "!error")
  * @returns Parsed pattern with inverse flag and text, or validation error
  */
-function parseTextPattern(pattern: string): { isInverse: boolean; text: string } | { error: string } {
+function parseTextPattern(
+  pattern: string
+): { isInverse: boolean; text: string } | { error: string } {
   if (pattern === '!' || pattern.startsWith('!!')) {
-    return { error: `Invalid inverse pattern '${pattern}' - use '!text' to check text is NOT present` };
+    return {
+      error: `Invalid inverse pattern '${pattern}' - use '!text' to check text is NOT present`,
+    };
   }
 
   if (pattern.startsWith('!')) {

@@ -1,10 +1,10 @@
 settings:
-  check_interval: 300  # Default seconds between checks (5 minutes)
-  warning_threshold: 2  # Seconds before status becomes DEGRADED
-  timeout: 10  # Seconds before request fails
-  page_refresh: 300  # Browser auto-refresh interval (seconds)
-  max_retries: 3  # Retry attempts for failed requests
-  worker_pool_size: 0  # 0 = auto-detect (2x CPU cores)
+  check_interval: 300 # Default seconds between checks (5 minutes)
+  warning_threshold: 2 # Seconds before status becomes DEGRADED
+  timeout: 10 # Seconds before request fails
+  page_refresh: 300 # Browser auto-refresh interval (seconds)
+  max_retries: 3 # Retry attempts for failed requests
+  worker_pool_size: 0 # 0 = auto-detect (2x CPU cores)
 
 # TEXT VALIDATION:
 # Services with 'text:' perform case-sensitive substring matching on page content.
@@ -1106,7 +1106,7 @@ pings:
       - home-office
     expected:
       status: 200
-      text: "eVisas: access and use your online immigration status"
+      text: 'eVisas: access and use your online immigration status'
   - name: UK Intellectual Property Office - Trademarks
     protocol: HTTPS
     method: GET
@@ -2049,8 +2049,8 @@ pings:
     method: POST
     resource: https://www.findapprenticeship.service.gov.uk/
     payload:
-      what: ""
-      where: ""
+      what: ''
+      where: ''
     tags:
       - apprenticeships
       - education
@@ -2066,7 +2066,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/
     payload:
-      q: ""
+      q: ''
     tags:
       - portal
       - main

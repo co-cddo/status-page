@@ -107,13 +107,17 @@ describe('validateResponseText', () => {
     it('should reject empty forbidden text (inverse)', () => {
       const result = validateResponseText('Some content', '!');
       expect(result.valid).toBe(false);
-      expect(result.error).toBe("Invalid inverse pattern '!' - use '!text' to check text is NOT present");
+      expect(result.error).toBe(
+        "Invalid inverse pattern '!' - use '!text' to check text is NOT present"
+      );
     });
 
     it('should reject double negation (!!)', () => {
       const result = validateResponseText('Some content', '!!error');
       expect(result.valid).toBe(false);
-      expect(result.error).toBe("Invalid inverse pattern '!!error' - use '!text' to check text is NOT present");
+      expect(result.error).toBe(
+        "Invalid inverse pattern '!!error' - use '!text' to check text is NOT present"
+      );
     });
 
     it('should reject triple negation (!!!)', () => {
