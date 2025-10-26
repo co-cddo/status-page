@@ -48,7 +48,10 @@ _data/services.json
 
 # Temporary documentation and analysis files
 # Prevent accidental commit of development/review artifacts
-*_SUMMARY.md
-*_FINDINGS.md
+# NOTE: Use hyphenated patterns to avoid false positives with legitimate files
+# (e.g., API_SUMMARY.md would be incorrectly ignored by *_SUMMARY.md)
+# Patterns match hyphenated temporary files and OODA review artifacts
 *-summary-*.md
 OODA_CYCLE_*.md
+OODA_*_FINDINGS.md
+OODA_*_SUMMARY.md
