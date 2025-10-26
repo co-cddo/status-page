@@ -963,7 +963,7 @@ describe('Eleventy Runner', () => {
         tags: [`tag-${i % 10}`],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       }));
 
       const mockProcess = {

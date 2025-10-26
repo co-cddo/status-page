@@ -116,7 +116,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: ['test', 'example'],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -137,7 +137,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: null,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -158,7 +158,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: ['performance'],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -179,7 +179,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: ['critical'],
         http_status_code: 0,
         failure_reason: 'Connection timeout',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -200,7 +200,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -221,7 +221,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: ['critical'],
         http_status_code: 0,
         failure_reason: 'Connection timeout',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
       {
         name: 'Degraded Service',
@@ -231,7 +231,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: ['performance'],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
       {
         name: 'Healthy Service',
@@ -241,7 +241,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: ['stable'],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
       {
         name: 'New Service',
@@ -251,7 +251,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: null,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -272,7 +272,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 0,
         failure_reason: 'Error',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
       {
         name: 'Degraded Service',
@@ -282,7 +282,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
       {
         name: 'Healthy Service',
@@ -292,7 +292,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
       {
         name: 'New Service',
@@ -302,7 +302,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: null,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -354,7 +354,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -374,7 +374,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -393,7 +393,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -414,7 +414,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 999,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -435,7 +435,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -458,7 +458,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: null,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -485,7 +485,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -506,7 +506,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: ['valid-tag', ''], // Empty tag not allowed
         http_status_code: 200,
         failure_reason: '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -525,7 +525,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 500,
         failure_reason: 'Expected status 200, got 500. Response: "Internal Server Error"',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -547,7 +547,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 0,
         failure_reason: 'Connection refused',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -564,7 +564,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: [],
         http_status_code: 599,
         failure_reason: 'Network Connect Timeout Error',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       },
     ];
 
@@ -583,7 +583,7 @@ describe('Health JSON Contract (US1)', () => {
         tags: i % 2 === 0 ? ['tag1', 'tag2'] : [],
         http_status_code: i % 4 === 3 ? null : 200,
         failure_reason: i % 4 === 0 ? 'Error' : '',
-          resource: 'https://test.example.com',
+        resource: 'https://test.example.com',
       });
     }
 
