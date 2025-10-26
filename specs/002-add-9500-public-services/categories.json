@@ -1,0 +1,125 @@
+{
+  "version": "1.0.0",
+  "categories": [
+    {
+      "category_name": "NHS Emergency & Urgent Care",
+      "tag_pattern": "nhs + emergency",
+      "display_order": 1,
+      "description": "Life-critical NHS emergency and urgent care services (NHS 111, A&E, urgent care)",
+      "tier": 1,
+      "check_interval": 60
+    },
+    {
+      "category_name": "Emergency Services (Police/Fire/Ambulance)",
+      "tag_pattern": "emergency",
+      "display_order": 2,
+      "description": "Life-critical emergency services including police, fire, and ambulance",
+      "tier": 1,
+      "check_interval": 60
+    },
+    {
+      "category_name": "GOV.UK Core Platform Services",
+      "tag_pattern": "gds",
+      "display_order": 3,
+      "description": "Core GOV.UK platform services (GOV.UK Pay, Notify, Verify)",
+      "tier": 1,
+      "check_interval": 60
+    },
+    {
+      "category_name": "HMRC Tax Services",
+      "tag_pattern": "hmrc",
+      "display_order": 4,
+      "description": "HM Revenue & Customs tax and revenue services",
+      "tier": 2,
+      "check_interval": 300
+    },
+    {
+      "category_name": "DVLA Licensing & Vehicle Services",
+      "tag_pattern": "dvla",
+      "display_order": 5,
+      "description": "Driver and Vehicle Licensing Agency services",
+      "tier": 2,
+      "check_interval": 300
+    },
+    {
+      "category_name": "DWP Benefits & Pensions",
+      "tag_pattern": "dwp",
+      "display_order": 6,
+      "description": "Department for Work and Pensions benefits and pensions services",
+      "tier": 2,
+      "check_interval": 300
+    },
+    {
+      "category_name": "Home Office Immigration & Passports",
+      "tag_pattern": "home-office",
+      "display_order": 7,
+      "description": "Home Office immigration, passports, and visa services",
+      "tier": 2,
+      "check_interval": 300
+    },
+    {
+      "category_name": "NHS Routine Healthcare Services",
+      "tag_pattern": "nhs",
+      "display_order": 8,
+      "description": "Routine NHS healthcare services (booking, GP access, patient records)",
+      "tier": 2,
+      "check_interval": 300
+    },
+    {
+      "category_name": "MOJ/HMCTS Court & Tribunal Services",
+      "tag_pattern": "moj | hmcts",
+      "display_order": 9,
+      "description": "Ministry of Justice and HM Courts & Tribunals services",
+      "tier": 3,
+      "check_interval": 900
+    },
+    {
+      "category_name": "DfE Education & Student Finance",
+      "tag_pattern": "dfe",
+      "display_order": 10,
+      "description": "Department for Education and student finance services",
+      "tier": 3,
+      "check_interval": 900
+    },
+    {
+      "category_name": "DEFRA Agriculture & Environment",
+      "tag_pattern": "defra",
+      "display_order": 11,
+      "description": "Department for Environment, Food & Rural Affairs services",
+      "tier": 3,
+      "check_interval": 900
+    },
+    {
+      "category_name": "Local Government Shared Platforms",
+      "tag_pattern": "local-government",
+      "display_order": 12,
+      "description": "Local government shared platforms and services",
+      "tier": 3,
+      "check_interval": 900
+    },
+    {
+      "category_name": "Companies House & Intellectual Property",
+      "tag_pattern": "companies-house | ipo",
+      "display_order": 13,
+      "description": "Companies House and Intellectual Property Office services",
+      "tier": 3,
+      "check_interval": 900
+    },
+    {
+      "category_name": "Third-Party Contracted Services",
+      "tag_pattern": "third-party",
+      "display_order": 14,
+      "description": "Third-party contracted service providers",
+      "tier": 3,
+      "check_interval": 900
+    },
+    {
+      "category_name": "Other Government Services",
+      "tag_pattern": "other-government",
+      "display_order": 15,
+      "description": "Other government department services",
+      "tier": 3,
+      "check_interval": 900
+    }
+  ]
+}
