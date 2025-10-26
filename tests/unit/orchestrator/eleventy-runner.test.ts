@@ -566,6 +566,7 @@ describe('Eleventy Runner', () => {
           tags: [],
           http_status_code: 200,
           failure_reason: '',
+          resource: 'https://example.com',
         },
       ];
 
