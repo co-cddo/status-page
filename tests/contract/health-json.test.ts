@@ -48,6 +48,7 @@ describe('Health JSON Contract (US1)', () => {
         'tags',
         'http_status_code',
         'failure_reason',
+        'resource',
       ],
       properties: {
         name: {
@@ -80,9 +81,12 @@ describe('Health JSON Contract (US1)', () => {
           maximum: 599,
         },
         failure_reason: {
-          resource: 'https://test.example.com',
           type: 'string',
           default: '',
+        },
+        resource: {
+          type: 'string',
+          format: 'uri',
         },
       },
       additionalProperties: false,
