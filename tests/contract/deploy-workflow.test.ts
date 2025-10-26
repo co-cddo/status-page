@@ -144,8 +144,9 @@ describe('Deploy Workflow Contract (US7)', () => {
 
     const workflowString = JSON.stringify(workflow);
 
-    // Check for inlining step
-    expect(workflowString.includes('inline') || workflowString.includes('post-build')).toBe(true);
+    // Check for build command which includes inlining step
+    // Post-build inlining is now part of the consolidated 'pnpm run build' command
+    expect(workflowString.includes('pnpm run build')).toBe(true);
   });
 
   test('workflow deploys to GitHub Pages', () => {
