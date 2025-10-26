@@ -89,7 +89,7 @@ describe('generateHealthCheckTable', () => {
     // Default max length is 100, plus ellipsis
     const reasonMatch = table.match(/\| ([A]{1,150})/);
     expect(reasonMatch).toBeDefined();
-    if (reasonMatch) {
+    if (reasonMatch && reasonMatch[1]) {
       expect(reasonMatch[1].length).toBeLessThanOrEqual(103); // 100 + '...'
     }
   });
@@ -102,7 +102,7 @@ describe('generateHealthCheckTable', () => {
 
     const reasonMatch = table.match(/\| ([B]{1,100})/);
     expect(reasonMatch).toBeDefined();
-    if (reasonMatch) {
+    if (reasonMatch && reasonMatch[1]) {
       expect(reasonMatch[1].length).toBeLessThanOrEqual(53); // 50 + '...'
     }
   });
