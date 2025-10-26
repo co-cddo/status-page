@@ -1,30 +1,33 @@
 <!--
-Sync Impact Report - Version 1.4.0
+Sync Impact Report - Version 1.5.0
 ================================================================================
-Version Change: 1.3.0 → 1.4.0
-Rationale: MINOR version - Added new CI/CD workflow principle (XI) regarding
-           regular GitHub pushes and continuous CI status monitoring
+Version Change: 1.4.0 → 1.5.0
+Rationale: MINOR version - Added new Principle XII regarding efficient context
+           usage through subagent delegation for polling operations
 
 Modified Principles: None
 
 Added Sections:
-- Principle XI: Continuous Integration Workflow (NON-NEGOTIABLE)
-  Impact: Requires regular GitHub pushes and CI status monitoring via gh CLI
+- Principle XII: Efficient Context Management via Subagents (NON-NEGOTIABLE)
+  Impact: Requires delegation of polling/monitoring operations to subagents
+  to preserve main agent context for productive work
 
 Removed Sections: None
 
 Templates Status:
-✅ plan-template.md - No changes required (CI/CD approach already documented)
+✅ plan-template.md - No changes required (subagent usage is execution detail)
 ✅ spec-template.md - No changes required (testing requirements comprehensive)
-✅ tasks-template.md - No changes required (CI workflow implicit in process)
-✅ CLAUDE.md - Should reference new CI workflow principle
+✅ tasks-template.md - No changes required (task execution strategy implicit)
+✅ CLAUDE.md - Should reference new subagent principle for gh CLI monitoring
 
 Follow-up TODOs:
 - RATIFICATION_DATE placeholder retained as TODO - requires project owner decision
-- Update CLAUDE.md to reference Principle XI for CI workflow guidance
-- Add GitHub Actions workflow examples demonstrating gh CLI usage
+- Update CLAUDE.md to reference Principle XII for CI/CD monitoring guidance
+- Update CI/CD operations section in constitution (lines 440-517) to recommend
+  subagent delegation for gh run watch and gh pr checks --watch operations
 
 Previous Amendment History:
+- v1.4.0 (2025-10-23): Added Principle XI for CI/CD workflow with regular pushes
 - v1.3.0 (2025-10-23): Added Principles IX and X for test discipline
 - v1.2.0 (2025-10-23): Expanded Principle III with 100% test pass requirement
 - v1.1.0 (2025-10-22): Expanded CI/CD monitoring operations via gh CLI
@@ -289,6 +292,48 @@ risk of data loss. Government services require disciplined CI/CD practices to ma
 and deployment reliability. Broken CI builds represent integration failures that MUST be addressed
 immediately.
 
+### XII. Efficient Context Management via Subagents (NON-NEGOTIABLE)
+
+When monitoring long-running operations (CI builds, deployments, polling operations), MUST delegate
+to specialized subagents to preserve main agent context for productive work.
+
+**Requirements**:
+
+- When using `gh` CLI with polling commands (`gh run watch`, `gh pr checks --watch`) that require
+  repeated checking or sleep intervals, MUST delegate to a subagent using the Task tool
+- Subagent MUST be configured to aggressively poll the operation until completion
+- Subagent MUST return comprehensive results (status, logs, errors, duration) to main agent context
+  only when operation completes
+- Main agent MUST continue productive work while subagent polls in background
+- Subagent MUST use appropriate timeout parameters on bash commands to fail fast on stalled
+  operations
+- Apply to operations including but not limited to:
+  - GitHub Actions workflow monitoring (`gh run watch`)
+  - PR status checking with waiting (`gh pr checks --watch`)
+  - Deployment status monitoring with polling
+  - Any operation requiring repeated checks with sleep/delay intervals
+
+**Implementation Pattern**:
+
+```markdown
+# Main agent delegates polling to subagent
+
+Task tool with subagent_type=general-purpose: "Monitor GitHub Actions workflow run <run-id> using
+'gh run watch' and 'gh run view --log-failed' until completion. Poll aggressively with appropriate
+timeouts. Return final status, execution time, and any error logs. Do not return until operation
+completes or fails definitively."
+
+# Main agent continues with other tasks while subagent polls
+
+# Later, main agent retrieves results when needed
+```
+
+**Rationale**: Long-running polling operations consume main agent context with repetitive status
+checks and sleep intervals, reducing capacity for productive implementation work. Delegating to
+subagents maximizes context efficiency, enables parallel work, and ensures comprehensive monitoring
+without blocking progress. This is critical for government services requiring efficient resource
+usage and rapid iteration during CI/CD operations.
+
 ## Development Standards
 
 ### Code Review Requirements
@@ -442,6 +487,9 @@ permissions:
 Use gh CLI commands for monitoring and troubleshooting CI/CD workflows. These commands provide
 real-time visibility into build status, test results, and deployment health.
 
+**IMPORTANT**: For operations requiring polling or repeated checks (marked with ⚠️ DELEGATE), follow
+Principle XII and delegate to a subagent to preserve main agent context.
+
 **Check workflow runs status**:
 
 ```bash
@@ -452,7 +500,8 @@ gh run list --limit 20
 gh run list --workflow=test.yml --limit 10
 gh run list --workflow=deploy.yml --limit 10
 
-# Watch a workflow run in real-time
+# ⚠️ DELEGATE: Watch a workflow run in real-time
+# Use Task tool with subagent to monitor until completion
 gh run watch <run-id>
 
 # View workflow run details and logs
@@ -471,7 +520,8 @@ gh pr checks <pr-number>
 # List all open PRs with status
 gh pr list --state open
 
-# View specific PR CI check details
+# ⚠️ DELEGATE: View specific PR CI check details with watching
+# Use Task tool with subagent to monitor until completion
 gh pr checks <pr-number> --watch  # Watch checks in real-time
 ```
 
@@ -514,7 +564,8 @@ gh run list --workflow=deploy.yml --limit 1 --json status,conclusion --jq '.[0]'
 
 **Rationale**: CI/CD visibility is critical for maintaining service reliability. gh CLI provides
 standardized, scriptable access to workflow status without requiring web UI access, enabling
-automated monitoring, alerting, and troubleshooting.
+automated monitoring, alerting, and troubleshooting. Subagent delegation for polling operations
+(Principle XII) maximizes context efficiency while maintaining comprehensive monitoring.
 
 ## Governance
 
@@ -545,11 +596,11 @@ Constitution amendments require:
 
 ### Versioning Policy
 
-**Current Version**: 1.4.0
+**Current Version**: 1.5.0
 
 - **MAJOR** version: Backward-incompatible governance changes
 - **MINOR** version: New principles or expanded guidance
 - **PATCH** version: Clarifications and non-semantic refinements
 
-**Version**: 1.4.0 | **Ratified**: TODO(RATIFICATION_DATE): Requires project owner decision | **Last
-Amended**: 2025-10-23
+**Version**: 1.5.0 | **Ratified**: TODO(RATIFICATION_DATE): Requires project owner decision | **Last
+Amended**: 2025-10-26
