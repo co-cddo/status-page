@@ -6,8 +6,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   test: {
-    // Environment
+    // Environment - use jsdom for client tests, node for server tests
     environment: 'node',
+    environmentMatchGlobs: [
+      // Client-side tests run in jsdom (browser environment)
+      ['tests/unit/client/**', 'jsdom'],
+      ['assets/**/*.test.ts', 'jsdom'],
+    ],
 
     // Global setup
     globals: true,
