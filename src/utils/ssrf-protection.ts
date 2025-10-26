@@ -42,40 +42,92 @@ export function validateUrlForSSRF(url: string, options?: { skipValidation?: boo
 
   const hostname = parsed.hostname.toLowerCase();
 
+  // Strip IPv6 brackets if present (e.g., '[::1]' -> '::1')
+  // Node.js URL parser keeps brackets in hostname for IPv6 addresses per RFC 3986
+  // This allows us to use consistent string matching for both IPv4 and IPv6 addresses
+  const cleanedHostname =
+    hostname.startsWith('[') && hostname.endsWith(']') ? hostname.slice(1, -1) : hostname;
+
+  // Block IPv4-mapped IPv6 addresses (::ffff:0:0/96)
+  // These can bypass SSRF protection by tunneling IPv4 addresses through IPv6
+  // Example: [::ffff:127.0.0.1] allows access to localhost via IPv6
+  // SECURITY: Block ALL IPv4-mapped addresses (not just private ones)
+  // - These address formats are extremely rare in legitimate HTTP URLs
+  // - If accessing public services, users should use normal IPv4 or native IPv6
+  // - Defense-in-depth: eliminate this entire attack vector
+  if (cleanedHostname.includes(':')) {
+    const lowerHostname = cleanedHostname.toLowerCase();
+    // IPv4-mapped addresses MUST start with ::ffff: (not just contain :ffff: anywhere)
+    // This prevents false positives like febf::ffff:ffff:ffff:ffff (link-local)
+    if (lowerHostname.startsWith('::ffff:')) {
+      throw new Error(`Blocked: IPv4-mapped IPv6 address access not allowed: ${url}`);
+    }
+  }
+
+  // Block IPv4-compatible IPv6 addresses (::x.x.x.x format, deprecated but still supported)
+  // These are deprecated per RFC 4291 but still work on many systems
+  // Example: [::127.0.0.1] allows access to localhost via IPv6
+  // SECURITY: Must check this BEFORE other validations as it bypasses all IPv4 checks
+  if (
+    cleanedHostname.startsWith('::') &&
+    cleanedHostname.length >= 3 &&
+    !cleanedHostname.includes('::ffff:') && // Not IPv4-mapped (already handled)
+    cleanedHostname !== '::1' && // Not standard localhost
+    cleanedHostname !== '::'
+  ) {
+    // Not unspecified
+    // IPv4-compatible addresses are in format :: followed by hex representation
+    // They should be blocked as a security precaution
+    throw new Error(`Blocked: IPv4-compatible IPv6 address access not allowed: ${url}`);
+  }
+
   // Block localhost variants
   if (
-    hostname === 'localhost' ||
-    hostname === '127.0.0.1' ||
-    hostname === '::1' ||
-    hostname === '0.0.0.0' ||
-    hostname === '::' ||
-    hostname.startsWith('127.') ||
-    hostname.startsWith('0.')
+    cleanedHostname === 'localhost' ||
+    cleanedHostname === '127.0.0.1' ||
+    cleanedHostname === '::1' ||
+    cleanedHostname === '0.0.0.0' ||
+    cleanedHostname === '::' ||
+    cleanedHostname.startsWith('127.') ||
+    cleanedHostname.startsWith('0.')
   ) {
     throw new Error(`Blocked: Localhost access not allowed: ${url}`);
   }
 
   // Block link-local addresses (169.254.0.0/16 - AWS metadata service)
-  if (hostname.startsWith('169.254.')) {
+  if (cleanedHostname.startsWith('169.254.')) {
     throw new Error(`Blocked: Link-local address access not allowed: ${url}`);
   }
 
   // Block private IP ranges (RFC 1918)
   if (
-    hostname.startsWith('10.') || // 10.0.0.0/8
-    hostname.startsWith('192.168.') || // 192.168.0.0/16
-    isPrivateIPv4Range172(hostname) // 172.16.0.0/12
+    cleanedHostname.startsWith('10.') || // 10.0.0.0/8
+    cleanedHostname.startsWith('192.168.') || // 192.168.0.0/16
+    isPrivateIPv4Range172(cleanedHostname) // 172.16.0.0/12
   ) {
     throw new Error(`Blocked: Private IP range access not allowed: ${url}`);
   }
 
   // Block IPv6 private/link-local ranges
-  if (
-    hostname.startsWith('fc00:') || // Unique local addresses
-    hostname.startsWith('fd00:') || // Unique local addresses
-    hostname.startsWith('fe80:') // Link-local addresses
-  ) {
-    throw new Error(`Blocked: Private IPv6 address access not allowed: ${url}`);
+  // IPv6 addresses use bracket notation in URLs, but cleanedHostname has brackets stripped
+  // Check if it's an IPv6 address (contains colons)
+  if (cleanedHostname.includes(':')) {
+    // fc00::/7 - Unique local addresses (includes both fc and fd prefixes)
+    // This covers fc00::/8 through fdff::/8
+    if (cleanedHostname.startsWith('fc') || cleanedHostname.startsWith('fd')) {
+      throw new Error(`Blocked: Private IPv6 address access not allowed: ${url}`);
+    }
+
+    // fe80::/10 - Link-local addresses
+    // Covers fe80:: through febf::
+    if (
+      cleanedHostname.startsWith('fe8') ||
+      cleanedHostname.startsWith('fe9') ||
+      cleanedHostname.startsWith('fea') ||
+      cleanedHostname.startsWith('feb')
+    ) {
+      throw new Error(`Blocked: Private IPv6 address access not allowed: ${url}`);
+    }
   }
 
   // Block common cloud metadata endpoints
@@ -87,12 +139,12 @@ export function validateUrlForSSRF(url: string, options?: { skipValidation?: boo
     'consul', // Consul service discovery
   ];
 
-  if (blockedHostnames.includes(hostname)) {
-    throw new Error(`Blocked: Access to ${hostname} not allowed: ${url}`);
+  if (blockedHostnames.includes(cleanedHostname)) {
+    throw new Error(`Blocked: Access to ${cleanedHostname} not allowed: ${url}`);
   }
 
   // Block wildcard DNS that might resolve to internal IPs
-  if (hostname.endsWith('.internal') || hostname.endsWith('.local')) {
+  if (cleanedHostname.endsWith('.internal') || cleanedHostname.endsWith('.local')) {
     throw new Error(`Blocked: Internal/local domain access not allowed: ${url}`);
   }
 }

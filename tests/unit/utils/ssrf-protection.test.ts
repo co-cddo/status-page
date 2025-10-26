@@ -160,8 +160,32 @@ describe('SSRF Protection', () => {
       );
     });
 
-    // NOTE: IPv6 localhost (::1) test removed - see new issue for IPv6 SSRF security gaps
-    // Node.js URL parser keeps brackets in hostname ([::1] not ::1), causing checks to fail
+    it('should reject IPv6 localhost (::1)', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv6 addresses in URLs use bracket notation
+      expect(() => validateUrlForSSRF('http://[::1]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('https://[::1]:8080')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::1]/api')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+    });
+
+    it('should reject IPv6 localhost variants', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv6 loopback can be written in various forms
+      expect(() => validateUrlForSSRF('http://[0:0:0:0:0:0:0:1]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[0000:0000:0000:0000:0000:0000:0000:0001]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+    });
 
     it('should reject 0.0.0.0', () => {
       process.env.NODE_ENV = 'production';
@@ -179,7 +203,20 @@ describe('SSRF Protection', () => {
       );
     });
 
-    // NOTE: IPv6 unspecified address (::) test removed - see issue for IPv6 SSRF gaps
+    it('should reject IPv6 unspecified address (::)', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv6 all-zeros address (equivalent to 0.0.0.0)
+      expect(() => validateUrlForSSRF('http://[::]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('https://[::]:3000')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[0:0:0:0:0:0:0:0]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+    });
   });
 
   describe('Link-Local Address Blocking', () => {
@@ -264,9 +301,195 @@ describe('SSRF Protection', () => {
     });
   });
 
-  // NOTE: Private IPv6 range blocking tests removed - see new issue for IPv6 SSRF security gaps
-  // Current implementation has checks for fc00:, fd00:, and fe80: prefixes but they don't
-  // work correctly with URL parsing. This is a security gap that needs investigation.
+  describe('IPv4-Mapped IPv6 Address Blocking (::ffff:0:0/96)', () => {
+    it('should reject IPv4-mapped localhost addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv4-mapped format: ::ffff:x.x.x.x
+      expect(() => validateUrlForSSRF('http://[::ffff:127.0.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::ffff:127.1.1.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::FFFF:127.0.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv4-mapped private IP addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // 10.0.0.0/8
+      expect(() => validateUrlForSSRF('http://[::ffff:10.0.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      // 192.168.0.0/16
+      expect(() => validateUrlForSSRF('http://[::ffff:192.168.1.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      // 172.16.0.0/12
+      expect(() => validateUrlForSSRF('http://[::ffff:172.20.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv4-mapped link-local addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // AWS metadata endpoint via IPv4-mapped
+      expect(() => validateUrlForSSRF('http://[::ffff:169.254.169.254]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::ffff:169.254.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+    });
+
+    it('should block ALL IPv4-mapped addresses (including public) for security', () => {
+      process.env.NODE_ENV = 'production';
+
+      // SECURITY: Block ALL IPv4-mapped addresses as defense-in-depth
+      // These are extremely rare in legitimate HTTP URLs
+      // Users should use normal IPv4 (8.8.8.8) or native IPv6 instead
+      expect(() => validateUrlForSSRF('http://[::ffff:8.8.8.8]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::ffff:1.1.1.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+    });
+  });
+
+  describe('IPv4-Compatible IPv6 Address Blocking (deprecated)', () => {
+    it('should reject IPv4-compatible localhost addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv4-compatible format: ::x.x.x.x (deprecated but still supported)
+      expect(() => validateUrlForSSRF('http://[::127.0.0.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::127.1.1.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv4-compatible private IP addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // 10.0.0.0/8
+      expect(() => validateUrlForSSRF('http://[::10.0.0.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+      // 192.168.0.0/16
+      expect(() => validateUrlForSSRF('http://[::192.168.1.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+      // 172.16.0.0/12
+      expect(() => validateUrlForSSRF('http://[::172.20.0.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv4-compatible link-local addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      expect(() => validateUrlForSSRF('http://[::169.254.169.254]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+    });
+
+    it('should block ALL IPv4-compatible addresses (including public) for security', () => {
+      process.env.NODE_ENV = 'production';
+
+      // SECURITY: Block ALL IPv4-compatible addresses as defense-in-depth
+      // These are deprecated (RFC 4291) and extremely rare in legitimate HTTP URLs
+      // Users should use normal IPv4 (8.8.8.8) or native IPv6 instead
+      expect(() => validateUrlForSSRF('http://[::8.8.8.8]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::1.1.1.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+    });
+  });
+
+  describe('Private IPv6 Range Blocking', () => {
+    it('should reject IPv6 unique local addresses (fc00::/7 range)', () => {
+      process.env.NODE_ENV = 'production';
+
+      // fc00::/7 includes both fc00::/8 and fd00::/8
+      expect(() => validateUrlForSSRF('http://[fc00::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[fc00:1234:5678:9abc:def0:1234:5678:9abc]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('https://[fc00::1]:8080/api')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv6 unique local addresses (fd00::/8 range)', () => {
+      process.env.NODE_ENV = 'production';
+
+      expect(() => validateUrlForSSRF('http://[fd00::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[fd12:3456:789a:bcde:f012:3456:789a:bcde]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('https://[fdff:ffff:ffff:ffff:ffff:ffff:ffff:ffff]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv6 link-local addresses (fe80::/10 range)', () => {
+      process.env.NODE_ENV = 'production';
+
+      expect(() => validateUrlForSSRF('http://[fe80::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[fe80::1234:5678:90ab:cdef]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[fe8a::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[febf::ffff:ffff:ffff:ffff]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv6 addresses with various formatting', () => {
+      process.env.NODE_ENV = 'production';
+
+      // Leading zeros
+      expect(() => validateUrlForSSRF('http://[fc00:0000:0000:0000:0000:0000:0000:0001]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+
+      // Mixed case (should be case-insensitive)
+      expect(() => validateUrlForSSRF('http://[FC00::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[FD00::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[FE80::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+    });
+
+    it('should allow public IPv6 addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // Public IPv6 addresses (should not be blocked)
+      expect(() => validateUrlForSSRF('http://[2001:db8::1]')).not.toThrow(); // Documentation prefix
+      expect(() => validateUrlForSSRF('http://[2606:4700:4700::1111]')).not.toThrow(); // Cloudflare DNS
+      expect(() => validateUrlForSSRF('http://[2001:4860:4860::8888]')).not.toThrow(); // Google DNS
+    });
+  });
 
   describe('Cloud Metadata Endpoint Blocking', () => {
     it('should reject AWS metadata endpoint (169.254.169.254)', () => {
