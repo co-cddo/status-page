@@ -15,10 +15,15 @@ jobs:
   test:
     name: Run All Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 20 # Prevent runaway jobs (normal execution ~7 minutes)
     # Use official Playwright Docker image with pre-installed browsers and system dependencies
     # This eliminates ~3 minutes of system dependency installation per CI run (issue #33)
+    # Image variant: 'noble' (Ubuntu 24.04) for latest security patches and Node.js compatibility
     container:
       image: mcr.microsoft.com/playwright:v1.56.1-noble
+      # Run as UID 1001 to match GitHub Actions runner user for proper file permissions
+      # This prevents permission errors when accessing checked-out code and cache directories
+      # Security: Non-root execution per least-privilege principle (FR-037a)
       options: --user 1001
 
     steps:
@@ -45,6 +50,24 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Validate Playwright version synchronization
+        run: |
+          # Ensure Docker container version matches package.json to prevent version drift
+          PACKAGE_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@playwright/test'].replace('^', '').replace('~', ''))")
+          CONTAINER_VERSION="1.56.1"  # Must match container image version above
+
+          if [ "$PACKAGE_VERSION" != "$CONTAINER_VERSION" ]; then
+            echo "❌ ERROR: Playwright version mismatch detected!"
+            echo "   Package.json: @playwright/test ^$PACKAGE_VERSION"
+            echo "   Container:    mcr.microsoft.com/playwright:v$CONTAINER_VERSION-noble"
+            echo ""
+            echo "   Action required: Update container image version in .github/workflows/test.yml line 23"
+            echo "   Change 'mcr.microsoft.com/playwright:v$CONTAINER_VERSION-noble' to 'mcr.microsoft.com/playwright:v$PACKAGE_VERSION-noble'"
+            exit 1
+          fi
+
+          echo "✅ Playwright versions synchronized: v$PACKAGE_VERSION"
 
       - name: Run type checking
         run: pnpm run type-check

@@ -19,6 +19,7 @@ export interface WorkflowJob {
   needs?: string | string[];
   environment?: string | { name: string; url?: string };
   if?: string;
+  'timeout-minutes'?: number;
   container?:
     | string
     | {

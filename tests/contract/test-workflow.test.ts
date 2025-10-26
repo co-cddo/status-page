@@ -262,10 +262,50 @@ describe('Test Workflow Contract (US7)', () => {
         (step: WorkflowStep) =>
           step.run?.includes('playwright install') ||
           step.run?.includes('npx playwright install') ||
-          step.run?.includes('pnpx playwright install')
+          step.run?.includes('pnpx playwright install') ||
+          step.name?.toLowerCase().includes('cache playwright') ||
+          step.name?.toLowerCase().includes('playwright browsers')
       );
 
       expect(hasPlaywrightInstall).toBe(false);
     }
+  });
+
+  test('workflow validates Playwright version synchronization (issue #33)', () => {
+    const workflowYaml = readFileSync(workflowPath, 'utf-8');
+    const workflow = load(workflowYaml) as GitHubActionsWorkflow;
+
+    const jobs = workflow.jobs;
+    const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
+    expect(testJob).toBeDefined();
+
+    // When using Docker container, must validate version sync
+    if (testJob!.container) {
+      const steps = testJob!.steps;
+      const hasVersionValidation = steps.some(
+        (step: WorkflowStep) =>
+          step.name?.toLowerCase().includes('playwright version') ||
+          step.run?.includes('PACKAGE_VERSION') ||
+          step.run?.includes('CONTAINER_VERSION')
+      );
+
+      expect(hasVersionValidation).toBe(true);
+    }
+  });
+
+  test('workflow has timeout to prevent runaway jobs', () => {
+    const workflowYaml = readFileSync(workflowPath, 'utf-8');
+    const workflow = load(workflowYaml) as GitHubActionsWorkflow;
+
+    const jobs = workflow.jobs;
+    const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
+    expect(testJob).toBeDefined();
+
+    // Should have timeout-minutes configured
+    expect(testJob!['timeout-minutes']).toBeDefined();
+    expect(testJob!['timeout-minutes']).toBeGreaterThan(0);
+
+    // Should be reasonable (not too short, not too long)
+    expect(testJob!['timeout-minutes']).toBeLessThanOrEqual(30);
   });
 });
