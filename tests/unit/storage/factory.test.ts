@@ -162,4 +162,24 @@ describe('StorageFactory', () => {
       expect(reader).toBeInstanceOf(CsvReader);
     });
   });
+
+  describe('error handling', () => {
+    it('should throw error for unsupported writer format', () => {
+      const factory = new StorageFactory();
+
+      expect(() => {
+        // @ts-expect-error - Testing runtime validation
+        factory.createWriter('xml', { filePath: '/tmp/test.xml' });
+      }).toThrow('Unsupported writer format: xml');
+    });
+
+    it('should throw error for unsupported reader format', () => {
+      const factory = new StorageFactory();
+
+      expect(() => {
+        // @ts-expect-error - Testing runtime validation
+        factory.createReader('json', { filePath: '/tmp/test.json' });
+      }).toThrow('Unsupported reader format: json');
+    });
+  });
 });

@@ -111,7 +111,7 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
   });
 
   describe('Custom Headers', () => {
-    test('should send custom headers with request', async () => {
+    test('should send custom headers with request using headers array', async () => {
       const config: HealthCheckConfig = {
         url: 'https://test.example.com/headers',
         method: 'GET',
@@ -127,6 +127,69 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
 
       expect(result).toBeDefined();
       expect(result.status).toBe('PASS');
+      expect(mockFetch).toHaveBeenCalledWith(
+        config.url,
+        expect.objectContaining({
+          method: 'GET',
+          headers: expect.objectContaining({
+            'X-Custom-Header': 'custom-value',
+            'Authorization': 'Bearer token123',
+          }),
+        })
+      );
+    });
+
+    test('should send custom headers using customHeaders property', async () => {
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/headers',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+        customHeaders: {
+          'X-API-Key': 'secret123',
+          'User-Agent': 'StatusMonitor/1.0',
+        },
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('PASS');
+      expect(mockFetch).toHaveBeenCalledWith(
+        config.url,
+        expect.objectContaining({
+          method: 'GET',
+          headers: expect.objectContaining({
+            'X-API-Key': 'secret123',
+            'User-Agent': 'StatusMonitor/1.0',
+          }),
+        })
+      );
+    });
+
+    test('should add Content-Type header for POST with payload', async () => {
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/api',
+        method: 'POST',
+        timeout: 5000,
+        expectedStatus: [200],
+        payload: { test: 'data' },
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('PASS');
+      expect(mockFetch).toHaveBeenCalledWith(
+        config.url,
+        expect.objectContaining({
+          method: 'POST',
+          headers: expect.objectContaining({
+            'Content-Type': 'application/json',
+          }),
+          body: JSON.stringify({ test: 'data' }),
+        })
+      );
     });
   });
 
@@ -303,19 +366,105 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
     });
 
     test('should search only first 100KB of response body (FR-014)', async () => {
-      // Note: This test would require a test server that returns > 100KB
-      // For now, we document the requirement
+      // Create a response body larger than 100KB
+      const largeBody = 'x'.repeat(150 * 1024); // 150KB of 'x' characters
+      const searchText = 'FINDME';
+
+      // Put search text at position 50KB (within first 100KB)
+      const bodyWithTextInRange = largeBody.substring(0, 50 * 1024) + searchText + largeBody.substring(50 * 1024);
+
+      const encoder = new TextEncoder();
+      const bodyBytes = encoder.encode(bodyWithTextInRange);
+
+      mockFetch.mockResolvedValueOnce({
+        status: 200,
+        ok: true,
+        headers: new Headers(),
+        text: async () => bodyWithTextInRange,
+        body: {
+          getReader: () => {
+            let position = 0;
+            return {
+              read: async () => {
+                if (position >= bodyBytes.length) {
+                  return { done: true, value: undefined };
+                }
+                // Read in 10KB chunks
+                const chunkSize = 10 * 1024;
+                const chunk = bodyBytes.slice(position, position + chunkSize);
+                position += chunkSize;
+                return { done: false, value: chunk };
+              },
+              releaseLock: () => {},
+            };
+          },
+        },
+      });
+
       const config: HealthCheckConfig = {
         url: 'https://test.example.com/bytes/150000', // 150KB response
         method: 'GET',
         timeout: 5000,
         expectedStatus: [200],
+        expectedText: searchText,
       };
 
       const result: HealthCheckResult = await performHealthCheck(config);
 
       expect(result).toBeDefined();
-      // Implementation should only read first 100KB
+      expect(result.status).toBe('PASS');
+    });
+
+    test('should truncate response text at exactly 100KB when body exceeds limit', async () => {
+      // Create a response body larger than 100KB
+      const largeBody = 'x'.repeat(150 * 1024); // 150KB
+      const searchText = 'FINDME_AT_120KB';
+
+      // Put search text at position 120KB (beyond first 100KB)
+      const bodyWithTextBeyondRange = largeBody.substring(0, 120 * 1024) + searchText + largeBody.substring(120 * 1024);
+
+      const encoder = new TextEncoder();
+      const bodyBytes = encoder.encode(bodyWithTextBeyondRange);
+
+      mockFetch.mockResolvedValueOnce({
+        status: 200,
+        ok: true,
+        headers: new Headers(),
+        text: async () => bodyWithTextBeyondRange,
+        body: {
+          getReader: () => {
+            let position = 0;
+            return {
+              read: async () => {
+                if (position >= bodyBytes.length) {
+                  return { done: true, value: undefined };
+                }
+                // Read in 10KB chunks to simulate streaming
+                const chunkSize = 10 * 1024;
+                const chunk = bodyBytes.slice(position, position + chunkSize);
+                position += chunkSize;
+                return { done: false, value: chunk };
+              },
+              releaseLock: () => {},
+            };
+          },
+        },
+      });
+
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/bytes/150000',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+        expectedText: searchText, // This text is beyond 100KB
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      // Should fail because text is beyond 100KB limit
+      expect(result).toBeDefined();
+      expect(result.status).toBe('FAIL');
+      expect(result.failure_reason).toContain('text');
     });
 
     test('should perform case-sensitive text matching', async () => {
@@ -549,6 +698,78 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
       );
     });
 
+    test('should include textValidationResult when expectedText is provided', async () => {
+      const responseBody = 'Test content';
+      const encoder = new TextEncoder();
+      const bodyBytes = encoder.encode(responseBody);
+
+      mockFetch.mockResolvedValueOnce({
+        status: 200,
+        ok: true,
+        headers: new Headers(),
+        text: async () => responseBody,
+        body: {
+          getReader: () => {
+            let position = 0;
+            return {
+              read: async () => {
+                if (position >= bodyBytes.length) {
+                  return { done: true, value: undefined };
+                }
+                const chunk = bodyBytes.slice(position);
+                position = bodyBytes.length;
+                return { done: false, value: chunk };
+              },
+              releaseLock: () => {},
+            };
+          },
+        },
+      });
+
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/text',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+        expectedText: 'Test',
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('PASS');
+      expect(result).toHaveProperty('textValidationResult');
+      expect(result.textValidationResult).toBe(true);
+    });
+
+    test('should include headerValidationResult when expectedHeaders is provided', async () => {
+      mockFetch.mockResolvedValueOnce({
+        status: 200,
+        ok: true,
+        headers: new Headers({
+          'x-custom-header': 'custom-value',
+        }),
+        text: async () => 'OK',
+      });
+
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/headers',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+        expectedHeaders: {
+          'x-custom-header': 'custom-value',
+        },
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('PASS');
+      expect(result).toHaveProperty('headerValidationResult');
+      expect(result.headerValidationResult).toEqual({ validated: true });
+    });
+
     test('should have empty failure_reason for successful checks', async () => {
       const config: HealthCheckConfig = {
         url: 'https://test.example.com/status/200',
@@ -628,6 +849,91 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
 
       expect(result.latency_ms).toBe(Math.floor(result.latency_ms)); // Integer
     });
+
+    test('should return DEGRADED status when latency exceeds warning threshold', async () => {
+      // Override default mock to simulate slow response (2500ms)
+      mockFetch.mockImplementationOnce(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 2500));
+        return {
+          status: 200,
+          ok: true,
+          headers: new Headers(),
+          text: async () => 'OK',
+        };
+      });
+
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/slow',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+        warningThreshold: 2000, // 2 seconds warning threshold
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('DEGRADED');
+      expect(result.http_status_code).toBe(200);
+      expect(result.latency_ms).toBeGreaterThan(2000);
+      expect(result.failure_reason).toBe('');
+    });
+
+    test('should use default warning threshold of 2000ms when not specified', async () => {
+      // Override default mock to simulate slow response (2100ms)
+      mockFetch.mockImplementationOnce(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 2100));
+        return {
+          status: 200,
+          ok: true,
+          headers: new Headers(),
+          text: async () => 'OK',
+        };
+      });
+
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/slow',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+        // warningThreshold not specified - should default to 2000
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('DEGRADED');
+      expect(result.latency_ms).toBeGreaterThan(2000);
+    });
+
+    test('should fail when latency exceeds timeout (edge case safety check)', async () => {
+      // This tests the safety check at line 142-156
+      // Mock a response that somehow completes after timeout
+      mockFetch.mockImplementationOnce(async () => {
+        // Simulate a response that takes longer than timeout
+        await new Promise((resolve) => setTimeout(resolve, 6000));
+        return {
+          status: 200,
+          ok: true,
+          headers: new Headers(),
+          text: async () => 'OK',
+        };
+      });
+
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/very-slow',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('FAIL');
+      expect(result.latency_ms).toBeGreaterThan(5000);
+      expect(result.failure_reason).toBe('Timeout exceeded');
+    });
   });
 
   describe('Correlation ID (FR-036)', () => {
@@ -659,6 +965,155 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
       const uuidV4Pattern =
         /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
       expect(result.correlation_id).toMatch(uuidV4Pattern);
+    });
+  });
+
+  describe('Multiple Validation Failures', () => {
+    test('should combine multiple validation errors in failure_reason', async () => {
+      // Create a mock response that fails status, text, and header validation
+      const responseBody = 'Wrong content';
+      const encoder = new TextEncoder();
+      const bodyBytes = encoder.encode(responseBody);
+
+      mockFetch.mockResolvedValueOnce({
+        status: 500, // Wrong status (expect 200)
+        ok: false,
+        headers: new Headers({
+          'content-type': 'text/plain', // Wrong content-type
+        }),
+        text: async () => responseBody,
+        body: {
+          getReader: () => {
+            let position = 0;
+            return {
+              read: async () => {
+                if (position >= bodyBytes.length) {
+                  return { done: true, value: undefined };
+                }
+                const chunk = bodyBytes.slice(position);
+                position = bodyBytes.length;
+                return { done: false, value: chunk };
+              },
+              releaseLock: () => {},
+            };
+          },
+        },
+      });
+
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/fail-all',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+        expectedText: 'Expected content',
+        expectedHeaders: {
+          'content-type': 'application/json',
+          'x-custom-header': 'custom-value',
+        },
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('FAIL');
+      expect(result.failure_reason).toContain('status');
+      expect(result.failure_reason).toContain('text');
+      expect(result.failure_reason).toContain('header');
+      // Check that errors are joined with '; '
+      expect(result.failure_reason.includes('; ')).toBe(true);
+    });
+
+    test('should combine status and text validation errors', async () => {
+      const responseBody = 'Wrong content';
+      const encoder = new TextEncoder();
+      const bodyBytes = encoder.encode(responseBody);
+
+      mockFetch.mockResolvedValueOnce({
+        status: 404,
+        ok: false,
+        headers: new Headers(),
+        text: async () => responseBody,
+        body: {
+          getReader: () => {
+            let position = 0;
+            return {
+              read: async () => {
+                if (position >= bodyBytes.length) {
+                  return { done: true, value: undefined };
+                }
+                const chunk = bodyBytes.slice(position);
+                position = bodyBytes.length;
+                return { done: false, value: chunk };
+              },
+              releaseLock: () => {},
+            };
+          },
+        },
+      });
+
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/fail-status-text',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+        expectedText: 'Success message',
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('FAIL');
+      expect(result.failure_reason).toContain('status');
+      expect(result.failure_reason).toContain('text');
+    });
+
+    test('should combine text and header validation errors', async () => {
+      const responseBody = 'Wrong content';
+      const encoder = new TextEncoder();
+      const bodyBytes = encoder.encode(responseBody);
+
+      mockFetch.mockResolvedValueOnce({
+        status: 200,
+        ok: true,
+        headers: new Headers({
+          'content-type': 'text/plain',
+        }),
+        text: async () => responseBody,
+        body: {
+          getReader: () => {
+            let position = 0;
+            return {
+              read: async () => {
+                if (position >= bodyBytes.length) {
+                  return { done: true, value: undefined };
+                }
+                const chunk = bodyBytes.slice(position);
+                position = bodyBytes.length;
+                return { done: false, value: chunk };
+              },
+              releaseLock: () => {},
+            };
+          },
+        },
+      });
+
+      const config: HealthCheckConfig = {
+        url: 'https://test.example.com/fail-text-header',
+        method: 'GET',
+        timeout: 5000,
+        expectedStatus: [200],
+        expectedText: 'Expected content',
+        expectedHeaders: {
+          'x-custom-header': 'value',
+        },
+      };
+
+      const result: HealthCheckResult = await performHealthCheck(config);
+
+      expect(result).toBeDefined();
+      expect(result.status).toBe('FAIL');
+      expect(result.failure_reason).toContain('text');
+      expect(result.failure_reason).toContain('header');
     });
   });
 

@@ -263,5 +263,35 @@ describe('formatTimestamp', () => {
       expect(parsed.getUTCFullYear()).toBe(2025);
       expect(parsed.getUTCMonth()).toBe(9); // October is month 9 (0-indexed)
     });
+
+    it('should catch exceptions and return "Invalid Date"', () => {
+      // Test with an object that throws during property access
+      const throwingObject = {
+        get [Symbol.toPrimitive]() {
+          throw new Error('Symbol.toPrimitive error');
+        },
+        toString() {
+          throw new Error('toString error');
+        },
+        valueOf() {
+          throw new Error('valueOf error');
+        }
+      };
+
+      // @ts-expect-error - Testing runtime validation with throwing object
+      const result = formatTimestamp(throwingObject);
+      expect(result).toBe('Invalid Date');
+    });
+
+    it('should catch toISOString exceptions', () => {
+      // Create a Date object that throws on toISOString
+      const badDate = new Date('2025-10-22');
+      badDate.toISOString = () => {
+        throw new Error('toISOString error');
+      };
+
+      const result = formatTimestamp(badDate);
+      expect(result).toBe('Invalid Date');
+    });
   });
 });

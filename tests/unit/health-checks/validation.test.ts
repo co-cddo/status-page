@@ -17,12 +17,30 @@ import {
 } from '../../../src/health-checks/validation.ts';
 
 describe('validateStatusCode (T027a - TDD Phase)', () => {
-  test('should return valid when status code matches expected', () => {
+  test('should return valid when status code matches expected single number', () => {
+    const result = validateStatusCode(200, 200);
+
+    expect(result).toBeDefined();
+    expect(result.valid).toBe(true);
+    expect(result.error).toBeUndefined();
+  });
+
+  test('should return valid when status code matches expected array', () => {
     const result = validateStatusCode(200, [200]);
 
     expect(result).toBeDefined();
     expect(result.valid).toBe(true);
     expect(result.error).toBeUndefined();
+  });
+
+  test('should return invalid when status code does not match expected single number', () => {
+    const result = validateStatusCode(404, 200);
+
+    expect(result).toBeDefined();
+    expect(result.valid).toBe(false);
+    expect(result.error).toBeTruthy();
+    expect(result.error).toContain('404');
+    expect(result.error).toContain('200');
   });
 
   test('should return valid when status code matches one of multiple expected codes', () => {
@@ -508,6 +526,79 @@ describe('validateResponseHeaders (T027a - TDD Phase)', () => {
 
       expect(result).toBeDefined();
       expect(result.valid).toBe(true);
+    });
+
+    test('should handle multiple headers with same name via fallback iteration', () => {
+      // Create a Headers object where direct get() fails but iteration finds it
+      const headers = new Headers();
+      headers.append('X-Custom-Header', 'first-value');
+
+      const expectedHeaders = {
+        'x-custom-header': 'first-value',
+      };
+
+      const result = validateResponseHeaders(headers, expectedHeaders);
+
+      expect(result).toBeDefined();
+      expect(result.valid).toBe(true);
+    });
+
+    test('should stop at first match when iterating headers', () => {
+      // Test that the fallback iteration stops at first match (!result condition)
+      const headers = new Headers();
+      headers.append('X-Test-Header', 'correct-value');
+
+      const expectedHeaders = {
+        'X-TEST-HEADER': 'correct-value',
+      };
+
+      const result = validateResponseHeaders(headers, expectedHeaders);
+
+      expect(result).toBeDefined();
+      expect(result.valid).toBe(true);
+    });
+
+    test('should use fallback iteration when direct get returns null', () => {
+      // Create a Headers-like object where get() returns null but forEach finds it
+      const realHeaders = new Headers();
+      realHeaders.set('x-custom-test', 'test-value');
+
+      // Create a proxy that makes get() return null but allows forEach to work
+      const headersProxy = new Proxy(realHeaders, {
+        get(target, prop) {
+          if (prop === 'get') {
+            // Force get() to return null to trigger fallback
+            return () => null;
+          }
+          return Reflect.get(target, prop);
+        }
+      });
+
+      const expectedHeaders = {
+        'X-CUSTOM-TEST': 'test-value',
+      };
+
+      const result = validateResponseHeaders(headersProxy as Headers, expectedHeaders);
+
+      expect(result).toBeDefined();
+      expect(result.valid).toBe(true);
+    });
+
+    test('should handle case where header not found even in iteration', () => {
+      // Test the null return path when header truly doesn't exist
+      const headers = new Headers();
+      headers.set('existing-header', 'value');
+
+      const expectedHeaders = {
+        'non-existent-header': 'value',
+      };
+
+      const result = validateResponseHeaders(headers, expectedHeaders);
+
+      expect(result).toBeDefined();
+      expect(result.valid).toBe(false);
+      expect(result.error).toContain('non-existent-header');
+      expect(result.error).toContain('not found');
     });
   });
 });
