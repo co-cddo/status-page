@@ -24,8 +24,30 @@ export default defineConfig({
       reportsDirectory: './coverage',
 
       // Coverage thresholds (enforced - fail if below)
-      // NOTE: Current thresholds reflect actual coverage as of 2025-10-26
-      // TODO: Incrementally increase as more files are tested (target: 80% per constitution.md)
+      /**
+       * TECHNICAL DEBT: Temporary reduction from 80% constitutional requirement
+       *
+       * Current State (2025-10-26):
+       * - Lines: 53.77% (target: 80%, gap: -26.23%)
+       * - Functions: 75.34% (target: 80%, gap: -4.66%)
+       * - Branches: 84.22% (EXCEEDS target!) ✅
+       * - Statements: 53.77% (target: 80%, gap: -26.23%)
+       *
+       * Files with 0% coverage requiring tests:
+       * - src/index.ts (main orchestrator, 528 lines)
+       * - src/inlining/* (post-build processing, 975+ lines)
+       * - src/logging/correlation.ts (debugging, 142 lines)
+       * - src/metrics/buffer.ts, server.ts (monitoring, 514 lines)
+       * - src/utils/url.ts (URL validation, 130 lines)
+       *
+       * Remediation Plan:
+       * - Phase 1 (by 2025-11-02): Reach 60% coverage (+6.23%)
+       * - Phase 2 (by 2025-11-09): Reach 70% coverage (+10%)
+       * - Phase 3 (by 2025-11-17): Reach 80% coverage (+10%) - CONSTITUTIONAL COMPLIANCE
+       *
+       * Tracking: See issue #34
+       * NOTE: .github/workflows/test.yml has aligned threshold check
+       */
       thresholds: {
         lines: 53,
         functions: 75,
