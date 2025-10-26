@@ -89,7 +89,9 @@ describe('generateHealthCheckTable', () => {
     // Default max length is 100, plus ellipsis
     const reasonMatch = table.match(/\| ([A]{1,150})/);
     expect(reasonMatch).toBeDefined();
-    expect(reasonMatch![1].length).toBeLessThanOrEqual(103); // 100 + '...'
+    if (reasonMatch) {
+      expect(reasonMatch[1].length).toBeLessThanOrEqual(103); // 100 + '...'
+    }
   });
 
   test('respects custom maxReasonLength option', () => {
@@ -100,7 +102,9 @@ describe('generateHealthCheckTable', () => {
 
     const reasonMatch = table.match(/\| ([B]{1,100})/);
     expect(reasonMatch).toBeDefined();
-    expect(reasonMatch![1].length).toBeLessThanOrEqual(53); // 50 + '...'
+    if (reasonMatch) {
+      expect(reasonMatch[1].length).toBeLessThanOrEqual(53); // 50 + '...'
+    }
   });
 
   test('handles special characters in failure reasons', () => {

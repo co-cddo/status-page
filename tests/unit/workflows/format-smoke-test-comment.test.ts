@@ -305,9 +305,12 @@ describe('formatSmokeTestComment - Performance Optimization', () => {
         'DEGRADED',
         'PENDING',
       ];
+      const status = statuses[i % 4];
+      // Status will always be defined since i % 4 is always 0-3
+      if (!status) throw new Error('Unexpected undefined status');
       return createMockResult(
         `Service ${i}`,
-        statuses[i % 4],
+        status,
         100,
         i % 4 === 1 ? 500 : 200,
         i % 4 === 1 ? 'Error' : ''
