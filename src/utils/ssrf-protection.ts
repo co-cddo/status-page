@@ -45,9 +45,8 @@ export function validateUrlForSSRF(url: string, options?: { skipValidation?: boo
   // Strip IPv6 brackets if present (e.g., '[::1]' -> '::1')
   // Node.js URL parser keeps brackets in hostname for IPv6 addresses per RFC 3986
   // This allows us to use consistent string matching for both IPv4 and IPv6 addresses
-  const cleanedHostname = hostname.startsWith('[') && hostname.endsWith(']')
-    ? hostname.slice(1, -1)
-    : hostname;
+  const cleanedHostname =
+    hostname.startsWith('[') && hostname.endsWith(']') ? hostname.slice(1, -1) : hostname;
 
   // Block IPv4-mapped IPv6 addresses (::ffff:0:0/96)
   // These can bypass SSRF protection by tunneling IPv4 addresses through IPv6
@@ -69,11 +68,14 @@ export function validateUrlForSSRF(url: string, options?: { skipValidation?: boo
   // These are deprecated per RFC 4291 but still work on many systems
   // Example: [::127.0.0.1] allows access to localhost via IPv6
   // SECURITY: Must check this BEFORE other validations as it bypasses all IPv4 checks
-  if (cleanedHostname.startsWith('::') &&
-      cleanedHostname.length >= 3 &&
-      !cleanedHostname.includes('::ffff:') && // Not IPv4-mapped (already handled)
-      cleanedHostname !== '::1' && // Not standard localhost
-      cleanedHostname !== '::') { // Not unspecified
+  if (
+    cleanedHostname.startsWith('::') &&
+    cleanedHostname.length >= 3 &&
+    !cleanedHostname.includes('::ffff:') && // Not IPv4-mapped (already handled)
+    cleanedHostname !== '::1' && // Not standard localhost
+    cleanedHostname !== '::'
+  ) {
+    // Not unspecified
     // IPv4-compatible addresses are in format :: followed by hex representation
     // They should be blocked as a security precaution
     throw new Error(`Blocked: IPv4-compatible IPv6 address access not allowed: ${url}`);
@@ -118,8 +120,12 @@ export function validateUrlForSSRF(url: string, options?: { skipValidation?: boo
 
     // fe80::/10 - Link-local addresses
     // Covers fe80:: through febf::
-    if (cleanedHostname.startsWith('fe8') || cleanedHostname.startsWith('fe9') ||
-        cleanedHostname.startsWith('fea') || cleanedHostname.startsWith('feb')) {
+    if (
+      cleanedHostname.startsWith('fe8') ||
+      cleanedHostname.startsWith('fe9') ||
+      cleanedHostname.startsWith('fea') ||
+      cleanedHostname.startsWith('feb')
+    ) {
       throw new Error(`Blocked: Private IPv6 address access not allowed: ${url}`);
     }
   }
