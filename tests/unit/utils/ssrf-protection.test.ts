@@ -160,8 +160,32 @@ describe('SSRF Protection', () => {
       );
     });
 
-    // NOTE: IPv6 localhost (::1) test removed - see new issue for IPv6 SSRF security gaps
-    // Node.js URL parser keeps brackets in hostname ([::1] not ::1), causing checks to fail
+    it('should reject IPv6 localhost (::1)', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv6 addresses in URLs use bracket notation
+      expect(() => validateUrlForSSRF('http://[::1]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('https://[::1]:8080')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::1]/api')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+    });
+
+    it('should reject IPv6 localhost variants', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv6 loopback can be written in various forms
+      expect(() => validateUrlForSSRF('http://[0:0:0:0:0:0:0:1]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[0000:0000:0000:0000:0000:0000:0000:0001]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+    });
 
     it('should reject 0.0.0.0', () => {
       process.env.NODE_ENV = 'production';
@@ -179,7 +203,20 @@ describe('SSRF Protection', () => {
       );
     });
 
-    // NOTE: IPv6 unspecified address (::) test removed - see issue for IPv6 SSRF gaps
+    it('should reject IPv6 unspecified address (::)', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv6 all-zeros address (equivalent to 0.0.0.0)
+      expect(() => validateUrlForSSRF('http://[::]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('https://[::]:3000')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[0:0:0:0:0:0:0:0]')).toThrow(
+        'Blocked: Localhost access not allowed'
+      );
+    });
   });
 
   describe('Link-Local Address Blocking', () => {
@@ -264,9 +301,82 @@ describe('SSRF Protection', () => {
     });
   });
 
-  // NOTE: Private IPv6 range blocking tests removed - see new issue for IPv6 SSRF security gaps
-  // Current implementation has checks for fc00:, fd00:, and fe80: prefixes but they don't
-  // work correctly with URL parsing. This is a security gap that needs investigation.
+  describe('Private IPv6 Range Blocking', () => {
+    it('should reject IPv6 unique local addresses (fc00::/7 range)', () => {
+      process.env.NODE_ENV = 'production';
+
+      // fc00::/7 includes both fc00::/8 and fd00::/8
+      expect(() => validateUrlForSSRF('http://[fc00::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[fc00:1234:5678:9abc:def0:1234:5678:9abc]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('https://[fc00::1]:8080/api')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv6 unique local addresses (fd00::/8 range)', () => {
+      process.env.NODE_ENV = 'production';
+
+      expect(() => validateUrlForSSRF('http://[fd00::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[fd12:3456:789a:bcde:f012:3456:789a:bcde]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('https://[fdff:ffff:ffff:ffff:ffff:ffff:ffff:ffff]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv6 link-local addresses (fe80::/10 range)', () => {
+      process.env.NODE_ENV = 'production';
+
+      expect(() => validateUrlForSSRF('http://[fe80::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[fe80::1234:5678:90ab:cdef]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[fe8a::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[febf::ffff:ffff:ffff:ffff]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv6 addresses with various formatting', () => {
+      process.env.NODE_ENV = 'production';
+
+      // Leading zeros
+      expect(() => validateUrlForSSRF('http://[fc00:0000:0000:0000:0000:0000:0000:0001]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+
+      // Mixed case (should be case-insensitive)
+      expect(() => validateUrlForSSRF('http://[FC00::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[FD00::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[FE80::1]')).toThrow(
+        'Blocked: Private IPv6 address access not allowed'
+      );
+    });
+
+    it('should allow public IPv6 addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // Public IPv6 addresses (should not be blocked)
+      expect(() => validateUrlForSSRF('http://[2001:db8::1]')).not.toThrow(); // Documentation prefix
+      expect(() => validateUrlForSSRF('http://[2606:4700:4700::1111]')).not.toThrow(); // Cloudflare DNS
+      expect(() => validateUrlForSSRF('http://[2001:4860:4860::8888]')).not.toThrow(); // Google DNS
+    });
+  });
 
   describe('Cloud Metadata Endpoint Blocking', () => {
     it('should reject AWS metadata endpoint (169.254.169.254)', () => {
