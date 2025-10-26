@@ -126,8 +126,6 @@ function formatAjvErrors(errors: ErrorObject[] | null | undefined): string[] {
  * ```
  */
 export function validateConfiguration(config: Configuration): void {
-  const errors: string[] = [];
-
   // 1. JSON Schema validation
   const ajv = createValidator();
   const validate = ajv.compile(configurationSchema);
@@ -135,10 +133,18 @@ export function validateConfiguration(config: Configuration): void {
 
   if (!valid) {
     const schemaErrors = formatAjvErrors(validate.errors);
-    errors.push(...schemaErrors);
+    // Short-circuit: If schema validation fails, throw immediately
+    // Custom rules assume schema-valid config structure (e.g., config.pings exists and is iterable)
+    // Running custom rules on schema-invalid config would cause TypeErrors
+    // Fixes: https://github.com/co-cddo/status-page/issues/22
+    throw new ConfigurationValidationError(
+      `Configuration validation failed with ${schemaErrors.length} schema error${schemaErrors.length !== 1 ? 's' : ''}`,
+      schemaErrors
+    );
   }
 
-  // 2. Custom validation rules
+  // 2. Custom validation rules (only run if schema is valid)
+  const errors: string[] = [];
   for (const rule of customValidationRules) {
     const error = rule.validate(config);
     if (error) {
@@ -150,10 +156,10 @@ export function validateConfiguration(config: Configuration): void {
   // This is handled at runtime by comparing current config with previous state
   // No validation needed here
 
-  // Throw if any errors found
+  // Throw if any custom validation errors found
   if (errors.length > 0) {
     throw new ConfigurationValidationError(
-      `Configuration validation failed with ${errors.length} error(s)`,
+      `Configuration validation failed with ${errors.length} custom validation error${errors.length !== 1 ? 's' : ''}`,
       errors
     );
   }

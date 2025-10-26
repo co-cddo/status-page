@@ -119,13 +119,25 @@ describe('Configuration Validator', () => {
   });
 
   describe('Required Fields Validation', () => {
-    it('should reject config missing pings array', () => {
-      // NOTE: Current implementation has a bug - custom validation rules run even when
-      // schema validation fails, causing TypeError when trying to iterate undefined pings.
-      // This test is adjusted to match current behavior. See issue for proper fix.
+    it('should reject config missing pings array and not run custom rules', () => {
       const config = {} as Configuration;
 
-      expect(() => validateConfiguration(config)).toThrow();
+      expect(() => validateConfiguration(config)).toThrow(ConfigurationValidationError);
+
+      try {
+        validateConfiguration(config);
+        expect.fail('Should have thrown ConfigurationValidationError');
+      } catch (error) {
+        expect(error).toBeInstanceOf(ConfigurationValidationError);
+        const validationError = error as ConfigurationValidationError;
+        expect(validationError.errors).toBeDefined();
+        expect(validationError.errors.length).toBeGreaterThan(0);
+        // Should report missing pings field
+        expect(validationError.errors.some((e) => e.includes('pings'))).toBe(true);
+        // Should be schema error, not custom validation error (verifies short-circuit)
+        expect(validationError.message).toContain('schema error');
+        expect(validationError.message).not.toContain('custom validation error');
+      }
     });
 
     it('should reject config with empty pings array', () => {
@@ -966,10 +978,19 @@ describe('Configuration Validator', () => {
       consoleErrorSpy.mockRestore();
     });
 
-    it('should rethrow non-validation errors', () => {
+    it('should handle null config gracefully with schema validation', () => {
+      const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
       const config = null as unknown as Configuration;
 
-      expect(() => validateConfigurationCLI(config)).toThrow();
+      // null should trigger schema validation error (not a runtime crash)
+      const result = validateConfigurationCLI(config);
+
+      expect(result).toBe(false);
+      expect(consoleErrorSpy).toHaveBeenCalled();
+      expect(consoleErrorSpy.mock.calls[0]![0]).toContain('❌ Configuration validation failed');
+
+      consoleErrorSpy.mockRestore();
     });
   });
 
