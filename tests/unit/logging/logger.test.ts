@@ -18,6 +18,7 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { asLoggerWithEvents } from '../../helpers/type-helpers.js';
 import {
   createLogger,
   createChildLogger,
@@ -294,9 +295,8 @@ describe('Logger Module', () => {
         const logger = createLogger();
         const logOutput: string[] = [];
 
-        // Capture log output (cast to EventEmitter to access stream events)
-        type LoggerWithEvents = { on: (event: string, callback: (chunk: string) => void) => void };
-        (logger as unknown as LoggerWithEvents).on('data', (chunk: string) => {
+        // Capture log output using shared type helper
+        asLoggerWithEvents(logger).on('data', (chunk: string) => {
           logOutput.push(chunk);
         });
 
@@ -311,8 +311,7 @@ describe('Logger Module', () => {
         const logger = createLogger();
         const logOutput: string[] = [];
 
-        type LoggerWithEvents = { on: (event: string, callback: (chunk: string) => void) => void };
-        (logger as unknown as LoggerWithEvents).on('data', (chunk: string) => {
+        asLoggerWithEvents(logger).on('data', (chunk: string) => {
           logOutput.push(chunk);
         });
 
@@ -326,8 +325,7 @@ describe('Logger Module', () => {
         const logger = createLogger();
         const logOutput: string[] = [];
 
-        type LoggerWithEvents = { on: (event: string, callback: (chunk: string) => void) => void };
-        (logger as unknown as LoggerWithEvents).on('data', (chunk: string) => {
+        asLoggerWithEvents(logger).on('data', (chunk: string) => {
           logOutput.push(chunk);
         });
 

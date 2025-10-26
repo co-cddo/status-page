@@ -14,6 +14,7 @@ import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
 import { promises as fs } from 'node:fs';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import type { ProcessExitMock } from '../../helpers/type-helpers.js';
 import { CsvWriter } from '../../../src/storage/csv-writer.ts';
 import type { HealthCheckResult } from '../../../src/types/health-check.ts';
 
@@ -718,8 +719,7 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
 
   describe('Process Exit Behavior (FR-020a)', () => {
     test('should call process.exit(1) on append failure', async () => {
-      // Mock process.exit to prevent test from actually exiting - type cast needed for Vitest compatibility
-      type ProcessExitMock = typeof process.exit;
+      // Mock process.exit to prevent test from actually exiting - using shared type helper
       const exitSpy = vi.spyOn(process, 'exit').mockImplementation((() => {
         throw new Error('process.exit called');
       }) as ProcessExitMock);
@@ -749,8 +749,7 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
     });
 
     test('should call process.exit(1) on appendBatch failure', async () => {
-      // Mock process.exit to prevent test from actually exiting - type cast needed for Vitest compatibility
-      type ProcessExitMock = typeof process.exit;
+      // Mock process.exit to prevent test from actually exiting - using shared type helper
       const exitSpy = vi.spyOn(process, 'exit').mockImplementation((() => {
         throw new Error('process.exit called');
       }) as ProcessExitMock);

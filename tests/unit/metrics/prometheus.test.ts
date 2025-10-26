@@ -7,6 +7,11 @@
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { Registry, Counter, Histogram, Gauge } from 'prom-client';
+import {
+  asTestableCounter,
+  asTestableHistogram,
+  asTestableGauge,
+} from '../../helpers/type-helpers.js';
 
 // Mock prom-client before importing the module under test
 vi.mock('prom-client', () => {
@@ -208,78 +213,77 @@ import {
 
 describe('Prometheus Metrics Module', () => {
   describe('Metric Initialization', () => {
-    // Type helper to access internal metric properties
-    type MetricWithMetadata = {
-      name: string;
-      help: string;
-      labelNames?: readonly string[];
-      buckets?: number[];
-      registers: unknown[];
-    };
-
     it('should initialize metricsRegistry as Registry instance', () => {
       expect(metricsRegistry).toBeInstanceOf(Registry);
     });
 
     it('should initialize healthChecksTotal counter with correct configuration', () => {
       expect(healthChecksTotal).toBeInstanceOf(Counter);
-      expect((healthChecksTotal as unknown as MetricWithMetadata).name).toBe('health_checks_total');
-      expect((healthChecksTotal as unknown as MetricWithMetadata).help).toBe('Total number of health checks performed');
-      expect((healthChecksTotal as unknown as MetricWithMetadata).labelNames).toEqual(['service_name', 'status']);
-      expect((healthChecksTotal as unknown as MetricWithMetadata).registers).toContain(metricsRegistry);
+      const testable = asTestableCounter(healthChecksTotal);
+      expect(testable.name).toBe('health_checks_total');
+      expect(testable.help).toBe('Total number of health checks performed');
+      expect(testable.labelNames).toEqual(['service_name', 'status']);
+      expect(testable.registers).toContain(metricsRegistry);
     });
 
     it('should initialize healthCheckLatency histogram with correct configuration', () => {
       expect(healthCheckLatency).toBeInstanceOf(Histogram);
-      expect((healthCheckLatency as unknown as MetricWithMetadata).name).toBe('health_check_latency_seconds');
-      expect((healthCheckLatency as unknown as MetricWithMetadata).help).toBe('Health check response time distribution in seconds');
-      expect((healthCheckLatency as unknown as MetricWithMetadata).labelNames).toEqual(['service_name']);
-      expect((healthCheckLatency as unknown as MetricWithMetadata).buckets).toEqual([0.1, 0.5, 1.0, 2.0, 5.0, 10.0]);
-      expect((healthCheckLatency as unknown as MetricWithMetadata).registers).toContain(metricsRegistry);
+      const testable = asTestableHistogram(healthCheckLatency);
+      expect(testable.name).toBe('health_check_latency_seconds');
+      expect(testable.help).toBe('Health check response time distribution in seconds');
+      expect(testable.labelNames).toEqual(['service_name']);
+      expect(testable.buckets).toEqual([0.1, 0.5, 1.0, 2.0, 5.0, 10.0]);
+      expect(testable.registers).toContain(metricsRegistry);
     });
 
     it('should initialize servicesFailing gauge with correct configuration', () => {
       expect(servicesFailing).toBeInstanceOf(Gauge);
-      expect((servicesFailing as unknown as MetricWithMetadata).name).toBe('services_failing');
-      expect((servicesFailing as unknown as MetricWithMetadata).help).toBe('Current number of services in FAIL status');
-      expect((servicesFailing as unknown as MetricWithMetadata).registers).toContain(metricsRegistry);
+      const testable = asTestableGauge(servicesFailing);
+      expect(testable.name).toBe('services_failing');
+      expect(testable.help).toBe('Current number of services in FAIL status');
+      expect(testable.registers).toContain(metricsRegistry);
     });
 
     it('should initialize healthCheckErrors counter with correct configuration', () => {
       expect(healthCheckErrors).toBeInstanceOf(Counter);
-      expect((healthCheckErrors as unknown as MetricWithMetadata).name).toBe('health_check_errors_total');
-      expect((healthCheckErrors as unknown as MetricWithMetadata).help).toBe('Total number of health check errors by type');
-      expect((healthCheckErrors as unknown as MetricWithMetadata).labelNames).toEqual(['service_name', 'error_type']);
-      expect((healthCheckErrors as unknown as MetricWithMetadata).registers).toContain(metricsRegistry);
+      const testable = asTestableCounter(healthCheckErrors);
+      expect(testable.name).toBe('health_check_errors_total');
+      expect(testable.help).toBe('Total number of health check errors by type');
+      expect(testable.labelNames).toEqual(['service_name', 'error_type']);
+      expect(testable.registers).toContain(metricsRegistry);
     });
 
     it('should initialize workerPoolSize gauge with correct configuration', () => {
       expect(workerPoolSize).toBeInstanceOf(Gauge);
-      expect((workerPoolSize as unknown as MetricWithMetadata).name).toBe('worker_pool_size');
-      expect((workerPoolSize as unknown as MetricWithMetadata).help).toBe('Current number of worker threads in the pool');
-      expect((workerPoolSize as unknown as MetricWithMetadata).registers).toContain(metricsRegistry);
+      const testable = asTestableGauge(workerPoolSize);
+      expect(testable.name).toBe('worker_pool_size');
+      expect(testable.help).toBe('Current number of worker threads in the pool');
+      expect(testable.registers).toContain(metricsRegistry);
     });
 
     it('should initialize workerTasksCompleted counter with correct configuration', () => {
       expect(workerTasksCompleted).toBeInstanceOf(Counter);
-      expect((workerTasksCompleted as unknown as MetricWithMetadata).name).toBe('worker_tasks_completed_total');
-      expect((workerTasksCompleted as unknown as MetricWithMetadata).help).toBe('Total tasks completed by worker threads');
-      expect((workerTasksCompleted as unknown as MetricWithMetadata).registers).toContain(metricsRegistry);
+      const testable = asTestableCounter(workerTasksCompleted);
+      expect(testable.name).toBe('worker_tasks_completed_total');
+      expect(testable.help).toBe('Total tasks completed by worker threads');
+      expect(testable.registers).toContain(metricsRegistry);
     });
 
     it('should initialize csvWritesTotal counter with correct configuration', () => {
       expect(csvWritesTotal).toBeInstanceOf(Counter);
-      expect((csvWritesTotal as unknown as MetricWithMetadata).name).toBe('csv_writes_total');
-      expect((csvWritesTotal as unknown as MetricWithMetadata).help).toBe('Total CSV write operations');
-      expect((csvWritesTotal as unknown as MetricWithMetadata).labelNames).toEqual(['status']);
-      expect((csvWritesTotal as unknown as MetricWithMetadata).registers).toContain(metricsRegistry);
+      const testable = asTestableCounter(csvWritesTotal);
+      expect(testable.name).toBe('csv_writes_total');
+      expect(testable.help).toBe('Total CSV write operations');
+      expect(testable.labelNames).toEqual(['status']);
+      expect(testable.registers).toContain(metricsRegistry);
     });
 
     it('should initialize csvRecordsWritten counter with correct configuration', () => {
       expect(csvRecordsWritten).toBeInstanceOf(Counter);
-      expect((csvRecordsWritten as unknown as MetricWithMetadata).name).toBe('csv_records_written_total');
-      expect((csvRecordsWritten as unknown as MetricWithMetadata).help).toBe('Total health check records written to CSV');
-      expect((csvRecordsWritten as unknown as MetricWithMetadata).registers).toContain(metricsRegistry);
+      const testable = asTestableCounter(csvRecordsWritten);
+      expect(testable.name).toBe('csv_records_written_total');
+      expect(testable.help).toBe('Total health check records written to CSV');
+      expect(testable.registers).toContain(metricsRegistry);
     });
   });
 
