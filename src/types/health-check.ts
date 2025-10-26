@@ -145,6 +145,9 @@ export interface ServiceStatusAPI {
 
   /** Failure reason (empty string if passed) */
   failure_reason: string;
+
+  /** Service URL (resource being monitored) */
+  resource: string;
 }
 
 /**

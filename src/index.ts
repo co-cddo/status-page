@@ -38,6 +38,7 @@ interface AppState {
   shutdownInProgress: boolean;
   shutdownStartTime: number | null;
   serviceTags: Map<string, string[]>;
+  serviceResources: Map<string, string>;
 }
 
 const state: AppState = {
@@ -49,6 +50,7 @@ const state: AppState = {
   shutdownInProgress: false,
   shutdownStartTime: null,
   serviceTags: new Map(),
+  serviceResources: new Map(),
 };
 
 /**
@@ -203,7 +205,7 @@ async function writeHealthData(): Promise<void> {
     const results = state.scheduler.getLatestResults();
     if (results.length > 0) {
       // Write to JSON (overwrites with latest status)
-      await state.jsonWriter.write(results, state.serviceTags);
+      await state.jsonWriter.write(results, state.serviceTags, state.serviceResources);
 
       // Append to CSV (historical record)
       await state.csvWriter.appendBatch(results);
@@ -366,11 +368,12 @@ async function runOnce(config: Configuration): Promise<void> {
   onceLogger.info({ serviceCount: config.pings.length }, 'Running health checks once (CI mode)');
 
   try {
-    // Extract service tags for JSON writer
+    // Extract service tags and resources for JSON writer
     for (const ping of config.pings) {
       if (ping.tags && ping.tags.length > 0) {
         state.serviceTags.set(ping.name, ping.tags);
       }
+      state.serviceResources.set(ping.name, ping.resource);
     }
 
     // Initialize worker pool
@@ -460,11 +463,12 @@ async function main(): Promise<void> {
     }
 
     // Continue with normal daemon mode
-    // Extract service tags for JSON writer
+    // Extract service tags and resources for JSON writer
     for (const ping of config.pings) {
       if (ping.tags && ping.tags.length > 0) {
         state.serviceTags.set(ping.name, ping.tags);
       }
+      state.serviceResources.set(ping.name, ping.resource);
     }
 
     // 2. Start Prometheus metrics server

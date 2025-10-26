@@ -170,6 +170,7 @@ export class EleventyRunner {
       'tags',
       'http_status_code',
       'failure_reason',
+      'resource',
     ];
 
     for (const field of requiredFields) {

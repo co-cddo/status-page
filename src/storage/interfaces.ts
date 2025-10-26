@@ -60,10 +60,14 @@ export interface ICsvWriter extends IStorageWriter {
 
 /**
  * Extended interface for JSON writer
- * Maintains existing method signature with optional tags parameter
+ * Maintains existing method signature with optional tags and resources parameters
  */
 export interface IJsonWriter extends IStorageWriter {
-  write(results: HealthCheckResult[], tags?: Map<string, string[]>): Promise<void>;
+  write(
+    results: HealthCheckResult[],
+    tags?: Map<string, string[]>,
+    resources?: Map<string, string>
+  ): Promise<void>;
 }
 
 /**

@@ -30,7 +30,8 @@ export class JsonWriter implements IJsonWriter {
    */
   async write(
     results: HealthCheckResult[],
-    tags: Map<string, string[]> = new Map()
+    tags: Map<string, string[]> = new Map(),
+    resources: Map<string, string> = new Map()
   ): Promise<void> {
     try {
       // Ensure directory exists
@@ -39,7 +40,7 @@ export class JsonWriter implements IJsonWriter {
 
       // Convert results to API format
       const apiResults: ServiceStatusAPI[] = results.map((result) =>
-        this.toServiceStatusAPI(result, tags)
+        this.toServiceStatusAPI(result, tags, resources)
       );
 
       // Sort by status: FAIL → DEGRADED → PASS → PENDING
@@ -61,7 +62,8 @@ export class JsonWriter implements IJsonWriter {
    */
   private toServiceStatusAPI(
     result: HealthCheckResult,
-    tags: Map<string, string[]>
+    tags: Map<string, string[]>,
+    resources: Map<string, string>
   ): ServiceStatusAPI {
     const isPending = result.status === 'PENDING';
 
@@ -73,6 +75,7 @@ export class JsonWriter implements IJsonWriter {
       tags: tags.get(result.serviceName) || [],
       http_status_code: isPending ? null : result.http_status_code,
       failure_reason: result.failure_reason,
+      resource: resources.get(result.serviceName) || '',
     };
   }
 }
