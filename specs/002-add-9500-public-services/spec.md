@@ -199,7 +199,7 @@ Development teams, documentation maintainers, and service catalogers need struct
 - **FR-009**: System MUST identify appropriate HTTP method (GET, POST, HEAD) for each discovered service
 - **FR-010**: System MUST identify expected HTTP status codes for each discovered service
 - **FR-011**: System MUST identify validation text patterns for each discovered service to distinguish working pages from error pages
-- **FR-011a**: Research process MUST follow breadth-first discovery strategy (minimum coverage across all categories) before deepening any single department, then prioritize by department criticality (NHS, emergency services, HMRC, DWP, then others)
+- **FR-011a**: Research process MUST follow breadth-first discovery strategy (minimum coverage across all categories) before deepening any single department, then prioritize depth by department criticality (NHS emergency services, other emergency services, HMRC, DWP, then remaining departments)
 
 #### Service Categorization and Tagging
 
@@ -259,13 +259,13 @@ Development teams, documentation maintainers, and service catalogers need struct
 - **FR-053**: System MUST document services identified but excluded (with reasons: internal-only, deprecated, duplicates)
 - **FR-054**: System MUST document service ownership mapping (URL to responsible department/agency)
 - **FR-055**: System MUST document validation criteria rationale for complex services
-- **FR-056**: System MUST document discovered services in JSON format for programmatic validation and transformation before adding to config.yaml
+- **FR-056**: System MUST document discovered services in JSON format conforming to contracts/service-discovery-api.json schema for programmatic validation and transformation before adding to config.yaml
 - **FR-057**: System MUST validate that total service count meets or exceeds 9500 services requirement
 
 #### Performance and Scalability
 
 - **FR-058**: System MUST configure worker pool size appropriate for 9500+ services (default: 2x CPU cores, configurable)
-- **FR-059**: System MUST configure check intervals to avoid overwhelming monitored services with requests
+- **FR-059**: System MUST configure check intervals to avoid overwhelming monitored services with requests (maximum 1 request per service per configured check interval to respect service capacity)
 - **FR-060**: System MUST stagger initial health checks to avoid thundering herd problem on system startup
 - **FR-061**: System MUST handle DNS resolution for 9500+ unique domains without DNS resolver exhaustion
 - **FR-062**: System MUST complete one full monitoring cycle across all services within reasonable time (target: 15 minutes for highest priority services)
@@ -273,11 +273,24 @@ Development teams, documentation maintainers, and service catalogers need struct
 #### Quality and Validation
 
 - **FR-063**: System MUST validate that all config.yaml entries conform to JSON Schema before deployment
-- **FR-064**: System MUST validate that all service URLs return responses (or documented expected failures) before adding to config
+- **FR-064**: System MUST validate that POST request payloads are correctly formatted as valid JSON and accepted by target services (builds upon FR-007 accessibility validation by testing POST-specific functionality)
 - **FR-065**: System MUST validate that text validation patterns successfully match expected content
-- **FR-066**: System MUST validate that POST payloads are correctly formatted and accepted by services
-- **FR-067**: System MUST avoid adding services that return consistent failures (likely internal-only or deprecated)
-- **FR-068**: System MUST avoid adding duplicate services with identical functionality but different URLs
+- **FR-066**: System MUST avoid adding services that return consistent failures (likely internal-only or deprecated)
+- **FR-067**: System MUST avoid adding duplicate services with identical functionality but different URLs
+
+#### Validation Script Infrastructure
+
+- **FR-068**: System MUST implement URL normalization per RFC 3986 (lowercase scheme/host, remove default ports, sort query parameters, remove trailing slashes, normalize percent-encoding)
+- **FR-069**: System MUST implement HTTP redirect resolution with maximum 5 hops, circular redirect detection, and redirect chain tracking
+- **FR-070**: System MUST implement canonical URL deduplication using Set data structure for O(1) lookup performance
+- **FR-071**: System MUST implement accessibility validation with HTTP status checks (200/301/302/401/403 = accessible), latency measurement, and retry logic (3 attempts with exponential backoff)
+- **FR-072**: System MUST implement tag application from 74-tag taxonomy across 6 dimensions (department, service-type, geography, criticality, channel, lifecycle)
+- **FR-073**: System MUST implement service entry transformation converting Discovered Service entities to Service Entry format per data-model.md
+- **FR-074**: System MUST implement category grouping organizing services by 15 predefined categories (3 criticality tiers, department groupings)
+- **FR-075**: System MUST implement YAML generation with programmatic comment insertion for category headers and section organization
+- **FR-076**: System MUST implement JSON Schema validation using ajv library to validate discovered-services.json against contracts/service-discovery-api.json
+- **FR-077**: System MUST implement config.yaml validation to verify final configuration against existing JSON Schema before deployment
+- **FR-078**: System MUST implement research progress reporting generating statistics (total discovered, validation pass/fail rates, coverage by department/type, tag usage)
 
 ### Key Entities _(include if feature involves data)_
 

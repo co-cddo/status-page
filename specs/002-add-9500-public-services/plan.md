@@ -127,7 +127,9 @@ specs/002-add-9500-public-services/
 └── tasks.md             # Phase 2 output (/speckit.tasks - NOT created by /speckit.plan)
 ```
 
-### Research Artifacts (ephemeral - not committed)
+### Research Artifacts (ephemeral - gitignored)
+
+**Note**: research-data/ directory is created within specs/002-add-9500-public-services/ for organizational clarity but excluded from git via .gitignore (development artifacts only - not committed to repository).
 
 ```text
 specs/002-add-9500-public-services/research-data/
