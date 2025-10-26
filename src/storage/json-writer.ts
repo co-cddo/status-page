@@ -14,13 +14,14 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import type { HealthCheckResult, ServiceStatusAPI } from '../types/health-check.ts';
+import type { IJsonWriter } from './interfaces.ts';
 import { createLogger } from '../logging/logger.ts';
 
 const logger = createLogger({ serviceName: 'json-writer' });
 
 const STATUS_ORDER = { FAIL: 0, DEGRADED: 1, PASS: 2, PENDING: 3 };
 
-export class JsonWriter {
+export class JsonWriter implements IJsonWriter {
   constructor(private filePath: string) {}
 
   /**

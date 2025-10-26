@@ -1,0 +1,7 @@
+pings:
+  - name: 'Minimal Service'
+    protocol: HTTP
+    method: GET
+    resource: 'http://example.com'
+    expected:
+      status: 200

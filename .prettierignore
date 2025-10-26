@@ -35,3 +35,4 @@ yarn.lock
 # Nunjucks templates - Prettier breaks the syntax
 pages/**/*.njk
 _includes/**/*.njk
+tests/fixtures/config/invalid-yaml.yaml

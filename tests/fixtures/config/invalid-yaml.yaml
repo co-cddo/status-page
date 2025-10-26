@@ -1,0 +1,4 @@
+pings:
+  - name: 'Test'
+    protocol: HTTP
+    this is not valid YAML syntax: [

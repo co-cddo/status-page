@@ -14,6 +14,7 @@
 import { readFile, access } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import type { HistoricalRecord } from '../types/health-check.ts';
+import type { ICsvReader } from './interfaces.ts';
 import { parseCsvLine, isValidStatus, CSV_HEADERS } from '../utils/csv.ts';
 import { createLogger } from '../logging/logger.ts';
 import { getErrorMessage } from '../utils/error.ts';
@@ -38,8 +39,17 @@ export interface CsvValidationResult {
 
 const EXPECTED_HEADERS = CSV_HEADERS;
 
-export class CsvReader {
+export class CsvReader implements ICsvReader {
   constructor(private filePath: string) {}
+
+  /**
+   * Reads all records from CSV file
+   * Implements IStorageReader.read() interface
+   * Delegates to readAll() for actual implementation
+   */
+  async read(): Promise<HistoricalRecord[]> {
+    return this.readAll();
+  }
 
   /**
    * Reads and parses the CSV file
