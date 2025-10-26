@@ -312,9 +312,7 @@ test.describe('Status Page Display (US1 - T039a)', () => {
     await expect(failureReason).toBeVisible();
 
     // Verify failure reason has meaningful content
-    const failureText = await failedService
-      .locator('.govuk-error-message, .govuk-summary-list__value:has-text("failure")')
-      .textContent();
+    const failureText = await failedService.locator('.govuk-error-message').first().textContent();
     expect(failureText).toBeTruthy();
     expect(failureText!.trim().length).toBeGreaterThan(5); // Not just empty or "N/A"
   });

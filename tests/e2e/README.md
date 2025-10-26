@@ -188,7 +188,7 @@ Key validation: Self-contained HTML works without network access
 **Solution**: Run build first:
 
 ```bash
-pnpm run build:eleventy
+pnpm run build
 ```
 
 ### Tests Timeout
