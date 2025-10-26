@@ -10,10 +10,11 @@
  * This test MUST fail before T030 implementation (TDD requirement)
  */
 
-import { describe, test, expect, beforeEach, afterEach } from 'vitest';
+import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
 import { promises as fs } from 'node:fs';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import type { ProcessExitMock } from '../../helpers/type-helpers.js';
 import { CsvWriter } from '../../../src/storage/csv-writer.ts';
 import type { HealthCheckResult } from '../../../src/types/health-check.ts';
 
@@ -684,6 +685,203 @@ describe('CsvWriter (T030a - TDD Phase)', () => {
 
       const content = await fs.readFile(testCsvPath, 'utf-8');
       expect(content).toContain(',999999,');
+    });
+
+    test('should handle empty results array in appendBatch', async () => {
+      // Test line 76-78: early return for empty array
+      await csvWriter.appendBatch([]);
+
+      // Should not create file
+      expect(existsSync(testCsvPath)).toBe(false);
+    });
+
+    test('should handle PENDING status by converting to FAIL', async () => {
+      const result: HealthCheckResult = {
+        serviceName: 'test-service',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'PENDING',
+        latency_ms: 0,
+        http_status_code: 0,
+        expected_status: 200,
+        failure_reason: '',
+        correlation_id: 'test-id',
+      };
+
+      await csvWriter.append(result);
+
+      const content = await fs.readFile(testCsvPath, 'utf-8');
+      // PENDING should be converted to FAIL in historical records (line 145)
+      expect(content).toContain(',FAIL,');
+      expect(content).not.toContain(',PENDING,');
+    });
+  });
+
+  describe('Process Exit Behavior (FR-020a)', () => {
+    test('should call process.exit(1) on append failure', async () => {
+      // Mock process.exit to prevent test from actually exiting - using shared type helper
+      const exitSpy = vi.spyOn(process, 'exit').mockImplementation((() => {
+        throw new Error('process.exit called');
+      }) as ProcessExitMock);
+
+      // Create invalid writer
+      const invalidWriter = new CsvWriter('/invalid/path/that/does/not/exist/test.csv');
+
+      const result: HealthCheckResult = {
+        serviceName: 'test-service',
+        timestamp: new Date(),
+        method: 'GET',
+        status: 'PASS',
+        latency_ms: 120,
+        http_status_code: 200,
+        expected_status: 200,
+        failure_reason: '',
+        correlation_id: 'test-id',
+      };
+
+      // Should catch the thrown error from our mocked process.exit
+      await expect(invalidWriter.append(result)).rejects.toThrow('process.exit called');
+
+      // Verify process.exit was called with code 1
+      expect(exitSpy).toHaveBeenCalledWith(1);
+
+      exitSpy.mockRestore();
+    });
+
+    test('should call process.exit(1) on appendBatch failure', async () => {
+      // Mock process.exit to prevent test from actually exiting - using shared type helper
+      const exitSpy = vi.spyOn(process, 'exit').mockImplementation((() => {
+        throw new Error('process.exit called');
+      }) as ProcessExitMock);
+
+      // Create invalid writer
+      const invalidWriter = new CsvWriter('/invalid/path/that/does/not/exist/test.csv');
+
+      const results: HealthCheckResult[] = [
+        {
+          serviceName: 'test-service',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 120,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'test-id',
+        },
+      ];
+
+      // Test lines 107-112: Error handling in appendBatch
+      // Should catch the thrown error from our mocked process.exit
+      await expect(invalidWriter.appendBatch(results)).rejects.toThrow('process.exit called');
+
+      // Verify process.exit was called with code 1
+      expect(exitSpy).toHaveBeenCalledWith(1);
+
+      exitSpy.mockRestore();
+    });
+  });
+
+  describe('Write Method (IStorageWriter Interface)', () => {
+    test('should delegate write to appendBatch', async () => {
+      const results: HealthCheckResult[] = [
+        {
+          serviceName: 'service-1',
+          timestamp: new Date('2025-01-01T12:00:00.000Z'),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 120,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'id-1',
+        },
+        {
+          serviceName: 'service-2',
+          timestamp: new Date('2025-01-01T12:00:01.000Z'),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 150,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'id-2',
+        },
+      ];
+
+      // Use write() method (line 34-36)
+      await csvWriter.write(results);
+
+      const content = await fs.readFile(testCsvPath, 'utf-8');
+      const lines = content.trim().split('\n');
+
+      // Header + 2 data rows
+      expect(lines.length).toBe(3);
+      expect(content).toContain('service-1');
+      expect(content).toContain('service-2');
+    });
+  });
+
+  describe('Batch Append to Existing File', () => {
+    test('should append batch to existing file using appendFile', async () => {
+      // First, create the file with initial data
+      const initialResult: HealthCheckResult = {
+        serviceName: 'initial-service',
+        timestamp: new Date('2025-01-01T12:00:00.000Z'),
+        method: 'GET',
+        status: 'PASS',
+        latency_ms: 100,
+        http_status_code: 200,
+        expected_status: 200,
+        failure_reason: '',
+        correlation_id: 'initial-id',
+      };
+
+      await csvWriter.append(initialResult);
+
+      // Verify file exists
+      expect(existsSync(testCsvPath)).toBe(true);
+
+      // Now append batch to existing file (this will test line 101: appendFile branch)
+      const batchResults: HealthCheckResult[] = [
+        {
+          serviceName: 'batch-service-1',
+          timestamp: new Date('2025-01-01T12:00:01.000Z'),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 120,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'batch-id-1',
+        },
+        {
+          serviceName: 'batch-service-2',
+          timestamp: new Date('2025-01-01T12:00:02.000Z'),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 130,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'batch-id-2',
+        },
+      ];
+
+      await csvWriter.appendBatch(batchResults);
+
+      const content = await fs.readFile(testCsvPath, 'utf-8');
+      const lines = content.trim().split('\n');
+
+      // Header + 3 data rows (1 initial + 2 batch)
+      expect(lines.length).toBe(4);
+      expect(content).toContain('initial-service');
+      expect(content).toContain('batch-service-1');
+      expect(content).toContain('batch-service-2');
+
+      // Verify no duplicate headers
+      const headerCount = lines.filter((line) => line.startsWith('timestamp,service_name')).length;
+      expect(headerCount).toBe(1);
     });
   });
 });

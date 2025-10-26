@@ -256,6 +256,30 @@ describe('Eleventy Runner', () => {
       await expect(eleventyRunner.validateInput()).rejects.toThrow('Invalid status value');
     });
 
+    it('should fail validation for empty string status', async () => {
+      // Arrange
+      const invalidData: unknown[] = [
+        {
+          name: 'empty-status',
+          status: '', // Empty string is falsy
+          latency_ms: 100,
+          last_check_time: '2025-01-01T00:00:00Z',
+          tags: [],
+          http_status_code: 200,
+          failure_reason: '',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: Missing required field 'status'"
+      );
+    });
+
     it('should validate empty array as valid input', async () => {
       // Arrange
       vi.mocked(access).mockResolvedValue(undefined);
@@ -291,6 +315,308 @@ describe('Eleventy Runner', () => {
 
       // Assert
       expect(isValid).toBe(true);
+    });
+
+    it('should fail validation when readFile throws error', async () => {
+      // Arrange
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockRejectedValue(new Error('Permission denied'));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow('Failed to read health.json');
+    });
+
+    it('should handle empty string content as empty array', async () => {
+      // Arrange
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue('');
+
+      // Act
+      const isValid = await eleventyRunner.validateInput();
+
+      // Assert
+      expect(isValid).toBe(true);
+    });
+
+    it('should fail validation when data is not an array', async () => {
+      // Arrange
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue('{"not": "an array"}');
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        'Schema validation failed: health.json must be an array'
+      );
+    });
+
+    it('should fail validation when name is not a string', async () => {
+      // Arrange
+      const invalidData = [
+        {
+          name: 123, // Should be string
+          status: 'PASS',
+          latency_ms: 100,
+          last_check_time: '2025-01-01T00:00:00Z',
+          tags: [],
+          http_status_code: 200,
+          failure_reason: '',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: 'name' must be a string"
+      );
+    });
+
+    it('should fail validation when tags is not an array', async () => {
+      // Arrange
+      const invalidData = [
+        {
+          name: 'test-service',
+          status: 'PASS',
+          latency_ms: 100,
+          last_check_time: '2025-01-01T00:00:00Z',
+          tags: 'not-an-array', // Should be array
+          http_status_code: 200,
+          failure_reason: '',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: 'tags' must be an array"
+      );
+    });
+
+    it('should fail validation when failure_reason is not a string', async () => {
+      // Arrange
+      const invalidData = [
+        {
+          name: 'test-service',
+          status: 'PASS',
+          latency_ms: 100,
+          last_check_time: '2025-01-01T00:00:00Z',
+          tags: [],
+          http_status_code: 200,
+          failure_reason: null, // Should be string
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: 'failure_reason' must be a string"
+      );
+    });
+
+    it('should fail validation for PENDING service with invalid latency_ms type', async () => {
+      // Arrange
+      const invalidData = [
+        {
+          name: 'test-service',
+          status: 'PENDING',
+          latency_ms: 'invalid', // Should be number or null
+          last_check_time: null,
+          tags: [],
+          http_status_code: null,
+          failure_reason: '',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: 'latency_ms' must be number or null"
+      );
+    });
+
+    it('should fail validation for PENDING service with invalid last_check_time type', async () => {
+      // Arrange
+      const invalidData = [
+        {
+          name: 'test-service',
+          status: 'PENDING',
+          latency_ms: null,
+          last_check_time: 123, // Should be string or null
+          tags: [],
+          http_status_code: null,
+          failure_reason: '',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: 'last_check_time' must be string or null"
+      );
+    });
+
+    it('should fail validation for PENDING service with invalid http_status_code type', async () => {
+      // Arrange
+      const invalidData = [
+        {
+          name: 'test-service',
+          status: 'PENDING',
+          latency_ms: null,
+          last_check_time: null,
+          tags: [],
+          http_status_code: 'invalid', // Should be number or null
+          failure_reason: '',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: 'http_status_code' must be number or null"
+      );
+    });
+
+    it('should fail validation for non-PENDING service with null latency_ms', async () => {
+      // Arrange
+      const invalidData = [
+        {
+          name: 'test-service',
+          status: 'PASS',
+          latency_ms: null, // Should be number for non-PENDING
+          last_check_time: '2025-01-01T00:00:00Z',
+          tags: [],
+          http_status_code: 200,
+          failure_reason: '',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: 'latency_ms' must be a number"
+      );
+    });
+
+    it('should fail validation for non-PENDING service with null last_check_time', async () => {
+      // Arrange
+      const invalidData = [
+        {
+          name: 'test-service',
+          status: 'DEGRADED',
+          latency_ms: 100,
+          last_check_time: null, // Should be string for non-PENDING
+          tags: [],
+          http_status_code: 200,
+          failure_reason: '',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: 'last_check_time' must be a string"
+      );
+    });
+
+    it('should fail validation for non-PENDING service with null http_status_code', async () => {
+      // Arrange
+      const invalidData = [
+        {
+          name: 'test-service',
+          status: 'FAIL',
+          latency_ms: 100,
+          last_check_time: '2025-01-01T00:00:00Z',
+          tags: [],
+          http_status_code: null, // Should be number for non-PENDING
+          failure_reason: 'Connection timeout',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(invalidData));
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow(
+        "Schema validation failed: 'http_status_code' must be a number"
+      );
+    });
+
+    it('should validate PENDING service with non-null numeric values', async () => {
+      // Arrange
+      const validData: ServiceStatusAPI[] = [
+        {
+          name: 'test-service',
+          status: 'PENDING',
+          latency_ms: 100, // PENDING can have non-null values
+          last_check_time: '2025-01-01T00:00:00Z',
+          tags: [],
+          http_status_code: 200,
+          failure_reason: '',
+          resource: 'https://example.com',
+        },
+      ];
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify(validData));
+
+      // Act
+      const isValid = await eleventyRunner.validateInput();
+
+      // Assert
+      expect(isValid).toBe(true);
+    });
+
+    it('should handle JSON parse error with non-Error object', async () => {
+      // Arrange
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue('{ invalid json');
+
+      // Mock JSON.parse to throw a non-Error object
+      const originalParse = JSON.parse;
+      JSON.parse = vi.fn(() => {
+        throw 'String error'; // Non-Error throw
+      });
+
+      try {
+        // Act & Assert
+        await expect(eleventyRunner.validateInput()).rejects.toThrow('Invalid JSON');
+      } finally {
+        // Restore JSON.parse
+        JSON.parse = originalParse;
+      }
+    });
+
+    it('should handle readFile error with non-Error object', async () => {
+      // Arrange
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockRejectedValue('String error'); // Non-Error reject
+
+      // Act & Assert
+      await expect(eleventyRunner.validateInput()).rejects.toThrow('Failed to read health.json');
     });
   });
 
@@ -738,6 +1064,65 @@ describe('Eleventy Runner', () => {
       // Assert
       expect(result.success).toBe(false);
       expect(result.error?.message).toContain('ENOENT');
+    });
+
+    it('should handle subprocess spawn errors with error code', async () => {
+      // Arrange
+      const spawnError = new Error('Command not found');
+      Object.assign(spawnError, { code: 'ENOENT' });
+
+      vi.mocked(spawn).mockImplementation(() => {
+        throw spawnError;
+      });
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue('[]');
+
+      // Act
+      const result: EleventyBuildResult = await eleventyRunner.build();
+
+      // Assert
+      expect(result.success).toBe(false);
+      expect(result.error?.message).toContain('Command not found');
+      expect(result.error?.code).toBe('ENOENT');
+    });
+
+    it('should handle subprocess spawn errors without error code', async () => {
+      // Arrange
+      const spawnError = new Error('Generic spawn error');
+      // No code property
+
+      vi.mocked(spawn).mockImplementation(() => {
+        throw spawnError;
+      });
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue('[]');
+
+      // Act
+      const result: EleventyBuildResult = await eleventyRunner.build();
+
+      // Assert
+      expect(result.success).toBe(false);
+      expect(result.error?.message).toContain('Generic spawn error');
+      expect(result.error?.code).toBeUndefined();
+    });
+
+    it('should handle subprocess spawn with non-Error throw', async () => {
+      // Arrange
+      vi.mocked(spawn).mockImplementation(() => {
+        throw 'String error'; // Non-Error throw
+      });
+
+      vi.mocked(access).mockResolvedValue(undefined);
+      vi.mocked(readFile).mockResolvedValue('[]');
+
+      // Act
+      const result: EleventyBuildResult = await eleventyRunner.build();
+
+      // Assert
+      expect(result.success).toBe(false);
+      expect(result.error?.message).toBe('Failed to spawn Eleventy process');
     });
 
     it('should include stderr in error details', async () => {
