@@ -41,12 +41,39 @@ export function validateStatusCode(
 }
 
 /**
+ * Parses a text pattern to determine if it's inverse (prefixed with !)
+ * Validates against double negation or empty patterns
+ *
+ * @param pattern Text pattern (e.g., "Welcome" or "!error")
+ * @returns Parsed pattern with inverse flag and text, or validation error
+ */
+function parseTextPattern(
+  pattern: string
+): { isInverse: boolean; text: string } | { error: string } {
+  if (pattern === '!' || pattern.startsWith('!!')) {
+    return {
+      error: `Invalid inverse pattern '${pattern}' - use '!text' to check text is NOT present`,
+    };
+  }
+
+  if (pattern.startsWith('!')) {
+    return { isInverse: true, text: pattern.slice(1) };
+  }
+
+  return { isInverse: false, text: pattern };
+}
+
+/**
  * Validates that expected text is found in response body
  * Uses case-sensitive substring matching
  * Per FR-014: Searches first 100KB of response only
  *
+ * Supports inverse patterns: If expectedText starts with '!', the validation
+ * succeeds if the text is NOT found (useful for detecting error pages).
+ * Example: '!We're sorry' will PASS if "We're sorry" is not in the response
+ *
  * @param responseBody Response body text to search
- * @param expectedText Expected substring to find
+ * @param expectedText Expected substring to find (or '!substring' to ensure absence)
  * @returns ValidationResult with status and error message
  */
 export function validateResponseText(responseBody: string, expectedText: string): ValidationResult {
@@ -54,11 +81,29 @@ export function validateResponseText(responseBody: string, expectedText: string)
   const maxSearchLength = 100 * 1024; // 100KB in bytes
   const searchBody = responseBody.slice(0, maxSearchLength);
 
-  const isValid = searchBody.includes(expectedText);
+  // Parse and validate the pattern
+  const parsed = parseTextPattern(expectedText);
+  if ('error' in parsed) {
+    return { valid: false, error: parsed.error };
+  }
+
+  const { isInverse, text } = parsed;
+  const textFound = searchBody.includes(text);
+
+  if (isInverse) {
+    return {
+      valid: !textFound,
+      ...(!textFound
+        ? {}
+        : {
+            error: `Service returned error page: found '${text}' in response`,
+          }),
+    };
+  }
 
   return {
-    valid: isValid,
-    ...(isValid ? {} : { error: `Expected text '${expectedText}' not found in response body` }),
+    valid: textFound,
+    ...(textFound ? {} : { error: `Expected text '${text}' not found in response body` }),
   };
 }
 

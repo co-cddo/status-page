@@ -1,10 +1,30 @@
 settings:
-  check_interval: 300
-  warning_threshold: 2
-  timeout: 10
-  page_refresh: 300
-  max_retries: 3
-  worker_pool_size: 0
+  check_interval: 300 # Default seconds between checks (5 minutes)
+  warning_threshold: 2 # Seconds before status becomes DEGRADED
+  timeout: 10 # Seconds before request fails
+  page_refresh: 300 # Browser auto-refresh interval (seconds)
+  max_retries: 3 # Retry attempts for failed requests
+  worker_pool_size: 0 # 0 = auto-detect (2x CPU cores)
+
+# TEXT VALIDATION:
+# Services with 'text:' perform case-sensitive substring matching on page content.
+# This detects error pages vs working content.
+#
+# POSITIVE PATTERNS (text must be present):
+#   text: "Apply for"  → PASS if "Apply for" found in response
+#
+# INVERSE PATTERNS (text must NOT be present - prefix with !):
+#   text: "!We're sorry"  → PASS if "We're sorry" NOT found in response
+#   text: "!unavailable"  → PASS if "unavailable" NOT found in response
+#
+# Inverse patterns detect error states. If a service shows "We're sorry" or
+# "unavailable", it's down and health check should FAIL.
+#
+# SEARCH SERVICES:
+# Services with search functionality have two entries:
+# 1. GET request to verify search form loads
+# 2. POST request with "- Search" suffix to verify search functionality works
+# Search POST payloads use realistic test data (e.g., postcode: "SW1A 2AA")
 pings:
   - name: Apply for First Provisional Driving Licence
     protocol: HTTPS
@@ -210,7 +230,7 @@ pings:
       - slc
     expected:
       status: 200
-      text: We're sorry, there is
+      text: Student loans
     interval: 60
   - name: Tax-Free Childcare Account
     protocol: HTTPS
@@ -664,7 +684,7 @@ pings:
       - environment-agency
     expected:
       status: 200
-      text: ERROR_404
+      text: environmental permit
   - name: Export Health Certificates
     protocol: HTTPS
     method: GET
@@ -782,7 +802,7 @@ pings:
       - hmrc
     expected:
       status: 200
-      text: ERROR_404
+      text: Help to Save
   - name: Immigration and Asylum Tribunal
     protocol: HTTPS
     method: GET
@@ -922,7 +942,7 @@ pings:
       - defra
     expected:
       status: 200
-      text: ERROR_404
+      text: pet travel
   - name: Planning Inspectorate Appeals
     protocol: HTTPS
     method: GET
@@ -988,7 +1008,7 @@ pings:
       - hmrc
     expected:
       status: 200
-      text: ERROR_404
+      text: customs duty
   - name: Sign up for Flood Warnings
     protocol: HTTPS
     method: GET
@@ -1043,7 +1063,7 @@ pings:
       - hmrc
     expected:
       status: 200
-      text: Sorry, this service is
+      text: Tax credits
   - name: Teaching Regulation Agency
     protocol: HTTPS
     method: GET
@@ -1797,7 +1817,7 @@ pings:
       - dfe
     expected:
       status: 200
-      text: ERROR_404
+      text: Learning Records Service
     interval: 900
   - name: Cold Weather Payment
     protocol: HTTPS
@@ -1858,7 +1878,7 @@ pings:
       - dfe
     expected:
       status: 200
-      text: ERROR_404
+      text: National Tutoring Programme
     interval: 900
   - name: Personalised Registration Service
     protocol: HTTPS
@@ -1928,14 +1948,14 @@ pings:
       - defra
     expected:
       status: 200
-      text: ERROR_404
+      text: notifiable disease
     interval: 900
   - name: Apply for Free School Meals - Search
     protocol: HTTPS
     method: POST
     resource: https://www.gov.uk/apply-free-school-meals
     payload:
-      postcode: ''
+      postcode: SW1A 2AA
     tags:
       - education
       - benefits
@@ -1950,7 +1970,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/apply-council-tax-reduction
     payload:
-      postcode: ''
+      postcode: SW1A 2AA
     tags:
       - benefits
       - council-tax
@@ -2014,7 +2034,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/apply-for-council-housing
     payload:
-      postcode: ''
+      postcode: SW1A 2AA
     tags:
       - housing
       - council
