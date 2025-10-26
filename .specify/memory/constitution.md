@@ -317,10 +317,14 @@ to specialized subagents to preserve main agent context for productive work.
 
 ```markdown
 # Main agent delegates polling to subagent
-Task tool with subagent_type=general-purpose:
-  "Monitor GitHub Actions workflow run <run-id> using 'gh run watch' and 'gh run view --log-failed' until completion. Poll aggressively with appropriate timeouts. Return final status, execution time, and any error logs. Do not return until operation completes or fails definitively."
+
+Task tool with subagent_type=general-purpose: "Monitor GitHub Actions workflow run <run-id> using
+'gh run watch' and 'gh run view --log-failed' until completion. Poll aggressively with appropriate
+timeouts. Return final status, execution time, and any error logs. Do not return until operation
+completes or fails definitively."
 
 # Main agent continues with other tasks while subagent polls
+
 # Later, main agent retrieves results when needed
 ```
 
@@ -483,8 +487,8 @@ permissions:
 Use gh CLI commands for monitoring and troubleshooting CI/CD workflows. These commands provide
 real-time visibility into build status, test results, and deployment health.
 
-**IMPORTANT**: For operations requiring polling or repeated checks (marked with ⚠️ DELEGATE),
-follow Principle XII and delegate to a subagent to preserve main agent context.
+**IMPORTANT**: For operations requiring polling or repeated checks (marked with ⚠️ DELEGATE), follow
+Principle XII and delegate to a subagent to preserve main agent context.
 
 **Check workflow runs status**:
 
