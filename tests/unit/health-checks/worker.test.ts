@@ -999,6 +999,350 @@ describe('Health Check Worker', () => {
     });
   });
 
+  describe('Error Type Classification', () => {
+    it('should classify ENOTFOUND as network error', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'enotfound-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'enotfound-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const notFoundError = Object.assign(new Error('getaddrinfo ENOTFOUND'), {
+        code: 'ENOTFOUND',
+      });
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(notFoundError);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert
+      expect(result.error?.type).toBe('network');
+      expect(result.error?.code).toBe('ENOTFOUND');
+    });
+
+    it('should classify ENETUNREACH as network error', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'enetunreach-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'enetunreach-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const netUnreachError = Object.assign(new Error('Network unreachable'), {
+        code: 'ENETUNREACH',
+      });
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(netUnreachError);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert
+      expect(result.error?.type).toBe('network');
+      expect(result.error?.code).toBe('ENETUNREACH');
+    });
+
+    it('should classify ESOCKETTIMEDOUT as timeout error', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'socket-timeout-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'socket-timeout-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const socketTimeoutError = Object.assign(new Error('Socket timeout'), {
+        code: 'ESOCKETTIMEDOUT',
+      });
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(socketTimeoutError);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert
+      expect(result.error?.type).toBe('timeout');
+      expect(result.error?.code).toBe('ESOCKETTIMEDOUT');
+    });
+
+    it('should classify error code containing TIMEOUT as timeout error', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'timeout-string-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'timeout-string-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const timeoutError = Object.assign(new Error('Request timeout'), {
+        code: 'REQUEST_TIMEOUT',
+      });
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(timeoutError);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert
+      expect(result.error?.type).toBe('timeout');
+      expect(result.error?.code).toBe('REQUEST_TIMEOUT');
+    });
+
+    it('should classify CERT error codes as ssl error', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'cert-error-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'cert-error-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const certError = Object.assign(new Error('Certificate error'), {
+        code: 'CERT_INVALID',
+      });
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(certError);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert
+      expect(result.error?.type).toBe('ssl');
+      expect(result.error?.code).toBe('CERT_INVALID');
+    });
+
+    it('should classify TLS error codes as ssl error', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'tls-error-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'tls-error-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const tlsError = Object.assign(new Error('TLS handshake failed'), {
+        code: 'ERR_TLS_HANDSHAKE',
+      });
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(tlsError);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert
+      expect(result.error?.type).toBe('ssl');
+      expect(result.error?.code).toBe('ERR_TLS_HANDSHAKE');
+    });
+
+    it('should classify error code containing SSL as ssl error', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'ssl-string-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'ssl-string-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const sslError = Object.assign(new Error('SSL protocol error'), {
+        code: 'ERR_SSL_PROTOCOL_ERROR',
+      });
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(sslError);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert
+      expect(result.error?.type).toBe('ssl');
+      expect(result.error?.code).toBe('ERR_SSL_PROTOCOL_ERROR');
+    });
+
+    it('should classify unknown error codes as unknown', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'unknown-error-service',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'unknown-error-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const unknownError = Object.assign(new Error('Unknown error'), {
+        code: 'ECUSTOMERROR',
+      });
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(unknownError);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert
+      expect(result.error?.type).toBe('unknown');
+      expect(result.error?.code).toBe('ECUSTOMERROR');
+    });
+
+    it('should emit metrics for error cases', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'metrics-error-case',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'metrics-error-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const networkError = Object.assign(new Error('Network failure'), {
+        code: 'ECONNREFUSED',
+      });
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(networkError);
+
+      // Act
+      await processHealthCheck(message);
+
+      // Assert - Critical: Verify metrics are emitted for error cases too
+      expect(recordHealthCheckResult).toHaveBeenCalledWith(
+        expect.objectContaining({
+          serviceName: 'metrics-error-case',
+          status: 'FAIL',
+          failure_reason: 'Network failure',
+        })
+      );
+    });
+
+    it('should fallback to serviceName from URL when serviceName is missing in error case', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        method: 'GET',
+        url: 'https://fallback-example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'fallback-id',
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const error = new Error('Test error');
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(error);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert - serviceName should fallback to URL
+      expect(result.result.serviceName).toBe('https://fallback-example.com');
+    });
+
+    it('should generate UUID correlation ID when missing in error case', async () => {
+      // Arrange
+      const config: HealthCheckConfig = {
+        serviceName: 'no-correlation-id-error',
+        method: 'GET',
+        url: 'https://example.com',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        // correlationId is intentionally missing
+      };
+
+      const message: WorkerMessage = {
+        type: 'health-check',
+        config,
+      };
+
+      const error = new Error('Test error without correlation ID');
+      vi.mocked(performHealthCheckWithRetry).mockRejectedValue(error);
+
+      // Act
+      const result: WorkerResult = await processHealthCheck(message);
+
+      // Assert - Should generate a UUID correlation ID
+      expect(result.result.correlation_id).toBeDefined();
+      expect(result.result.correlation_id).toMatch(
+        /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+      );
+    });
+  });
+
   describe('Worker Error Handling', () => {
     it('should handle unexpected errors during health check execution', async () => {
       // Arrange

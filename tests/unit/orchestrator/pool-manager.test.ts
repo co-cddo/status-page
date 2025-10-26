@@ -1505,4 +1505,200 @@ describe('Worker Pool Manager', () => {
       expect(completedMetrics.completedTasks).toBe(1);
     });
   });
+
+  describe('Pool Manager Instance', () => {
+    it('should return self instance from getPoolManager method', async () => {
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 2 });
+      await poolManager.initialize();
+
+      // Act
+      const managerInstance = poolManager.getPoolManager();
+
+      // Assert
+      expect(managerInstance).toBe(poolManager);
+      expect(managerInstance).toBeInstanceOf(WorkerPoolManager);
+    });
+  });
+
+  describe('Edge Cases - Branch Coverage', () => {
+    it('should handle worker message when currentTask is null (line 153)', async () => {
+      // Tests defensive guard: handleWorkerMessage returns early if no currentTask
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+        threadId: 1,
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      // Act - simulate worker sending message without having an assigned task
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        const result: HealthCheckResult = {
+          serviceName: 'orphan-service',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'orphan-id',
+        };
+        messageHandler({ type: 'health-check-result', result });
+      }
+
+      // Assert - no error should be thrown, metrics should not change
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.completedTasks).toBe(0);
+      expect(metrics.failedTasks).toBe(0);
+    });
+
+    it('should handle worker error when currentTask is null (line 185)', async () => {
+      // Tests optional chaining: currentTask?.config.serviceName when currentTask is null
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+        threadId: 1,
+      };
+
+      const errorHandlers: Map<string, (error: Error) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (error: Error) => void) => {
+        if (event === 'error') {
+          errorHandlers.set('error', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      // Act - trigger worker error without an assigned task
+      const errorHandler = errorHandlers.get('error');
+      if (errorHandler) {
+        errorHandler(new Error('Worker error without task'));
+      }
+
+      // Assert - error should be logged but pool remains operational
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.totalWorkers).toBe(1);
+      expect(metrics.workerCrashes).toBe(0); // Error event doesn't increment crashes
+    });
+
+    it('should handle processNextTask when no idle workers available (line 275)', async () => {
+      // Tests defensive guard: processNextTask returns early if no idle worker
+      // Arrange
+      const mockWorker = {
+        on: vi.fn(),
+        postMessage: vi.fn(),
+        terminate: vi.fn(),
+      };
+
+      const messageHandlers: Map<string, (message: unknown) => void> = new Map();
+      mockWorker.on.mockImplementation((event: string, handler: (message: unknown) => void) => {
+        if (event === 'message') {
+          messageHandlers.set('message', handler);
+        }
+        return mockWorker;
+      });
+
+      vi.mocked(Worker).mockImplementation(() => mockWorker as unknown as Worker);
+
+      poolManager = new WorkerPoolManager({ poolSize: 1 });
+      await poolManager.initialize();
+
+      // Act - queue 2 tasks with only 1 worker (second task waits in queue)
+      const config1: HealthCheckConfig = {
+        serviceName: 'service-1',
+        method: 'GET',
+        url: 'https://example.com/1',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'id-1',
+      };
+
+      const config2: HealthCheckConfig = {
+        serviceName: 'service-2',
+        method: 'GET',
+        url: 'https://example.com/2',
+        timeout: 5000,
+        warningThreshold: 2000,
+        maxRetries: 3,
+        expectedStatus: 200,
+        correlationId: 'id-2',
+      };
+
+      const task1 = poolManager.executeHealthCheck(config1);
+      const task2 = poolManager.executeHealthCheck(config2);
+
+      // Assert - second task should be queued because no idle worker
+      const metrics: PoolMetrics = poolManager.getMetrics();
+      expect(metrics.queueDepth).toBe(1);
+      expect(metrics.activeWorkers).toBe(1);
+      expect(metrics.idleWorkers).toBe(0);
+
+      // Complete tasks to prevent hanging promises
+      const messageHandler = messageHandlers.get('message');
+      if (messageHandler) {
+        const result1: HealthCheckResult = {
+          serviceName: 'service-1',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'id-1',
+        };
+        messageHandler({ type: 'health-check-result', result: result1 });
+      }
+
+      await task1;
+
+      if (messageHandler) {
+        const result2: HealthCheckResult = {
+          serviceName: 'service-2',
+          timestamp: new Date(),
+          method: 'GET',
+          status: 'PASS',
+          latency_ms: 100,
+          http_status_code: 200,
+          expected_status: 200,
+          failure_reason: '',
+          correlation_id: 'id-2',
+        };
+        messageHandler({ type: 'health-check-result', result: result2 });
+      }
+
+      await task2;
+    });
+  });
 });
