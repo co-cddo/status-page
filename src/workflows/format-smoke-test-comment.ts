@@ -4,8 +4,10 @@
  */
 
 import type { HealthCheckResult } from '../types/health-check.ts';
-import { escapeMarkdown, truncate } from '../utils/string.ts';
-import { formatLatency } from '../utils/format.ts';
+import { generateHealthCheckTable } from '../utils/markdown.ts';
+import { createModuleLogger } from '../logging/logger.ts';
+
+const logger = createModuleLogger('smoke-test-comment');
 
 /**
  * Validate a single health check result object
@@ -15,36 +17,49 @@ import { formatLatency } from '../utils/format.ts';
  */
 function isValidHealthCheckResult(result: unknown, index: number): result is HealthCheckResult {
   if (!result || typeof result !== 'object') {
-    console.warn(`Invalid result at index ${index}: not an object`);
+    logger.warn({ index, result }, 'Invalid health check result: not an object');
     return false;
   }
 
   const r = result as Partial<HealthCheckResult>;
 
   if (!r.serviceName || typeof r.serviceName !== 'string') {
-    console.warn(`Invalid result at index ${index}: missing or invalid serviceName`);
+    logger.warn(
+      { index, serviceName: r.serviceName },
+      'Invalid health check result: missing or invalid serviceName'
+    );
     return false;
   }
 
   if (!r.status || !['PASS', 'DEGRADED', 'FAIL', 'PENDING'].includes(r.status)) {
-    console.warn(`Invalid result at index ${index}: invalid status "${r.status}"`);
+    logger.warn(
+      { index, status: r.status, serviceName: r.serviceName },
+      'Invalid health check result: invalid status'
+    );
     return false;
   }
 
   if (typeof r.latency_ms !== 'number' || r.latency_ms < 0) {
-    console.warn(`Invalid result at index ${index}: invalid latency_ms "${r.latency_ms}"`);
+    logger.warn(
+      { index, latency_ms: r.latency_ms, serviceName: r.serviceName },
+      'Invalid health check result: invalid latency_ms'
+    );
     return false;
   }
 
   if (typeof r.http_status_code !== 'number') {
-    console.warn(
-      `Invalid result at index ${index}: invalid http_status_code "${r.http_status_code}"`
+    logger.warn(
+      { index, http_status_code: r.http_status_code, serviceName: r.serviceName },
+      'Invalid health check result: invalid http_status_code'
     );
     return false;
   }
 
   if (r.failure_reason !== undefined && typeof r.failure_reason !== 'string') {
-    console.warn(`Invalid result at index ${index}: invalid failure_reason type`);
+    logger.warn(
+      { index, failure_reason: r.failure_reason, serviceName: r.serviceName },
+      'Invalid health check result: invalid failure_reason type'
+    );
     return false;
   }
 
@@ -81,11 +96,31 @@ export function formatSmokeTestComment(results: HealthCheckResult[]): string {
     return `## Smoke Test Results\n\n**No services configured for health checks.**\n\n*Generated at ${timestamp}*`;
   }
 
+  // Group results by status using single-pass categorization for performance
+  const groupedResults = validResults.reduce(
+    (acc, result) => {
+      acc[result.status].push(result);
+      return acc;
+    },
+    {
+      FAIL: [] as HealthCheckResult[],
+      DEGRADED: [] as HealthCheckResult[],
+      PASS: [] as HealthCheckResult[],
+      PENDING: [] as HealthCheckResult[],
+    }
+  );
+
+  const failedResults = groupedResults.FAIL;
+  const degradedResults = groupedResults.DEGRADED;
+  const passedResults = groupedResults.PASS;
+  const pendingResults = groupedResults.PENDING;
+
   // Calculate summary statistics
   const total = validResults.length;
-  const passed = validResults.filter((r) => r.status === 'PASS').length;
-  const degraded = validResults.filter((r) => r.status === 'DEGRADED').length;
-  const failed = validResults.filter((r) => r.status === 'FAIL').length;
+  const passed = passedResults.length;
+  const degraded = degradedResults.length;
+  const failed = failedResults.length;
+  const pending = pendingResults.length;
   const failureRate = failed / total;
 
   // Build comment sections using array join for better performance
@@ -110,49 +145,27 @@ export function formatSmokeTestComment(results: HealthCheckResult[]): string {
   parts.push(`**Total Services:** ${total}\n`);
   parts.push(`- ✅ **Passed:** ${passed}\n`);
   parts.push(`- ⚠️ **Degraded:** ${degraded}\n`);
-  parts.push(`- ❌ **Failed:** ${failed}\n\n`);
-
-  // Group results by status
-  const failedResults = validResults.filter((r) => r.status === 'FAIL');
-  const degradedResults = validResults.filter((r) => r.status === 'DEGRADED');
-  const passedResults = validResults.filter((r) => r.status === 'PASS');
-
-  // Helper function to render a table for a specific status
-  const renderTable = (results: HealthCheckResult[]): string => {
-    if (results.length === 0) return '';
-
-    const tableLines: string[] = [];
-    tableLines.push('| Service | Status | Latency | HTTP Code | Failure Reason |\n');
-    tableLines.push('|---------|--------|---------|-----------|----------------|\n');
-
-    results.forEach((result) => {
-      const serviceName = escapeMarkdown(result.serviceName);
-      const status = result.status;
-      const latency = formatLatency(result.latency_ms);
-      const httpCode = result.http_status_code || 'N/A';
-      const failureReason = result.failure_reason
-        ? truncate(escapeMarkdown(result.failure_reason), 100)
-        : '-';
-
-      tableLines.push(
-        `| ${serviceName} | ${status} | ${latency} | ${httpCode} | ${failureReason} |\n`
-      );
-    });
-
-    return tableLines.join('');
-  };
+  parts.push(`- ❌ **Failed:** ${failed}\n`);
+  parts.push(`- ⏳ **Pending:** ${pending}\n\n`);
 
   // Add FAILED section
   if (failedResults.length > 0) {
     parts.push('## ❌ FAILED\n\n');
-    parts.push(renderTable(failedResults));
+    parts.push(generateHealthCheckTable(failedResults));
     parts.push('\n');
   }
 
   // Add DEGRADED section
   if (degradedResults.length > 0) {
     parts.push('## ⚠️ DEGRADED\n\n');
-    parts.push(renderTable(degradedResults));
+    parts.push(generateHealthCheckTable(degradedResults));
+    parts.push('\n');
+  }
+
+  // Add PENDING section
+  if (pendingResults.length > 0) {
+    parts.push('## ⏳ PENDING\n\n');
+    parts.push(generateHealthCheckTable(pendingResults));
     parts.push('\n');
   }
 
@@ -163,7 +176,7 @@ export function formatSmokeTestComment(results: HealthCheckResult[]): string {
     parts.push(
       `<summary>Show ${passedResults.length} passing check${passedResults.length === 1 ? '' : 's'}</summary>\n\n`
     );
-    parts.push(renderTable(passedResults));
+    parts.push(generateHealthCheckTable(passedResults));
     parts.push('</details>\n\n');
   }
 
