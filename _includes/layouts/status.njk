@@ -16,6 +16,13 @@
   <meta http-equiv="refresh" content="{{ settings.page_refresh or 60 }}">
 {% endblock %}
 
+{% block bodyEnd %}
+  {{ super() }}
+  {# Progressive enhancement: Timestamp localization JavaScript #}
+  {# Will be inlined by post-build script for self-contained HTML #}
+  <script src="/assets/js/timestamp-localization.js" type="module"></script>
+{% endblock %}
+
 {% block main %}
   <div class="govuk-width-container {%- if containerClasses %} {{ containerClasses }}{% endif %}">
     {% block beforeContent %}{% endblock %}
