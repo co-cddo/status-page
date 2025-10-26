@@ -69,7 +69,7 @@ jobs:
           NODE_ENV: test
 
       - name: Build application
-        run: pnpm run build:inline
+        run: pnpm run build
         continue-on-error: false
         env:
           NODE_ENV: test
