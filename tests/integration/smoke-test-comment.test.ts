@@ -56,6 +56,16 @@ describe('Smoke Test Comment Formatting (US6)', () => {
     expect(comment).toContain('PASS');
     expect(comment).toContain('DEGRADED');
     expect(comment).toContain('FAIL');
+
+    // Verify status sections
+    expect(comment).toContain('## ❌ FAILED');
+    expect(comment).toContain('## ⚠️ DEGRADED');
+    expect(comment).toContain('## ✅ PASS');
+
+    // Verify PASS section is in collapsible details
+    expect(comment).toContain('<details>');
+    expect(comment).toContain('<summary>Show 1 passing check</summary>');
+    expect(comment).toContain('</details>');
   });
 
   test('includes summary statistics', () => {
@@ -191,5 +201,80 @@ describe('Smoke Test Comment Formatting (US6)', () => {
 
     // Verify timestamp present
     expect(comment).toMatch(/\d{4}-\d{2}-\d{2}|\d{1,2}:\d{2}/); // ISO date or time format
+  });
+
+  test('groups results by status with PASS in collapsible section', () => {
+    const results: HealthCheckResult[] = [
+      createMockResult('Failed Service 1', 'FAIL', 0, 500, 'Server Error'),
+      createMockResult('Failed Service 2', 'FAIL', 0, 404, 'Not Found'),
+      createMockResult('Degraded Service 1', 'DEGRADED', 2500, 200, ''),
+      createMockResult('Passing Service 1', 'PASS', 100, 200, ''),
+      createMockResult('Passing Service 2', 'PASS', 150, 200, ''),
+      createMockResult('Passing Service 3', 'PASS', 200, 200, ''),
+    ];
+
+    const comment = formatSmokeTestComment(results);
+
+    // Verify status section headers
+    expect(comment).toContain('## ❌ FAILED');
+    expect(comment).toContain('## ⚠️ DEGRADED');
+    expect(comment).toContain('## ✅ PASS');
+
+    // Verify FAILED section comes before DEGRADED
+    const failedIndex = comment.indexOf('## ❌ FAILED');
+    const degradedIndex = comment.indexOf('## ⚠️ DEGRADED');
+    const passIndex = comment.indexOf('## ✅ PASS');
+    expect(failedIndex).toBeLessThan(degradedIndex);
+    expect(degradedIndex).toBeLessThan(passIndex);
+
+    // Verify PASS section uses collapsible details
+    expect(comment).toContain('<details>');
+    expect(comment).toContain('<summary>Show 3 passing checks</summary>');
+    expect(comment).toContain('</details>');
+
+    // Verify all services are present
+    expect(comment).toContain('Failed Service 1');
+    expect(comment).toContain('Failed Service 2');
+    expect(comment).toContain('Degraded Service 1');
+    expect(comment).toContain('Passing Service 1');
+    expect(comment).toContain('Passing Service 2');
+    expect(comment).toContain('Passing Service 3');
+  });
+
+  test('handles only PASS results with collapsible section', () => {
+    const results: HealthCheckResult[] = [
+      createMockResult('Service 1', 'PASS', 100, 200, ''),
+      createMockResult('Service 2', 'PASS', 150, 200, ''),
+    ];
+
+    const comment = formatSmokeTestComment(results);
+
+    // Should not have FAILED or DEGRADED sections
+    expect(comment).not.toContain('## ❌ FAILED');
+    expect(comment).not.toContain('## ⚠️ DEGRADED');
+
+    // Should have PASS section with collapsible details
+    expect(comment).toContain('## ✅ PASS');
+    expect(comment).toContain('<details>');
+    expect(comment).toContain('<summary>Show 2 passing checks</summary>');
+  });
+
+  test('handles only FAILED results without collapsible section', () => {
+    const results: HealthCheckResult[] = [
+      createMockResult('Service 1', 'FAIL', 0, 500, 'Error'),
+      createMockResult('Service 2', 'FAIL', 0, 404, 'Not Found'),
+    ];
+
+    const comment = formatSmokeTestComment(results);
+
+    // Should have FAILED section
+    expect(comment).toContain('## ❌ FAILED');
+
+    // Should not have DEGRADED or PASS sections
+    expect(comment).not.toContain('## ⚠️ DEGRADED');
+    expect(comment).not.toContain('## ✅ PASS');
+
+    // Should not have collapsible details
+    expect(comment).not.toContain('<details>');
   });
 });

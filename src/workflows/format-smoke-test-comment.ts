@@ -112,22 +112,56 @@ export function formatSmokeTestComment(results: HealthCheckResult[]): string {
   parts.push(`- ⚠️ **Degraded:** ${degraded}\n`);
   parts.push(`- ❌ **Failed:** ${failed}\n\n`);
 
-  // Add results table
-  parts.push('## Detailed Results\n\n');
-  parts.push('| Service | Status | Latency | HTTP Code | Failure Reason |\n');
-  parts.push('|---------|--------|---------|-----------|----------------|\n');
+  // Group results by status
+  const failedResults = validResults.filter((r) => r.status === 'FAIL');
+  const degradedResults = validResults.filter((r) => r.status === 'DEGRADED');
+  const passedResults = validResults.filter((r) => r.status === 'PASS');
 
-  validResults.forEach((result) => {
-    const serviceName = escapeMarkdown(result.serviceName);
-    const status = result.status;
-    const latency = formatLatency(result.latency_ms);
-    const httpCode = result.http_status_code || 'N/A';
-    const failureReason = result.failure_reason
-      ? truncate(escapeMarkdown(result.failure_reason), 100)
-      : '-';
+  // Helper function to render a table for a specific status
+  const renderTable = (results: HealthCheckResult[]): string => {
+    if (results.length === 0) return '';
 
-    parts.push(`| ${serviceName} | ${status} | ${latency} | ${httpCode} | ${failureReason} |\n`);
-  });
+    const tableLines: string[] = [];
+    tableLines.push('| Service | Status | Latency | HTTP Code | Failure Reason |\n');
+    tableLines.push('|---------|--------|---------|-----------|----------------|\n');
+
+    results.forEach((result) => {
+      const serviceName = escapeMarkdown(result.serviceName);
+      const status = result.status;
+      const latency = formatLatency(result.latency_ms);
+      const httpCode = result.http_status_code || 'N/A';
+      const failureReason = result.failure_reason
+        ? truncate(escapeMarkdown(result.failure_reason), 100)
+        : '-';
+
+      tableLines.push(`| ${serviceName} | ${status} | ${latency} | ${httpCode} | ${failureReason} |\n`);
+    });
+
+    return tableLines.join('');
+  };
+
+  // Add FAILED section
+  if (failedResults.length > 0) {
+    parts.push('## ❌ FAILED\n\n');
+    parts.push(renderTable(failedResults));
+    parts.push('\n');
+  }
+
+  // Add DEGRADED section
+  if (degradedResults.length > 0) {
+    parts.push('## ⚠️ DEGRADED\n\n');
+    parts.push(renderTable(degradedResults));
+    parts.push('\n');
+  }
+
+  // Add PASS section in collapsible accordion
+  if (passedResults.length > 0) {
+    parts.push('## ✅ PASS\n\n');
+    parts.push('<details>\n');
+    parts.push(`<summary>Show ${passedResults.length} passing check${passedResults.length === 1 ? '' : 's'}</summary>\n\n`);
+    parts.push(renderTable(passedResults));
+    parts.push('</details>\n\n');
+  }
 
   // Add footer with timestamp
   parts.push(`\n*Smoke test completed at ${timestamp}*\n`);
