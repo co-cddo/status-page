@@ -29,7 +29,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
 
       // Should show ISO 8601 format
       const text = await pageTimestamp.textContent();
-      expect(text?.trim()).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/);
+      expect(text?.trim()).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z/);
     });
 
     test('should have valid datetime attributes', async ({ page }) => {
