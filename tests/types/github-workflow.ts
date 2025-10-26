@@ -19,17 +19,19 @@ export interface WorkflowJob {
   needs?: string | string[];
   environment?: string | { name: string; url?: string };
   if?: string;
-  container?: string | {
-    image: string;
-    options?: string;
-    credentials?: {
-      username?: string;
-      password?: string;
-    };
-    env?: Record<string, string>;
-    ports?: number[];
-    volumes?: string[];
-  };
+  container?:
+    | string
+    | {
+        image: string;
+        options?: string;
+        credentials?: {
+          username?: string;
+          password?: string;
+        };
+        env?: Record<string, string>;
+        ports?: number[];
+        volumes?: string[];
+      };
 }
 
 export interface WorkflowTrigger {
