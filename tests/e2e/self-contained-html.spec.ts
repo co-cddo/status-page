@@ -233,11 +233,13 @@ test.describe('Self-Contained HTML (US1 - T044c)', () => {
       }
     }
 
-    // Filter out acceptable external links (e.g., footer links to GitHub)
+    // Filter out acceptable external links (e.g., footer links to GitHub, service navigation links)
     const unacceptableViolations = violations.filter(
       (v) =>
         !v.includes('github.com/alphagov') && // GOV.UK Design System link in footer is acceptable
-        !v.includes('mailto:') // Email links are acceptable
+        !v.includes('mailto:') && // Email links are acceptable
+        !v.includes('gov.uk') && // Service navigation links to monitored GOV.UK services (issue #35)
+        !v.includes('service.gov.uk') // Service navigation links to GOV.UK services
     );
 
     if (unacceptableViolations.length > 0) {
