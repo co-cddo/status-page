@@ -94,9 +94,13 @@ async function importMockedModules(): Promise<void> {
   mockInlineJavaScript = jsModule.inlineJavaScript as MockedFunction<() => Promise<JSInlineResult>>;
   mockVerifyNoExternalScripts = jsModule.verifyNoExternalScripts as MockedFunction<() => string[]>;
   mockInlineImages = imageModule.inlineImages as MockedFunction<() => Promise<ImageInlineResult>>;
-  mockInlineCSSImages = imageModule.inlineCSSImages as MockedFunction<() => Promise<ImageInlineResult>>;
+  mockInlineCSSImages = imageModule.inlineCSSImages as MockedFunction<
+    () => Promise<ImageInlineResult>
+  >;
   mockVerifyNoExternalImages = imageModule.verifyNoExternalImages as MockedFunction<() => string[]>;
-  mockValidateHTMLSize = sizeModule.validateHTMLSize as MockedFunction<() => Promise<SizeValidationResult>>;
+  mockValidateHTMLSize = sizeModule.validateHTMLSize as MockedFunction<
+    () => Promise<SizeValidationResult>
+  >;
   mockFormatSize = sizeModule.formatSize as MockedFunction<(size: number) => string>;
 }
 
@@ -258,11 +262,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
     it('should mock writeFile for HTML output', async () => {
       await fs.writeFile('output/index.html', '<html>test</html>', 'utf-8');
 
-      expect(fs.writeFile).toHaveBeenCalledWith(
-        'output/index.html',
-        '<html>test</html>',
-        'utf-8'
-      );
+      expect(fs.writeFile).toHaveBeenCalledWith('output/index.html', '<html>test</html>', 'utf-8');
     });
 
     it('should mock access for file existence checks', async () => {
@@ -383,9 +383,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
     });
 
     it('should detect external scripts when present', () => {
-      mockVerifyNoExternalScripts.mockReturnValue([
-        'https://cdn.example.com/script.js',
-      ]);
+      mockVerifyNoExternalScripts.mockReturnValue(['https://cdn.example.com/script.js']);
 
       const externalScripts = mockVerifyNoExternalScripts();
 
@@ -452,9 +450,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
     });
 
     it('should detect external images when present', () => {
-      mockVerifyNoExternalImages.mockReturnValue([
-        'https://cdn.example.com/image.png',
-      ]);
+      mockVerifyNoExternalImages.mockReturnValue(['https://cdn.example.com/image.png']);
 
       const externalImages = mockVerifyNoExternalImages();
 
@@ -577,11 +573,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
       await expect(fs.access('_site/api/status.json')).rejects.toThrow();
       await fs.writeFile('output/api/status.json', '[]', 'utf-8');
 
-      expect(fs.writeFile).toHaveBeenCalledWith(
-        'output/api/status.json',
-        '[]',
-        'utf-8'
-      );
+      expect(fs.writeFile).toHaveBeenCalledWith('output/api/status.json', '[]', 'utf-8');
     });
 
     it('should handle history.csv file operations', async () => {
@@ -626,9 +618,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
     it('should handle file read errors', async () => {
       vi.mocked(fs.readFile).mockRejectedValue(new Error('Permission denied'));
 
-      await expect(fs.readFile('_site/index.html', 'utf-8')).rejects.toThrow(
-        'Permission denied'
-      );
+      await expect(fs.readFile('_site/index.html', 'utf-8')).rejects.toThrow('Permission denied');
     });
 
     it('should handle directory creation errors', async () => {
@@ -642,9 +632,9 @@ describe('Post-Build Asset Inlining Orchestration', () => {
     it('should handle file write errors', async () => {
       vi.mocked(fs.writeFile).mockRejectedValue(new Error('Disk full'));
 
-      await expect(
-        fs.writeFile('output/index.html', '<html></html>', 'utf-8')
-      ).rejects.toThrow('Disk full');
+      await expect(fs.writeFile('output/index.html', '<html></html>', 'utf-8')).rejects.toThrow(
+        'Disk full'
+      );
     });
 
     it('should handle cheerio parsing errors', () => {
@@ -733,9 +723,7 @@ describe('Post-Build Asset Inlining Orchestration', () => {
     });
 
     it('should stop workflow on external resource detection', async () => {
-      mockVerifyNoExternalScripts.mockReturnValue([
-        'https://cdn.example.com/script.js',
-      ]);
+      mockVerifyNoExternalScripts.mockReturnValue(['https://cdn.example.com/script.js']);
 
       // Run through workflow
       await fs.mkdir('output', { recursive: true });

@@ -571,7 +571,7 @@ describe('validateResponseHeaders (T027a - TDD Phase)', () => {
             return () => null;
           }
           return Reflect.get(target, prop);
-        }
+        },
       });
 
       const expectedHeaders = {

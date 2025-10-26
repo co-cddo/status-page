@@ -767,7 +767,8 @@ test-service,2025-01-01T12:00:00.000Z,PASS,120,200,,test-id`;
 
     test('should handle CSV with only header line (splitCsvLines edge case)', async () => {
       // This CSV will result in lines[0] being the header, but no additional lines
-      const csvContent = 'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id';
+      const csvContent =
+        'timestamp,service_name,status,latency_ms,http_status_code,failure_reason,correlation_id';
 
       await fs.writeFile(testCsvPath, csvContent, 'utf-8');
 

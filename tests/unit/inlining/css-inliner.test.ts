@@ -132,10 +132,7 @@ describe('CSS Inliner', () => {
         expect(result.inlinedCount).toBe(1);
 
         // Verify safeResolvePath was called with correct arguments for relative path
-        expect(urlUtils.safeResolvePath).toHaveBeenCalledWith(
-          '_site/pages',
-          'assets/main.css'
-        );
+        expect(urlUtils.safeResolvePath).toHaveBeenCalledWith('_site/pages', 'assets/main.css');
       });
 
       it('should handle absolute CSS paths (starting with /)', async () => {
@@ -203,9 +200,7 @@ describe('CSS Inliner', () => {
         const smallCss = 'a{}'; // 3 bytes
         const largeCss = 'body { background: linear-gradient(to right, red, blue); }'; // 57 bytes
 
-        vi.mocked(fs.readFile)
-          .mockResolvedValueOnce(smallCss)
-          .mockResolvedValueOnce(largeCss);
+        vi.mocked(fs.readFile).mockResolvedValueOnce(smallCss).mockResolvedValueOnce(largeCss);
 
         const result = await inlineCSS($, '_site/index.html', '_site');
 
@@ -529,8 +524,8 @@ describe('CSS Inliner', () => {
 
         // Verify url() was replaced with data URI
         const styleContent = $('style').html() || '';
-        expect(styleContent).toContain('url(\'data:font/woff2;base64,');
-        expect(styleContent).not.toContain('url(\'fonts/myfont.woff2\')');
+        expect(styleContent).toContain("url('data:font/woff2;base64,");
+        expect(styleContent).not.toContain("url('fonts/myfont.woff2')");
       });
 
       it('should handle multiple url() references in single style tag', async () => {
@@ -818,7 +813,7 @@ describe('CSS Inliner', () => {
 
         // Data URI should remain unchanged
         const styleContent = $('style').html() || '';
-        expect(styleContent).toContain('url(\'data:image/png;base64,iVBORw0KGgo=\')');
+        expect(styleContent).toContain("url('data:image/png;base64,iVBORw0KGgo=')");
       });
 
       it('should skip absolute HTTP URLs', async () => {
@@ -842,7 +837,7 @@ describe('CSS Inliner', () => {
         expect(fs.readFile).not.toHaveBeenCalled();
 
         const styleContent = $('style').html() || '';
-        expect(styleContent).toContain('url(\'http://example.com/image.png\')');
+        expect(styleContent).toContain("url('http://example.com/image.png')");
       });
 
       it('should skip absolute HTTPS URLs', async () => {
@@ -931,7 +926,7 @@ describe('CSS Inliner', () => {
 
         const styleContent = $('style').html() || '';
         expect(styleContent).toContain('data:image/png;base64,'); // Local inlined
-        expect(styleContent).toContain('url(\'https://cdn.example.com/ext.png\')'); // External unchanged
+        expect(styleContent).toContain("url('https://cdn.example.com/ext.png')"); // External unchanged
       });
 
       it('should preserve CSS content outside url() references', async () => {
@@ -995,7 +990,7 @@ describe('CSS Inliner', () => {
 
         // Original url() should remain unchanged
         const styleContent = $('style').html() || '';
-        expect(styleContent).toContain('url(\'missing.png\')');
+        expect(styleContent).toContain("url('missing.png')");
       });
 
       it('should continue processing other urls after one fails', async () => {
@@ -1026,7 +1021,7 @@ describe('CSS Inliner', () => {
 
         const styleContent = $('style').html() || '';
         expect(styleContent).toContain('data:image/png;base64,'); // Successful inlines
-        expect(styleContent).toContain('url(\'fails.png\')'); // Failed one unchanged
+        expect(styleContent).toContain("url('fails.png')"); // Failed one unchanged
       });
 
       it('should handle path traversal errors gracefully', async () => {
@@ -1123,7 +1118,9 @@ describe('CSS Inliner', () => {
       const $: CheerioAPI = load(html);
 
       vi.mocked(fs.readFile)
-        .mockResolvedValueOnce('/* govuk-frontend.min.css */ .govuk-body { font-family: sans-serif; }')
+        .mockResolvedValueOnce(
+          '/* govuk-frontend.min.css */ .govuk-body { font-family: sans-serif; }'
+        )
         .mockResolvedValueOnce('/* application.css */ .status-page { padding: 20px; }')
         .mockResolvedValueOnce(Buffer.from('<svg>...</svg>'));
 

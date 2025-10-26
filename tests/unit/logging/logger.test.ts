@@ -205,9 +205,7 @@ describe('Logger Module', () => {
         expect(consoleSpy).toHaveBeenCalledWith(
           expect.stringContaining('Sensitive data (API keys, tokens, passwords, PII)')
         );
-        expect(consoleSpy).toHaveBeenCalledWith(
-          expect.stringContaining('will be logged')
-        );
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('will be logged'));
 
         consoleSpy.mockRestore();
       });
@@ -582,9 +580,9 @@ describe('Logger Module', () => {
 
       // Re-import to get new logger with debug level
       vi.resetModules();
-      const {
-        isLogLevelEnabled: debugIsLogLevelEnabled,
-      } = await import('../../../src/logging/logger.js');
+      const { isLogLevelEnabled: debugIsLogLevelEnabled } = await import(
+        '../../../src/logging/logger.js'
+      );
 
       expect(debugIsLogLevelEnabled('debug')).toBe(true);
       expect(debugIsLogLevelEnabled('trace')).toBe(false);
@@ -675,7 +673,7 @@ describe('Logger Module', () => {
 
         // Should have indentation (2 spaces)
         expect(result).toContain('\n');
-        expect(result).toMatch(/  "a": 1/);
+        expect(result).toMatch(/ {2}"a": 1/);
       });
 
       it('should handle empty objects', () => {

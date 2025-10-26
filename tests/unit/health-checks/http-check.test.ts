@@ -133,7 +133,7 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
           method: 'GET',
           headers: expect.objectContaining({
             'X-Custom-Header': 'custom-value',
-            'Authorization': 'Bearer token123',
+            Authorization: 'Bearer token123',
           }),
         })
       );
@@ -371,7 +371,8 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
       const searchText = 'FINDME';
 
       // Put search text at position 50KB (within first 100KB)
-      const bodyWithTextInRange = largeBody.substring(0, 50 * 1024) + searchText + largeBody.substring(50 * 1024);
+      const bodyWithTextInRange =
+        largeBody.substring(0, 50 * 1024) + searchText + largeBody.substring(50 * 1024);
 
       const encoder = new TextEncoder();
       const bodyBytes = encoder.encode(bodyWithTextInRange);
@@ -421,7 +422,8 @@ describe('performHealthCheck (T026a - TDD Phase)', () => {
       const searchText = 'FINDME_AT_120KB';
 
       // Put search text at position 120KB (beyond first 100KB)
-      const bodyWithTextBeyondRange = largeBody.substring(0, 120 * 1024) + searchText + largeBody.substring(120 * 1024);
+      const bodyWithTextBeyondRange =
+        largeBody.substring(0, 120 * 1024) + searchText + largeBody.substring(120 * 1024);
 
       const encoder = new TextEncoder();
       const bodyBytes = encoder.encode(bodyWithTextBeyondRange);

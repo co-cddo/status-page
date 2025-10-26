@@ -1923,7 +1923,7 @@ describe('Health Check Scheduler', () => {
         correlationId: `concurrent-once-${i}`,
       }));
 
-      let executionOrder: number[] = [];
+      const executionOrder: number[] = [];
       vi.mocked(mockPoolManager.executeHealthCheck).mockImplementation((config) => {
         const index = parseInt(config.serviceName?.split('-')[2] || '0');
         executionOrder.push(index);
@@ -2295,7 +2295,7 @@ describe('Health Check Scheduler', () => {
 
       // Assert - fast service should have executed twice, slow service not yet
       const calls = vi.mocked(mockPoolManager.executeHealthCheck).mock.calls;
-      const fastCalls = calls.filter(call => call[0]?.serviceName === 'fast-service');
+      const fastCalls = calls.filter((call) => call[0]?.serviceName === 'fast-service');
       expect(fastCalls).toHaveLength(2);
     });
 

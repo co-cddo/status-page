@@ -618,7 +618,8 @@ describe('Prometheus Metrics Module', () => {
     });
 
     it('should return Prometheus metrics string', async () => {
-      const mockMetricsData = '# HELP health_checks_total Total number of health checks performed\n# TYPE health_checks_total counter\nhealth_checks_total{service_name="test",status="PASS"} 1';
+      const mockMetricsData =
+        '# HELP health_checks_total Total number of health checks performed\n# TYPE health_checks_total counter\nhealth_checks_total{service_name="test",status="PASS"} 1';
 
       const mockRegistry = metricsRegistry as unknown as {
         setMockMetricsData: (data: string) => void;

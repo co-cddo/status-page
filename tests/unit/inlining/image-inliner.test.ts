@@ -227,9 +227,7 @@ describe('Image Inliner (T044)', () => {
       await inlineImages($, mockHtmlPath, mockSiteRoot);
 
       // Verify readFile was called with correct path
-      expect(vi.mocked(readFile)).toHaveBeenCalledWith(
-        expect.stringContaining('assets/test.png')
-      );
+      expect(vi.mocked(readFile)).toHaveBeenCalledWith(expect.stringContaining('assets/test.png'));
     });
 
     it('should set data-original-src attribute', async () => {
@@ -670,7 +668,7 @@ describe('Image Inliner (T044)', () => {
 
   describe('inlineCSSImages - Inline Style Attributes', () => {
     it('should inline images from inline style attributes', async () => {
-      const html = "<div style=\"background-image: url('/bg.png')\"></div>";
+      const html = '<div style="background-image: url(\'/bg.png\')"></div>';
       const $ = createMockCheerio(html);
 
       vi.mocked(readFile).mockResolvedValue(Buffer.from('bg-data'));
@@ -682,7 +680,8 @@ describe('Image Inliner (T044)', () => {
     });
 
     it('should process multiple elements with style attributes', async () => {
-      const html = "<div style=\"background: url('/bg1.jpg')\"></div><span style=\"background-image: url('/bg2.png')\"></span>";
+      const html =
+        '<div style="background: url(\'/bg1.jpg\')"></div><span style="background-image: url(\'/bg2.png\')"></span>';
       const $ = createMockCheerio(html);
 
       vi.mocked(readFile).mockResolvedValue(Buffer.from('data'));

@@ -165,7 +165,6 @@ describe('Configuration Loader', () => {
 
         expect(() => loadConfiguration(malformedPath)).toThrow(ConfigurationLoadError);
       });
-
     });
 
     describe('ConfigurationLoadError', () => {

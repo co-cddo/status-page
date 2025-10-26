@@ -15,10 +15,7 @@
  */
 
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
-import {
-  inlineJavaScript,
-  verifyNoExternalScripts,
-} from '../../../src/inlining/js-inliner.ts';
+import { inlineJavaScript, verifyNoExternalScripts } from '../../../src/inlining/js-inliner.ts';
 import { readFile } from 'fs/promises';
 import * as cheerio from 'cheerio';
 import type { CheerioAPI } from 'cheerio';
@@ -163,7 +160,9 @@ describe('JavaScript Inliner (T043)', () => {
 
     it('should calculate file size correctly in bytes', async () => {
       const jsContent = 'a'.repeat(1024); // 1KB of 'a'
-      $ = cheerio.load('<html><head><script src="/js/large.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/large.js"></script></head><body></body></html>'
+      );
 
       vi.mocked(readFile).mockResolvedValue(jsContent);
 
@@ -174,7 +173,9 @@ describe('JavaScript Inliner (T043)', () => {
 
     it('should handle multi-byte UTF-8 characters correctly', async () => {
       const jsContent = 'console.log("你好世界");'; // Multi-byte characters
-      $ = cheerio.load('<html><head><script src="/js/i18n.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/i18n.js"></script></head><body></body></html>'
+      );
 
       vi.mocked(readFile).mockResolvedValue(jsContent);
 
@@ -279,7 +280,9 @@ describe('JavaScript Inliner (T043)', () => {
     it('should handle absolute paths from site root', async () => {
       const { extractPathFromUrl, safeResolvePath } = await import('../../../src/utils/url.ts');
 
-      $ = cheerio.load('<html><head><script src="/assets/app.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/assets/app.js"></script></head><body></body></html>'
+      );
 
       vi.mocked(extractPathFromUrl).mockReturnValue('/assets/app.js');
       vi.mocked(safeResolvePath).mockReturnValue('_site/assets/app.js');
@@ -383,7 +386,9 @@ describe('JavaScript Inliner (T043)', () => {
 
   describe('File Reading Errors', () => {
     it('should handle ENOENT (file not found) errors', async () => {
-      $ = cheerio.load('<html><head><script src="/js/missing.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/missing.js"></script></head><body></body></html>'
+      );
 
       const error = new Error('ENOENT: no such file or directory');
       Object.assign(error, { code: 'ENOENT' });
@@ -399,7 +404,9 @@ describe('JavaScript Inliner (T043)', () => {
     });
 
     it('should handle EACCES (permission denied) errors', async () => {
-      $ = cheerio.load('<html><head><script src="/js/protected.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/protected.js"></script></head><body></body></html>'
+      );
 
       const error = new Error('EACCES: permission denied');
       Object.assign(error, { code: 'EACCES' });
@@ -477,7 +484,9 @@ describe('JavaScript Inliner (T043)', () => {
     });
 
     it('should handle empty JavaScript files', async () => {
-      $ = cheerio.load('<html><head><script src="/js/empty.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/empty.js"></script></head><body></body></html>'
+      );
 
       vi.mocked(readFile).mockResolvedValue('');
 
@@ -493,7 +502,9 @@ describe('JavaScript Inliner (T043)', () => {
 
     it('should handle very large JavaScript files', async () => {
       const largeJs = 'a'.repeat(1024 * 1024); // 1MB
-      $ = cheerio.load('<html><head><script src="/js/large.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/large.js"></script></head><body></body></html>'
+      );
 
       vi.mocked(readFile).mockResolvedValue(largeJs);
 
@@ -505,7 +516,9 @@ describe('JavaScript Inliner (T043)', () => {
 
     it('should handle JavaScript with special characters', async () => {
       const jsWithSpecialChars = 'var str = "</script><script>alert(1)</script>";';
-      $ = cheerio.load('<html><head><script src="/js/special.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/special.js"></script></head><body></body></html>'
+      );
 
       vi.mocked(readFile).mockResolvedValue(jsWithSpecialChars);
 
@@ -531,7 +544,9 @@ describe('JavaScript Inliner (T043)', () => {
     });
 
     it('should handle script tags with hash fragments', async () => {
-      $ = cheerio.load('<html><head><script src="/js/app.js#section"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/app.js#section"></script></head><body></body></html>'
+      );
 
       vi.mocked(readFile).mockResolvedValue("console.log('fragment');");
 
@@ -596,7 +611,9 @@ describe('JavaScript Inliner (T043)', () => {
     });
 
     it('should handle script with no attributes except src', async () => {
-      $ = cheerio.load('<html><head><script src="/js/plain.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/plain.js"></script></head><body></body></html>'
+      );
 
       vi.mocked(readFile).mockResolvedValue("console.log('plain');");
 
@@ -730,7 +747,9 @@ describe('JavaScript Inliner (T043)', () => {
     });
 
     it('should include error details in errors array', async () => {
-      $ = cheerio.load('<html><head><script src="/js/missing.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="/js/missing.js"></script></head><body></body></html>'
+      );
 
       vi.mocked(readFile).mockRejectedValue(new Error('Custom error message'));
 
@@ -758,7 +777,9 @@ describe('JavaScript Inliner (T043)', () => {
     it('should handle path traversal rejection gracefully', async () => {
       const { safeResolvePath } = await import('../../../src/utils/url.ts');
 
-      $ = cheerio.load('<html><head><script src="../../../etc/passwd.js"></script></head><body></body></html>');
+      $ = cheerio.load(
+        '<html><head><script src="../../../etc/passwd.js"></script></head><body></body></html>'
+      );
 
       vi.mocked(safeResolvePath).mockImplementation(() => {
         throw new Error('Path traversal attempt detected');

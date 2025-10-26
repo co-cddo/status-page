@@ -74,9 +74,7 @@ export function asTestableHistogram<T extends string = string>(
   return histogram as unknown as TestableHistogram<T>;
 }
 
-export function asTestableGauge<T extends string = string>(
-  gauge: Gauge<T>
-): TestableGauge<T> {
+export function asTestableGauge<T extends string = string>(gauge: Gauge<T>): TestableGauge<T> {
   return gauge as unknown as TestableGauge<T>;
 }
 

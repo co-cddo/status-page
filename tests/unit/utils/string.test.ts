@@ -33,7 +33,9 @@ describe('escapeMarkdown', () => {
     });
 
     it('should escape multiple special characters', () => {
-      expect(escapeMarkdown('Service | *Name* | [Link]')).toBe('Service \\| \\*Name\\* \\| \\[Link\\]');
+      expect(escapeMarkdown('Service | *Name* | [Link]')).toBe(
+        'Service \\| \\*Name\\* \\| \\[Link\\]'
+      );
     });
 
     it('should return same string if no special characters', () => {

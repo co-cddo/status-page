@@ -68,12 +68,14 @@ describe('Worker Thread Entry Point', () => {
     messageHandler = undefined;
 
     // Capture the message handler when it's registered
-    mockParentPort.on.mockImplementation((event: string, handler: (msg: WorkerMessage) => Promise<void>) => {
-      if (event === 'message') {
-        messageHandler = handler;
+    mockParentPort.on.mockImplementation(
+      (event: string, handler: (msg: WorkerMessage) => Promise<void>) => {
+        if (event === 'message') {
+          messageHandler = handler;
+        }
+        return mockParentPort;
       }
-      return mockParentPort;
-    });
+    );
 
     // Force module reload to trigger the entry point setup
     vi.resetModules();
@@ -98,7 +100,9 @@ describe('Worker Thread Entry Point', () => {
   describe('Successful Health Check Processing', () => {
     it('should process valid message and post successful result', async () => {
       // Arrange
-      const { performHealthCheckWithRetry } = await import('../../../src/health-checks/retry-logic.ts');
+      const { performHealthCheckWithRetry } = await import(
+        '../../../src/health-checks/retry-logic.ts'
+      );
 
       const config: HealthCheckConfig = {
         serviceName: 'entry-point-service',
@@ -290,7 +294,9 @@ describe('Worker Thread Entry Point', () => {
   describe('Execution Error Handling in parentPort', () => {
     it('should handle execution errors via processHealthCheck catch block', async () => {
       // Arrange
-      const { performHealthCheckWithRetry } = await import('../../../src/health-checks/retry-logic.ts');
+      const { performHealthCheckWithRetry } = await import(
+        '../../../src/health-checks/retry-logic.ts'
+      );
 
       const config: HealthCheckConfig = {
         serviceName: 'execution-error-service',

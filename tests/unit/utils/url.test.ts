@@ -4,12 +4,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import {
-  extractPathFromUrl,
-  isAbsoluteUrl,
-  isAbsolutePath,
-  safeResolvePath,
-} from '@/utils/url.js';
+import { extractPathFromUrl, isAbsoluteUrl, isAbsolutePath, safeResolvePath } from '@/utils/url.js';
 import { resolve } from 'path';
 
 describe('extractPathFromUrl', () => {
@@ -173,9 +168,7 @@ describe('safeResolvePath', () => {
     });
 
     it('should provide detailed error message with paths', () => {
-      expect(() => safeResolvePath('_site', '../../etc/passwd')).toThrow(
-        /"..\/..\/etc\/passwd"/
-      );
+      expect(() => safeResolvePath('_site', '../../etc/passwd')).toThrow(/"..\/..\/etc\/passwd"/);
     });
   });
 

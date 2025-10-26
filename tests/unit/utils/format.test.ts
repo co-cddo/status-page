@@ -275,7 +275,7 @@ describe('formatTimestamp', () => {
         },
         valueOf() {
           throw new Error('valueOf error');
-        }
+        },
       };
 
       // @ts-expect-error - Testing runtime validation with throwing object
