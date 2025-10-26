@@ -21,7 +21,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     test.use({ javaScriptEnabled: false });
 
     test('should display ISO 8601 UTC timestamps when JS is disabled', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
 
       // Page generation timestamp should be visible
       const pageTimestamp = page.locator('time').first();
@@ -33,7 +33,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should have valid datetime attributes', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
 
       const timestamps = page.locator('time[datetime]');
       const count = await timestamps.count();
@@ -52,7 +52,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should be accessible to screen readers without JS', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
 
       const pageTimestamp = page.locator('time').first();
 
@@ -69,7 +69,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     test.use({ javaScriptEnabled: true });
 
     test('should convert timestamps to local timezone', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
 
       // Wait for JavaScript to execute
       await page.waitForLoadState('networkidle');
@@ -86,7 +86,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should preserve datetime attribute for machine readability', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       const timestamps = page.locator('time[datetime]');
@@ -101,7 +101,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should show UTC time as tooltip on hover', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       const pageTimestamp = page.locator('time').first();
@@ -113,7 +113,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should display relative time indicator', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Look for relative time text (e.g., "5 minutes ago")
@@ -124,7 +124,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should update relative time periodically', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Get initial relative time text
@@ -150,7 +150,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should show visual indicator for auto-refresh', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Look for auto-refresh indicator (implementation may vary)
@@ -162,7 +162,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should handle missing or invalid timestamps gracefully', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Page should not have JavaScript errors
@@ -180,7 +180,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
 
   test.describe('Accessibility', () => {
     test('should have accessible tooltip implementation', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       const timestamp = page.locator('time').first();
@@ -197,7 +197,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should work with keyboard navigation', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Tab to timestamp element
@@ -212,7 +212,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should have proper semantic HTML structure', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // All timestamps should use <time> element
@@ -229,7 +229,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should announce relative time updates to screen readers', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Relative time elements should have aria-live for updates
@@ -252,7 +252,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
         // This is a best-effort test
       });
 
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       const timestamp = page.locator('time').first();
@@ -263,7 +263,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     });
 
     test('should use appropriate time format for locale', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       const timestamp = page.locator('time').first();
@@ -276,7 +276,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
 
   test.describe('Performance', () => {
     test('should not cause layout shifts when enhancing timestamps', async ({ page }) => {
-      await page.goto('/output/index.html');
+      await page.goto('/');
 
       // Measure Cumulative Layout Shift
       interface LayoutShiftEntry extends PerformanceEntry {
@@ -311,7 +311,7 @@ test.describe('Timestamp Progressive Enhancement', () => {
     test('should not significantly impact page load time', async ({ page }) => {
       const startTime = Date.now();
 
-      await page.goto('/output/index.html');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       const loadTime = Date.now() - startTime;
