@@ -43,10 +43,41 @@ export function validateUrlForSSRF(url: string, options?: { skipValidation?: boo
   const hostname = parsed.hostname.toLowerCase();
 
   // Strip IPv6 brackets if present (e.g., '[::1]' -> '::1')
-  // Node.js URL parser keeps brackets in hostname for IPv6 addresses
+  // Node.js URL parser keeps brackets in hostname for IPv6 addresses per RFC 3986
+  // This allows us to use consistent string matching for both IPv4 and IPv6 addresses
   const cleanedHostname = hostname.startsWith('[') && hostname.endsWith(']')
     ? hostname.slice(1, -1)
     : hostname;
+
+  // Block IPv4-mapped IPv6 addresses (::ffff:0:0/96)
+  // These can bypass SSRF protection by tunneling IPv4 addresses through IPv6
+  // Example: [::ffff:127.0.0.1] allows access to localhost via IPv6
+  // SECURITY: Block ALL IPv4-mapped addresses (not just private ones)
+  // - These address formats are extremely rare in legitimate HTTP URLs
+  // - If accessing public services, users should use normal IPv4 or native IPv6
+  // - Defense-in-depth: eliminate this entire attack vector
+  if (cleanedHostname.includes(':')) {
+    const lowerHostname = cleanedHostname.toLowerCase();
+    // IPv4-mapped addresses MUST start with ::ffff: (not just contain :ffff: anywhere)
+    // This prevents false positives like febf::ffff:ffff:ffff:ffff (link-local)
+    if (lowerHostname.startsWith('::ffff:')) {
+      throw new Error(`Blocked: IPv4-mapped IPv6 address access not allowed: ${url}`);
+    }
+  }
+
+  // Block IPv4-compatible IPv6 addresses (::x.x.x.x format, deprecated but still supported)
+  // These are deprecated per RFC 4291 but still work on many systems
+  // Example: [::127.0.0.1] allows access to localhost via IPv6
+  // SECURITY: Must check this BEFORE other validations as it bypasses all IPv4 checks
+  if (cleanedHostname.startsWith('::') &&
+      cleanedHostname.length >= 3 &&
+      !cleanedHostname.includes('::ffff:') && // Not IPv4-mapped (already handled)
+      cleanedHostname !== '::1' && // Not standard localhost
+      cleanedHostname !== '::') { // Not unspecified
+    // IPv4-compatible addresses are in format :: followed by hex representation
+    // They should be blocked as a security precaution
+    throw new Error(`Blocked: IPv4-compatible IPv6 address access not allowed: ${url}`);
+  }
 
   // Block localhost variants
   if (

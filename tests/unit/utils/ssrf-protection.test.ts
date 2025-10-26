@@ -301,6 +301,119 @@ describe('SSRF Protection', () => {
     });
   });
 
+  describe('IPv4-Mapped IPv6 Address Blocking (::ffff:0:0/96)', () => {
+    it('should reject IPv4-mapped localhost addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv4-mapped format: ::ffff:x.x.x.x
+      expect(() => validateUrlForSSRF('http://[::ffff:127.0.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::ffff:127.1.1.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::FFFF:127.0.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv4-mapped private IP addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // 10.0.0.0/8
+      expect(() => validateUrlForSSRF('http://[::ffff:10.0.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      // 192.168.0.0/16
+      expect(() => validateUrlForSSRF('http://[::ffff:192.168.1.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      // 172.16.0.0/12
+      expect(() => validateUrlForSSRF('http://[::ffff:172.20.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv4-mapped link-local addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // AWS metadata endpoint via IPv4-mapped
+      expect(() => validateUrlForSSRF('http://[::ffff:169.254.169.254]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::ffff:169.254.0.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+    });
+
+    it('should block ALL IPv4-mapped addresses (including public) for security', () => {
+      process.env.NODE_ENV = 'production';
+
+      // SECURITY: Block ALL IPv4-mapped addresses as defense-in-depth
+      // These are extremely rare in legitimate HTTP URLs
+      // Users should use normal IPv4 (8.8.8.8) or native IPv6 instead
+      expect(() => validateUrlForSSRF('http://[::ffff:8.8.8.8]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::ffff:1.1.1.1]')).toThrow(
+        'Blocked: IPv4-mapped IPv6 address access not allowed'
+      );
+    });
+  });
+
+  describe('IPv4-Compatible IPv6 Address Blocking (deprecated)', () => {
+    it('should reject IPv4-compatible localhost addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // IPv4-compatible format: ::x.x.x.x (deprecated but still supported)
+      expect(() => validateUrlForSSRF('http://[::127.0.0.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::127.1.1.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv4-compatible private IP addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      // 10.0.0.0/8
+      expect(() => validateUrlForSSRF('http://[::10.0.0.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+      // 192.168.0.0/16
+      expect(() => validateUrlForSSRF('http://[::192.168.1.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+      // 172.16.0.0/12
+      expect(() => validateUrlForSSRF('http://[::172.20.0.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+    });
+
+    it('should reject IPv4-compatible link-local addresses', () => {
+      process.env.NODE_ENV = 'production';
+
+      expect(() => validateUrlForSSRF('http://[::169.254.169.254]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+    });
+
+    it('should block ALL IPv4-compatible addresses (including public) for security', () => {
+      process.env.NODE_ENV = 'production';
+
+      // SECURITY: Block ALL IPv4-compatible addresses as defense-in-depth
+      // These are deprecated (RFC 4291) and extremely rare in legitimate HTTP URLs
+      // Users should use normal IPv4 (8.8.8.8) or native IPv6 instead
+      expect(() => validateUrlForSSRF('http://[::8.8.8.8]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+      expect(() => validateUrlForSSRF('http://[::1.1.1.1]')).toThrow(
+        'Blocked: IPv4-compatible IPv6 address access not allowed'
+      );
+    });
+  });
+
   describe('Private IPv6 Range Blocking', () => {
     it('should reject IPv6 unique local addresses (fc00::/7 range)', () => {
       process.env.NODE_ENV = 'production';
