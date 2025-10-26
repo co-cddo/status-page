@@ -58,8 +58,9 @@ pings:
       - nhs
       - vaccination
     expected:
-      status: 200
-      text: Vaccination and booking
+      status: 301
+      headers:
+        location: /nhs-services/vaccination-and-booking-services/
     interval: 60
   - name: Companies House Identity Service
     protocol: HTTPS
@@ -70,7 +71,7 @@ pings:
       - companies-house
       - authentication
     expected:
-      status: 200
+      status: 204
     interval: 60
   - name: Corporation Tax Online
     protocol: HTTPS
@@ -81,7 +82,9 @@ pings:
       - corporation-tax
       - hmrc
     expected:
-      status: 200
+      status: 302
+      headers:
+        location: https://www.tax.service.gov.uk/gg/sign-in?continue=%2Fcorporation-tax%2F
     interval: 60
   - name: DfE Sign-in
     protocol: HTTPS
@@ -195,7 +198,9 @@ pings:
       - hmrc
       - personal
     expected:
-      status: 200
+      status: 303
+      headers:
+        location: /bas-gateway/sign-in?continue_url=https%3A%2F%2Fwww.tax.service.gov.uk%2Fpersonal-account&origin=pertax-frontend&accountType=individual
     interval: 60
   - name: Renew Driving Licence
     protocol: HTTPS
@@ -218,7 +223,9 @@ pings:
       - self-assessment
       - hmrc
     expected:
-      status: 200
+      status: 302
+      headers:
+        location: https://www.tax.service.gov.uk/gg/sign-in?continue=%2Fself-assessment%2F
     interval: 60
   - name: Student Finance England
     protocol: HTTPS
@@ -229,8 +236,7 @@ pings:
       - finance
       - slc
     expected:
-      status: 200
-      text: Student loans
+      status: 302
     interval: 60
   - name: Tax-Free Childcare Account
     protocol: HTTPS
@@ -252,7 +258,9 @@ pings:
       - universal-credit
       - dwp
     expected:
-      status: 200
+      status: 303
+      headers:
+        location: https://www.universal-credit.service.gov.uk/start
     interval: 60
   - name: VAT Online
     protocol: HTTPS
@@ -331,7 +339,9 @@ pings:
       - divorce
       - hmcts
     expected:
-      status: 200
+      status: 302
+      headers:
+        location: /login
   - name: Apply for EHCP (Education, Health and Care Plan)
     protocol: HTTPS
     method: GET
@@ -374,7 +384,7 @@ pings:
       - probate
       - hmcts
     expected:
-      status: 200
+      status: 302
   - name: Apply for Teacher Training
     protocol: HTTPS
     method: GET
@@ -470,8 +480,9 @@ pings:
       - carers
       - dwp
     expected:
-      status: 200
-      text: Before you start
+      status: 302
+      headers:
+        location: /ui-citizen-claim/disclaimer
   - name: Challenge a Planning Application
     protocol: HTTPS
     method: GET
@@ -626,8 +637,9 @@ pings:
       - business
       - gds
     expected:
-      status: 200
-      text: Digital Marketplace
+      status: 301
+      headers:
+        location: https://www.applytosupply.digitalmarketplace.service.gov.uk:443/
   - name: Disability Living Allowance
     protocol: HTTPS
     method: GET
@@ -649,8 +661,9 @@ pings:
       - scotland
       - disclosure
     expected:
-      status: 200
-      text: Disclosure levels
+      status: 301
+      headers:
+        location: https://www.mygov.scot/disclosure-levels
   - name: Employment and Support Allowance
     protocol: HTTPS
     method: GET
@@ -672,8 +685,9 @@ pings:
       - tribunal
       - hmcts
     expected:
-      status: 200
-      text: Make a claim to an employment tribunal
+      status: 301
+      headers:
+        location: https://employmenttribunals.service.gov.uk/
   - name: Environmental Permit Application
     protocol: HTTPS
     method: GET
@@ -705,8 +719,9 @@ pings:
       - exports
       - dbt
     expected:
-      status: 200
-      text: Find the right support
+      status: 301
+      headers:
+        location: https://www.business.gov.uk/
   - name: Find and Compare Schools in England
     protocol: HTTPS
     method: GET
@@ -1018,7 +1033,9 @@ pings:
       - flooding
       - environment-agency
     expected:
-      status: 200
+      status: 302
+      headers:
+        location: https://www.gov.uk:443/get-flood-warnings
   - name: Social Security and Child Support Tribunal
     protocol: HTTPS
     method: GET
@@ -1029,7 +1046,9 @@ pings:
       - benefits
       - hmcts
     expected:
-      status: 200
+      status: 302
+      headers:
+        location: /entry
   - name: SORN (Statutory Off Road Notification)
     protocol: HTTPS
     method: GET
@@ -1062,8 +1081,9 @@ pings:
       - tax-credits
       - hmrc
     expected:
-      status: 200
-      text: Tax credits
+      status: 301
+      headers:
+        location: https://www.tax.service.gov.uk/personal-account/tax-credits-have-ended
   - name: Teaching Regulation Agency
     protocol: HTTPS
     method: GET
@@ -1147,8 +1167,9 @@ pings:
       - vehicle-data
       - dvla
     expected:
-      status: 200
-      text: Enter the registration
+      status: 302
+      headers:
+        location: https://vehicleenquiry.service.gov.uk/
   - name: View Driving Licence
     protocol: HTTPS
     method: GET
@@ -1226,8 +1247,9 @@ pings:
       - home-office
       - high-volume
     expected:
-      status: 200
-      text: Passports
+      status: 301
+      headers:
+        location: https://www.gov.uk/browse/abroad/passports
   - name: Book Driving Test
     protocol: HTTPS
     method: GET
@@ -1562,8 +1584,9 @@ pings:
       - opg
       - ministry-of-justice
     expected:
-      status: 200
-      text: Make, register or end
+      status: 302
+      headers:
+        location: https://www.gov.uk/power-of-attorney/make-lasting-power
   - name: Manage Apprenticeships
     protocol: HTTPS
     method: GET
@@ -1604,7 +1627,9 @@ pings:
       - cabinet-office
       - high-volume
     expected:
-      status: 200
+      status: 303
+      headers:
+        location: https://www.gov.uk/register-to-vote
   - name: Renew Adult Passport
     protocol: HTTPS
     method: GET
