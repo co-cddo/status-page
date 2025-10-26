@@ -118,7 +118,7 @@ describe('Test Workflow Contract (US7)', () => {
     }
   });
 
-  test('workflow uses Node.js 22+', () => {
+  test('workflow uses Node.js 22+ (via container or setup-node)', () => {
     const workflowYaml = readFileSync(workflowPath, 'utf-8');
     const workflow = load(workflowYaml) as GitHubActionsWorkflow;
 
@@ -126,12 +126,16 @@ describe('Test Workflow Contract (US7)', () => {
     const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
     expect(testJob).toBeDefined();
 
+    // Node.js can be provided via Playwright Docker container or setup-node action
+    const hasDockerContainer = !!testJob!.container;
     const steps = testJob!.steps;
     const nodeStep = steps.find((step: WorkflowStep) => step.uses?.includes('actions/setup-node'));
 
-    expect(nodeStep).toBeDefined();
+    // Either container-based (Playwright image includes Node.js 22) or setup-node action
+    expect(hasDockerContainer || nodeStep).toBeTruthy();
 
-    if (nodeStep?.with) {
+    // If using setup-node, verify version
+    if (nodeStep?.with && !hasDockerContainer) {
       const nodeVersion = nodeStep.with['node-version'];
 
       if (typeof nodeVersion === 'string') {
@@ -222,5 +226,46 @@ describe('Test Workflow Contract (US7)', () => {
 
     // Should upload coverage artifact
     expect(hasUploadStep).toBe(true);
+  });
+
+  test('workflow uses Playwright Docker container for E2E tests (issue #33)', () => {
+    const workflowYaml = readFileSync(workflowPath, 'utf-8');
+    const workflow = load(workflowYaml) as GitHubActionsWorkflow;
+
+    const jobs = workflow.jobs;
+    const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
+    expect(testJob).toBeDefined();
+
+    // Verify container is specified
+    expect(testJob!.container).toBeDefined();
+
+    // Verify it's the official Playwright image
+    const containerImage =
+      typeof testJob!.container === 'string' ? testJob!.container : testJob!.container?.image;
+    expect(containerImage).toBeDefined();
+    expect(containerImage).toMatch(/mcr\.microsoft\.com\/playwright/);
+    expect(containerImage).toMatch(/v1\.\d+\.\d+/); // Version pattern like v1.56.1
+  });
+
+  test('workflow does not install Playwright separately when using Docker container', () => {
+    const workflowYaml = readFileSync(workflowPath, 'utf-8');
+    const workflow = load(workflowYaml) as GitHubActionsWorkflow;
+
+    const jobs = workflow.jobs;
+    const testJob = jobs.test || jobs['run-tests'] || jobs.tests;
+    expect(testJob).toBeDefined();
+
+    // If using container, should NOT have manual Playwright installation steps
+    if (testJob!.container) {
+      const steps = testJob!.steps;
+      const hasPlaywrightInstall = steps.some(
+        (step: WorkflowStep) =>
+          step.run?.includes('playwright install') ||
+          step.run?.includes('npx playwright install') ||
+          step.run?.includes('pnpx playwright install')
+      );
+
+      expect(hasPlaywrightInstall).toBe(false);
+    }
   });
 });

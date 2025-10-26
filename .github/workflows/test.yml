@@ -15,14 +15,36 @@ jobs:
   test:
     name: Run All Tests
     runs-on: ubuntu-latest
+    # Use official Playwright Docker image with pre-installed browsers and system dependencies
+    # This eliminates ~3 minutes of system dependency installation per CI run (issue #33)
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.1-noble
+      options: --user 1001
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      # Uses composite action that includes actions/cache for pnpm dependencies
-      - name: Setup Node.js and pnpm
-        uses: ./.github/actions/setup-node-pnpm
+      # Inline pnpm setup instead of composite action due to container environment
+      # Playwright image includes Node.js 22, we just need pnpm and dependency caching
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        # Version is read from package.json "packageManager" field (pnpm@10.17.0)
+
+      - name: Get pnpm store directory
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Run type checking
         run: pnpm run type-check
@@ -36,31 +58,8 @@ jobs:
         run: pnpm run test:unit
         continue-on-error: false
 
-      # Cache Playwright browsers to speed up CI builds (issue #33)
-      # Cache key is based on Playwright version from package.json for proper invalidation
-      - name: Get installed Playwright version
-        id: playwright-version
-        run: |
-          PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@playwright/test'])")
-          echo "PLAYWRIGHT_VERSION=$PLAYWRIGHT_VERSION" >> $GITHUB_ENV
-          echo "Playwright version: $PLAYWRIGHT_VERSION"
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        id: playwright-cache
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
-
-      # Install browsers only if cache miss; always install OS dependencies
-      - name: Install Playwright browsers
-        run: pnpx playwright install --with-deps
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-
-      - name: Install Playwright OS dependencies
-        run: pnpx playwright install-deps
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
+      # No Playwright installation needed - browsers and system dependencies
+      # are pre-installed in the mcr.microsoft.com/playwright Docker image
 
       - name: Generate test health data
         run: timeout 90 pnpm run check-once || true
