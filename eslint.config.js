@@ -80,6 +80,9 @@ export default [
 
       // CI/CD
       '.github',
+
+      // Specification and research data (not production code)
+      'specs/**',
     ],
   },
 ];

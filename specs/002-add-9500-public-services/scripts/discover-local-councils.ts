@@ -6,7 +6,6 @@
  * Systematically constructs and validates council website URLs
  */
 
-import { createWriteStream } from 'fs';
 import { writeFile } from 'fs/promises';
 import * as https from 'https';
 import * as http from 'http';
@@ -236,7 +235,7 @@ async function validateUrl(url: string): Promise<{ valid: boolean; statusCode?: 
       });
 
       req.end();
-    } catch (error) {
+    } catch (_error) {
       resolve({ valid: false });
     }
   });

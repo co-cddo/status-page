@@ -221,7 +221,7 @@ async function mergeConfigs(): Promise<MergeStats> {
 async function main() {
   try {
     console.log('🚀 Starting config merge...\n');
-    const stats = await mergeConfigs();
+    await mergeConfigs();
 
     console.log('\n✅ Merge completed successfully!');
     console.log(`\nNext steps:`);

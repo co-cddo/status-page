@@ -1106,7 +1106,7 @@ pings:
       - home-office
     expected:
       status: 200
-      text: "eVisas: access and use your online immigration status"
+      text: 'eVisas: access and use your online immigration status'
   - name: UK Intellectual Property Office - Trademarks
     protocol: HTTPS
     method: GET
@@ -2054,8 +2054,8 @@ pings:
     method: POST
     resource: https://www.findapprenticeship.service.gov.uk/
     payload:
-      what: ""
-      where: ""
+      what: ''
+      where: ''
     tags:
       - apprenticeships
       - education
@@ -2071,7 +2071,7 @@ pings:
     method: POST
     resource: https://www.gov.uk/
     payload:
-      q: ""
+      q: ''
     tags:
       - portal
       - main
@@ -3862,7 +3862,7 @@ pings:
     interval: 60
     warning_threshold: 2
     timeout: 5
-  - name: "National Fire Chiefs Council: Service Directory & Prevention Hub"
+  - name: 'National Fire Chiefs Council: Service Directory & Prevention Hub'
     protocol: HTTPS
     method: GET
     resource: https://nfcc.org.uk/contacts/fire-and-rescue-services

@@ -233,7 +233,6 @@ function identifyChannel(department: string, serviceType: string): string {
 
 function applyTags(
   services: ValidationResult[],
-  taxonomy: TagTaxonomy,
 ): TaggedService[] {
   const taggedServices: TaggedService[] = [];
 

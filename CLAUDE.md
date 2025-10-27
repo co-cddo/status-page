@@ -424,8 +424,12 @@ Located in `specs/001-govuk-status-monitor/`:
   to.
 
 ## Active Technologies
-- Node.js 22+ with TypeScript 5.x (existing project stack) + Research tools (dns, http clients), existing monitoring infrastructure (002-add-9500-public-services)
+
+- Node.js 22+ with TypeScript 5.x (existing project stack) + Research tools (dns, http clients),
+  existing monitoring infrastructure (002-add-9500-public-services)
 - JSON intermediate files → config.yaml (YAML) (002-add-9500-public-services)
 
 ## Recent Changes
-- 002-add-9500-public-services: Added Node.js 22+ with TypeScript 5.x (existing project stack) + Research tools (dns, http clients), existing monitoring infrastructure
+
+- 002-add-9500-public-services: Added Node.js 22+ with TypeScript 5.x (existing project stack) +
+  Research tools (dns, http clients), existing monitoring infrastructure

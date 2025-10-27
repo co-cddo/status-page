@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const fs = require('fs');
 
 console.log('Consolidating all service.gov.uk discovery sources...');
