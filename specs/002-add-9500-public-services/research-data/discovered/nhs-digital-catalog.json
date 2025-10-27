@@ -1,0 +1,45 @@
+{
+  "task": "T050",
+  "description": "Manual directory review of NHS Digital service catalog",
+  "discovery_method": "WebFetch",
+  "source_url": "https://digital.nhs.uk/services",
+  "discovery_date": "2025-10-26",
+  "total_services_found": 4,
+  "services": [
+    {
+      "name": "Service Catalogue",
+      "url": "https://digital.nhs.uk/services/service-catalogue",
+      "type": "service_directory",
+      "description": "Searchable catalogue of IT and digital services for health and care professionals"
+    },
+    {
+      "name": "About Our Digital Services",
+      "url": "https://digital.nhs.uk/services/about-our-digital-services",
+      "type": "information",
+      "description": "Resources about NHS digital services supporting direct care, population health and business functions across health and care in England"
+    },
+    {
+      "name": "Developer Hub",
+      "url": "https://digital.nhs.uk/developer",
+      "type": "developer_resources",
+      "description": "Guidance on integrating with NHS APIs and services"
+    },
+    {
+      "name": "NHS.UK Patient Services",
+      "url": "https://www.nhs.uk/",
+      "type": "patient_portal",
+      "description": "Main patient-facing NHS website for healthcare services"
+    }
+  ],
+  "notes": [
+    "Main services page acts as gateway to service catalogue",
+    "Detailed service list requires accessing the service catalogue directly",
+    "Developer hub provides API integration guidance",
+    "Services support direct care, population health, and business functions in England"
+  ],
+  "recommended_next_steps": [
+    "Access service catalogue with authenticated session for complete service list",
+    "Explore developer hub for API endpoints and technical documentation",
+    "Review NHS.UK for patient-facing service URLs"
+  ]
+}

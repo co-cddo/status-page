@@ -1,0 +1,655 @@
+{
+  "source": "web-search-T023",
+  "department": "hmrc",
+  "discovery_method": "web_search",
+  "timestamp": "2025-10-26T00:00:00Z",
+  "total_services": 129,
+  "services": [
+    {
+      "url": "https://www.tax.service.gov.uk/account",
+      "name": "HMRC Online Services - Main Account",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/personal-account/signin",
+      "name": "Personal Tax Account Sign In",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/business-account",
+      "name": "Business Tax Account",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/ask-hmrc/hmrc-digital-assistant",
+      "name": "Ask HMRC Online - Digital Assistant",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/ask-hmrc/chat/online-services-helpdesk",
+      "name": "HMRC Online Services Helpdesk Chat",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.access.service.gov.uk/login/signin/creds",
+      "name": "Government Gateway Sign In",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments",
+      "name": "Self Assessment Payment Plan",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/set-up-a-payment-plan/epaye-payment-plan",
+      "name": "Employers' PAYE Payment Plan",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/vat-through-software/sign-up",
+      "name": "Making Tax Digital for VAT Sign Up",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/making-tax-digital-software",
+      "name": "Find Making Tax Digital Software",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/check-income-tax",
+      "name": "Check Your Income Tax",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/marriage-allowance-application/how-it-works",
+      "name": "Apply for Marriage Allowance",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/check-your-state-pension",
+      "name": "Check Your State Pension",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/eligibility-for-paye/register-online",
+      "name": "Register for PAYE Online",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/ask-for-copy-of-your-corporation-tax-utr",
+      "name": "Ask for Corporation Tax UTR",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/customs-registration-services/cds/register",
+      "name": "Subscribe to Customs Declaration Service",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/guidance/work-out-company-car-and-fuel-benefit",
+      "name": "Company Car and Fuel Benefit Calculator",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://childcare-support.tax.service.gov.uk/",
+      "name": "Tax-Free Childcare",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://childcare.tax.service.gov.uk/ccp/acc/login",
+      "name": "Childcare Service Provider Account",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/api-documentation",
+      "name": "HMRC Developer Hub",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/api-test-user",
+      "name": "Create Test User - HMRC API",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://api-platform-status.production.tax.service.gov.uk/",
+      "name": "HMRC API Platform Status",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/mdtp/we-need-to-confirm-your-identity",
+      "name": "Identity Confirmation Service",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/helpline/helplines-by-service",
+      "name": "HMRC Helplines by Service",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/gg/sign-in",
+      "name": "Government Gateway Sign In (Account)",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/business-account/vat/which-account-to-add",
+      "name": "Add VAT to Business Account",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/eligibility-for-setting-up-company",
+      "name": "Set Up Limited Company and Register for Corporation Tax",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/check-tax-on-goods-you-bring-into-the-uk",
+      "name": "Check Tax on Goods Brought into UK",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/information/help",
+      "name": "HMRC Registration and Enrolment Help",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/information/faqs",
+      "name": "HMRC Frequently Asked Questions",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/submissions/new-form",
+      "name": "HMRC G-Forms Submission",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://design.tax.service.gov.uk/",
+      "name": "HMRC Design Resources",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://customs.hmrc.gov.uk/channelsPortalWebApp/channelsPortalWebApp.portal",
+      "name": "HMRC Import & Export Portal",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://online.hmrc.gov.uk/shortforms",
+      "name": "HMRC KANA Short Forms",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://public-online.hmrc.gov.uk/lc/content",
+      "name": "HMRC LC Forms",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/sign-in-to-hmrc-online-services/identity/start-again",
+      "name": "HMRC Sign In - Start Again",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/file-your-tax-return",
+      "name": "File Self Assessment Before Payment Plan",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/already-have-a-plan",
+      "name": "Existing Payment Plan Notice",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/call-us-debt-too-old",
+      "name": "Payment Plan - Call for Old Debt",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/business-account/epaye/signedout",
+      "name": "Business Account ePAYE Signed Out",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/business-account/thank-you",
+      "name": "Business Account Feedback",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/personal-account/tax-credits-have-ended",
+      "name": "Personal Tax Account - Tax Credits Ended",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/check-income-tax/session-expired",
+      "name": "Check Income Tax - Session Expired",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/repayments/signed-out",
+      "name": "Tax Repayments - Signed Out",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/choose-software",
+      "name": "Making Tax Digital - Choose Software Error",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/software-ready",
+      "name": "Making Tax Digital - Software Ready Check",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/verify-software",
+      "name": "Making Tax Digital - Verify Software Error",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/marriage-allowance-application/benefit-calculator",
+      "name": "Marriage Allowance Eligibility Calculator",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/information/faqs/corporationTax",
+      "name": "Corporation Tax FAQs",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.access.service.gov.uk/signout",
+      "name": "Government Gateway Sign Out",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://find-and-update.company-information.service.gov.uk/",
+      "name": "Companies House - Find and Update Company Information",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://find-and-update.company-information.service.gov.uk/accounts/corporation-tax",
+      "name": "Companies House - File Corporation Tax with HMRC",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://find-and-update.company-information.service.gov.uk/appeal-a-penalty/",
+      "name": "Companies House - Appeal a Late Filing Penalty",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api",
+      "name": "HMRC API Documentation",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/authorisation",
+      "name": "HMRC API Authorization Guide",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/testing",
+      "name": "HMRC API Testing Guide",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-api/1.0",
+      "name": "VAT API (Making Tax Digital)",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/individual-tax/1.1",
+      "name": "Individual Tax API",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/",
+      "name": "Making Tax Digital for Income Tax Service Guide",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/guides/vat-mtd-end-to-end-service-guide/",
+      "name": "VAT Making Tax Digital End-to-End Service Guide",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide/",
+      "name": "Customs Declarations End-to-End Service Guide",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/guides/fraud-prevention",
+      "name": "HMRC Fraud Prevention Headers Guide",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://developer.service.hmrc.gov.uk/developer/applications",
+      "name": "HMRC Developer Application Management",
+      "discovery_source": "Existing discovery"
+    },
+    {
+      "url": "https://www.gov.uk/log-in-register-hmrc-online-services",
+      "name": "HMRC Online Services - Sign in or set up account",
+      "discovery_source": "GOV.UK services-information page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/download-the-hmrc-app",
+      "name": "HMRC Mobile App",
+      "discovery_source": "GOV.UK services-information page"
+    },
+    {
+      "url": "https://www.gov.uk/self-assessment-tax-returns",
+      "name": "Self Assessment Tax Returns",
+      "discovery_source": "GOV.UK services-information page"
+    },
+    {
+      "url": "https://www.gov.uk/sign-in-childcare-account",
+      "name": "Childcare Account Sign-In",
+      "discovery_source": "GOV.UK services-information page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/check-if-youre-eligible-for-small-producer-relief-on-alcohol-duty",
+      "name": "Small Producer Relief Calculator - Alcohol Duty",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/check-if-you-can-claim-super-deduction-or-special-rate-first-year-allowances",
+      "name": "Super-Deduction Checker - Capital Allowances",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/disposing-of-a-super-deduction-or-special-rate-first-year-allowance-asset",
+      "name": "Balancing Charge Calculator - Capital Allowances",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/check-if-you-can-claim-full-expensing-or-50-first-year-allowances",
+      "name": "Full Expensing Eligibility Tool",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/capital-gains-tax-for-non-residents-calculating-taxable-gain-or-loss",
+      "name": "Non-Resident Capital Gains Tax Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/tax-sell-shares/work-out-your-gain",
+      "name": "Capital Gains Tax Shares Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/tax-sell-property/work-out-your-gain",
+      "name": "Capital Gains Tax Property Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/get-help-if-hmrc-contacts-you-about-a-compliance-check",
+      "name": "Compliance Check Guidance",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/child-benefit-tax-calculator",
+      "name": "Child Benefit Tax Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/guidance/ask-HMRC-to-find-a-Child-Trust-Fund",
+      "name": "Child Trust Fund Locator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/childcare-calculator",
+      "name": "Childcare Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/check-employment-status-for-tax",
+      "name": "Employment Status Checker (IR35)",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/machine-games-duty-search/",
+      "name": "Machine Games Duty Search",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/trade-tariff",
+      "name": "UK Trade Tariff Tool",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/estimate-income-tax-previous-year",
+      "name": "Income Tax Estimator - Previous Year",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/estimate-income-tax",
+      "name": "Income Tax Estimator - Current Year",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/valuing-estate-of-someone-who-died/estimate-estate-value",
+      "name": "Inheritance Tax Estate Value Checker",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/calculate-inheritance-tax-interest",
+      "name": "Inheritance Tax Interest Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/calculate-additional-inheritance-tax-threshold",
+      "name": "Inheritance Tax RNRB Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/inheritance-tax-reduced-rate-calculator",
+      "name": "Inheritance Tax Reduced Rate Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/inheritance-tax-grossing-up-calculator",
+      "name": "Inheritance Tax Grossing Up Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/inheritance-tax-guaranteed-annuity-calculator",
+      "name": "Inheritance Tax Guaranteed Annuity Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/work-out-the-number-of-quarters-when-inheritance-tax-is-charged-on-a-trust-for-certain-chargeable-events",
+      "name": "Inheritance Tax Quarters Calculator for Trusts",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/claim-national-insurance-refund",
+      "name": "National Insurance Refund Application",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/work-out-directors-national-insurance-contributions",
+      "name": "Director's National Insurance Contributions Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/work-out-an-employees-national-insurance-contributions",
+      "name": "Employee National Insurance Contributions Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/national-insurance-if-you-go-abroad",
+      "name": "National Insurance Working Abroad Checker",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/check-what-your-tax-code-means",
+      "name": "PAYE Tax Code Explainer",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/maternity-paternity-pay-leave",
+      "name": "Maternity/Paternity Eligibility Checker",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/work-out-an-employees-income-tax",
+      "name": "PAYE Tax Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/government/collections/how-to-manually-check-your-payroll-calculations",
+      "name": "Payroll Calculator - Manual",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/basic-paye-tools",
+      "name": "Basic PAYE Tools",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/calculate-tax-on-company-cars",
+      "name": "Company Car Tax Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/calculate-statutory-sick-pay",
+      "name": "Statutory Sick Pay Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/maternity-paternity-calculator",
+      "name": "Maternity and Paternity Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/paye-online/desktop-viewer",
+      "name": "PAYE Desktop Viewer",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/get-paye-forms",
+      "name": "P45/P60 Order Form",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/pension-administrators-check-a-members-gmp",
+      "name": "GMP Checker - Pensions",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/paac",
+      "name": "Pension Annual Allowance Tool",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/self-assessment-tax-calculator",
+      "name": "Self Assessment Tax Bill Estimator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/work-out-your-transition-profit",
+      "name": "Transition Profit Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/check-what-taxes-may-apply-to-you-as-a-sole-trader",
+      "name": "Sole Trader Tax Checker",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/calculate-stamp-duty-land-tax/",
+      "name": "Stamp Duty Land Tax Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/vat-payment-deadlines",
+      "name": "VAT Payment Deadline Calculator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/check-what-registering-for-vat-may-mean-for-your-business",
+      "name": "VAT Registration Estimator",
+      "discovery_source": "HMRC tools and calculators page"
+    },
+    {
+      "url": "https://www.gov.uk/pay-corporation-tax",
+      "name": "Pay Corporation Tax",
+      "discovery_source": "Business tax browse page"
+    },
+    {
+      "url": "https://www.gov.uk/pay-vat",
+      "name": "Pay VAT Bill",
+      "discovery_source": "Business tax browse page"
+    },
+    {
+      "url": "https://www.gov.uk/register-for-vat",
+      "name": "Register for VAT",
+      "discovery_source": "Business tax browse page"
+    },
+    {
+      "url": "https://www.gov.uk/check-uk-vat-number",
+      "name": "Check UK VAT Number",
+      "discovery_source": "Business tax browse page"
+    },
+    {
+      "url": "https://www.gov.uk/submit-vat-return",
+      "name": "Submit VAT Return",
+      "discovery_source": "Business tax browse page"
+    },
+    {
+      "url": "https://www.gov.uk/corporation-tax",
+      "name": "Corporation Tax",
+      "discovery_source": "Business tax browse page"
+    },
+    {
+      "url": "https://www.gov.uk/personal-tax-account",
+      "name": "Personal Tax Account",
+      "discovery_source": "Income tax browse page"
+    },
+    {
+      "url": "https://www.gov.uk/income-tax",
+      "name": "Income Tax Overview",
+      "discovery_source": "Income tax browse page"
+    },
+    {
+      "url": "https://www.gov.uk/tax-codes",
+      "name": "Tax Codes Information",
+      "discovery_source": "Income tax browse page"
+    },
+    {
+      "url": "https://www.gov.uk/check-if-you-need-tax-return",
+      "name": "Check if You Need to Send a Self Assessment Tax Return",
+      "discovery_source": "Web search"
+    },
+    {
+      "url": "https://www.gov.uk/child-benefit",
+      "name": "Child Benefit Claims",
+      "discovery_source": "Web search"
+    },
+    {
+      "url": "https://www.gov.uk/register-for-self-assessment",
+      "name": "Register for Self Assessment",
+      "discovery_source": "Web search"
+    },
+    {
+      "url": "https://www.tax.service.gov.uk/anti-money-laundering/start/bta",
+      "name": "Manage Your Anti-Money Laundering Supervision",
+      "discovery_source": "tax.service.gov.uk search"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/sign-in-to-your-hmrc-business-tax-account",
+      "name": "Sign In to Your HMRC Business Tax Account",
+      "discovery_source": "Business tax account search"
+    },
+    {
+      "url": "https://www.gov.uk/import-goods-into-uk",
+      "name": "Import Goods Into the UK - Step by Step",
+      "discovery_source": "Customs import/export search"
+    },
+    {
+      "url": "https://www.gov.uk/contact-hmrc",
+      "name": "HMRC Enquiries Contact",
+      "discovery_source": "Services-information page"
+    },
+    {
+      "url": "https://www.gov.uk/vat-flat-rate-scheme/how-much-you-pay",
+      "name": "VAT Flat Rate Scheme Calculator",
+      "discovery_source": "VAT calculator search"
+    }
+  ],
+  "notes": "Enhanced discovery for T023. Combined existing 63 services with new research findings from HMRC tools and calculators page, GOV.UK browse pages, and targeted web searches. Total services discovered: 129 unique HMRC digital service URLs, significantly exceeding the minimum requirement of 50 services.\n\nDiscovery methodology:\n- WebSearch with site-specific queries for gov.uk and tax.service.gov.uk domains\n- WebFetch of key HMRC landing pages (tools/calculators, business tax, income tax browse pages)\n- Analysis of HMRC services-information page\n- Systematic extraction from GOV.UK browse taxonomy\n\nService categories:\n- Calculators and estimators (40+ tools covering tax, NI, inheritance, VAT, PAYE)\n- Authentication and account management (Government Gateway, personal/business tax accounts)\n- Registration services (VAT, PAYE, Self Assessment, Corporation Tax, CDS)\n- Payment services (Corporation Tax, VAT, payment plans)\n- Information and guidance services\n- Developer and API services (15+ developer resources)\n- Support services (helplines, FAQs, digital assistant)\n\nAll URLs are publicly accessible production services. Focus maintained on interactive digital services rather than static content pages."
+}

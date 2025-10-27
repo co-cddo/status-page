@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Antrim and Newtownabbey",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.antrim-newtownabbeycouncil.org",
+    "validated": false
+  },
+  {
+    "name": "Ards and North Down",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.ards-north-downcouncil.org",
+    "validated": false
+  },
+  {
+    "name": "Armagh City Banbridge and Craigavon",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.armagh-city-banbridge-craigavoncouncil.org",
+    "validated": false
+  },
+  {
+    "name": "Belfast",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.belfastcity.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Causeway Coast and Glens",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.causeway-coast-glenscouncil.org",
+    "validated": false
+  },
+  {
+    "name": "Derry City and Strabane",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.derry-city-strabanecouncil.org",
+    "validated": false
+  },
+  {
+    "name": "Fermanagh and Omagh",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.fermanagh-omaghcouncil.org",
+    "validated": false
+  },
+  {
+    "name": "Lisburn and Castlereagh",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.lisburn-castlereaghcouncil.org",
+    "validated": false
+  },
+  {
+    "name": "Mid and East Antrim",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.mid-east-antrimcouncil.org",
+    "validated": false
+  },
+  {
+    "name": "Mid Ulster",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.mid-ulstercouncil.org",
+    "validated": false
+  },
+  {
+    "name": "Newry Mourne and Down",
+    "region": "ni",
+    "type": "district",
+    "website": "https://www.newry-mourne-downcouncil.org",
+    "validated": false
+  }
+]

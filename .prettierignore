@@ -36,3 +36,6 @@ yarn.lock
 pages/**/*.njk
 _includes/**/*.njk
 tests/fixtures/config/invalid-yaml.yaml
+
+# Specification and research data (not production code)
+specs/

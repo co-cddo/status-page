@@ -1,0 +1,251 @@
+{
+  "phase": "Phase 7: Third-Party and Contracted Service Provider Monitoring Discovery",
+  "completion_date": "2025-10-26",
+  "status": "COMPLETED",
+  "tasks_completed": 5,
+  "tasks_total": 5,
+  "summary": {
+    "total_services_discovered": 38,
+    "unique_platforms": 28,
+    "contracted_providers": 8,
+    "gds_platforms": 12,
+    "shared_services": 11,
+    "pac_identified": 7
+  },
+  "task_results": [
+    {
+      "task_id": "T096",
+      "task": "Web search discovery for contracted service providers",
+      "status": "COMPLETED",
+      "services_found": 8,
+      "output_file": "/Users/cns/httpdocs/cddo/status/research-data/discovered/third-party-providers.json",
+      "provider_types": {
+        "sms_providers": 2,
+        "payment_processors": 1,
+        "shared_services": 2,
+        "infrastructure": 1,
+        "framework_providers": 1,
+        "cloud_providers": 1
+      },
+      "key_findings": [
+        "GOV.UK Notify SMS providers: Firetext and MMG (£98.2M each, 2-year contracts)",
+        "GOV.UK Pay payment service provider tender (£49.2M)",
+        "UKSBS and SSCL as major shared service providers",
+        "Technology Services 4 Framework (£16B)",
+        "Project Gigabit broadband infrastructure (£2B+)",
+        "Oracle Cloud Infrastructure migration (260K users via SSCL)"
+      ],
+      "contract_value_total": "£16.5+ billion identified"
+    },
+    {
+      "task_id": "T097",
+      "task": "Web search discovery for GDS-hosted services",
+      "status": "COMPLETED",
+      "services_found": 12,
+      "output_file": "/Users/cns/httpdocs/cddo/status/research-data/discovered/gds-hosted-services.json",
+      "service_categories": {
+        "digital_platforms": 5,
+        "apis": 7,
+        "frameworks": 1,
+        "infrastructure": 1
+      },
+      "key_findings": [
+        "5 major digital platforms: Notify, Pay, One Login, Forms, Digital Marketplace",
+        "7 GDS APIs: Bank Holidays, Data.gov.uk, Content, Notify, Organisations, Pay, Search",
+        "GOV.UK Design System framework",
+        "UK Emergency Alerts system",
+        "GDS organizational merger in January 2025"
+      ],
+      "platform_urls": [
+        "https://www.notifications.service.gov.uk/",
+        "https://www.payments.service.gov.uk/",
+        "https://www.sign-in.service.gov.uk/",
+        "https://www.forms.service.gov.uk/",
+        "https://www.digitalmarketplace.service.gov.uk/",
+        "https://design-system.service.gov.uk/",
+        "https://www.api.gov.uk/gds/"
+      ]
+    },
+    {
+      "task_id": "T098",
+      "task": "Manual review of Government Digital Service directory",
+      "status": "COMPLETED",
+      "services_found": 10,
+      "output_file": "/Users/cns/httpdocs/cddo/status/research-data/discovered/gds-directory.json",
+      "key_findings": [
+        "Official directory at /government/digital-services does not exist (404)",
+        "X-GOVUK community list maintains 400+ government services",
+        "Community list hosted at govuk-digital-services.herokuapp.com",
+        "GitHub repo: x-govuk/govuk-services-list",
+        "No official registry since registers service retired in 2021"
+      ],
+      "alternative_source": {
+        "name": "X-GOVUK Services List",
+        "url": "https://govuk-digital-services.herokuapp.com/",
+        "github": "https://github.com/x-govuk/govuk-services-list",
+        "total_services": "400+",
+        "license": "MIT"
+      }
+    },
+    {
+      "task_id": "T099",
+      "task": "Web search discovery for shared services",
+      "status": "COMPLETED",
+      "services_found": 11,
+      "output_file": "/Users/cns/httpdocs/cddo/status/research-data/discovered/shared-services.json",
+      "service_categories": {
+        "shared_service_providers": 3,
+        "digital_platforms": 5,
+        "procurement": 2,
+        "data_sharing": 1
+      },
+      "key_findings": [
+        "SSCL: £300M contract extension, 29 departments, 260K cloud users",
+        "UKSBS: Government-owned shared services provider",
+        "NHS SBS: NHS-specific shared services",
+        "5 cloud-based shared service centres target by 2028 (delayed from 2025)",
+        "Expected savings of 10-15% in operating costs",
+        "Digital platforms (Notify, Pay, Forms) function as shared services"
+      ],
+      "strategic_targets": {
+        "shared_service_centres": 5,
+        "target_date": "2028",
+        "original_target": "2025",
+        "delay": "3 years",
+        "expected_savings": "10-15%"
+      }
+    },
+    {
+      "task_id": "T100",
+      "task": "Manual review of UK Public Accounts Committee reports",
+      "status": "COMPLETED",
+      "services_found": 7,
+      "output_file": "/Users/cns/httpdocs/cddo/status/research-data/discovered/pac-digital-services.json",
+      "key_findings": [
+        "Government spends £14B+ annually on digital technology suppliers",
+        "No central record of digital procurement spending",
+        "15 full-time staff manage all technology supplier relationships",
+        "Digital Commercial Centre of Excellence: 24 experts (vs 6,000 commercial staff)",
+        "28% of central government systems are legacy IT",
+        "Market dominated by small number of large suppliers",
+        "Electronic tagging programme cited as transformation failure example"
+      ],
+      "pac_recommendations": [
+        "Create central record of digital spending by autumn 2025",
+        "Address market concentration",
+        "Improve digital skills and capabilities",
+        "Scale up Digital Commercial Centre of Excellence"
+      ],
+      "annual_spending": "£14 billion+",
+      "legacy_systems_percentage": "28%"
+    }
+  ],
+  "discovery_insights": {
+    "monitorable_services": {
+      "high_priority": [
+        "GOV.UK Notify (https://www.notifications.service.gov.uk/)",
+        "GOV.UK Pay (https://www.payments.service.gov.uk/)",
+        "GOV.UK One Login (https://www.sign-in.service.gov.uk/)",
+        "GOV.UK Forms (https://www.forms.service.gov.uk/)",
+        "Digital Marketplace (https://www.digitalmarketplace.service.gov.uk/)",
+        "UKSBS (https://www.uksbs.co.uk/)",
+        "SSCL myHub platform",
+        "Find a Tender Service (FTS)",
+        "Contracts Finder (https://www.contractsfinder.service.gov.uk/)"
+      ],
+      "api_endpoints": [
+        "https://publicapi.payments.service.gov.uk/v1/payments (GOV.UK Pay)",
+        "https://www.notifications.service.gov.uk/using-notify/api-documentation (GOV.UK Notify)",
+        "https://www.api.gov.uk/gds/ (GDS API Catalogue)"
+      ],
+      "community_resources": [
+        "https://govuk-digital-services.herokuapp.com/ (400+ services)",
+        "https://github.com/x-govuk/govuk-services-list (service data)"
+      ]
+    },
+    "gaps_identified": [
+      "No official government service directory (retired in 2021)",
+      "No central procurement spending database (£14B untracked)",
+      "Limited supplier relationship management (15 staff)",
+      "Insufficient digital commercial expertise (24 vs needed)",
+      "28% legacy IT systems requiring modernization"
+    ],
+    "organizational_changes": {
+      "date": "2025-01",
+      "merger": "GDS, CDDO, AI Incubator, Geospatial Commission, Responsible Tech Adoption Unit",
+      "new_entity": "Government Digital Service (GDS)",
+      "parent": "Department for Science, Innovation and Technology (DSIT)"
+    }
+  },
+  "data_quality_notes": [
+    "PAC report URLs returned 403 errors (restricted parliamentary content)",
+    "No single authoritative source for government service list",
+    "Community-maintained X-GOVUK list most comprehensive (400+ services)",
+    "Contract values based on public announcements and tender notices",
+    "Third-party SMS provider endpoints not publicly documented",
+    "Government lacks central spending database per PAC reports"
+  ],
+  "recommended_monitoring_additions": {
+    "tier_1_critical": [
+      {
+        "name": "GOV.UK Notify",
+        "url": "https://www.notifications.service.gov.uk/",
+        "justification": "£196.4M SMS contracts, cross-government notification service"
+      },
+      {
+        "name": "GOV.UK Pay",
+        "url": "https://www.payments.service.gov.uk/",
+        "justification": "£49.2M contract, cross-government payment processing"
+      },
+      {
+        "name": "GOV.UK One Login",
+        "url": "https://www.sign-in.service.gov.uk/",
+        "justification": "Beta service, future authentication standard for government"
+      }
+    ],
+    "tier_2_important": [
+      {
+        "name": "Digital Marketplace",
+        "url": "https://www.digitalmarketplace.service.gov.uk/",
+        "justification": "Gateway to £16B Technology Services 4 Framework"
+      },
+      {
+        "name": "Contracts Finder",
+        "url": "https://www.contractsfinder.service.gov.uk/",
+        "justification": "Public procurement transparency platform"
+      },
+      {
+        "name": "GOV.UK Forms",
+        "url": "https://www.forms.service.gov.uk/",
+        "justification": "Beta platform for government form creation"
+      }
+    ],
+    "tier_3_monitoring": [
+      {
+        "name": "UKSBS Portal",
+        "url": "https://www.uksbs.co.uk/",
+        "justification": "Shared services for multiple departments"
+      },
+      {
+        "name": "GDS API Catalogue",
+        "url": "https://www.api.gov.uk/gds/",
+        "justification": "Discovery point for 7 government APIs"
+      }
+    ]
+  },
+  "next_steps": [
+    "Review X-GOVUK services list for additional monitorable services",
+    "Cross-reference discovered services with existing config.yaml",
+    "Prioritize services by criticality and user base",
+    "Validate API endpoints for automated monitoring",
+    "Document shared service dependencies",
+    "Track organizational changes from January 2025 GDS merger"
+  ],
+  "files_created": [
+    "/Users/cns/httpdocs/cddo/status/research-data/discovered/third-party-providers.json",
+    "/Users/cns/httpdocs/cddo/status/research-data/discovered/gds-hosted-services.json",
+    "/Users/cns/httpdocs/cddo/status/research-data/discovered/gds-directory.json",
+    "/Users/cns/httpdocs/cddo/status/research-data/discovered/shared-services.json",
+    "/Users/cns/httpdocs/cddo/status/research-data/discovered/pac-digital-services.json"
+  ]
+}

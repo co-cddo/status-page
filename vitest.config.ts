@@ -63,6 +63,7 @@ export default defineConfig({
         'dist/**',
         'output/**',
         'tests/**',
+        'specs/**',
         '**/*.config.{ts,js}',
         '**/*.d.ts',
         'src/types/**',
@@ -86,6 +87,7 @@ export default defineConfig({
       '_site/**',
       'dist/**',
       'output/**',
+      'specs/**',
       'tests/e2e/**', // E2E tests run with Playwright
       'tests/accessibility/**', // Accessibility tests run with Playwright
     ],
@@ -104,7 +106,12 @@ export default defineConfig({
     maxConcurrency: 10,
 
     // Reporter
-    reporters: ['verbose'],
+    silent: true,
+    reporters: ['json'],
+    outputFile: {
+      json: './json-report.json',
+    },
+    // silent: 'passed-only',
 
     // Watch mode exclusions
     watchExclude: [

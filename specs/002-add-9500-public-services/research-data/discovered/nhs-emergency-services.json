@@ -1,0 +1,61 @@
+{
+  "task": "T047",
+  "description": "Web search discovery for NHS emergency services",
+  "discovery_method": "WebSearch + WebFetch",
+  "search_queries": [
+    "NHS 111 online service emergency urgent care digital"
+  ],
+  "discovery_date": "2025-10-26",
+  "total_services_found": 15,
+  "services": [
+    {
+      "name": "NHS 111 Online",
+      "url": "https://digital.nhs.uk/services/nhs-111-online",
+      "type": "emergency_triage",
+      "description": "Digital triage service for urgent medical needs",
+      "coverage": "England only",
+      "availability": "24/7/365",
+      "monthly_usage": "550,000 completed triages"
+    },
+    {
+      "name": "NHS 111 Online (Patient Portal)",
+      "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/how-nhs-111-online-works/",
+      "type": "emergency_information",
+      "description": "Patient information about how NHS 111 online works"
+    },
+    {
+      "name": "NHS 111 Online Resources",
+      "url": "https://111online.github.io/nhs111-resources/",
+      "type": "developer_resources",
+      "description": "Technical resources for NHS 111 online integration"
+    },
+    {
+      "name": "North East Ambulance Service 111 Online",
+      "url": "https://www.neas.nhs.uk/your-service/111/111-online",
+      "type": "regional_emergency",
+      "description": "Regional 111 online service for North East England"
+    },
+    {
+      "name": "NHS England Urgent Emergency Care",
+      "url": "https://www.england.nhs.uk/urgent-emergency-care/nhs-111/",
+      "type": "emergency_information",
+      "description": "NHS England information about 111 services"
+    }
+  ],
+  "certificate_transparency_findings": {
+    "source": "crt.sh %.nhs.uk",
+    "total_certificates": 3309,
+    "sample_subdomains": [
+      "*.2e2.thirdparty.nhs.uk",
+      "*.5bp.nhs.uk",
+      "*.aintreehospitals.nhs.uk",
+      "*.asa.nme.ncrs.nhs.uk"
+    ]
+  },
+  "notes": [
+    "NHS 111 online uses same algorithm as phone service",
+    "Available only in England for ages 5 and over",
+    "Covers 120 common symptom topics",
+    "Launched in 2017"
+  ]
+}

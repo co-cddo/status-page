@@ -1,0 +1,1185 @@
+[
+  {
+    "name": "Barnsley",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.barnsley.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Birmingham",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.birmingham.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Bolton",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.bolton.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Bradford",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.bradford.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Bury",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.bury.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Calderdale",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.calderdale.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Coventry",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.coventry.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Doncaster",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.doncaster.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Dudley",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.dudley.gov.uk/residents/",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "https://www.dudley.gov.uk/residents/"
+  },
+  {
+    "name": "Gateshead",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.gateshead.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Kirklees",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "/beta/default.aspx",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "/beta/default.aspx"
+  },
+  {
+    "name": "Knowsley",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.knowsley.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Leeds",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.leeds.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Liverpool",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.liverpool.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Manchester",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.manchester.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Newcastle",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.newcastle.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "North Tyneside",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.north-tyneside.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Oldham",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.oldham.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Rochdale",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.rochdale.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Rotherham",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.rotherham.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Salford",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.salford.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Sandwell",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.sandwell.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Sefton",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.sefton.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Sheffield",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.sheffield.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Solihull",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.solihull.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "South Tyneside",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.south-tyneside.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "St Helens",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.st-helens.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Stockport",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.stockport.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Sunderland",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.sunderland.gov.uk/",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "https://www.sunderland.gov.uk/"
+  },
+  {
+    "name": "Tameside",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.tameside.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Trafford",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "/Home.aspx",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "/Home.aspx"
+  },
+  {
+    "name": "Wakefield",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.wakefield.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Walsall",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://go.walsall.gov.uk",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://go.walsall.gov.uk"
+  },
+  {
+    "name": "Wigan",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.wigan.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Wirral",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.wirral.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Wolverhampton",
+    "region": "england",
+    "type": "metropolitan",
+    "website": "https://www.wolverhampton.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Cambridgeshire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.cambridgeshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Derbyshire",
+    "region": "england",
+    "type": "county",
+    "website": "/home.aspx",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "/home.aspx"
+  },
+  {
+    "name": "Devon",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.devon.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "East Sussex",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.east-sussex.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Essex",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.essex.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Gloucestershire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.gloucestershire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Hampshire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.hampshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Hertfordshire",
+    "region": "england",
+    "type": "county",
+    "website": "/home.aspx",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "/home.aspx"
+  },
+  {
+    "name": "Kent",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.kent.gov.uk/",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://www.kent.gov.uk/"
+  },
+  {
+    "name": "Lancashire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.lancashire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Leicestershire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.leicestershire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Lincolnshire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.lincolnshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Norfolk",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.norfolk.gov.uk/",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://www.norfolk.gov.uk/"
+  },
+  {
+    "name": "Nottinghamshire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.nottinghamshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Oxfordshire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.oxfordshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Staffordshire",
+    "region": "england",
+    "type": "county",
+    "website": "/Homepage.aspx",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "/Homepage.aspx"
+  },
+  {
+    "name": "Suffolk",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.suffolk.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Surrey",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.surreycc.gov.uk/",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://www.surreycc.gov.uk/"
+  },
+  {
+    "name": "Warwickshire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.warwickshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "West Sussex",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.west-sussex.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Worcestershire",
+    "region": "england",
+    "type": "county",
+    "website": "https://www.worcestershire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Bath and North East Somerset",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.bath-north-east-somerset.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Bedford",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.bedford.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Blackburn with Darwen",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.blackburn-with-darwen.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Blackpool",
+    "region": "england",
+    "type": "unitary",
+    "website": "/Home.aspx",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "/Home.aspx"
+  },
+  {
+    "name": "Bournemouth Christchurch and Poole",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.bournemouth-christchurch-poole.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Bracknell Forest",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.bracknell-forest.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Brighton and Hove",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.brighton-hove.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Bristol",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.bristol.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Buckinghamshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.buckinghamshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Central Bedfordshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.central-bedfordshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Cheshire East",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.cheshire-east.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Cheshire West and Chester",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.cheshire-west-chester.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Cornwall",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.cornwall.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Cumberland",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.cumberland.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Darlington",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.darlington.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Derby",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.derby.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Dorset",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.dorsetcouncil.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Durham",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.durham.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "East Riding of Yorkshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.east-riding-of-yorkshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Halton",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www3.halton.gov.uk",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "https://www3.halton.gov.uk"
+  },
+  {
+    "name": "Hartlepool",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.hartlepool.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Herefordshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.herefordshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Isle of Wight",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.isle-of-wight.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Kingston upon Hull",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.kingston-upon-hull.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Leicester",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.leicester.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Luton",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://m.luton.gov.uk/redirect/show/",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "https://m.luton.gov.uk/redirect/show/"
+  },
+  {
+    "name": "Medway",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.medway.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Middlesbrough",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.middlesbrough.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Milton Keynes",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.milton-keynes.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "North East Lincolnshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.north-east-lincolnshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "North Lincolnshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.north-lincolnshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "North Northamptonshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.north-northamptonshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "North Somerset",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.north-somerset.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "North Yorkshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.north-yorkshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Northumberland",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.northumberland.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Nottingham",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.nottingham.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Peterborough",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.peterborough.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Plymouth",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.plymouth.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Portsmouth",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.portsmouth.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Reading",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.reading.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Redcar and Cleveland",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.redcar-cleveland.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Rutland",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.rutland.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Shropshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://next.shropshire.gov.uk/",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "https://next.shropshire.gov.uk/"
+  },
+  {
+    "name": "Slough",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.slough.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Somerset",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.somerset.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "South Gloucestershire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.south-gloucestershire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Southampton",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.southampton.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Southend-on-Sea",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.southend-on-sea.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Stockton-on-Tees",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.stockton-on-tees.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Stoke-on-Trent",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.stoke-on-trent.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Swindon",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.swindon.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Telford and Wrekin",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.telford-wrekin.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Thurrock",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.thurrock.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Torbay",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.torbay.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Warrington",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.warrington.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "West Berkshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.west-berkshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "West Northamptonshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.west-northamptonshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Westmorland and Furness",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.westmorland-furness.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Wiltshire",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.wiltshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Windsor and Maidenhead",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.windsor-maidenhead.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Wokingham",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.wokingham.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "York",
+    "region": "england",
+    "type": "unitary",
+    "website": "https://www.york.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Barking and Dagenham",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.barking-dagenham.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Barnet",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.barnet.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Bexley",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.bexley.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Brent",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.brent.gov.uk/",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://www.brent.gov.uk/"
+  },
+  {
+    "name": "Bromley",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.bromley.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Camden",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.camden.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Croydon",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.croydon.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Ealing",
+    "region": "england",
+    "type": "london",
+    "website": "/site/",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "/site/"
+  },
+  {
+    "name": "Enfield",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.enfield.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Greenwich",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.greenwich.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Hackney",
+    "region": "england",
+    "type": "london",
+    "website": "https://hackney.gov.uk/",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://hackney.gov.uk/"
+  },
+  {
+    "name": "Hammersmith and Fulham",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.hammersmith-fulham.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Haringey",
+    "region": "england",
+    "type": "london",
+    "website": "https://haringey.gov.uk//",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://haringey.gov.uk//"
+  },
+  {
+    "name": "Harrow",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.harrow.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Havering",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.havering.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Hillingdon",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.hillingdon.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Hounslow",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.hounslow.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Islington",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.islington.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Kensington and Chelsea",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.kensington-chelsea.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Kingston upon Thames",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.kingston-upon-thames.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Lambeth",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.lambeth.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Lewisham",
+    "region": "england",
+    "type": "london",
+    "website": "https://lewisham.gov.uk/",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://lewisham.gov.uk/"
+  },
+  {
+    "name": "Merton",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.merton.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Newham",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.newham.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Redbridge",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.redbridge.gov.uk/",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://www.redbridge.gov.uk/"
+  },
+  {
+    "name": "Richmond upon Thames",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.richmond-upon-thames.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Southwark",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.southwark.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Sutton",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.sutton.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Tower Hamlets",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.tower-hamlets.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Waltham Forest",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.waltham-forest.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Wandsworth",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.wandsworth.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Westminster",
+    "region": "england",
+    "type": "london",
+    "website": "https://www.westminster.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  }
+]

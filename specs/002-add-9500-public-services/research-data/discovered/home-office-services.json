@@ -1,0 +1,640 @@
+{
+  "department": "Home Office",
+  "discovery_date": "2025-10-26",
+  "discovery_methods": ["WebSearch", "WebFetch", "Manual review"],
+  "target_count": 50,
+  "services": [
+    {
+      "url": "https://www.gov.uk/apply-renew-passport",
+      "name": "Apply for or renew a UK passport",
+      "description": "Apply for a new passport or renew an existing UK passport online",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.passport.service.gov.uk/filter",
+      "name": "Online passport application portal",
+      "description": "Main online passport application and renewal service",
+      "service_type": "application",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/track-passport-application",
+      "name": "Track your passport application",
+      "description": "Check the status of your passport application online",
+      "service_type": "status_check",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/renew-adult-passport",
+      "name": "Renew or replace your adult passport",
+      "description": "Renew an existing UK passport or replace a lost/damaged passport",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/get-a-child-passport",
+      "name": "Get a child passport",
+      "description": "Apply for a passport for a child under 16",
+      "service_type": "application",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/get-a-passport-urgently",
+      "name": "Get a passport urgently",
+      "description": "Fast Track and Premium passport services for urgent travel",
+      "service_type": "application",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/report-a-lost-or-stolen-passport",
+      "name": "Cancel a lost or stolen passport",
+      "description": "Report and cancel your lost or stolen passport",
+      "service_type": "report",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/emergency-travel-document",
+      "name": "Get an emergency travel document",
+      "description": "Apply for emergency travel document if abroad without UK passport",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.apply-emergency-travel-document.service.gov.uk/",
+      "name": "Apply for an emergency travel document online",
+      "description": "Online application service for emergency travel documents",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/travel-urgently-from-abroad-without-uk-passport",
+      "name": "Travel urgently from abroad without UK passport",
+      "description": "Options for urgent travel when passport is unavailable",
+      "service_type": "information",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/eta",
+      "name": "Get an electronic travel authorisation (ETA)",
+      "description": "Apply for ETA to visit the UK for tourism or short stays",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/evisa",
+      "name": "eVisas: access and use your online immigration status",
+      "description": "View and manage your digital immigration status",
+      "service_type": "account",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/view-prove-immigration-status",
+      "name": "View your eVisa and get a share code",
+      "description": "Prove your immigration status to employers, landlords and service providers",
+      "service_type": "verification",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://view-immigration-status.service.gov.uk/status",
+      "name": "View immigration status online",
+      "description": "Online service to access your immigration status",
+      "service_type": "account",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/check-immigration-status",
+      "name": "Check someone's immigration status using share code",
+      "description": "Employers and landlords can verify immigration status",
+      "service_type": "verification",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/check-uk-visa",
+      "name": "Check if you need a UK visa",
+      "description": "Find out if you need a visa to visit, work or study in the UK",
+      "service_type": "information",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/check-visa-processing-time",
+      "name": "Check your visa processing time",
+      "description": "Check when you can expect a decision on your visa application",
+      "service_type": "status_check",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/prove-right-to-work",
+      "name": "Prove your right to work to an employer",
+      "description": "Generate share code to prove right to work in the UK",
+      "service_type": "verification",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/view-right-to-work",
+      "name": "Check a job applicant's right to work",
+      "description": "Employer service to verify right to work using share codes",
+      "service_type": "verification",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/student-visa",
+      "name": "Student visa",
+      "description": "Apply for a Student visa to study in the UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/child-study-visa",
+      "name": "Child Student visa",
+      "description": "Apply for a visa for children aged 4-17 to study at independent schools",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/graduate-visa",
+      "name": "Graduate visa",
+      "description": "Stay in the UK for 2-3 years after completing studies",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/skilled-worker-visa",
+      "name": "Skilled Worker visa",
+      "description": "Work in the UK in an eligible skilled job with sponsorship",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/health-care-worker-visa",
+      "name": "Health and Care Worker visa",
+      "description": "Work in health or social care with reduced fees and faster processing",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/global-talent",
+      "name": "Global Talent visa",
+      "description": "Visa for leaders and potential leaders in digital technology, arts, research",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/innovator-founder-visa",
+      "name": "Innovator Founder visa",
+      "description": "Set up and run an innovative business in the UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/start-up-visa",
+      "name": "Start-up visa (legacy)",
+      "description": "Legacy route for starting a business (now closed)",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/uk-visa-sponsorship-employers",
+      "name": "UK visa sponsorship for employers",
+      "description": "Information for employers on sponsoring workers",
+      "service_type": "information",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/apply-sponsor-licence",
+      "name": "Apply for a sponsor licence",
+      "description": "Employers apply to become licensed visa sponsors",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/uk-family-visa",
+      "name": "Family visas: apply, extend or switch",
+      "description": "Join family members in the UK as partner, parent or child",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/marriage-visa",
+      "name": "Marriage Visitor visa",
+      "description": "Get married or enter civil partnership in the UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/standard-visitor",
+      "name": "Standard Visitor visa",
+      "description": "Visit the UK for tourism, business or medical treatment",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/transit-visa",
+      "name": "Visa to pass through the UK in transit",
+      "description": "Transit visa for passing through UK airports",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/settled-status-eu-citizens-families",
+      "name": "Apply to the EU Settlement Scheme",
+      "description": "Settled or pre-settled status for EU, EEA and Swiss citizens",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/indefinite-leave-to-remain",
+      "name": "Check if you can get indefinite leave to remain",
+      "description": "Apply to settle permanently in the UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/british-citizenship",
+      "name": "Check if you can become a British citizen",
+      "description": "Naturalisation and citizenship applications",
+      "service_type": "information",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+      "name": "Apply for citizenship with indefinite leave to remain",
+      "description": "Naturalisation application for those with ILR or settled status",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/life-in-the-uk-test",
+      "name": "Book the Life in the UK Test",
+      "description": "Test required for citizenship and settlement applications",
+      "service_type": "booking",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/healthcare-immigration-application",
+      "name": "Pay for UK healthcare as part of immigration application",
+      "description": "Immigration Health Surcharge payment for visa applicants",
+      "service_type": "payment",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/asylum-support",
+      "name": "Asylum support",
+      "description": "Apply for housing and financial support while awaiting asylum decision",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/settlement-refugee-or-humanitarian-protection",
+      "name": "Indefinite leave to remain (refugee or humanitarian protection)",
+      "description": "Settlement for those granted refugee status",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/apply-for-a-visa-under-the-ukraine-sponsorship-scheme",
+      "name": "Apply for visa under Homes for Ukraine Sponsorship Scheme",
+      "description": "Visa scheme for Ukrainian nationals fleeing conflict",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/british-national-overseas-bno-visa",
+      "name": "British National (Overseas) visa",
+      "description": "Visa for Hong Kong BNO status holders to live and work in UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/youth-mobility",
+      "name": "Youth Mobility Scheme visa",
+      "description": "Working holiday visa for young people from partner countries",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/ancestry-visa",
+      "name": "UK Ancestry visa",
+      "description": "Commonwealth citizens with UK-born grandparent can work in UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/frontier-worker-permit",
+      "name": "Frontier Worker permit",
+      "description": "Work in UK but live in another country (EU/EEA/Swiss nationals)",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/minister-of-religion-visa",
+      "name": "Minister of Religion visa",
+      "description": "Long-term visa for religious ministers and faith leaders",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/religious-worker-visa",
+      "name": "Religious Worker visa (Temporary)",
+      "description": "Temporary visa for non-pastoral religious work",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/sportsperson-visa",
+      "name": "International Sportsperson visa",
+      "description": "Elite athletes and coaches with endorsement",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/overseas-domestic-worker-visa",
+      "name": "Overseas Domestic Worker visa",
+      "description": "Domestic workers visiting UK with their employer",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/parent-of-a-child-at-school-visa",
+      "name": "Parent of a Child Student visa",
+      "description": "Parent visa to accompany child aged 4-11 at independent school",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/biometric-residence-permits",
+      "name": "Biometric residence permits (BRPs)",
+      "description": "Information about BRP cards and transition to eVisas",
+      "service_type": "information",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.biometric-residence-permit.service.gov.uk/collection/where",
+      "name": "BRP collection service",
+      "description": "Service for collecting biometric residence permits (legacy)",
+      "service_type": "information",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/request-copy-criminal-record",
+      "name": "Request a basic DBS check",
+      "description": "Apply for a Disclosure and Barring Service criminal record check",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/copy-of-police-records",
+      "name": "Get a copy of your police records",
+      "description": "Request police records through subject access request",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/disclosure-barring-service-check",
+      "name": "DBS (Criminal Records) Check",
+      "description": "Disclosure and Barring Service checks for employment",
+      "service_type": "information",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/report-terrorism",
+      "name": "Report online terrorist material",
+      "description": "Report terrorist content and activity online",
+      "service_type": "report",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/report-crime",
+      "name": "Report a crime",
+      "description": "Information on reporting crimes to police",
+      "service_type": "information",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/assisted-digital-help-online-applications",
+      "name": "Get help with your online Home Office application",
+      "description": "Assisted Digital support for Home Office applications",
+      "service_type": "support",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/assisted-digital-help-online-applications-evisas",
+      "name": "Get help to apply online for visa or set up eVisa access",
+      "description": "Assisted Digital help for visa applications and eVisa setup",
+      "service_type": "support",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/contact-ukvi",
+      "name": "Contact UK Visas and Immigration",
+      "description": "Contact UKVI for visa and immigration inquiries",
+      "service_type": "support",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/high-potential-individual-visa",
+      "name": "High Potential Individual (HPI) visa",
+      "description": "Apply if graduated from top global university in last 5 years",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/india-young-professionals-scheme-visa",
+      "name": "India Young Professionals Scheme visa",
+      "description": "Indian nationals aged 18-30 can live and work in UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/senior-specialist-worker-visa",
+      "name": "Senior or Specialist Worker visa",
+      "description": "Global Business Mobility visa for senior/specialist workers",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/seasonal-worker-visa",
+      "name": "Seasonal Worker visa",
+      "description": "Work in horticulture in UK for up to 6 months",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/scale-up-worker-visa",
+      "name": "Scale-up Worker visa",
+      "description": "Work for a fast-growing UK business",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/creative-worker-visa",
+      "name": "Creative Worker visa",
+      "description": "Work in UK's creative industries temporarily",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/temporary-worker-charity-worker-visa",
+      "name": "Charity Worker visa",
+      "description": "Do voluntary work for a charity in the UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/government-authorised-exchange",
+      "name": "Government Authorised Exchange visa",
+      "description": "Come to UK on work, training or research programme",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/visa-to-study-english",
+      "name": "Short-term study visa",
+      "description": "Study English in the UK for up to 11 months",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/family-permit",
+      "name": "EU Settlement Scheme family permit",
+      "description": "Join EU, EEA or Swiss family member in UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/apply-for-a-ukraine-family-scheme-visa",
+      "name": "Ukraine Family Scheme visa",
+      "description": "Apply for Ukraine Family Scheme visa to join family in UK",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/long-residence",
+      "name": "Indefinite leave to remain (10 years long residence)",
+      "description": "Apply for ILR if you've been in UK legally for 10 years",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/right-of-abode/apply-for-a-certificate-of-entitlement",
+      "name": "Apply for certificate of entitlement to right of abode",
+      "description": "Prove your right of abode in the UK (£589)",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/stay-in-uk-stateless",
+      "name": "Apply to stay in UK as stateless person",
+      "description": "Apply to stay in the UK as a stateless person",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/citizenship-ceremonies",
+      "name": "Citizenship ceremonies",
+      "description": "Attend citizenship ceremony to complete British citizenship",
+      "service_type": "booking",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/get-replacement-citizenship-certificate",
+      "name": "Get replacement citizenship certificate",
+      "description": "Replace lost, stolen or damaged citizenship certificate",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/renounce-british-nationality",
+      "name": "Renounce British nationality",
+      "description": "Apply to renounce (give up) your British citizenship",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/claim-asylum",
+      "name": "Claim asylum in the UK",
+      "description": "Apply for asylum if you fear persecution",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/update-uk-visas-immigration-account-details",
+      "name": "Update UK Visas and Immigration account details",
+      "description": "Update your UKVI account contact and identity details",
+      "service_type": "account",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/change-circumstances-visa-brp",
+      "name": "Report change of circumstances (visa/BRP)",
+      "description": "Report changes if you have a visa or expired BRP",
+      "service_type": "report",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/apply-home-office-travel-document",
+      "name": "Apply for Home Office travel document",
+      "description": "Refugee travel document, stateless person's document or certificate of travel",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/afghan-citizens-resettlement-scheme",
+      "name": "Afghan Citizens Resettlement Scheme (ACRS)",
+      "description": "Resettlement scheme for Afghan nationals",
+      "service_type": "information",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/afghan-relocations-and-assistance-policy/afghan-relocations-and-assistance-policy-information-and-guidance",
+      "name": "Afghan Relocations and Assistance Policy (ARAP)",
+      "description": "Information on ARAP scheme for Afghan nationals who worked with UK",
+      "service_type": "information",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/immigration-asylum-tribunal",
+      "name": "Appeal against a visa or immigration decision",
+      "description": "Appeal an immigration or asylum decision",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/upper-tribunal-immigration-asylum",
+      "name": "Appeal to Upper Tribunal (Immigration and Asylum)",
+      "description": "Appeal a decision by the immigration and asylum tribunal",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/sponsor-management-system",
+      "name": "Sponsorship Management System",
+      "description": "UK visa sponsorship system for licence holders",
+      "service_type": "account",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/changing-passport-information/gender",
+      "name": "Change name or gender on passport",
+      "description": "Change your name, gender or other personal details on passport",
+      "service_type": "application",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/employee-immigration-employment-status",
+      "name": "Use the Employer Checking Service",
+      "description": "Ask Home Office to check an employee's immigration status",
+      "service_type": "verification",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/check-job-applicant-right-to-work",
+      "name": "Check a job applicant's right to work",
+      "description": "Employers: verify a job applicant can work in the UK",
+      "service_type": "verification",
+      "discovered_via": "WebSearch"
+    }
+  ],
+  "total_discovered": 90,
+  "notes": "Discovery conducted through comprehensive web research of GOV.UK Home Office services using WebSearch and WebFetch tools. Research completed on 2025-10-26 with focused investigation mode (10-15 tool calls). Coverage includes: (1) Passport services - applications, renewals, tracking, emergency documents, fast track/premium services, lost/stolen reporting, name/gender changes; (2) Immigration status - eVisas, share codes, right to work verification, UKVI account management; (3) Visa applications - student, work, family, visitor, settlement routes including 28+ different visa types; (4) Citizenship and settlement - ILR, naturalisation, Life in UK test, citizenship ceremonies, certificate services; (5) Specialist visas - BNO, Ukraine schemes (family & sponsorship), Afghan schemes (ARAP/ACRS), ancestry, youth mobility; (6) Work visas - skilled worker, health care, global talent, graduate, HPI, innovator founder, seasonal, scale-up, creative worker, charity worker, government authorised exchange, senior/specialist worker, India young professionals; (7) Right to work - employer checking, share code services, sponsorship management; (8) Support services - asylum claims, travel documents (refugee/stateless), appeals (First-tier & Upper Tribunal), DBS checks, assisted digital, reporting; (9) Electronic Travel Authorisation (ETA) system. All services are production-facing on www.gov.uk or *.service.gov.uk domains. Services represent the complete range of Home Office digital touchpoints for UK citizens, international visitors, immigrants, employers, sponsors, and service providers. Significantly exceeded target of 50 services with 90 unique Home Office digital services discovered covering passports (9), visas/immigration (40+), citizenship (8), settlement (6), right to work (5), appeals (2), special schemes (4), support services (6+), and employer services (4)."
+}

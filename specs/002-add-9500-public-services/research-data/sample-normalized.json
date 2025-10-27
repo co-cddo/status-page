@@ -1,0 +1,138 @@
+[
+  {
+    "original_url": "https://www.tax.service.gov.uk/",
+    "normalized_url": "https://www.tax.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/government/organisations/hm-revenue-customs",
+    "normalized_url": "https://www.gov.uk/government/organisations/hm-revenue-customs",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/vat-registration",
+    "normalized_url": "https://www.gov.uk/vat-registration",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/self-assessment-tax-returns",
+    "normalized_url": "https://www.gov.uk/self-assessment-tax-returns",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/pay-self-assessment-tax-bill",
+    "normalized_url": "https://www.gov.uk/pay-self-assessment-tax-bill",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-tax",
+    "normalized_url": "https://www.gov.uk/vehicle-tax",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/check-mot-history",
+    "normalized_url": "https://www.gov.uk/check-mot-history",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/change-address-driving-licence",
+    "normalized_url": "https://www.gov.uk/change-address-driving-licence",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-licence-exchange-foreign-licence",
+    "normalized_url": "https://www.gov.uk/driving-licence-exchange-foreign-licence",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/universal-credit",
+    "normalized_url": "https://www.gov.uk/universal-credit",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/jobseekers-allowance",
+    "normalized_url": "https://www.gov.uk/jobseekers-allowance",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/pip",
+    "normalized_url": "https://www.gov.uk/pip",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/employment-support-allowance",
+    "normalized_url": "https://www.gov.uk/employment-support-allowance",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/state-pension",
+    "normalized_url": "https://www.gov.uk/state-pension",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/passport-fees",
+    "normalized_url": "https://www.gov.uk/passport-fees",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/apply-renew-passport",
+    "normalized_url": "https://www.gov.uk/apply-renew-passport",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/check-uk-visa",
+    "normalized_url": "https://www.gov.uk/check-uk-visa",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/browse/visas-immigration",
+    "normalized_url": "https://www.gov.uk/browse/visas-immigration",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://111.nhs.uk/",
+    "normalized_url": "https://111.nhs.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.nhs.uk/",
+    "normalized_url": "https://www.nhs.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.nhs.uk/nhs-app/",
+    "normalized_url": "https://www.nhs.uk/nhs-app",
+    "changes_made": [
+      "protocol-normalized",
+      "trailing-slash-removed"
+    ]
+  },
+  {
+    "original_url": "https://www.nhs.uk/service-search",
+    "normalized_url": "https://www.nhs.uk/service-search",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.police.uk/",
+    "normalized_url": "https://www.police.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.police.uk/pu/contact-the-police/",
+    "normalized_url": "https://www.police.uk/pu/contact-the-police",
+    "changes_made": [
+      "protocol-normalized",
+      "trailing-slash-removed"
+    ]
+  },
+  {
+    "original_url": "https://beta.companieshouse.gov.uk/",
+    "normalized_url": "https://beta.companieshouse.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://find-and-update.company-information.service.gov.uk/",
+    "normalized_url": "https://find-and-update.company-information.service.gov.uk/",
+    "changes_made": []
+  }
+]

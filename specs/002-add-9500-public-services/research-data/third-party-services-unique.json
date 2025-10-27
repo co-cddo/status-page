@@ -1,0 +1,196 @@
+[
+  {
+    "original_url": "https://www.payments.service.gov.uk/",
+    "canonical_url": "https://www.payments.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.payments.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 112,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.sign-in.service.gov.uk/",
+    "canonical_url": "https://www.sign-in.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.sign-in.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 113,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.notifications.service.gov.uk/",
+    "canonical_url": "https://www.notifications.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.notifications.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 161,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.forms.service.gov.uk/",
+    "canonical_url": "https://www.forms.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.forms.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 139,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.data.gov.uk/",
+    "canonical_url": "https://www.data.gov.uk/",
+    "redirect_chain": [
+      "https://www.data.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 185,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/",
+    "canonical_url": "https://www.gov.uk/",
+    "redirect_chain": [
+      "https://www.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 196,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://find-and-update.company-information.service.gov.uk/",
+    "canonical_url": "https://find-and-update.company-information.service.gov.uk/",
+    "redirect_chain": [
+      "https://find-and-update.company-information.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 244,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://sscl.com/",
+    "canonical_url": "https://sscl.com/",
+    "redirect_chain": [
+      "https://sscl.com/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 244,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://design-system.service.gov.uk/",
+    "canonical_url": "https://design-system.service.gov.uk/",
+    "redirect_chain": [
+      "https://design-system.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 266,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.uksbs.co.uk/",
+    "canonical_url": "https://www.uksbs.co.uk/",
+    "redirect_chain": [
+      "https://www.uksbs.co.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 267,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025",
+    "canonical_url": "https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025",
+    "redirect_chain": [
+      "https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 278,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination",
+    "canonical_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination/",
+    "redirect_chain": [
+      "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination",
+      "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 391,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services",
+    "canonical_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/",
+    "redirect_chain": [
+      "https://www.nhs.uk/nhs-services/vaccination-and-booking-services",
+      "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 422,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments",
+    "canonical_url": "https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments",
+    "redirect_chain": [
+      "https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 426,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.digitalmarketplace.service.gov.uk/",
+    "canonical_url": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.digitalmarketplace.service.gov.uk/",
+      "https://www.applytosupply.digitalmarketplace.service.gov.uk/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 436,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.sbs.nhs.uk/",
+    "canonical_url": "https://www.sbs.nhs.uk/",
+    "redirect_chain": [
+      "https://www.sbs.nhs.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 440,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://digital.nhs.uk/coronavirus/vaccinations",
+    "canonical_url": "https://digital.nhs.uk/coronavirus/vaccinations",
+    "redirect_chain": [
+      "https://digital.nhs.uk/coronavirus/vaccinations"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 467,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.contractsfinder.service.gov.uk/",
+    "canonical_url": "https://www.contractsfinder.service.gov.uk/Search",
+    "redirect_chain": [
+      "https://www.contractsfinder.service.gov.uk/",
+      "https://www.contractsfinder.service.gov.uk/Search"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 581,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination",
+    "canonical_url": "https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination",
+    "redirect_chain": [
+      "https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1154,
+    "is_duplicate": false
+  }
+]

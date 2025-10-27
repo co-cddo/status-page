@@ -1,0 +1,4292 @@
+[
+  {
+    "url": "https://www.payments.service.gov.uk/",
+    "canonical_url": "https://www.payments.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 93,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.205Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.067Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.forms.service.gov.uk/",
+    "canonical_url": "https://www.forms.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 128,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.180Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.068Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://sscl.com/",
+    "canonical_url": "https://sscl.com/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 158,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.205Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.068Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.bolton.gov.uk",
+    "canonical_url": "https://www.bolton.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 184,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.207Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.068Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.birmingham.gov.uk",
+    "canonical_url": "https://www.birmingham.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 184,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.208Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.068Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.uksbs.co.uk/",
+    "canonical_url": "https://www.uksbs.co.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 195,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.206Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.068Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+    "canonical_url": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 193,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.209Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.068Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.notifications.service.gov.uk/",
+    "canonical_url": "https://www.notifications.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 236,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.206Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.068Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.bury.gov.uk",
+    "canonical_url": "https://www.bury.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 250,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.212Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.bradford.gov.uk",
+    "canonical_url": "https://www.bradford.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 270,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.211Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.calderdale.gov.uk",
+    "canonical_url": "https://www.calderdale.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 292,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.212Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.contractsfinder.service.gov.uk/Search",
+    "canonical_url": "https://www.contractsfinder.service.gov.uk/Search",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 311,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.212Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "search",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "search",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.coventry.gov.uk",
+    "canonical_url": "https://www.coventry.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 331,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.213Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.gateshead.gov.uk",
+    "canonical_url": "https://www.gateshead.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 362,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.213Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.leeds.gov.uk",
+    "canonical_url": "https://www.leeds.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 376,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.213Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.manchester.gov.uk",
+    "canonical_url": "https://www.manchester.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 394,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.214Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.rotherham.gov.uk",
+    "canonical_url": "https://www.rotherham.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 409,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.214Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.sandwell.gov.uk",
+    "canonical_url": "https://www.sandwell.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 416,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.215Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.solihull.gov.uk",
+    "canonical_url": "https://www.solihull.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 432,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.215Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.dudley.gov.uk/residents",
+    "canonical_url": "https://www.dudley.gov.uk/residents",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 458,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.213Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.barnsley.gov.uk",
+    "canonical_url": "https://www.barnsley.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 486,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.207Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.liverpool.gov.uk",
+    "canonical_url": "https://www.liverpool.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 487,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.214Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.sheffield.gov.uk",
+    "canonical_url": "https://www.sheffield.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 499,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.216Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.newcastle.gov.uk",
+    "canonical_url": "https://www.newcastle.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 510,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.214Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "canonical_url": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 541,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.215Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.salford.gov.uk",
+    "canonical_url": "https://www.salford.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 542,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.215Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.sbs.nhs.uk/",
+    "canonical_url": "https://www.sbs.nhs.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 580,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.212Z",
+    "retry_count": 0,
+    "department": "nhs",
+    "service_type": "information",
+    "criticality": "high-volume",
+    "geography": [
+      "england"
+    ],
+    "tags": [
+      "nhs",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "england"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.oldham.gov.uk",
+    "canonical_url": "https://www.oldham.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 583,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.214Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.sefton.gov.uk",
+    "canonical_url": "https://www.sefton.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 590,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.215Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.wolverhampton.gov.uk",
+    "canonical_url": "https://www.wolverhampton.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 608,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.217Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.cambridgeshire.gov.uk",
+    "canonical_url": "https://www.cambridgeshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 620,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.217Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.rochdale.gov.uk",
+    "canonical_url": "https://www.rochdale.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 649,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.215Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.wakefield.gov.uk",
+    "canonical_url": "https://www.wakefield.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 670,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.217Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.sunderland.gov.uk/",
+    "canonical_url": "https://www.sunderland.gov.uk/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 676,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.216Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://go.walsall.gov.uk",
+    "canonical_url": "https://go.walsall.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 684,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.217Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.wirral.gov.uk",
+    "canonical_url": "https://www.wirral.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 721,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.218Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.stockport.gov.uk",
+    "canonical_url": "https://www.stockport.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 723,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.219Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.essex.gov.uk",
+    "canonical_url": "https://www.essex.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 748,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.219Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.lincolnshire.gov.uk",
+    "canonical_url": "https://www.lincolnshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 764,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.219Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.devon.gov.uk",
+    "canonical_url": "https://www.devon.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 773,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.218Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.suffolk.gov.uk",
+    "canonical_url": "https://www.suffolk.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 796,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.220Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.gloucestershire.gov.uk",
+    "canonical_url": "https://www.gloucestershire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 804,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.219Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.nottinghamshire.gov.uk",
+    "canonical_url": "https://www.nottinghamshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 803,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.220Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.leicestershire.gov.uk",
+    "canonical_url": "https://www.leicestershire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 822,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.220Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.kent.gov.uk/",
+    "canonical_url": "https://www.kent.gov.uk/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 824,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.219Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.lancashire.gov.uk",
+    "canonical_url": "https://www.lancashire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 824,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.220Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.warwickshire.gov.uk",
+    "canonical_url": "https://www.warwickshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 829,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.221Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.tameside.gov.uk",
+    "canonical_url": "https://www.tameside.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 859,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.216Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.cornwall.gov.uk",
+    "canonical_url": "https://www.cornwall.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 679,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.402Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.cumberland.gov.uk",
+    "canonical_url": "https://www.cumberland.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 688,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.401Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.darlington.gov.uk",
+    "canonical_url": "https://www.darlington.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 633,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.462Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.bracknell-forest.gov.uk",
+    "canonical_url": "https://www.bracknell-forest.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 722,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.391Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.norfolk.gov.uk/",
+    "canonical_url": "https://www.norfolk.gov.uk/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 898,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.220Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.bedford.gov.uk",
+    "canonical_url": "https://www.bedford.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 761,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.363Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.herefordshire.gov.uk",
+    "canonical_url": "https://www.herefordshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 630,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.544Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.derby.gov.uk",
+    "canonical_url": "https://www.derby.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 738,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.442Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.peterborough.gov.uk",
+    "canonical_url": "https://www.peterborough.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 467,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.715Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.worcestershire.gov.uk",
+    "canonical_url": "https://www.worcestershire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 891,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.309Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.somerset.gov.uk",
+    "canonical_url": "https://www.somerset.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 405,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.805Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.swindon.gov.uk",
+    "canonical_url": "https://www.swindon.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 386,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.825Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.surreycc.gov.uk/",
+    "canonical_url": "https://www.surreycc.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 825,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.392Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.slough.gov.uk",
+    "canonical_url": "https://www.slough.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 423,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.797Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.medway.gov.uk",
+    "canonical_url": "https://www.medway.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 620,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.608Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.reading.gov.uk",
+    "canonical_url": "https://www.reading.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 473,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.756Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.brighton-hove.gov.uk",
+    "canonical_url": "https://www.brighton-hove.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 754,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.481Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.redcar-cleveland.gov.uk",
+    "canonical_url": "https://www.redcar-cleveland.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 449,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.792Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.hartlepool.gov.uk",
+    "canonical_url": "https://www.hartlepool.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 743,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.504Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.leicester.gov.uk",
+    "canonical_url": "https://www.leicester.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 698,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.589Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.buckinghamshire.gov.uk",
+    "canonical_url": "https://www.buckinghamshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 671,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.623Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.plymouth.gov.uk",
+    "canonical_url": "https://www.plymouth.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 568,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.757Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.middlesbrough.gov.uk",
+    "canonical_url": "https://www.middlesbrough.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 687,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.647Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.portsmouth.gov.uk",
+    "canonical_url": "https://www.portsmouth.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 369,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.967Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.warrington.gov.uk",
+    "canonical_url": "https://www.warrington.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 439,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.901Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.wokingham.gov.uk",
+    "canonical_url": "https://www.wokingham.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 381,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.983Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.bexley.gov.uk",
+    "canonical_url": "https://www.bexley.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 353,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.023Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://m.luton.gov.uk/Page/Show/?redirectToMobile=True",
+    "canonical_url": "https://m.luton.gov.uk/Page/Show/?redirectToMobile=True",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 684,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.693Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.wiltshire.gov.uk",
+    "canonical_url": "https://www.wiltshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 447,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.939Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.harrow.gov.uk",
+    "canonical_url": "https://www.harrow.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 315,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.075Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.milton-keynes.gov.uk",
+    "canonical_url": "https://www.milton-keynes.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 707,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.701Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.havering.gov.uk",
+    "canonical_url": "https://www.havering.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 336,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.081Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.bromley.gov.uk",
+    "canonical_url": "https://www.bromley.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 347,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.089Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.northumberland.gov.uk",
+    "canonical_url": "https://www.northumberland.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 714,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.724Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://haringey.gov.uk/",
+    "canonical_url": "https://haringey.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 391,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.050Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.enfield.gov.uk",
+    "canonical_url": "https://www.enfield.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 401,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.043Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.camden.gov.uk",
+    "canonical_url": "https://www.camden.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 401,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.044Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.hounslow.gov.uk",
+    "canonical_url": "https://www.hounslow.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 352,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.095Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.croydon.gov.uk",
+    "canonical_url": "https://www.croydon.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 411,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.042Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.southampton.gov.uk",
+    "canonical_url": "https://www.southampton.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 524,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.942Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.lambeth.gov.uk",
+    "canonical_url": "https://www.lambeth.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 295,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.174Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.hillingdon.gov.uk",
+    "canonical_url": "https://www.hillingdon.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 402,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.124Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://hackney.gov.uk/",
+    "canonical_url": "https://hackney.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 416,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.113Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.sutton.gov.uk",
+    "canonical_url": "https://www.sutton.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 322,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.211Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.newham.gov.uk",
+    "canonical_url": "https://www.newham.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 360,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.182Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.southwark.gov.uk",
+    "canonical_url": "https://www.southwark.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 350,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.210Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.westminster.gov.uk",
+    "canonical_url": "https://www.westminster.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 341,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.220Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.merton.gov.uk",
+    "canonical_url": "https://www.merton.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 336,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.228Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.knowsley.gov.uk",
+    "canonical_url": "https://www.knowsley.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 1354,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.216Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.durham.gov.uk",
+    "canonical_url": "https://www.durham.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 1067,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.523Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.angus.gov.uk",
+    "canonical_url": "https://www.angus.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 372,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.241Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.aberdeencity.gov.uk",
+    "canonical_url": "https://www.aberdeencity.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 380,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.235Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.argyll-bute.gov.uk",
+    "canonical_url": "https://www.argyll-bute.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 376,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.247Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.edinburgh.gov.uk",
+    "canonical_url": "https://www.edinburgh.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 341,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.294Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.dorsetcouncil.gov.uk",
+    "canonical_url": "https://www.dorsetcouncil.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 965,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.671Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.islington.gov.uk",
+    "canonical_url": "https://www.islington.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 456,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.193Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.redbridge.gov.uk/",
+    "canonical_url": "https://www.redbridge.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 451,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.200Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.bristol.gov.uk",
+    "canonical_url": "https://www.bristol.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 1097,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.575Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www3.halton.gov.uk/Pages/Home.aspx",
+    "canonical_url": "https://www3.halton.gov.uk/Pages/Home.aspx",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 819,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.864Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.wandsworth.gov.uk",
+    "canonical_url": "https://www.wandsworth.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 454,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.229Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.renfrewshire.gov.uk",
+    "canonical_url": "https://www.renfrewshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 341,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.377Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.york.gov.uk",
+    "canonical_url": "https://www.york.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 738,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.991Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.north-ayrshire.gov.uk",
+    "canonical_url": "https://www.north-ayrshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 367,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.364Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.falkirk.gov.uk",
+    "canonical_url": "https://www.falkirk.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 416,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.336Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.gwynedd.llyw.cymru/index.aspx",
+    "canonical_url": "https://www.gwynedd.llyw.cymru/index.aspx",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 332,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.445Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "wales"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "wales"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.south-ayrshire.gov.uk",
+    "canonical_url": "https://www.south-ayrshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 392,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.386Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.monmouthshire.gov.uk",
+    "canonical_url": "https://www.monmouthshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 344,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.438Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.fife.gov.uk",
+    "canonical_url": "https://www.fife.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 406,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.376Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.aberdeenshire.gov.uk",
+    "canonical_url": "https://www.aberdeenshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 510,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.287Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.flintshire.gov.uk",
+    "canonical_url": "https://www.flintshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 335,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.469Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.newport.gov.uk",
+    "canonical_url": "https://www.newport.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 357,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.447Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.wrexham.gov.uk",
+    "canonical_url": "https://www.wrexham.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 290,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.526Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.powys.gov.uk",
+    "canonical_url": "https://www.powys.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 366,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.453Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.belfastcity.gov.uk",
+    "canonical_url": "https://www.belfastcity.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 287,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.542Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.ceredigion.gov.uk",
+    "canonical_url": "https://www.ceredigion.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 409,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.436Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.swansea.gov.uk",
+    "canonical_url": "https://www.swansea.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 325,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.529Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.brent.gov.uk/",
+    "canonical_url": "https://www.brent.gov.uk/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 832,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.023Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.blaenau-gwent.gov.uk",
+    "canonical_url": "https://www.blaenau-gwent.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 465,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.390Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.carmarthenshire.gov.wales",
+    "canonical_url": "https://www.carmarthenshire.gov.wales",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 440,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.441Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "wales"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "wales"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.highland.gov.uk",
+    "canonical_url": "https://www.highland.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 549,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.334Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.thurrock.gov.uk",
+    "canonical_url": "https://www.thurrock.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 996,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.892Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.pembrokeshire.gov.uk",
+    "canonical_url": "https://www.pembrokeshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 425,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.466Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.conwy.gov.uk",
+    "canonical_url": "https://www.conwy.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 381,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.533Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.midlothian.gov.uk",
+    "canonical_url": "https://www.midlothian.gov.uk",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 594,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.340Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.stirling.gov.uk",
+    "canonical_url": "https://www.stirling.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 525,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.417Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://lewisham.gov.uk/",
+    "canonical_url": "https://lewisham.gov.uk/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 818,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.180Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.cardiff.gov.uk/ENG/Pages/default.aspx",
+    "canonical_url": "https://www.cardiff.gov.uk/ENG/Pages/default.aspx",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 445,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.560Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.oxfordshire.gov.uk",
+    "canonical_url": "https://www.oxfordshire.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 1863,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.298Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.caerphilly.gov.uk",
+    "canonical_url": "https://www.caerphilly.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 885,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.408Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.barnet.gov.uk",
+    "canonical_url": "https://www.barnet.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 1101,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.217Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.dundeecity.gov.uk",
+    "canonical_url": "https://www.dundeecity.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 1054,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.325Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.wigan.gov.uk",
+    "canonical_url": "https://www.wigan.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 1915,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:25.631Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://next.shropshire.gov.uk/",
+    "canonical_url": "https://next.shropshire.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 1448,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.118Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.doncaster.gov.uk",
+    "canonical_url": "https://www.doncaster.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 3040,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.016Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.inverclyde.gov.uk",
+    "canonical_url": "https://www.inverclyde.gov.uk",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 3470,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:36:26.561Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:41:47.069Z",
+      "discovered_by": "validation-pipeline"
+    }
+  }
+]

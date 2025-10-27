@@ -1,0 +1,242 @@
+{
+  "merge_date": "2025-10-26T22:36:48.051Z",
+  "source_files": [
+    "third-party-providers.json",
+    "gds-hosted-services.json",
+    "gds-directory.json",
+    "shared-services.json",
+    "pac-digital-services.json",
+    "nhs-booking-services.json"
+  ],
+  "total_services": 19,
+  "duplicates_removed": 4,
+  "services": [
+    {
+      "name": "GOV.UK Notify",
+      "url": "https://www.notifications.service.gov.uk/",
+      "api_url": "https://www.notifications.service.gov.uk/using-notify/api-documentation",
+      "api_catalogue": "https://www.api.gov.uk/gds/gov-uk-notify/",
+      "description": "Send emails, text messages and letters - cheaply and easily",
+      "service_type": "Notification platform",
+      "status": "Live",
+      "github": "https://github.com/alphagov/notifications-api",
+      "tags": [
+        "gds",
+        "platform",
+        "notify",
+        "api"
+      ]
+    },
+    {
+      "name": "GOV.UK Pay",
+      "url": "https://www.payments.service.gov.uk/",
+      "api_url": "https://publicapi.payments.service.gov.uk/v1/payments",
+      "docs_url": "https://docs.payments.service.gov.uk/",
+      "api_catalogue": "https://www.api.gov.uk/gds/gov-uk-pay/",
+      "description": "Collect and process payments - simple experience for users and easy integration",
+      "service_type": "Payment platform",
+      "status": "Live",
+      "tags": [
+        "gds",
+        "platform",
+        "payment",
+        "api"
+      ]
+    },
+    {
+      "name": "GOV.UK One Login",
+      "url": "https://www.sign-in.service.gov.uk/",
+      "description": "Sign in and prove identity to access services quickly and easily",
+      "service_type": "Identity and authentication platform",
+      "status": "Beta",
+      "tags": [
+        "gds",
+        "platform",
+        "identity",
+        "authentication"
+      ]
+    },
+    {
+      "name": "GOV.UK Forms",
+      "url": "https://www.forms.service.gov.uk/",
+      "description": "Create accessible online forms for GOV.UK without coding",
+      "service_type": "Form builder platform",
+      "status": "Beta",
+      "tags": [
+        "gds",
+        "platform",
+        "forms"
+      ]
+    },
+    {
+      "name": "Digital Marketplace",
+      "url": "https://www.digitalmarketplace.service.gov.uk/",
+      "description": "Procurement of technology and services through G-Cloud or DOS frameworks",
+      "service_type": "Procurement platform",
+      "status": "Live",
+      "tags": [
+        "gds",
+        "platform",
+        "procurement"
+      ]
+    },
+    {
+      "name": "GOV.UK Design System",
+      "url": "https://design-system.service.gov.uk/",
+      "description": "Design patterns and components for government services",
+      "service_type": "Design framework",
+      "status": "Live",
+      "tags": [
+        "gds",
+        "framework",
+        "design"
+      ]
+    },
+    {
+      "name": "Data.gov.uk API",
+      "url": "https://www.data.gov.uk/",
+      "api_catalogue": "https://www.api.gov.uk/gds/data-gov-uk/",
+      "description": "Find open data from UK government",
+      "service_type": "API",
+      "status": "Live",
+      "tags": [
+        "gds",
+        "api",
+        "data",
+        "open-data"
+      ]
+    },
+    {
+      "name": "GOV.UK",
+      "url": "https://www.gov.uk/",
+      "description": "Main UK government website",
+      "organization": "Government Digital Service",
+      "status": "Live",
+      "tags": [
+        "gds",
+        "core",
+        "portal"
+      ]
+    },
+    {
+      "name": "Find and update company information",
+      "url": "https://find-and-update.company-information.service.gov.uk/",
+      "description": "Companies House service",
+      "organization": "Companies House",
+      "status": "Live",
+      "tags": [
+        "companies-house",
+        "business"
+      ]
+    },
+    {
+      "name": "UK Shared Business Services (UKSBS)",
+      "url": "https://www.uksbs.co.uk/",
+      "gov_url": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+      "description": "Shared services for HR, payroll, finance, procurement, IT",
+      "ownership": "DSIT, DESNZ, DBT, UKRI",
+      "service_type": "Back-office shared services",
+      "scope": "HR and payroll, finance, procurement, IT business services",
+      "tags": [
+        "shared-services",
+        "back-office",
+        "hr",
+        "finance",
+        "procurement"
+      ]
+    },
+    {
+      "name": "Shared Services Connected Ltd (SSCL)",
+      "url": "https://sscl.com/",
+      "description": "Critical business support services for government",
+      "ownership": "Sopra Steria (fully acquired 2023, formerly joint venture with Cabinet Office)",
+      "service_type": "Back-office shared services",
+      "contract_value": "£300 million extension (2025)",
+      "contract_period": "3 years",
+      "departments_served": 29,
+      "employees": 3000,
+      "transactions_annual": "6.5 million",
+      "contacts_annual": "3.2 million",
+      "savings_delivered": "£950 million",
+      "platform": "myHub (single sign-on multi-supplier ecosystem)",
+      "cloud_migration": "260,000 users migrated to Oracle Cloud Infrastructure",
+      "scope": "Finance and Accounting, HR and Payroll, Procurement, Pension Administration, Resourcing Services",
+      "tags": [
+        "shared-services",
+        "back-office",
+        "hr",
+        "finance",
+        "procurement",
+        "cloud"
+      ]
+    },
+    {
+      "name": "NHS Shared Business Services (NHS SBS)",
+      "url": "https://www.sbs.nhs.uk/",
+      "description": "Shared corporate solutions for NHS",
+      "service_type": "NHS-specific shared services",
+      "scope": "Corporate services for NHS organizations",
+      "tags": [
+        "shared-services",
+        "nhs",
+        "health"
+      ]
+    },
+    {
+      "name": "Contracts Finder",
+      "url": "https://www.contractsfinder.service.gov.uk/",
+      "description": "Find government contracts and procurement opportunities",
+      "service_type": "Procurement platform",
+      "tags": [
+        "shared-services",
+        "procurement",
+        "contracts"
+      ]
+    },
+    {
+      "name": "Building Digital UK",
+      "report": "Annual Report and Accounts 2024-2025",
+      "url": "https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025/",
+      "service_type": "Digital infrastructure",
+      "tags": [
+        "infrastructure",
+        "broadband"
+      ]
+    },
+    {
+      "name": "NHS COVID-19 Vaccination Booking",
+      "url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination/",
+      "type": "vaccination_booking",
+      "description": "Online COVID-19 vaccination appointment booking",
+      "status": "historical",
+      "notes": "Service discontinued - no longer booking COVID-19 vaccinations online"
+    },
+    {
+      "name": "COVID-19 Vaccination Booking Portal",
+      "url": "https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination",
+      "type": "vaccination_booking",
+      "description": "Test and Trace COVID-19 vaccination booking system",
+      "status": "historical"
+    },
+    {
+      "name": "NHS Digital Coronavirus Vaccinations",
+      "url": "https://digital.nhs.uk/coronavirus/vaccinations",
+      "type": "vaccination_data",
+      "description": "Coronavirus vaccination data and statistics"
+    },
+    {
+      "name": "NHS App GP Appointments",
+      "url": "https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments",
+      "type": "gp_booking",
+      "description": "Book GP appointments via NHS App",
+      "availability": "Shows appointments within next 16 weeks",
+      "notes": "Requires GP practice to enable online booking"
+    },
+    {
+      "name": "NHS Vaccination and Booking Services",
+      "url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/",
+      "type": "vaccination_information",
+      "description": "General information about vaccination and booking services"
+    }
+  ]
+}

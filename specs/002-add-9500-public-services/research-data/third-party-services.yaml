@@ -1,0 +1,335 @@
+# GOV.UK Public Services Status Monitor - Configuration
+# Auto-generated from discovered services
+
+settings:
+  check_interval: 60
+  warning_threshold: 2
+  timeout: 5
+  page_refresh: 60
+  max_retries: 3
+  worker_pool_size: 0
+
+pings:
+
+  # ============================================================================
+  # HIGH-VOLUME SERVICES (300-second check interval)
+  # ============================================================================
+
+  # NHS Routine Healthcare Services
+  # Routine NHS healthcare services (booking, GP access, patient records)
+  - name: NHS Coronavirus
+    protocol: HTTPS
+    method: GET
+    resource: https://digital.nhs.uk/coronavirus/vaccinations
+    tags:
+      - nhs
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+  - name: NHS Covid 19 Vaccinations
+    protocol: HTTPS
+    method: GET
+    resource: https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination
+    tags:
+      - nhs
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+  - name: NHS Nhs Services
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nhs.uk/nhs-services/vaccination-and-booking-services/
+    tags:
+      - nhs
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+  - name: NHS Nhs Services (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination/
+    tags:
+      - nhs
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+  - name: NHS Sbs
+    protocol: HTTPS
+    method: GET
+    resource: https://www.sbs.nhs.uk/
+    tags:
+      - nhs
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+  - name: NHS Services
+    protocol: HTTPS
+    method: GET
+    resource: https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments
+    tags:
+      - nhs
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+
+
+  # ============================================================================
+  # STANDARD SERVICES (900-second check interval)
+  # ============================================================================
+
+  # Companies House & Intellectual Property
+  # Companies House and Intellectual Property Office services
+  - name: Companies House Find And Update
+    protocol: HTTPS
+    method: GET
+    resource: https://find-and-update.company-information.service.gov.uk/
+    tags:
+      - companies-house
+      - information
+      - standard
+      - business-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+
+  # Other Government Services
+  # Other government department services
+  - name: OTHER-GOVERNMENT Applytosupply
+    protocol: HTTPS
+    method: GET
+    resource: https://www.applytosupply.digitalmarketplace.service.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Data
+    protocol: HTTPS
+    method: GET
+    resource: https://www.data.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Design System
+    protocol: HTTPS
+    method: GET
+    resource: https://design-system.service.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Forms
+    protocol: HTTPS
+    method: GET
+    resource: https://www.forms.service.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Notifications
+    protocol: HTTPS
+    method: GET
+    resource: https://www.notifications.service.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Payments
+    protocol: HTTPS
+    method: GET
+    resource: https://www.payments.service.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Search
+    protocol: HTTPS
+    method: GET
+    resource: https://www.contractsfinder.service.gov.uk/Search
+    tags:
+      - other-government
+      - search
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Sign In
+    protocol: HTTPS
+    method: GET
+    resource: https://www.sign-in.service.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Sscl
+    protocol: HTTPS
+    method: GET
+    resource: https://sscl.com/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Uksbs
+    protocol: HTTPS
+    method: GET
+    resource: https://www.uksbs.co.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+

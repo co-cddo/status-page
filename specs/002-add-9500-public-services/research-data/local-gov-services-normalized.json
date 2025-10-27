@@ -1,0 +1,1080 @@
+[
+  {
+    "original_url": "https://www.uksbs.co.uk/",
+    "normalized_url": "https://www.uksbs.co.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+    "normalized_url": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://sscl.com/",
+    "normalized_url": "https://sscl.com/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.sbs.nhs.uk/",
+    "normalized_url": "https://www.sbs.nhs.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.contractsfinder.service.gov.uk/",
+    "normalized_url": "https://www.contractsfinder.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.digitalmarketplace.service.gov.uk/",
+    "normalized_url": "https://www.digitalmarketplace.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.notifications.service.gov.uk/",
+    "normalized_url": "https://www.notifications.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.payments.service.gov.uk/",
+    "normalized_url": "https://www.payments.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.forms.service.gov.uk/",
+    "normalized_url": "https://www.forms.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.barnsley.gov.uk",
+    "normalized_url": "https://www.barnsley.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.birmingham.gov.uk",
+    "normalized_url": "https://www.birmingham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bolton.gov.uk",
+    "normalized_url": "https://www.bolton.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bradford.gov.uk",
+    "normalized_url": "https://www.bradford.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bury.gov.uk",
+    "normalized_url": "https://www.bury.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.calderdale.gov.uk",
+    "normalized_url": "https://www.calderdale.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.coventry.gov.uk",
+    "normalized_url": "https://www.coventry.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.doncaster.gov.uk",
+    "normalized_url": "https://www.doncaster.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.dudley.gov.uk/residents/",
+    "normalized_url": "https://www.dudley.gov.uk/residents",
+    "changes_made": [
+      "protocol-normalized",
+      "trailing-slash-removed"
+    ]
+  },
+  {
+    "original_url": "https://www.gateshead.gov.uk",
+    "normalized_url": "https://www.gateshead.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.knowsley.gov.uk",
+    "normalized_url": "https://www.knowsley.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.leeds.gov.uk",
+    "normalized_url": "https://www.leeds.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.liverpool.gov.uk",
+    "normalized_url": "https://www.liverpool.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.manchester.gov.uk",
+    "normalized_url": "https://www.manchester.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.newcastle.gov.uk",
+    "normalized_url": "https://www.newcastle.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.north-tyneside.gov.uk",
+    "normalized_url": "https://www.north-tyneside.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.oldham.gov.uk",
+    "normalized_url": "https://www.oldham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.rochdale.gov.uk",
+    "normalized_url": "https://www.rochdale.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.rotherham.gov.uk",
+    "normalized_url": "https://www.rotherham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.salford.gov.uk",
+    "normalized_url": "https://www.salford.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.sandwell.gov.uk",
+    "normalized_url": "https://www.sandwell.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.sefton.gov.uk",
+    "normalized_url": "https://www.sefton.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.sheffield.gov.uk",
+    "normalized_url": "https://www.sheffield.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.solihull.gov.uk",
+    "normalized_url": "https://www.solihull.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.south-tyneside.gov.uk",
+    "normalized_url": "https://www.south-tyneside.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.st-helens.gov.uk",
+    "normalized_url": "https://www.st-helens.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.stockport.gov.uk",
+    "normalized_url": "https://www.stockport.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.sunderland.gov.uk/",
+    "normalized_url": "https://www.sunderland.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.tameside.gov.uk",
+    "normalized_url": "https://www.tameside.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.wakefield.gov.uk",
+    "normalized_url": "https://www.wakefield.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://go.walsall.gov.uk",
+    "normalized_url": "https://go.walsall.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.wigan.gov.uk",
+    "normalized_url": "https://www.wigan.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.wirral.gov.uk",
+    "normalized_url": "https://www.wirral.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.wolverhampton.gov.uk",
+    "normalized_url": "https://www.wolverhampton.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.cambridgeshire.gov.uk",
+    "normalized_url": "https://www.cambridgeshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.devon.gov.uk",
+    "normalized_url": "https://www.devon.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.east-sussex.gov.uk",
+    "normalized_url": "https://www.east-sussex.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.essex.gov.uk",
+    "normalized_url": "https://www.essex.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gloucestershire.gov.uk",
+    "normalized_url": "https://www.gloucestershire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.hampshire.gov.uk",
+    "normalized_url": "https://www.hampshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.kent.gov.uk/",
+    "normalized_url": "https://www.kent.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.lancashire.gov.uk",
+    "normalized_url": "https://www.lancashire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.leicestershire.gov.uk",
+    "normalized_url": "https://www.leicestershire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.lincolnshire.gov.uk",
+    "normalized_url": "https://www.lincolnshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.norfolk.gov.uk/",
+    "normalized_url": "https://www.norfolk.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.nottinghamshire.gov.uk",
+    "normalized_url": "https://www.nottinghamshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.oxfordshire.gov.uk",
+    "normalized_url": "https://www.oxfordshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.suffolk.gov.uk",
+    "normalized_url": "https://www.suffolk.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.surreycc.gov.uk/",
+    "normalized_url": "https://www.surreycc.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.warwickshire.gov.uk",
+    "normalized_url": "https://www.warwickshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.west-sussex.gov.uk",
+    "normalized_url": "https://www.west-sussex.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.worcestershire.gov.uk",
+    "normalized_url": "https://www.worcestershire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bath-north-east-somerset.gov.uk",
+    "normalized_url": "https://www.bath-north-east-somerset.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bedford.gov.uk",
+    "normalized_url": "https://www.bedford.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.blackburn-with-darwen.gov.uk",
+    "normalized_url": "https://www.blackburn-with-darwen.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bournemouth-christchurch-poole.gov.uk",
+    "normalized_url": "https://www.bournemouth-christchurch-poole.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bracknell-forest.gov.uk",
+    "normalized_url": "https://www.bracknell-forest.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.brighton-hove.gov.uk",
+    "normalized_url": "https://www.brighton-hove.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bristol.gov.uk",
+    "normalized_url": "https://www.bristol.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.buckinghamshire.gov.uk",
+    "normalized_url": "https://www.buckinghamshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.central-bedfordshire.gov.uk",
+    "normalized_url": "https://www.central-bedfordshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.cheshire-east.gov.uk",
+    "normalized_url": "https://www.cheshire-east.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.cheshire-west-chester.gov.uk",
+    "normalized_url": "https://www.cheshire-west-chester.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.cornwall.gov.uk",
+    "normalized_url": "https://www.cornwall.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.cumberland.gov.uk",
+    "normalized_url": "https://www.cumberland.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.darlington.gov.uk",
+    "normalized_url": "https://www.darlington.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.derby.gov.uk",
+    "normalized_url": "https://www.derby.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.dorsetcouncil.gov.uk",
+    "normalized_url": "https://www.dorsetcouncil.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.durham.gov.uk",
+    "normalized_url": "https://www.durham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.east-riding-of-yorkshire.gov.uk",
+    "normalized_url": "https://www.east-riding-of-yorkshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www3.halton.gov.uk",
+    "normalized_url": "https://www3.halton.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.hartlepool.gov.uk",
+    "normalized_url": "https://www.hartlepool.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.herefordshire.gov.uk",
+    "normalized_url": "https://www.herefordshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.isle-of-wight.gov.uk",
+    "normalized_url": "https://www.isle-of-wight.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.kingston-upon-hull.gov.uk",
+    "normalized_url": "https://www.kingston-upon-hull.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.leicester.gov.uk",
+    "normalized_url": "https://www.leicester.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://m.luton.gov.uk/redirect/show/",
+    "normalized_url": "https://m.luton.gov.uk/redirect/show",
+    "changes_made": [
+      "protocol-normalized",
+      "trailing-slash-removed"
+    ]
+  },
+  {
+    "original_url": "https://www.medway.gov.uk",
+    "normalized_url": "https://www.medway.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.middlesbrough.gov.uk",
+    "normalized_url": "https://www.middlesbrough.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.milton-keynes.gov.uk",
+    "normalized_url": "https://www.milton-keynes.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.north-east-lincolnshire.gov.uk",
+    "normalized_url": "https://www.north-east-lincolnshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.north-lincolnshire.gov.uk",
+    "normalized_url": "https://www.north-lincolnshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.north-northamptonshire.gov.uk",
+    "normalized_url": "https://www.north-northamptonshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.north-somerset.gov.uk",
+    "normalized_url": "https://www.north-somerset.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.north-yorkshire.gov.uk",
+    "normalized_url": "https://www.north-yorkshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.northumberland.gov.uk",
+    "normalized_url": "https://www.northumberland.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.nottingham.gov.uk",
+    "normalized_url": "https://www.nottingham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.peterborough.gov.uk",
+    "normalized_url": "https://www.peterborough.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.plymouth.gov.uk",
+    "normalized_url": "https://www.plymouth.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.portsmouth.gov.uk",
+    "normalized_url": "https://www.portsmouth.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.reading.gov.uk",
+    "normalized_url": "https://www.reading.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.redcar-cleveland.gov.uk",
+    "normalized_url": "https://www.redcar-cleveland.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.rutland.gov.uk",
+    "normalized_url": "https://www.rutland.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://next.shropshire.gov.uk/",
+    "normalized_url": "https://next.shropshire.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.slough.gov.uk",
+    "normalized_url": "https://www.slough.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.somerset.gov.uk",
+    "normalized_url": "https://www.somerset.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.south-gloucestershire.gov.uk",
+    "normalized_url": "https://www.south-gloucestershire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.southampton.gov.uk",
+    "normalized_url": "https://www.southampton.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.southend-on-sea.gov.uk",
+    "normalized_url": "https://www.southend-on-sea.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.stockton-on-tees.gov.uk",
+    "normalized_url": "https://www.stockton-on-tees.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.stoke-on-trent.gov.uk",
+    "normalized_url": "https://www.stoke-on-trent.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.swindon.gov.uk",
+    "normalized_url": "https://www.swindon.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.telford-wrekin.gov.uk",
+    "normalized_url": "https://www.telford-wrekin.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.thurrock.gov.uk",
+    "normalized_url": "https://www.thurrock.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.torbay.gov.uk",
+    "normalized_url": "https://www.torbay.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.warrington.gov.uk",
+    "normalized_url": "https://www.warrington.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.west-berkshire.gov.uk",
+    "normalized_url": "https://www.west-berkshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.west-northamptonshire.gov.uk",
+    "normalized_url": "https://www.west-northamptonshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.westmorland-furness.gov.uk",
+    "normalized_url": "https://www.westmorland-furness.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.wiltshire.gov.uk",
+    "normalized_url": "https://www.wiltshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.windsor-maidenhead.gov.uk",
+    "normalized_url": "https://www.windsor-maidenhead.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.wokingham.gov.uk",
+    "normalized_url": "https://www.wokingham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.york.gov.uk",
+    "normalized_url": "https://www.york.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.barking-dagenham.gov.uk",
+    "normalized_url": "https://www.barking-dagenham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.barnet.gov.uk",
+    "normalized_url": "https://www.barnet.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bexley.gov.uk",
+    "normalized_url": "https://www.bexley.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.brent.gov.uk/",
+    "normalized_url": "https://www.brent.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.bromley.gov.uk",
+    "normalized_url": "https://www.bromley.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.camden.gov.uk",
+    "normalized_url": "https://www.camden.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.croydon.gov.uk",
+    "normalized_url": "https://www.croydon.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.enfield.gov.uk",
+    "normalized_url": "https://www.enfield.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.greenwich.gov.uk",
+    "normalized_url": "https://www.greenwich.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://hackney.gov.uk/",
+    "normalized_url": "https://hackney.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.hammersmith-fulham.gov.uk",
+    "normalized_url": "https://www.hammersmith-fulham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://haringey.gov.uk//",
+    "normalized_url": "https://haringey.gov.uk/",
+    "changes_made": [
+      "protocol-normalized"
+    ]
+  },
+  {
+    "original_url": "https://www.harrow.gov.uk",
+    "normalized_url": "https://www.harrow.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.havering.gov.uk",
+    "normalized_url": "https://www.havering.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.hillingdon.gov.uk",
+    "normalized_url": "https://www.hillingdon.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.hounslow.gov.uk",
+    "normalized_url": "https://www.hounslow.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.islington.gov.uk",
+    "normalized_url": "https://www.islington.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.kensington-chelsea.gov.uk",
+    "normalized_url": "https://www.kensington-chelsea.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.kingston-upon-thames.gov.uk",
+    "normalized_url": "https://www.kingston-upon-thames.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.lambeth.gov.uk",
+    "normalized_url": "https://www.lambeth.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://lewisham.gov.uk/",
+    "normalized_url": "https://lewisham.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.merton.gov.uk",
+    "normalized_url": "https://www.merton.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.newham.gov.uk",
+    "normalized_url": "https://www.newham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.redbridge.gov.uk/",
+    "normalized_url": "https://www.redbridge.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.richmond-upon-thames.gov.uk",
+    "normalized_url": "https://www.richmond-upon-thames.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.southwark.gov.uk",
+    "normalized_url": "https://www.southwark.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.sutton.gov.uk",
+    "normalized_url": "https://www.sutton.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.tower-hamlets.gov.uk",
+    "normalized_url": "https://www.tower-hamlets.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.waltham-forest.gov.uk",
+    "normalized_url": "https://www.waltham-forest.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.wandsworth.gov.uk",
+    "normalized_url": "https://www.wandsworth.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.westminster.gov.uk",
+    "normalized_url": "https://www.westminster.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.aberdeencity.gov.uk",
+    "normalized_url": "https://www.aberdeencity.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.aberdeenshire.gov.uk",
+    "normalized_url": "https://www.aberdeenshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.angus.gov.uk",
+    "normalized_url": "https://www.angus.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.argyll-bute.gov.uk",
+    "normalized_url": "https://www.argyll-bute.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.clackmannanshire.gov.uk",
+    "normalized_url": "https://www.clackmannanshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.dumfries-galloway.gov.uk",
+    "normalized_url": "https://www.dumfries-galloway.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.dundeecity.gov.uk",
+    "normalized_url": "https://www.dundeecity.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.east-dunbartonshire.gov.uk",
+    "normalized_url": "https://www.east-dunbartonshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.east-lothian.gov.uk",
+    "normalized_url": "https://www.east-lothian.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.east-renfrewshire.gov.uk",
+    "normalized_url": "https://www.east-renfrewshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.edinburgh.gov.uk",
+    "normalized_url": "https://www.edinburgh.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.falkirk.gov.uk",
+    "normalized_url": "https://www.falkirk.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.fife.gov.uk",
+    "normalized_url": "https://www.fife.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.glasgow-city.gov.uk",
+    "normalized_url": "https://www.glasgow-city.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.highland.gov.uk",
+    "normalized_url": "https://www.highland.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.inverclyde.gov.uk",
+    "normalized_url": "https://www.inverclyde.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.midlothian.gov.uk",
+    "normalized_url": "https://www.midlothian.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.moray.gov.uk",
+    "normalized_url": "https://www.moray.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.north-ayrshire.gov.uk",
+    "normalized_url": "https://www.north-ayrshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.north-lanarkshire.gov.uk",
+    "normalized_url": "https://www.north-lanarkshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.orkney-islands.gov.uk",
+    "normalized_url": "https://www.orkney-islands.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.perth-kinross.gov.uk",
+    "normalized_url": "https://www.perth-kinross.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.renfrewshire.gov.uk",
+    "normalized_url": "https://www.renfrewshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.scottish-borders.gov.uk",
+    "normalized_url": "https://www.scottish-borders.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.shetland-islands.gov.uk",
+    "normalized_url": "https://www.shetland-islands.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.south-ayrshire.gov.uk",
+    "normalized_url": "https://www.south-ayrshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.south-lanarkshire.gov.uk",
+    "normalized_url": "https://www.south-lanarkshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.stirling.gov.uk",
+    "normalized_url": "https://www.stirling.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.west-dunbartonshire.gov.uk",
+    "normalized_url": "https://www.west-dunbartonshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.west-lothian.gov.uk",
+    "normalized_url": "https://www.west-lothian.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.cne-siar.gov.uk",
+    "normalized_url": "https://www.cne-siar.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.blaenau-gwent.gov.uk",
+    "normalized_url": "https://www.blaenau-gwent.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.caerphilly.gov.uk",
+    "normalized_url": "https://www.caerphilly.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.cardiff.gov.uk/Pages/VariationRoot.aspx",
+    "normalized_url": "https://www.cardiff.gov.uk/Pages/VariationRoot.aspx",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.carmarthenshire.gov.wales",
+    "normalized_url": "https://www.carmarthenshire.gov.wales",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.ceredigion.gov.uk",
+    "normalized_url": "https://www.ceredigion.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.conwy.gov.uk",
+    "normalized_url": "https://www.conwy.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.flintshire.gov.uk",
+    "normalized_url": "https://www.flintshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gwynedd.llyw.cymru/",
+    "normalized_url": "https://www.gwynedd.llyw.cymru/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.isle-of-anglesey.gov.uk",
+    "normalized_url": "https://www.isle-of-anglesey.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.merthyr-tydfil.gov.uk",
+    "normalized_url": "https://www.merthyr-tydfil.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.monmouthshire.gov.uk",
+    "normalized_url": "https://www.monmouthshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.neath-port-talbot.gov.uk",
+    "normalized_url": "https://www.neath-port-talbot.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.newport.gov.uk",
+    "normalized_url": "https://www.newport.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.pembrokeshire.gov.uk",
+    "normalized_url": "https://www.pembrokeshire.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.powys.gov.uk",
+    "normalized_url": "https://www.powys.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.rhondda-cynon-taf.gov.uk",
+    "normalized_url": "https://www.rhondda-cynon-taf.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.swansea.gov.uk",
+    "normalized_url": "https://www.swansea.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.vale-of-glamorgan.gov.uk",
+    "normalized_url": "https://www.vale-of-glamorgan.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.wrexham.gov.uk",
+    "normalized_url": "https://www.wrexham.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.antrim-newtownabbeycouncil.org",
+    "normalized_url": "https://www.antrim-newtownabbeycouncil.org",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.ards-north-downcouncil.org",
+    "normalized_url": "https://www.ards-north-downcouncil.org",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.armagh-city-banbridge-craigavoncouncil.org",
+    "normalized_url": "https://www.armagh-city-banbridge-craigavoncouncil.org",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.belfastcity.gov.uk",
+    "normalized_url": "https://www.belfastcity.gov.uk",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.causeway-coast-glenscouncil.org",
+    "normalized_url": "https://www.causeway-coast-glenscouncil.org",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.derry-city-strabanecouncil.org",
+    "normalized_url": "https://www.derry-city-strabanecouncil.org",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.fermanagh-omaghcouncil.org",
+    "normalized_url": "https://www.fermanagh-omaghcouncil.org",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.lisburn-castlereaghcouncil.org",
+    "normalized_url": "https://www.lisburn-castlereaghcouncil.org",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.mid-east-antrimcouncil.org",
+    "normalized_url": "https://www.mid-east-antrimcouncil.org",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.mid-ulstercouncil.org",
+    "normalized_url": "https://www.mid-ulstercouncil.org",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.newry-mourne-downcouncil.org",
+    "normalized_url": "https://www.newry-mourne-downcouncil.org",
+    "changes_made": []
+  }
+]

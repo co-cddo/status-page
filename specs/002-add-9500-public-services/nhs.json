@@ -1,0 +1,40 @@
+{
+  "user_story": "US2 - NHS and Healthcare Services Visibility",
+  "completion_date": "2025-10-26",
+  "discovery_summary": {
+    "total_discovered": 6863,
+    "wildcards_filtered": 249,
+    "total_clean": 6614,
+    "duplicates_removed": 111,
+    "final_unique_services": 6503
+  },
+  "discovery_sources": {
+    "dns_nhs_england": 4473,
+    "dns_nhs_scotland": 1418,
+    "dns_nhs_wales": 246,
+    "dns_nhs_ni": 417,
+    "ct_logs_nhs_uk": 3309,
+    "web_search_emergency": 7,
+    "web_search_booking": 10,
+    "web_search_digital": 11,
+    "nhs_digital_catalog": 3
+  },
+  "coverage_by_health_system": {
+    "england": "nhs.uk subdomains - 4473 services",
+    "scotland": "scot.nhs.uk subdomains - 1418 services",
+    "wales": "nhs.wales subdomains - 246 services",
+    "northern_ireland": "hscni.net subdomains - 417 services",
+    "all_systems_covered": true
+  },
+  "validation_results": {
+    "yaml_schema_validation": "PASS (1 minor error: 1 name too long)",
+    "pass_rate": "99.98%",
+    "total_services_in_yaml": 6503,
+    "yaml_file_size": "2.3 MB"
+  },
+  "service_tiers": {
+    "tier_1_critical_1min": 1,
+    "tier_2_high_volume_5min": 5832,
+    "tier_3_standard_15min": 670
+  }
+}

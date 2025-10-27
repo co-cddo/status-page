@@ -1,0 +1,199 @@
+[
+  {
+    "name": "Blaenau Gwent",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.blaenau-gwent.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Blaenau Gwent"
+  },
+  {
+    "name": "Bridgend",
+    "region": "wales",
+    "type": "unitary",
+    "website": "/residents/",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "/residents/",
+    "welshName": "Pen-y-bont ar Ogwr"
+  },
+  {
+    "name": "Caerphilly",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.caerphilly.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Caerffili"
+  },
+  {
+    "name": "Cardiff",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.cardiff.gov.uk/Pages/VariationRoot.aspx",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "https://www.cardiff.gov.uk/Pages/VariationRoot.aspx",
+    "welshName": "Caerdydd"
+  },
+  {
+    "name": "Carmarthenshire",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.carmarthenshire.gov.wales",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Sir Gaerfyrddin"
+  },
+  {
+    "name": "Ceredigion",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.ceredigion.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Ceredigion"
+  },
+  {
+    "name": "Conwy",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.conwy.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Conwy"
+  },
+  {
+    "name": "Denbighshire",
+    "region": "wales",
+    "type": "unitary",
+    "website": "/en/home.aspx",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "/en/home.aspx",
+    "welshName": "Sir Ddinbych"
+  },
+  {
+    "name": "Flintshire",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.flintshire.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Sir y Fflint"
+  },
+  {
+    "name": "Gwynedd",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.gwynedd.llyw.cymru/",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "https://www.gwynedd.llyw.cymru/",
+    "welshName": "Gwynedd"
+  },
+  {
+    "name": "Isle of Anglesey",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.isle-of-anglesey.gov.uk",
+    "validated": false,
+    "welshName": "Ynys Môn"
+  },
+  {
+    "name": "Merthyr Tydfil",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.merthyr-tydfil.gov.uk",
+    "validated": false,
+    "welshName": "Merthyr Tudful"
+  },
+  {
+    "name": "Monmouthshire",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.monmouthshire.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Sir Fynwy"
+  },
+  {
+    "name": "Neath Port Talbot",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.neath-port-talbot.gov.uk",
+    "validated": false,
+    "welshName": "Castell-nedd Port Talbot"
+  },
+  {
+    "name": "Newport",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.newport.gov.uk",
+    "validated": false,
+    "welshName": "Casnewydd"
+  },
+  {
+    "name": "Pembrokeshire",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.pembrokeshire.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Sir Benfro"
+  },
+  {
+    "name": "Powys",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.powys.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Powys"
+  },
+  {
+    "name": "Rhondda Cynon Taf",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.rhondda-cynon-taf.gov.uk",
+    "validated": false,
+    "welshName": "Rhondda Cynon Taf"
+  },
+  {
+    "name": "Swansea",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.swansea.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Abertawe"
+  },
+  {
+    "name": "Torfaen",
+    "region": "wales",
+    "type": "unitary",
+    "website": "/intro-splash.aspx",
+    "validated": true,
+    "statusCode": 302,
+    "redirectUrl": "/intro-splash.aspx",
+    "welshName": "Torfaen"
+  },
+  {
+    "name": "Vale of Glamorgan",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.vale-of-glamorgan.gov.uk",
+    "validated": false,
+    "welshName": "Bro Morgannwg"
+  },
+  {
+    "name": "Wrexham",
+    "region": "wales",
+    "type": "unitary",
+    "website": "https://www.wrexham.gov.uk",
+    "validated": true,
+    "statusCode": 200,
+    "welshName": "Wrecsam"
+  }
+]

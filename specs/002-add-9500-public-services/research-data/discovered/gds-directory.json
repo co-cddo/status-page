@@ -1,0 +1,111 @@
+{
+  "discovery_task": "T098",
+  "discovery_date": "2025-10-26",
+  "discovery_method": "Manual review of Government Digital Service directory",
+  "total_services_found": 10,
+  "directory_status": "No official directory at /government/digital-services (404)",
+  "alternative_sources": [
+    "X-GOVUK community-maintained list (govuk-digital-services.herokuapp.com)",
+    "GDS Service Toolkit (www.gov.uk/service-toolkit)",
+    "GitHub x-govuk/govuk-services-list repository"
+  ],
+  "services": [
+    {
+      "name": "GOV.UK",
+      "url": "https://www.gov.uk/",
+      "description": "Main UK government website",
+      "organization": "Government Digital Service",
+      "status": "Live",
+      "tags": ["gds", "core", "portal"]
+    },
+    {
+      "name": "Find and update company information",
+      "url": "https://find-and-update.company-information.service.gov.uk/",
+      "description": "Companies House service",
+      "organization": "Companies House",
+      "status": "Live",
+      "tags": ["companies-house", "business"]
+    },
+    {
+      "name": "Register for the UK/European applicant transfer scheme",
+      "description": "Transfer scheme registration",
+      "status": "Live",
+      "tags": ["registration", "transfer-scheme"]
+    },
+    {
+      "name": "Apply for a grant",
+      "description": "Government grant application service",
+      "status": "Live",
+      "tags": ["grants", "applications"]
+    },
+    {
+      "name": "Find public health resources",
+      "description": "Public health information service",
+      "status": "Live",
+      "tags": ["health", "resources"]
+    },
+    {
+      "name": "DfT Maps",
+      "description": "Department for Transport mapping service",
+      "organization": "Department for Transport",
+      "status": "Live",
+      "tags": ["transport", "maps"]
+    },
+    {
+      "name": "Appeal a planning decision",
+      "description": "Planning appeals service",
+      "status": "Live",
+      "tags": ["planning", "appeals"]
+    },
+    {
+      "name": "GOV.UK App",
+      "description": "Mobile application for government services",
+      "organization": "Government Digital Service",
+      "status": "Live",
+      "notes": "Part of GOV.UK Wallet initiative",
+      "tags": ["gds", "mobile", "app"]
+    },
+    {
+      "name": "Report an environmental problem",
+      "description": "Environmental incident reporting",
+      "status": "Live",
+      "tags": ["environment", "reporting"]
+    },
+    {
+      "name": "Report a smell at Walleys Quarry",
+      "description": "Specific environmental reporting service",
+      "status": "Live",
+      "tags": ["environment", "reporting", "local"]
+    }
+  ],
+  "community_list_metadata": {
+    "url": "https://govuk-digital-services.herokuapp.com/",
+    "github_repo": "https://github.com/x-govuk/govuk-services-list",
+    "total_services": "400+",
+    "license": "MIT",
+    "data_location": "/data/services (individual JSON files per service)",
+    "features": [
+      "Services grouped by opening verb",
+      "Screenshots from service homepages",
+      "Domain and subdomain information",
+      "Original 25 government digital service exemplars from 2013",
+      "Organization categorization",
+      "Service stage tracking",
+      "Links to source code and service standard assessments"
+    ]
+  },
+  "notes": [
+    "Official directory at /government/digital-services does not exist (404 error)",
+    "Community-maintained list is primary source for comprehensive service discovery",
+    "X-GOVUK project maintains 400+ services database",
+    "Services include metadata: description, organization, category, stage, links",
+    "Government has no single official registry since registers service retired in 2021",
+    "Service definitions: GOV.UK branded services run by UK government or agencies"
+  ],
+  "sources": [
+    "X-GOVUK community project (govuk-digital-services.herokuapp.com)",
+    "GitHub x-govuk/govuk-services-list repository",
+    "GDS Service Toolkit",
+    "Direct web searches for government services"
+  ]
+}

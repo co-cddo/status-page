@@ -1,0 +1,106 @@
+[
+  {
+    "original_url": "https://www.notifications.service.gov.uk/",
+    "normalized_url": "https://www.notifications.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.payments.service.gov.uk/",
+    "normalized_url": "https://www.payments.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.sign-in.service.gov.uk/",
+    "normalized_url": "https://www.sign-in.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.forms.service.gov.uk/",
+    "normalized_url": "https://www.forms.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.digitalmarketplace.service.gov.uk/",
+    "normalized_url": "https://www.digitalmarketplace.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://design-system.service.gov.uk/",
+    "normalized_url": "https://design-system.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.data.gov.uk/",
+    "normalized_url": "https://www.data.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/",
+    "normalized_url": "https://www.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://find-and-update.company-information.service.gov.uk/",
+    "normalized_url": "https://find-and-update.company-information.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.uksbs.co.uk/",
+    "normalized_url": "https://www.uksbs.co.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://sscl.com/",
+    "normalized_url": "https://sscl.com/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.sbs.nhs.uk/",
+    "normalized_url": "https://www.sbs.nhs.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.contractsfinder.service.gov.uk/",
+    "normalized_url": "https://www.contractsfinder.service.gov.uk/",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025/",
+    "normalized_url": "https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025",
+    "changes_made": [
+      "protocol-normalized",
+      "trailing-slash-removed"
+    ]
+  },
+  {
+    "original_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination/",
+    "normalized_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination",
+    "changes_made": [
+      "protocol-normalized",
+      "trailing-slash-removed"
+    ]
+  },
+  {
+    "original_url": "https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination",
+    "normalized_url": "https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://digital.nhs.uk/coronavirus/vaccinations",
+    "normalized_url": "https://digital.nhs.uk/coronavirus/vaccinations",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments",
+    "normalized_url": "https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments",
+    "changes_made": []
+  },
+  {
+    "original_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/",
+    "normalized_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services",
+    "changes_made": [
+      "protocol-normalized",
+      "trailing-slash-removed"
+    ]
+  }
+]

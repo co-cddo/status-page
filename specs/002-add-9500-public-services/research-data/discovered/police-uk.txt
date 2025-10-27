@@ -1,0 +1,26 @@
+# T062: DNS Enumeration for *.police.uk
+# Timestamp: 2025-10-26T00:00:00Z
+# Method: dig DNS queries for common subdomains
+
+## Discovered Subdomains:
+- www.police.uk (confirmed via web search)
+- data.police.uk (confirmed via web search)
+- pds.police.uk (confirmed via web search)
+
+## Primary Police Services Discovered:
+1. Police.UK National Portal (https://www.police.uk/)
+2. Police Data Portal (https://data.police.uk/)
+3. Police Digital Service (https://pds.police.uk/)
+4. 43 territorial police forces using Single Online Home platform
+5. 38 out of 43 forces use Police.UK SOH web platform
+
+## DNS Enumeration Status:
+- Basic subdomain enumeration completed
+- Limited results due to lack of subfinder tool
+- Alternative tools (dig) used for common subdomain discovery
+
+## Key Findings:
+- Police.UK serves as central platform for 38 territorial forces
+- Single Online Home (SOH) provides unified digital experience
+- LiveChat and online reporting available through main portal
+- 43 police forces total in England and Wales

@@ -1,0 +1,4679 @@
+# GOV.UK Public Services Status Monitor - Configuration
+# Auto-generated from discovered services
+
+settings:
+  check_interval: 60
+  warning_threshold: 2
+  timeout: 5
+  page_refresh: 60
+  max_retries: 3
+  worker_pool_size: 0
+
+pings:
+
+  # ============================================================================
+  # CRITICAL SERVICES (60-second check interval)
+  # ============================================================================
+
+  # Emergency Services (Police/Fire/Ambulance)
+  # Life-critical emergency services including police, fire, and ambulance
+  - name: Police 360
+    protocol: HTTPS
+    method: GET
+    resource: https://360.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Academy
+    protocol: HTTPS
+    method: GET
+    resource: https://academy.cityoflondon.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Actionfraud
+    protocol: HTTPS
+    method: GET
+    resource: https://actionfraud.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Actionfraud (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.actionfraud.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Apccs
+    protocol: HTTPS
+    method: GET
+    resource: https://apccs.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Apccs (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.apccs.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Api
+    protocol: HTTPS
+    method: GET
+    resource: https://api.actionfraud.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police App
+    protocol: HTTPS
+    method: GET
+    resource: https://app.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police App (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.app.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Asco
+    protocol: HTTPS
+    method: GET
+    resource: https://asco.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Asco (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://asco.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Askthe
+    protocol: HTTPS
+    method: GET
+    resource: https://www.askthe.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Assets
+    protocol: HTTPS
+    method: GET
+    resource: https://assets.dev.copweb.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Assets (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://assets.dev.oscarkilo.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Assets (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://assets.production.oscarkilo.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Assets (4)
+    protocol: HTTPS
+    method: GET
+    resource: https://assets.staging.copweb.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Assets (5)
+    protocol: HTTPS
+    method: GET
+    resource: https://assets.staging.oscarkilo.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Assets (6)
+    protocol: HTTPS
+    method: GET
+    resource: https://assets.production.copweb.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Avonandsomerset
+    protocol: HTTPS
+    method: GET
+    resource: https://www.avonandsomerset.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Avonandsomerset (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.avonandsomerset.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Barredandadvisory
+    protocol: HTTPS
+    method: GET
+    resource: https://barredandadvisory.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Bedfordshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.bedfordshire.pcc.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Bedfordshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.bedfordshire.pcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Beds
+    protocol: HTTPS
+    method: GET
+    resource: https://www.beds.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Bluelightcommercial
+    protocol: HTTPS
+    method: GET
+    resource: https://bluelightcommercial.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Btp
+    protocol: HTTPS
+    method: GET
+    resource: https://www.btp.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Btp (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.btp.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Btpa
+    protocol: HTTPS
+    method: GET
+    resource: https://btpa.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Btpa (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://btpa.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cambs
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cambs.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cambs (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cambs.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Careers
+    protocol: HTTPS
+    method: GET
+    resource: https://careers.northumbria.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Careers (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://careers.btp.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Careers (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://careers.derbyshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cheshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cheshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cheshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cheshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cityoflondon
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cityoflondon.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cityoflondon (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cityoflondon.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cleveland
+    protocol: HTTPS
+    method: GET
+    resource: https://cleveland.pcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cleveland (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cleveland.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cleveland (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cleveland.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cleveland (4)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cleveland.pcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Click
+    protocol: HTTPS
+    method: GET
+    resource: https://click.email.humberside.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Community Messaging
+    protocol: HTTPS
+    method: GET
+    resource: https://community-messaging.dc.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Connect
+    protocol: HTTPS
+    method: GET
+    resource: https://connect.holmes.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Connect (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://connect.btp.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 302
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Consult
+    protocol: HTTPS
+    method: GET
+    resource: https://consult.scotland.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - scotland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Contact
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gmp.police.uk/contact/af/contact-us-beta/contact-us/report-crime-incident-suspicion/report-online-crime
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Contact Us
+    protocol: HTTPS
+    method: GET
+    resource: https://www.psni.police.uk/contact-us/my-psni-portal
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - northern-ireland
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Counterterrorism
+    protocol: HTTPS
+    method: GET
+    resource: https://www.counterterrorism.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Counterterrorism (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.counterterrorism.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Courts
+    protocol: HTTPS
+    method: GET
+    resource: https://courts.northumbria.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cpanel
+    protocol: HTTPS
+    method: GET
+    resource: https://cpanel.navcis.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cpanel (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://cpanel.btpa.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Ctoc
+    protocol: HTTPS
+    method: GET
+    resource: https://ctoc.ndes.ctp.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cumbria
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cumbria.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cumbria (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cumbria.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cyberalarm
+    protocol: HTTPS
+    method: GET
+    resource: https://cyberalarm.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cyberalarm (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://cyberalarm.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cyberalarm (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cyberalarm.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cybergriffin
+    protocol: HTTPS
+    method: GET
+    resource: https://cybergriffin.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Cybergriffin (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://cybergriffin.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Data
+    protocol: HTTPS
+    method: GET
+    resource: https://data.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Data (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://data.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Data (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://data.actionfraud.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Derbyshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.derbyshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Derbyshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.derbyshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Dev
+    protocol: HTTPS
+    method: GET
+    resource: https://dev.copweb.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 401
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Dev (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://dev.oscarkilo.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 401
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Devon Cornwall
+    protocol: HTTPS
+    method: GET
+    resource: https://www.devon-cornwall.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Devon Cornwall (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.devon-cornwall.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Digitalmediablog
+    protocol: HTTPS
+    method: GET
+    resource: https://digitalmediablog.devon-cornwall.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Dogsection
+    protocol: HTTPS
+    method: GET
+    resource: https://dogsection.devon-cornwall.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Dorset
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dorset.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Dorset (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dorset.pcc.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Dorset (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dorset.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Dorset (4)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dorset.pcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Durham
+    protocol: HTTPS
+    method: GET
+    resource: https://www.durham.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Durham (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.durham.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Dyfed Powys
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dyfed-powys.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Dyfed Powys (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dyfed-powys.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Emsou
+    protocol: HTTPS
+    method: GET
+    resource: https://www.emsou.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Error.aspx
+    protocol: HTTPS
+    method: GET
+    resource: https://view.email.humberside.police.uk/Error.aspx
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Essex
+    protocol: HTTPS
+    method: GET
+    resource: https://www.essex.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Essex (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://essex.pfcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Essex (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.essex.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Essex (4)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.essex.pfcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Fcn
+    protocol: HTTPS
+    method: GET
+    resource: https://fcn.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Fmit
+    protocol: HTTPS
+    method: GET
+    resource: https://fmit.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Fmit (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.fmit.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Gloucestershire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gloucestershire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Gloucestershire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gloucestershire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Gmp
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gmp.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Guernsey
+    protocol: HTTPS
+    method: GET
+    resource: https://guernsey.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Guernsey (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.guernsey.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Guidance
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/guidance/legal-aid-crime-eform
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Gwent
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gwent.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Hampshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.hampshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Hampshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.hampshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Herts
+    protocol: HTTPS
+    method: GET
+    resource: https://www.herts.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Herts (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.herts.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Home.aspx
+    protocol: HTTPS
+    method: GET
+    resource: https://leics.pcc.police.uk/Home.aspx
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Home.aspx (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.leics.pcc.police.uk/Home.aspx
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Humberside
+    protocol: HTTPS
+    method: GET
+    resource: https://www.humberside.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Inspector Blogging
+    protocol: HTTPS
+    method: GET
+    resource: https://inspector-blogging.devon-cornwall.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Kent
+    protocol: HTTPS
+    method: GET
+    resource: https://www.kent.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Kent (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.kent.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Knowledge Hub
+    protocol: HTTPS
+    method: GET
+    resource: https://pds.police.uk/knowledge-hub/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Lancashire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.lancashire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Lancashire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.lancashire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Leics
+    protocol: HTTPS
+    method: GET
+    resource: https://www.leics.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Leics (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.leics.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Lincs
+    protocol: HTTPS
+    method: GET
+    resource: https://www.lincs.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Lincs (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.lincs.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Login
+    protocol: HTTPS
+    method: GET
+    resource: https://leadership.college.police.uk/login/index.php
+    tags:
+      - policing
+      - authentication
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Lyncdiscover
+    protocol: HTTPS
+    method: GET
+    resource: https://lyncdiscover.leics.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Mail
+    protocol: HTTPS
+    method: GET
+    resource: https://mail.btpa.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Mail (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://mail.nwcu.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Mbg
+    protocol: HTTPS
+    method: GET
+    resource: https://mbg.jersey.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Merseyside
+    protocol: HTTPS
+    method: GET
+    resource: https://www.merseyside.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Merseyside (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.merseyside.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Met
+    protocol: HTTPS
+    method: GET
+    resource: https://www.met.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Mstunnel
+    protocol: HTTPS
+    method: GET
+    resource: https://mstunnel.derbyshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Mta Sts
+    protocol: HTTPS
+    method: GET
+    resource: https://mta-sts.asco.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Mta Sts (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://mta-sts.dyfed-powys.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Mta Sts (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://mta-sts.gwent.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nationalcrimeagency
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nationalcrimeagency.gov.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Navcis
+    protocol: HTTPS
+    method: GET
+    resource: https://navcis.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Navcis (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://navcis.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nbcc
+    protocol: HTTPS
+    method: GET
+    resource: https://nbcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nbcc (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://nbcc.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police News
+    protocol: HTTPS
+    method: GET
+    resource: https://news.npcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police News (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://news.met.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Norfolk
+    protocol: HTTPS
+    method: GET
+    resource: https://www.norfolk.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Norfolk (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.norfolk.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Northants
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northants.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Northants (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northants.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Northeast
+    protocol: HTTPS
+    method: GET
+    resource: https://www.counterterrorism.police.uk/northeast/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Northumbria
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northumbria.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Northumbria (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northumbria.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Northwales
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northwales.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - wales
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Northyorkshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northyorkshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Northyorkshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northyorkshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nottinghamshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nottinghamshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nottinghamshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://nottinghamshire.pcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nottinghamshire (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nottinghamshire.pcc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nottinghamshire (4)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nottinghamshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Npas
+    protocol: HTTPS
+    method: GET
+    resource: https://www.npas.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nvws
+    protocol: HTTPS
+    method: GET
+    resource: https://nvws.northumbria.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nwcu
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nwcu.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Nwcu (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nwcu.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Our National Network
+    protocol: HTTPS
+    method: GET
+    resource: https://www.rocu.police.uk/our-national-network/south-east-serocu/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Owa
+    protocol: HTTPS
+    method: GET
+    resource: https://autodiscover.durham.police.uk/owa/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 401
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Owa (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://hybrid.durham.police.uk/owa/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 401
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Pds
+    protocol: HTTPS
+    method: GET
+    resource: https://pds.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police PEDisclaimer
+    protocol: HTTPS
+    method: GET
+    resource: https://doitonline.lancashire.police.uk/PEDisclaimer/Create
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Police (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Police Forces
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cleveland.police.uk/police-forces/cleveland-police/areas/cleveland-police/careers/careers/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Portal
+    protocol: HTTPS
+    method: GET
+    resource: https://portal.dev.ihub.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Preprod
+    protocol: HTTPS
+    method: GET
+    resource: https://preprod.psqms.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Production
+    protocol: HTTPS
+    method: GET
+    resource: https://production.oscarkilo.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Production (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://production.copweb.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Psni
+    protocol: HTTPS
+    method: GET
+    resource: https://www.psni.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - northern-ireland
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Psni (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.psni.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - northern-ireland
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Psqms
+    protocol: HTTPS
+    method: GET
+    resource: https://psqms.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Remote
+    protocol: HTTPS
+    method: GET
+    resource: https://remote.cityoflondon.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Remote (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://remote.dyfed-powys.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 302
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Remoteaccess
+    protocol: HTTPS
+    method: GET
+    resource: https://remoteaccess.avonandsomerset.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Report
+    protocol: HTTPS
+    method: GET
+    resource: https://reporting.psni.police.uk/report
+    tags:
+      - policing
+      - reporting
+      - standard
+      - emergency
+      - live
+      - northern-ireland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Reportcrime
+    protocol: HTTPS
+    method: GET
+    resource: https://www.btp.police.uk/reportcrime
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Reporting
+    protocol: HTTPS
+    method: GET
+    resource: https://reporting.actionfraud.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Rocu
+    protocol: HTTPS
+    method: GET
+    resource: https://www.rocu.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Rua0
+    protocol: HTTPS
+    method: GET
+    resource: https://rua0.westmercia.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Rua2
+    protocol: HTTPS
+    method: GET
+    resource: https://rua2.westmercia.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police S
+    protocol: HTTPS
+    method: GET
+    resource: https://acro.police.uk/s/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police S (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.acro.police.uk/s/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Safety Centre
+    protocol: HTTPS
+    method: GET
+    resource: https://www.ceop.police.uk/Safety-Centre/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Search
+    protocol: HTTPS
+    method: GET
+    resource: https://search.dev.copweb.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Search (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://search.staging.copweb.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Sebp
+    protocol: HTTPS
+    method: GET
+    resource: https://www.sebp.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Sebp (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.sebp.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Services
+    protocol: HTTPS
+    method: GET
+    resource: https://services.jersey.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police South Wales
+    protocol: HTTPS
+    method: GET
+    resource: https://www.south-wales.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - wales
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police South Wales (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.south-wales.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - wales
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Southyorkshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.southyorkshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Spa
+    protocol: HTTPS
+    method: GET
+    resource: https://spa.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Spa (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.spa.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Staffordshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.staffordshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Staffordshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.staffordshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Staging
+    protocol: HTTPS
+    method: GET
+    resource: https://staging.copweb.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 401
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Staging (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://staging.oscarkilo.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 401
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Staging (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://staging.avonandsomerset.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Suffolk
+    protocol: HTTPS
+    method: GET
+    resource: https://www.suffolk.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Suffolk (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.suffolk.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Support
+    protocol: HTTPS
+    method: GET
+    resource: https://support.dyfed-powys.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Support (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://support.cleveland.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Surrey
+    protocol: HTTPS
+    method: GET
+    resource: https://www.surrey.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Surrey (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.surrey.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Sussex
+    protocol: HTTPS
+    method: GET
+    resource: https://www.sussex.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Sussex (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.sussex.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Testing
+    protocol: HTTPS
+    method: GET
+    resource: https://testing.oscarkilo.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 401
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Testing (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://testing.copweb.aws.college.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 401
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Thamesvalley
+    protocol: HTTPS
+    method: GET
+    resource: https://www.thamesvalley.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Thamesvalley (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.thamesvalley.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Tunnelgateway
+    protocol: HTTPS
+    method: GET
+    resource: https://tunnelgateway.gwent.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Uag03
+    protocol: HTTPS
+    method: GET
+    resource: https://uag03.ndes.ctp.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Uag04
+    protocol: HTTPS
+    method: GET
+    resource: https://uag04.ndes.ctp.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Ucc
+    protocol: HTTPS
+    method: GET
+    resource: https://ucc.jersey.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Vetting
+    protocol: HTTPS
+    method: GET
+    resource: https://vetting.cleveland.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Vetting (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://vetting.dyfed-powys.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Vetting (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://vetting.northumbria.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Vpc
+    protocol: HTTPS
+    method: GET
+    resource: https://vpc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Vpn
+    protocol: HTTPS
+    method: GET
+    resource: https://vpn.dyfed-powys.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 302
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Vpn1
+    protocol: HTTPS
+    method: GET
+    resource: https://vpn1.cnc.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 302
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Vpn1 (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://vpn1.gloucestershire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Vpn2
+    protocol: HTTPS
+    method: GET
+    resource: https://vpn2.gloucestershire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Warwickshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.warwickshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Warwickshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.warwickshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Webdisk
+    protocol: HTTPS
+    method: GET
+    resource: https://webdisk.navcis.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 401
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Westmercia
+    protocol: HTTPS
+    method: GET
+    resource: https://www.westmercia.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Westmercia (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.westmercia.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Westmidlands
+    protocol: HTTPS
+    method: GET
+    resource: https://www.westmidlands.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Westyorkshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.westyorkshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Westyorkshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.westyorkshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Whm
+    protocol: HTTPS
+    method: GET
+    resource: https://whm.navcis.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Wiki
+    protocol: HTTPS
+    method: GET
+    resource: https://smart.met.police.uk/wiki/Main_Page
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Wiltshire
+    protocol: HTTPS
+    method: GET
+    resource: https://www.wiltshire.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Wiltshire (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.wiltshire.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Wra
+    protocol: HTTPS
+    method: GET
+    resource: https://wra.ecis.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: Police Www2
+    protocol: HTTPS
+    method: GET
+    resource: https://www2.actionfraud.police.uk
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+
+
+  # ============================================================================
+  # HIGH-VOLUME SERVICES (300-second check interval)
+  # ============================================================================
+
+  # Home Office Immigration & Passports
+  # Home Office immigration, passports, and visa services
+  - name: Home Office Immigration Asylum Tribunal
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/immigration-asylum-tribunal
+    tags:
+      - home-office
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+
+
+  # ============================================================================
+  # STANDARD SERVICES (900-second check interval)
+  # ============================================================================
+
+  # MOJ/HMCTS Court & Tribunal Services
+  # Ministry of Justice and HM Courts & Tribunals services
+  - name: MOJ About Us
+    protocol: HTTPS
+    method: GET
+    resource: https://www.scotcourts.gov.uk/about-us/news/news/2023/june/new-civil-online-portal-launched
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - scotland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ About Us (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.scotcourts.gov.uk/about-us/news/news/2025/february/case-tracking-is-now-live-for-first-digital-service-in-the-court-of-session
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - scotland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Apply Faq
+    protocol: HTTPS
+    method: GET
+    resource: https://legalaidlearning.justice.gov.uk/apply-faq/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Ccms Provider Introduction To Ccms
+    protocol: HTTPS
+    method: GET
+    resource: https://legalaidlearning.justice.gov.uk/ccms-provider-introduction-to-ccms/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Civil
+    protocol: HTTPS
+    method: GET
+    resource: https://legalaidlearning.justice.gov.uk/civil/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Consult
+    protocol: HTTPS
+    method: GET
+    resource: https://consult.justice.gov.uk/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Courts And Tribunals
+    protocol: HTTPS
+    method: GET
+    resource: https://www.scotcourts.gov.uk/courts-and-tribunals/scottish-tribunals
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - scotland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Courts And Tribunals (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.judiciary.uk/courts-and-tribunals/tribunals/upper-tribunal/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Courts And Tribunals (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.judiciary.uk/courts-and-tribunals/tribunals/first-tier-tribunal/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Courts Tribunals
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/courts-tribunals/first-tier-tribunal-special-educational-needs-and-disability
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Find Court Tribunal
+    protocol: HTTPS
+    method: GET
+    resource: https://www.find-court-tribunal.service.gov.uk/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Government
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Government (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/case-studies/courts-and-tribunals-service-centres-supporting-users-through-centralised-systems-and-teams
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Legalaidlearning
+    protocol: HTTPS
+    method: GET
+    resource: https://legalaidlearning.justice.gov.uk/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Make Court Claim For Money
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/make-court-claim-for-money
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Mental Health Tribunal
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/mental-health-tribunal
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ News
+    protocol: HTTPS
+    method: GET
+    resource: https://www.justice-ni.gov.uk/news/new-themis-programme-will-transform-court-and-tribunal-services-all-long
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - northern-ireland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Online Support 2
+    protocol: HTTPS
+    method: GET
+    resource: https://legalaidlearning.justice.gov.uk/online-support-2/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Scotcourts
+    protocol: HTTPS
+    method: GET
+    resource: https://www.scotcourts.gov.uk/
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - scotland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Tax Tribunal
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/tax-tribunal
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Topics
+    protocol: HTTPS
+    method: GET
+    resource: https://www.justice-ni.gov.uk/topics/courts-and-tribunals
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - northern-ireland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ Utiac
+    protocol: HTTPS
+    method: GET
+    resource: https://tribunalsdecisions.service.gov.uk/utiac
+    tags:
+      - moj
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: MOJ V3
+    protocol: HTTPS
+    method: GET
+    resource: https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fsites.google.com%2Fdigital.justice.gov.uk%2Fopgmlpa&dsh=S-1457418005%3A1761518128784177&followup=https%3A%2F%2Fsites.google.com%2Fdigital.justice.gov.uk%2Fopgmlpa&ifkv=ARESoU3DptbX_z1Kzn-nhOo2VsDdSzzoySFjxrm2grFc9MbeTbNgEBQ1V9QP9n5pROArNdPWdQK2Sg&osid=1&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin
+    tags:
+      - moj
+      - authentication
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+
+  # Other Government Services
+  # Other government department services
+  - name: OTHER-GOVERNMENT 2020
+    protocol: HTTPS
+    method: GET
+    resource: https://publicguardian.blog.gov.uk/2020/07/17/weve-launched-the-new-use-a-lasting-power-of-attorney-service/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT 2023
+    protocol: HTTPS
+    method: GET
+    resource: https://mojdigital.blog.gov.uk/2023/12/19/mojs-data-strategy-one-year-on/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT 2025
+    protocol: HTTPS
+    method: GET
+    resource: https://mojdigital.blog.gov.uk/2025/10/02/introducing-the-gov-reuse-library/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Appeal Benefit Decision
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/appeal-benefit-decision
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Articles
+    protocol: HTTPS
+    method: GET
+    resource: https://www.justice-ni.gov.uk/articles/online-services
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - northern-ireland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Can I Apply
+    protocol: HTTPS
+    method: GET
+    resource: https://ccrc.gov.uk/can-i-apply/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Category
+    protocol: HTTPS
+    method: GET
+    resource: https://mojdigital.blog.gov.uk/category/digideps/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Category (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://mojdigital.blog.gov.uk/category/network-services/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Category (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://mojdigital.blog.gov.uk/category/our-services/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Ccrc
+    protocol: HTTPS
+    method: GET
+    resource: https://ccrc.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Claim Compensation Criminal Injury
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/claim-compensation-criminal-injury
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Divorce
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/divorce/file-for-divorce
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Gb
+    protocol: HTTPS
+    method: GET
+    resource: https://apps.apple.com/gb/app/police-uk/id6478006997
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Getting Parole
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/getting-parole/parole-board-hearing
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/organisations/civil-nuclear-constabulary
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/organisations/parole-board
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government (3)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/organisations/ministry-of-justice
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government (4)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/case-studies/atcm-over-1-million-single-justice-procedure-cases-moved-from-paper-to-digital
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government (5)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/publications/digital-recording-of-parole-board-hearings
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government (6)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/publications/simplifying-criminal-legal-aid-processing
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government (7)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/publications/ministry-of-justice-digital-strategy-2025/ministry-of-justice-digital-strategy-2025
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government (8)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/case-studies/common-platform-a-modern-digital-case-management-system-for-the-criminal-justice-system
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Government (9)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/organisations/office-of-the-public-guardian
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Guidance
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/guidance/apply-for-legal-aid
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Guidance (2)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/guidance/submit-or-respond-to-an-application-with-myhmcts
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Hmcts User
+    protocol: HTTPS
+    method: GET
+    resource: https://www.wearegroup.com/hmcts-user
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Login
+    protocol: HTTPS
+    method: GET
+    resource: https://hmcts-access.service.gov.uk/login?ui_locales=en&response_type=code&state=19f2a9b2-70b3-4db9-8169-fd9ac0ee26fc&client_id=probate&redirect_uri=https%3A%2F%2Fwww.apply-for-probate.service.gov.uk%2Foauth2%2Fcallback
+    tags:
+      - other-government
+      - authentication
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Mojdigital
+    protocol: HTTPS
+    method: GET
+    resource: https://mojdigital.blog.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT News
+    protocol: HTTPS
+    method: GET
+    resource: https://www.brecher.co.uk/news/how-to-access-the-office-of-the-public-guardians-view-a-lasting-power-of-attorney-online-service/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Our Work
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cds.co.uk/our-work/single-online-home
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Power Of Attorney
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/power-of-attorney/make-lasting-power
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Publicguardian
+    protocol: HTTPS
+    method: GET
+    resource: https://publicguardian.blog.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Publicguardian Scotland
+    protocol: HTTPS
+    method: GET
+    resource: https://www.publicguardian-scotland.gov.uk/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - scotland
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT Resources
+    protocol: HTTPS
+    method: GET
+    resource: https://www.criminalbar.com/resources/digital-case-system-dcs/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+  - name: OTHER-GOVERNMENT S
+    protocol: HTTPS
+    method: GET
+    resource: https://www.jersey.police.je/s/
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+

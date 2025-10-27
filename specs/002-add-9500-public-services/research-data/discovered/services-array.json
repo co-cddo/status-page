@@ -1,0 +1,5522 @@
+[
+  {
+    "url": "https://www.tax.service.gov.uk/account",
+    "name": "HMRC Online Services - Main Account",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/personal-account/signin",
+    "name": "Personal Tax Account Sign In",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/business-account",
+    "name": "Business Tax Account",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/ask-hmrc/hmrc-digital-assistant",
+    "name": "Ask HMRC Online - Digital Assistant",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/ask-hmrc/chat/online-services-helpdesk",
+    "name": "HMRC Online Services Helpdesk Chat",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.access.service.gov.uk/login/signin/creds",
+    "name": "Government Gateway Sign In",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments",
+    "name": "Self Assessment Payment Plan",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/set-up-a-payment-plan/epaye-payment-plan",
+    "name": "Employers' PAYE Payment Plan",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/vat-through-software/sign-up",
+    "name": "Making Tax Digital for VAT Sign Up",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/making-tax-digital-software",
+    "name": "Find Making Tax Digital Software",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/check-income-tax",
+    "name": "Check Your Income Tax",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/marriage-allowance-application/how-it-works",
+    "name": "Apply for Marriage Allowance",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/check-your-state-pension",
+    "name": "Check Your State Pension",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/eligibility-for-paye/register-online",
+    "name": "Register for PAYE Online",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/ask-for-copy-of-your-corporation-tax-utr",
+    "name": "Ask for Corporation Tax UTR",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/customs-registration-services/cds/register",
+    "name": "Subscribe to Customs Declaration Service",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/guidance/work-out-company-car-and-fuel-benefit",
+    "name": "Company Car and Fuel Benefit Calculator",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://childcare-support.tax.service.gov.uk/",
+    "name": "Tax-Free Childcare",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://childcare.tax.service.gov.uk/ccp/acc/login",
+    "name": "Childcare Service Provider Account",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/api-documentation",
+    "name": "HMRC Developer Hub",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/api-test-user",
+    "name": "Create Test User - HMRC API",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://api-platform-status.production.tax.service.gov.uk/",
+    "name": "HMRC API Platform Status",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/mdtp/we-need-to-confirm-your-identity",
+    "name": "Identity Confirmation Service",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/helpline/helplines-by-service",
+    "name": "HMRC Helplines by Service",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/gg/sign-in",
+    "name": "Government Gateway Sign In (Account)",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/business-account/vat/which-account-to-add",
+    "name": "Add VAT to Business Account",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/eligibility-for-setting-up-company",
+    "name": "Set Up Limited Company and Register for Corporation Tax",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/check-tax-on-goods-you-bring-into-the-uk",
+    "name": "Check Tax on Goods Brought into UK",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/information/help",
+    "name": "HMRC Registration and Enrolment Help",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/information/faqs",
+    "name": "HMRC Frequently Asked Questions",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/submissions/new-form",
+    "name": "HMRC G-Forms Submission",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://design.tax.service.gov.uk/",
+    "name": "HMRC Design Resources",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://customs.hmrc.gov.uk/channelsPortalWebApp/channelsPortalWebApp.portal",
+    "name": "HMRC Import & Export Portal",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://online.hmrc.gov.uk/shortforms",
+    "name": "HMRC KANA Short Forms",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://public-online.hmrc.gov.uk/lc/content",
+    "name": "HMRC LC Forms",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/sign-in-to-hmrc-online-services/identity/start-again",
+    "name": "HMRC Sign In - Start Again",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/file-your-tax-return",
+    "name": "File Self Assessment Before Payment Plan",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/already-have-a-plan",
+    "name": "Existing Payment Plan Notice",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/call-us-debt-too-old",
+    "name": "Payment Plan - Call for Old Debt",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/business-account/epaye/signedout",
+    "name": "Business Account ePAYE Signed Out",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/business-account/thank-you",
+    "name": "Business Account Feedback",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/personal-account/tax-credits-have-ended",
+    "name": "Personal Tax Account - Tax Credits Ended",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/check-income-tax/session-expired",
+    "name": "Check Income Tax - Session Expired",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/repayments/signed-out",
+    "name": "Tax Repayments - Signed Out",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/choose-software",
+    "name": "Making Tax Digital - Choose Software Error",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/software-ready",
+    "name": "Making Tax Digital - Software Ready Check",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/verify-software",
+    "name": "Making Tax Digital - Verify Software Error",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/marriage-allowance-application/benefit-calculator",
+    "name": "Marriage Allowance Eligibility Calculator",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/information/faqs/corporationTax",
+    "name": "Corporation Tax FAQs",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.access.service.gov.uk/signout",
+    "name": "Government Gateway Sign Out",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://find-and-update.company-information.service.gov.uk/",
+    "name": "Companies House - Find and Update Company Information",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://find-and-update.company-information.service.gov.uk/accounts/corporation-tax",
+    "name": "Companies House - File Corporation Tax with HMRC",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://find-and-update.company-information.service.gov.uk/appeal-a-penalty/",
+    "name": "Companies House - Appeal a Late Filing Penalty",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api",
+    "name": "HMRC API Documentation",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/authorisation",
+    "name": "HMRC API Authorization Guide",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/testing",
+    "name": "HMRC API Testing Guide",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-api/1.0",
+    "name": "VAT API (Making Tax Digital)",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/individual-tax/1.1",
+    "name": "Individual Tax API",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/",
+    "name": "Making Tax Digital for Income Tax Service Guide",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/guides/vat-mtd-end-to-end-service-guide/",
+    "name": "VAT Making Tax Digital End-to-End Service Guide",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide/",
+    "name": "Customs Declarations End-to-End Service Guide",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/guides/fraud-prevention",
+    "name": "HMRC Fraud Prevention Headers Guide",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://developer.service.hmrc.gov.uk/developer/applications",
+    "name": "HMRC Developer Application Management",
+    "discovery_source": "Existing discovery",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/log-in-register-hmrc-online-services",
+    "name": "HMRC Online Services - Sign in or set up account",
+    "discovery_source": "GOV.UK services-information page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/download-the-hmrc-app",
+    "name": "HMRC Mobile App",
+    "discovery_source": "GOV.UK services-information page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/self-assessment-tax-returns",
+    "name": "Self Assessment Tax Returns",
+    "discovery_source": "GOV.UK services-information page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/sign-in-childcare-account",
+    "name": "Childcare Account Sign-In",
+    "discovery_source": "GOV.UK services-information page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/check-if-youre-eligible-for-small-producer-relief-on-alcohol-duty",
+    "name": "Small Producer Relief Calculator - Alcohol Duty",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/check-if-you-can-claim-super-deduction-or-special-rate-first-year-allowances",
+    "name": "Super-Deduction Checker - Capital Allowances",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/disposing-of-a-super-deduction-or-special-rate-first-year-allowance-asset",
+    "name": "Balancing Charge Calculator - Capital Allowances",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/check-if-you-can-claim-full-expensing-or-50-first-year-allowances",
+    "name": "Full Expensing Eligibility Tool",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/capital-gains-tax-for-non-residents-calculating-taxable-gain-or-loss",
+    "name": "Non-Resident Capital Gains Tax Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/tax-sell-shares/work-out-your-gain",
+    "name": "Capital Gains Tax Shares Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/tax-sell-property/work-out-your-gain",
+    "name": "Capital Gains Tax Property Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/get-help-if-hmrc-contacts-you-about-a-compliance-check",
+    "name": "Compliance Check Guidance",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/child-benefit-tax-calculator",
+    "name": "Child Benefit Tax Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/guidance/ask-HMRC-to-find-a-Child-Trust-Fund",
+    "name": "Child Trust Fund Locator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/childcare-calculator",
+    "name": "Childcare Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/check-employment-status-for-tax",
+    "name": "Employment Status Checker (IR35)",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/machine-games-duty-search/",
+    "name": "Machine Games Duty Search",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/trade-tariff",
+    "name": "UK Trade Tariff Tool",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/estimate-income-tax-previous-year",
+    "name": "Income Tax Estimator - Previous Year",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/estimate-income-tax",
+    "name": "Income Tax Estimator - Current Year",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/valuing-estate-of-someone-who-died/estimate-estate-value",
+    "name": "Inheritance Tax Estate Value Checker",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/calculate-inheritance-tax-interest",
+    "name": "Inheritance Tax Interest Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/calculate-additional-inheritance-tax-threshold",
+    "name": "Inheritance Tax RNRB Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/inheritance-tax-reduced-rate-calculator",
+    "name": "Inheritance Tax Reduced Rate Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/inheritance-tax-grossing-up-calculator",
+    "name": "Inheritance Tax Grossing Up Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/government/publications/inheritance-tax-guaranteed-annuity-calculator",
+    "name": "Inheritance Tax Guaranteed Annuity Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/work-out-the-number-of-quarters-when-inheritance-tax-is-charged-on-a-trust-for-certain-chargeable-events",
+    "name": "Inheritance Tax Quarters Calculator for Trusts",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/claim-national-insurance-refund",
+    "name": "National Insurance Refund Application",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/work-out-directors-national-insurance-contributions",
+    "name": "Director's National Insurance Contributions Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/work-out-an-employees-national-insurance-contributions",
+    "name": "Employee National Insurance Contributions Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/national-insurance-if-you-go-abroad",
+    "name": "National Insurance Working Abroad Checker",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/check-what-your-tax-code-means",
+    "name": "PAYE Tax Code Explainer",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/maternity-paternity-pay-leave",
+    "name": "Maternity/Paternity Eligibility Checker",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/work-out-an-employees-income-tax",
+    "name": "PAYE Tax Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/government/collections/how-to-manually-check-your-payroll-calculations",
+    "name": "Payroll Calculator - Manual",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/basic-paye-tools",
+    "name": "Basic PAYE Tools",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/calculate-tax-on-company-cars",
+    "name": "Company Car Tax Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/calculate-statutory-sick-pay",
+    "name": "Statutory Sick Pay Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/maternity-paternity-calculator",
+    "name": "Maternity and Paternity Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/paye-online/desktop-viewer",
+    "name": "PAYE Desktop Viewer",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/get-paye-forms",
+    "name": "P45/P60 Order Form",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/pension-administrators-check-a-members-gmp",
+    "name": "GMP Checker - Pensions",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/paac",
+    "name": "Pension Annual Allowance Tool",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/self-assessment-tax-calculator",
+    "name": "Self Assessment Tax Bill Estimator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/work-out-your-transition-profit",
+    "name": "Transition Profit Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/check-what-taxes-may-apply-to-you-as-a-sole-trader",
+    "name": "Sole Trader Tax Checker",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/calculate-stamp-duty-land-tax/",
+    "name": "Stamp Duty Land Tax Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/vat-payment-deadlines",
+    "name": "VAT Payment Deadline Calculator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/check-what-registering-for-vat-may-mean-for-your-business",
+    "name": "VAT Registration Estimator",
+    "discovery_source": "HMRC tools and calculators page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/pay-corporation-tax",
+    "name": "Pay Corporation Tax",
+    "discovery_source": "Business tax browse page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/pay-vat",
+    "name": "Pay VAT Bill",
+    "discovery_source": "Business tax browse page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/register-for-vat",
+    "name": "Register for VAT",
+    "discovery_source": "Business tax browse page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/check-uk-vat-number",
+    "name": "Check UK VAT Number",
+    "discovery_source": "Business tax browse page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/submit-vat-return",
+    "name": "Submit VAT Return",
+    "discovery_source": "Business tax browse page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/corporation-tax",
+    "name": "Corporation Tax",
+    "discovery_source": "Business tax browse page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/personal-tax-account",
+    "name": "Personal Tax Account",
+    "discovery_source": "Income tax browse page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/income-tax",
+    "name": "Income Tax Overview",
+    "discovery_source": "Income tax browse page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/tax-codes",
+    "name": "Tax Codes Information",
+    "discovery_source": "Income tax browse page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/check-if-you-need-tax-return",
+    "name": "Check if You Need to Send a Self Assessment Tax Return",
+    "discovery_source": "Web search",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/child-benefit",
+    "name": "Child Benefit Claims",
+    "discovery_source": "Web search",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/register-for-self-assessment",
+    "name": "Register for Self Assessment",
+    "discovery_source": "Web search",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.tax.service.gov.uk/anti-money-laundering/start/bta",
+    "name": "Manage Your Anti-Money Laundering Supervision",
+    "discovery_source": "tax.service.gov.uk search",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/sign-in-to-your-hmrc-business-tax-account",
+    "name": "Sign In to Your HMRC Business Tax Account",
+    "discovery_source": "Business tax account search",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/import-goods-into-uk",
+    "name": "Import Goods Into the UK - Step by Step",
+    "discovery_source": "Customs import/export search",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/contact-hmrc",
+    "name": "HMRC Enquiries Contact",
+    "discovery_source": "Services-information page",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/vat-flat-rate-scheme/how-much-you-pay",
+    "name": "VAT Flat Rate Scheme Calculator",
+    "discovery_source": "VAT calculator search",
+    "source_department": "HMRC"
+  },
+  {
+    "url": "https://www.gov.uk/apply-first-provisional-driving-licence",
+    "name": "Apply for your first provisional driving licence",
+    "description": "Apply for a provisional driving licence for cars, motorcycles, mopeds or other vehicles online",
+    "service_type": "transaction",
+    "category": "Driving Licences - Applications",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/apply-for-your-full-driving-licence",
+    "name": "Apply for your full driving licence",
+    "description": "Upgrade from provisional to full driving licence after passing your test",
+    "service_type": "transaction",
+    "category": "Driving Licences - Applications",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/renew-driving-licence",
+    "name": "Renew your driving licence",
+    "description": "Renew a driving licence that is about to expire or has expired",
+    "service_type": "transaction",
+    "category": "Driving Licences - Renewals",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/renew-driving-licence-at-70",
+    "name": "Renew your driving licence at 70",
+    "description": "Renew driving licence when you reach 70 years old",
+    "service_type": "transaction",
+    "category": "Driving Licences - Renewals",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/renew-photo-driving-licence",
+    "name": "Change the photo on your driving licence",
+    "description": "Update or renew the photo on your photocard driving licence",
+    "service_type": "transaction",
+    "category": "Driving Licences - Updates",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/renew-medical-driving-licence",
+    "name": "Renew your short-term medical driving licence",
+    "description": "Renew a driving licence with medical restrictions",
+    "service_type": "transaction",
+    "category": "Driving Licences - Medical",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/replace-a-driving-licence",
+    "name": "Replace a lost, stolen, damaged or destroyed driving licence",
+    "description": "Get a replacement driving licence",
+    "service_type": "transaction",
+    "category": "Driving Licences - Replacements",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/exchange-paper-driving-licence",
+    "name": "Exchange your paper driving licence for a photocard licence",
+    "description": "Convert old paper driving licence to modern photocard",
+    "service_type": "transaction",
+    "category": "Driving Licences - Exchanges",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/exchange-nongb-driving-licence",
+    "name": "Exchange a foreign driving licence for a GB licence",
+    "description": "Exchange non-GB driving licence for UK licence",
+    "service_type": "transaction",
+    "category": "Driving Licences - Exchanges",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/view-driving-licence",
+    "name": "View or share your driving licence information",
+    "description": "Access driving licence details online and generate check codes to share with third parties",
+    "service_type": "information",
+    "category": "Driving Licences - Information",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-driving-information",
+    "name": "Check driving information",
+    "description": "Check another person's driving licence details using their check code",
+    "service_type": "information",
+    "category": "Driving Licences - Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/track-your-driving-licence-application",
+    "name": "Track your driving licence application",
+    "description": "Check the status of your driving licence application",
+    "service_type": "information",
+    "category": "Driving Licences - Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driver-vehicles-account",
+    "name": "Driver and vehicles account: sign in or set up",
+    "description": "Access your personal driver and vehicles account to manage licences and vehicles",
+    "service_type": "transaction",
+    "category": "Account Management",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/tell-dvla-changed-address",
+    "name": "Tell DVLA you've changed address",
+    "description": "Update your address on driving licence and vehicle records",
+    "service_type": "transaction",
+    "category": "Driving Licences - Updates",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/change-address-driving-licence",
+    "name": "Change your address on your driving licence",
+    "description": "Update address details on your driving licence",
+    "service_type": "transaction",
+    "category": "Driving Licences - Updates",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/change-name-driving-licence",
+    "name": "Change your name on your driving licence",
+    "description": "Update name or gender on your driving licence",
+    "service_type": "transaction",
+    "category": "Driving Licences - Updates",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/adding-higher-categories-to-your-driving-licence",
+    "name": "Add higher categories to your driving licence",
+    "description": "Add additional vehicle categories to your existing licence",
+    "service_type": "transaction",
+    "category": "Driving Licences - Upgrades",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/automatic-driving-licence-to-manual",
+    "name": "Upgrade from automatic to manual driving licence",
+    "description": "Add manual transmission entitlement to automatic-only licence",
+    "service_type": "transaction",
+    "category": "Driving Licences - Upgrades",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/reapply-driving-licence-medical-condition",
+    "name": "Reapply for a driving licence following a medical condition",
+    "description": "Reapply for licence after medical issues have been resolved",
+    "service_type": "transaction",
+    "category": "Driving Licences - Medical",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/reapply-licence-revoked",
+    "name": "Reapply for a driving licence after disqualification",
+    "description": "Reapply for licence after it has been revoked or disqualified",
+    "service_type": "transaction",
+    "category": "Driving Licences - Applications",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/giving-up-your-driving-licence",
+    "name": "Voluntarily surrender your driving licence",
+    "description": "Give up your driving licence voluntarily",
+    "service_type": "transaction",
+    "category": "Driving Licences - Medical",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-medical-conditions",
+    "name": "Tell DVLA about a medical condition that affects your driving",
+    "description": "Report medical conditions or disabilities that may affect driving ability",
+    "service_type": "transaction",
+    "category": "Driving Licences - Medical",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/health-conditions-and-driving",
+    "name": "Check if a health condition affects your driving",
+    "description": "Find out if medical conditions affect your ability to drive legally",
+    "service_type": "information",
+    "category": "Driving Licences - Medical",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-eyesight-rules",
+    "name": "Driving eyesight rules",
+    "description": "Check the eyesight requirements for driving",
+    "service_type": "information",
+    "category": "Driving Licences - Medical",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/renew-lorry-bus-coach-licence",
+    "name": "Renew a lorry, bus or coach licence",
+    "description": "Renew or modify commercial vehicle driving licences",
+    "service_type": "transaction",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/apply-driver-digital-tachograph-card",
+    "name": "Apply for a driver digital tachograph card",
+    "description": "Apply for digital tachograph card for professional drivers",
+    "service_type": "transaction",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-your-driver-cpc-periodic-training-hours",
+    "name": "Check your Driver CPC periodic training hours",
+    "description": "Verify completed CPC training hours for professional drivers",
+    "service_type": "information",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/replace-driver-cpc-card",
+    "name": "Replace a lost or damaged Driver CPC card",
+    "description": "Get replacement Driver Certificate of Professional Competence card",
+    "service_type": "transaction",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-tax",
+    "name": "Tax your vehicle",
+    "description": "Pay vehicle tax (also known as road tax or vehicle excise duty)",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-tax-direct-debit",
+    "name": "Set up vehicle tax Direct Debit",
+    "description": "Pay vehicle tax by monthly Direct Debit",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-tax-refund",
+    "name": "Cancel your vehicle tax and get a refund",
+    "description": "Cancel vehicle tax for sold, exported, or off-road vehicles",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-vehicle-tax",
+    "name": "Check if a vehicle is taxed",
+    "description": "Verify whether a vehicle has current vehicle tax",
+    "service_type": "information",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-tax-rate-tables",
+    "name": "Vehicle tax rate tables",
+    "description": "View current vehicle tax rates by vehicle category",
+    "service_type": "information",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-tax-advance",
+    "name": "Apply for vehicle tax in advance",
+    "description": "Tax your vehicle before current tax expires",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-tax-hgv",
+    "name": "Apply to tax a Heavy Goods Vehicle (HGV)",
+    "description": "Pay tax for heavy goods vehicles",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/make-a-sorn",
+    "name": "Make a SORN (Statutory Off Road Notification)",
+    "description": "Register a vehicle as off the road to pause vehicle tax",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/report-untaxed-vehicle",
+    "name": "Report an untaxed vehicle",
+    "description": "Report vehicles operating without valid tax",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/get-vehicle-tax-exemption-disability",
+    "name": "Get vehicle tax exemption for disability",
+    "description": "Apply for free vehicle tax for disabled drivers",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-exempt-from-vehicle-tax",
+    "name": "Vehicles exempt from vehicle tax",
+    "description": "Check if your vehicle is exempt from vehicle tax",
+    "service_type": "information",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/historic-vehicles",
+    "name": "Historic (classic) vehicles: MOT and vehicle tax",
+    "description": "Tax exemption and MOT rules for historic vehicles (40+ years old)",
+    "service_type": "information",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/change-vehicle-tax-class",
+    "name": "Change your vehicle's tax class",
+    "description": "Update vehicle tax classification",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-tax-rates-new-unregistered-cars",
+    "name": "Check tax rates for new unregistered cars",
+    "description": "Find out vehicle tax rates for new vehicles",
+    "service_type": "information",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/calculate-tax-on-company-cars",
+    "name": "Calculate tax on employees' company cars",
+    "description": "Calculate benefit-in-kind tax for company vehicles",
+    "service_type": "information",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-log-book",
+    "name": "Get a vehicle log book (V5C)",
+    "description": "Apply for replacement or new V5C registration certificate",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/change-vehicle-details-registration-certificate",
+    "name": "Change vehicle details on a V5C registration certificate",
+    "description": "Update vehicle information on the V5C log book",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/change-name-v5c",
+    "name": "Change your name on your vehicle log book (V5C)",
+    "description": "Update name on vehicle registration certificate",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/sold-bought-vehicle",
+    "name": "Tell DVLA you've sold, transferred or bought a vehicle",
+    "description": "Notify DVLA of vehicle sale or purchase (change of keeper)",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-registration",
+    "name": "Vehicle registration",
+    "description": "Register a new or used vehicle with DVLA",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/taking-vehicles-out-of-uk",
+    "name": "Taking a vehicle out of the UK permanently",
+    "description": "Export a vehicle from the UK for 12 months or more",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/written-off-vehicle",
+    "name": "Tell DVLA your vehicle has been written off",
+    "description": "Notify DVLA of total loss/written off vehicle",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/find-vehicle-scrapyard",
+    "name": "Find a vehicle scrapyard",
+    "description": "Locate authorized treatment facilities for scrap vehicles",
+    "service_type": "information",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/importing-vehicles-into-the-uk",
+    "name": "Importing vehicles into the UK",
+    "description": "Register imported vehicles from abroad",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/register-trailer-to-take-abroad",
+    "name": "Register your trailer to take it abroad",
+    "description": "Get registration for trailers being taken overseas",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/get-vehicle-information-from-dvla",
+    "name": "Get vehicle information from DVLA",
+    "description": "Retrieve vehicle details using registration number",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/request-information-from-dvla",
+    "name": "Request information about a vehicle or registered keeper",
+    "description": "Request detailed vehicle or keeper information from DVLA",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-mot-status",
+    "name": "Check the MOT status of a vehicle",
+    "description": "Find out when a vehicle's MOT expires",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-mot-history",
+    "name": "Check MOT history",
+    "description": "View complete MOT test history for any vehicle",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/get-stop-view-mot-reminder",
+    "name": "Get, view or stop MOT reminders",
+    "description": "Set up MOT reminder emails or text messages",
+    "service_type": "transaction",
+    "category": "Vehicle Information",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-vehicle-e10-petrol",
+    "name": "Check if your vehicle can run on E10 petrol",
+    "description": "Verify E10 fuel compatibility for your vehicle",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-vehicle-recall",
+    "name": "Check if a vehicle has been recalled",
+    "description": "Find out if a vehicle has active manufacturer recalls",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/checks-when-buying-a-used-car",
+    "name": "Checks when buying a used car",
+    "description": "Important checks before purchasing a pre-owned vehicle",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/co2-and-vehicle-tax-tools",
+    "name": "Car fuel and CO2 emissions data",
+    "description": "Check fuel consumption and emissions data",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/get-personalised-private-number-plate",
+    "name": "Get a personalised registration number",
+    "description": "Buy a personalized number plate from DVLA",
+    "service_type": "transaction",
+    "category": "Number Plates",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/buy-a-personalised-registration-number",
+    "name": "Buy a personalised registration number",
+    "description": "Purchase personalized registration numbers from DVLA auctions",
+    "service_type": "transaction",
+    "category": "Number Plates",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/personalised-vehicle-registration-numbers",
+    "name": "Private (personalised) number plates",
+    "description": "Manage private registration numbers (keep, assign, transfer, surrender)",
+    "service_type": "transaction",
+    "category": "Number Plates",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/number-plate-supplier",
+    "name": "Find a number plate supplier",
+    "description": "Locate registered number plate suppliers near you",
+    "service_type": "information",
+    "category": "Number Plates",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/displaying-number-plates",
+    "name": "Displaying number plates",
+    "description": "Rules and regulations for displaying number plates",
+    "service_type": "information",
+    "category": "Number Plates",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/trade-licence-plates",
+    "name": "Trade licence plates",
+    "description": "Apply for and manage trade licence plates for motor trade",
+    "service_type": "transaction",
+    "category": "Motor Trade",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-registration-schemes-for-the-motor-trade",
+    "name": "Vehicle registration schemes for the motor trade",
+    "description": "Registration schemes for motor traders and manufacturers",
+    "service_type": "transaction",
+    "category": "Motor Trade",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/dvla-fleet-vehicle-info",
+    "name": "Get DVLA Fleet Scheme vehicle information",
+    "description": "Access vehicle information for fleet operators (50+ vehicles)",
+    "service_type": "information",
+    "category": "Motor Trade",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/apply-blue-badge",
+    "name": "Apply for or renew a Blue Badge",
+    "description": "Apply for disabled parking badge",
+    "service_type": "transaction",
+    "category": "Blue Badge",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/where-registered-disabled-drivers-can-park",
+    "name": "Find out where Blue Badge holders can park",
+    "description": "Check parking rights for Blue Badge holders",
+    "service_type": "information",
+    "category": "Blue Badge",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/change-blue-badge-details",
+    "name": "Change Blue Badge details",
+    "description": "Update Blue Badge information",
+    "service_type": "transaction",
+    "category": "Blue Badge",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/replace-lost-stolen-blue-badge",
+    "name": "Replace a lost, stolen or damaged Blue Badge",
+    "description": "Get replacement Blue Badge",
+    "service_type": "transaction",
+    "category": "Blue Badge",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/blue-badge-scheme-information-council",
+    "name": "Blue Badge scheme: information from your council",
+    "description": "Find local council Blue Badge scheme information",
+    "service_type": "information",
+    "category": "Blue Badge",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/learn-to-drive-a-car",
+    "name": "Learn to drive a car: step by step",
+    "description": "Complete guide to learning to drive in the UK",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/book-theory-test",
+    "name": "Book your theory test",
+    "description": "Book driving theory test",
+    "service_type": "transaction",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/book-driving-test",
+    "name": "Book your practical driving test",
+    "description": "Book practical driving test",
+    "service_type": "transaction",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/change-theory-test",
+    "name": "Change your theory test appointment",
+    "description": "Modify theory test booking",
+    "service_type": "transaction",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/change-driving-test",
+    "name": "Change your driving test appointment",
+    "description": "Modify practical driving test booking",
+    "service_type": "transaction",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-theory-test",
+    "name": "Check your theory test appointment details",
+    "description": "View theory test booking information",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/check-driving-test",
+    "name": "Check your driving test appointment details",
+    "description": "View practical test booking information",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/cancel-theory-test",
+    "name": "Cancel your theory test",
+    "description": "Cancel theory test booking",
+    "service_type": "transaction",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/cancel-driving-test",
+    "name": "Cancel your driving test",
+    "description": "Cancel practical test booking",
+    "service_type": "transaction",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/find-theory-test-centre",
+    "name": "Find a theory test centre",
+    "description": "Locate theory test centres near you",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/find-driving-test-centre",
+    "name": "Find a driving test centre",
+    "description": "Locate practical test centres near you",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/take-practice-theory-test",
+    "name": "Take a practice theory test",
+    "description": "Practice theory test questions online",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/find-theory-test-pass-number",
+    "name": "Find your lost theory test pass certificate number",
+    "description": "Retrieve theory test pass number",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-test-cost",
+    "name": "Driving test costs",
+    "description": "Current fees for theory and practical driving tests",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/find-driving-schools-and-lessons",
+    "name": "Find driving schools, lessons and instructors",
+    "description": "Search for approved driving instructors",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/motorcycle-cbt",
+    "name": "CBT motorcycle and moped training",
+    "description": "Compulsory Basic Training for motorcycle riders",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/find-motorcycle-training",
+    "name": "Find a motorcycle or moped CBT course",
+    "description": "Locate CBT training providers",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/replace-cbt-certificate",
+    "name": "Replace a lost or stolen motorcycle CBT certificate",
+    "description": "Get replacement CBT certificate",
+    "service_type": "transaction",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/motorcycle-theory-test",
+    "name": "Theory test: motorcycles and mopeds",
+    "description": "Book motorcycle theory test",
+    "service_type": "transaction",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/motorcycle-test",
+    "name": "Motorcycle and moped tests",
+    "description": "Information about motorcycle practical tests",
+    "service_type": "information",
+    "category": "Learning to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/become-car-driving-instructor",
+    "name": "Become a car driving instructor",
+    "description": "Qualify as an approved driving instructor (ADI)",
+    "service_type": "information",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/apply-to-become-a-driving-instructor",
+    "name": "Apply to become a driving instructor",
+    "description": "Submit ADI application",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/adi-part-1-test",
+    "name": "Approved driving instructor (ADI) part 1 test",
+    "description": "Theory test for driving instructors",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/adi-part-2-test",
+    "name": "Approved driving instructor (ADI) part 2 test",
+    "description": "Driving ability test for instructors",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/adi-part-3-test",
+    "name": "Approved driving instructor (ADI) part 3 test",
+    "description": "Instructional ability test for ADIs",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/apply-for-a-trainee-driving-instructor-licence",
+    "name": "Apply for a trainee driving instructor licence",
+    "description": "Get provisional ADI licence",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/renew-approved-driving-instructor-adi-registration",
+    "name": "Renew your ADI registration",
+    "description": "Renew driving instructor registration",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/manage-approved-driving-instructor-registration",
+    "name": "Manage your ADI registration",
+    "description": "Update ADI registration details",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/book-pupil-theory-test",
+    "name": "Book and manage theory tests for your pupils",
+    "description": "Instructors can book pupil theory tests",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/book-pupil-driving-test",
+    "name": "Book and manage driving and riding tests for your pupils",
+    "description": "Instructors can book pupil practical tests",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/complain-about-a-driving-instructor",
+    "name": "Complain about a driving instructor",
+    "description": "Report concerns about ADI conduct",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/report-an-illegal-driving-instructor",
+    "name": "Report an illegal driving instructor",
+    "description": "Report unregistered instructors",
+    "service_type": "transaction",
+    "category": "Teaching People to Drive",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/drivers-hours",
+    "name": "Drivers' hours rules",
+    "description": "Working time regulations for professional drivers",
+    "service_type": "information",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/tachographs",
+    "name": "Tachograph rules",
+    "description": "Rules for drivers and operators using tachographs",
+    "service_type": "information",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/find-approved-tachograph-centre-atc",
+    "name": "Find an approved tachograph centre",
+    "description": "Locate authorized tachograph installation and calibration centers",
+    "service_type": "information",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driver-cpc-training",
+    "name": "Driver CPC training",
+    "description": "Periodic training requirements for professional drivers",
+    "service_type": "information",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/become-lorry-bus-driver",
+    "name": "Become a lorry or bus driver",
+    "description": "How to qualify as HGV or bus driver",
+    "service_type": "information",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/training-hgv",
+    "name": "Training to be an HGV driver",
+    "description": "Training resources and requirements for HGV drivers",
+    "service_type": "information",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/record-driver-cpc-training-you-deliver",
+    "name": "Record Driver CPC training you deliver",
+    "description": "Upload CPC training records as approved provider",
+    "service_type": "transaction",
+    "category": "Professional Drivers",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/pay-dvla-fine",
+    "name": "Pay a DVLA fine",
+    "description": "Pay penalties for vehicle tax or registration offences",
+    "service_type": "transaction",
+    "category": "Penalties and Fines",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/appeal-dvla-fine",
+    "name": "Appeal a DVLA fine",
+    "description": "Challenge DVLA penalty notices",
+    "service_type": "transaction",
+    "category": "Penalties and Fines",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-fines-letters-you-dont-own-the-vehicle",
+    "name": "Driving fines and letters when you do not own the vehicle",
+    "description": "What to do if you receive fines for vehicles you don't own",
+    "service_type": "information",
+    "category": "Penalties and Fines",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/get-a-clamped-or-impounded-vehicle-released",
+    "name": "Get a clamped or impounded vehicle released",
+    "description": "Release vehicle seized for tax or insurance offences",
+    "service_type": "transaction",
+    "category": "Penalties and Fines",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/penalty-points-endorsements",
+    "name": "Penalty points and endorsements",
+    "description": "Information about driving penalty points system",
+    "service_type": "information",
+    "category": "Penalties and Fines",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/speeding-penalties",
+    "name": "Speeding penalties",
+    "description": "Fines and points for speeding offences",
+    "service_type": "information",
+    "category": "Penalties and Fines",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/drink-driving-penalties",
+    "name": "Drink-driving penalties",
+    "description": "Penalties for drink-drive offences",
+    "service_type": "information",
+    "category": "Penalties and Fines",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-disqualifications",
+    "name": "Driving disqualifications",
+    "description": "Information about driving bans",
+    "service_type": "information",
+    "category": "Penalties and Fines",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/book-national-driver-offender-retraining-course",
+    "name": "Book a National Driver Offender Retraining Scheme course",
+    "description": "Book speed awareness or other driver retraining courses",
+    "service_type": "transaction",
+    "category": "Penalties and Fines",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-licence-fees",
+    "name": "Driving licence fees",
+    "description": "Check current driving licence application and renewal fees",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-licence-categories",
+    "name": "Driving licence categories",
+    "description": "Understand what vehicles you can drive with each licence category",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-licence-codes",
+    "name": "Driving licence codes",
+    "description": "Explanation of codes and endorsements on driving licences",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicles-can-drive",
+    "name": "Vehicles you can drive",
+    "description": "Find out what vehicles you're allowed to drive with your licence",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/id-for-driving-licence",
+    "name": "Identity documents for driving licence application",
+    "description": "Check what identity documents you need for licence applications",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/dvlaforms",
+    "name": "DVLA forms",
+    "description": "Download and order DVLA forms for various services",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/contact-the-dvla",
+    "name": "Contact DVLA",
+    "description": "Get contact information for DVLA services",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/tell-dvla-about-bereavement",
+    "name": "Tell DVLA about a bereavement",
+    "description": "Notify DVLA of a driver's death",
+    "service_type": "transaction",
+    "category": "Administrative",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/sorn-statutory-off-road-notification",
+    "name": "SORN (Statutory Off Road Notification)",
+    "description": "Information about SORN requirements and process",
+    "service_type": "information",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/scrapped-and-written-off-vehicles",
+    "name": "Scrapped and written-off vehicles",
+    "description": "What to do when scrapping or writing off a vehicle",
+    "service_type": "information",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-nongb-licence",
+    "name": "Driving in GB on a non-GB licence",
+    "description": "Rules for driving in Great Britain with foreign licence",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-motorhome",
+    "name": "Driving a motorhome",
+    "description": "Licence requirements and rules for driving motorhomes",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-a-minibus",
+    "name": "Driving a minibus",
+    "description": "Rules and licence requirements for minibus drivers",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/towing-with-car",
+    "name": "Towing with a car",
+    "description": "Rules and licence requirements for towing trailers",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/towing-rules",
+    "name": "Towing rules",
+    "description": "Age limits and licence requirements for towing",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/towing-with-motorcycle",
+    "name": "Towing with a motorbike",
+    "description": "Rules for towing with motorcycles",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/data-requests-dvla",
+    "name": "Make a data request to DVLA",
+    "description": "Submit formal data access requests to DVLA",
+    "service_type": "transaction",
+    "category": "Administrative",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-recalls-and-faults",
+    "name": "Vehicle recalls and faults",
+    "description": "Information about known vehicle safety issues and recalls",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/employing-people-to-drive",
+    "name": "Employing people to drive",
+    "description": "Guidance for employers checking employees' driving licences",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/mobility-scooters-and-powered-wheelchairs-rules",
+    "name": "Using mobility scooters and powered wheelchairs",
+    "description": "Rules for using mobility scooters and powered wheelchairs",
+    "service_type": "information",
+    "category": "Mobility",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/vehicle-approval",
+    "name": "Vehicle approval",
+    "description": "Get vehicle approval for imported or modified vehicles",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/apply-vehicle-approval",
+    "name": "Apply for Individual Vehicle Approval (IVA)",
+    "description": "Get IVA for vehicles not covered by type approval",
+    "service_type": "transaction",
+    "category": "Vehicle Registration",
+    "discovered_via": "WebSearch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/report-abandoned-vehicle",
+    "name": "Report an abandoned vehicle",
+    "description": "Report abandoned vehicles to local authorities",
+    "service_type": "transaction",
+    "category": "Enforcement",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/report-no-mot",
+    "name": "Report a vehicle with no MOT",
+    "description": "Report vehicles operating without valid MOT",
+    "service_type": "transaction",
+    "category": "Enforcement",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/report-driving-test-impersonation",
+    "name": "Report someone impersonating driving test candidates",
+    "description": "Report fraud in driving tests",
+    "service_type": "transaction",
+    "category": "Enforcement",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/driving-abroad",
+    "name": "Driving abroad",
+    "description": "What you need to drive in other countries",
+    "service_type": "information",
+    "category": "Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/hgv-levy",
+    "name": "Pay the heavy goods vehicle (HGV) levy",
+    "description": "Pay HGV road user levy",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/pay-dartford-crossing-charge",
+    "name": "Pay the Dartford Crossing charge (Dart Charge)",
+    "description": "Pay Dartford Crossing toll",
+    "service_type": "transaction",
+    "category": "Vehicle Tax",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/toll-concessions",
+    "name": "Toll concessions if you have a disability",
+    "description": "Get toll road discounts for disabled drivers",
+    "service_type": "information",
+    "category": "Blue Badge",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/getting-an-mot",
+    "name": "Getting an MOT",
+    "description": "Information about MOT tests",
+    "service_type": "information",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/replacing-lost-damaged-mot-certificate",
+    "name": "Replace a lost or damaged MOT certificate",
+    "description": "Get replacement MOT test certificate",
+    "service_type": "transaction",
+    "category": "Vehicle Information",
+    "discovered_via": "WebFetch",
+    "source_department": "DVLA"
+  },
+  {
+    "url": "https://www.gov.uk/universal-credit",
+    "name": "Universal Credit",
+    "description": "Apply for or manage Universal Credit benefits - replaces 6 legacy benefits",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/sign-in-universal-credit",
+    "name": "Universal Credit Account Sign-in",
+    "description": "Sign in to manage your Universal Credit claim, report changes, and communicate with your work coach",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/manage-your-universal-credit-claim-after-you-apply",
+    "name": "Manage Universal Credit Claim",
+    "description": "Guidance on managing your Universal Credit claim after application",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/universal-credit/how-to-claim",
+    "name": "Universal Credit - How to Claim",
+    "description": "Online application process for Universal Credit",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/report-benefits-change-circumstances",
+    "name": "Report Benefits Change in Circumstances",
+    "description": "Report changes that affect your benefits to DWP",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/pip",
+    "name": "Personal Independence Payment (PIP)",
+    "description": "Help with extra costs if you have a long-term health condition or disability",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/pip/how-to-claim",
+    "name": "Personal Independence Payment - How to Claim",
+    "description": "Apply for PIP by phone, post, or online in some areas",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.apply-for-pip.dwp.gov.uk/eligibility/check-if-eligible",
+    "name": "PIP Online Application",
+    "description": "Check eligibility and apply for Personal Independence Payment online",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/check-state-pension",
+    "name": "Check Your State Pension Forecast",
+    "description": "Find out how much State Pension you could get and when",
+    "service_type": "pension",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/new-state-pension/how-to-claim",
+    "name": "Claim State Pension",
+    "description": "Online or phone application to claim your State Pension",
+    "service_type": "pension",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/contact-pension-service",
+    "name": "Contact The Pension Service",
+    "description": "Contact DWP Pension Service for State Pension queries and changes",
+    "service_type": "pension",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/jobseekers-allowance",
+    "name": "Jobseeker's Allowance (JSA)",
+    "description": "Financial support if you're looking for work",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/jobseekers-allowance/apply-new-style-jsa",
+    "name": "Apply for New Style JSA",
+    "description": "Online application for New Style Jobseeker's Allowance",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/how-to-claim-new-style-jsa",
+    "name": "How to Claim New Style JSA - Step by Step",
+    "description": "Step-by-step guide to claiming New Style Jobseeker's Allowance",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/employment-support-allowance",
+    "name": "Employment and Support Allowance (ESA)",
+    "description": "Financial support if illness or disability affects your work",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/how-to-claim-new-style-esa",
+    "name": "How to Claim New Style ESA - Step by Step",
+    "description": "Online or phone application for New Style Employment and Support Allowance",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/send-fit-note",
+    "name": "Send Fit Note for ESA Claim",
+    "description": "Submit medical evidence for Employment and Support Allowance",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/child-benefit",
+    "name": "Child Benefit",
+    "description": "Regular payments to help with the cost of raising children",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/child-benefit/how-to-claim",
+    "name": "Child Benefit - How to Claim",
+    "description": "Online application for Child Benefit (via HMRC)",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/carers-allowance",
+    "name": "Carer's Allowance",
+    "description": "Financial support if you care for someone at least 35 hours a week",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/carers-allowance/how-to-claim",
+    "name": "Carer's Allowance - How to Claim",
+    "description": "Online application for Carer's Allowance",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.carersallowance.service.gov.uk/ui-citizen-claim/disclaimer",
+    "name": "Carer's Allowance Application Portal",
+    "description": "Direct portal for applying for Carer's Allowance",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/attendance-allowance",
+    "name": "Attendance Allowance",
+    "description": "Help with personal care costs if you're State Pension age and disabled",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/attendance-allowance/how-to-claim",
+    "name": "Attendance Allowance - How to Claim",
+    "description": "Online or phone application for Attendance Allowance",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://apply-for-attendance-allowance.dwp.gov.uk/attall-apply-ui/who-is-applying",
+    "name": "Attendance Allowance Online Application",
+    "description": "Beta online service to apply for Attendance Allowance",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/disability-living-allowance-children",
+    "name": "Disability Living Allowance (DLA) for Children",
+    "description": "Help with extra costs of caring for a disabled child under 16",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/disability-living-allowance-children/how-to-claim",
+    "name": "DLA for Children - How to Claim",
+    "description": "Phone application for Disability Living Allowance for children",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/pension-credit",
+    "name": "Pension Credit",
+    "description": "Extra money to top up your income if you're over State Pension age",
+    "service_type": "pension",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/pension-credit/how-to-claim",
+    "name": "Pension Credit - How to Claim",
+    "description": "Online, phone, or postal application for Pension Credit",
+    "service_type": "pension",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/bereavement-support-payment",
+    "name": "Bereavement Support Payment",
+    "description": "Financial support if your spouse or civil partner has died",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/bereavement-support-payment/how-to-claim",
+    "name": "Bereavement Support Payment - How to Claim",
+    "description": "Online, phone, or postal application for Bereavement Support Payment",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/winter-fuel-payment",
+    "name": "Winter Fuel Payment",
+    "description": "Annual payment to help with heating costs for those born before 21 September 1959",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/winter-fuel-payment/how-to-claim",
+    "name": "Winter Fuel Payment - How to Claim",
+    "description": "Claim Winter Fuel Payment if you haven't received it automatically",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/cold-weather-payment",
+    "name": "Cold Weather Payment",
+    "description": "£25 payment when temperature is 0°C or below for 7 consecutive days",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://coldweatherpayments.dwp.gov.uk/search.php",
+    "name": "Cold Weather Payments Checker",
+    "description": "Check if your postcode qualifies for Cold Weather Payments",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/budgeting-help-benefits",
+    "name": "Budgeting Loans",
+    "description": "Interest-free loan for people on certain benefits to help with essential costs",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/budgeting-help-benefits/how-to-apply",
+    "name": "Budgeting Loans - How to Apply",
+    "description": "Online or postal application for Budgeting Loans",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/access-to-work",
+    "name": "Access to Work",
+    "description": "Practical and financial support for disabled people in work",
+    "service_type": "employment",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/access-to-work/apply",
+    "name": "Access to Work - Apply",
+    "description": "Online or phone application for Access to Work grant",
+    "service_type": "employment",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/find-a-job",
+    "name": "Find a Job",
+    "description": "Government job search service operated by DWP",
+    "service_type": "employment",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://findajob.dwp.gov.uk/search/undefined",
+    "name": "Find a Job Search Portal",
+    "description": "Direct access to job search database",
+    "service_type": "employment",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/contact-jobcentre-plus",
+    "name": "Contact Jobcentre Plus",
+    "description": "Contact details for Jobcentre Plus services",
+    "service_type": "employment",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/industrial-injuries-disablement-benefit",
+    "name": "Industrial Injuries Disablement Benefit",
+    "description": "Benefit for disability caused by work accident or prescribed disease",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/maternity-allowance",
+    "name": "Maternity Allowance",
+    "description": "Financial support during maternity leave if you can't get Statutory Maternity Pay",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/maternity-allowance/how-to-claim",
+    "name": "Maternity Allowance - How to Claim",
+    "description": "Postal application for Maternity Allowance using MA1 form",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/statutory-sick-pay",
+    "name": "Statutory Sick Pay (SSP)",
+    "description": "Information about SSP paid by employers when too ill to work",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/calculate-statutory-sick-pay",
+    "name": "Calculate Statutory Sick Pay",
+    "description": "Calculator to check SSP eligibility and amount",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/guardians-allowance",
+    "name": "Guardian's Allowance",
+    "description": "Extra money if you're bringing up a child whose parents have died",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/guardians-allowance/how-to-claim",
+    "name": "Guardian's Allowance - How to Claim",
+    "description": "Postal application for Guardian's Allowance",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/constant-attendance-allowance",
+    "name": "Constant Attendance Allowance",
+    "description": "Extra payment if you need daily care due to disability from IIDB or War Pension",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/get-help-savings-low-income",
+    "name": "Help to Save",
+    "description": "Savings account with government bonus for Universal Credit claimants",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/get-help-savings-low-income/how-to-apply",
+    "name": "Help to Save - How to Apply",
+    "description": "Online application for Help to Save savings account",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/sign-in-help-to-save",
+    "name": "Sign in to Help to Save Account",
+    "description": "Access your Help to Save savings account",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/benefit-cap",
+    "name": "Benefit Cap Information",
+    "description": "Information and calculator for the benefit cap limits",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/reduced-earnings-allowance",
+    "name": "Reduced Earnings Allowance",
+    "description": "Payment if you can't earn as much due to pre-1990 work accident or disease",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/sure-start-maternity-grant",
+    "name": "Sure Start Maternity Grant",
+    "description": "£500 one-off payment to help with costs of a new baby",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/sure-start-maternity-grant/how-to-claim",
+    "name": "Sure Start Maternity Grant - How to Claim",
+    "description": "Postal application for Sure Start Maternity Grant using SF100 form",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/funeral-payments",
+    "name": "Funeral Expenses Payment",
+    "description": "Help with funeral costs if you're on certain benefits",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/funeral-payments/how-to-claim",
+    "name": "Funeral Expenses Payment - How to Claim",
+    "description": "Phone or postal application for Funeral Expenses Payment",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/check-national-insurance-record",
+    "name": "Check National Insurance Record",
+    "description": "View your National Insurance contribution history",
+    "service_type": "pension",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/find-pension-contact-details",
+    "name": "Pension Tracing Service",
+    "description": "Find contact details for lost pensions",
+    "service_type": "pension",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+    "name": "Tell Us Once - Report a Death",
+    "description": "Report a death to DWP and other government departments in one go",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/browse/benefits/manage-your-benefit",
+    "name": "Manage Existing Benefits",
+    "description": "Information hub for managing existing benefit claims",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/short-term-benefit-advance",
+    "name": "Short-term Benefit Advance",
+    "description": "Get an advance on your first benefit payment",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/how-to-have-your-benefits-paid",
+    "name": "How to Have Your Benefits Paid",
+    "description": "Choose how to receive benefit payments",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/mandatory-reconsideration",
+    "name": "Mandatory Reconsideration",
+    "description": "Challenge a benefit decision (first stage)",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/appeal-benefit-decision",
+    "name": "Appeal Benefit Decision",
+    "description": "Formal appeal process for benefit decisions",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/benefit-overpayments",
+    "name": "Benefit Overpayments",
+    "description": "Information about overpayment recovery and repayment",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/report-benefit-fraud",
+    "name": "Report Benefit Fraud",
+    "description": "Report suspected benefit fraud to DWP",
+    "service_type": "benefits",
+    "discovered_via": "WebFetch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/housing-benefit",
+    "name": "Housing Benefit",
+    "description": "Help with rent for those on low income or benefits (being replaced by Universal Credit)",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/housing-benefit/how-to-claim",
+    "name": "Housing Benefit - How to Claim",
+    "description": "Apply through local council for Housing Benefit",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/how-to-verify-your-identity-for-universal-credit",
+    "name": "Universal Credit Identity Verification",
+    "description": "Guidance on verifying identity when applying for Universal Credit",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://telldwp.campaign.gov.uk/tell-us/how-to-report-changes-to-your-circumstances/",
+    "name": "Tell DWP - Report Changes Campaign Site",
+    "description": "Campaign site for reporting changes in circumstances",
+    "service_type": "benefits",
+    "discovered_via": "WebSearch",
+    "source_department": "DWP"
+  },
+  {
+    "url": "https://www.gov.uk/apply-renew-passport",
+    "name": "Apply for or renew a UK passport",
+    "description": "Apply for a new passport or renew an existing UK passport online",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.passport.service.gov.uk/filter",
+    "name": "Online passport application portal",
+    "description": "Main online passport application and renewal service",
+    "service_type": "application",
+    "discovered_via": "WebFetch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/track-passport-application",
+    "name": "Track your passport application",
+    "description": "Check the status of your passport application online",
+    "service_type": "status_check",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/renew-adult-passport",
+    "name": "Renew or replace your adult passport",
+    "description": "Renew an existing UK passport or replace a lost/damaged passport",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/get-a-child-passport",
+    "name": "Get a child passport",
+    "description": "Apply for a passport for a child under 16",
+    "service_type": "application",
+    "discovered_via": "WebFetch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/get-a-passport-urgently",
+    "name": "Get a passport urgently",
+    "description": "Fast Track and Premium passport services for urgent travel",
+    "service_type": "application",
+    "discovered_via": "WebFetch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/report-a-lost-or-stolen-passport",
+    "name": "Cancel a lost or stolen passport",
+    "description": "Report and cancel your lost or stolen passport",
+    "service_type": "report",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/emergency-travel-document",
+    "name": "Get an emergency travel document",
+    "description": "Apply for emergency travel document if abroad without UK passport",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.apply-emergency-travel-document.service.gov.uk/",
+    "name": "Apply for an emergency travel document online",
+    "description": "Online application service for emergency travel documents",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/travel-urgently-from-abroad-without-uk-passport",
+    "name": "Travel urgently from abroad without UK passport",
+    "description": "Options for urgent travel when passport is unavailable",
+    "service_type": "information",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/eta",
+    "name": "Get an electronic travel authorisation (ETA)",
+    "description": "Apply for ETA to visit the UK for tourism or short stays",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/evisa",
+    "name": "eVisas: access and use your online immigration status",
+    "description": "View and manage your digital immigration status",
+    "service_type": "account",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/view-prove-immigration-status",
+    "name": "View your eVisa and get a share code",
+    "description": "Prove your immigration status to employers, landlords and service providers",
+    "service_type": "verification",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://view-immigration-status.service.gov.uk/status",
+    "name": "View immigration status online",
+    "description": "Online service to access your immigration status",
+    "service_type": "account",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/check-immigration-status",
+    "name": "Check someone's immigration status using share code",
+    "description": "Employers and landlords can verify immigration status",
+    "service_type": "verification",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/check-uk-visa",
+    "name": "Check if you need a UK visa",
+    "description": "Find out if you need a visa to visit, work or study in the UK",
+    "service_type": "information",
+    "discovered_via": "WebFetch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/check-visa-processing-time",
+    "name": "Check your visa processing time",
+    "description": "Check when you can expect a decision on your visa application",
+    "service_type": "status_check",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/prove-right-to-work",
+    "name": "Prove your right to work to an employer",
+    "description": "Generate share code to prove right to work in the UK",
+    "service_type": "verification",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/view-right-to-work",
+    "name": "Check a job applicant's right to work",
+    "description": "Employer service to verify right to work using share codes",
+    "service_type": "verification",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/student-visa",
+    "name": "Student visa",
+    "description": "Apply for a Student visa to study in the UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/child-study-visa",
+    "name": "Child Student visa",
+    "description": "Apply for a visa for children aged 4-17 to study at independent schools",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/graduate-visa",
+    "name": "Graduate visa",
+    "description": "Stay in the UK for 2-3 years after completing studies",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/skilled-worker-visa",
+    "name": "Skilled Worker visa",
+    "description": "Work in the UK in an eligible skilled job with sponsorship",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/health-care-worker-visa",
+    "name": "Health and Care Worker visa",
+    "description": "Work in health or social care with reduced fees and faster processing",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/global-talent",
+    "name": "Global Talent visa",
+    "description": "Visa for leaders and potential leaders in digital technology, arts, research",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/innovator-founder-visa",
+    "name": "Innovator Founder visa",
+    "description": "Set up and run an innovative business in the UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/start-up-visa",
+    "name": "Start-up visa (legacy)",
+    "description": "Legacy route for starting a business (now closed)",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/uk-visa-sponsorship-employers",
+    "name": "UK visa sponsorship for employers",
+    "description": "Information for employers on sponsoring workers",
+    "service_type": "information",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/apply-sponsor-licence",
+    "name": "Apply for a sponsor licence",
+    "description": "Employers apply to become licensed visa sponsors",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/uk-family-visa",
+    "name": "Family visas: apply, extend or switch",
+    "description": "Join family members in the UK as partner, parent or child",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/marriage-visa",
+    "name": "Marriage Visitor visa",
+    "description": "Get married or enter civil partnership in the UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/standard-visitor",
+    "name": "Standard Visitor visa",
+    "description": "Visit the UK for tourism, business or medical treatment",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/transit-visa",
+    "name": "Visa to pass through the UK in transit",
+    "description": "Transit visa for passing through UK airports",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/settled-status-eu-citizens-families",
+    "name": "Apply to the EU Settlement Scheme",
+    "description": "Settled or pre-settled status for EU, EEA and Swiss citizens",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/indefinite-leave-to-remain",
+    "name": "Check if you can get indefinite leave to remain",
+    "description": "Apply to settle permanently in the UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/british-citizenship",
+    "name": "Check if you can become a British citizen",
+    "description": "Naturalisation and citizenship applications",
+    "service_type": "information",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+    "name": "Apply for citizenship with indefinite leave to remain",
+    "description": "Naturalisation application for those with ILR or settled status",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/life-in-the-uk-test",
+    "name": "Book the Life in the UK Test",
+    "description": "Test required for citizenship and settlement applications",
+    "service_type": "booking",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/healthcare-immigration-application",
+    "name": "Pay for UK healthcare as part of immigration application",
+    "description": "Immigration Health Surcharge payment for visa applicants",
+    "service_type": "payment",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/asylum-support",
+    "name": "Asylum support",
+    "description": "Apply for housing and financial support while awaiting asylum decision",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/settlement-refugee-or-humanitarian-protection",
+    "name": "Indefinite leave to remain (refugee or humanitarian protection)",
+    "description": "Settlement for those granted refugee status",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/apply-for-a-visa-under-the-ukraine-sponsorship-scheme",
+    "name": "Apply for visa under Homes for Ukraine Sponsorship Scheme",
+    "description": "Visa scheme for Ukrainian nationals fleeing conflict",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/british-national-overseas-bno-visa",
+    "name": "British National (Overseas) visa",
+    "description": "Visa for Hong Kong BNO status holders to live and work in UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/youth-mobility",
+    "name": "Youth Mobility Scheme visa",
+    "description": "Working holiday visa for young people from partner countries",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/ancestry-visa",
+    "name": "UK Ancestry visa",
+    "description": "Commonwealth citizens with UK-born grandparent can work in UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/frontier-worker-permit",
+    "name": "Frontier Worker permit",
+    "description": "Work in UK but live in another country (EU/EEA/Swiss nationals)",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/minister-of-religion-visa",
+    "name": "Minister of Religion visa",
+    "description": "Long-term visa for religious ministers and faith leaders",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/religious-worker-visa",
+    "name": "Religious Worker visa (Temporary)",
+    "description": "Temporary visa for non-pastoral religious work",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/sportsperson-visa",
+    "name": "International Sportsperson visa",
+    "description": "Elite athletes and coaches with endorsement",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/overseas-domestic-worker-visa",
+    "name": "Overseas Domestic Worker visa",
+    "description": "Domestic workers visiting UK with their employer",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/parent-of-a-child-at-school-visa",
+    "name": "Parent of a Child Student visa",
+    "description": "Parent visa to accompany child aged 4-11 at independent school",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/biometric-residence-permits",
+    "name": "Biometric residence permits (BRPs)",
+    "description": "Information about BRP cards and transition to eVisas",
+    "service_type": "information",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.biometric-residence-permit.service.gov.uk/collection/where",
+    "name": "BRP collection service",
+    "description": "Service for collecting biometric residence permits (legacy)",
+    "service_type": "information",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/request-copy-criminal-record",
+    "name": "Request a basic DBS check",
+    "description": "Apply for a Disclosure and Barring Service criminal record check",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/copy-of-police-records",
+    "name": "Get a copy of your police records",
+    "description": "Request police records through subject access request",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/disclosure-barring-service-check",
+    "name": "DBS (Criminal Records) Check",
+    "description": "Disclosure and Barring Service checks for employment",
+    "service_type": "information",
+    "discovered_via": "WebFetch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/report-terrorism",
+    "name": "Report online terrorist material",
+    "description": "Report terrorist content and activity online",
+    "service_type": "report",
+    "discovered_via": "WebFetch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/report-crime",
+    "name": "Report a crime",
+    "description": "Information on reporting crimes to police",
+    "service_type": "information",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/assisted-digital-help-online-applications",
+    "name": "Get help with your online Home Office application",
+    "description": "Assisted Digital support for Home Office applications",
+    "service_type": "support",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/assisted-digital-help-online-applications-evisas",
+    "name": "Get help to apply online for visa or set up eVisa access",
+    "description": "Assisted Digital help for visa applications and eVisa setup",
+    "service_type": "support",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/contact-ukvi",
+    "name": "Contact UK Visas and Immigration",
+    "description": "Contact UKVI for visa and immigration inquiries",
+    "service_type": "support",
+    "discovered_via": "WebFetch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/high-potential-individual-visa",
+    "name": "High Potential Individual (HPI) visa",
+    "description": "Apply if graduated from top global university in last 5 years",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/india-young-professionals-scheme-visa",
+    "name": "India Young Professionals Scheme visa",
+    "description": "Indian nationals aged 18-30 can live and work in UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/senior-specialist-worker-visa",
+    "name": "Senior or Specialist Worker visa",
+    "description": "Global Business Mobility visa for senior/specialist workers",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/seasonal-worker-visa",
+    "name": "Seasonal Worker visa",
+    "description": "Work in horticulture in UK for up to 6 months",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/scale-up-worker-visa",
+    "name": "Scale-up Worker visa",
+    "description": "Work for a fast-growing UK business",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/creative-worker-visa",
+    "name": "Creative Worker visa",
+    "description": "Work in UK's creative industries temporarily",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/temporary-worker-charity-worker-visa",
+    "name": "Charity Worker visa",
+    "description": "Do voluntary work for a charity in the UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/government-authorised-exchange",
+    "name": "Government Authorised Exchange visa",
+    "description": "Come to UK on work, training or research programme",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/visa-to-study-english",
+    "name": "Short-term study visa",
+    "description": "Study English in the UK for up to 11 months",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/family-permit",
+    "name": "EU Settlement Scheme family permit",
+    "description": "Join EU, EEA or Swiss family member in UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/apply-for-a-ukraine-family-scheme-visa",
+    "name": "Ukraine Family Scheme visa",
+    "description": "Apply for Ukraine Family Scheme visa to join family in UK",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/long-residence",
+    "name": "Indefinite leave to remain (10 years long residence)",
+    "description": "Apply for ILR if you've been in UK legally for 10 years",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/right-of-abode/apply-for-a-certificate-of-entitlement",
+    "name": "Apply for certificate of entitlement to right of abode",
+    "description": "Prove your right of abode in the UK (£589)",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/stay-in-uk-stateless",
+    "name": "Apply to stay in UK as stateless person",
+    "description": "Apply to stay in the UK as a stateless person",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/citizenship-ceremonies",
+    "name": "Citizenship ceremonies",
+    "description": "Attend citizenship ceremony to complete British citizenship",
+    "service_type": "booking",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/get-replacement-citizenship-certificate",
+    "name": "Get replacement citizenship certificate",
+    "description": "Replace lost, stolen or damaged citizenship certificate",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/renounce-british-nationality",
+    "name": "Renounce British nationality",
+    "description": "Apply to renounce (give up) your British citizenship",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/claim-asylum",
+    "name": "Claim asylum in the UK",
+    "description": "Apply for asylum if you fear persecution",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/update-uk-visas-immigration-account-details",
+    "name": "Update UK Visas and Immigration account details",
+    "description": "Update your UKVI account contact and identity details",
+    "service_type": "account",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/change-circumstances-visa-brp",
+    "name": "Report change of circumstances (visa/BRP)",
+    "description": "Report changes if you have a visa or expired BRP",
+    "service_type": "report",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/apply-home-office-travel-document",
+    "name": "Apply for Home Office travel document",
+    "description": "Refugee travel document, stateless person's document or certificate of travel",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/guidance/afghan-citizens-resettlement-scheme",
+    "name": "Afghan Citizens Resettlement Scheme (ACRS)",
+    "description": "Resettlement scheme for Afghan nationals",
+    "service_type": "information",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/government/publications/afghan-relocations-and-assistance-policy/afghan-relocations-and-assistance-policy-information-and-guidance",
+    "name": "Afghan Relocations and Assistance Policy (ARAP)",
+    "description": "Information on ARAP scheme for Afghan nationals who worked with UK",
+    "service_type": "information",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/immigration-asylum-tribunal",
+    "name": "Appeal against a visa or immigration decision",
+    "description": "Appeal an immigration or asylum decision",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/upper-tribunal-immigration-asylum",
+    "name": "Appeal to Upper Tribunal (Immigration and Asylum)",
+    "description": "Appeal a decision by the immigration and asylum tribunal",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/sponsor-management-system",
+    "name": "Sponsorship Management System",
+    "description": "UK visa sponsorship system for licence holders",
+    "service_type": "account",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/changing-passport-information/gender",
+    "name": "Change name or gender on passport",
+    "description": "Change your name, gender or other personal details on passport",
+    "service_type": "application",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/employee-immigration-employment-status",
+    "name": "Use the Employer Checking Service",
+    "description": "Ask Home Office to check an employee's immigration status",
+    "service_type": "verification",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "url": "https://www.gov.uk/check-job-applicant-right-to-work",
+    "name": "Check a job applicant's right to work",
+    "description": "Employers: verify a job applicant can work in the UK",
+    "service_type": "verification",
+    "discovered_via": "WebSearch",
+    "source_department": "Home Office"
+  },
+  {
+    "name": "Find a Court or Tribunal",
+    "url": "https://www.find-court-tribunal.service.gov.uk/",
+    "category": "Courts & Tribunals",
+    "department": "MOJ",
+    "service_type": "Search/Directory",
+    "notes": "Locate court and tribunal locations across the UK",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Money Claims Service",
+    "url": "https://www.moneyclaims.service.gov.uk/",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Online Claim Portal",
+    "notes": "Make civil money claims up to £25,000",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Money Claims - Make Claim",
+    "url": "https://www.moneyclaims.service.gov.uk/make-claim",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Form Submission",
+    "notes": "Start a new money claim online",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Money Claims - Return to Claim",
+    "url": "https://www.moneyclaims.service.gov.uk/return-to-claim",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Account Management",
+    "notes": "Access and manage existing claims",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Money Claims - Enter Claim Number",
+    "url": "https://www.moneyclaims.service.gov.uk/enter-claim-number",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Status Update",
+    "notes": "Update payment status for existing claims",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Money Claims - First Contact",
+    "url": "https://www.moneyclaims.service.gov.uk/first-contact/claim-reference",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Response Portal",
+    "notes": "Respond to a money claim",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Money Claim Online (MCOL)",
+    "url": "https://www.moneyclaim.gov.uk/web/mcol/welcome",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Online Claim Portal",
+    "notes": "Make money claims over £25,000",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "MyHMCTS - Manage Case",
+    "url": "https://manage-case.platform.hmcts.net/",
+    "category": "Case Management",
+    "department": "HMCTS",
+    "service_type": "Professional Portal",
+    "notes": "Case management for legal professionals",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "MyHMCTS - Manage Organisation",
+    "url": "https://manage-org.platform.hmcts.net/",
+    "category": "Case Management",
+    "department": "HMCTS",
+    "service_type": "Professional Portal",
+    "notes": "Organisation and user account management for legal professionals",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Money Claim Legal Platform",
+    "url": "https://www.moneyclaim-legal.platform.hmcts.net/",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Professional Portal",
+    "notes": "Legal professional money claims portal",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Immigration & Asylum Appeal",
+    "url": "https://www.appeal-immigration-asylum-decision.service.gov.uk/",
+    "category": "Immigration Appeals",
+    "department": "HMCTS",
+    "service_type": "Appeal Portal",
+    "notes": "Appeal immigration or asylum decisions",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Immigration & Asylum Appeal - Start Appeal",
+    "url": "https://www.appeal-immigration-asylum-decision.service.gov.uk/start-appeal",
+    "category": "Immigration Appeals",
+    "department": "HMCTS",
+    "service_type": "Form Submission",
+    "notes": "Begin immigration or asylum appeal process",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Benefit Decision Appeal",
+    "url": "https://www.appeal-benefit-decision.service.gov.uk/",
+    "category": "Social Security Appeals",
+    "department": "HMCTS",
+    "service_type": "Appeal Portal",
+    "notes": "Appeal benefit decisions to tribunal",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Benefit Decision Appeal - Entry",
+    "url": "https://www.appeal-benefit-decision.service.gov.uk/entry",
+    "category": "Social Security Appeals",
+    "department": "HMCTS",
+    "service_type": "Form Submission",
+    "notes": "Start benefit appeal submission",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Benefit Decision Appeal - Sign In",
+    "url": "https://www.appeal-benefit-decision.service.gov.uk/sign-in-back",
+    "category": "Social Security Appeals",
+    "department": "HMCTS",
+    "service_type": "Account Access",
+    "notes": "Return to existing benefit appeal",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Employment Tribunal Claim",
+    "url": "https://www.claim-employment-tribunals.service.gov.uk/",
+    "category": "Employment Tribunals",
+    "department": "HMCTS",
+    "service_type": "Claim Portal",
+    "notes": "Make employment tribunal claims online",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Traffic Penalty Tribunal",
+    "url": "https://www.trafficpenaltytribunal.gov.uk/",
+    "category": "Traffic & Parking",
+    "department": "MOJ",
+    "service_type": "Appeal Portal",
+    "notes": "Appeal parking and traffic penalty charge notices",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Traffic Penalty Tribunal - Submit Appeal",
+    "url": "https://www.trafficpenaltytribunal.gov.uk/want-to-appeal/",
+    "category": "Traffic & Parking",
+    "department": "MOJ",
+    "service_type": "Form Submission",
+    "notes": "Submit traffic penalty appeal online",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "London Tribunals - Online Appeals",
+    "url": "https://www.londontribunals.gov.uk/about/online-appeals",
+    "category": "Traffic & Parking",
+    "department": "MOJ",
+    "service_type": "Appeal Portal",
+    "notes": "Appeal parking and traffic penalties in London",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Check Client Qualifies for Legal Aid",
+    "url": "https://check-your-client-qualifies-for-legal-aid.service.gov.uk/",
+    "category": "Legal Aid",
+    "department": "MOJ",
+    "service_type": "Eligibility Checker",
+    "notes": "Legal professionals check client legal aid eligibility",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Legal Aid Data",
+    "url": "https://data.justice.gov.uk/legalaid",
+    "category": "Legal Aid",
+    "department": "MOJ",
+    "service_type": "Data Portal",
+    "notes": "Legal aid statistics and data",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Make Court Claim for Money",
+    "url": "https://www.gov.uk/make-court-claim-for-money",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on making civil money claims",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Respond to Court Claim",
+    "url": "https://www.gov.uk/respond-to-court-claim-for-money",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on responding to money claims",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Divorce",
+    "url": "https://www.gov.uk/divorce",
+    "category": "Family Law",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Information on divorce process and applications",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Apply for Probate",
+    "url": "https://www.gov.uk/applying-for-probate",
+    "category": "Probate",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on probate applications",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Search Will Probate",
+    "url": "https://www.gov.uk/search-will-probate",
+    "category": "Probate",
+    "department": "HMCTS",
+    "service_type": "Search Service",
+    "notes": "Search for probate records and wills",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Pay Court Fine Online",
+    "url": "https://www.gov.uk/pay-court-fine-online",
+    "category": "Payments",
+    "department": "HMCTS",
+    "service_type": "Payment Portal",
+    "notes": "Pay court fines and penalties online",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Court Fees",
+    "url": "https://www.gov.uk/court-fees-what-they-are",
+    "category": "Payments",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Information on court fees and charges",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Get Help with Court Fees",
+    "url": "https://www.gov.uk/get-help-with-court-fees",
+    "category": "Payments",
+    "department": "HMCTS",
+    "service_type": "Financial Support",
+    "notes": "Apply for help with court fees",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Check Legal Aid",
+    "url": "https://www.gov.uk/check-legal-aid",
+    "category": "Legal Aid",
+    "department": "MOJ",
+    "service_type": "Eligibility Checker",
+    "notes": "Check eligibility for legal aid",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Legal Aid Overview",
+    "url": "https://www.gov.uk/legal-aid",
+    "category": "Legal Aid",
+    "department": "MOJ",
+    "service_type": "Information & Guidance",
+    "notes": "Overview of legal aid services",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Appeal Benefit Decision",
+    "url": "https://www.gov.uk/appeal-benefit-decision",
+    "category": "Social Security Appeals",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on appealing benefit decisions",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Employment Tribunals",
+    "url": "https://www.gov.uk/employment-tribunals",
+    "category": "Employment Tribunals",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Information on making employment tribunal claims",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Immigration Asylum Tribunal",
+    "url": "https://www.gov.uk/immigration-asylum-tribunal",
+    "category": "Immigration Appeals",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on immigration and asylum tribunal appeals",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Jury Service",
+    "url": "https://www.gov.uk/jury-service",
+    "category": "Court Services",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Information on jury service obligations",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Prison Visits",
+    "url": "https://www.gov.uk/prison-visits",
+    "category": "Prison Services",
+    "department": "MOJ",
+    "service_type": "Booking Service",
+    "notes": "Book prison visits online",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Send Prisoner Money",
+    "url": "https://www.gov.uk/send-prisoner-money",
+    "category": "Prison Services",
+    "department": "MOJ",
+    "service_type": "Payment Portal",
+    "notes": "Send money to prisoners online",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - When Someone Dies",
+    "url": "https://www.gov.uk/when-someone-dies",
+    "category": "Probate",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Death administration and probate guidance",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Courts Data - Justice Data",
+    "url": "https://data.justice.gov.uk/courts",
+    "category": "Open Data",
+    "department": "MOJ",
+    "service_type": "Data Portal",
+    "notes": "Court statistics and performance data",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Tribunals Data - Justice Data",
+    "url": "https://data.justice.gov.uk/courts/tribunals",
+    "category": "Open Data",
+    "department": "MOJ",
+    "service_type": "Data Portal",
+    "notes": "Tribunal statistics and performance data",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Court and Tribunal Forms",
+    "url": "https://www.gov.uk/government/collections/court-and-tribunal-forms",
+    "category": "Forms & Documents",
+    "department": "HMCTS",
+    "service_type": "Document Repository",
+    "notes": "Collection of court and tribunal forms",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "GOV.UK - Appeal Penalty Charge Notice",
+    "url": "https://www.gov.uk/appeal-against-a-penalty-charge-notice",
+    "category": "Traffic & Parking",
+    "department": "MOJ",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on appealing parking penalty charges",
+    "source_department": "MOJ"
+  },
+  {
+    "name": "Student Finance England - Login",
+    "url": "https://www.student-finance.service.gov.uk",
+    "description": "Student finance account login for undergraduate and postgraduate applications",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": [
+      "student",
+      "finance",
+      "loans",
+      "grants"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Apply for Student Finance",
+    "url": "https://www.gov.uk/apply-online-for-student-finance",
+    "description": "Apply online for student finance including loans and grants",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": [
+      "student",
+      "finance",
+      "application"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Student Finance - Register/Login",
+    "url": "https://www.gov.uk/student-finance-register-login",
+    "description": "Register or sign in to student finance account",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": [
+      "student",
+      "finance",
+      "authentication"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Manage Student Loan Balance",
+    "url": "https://www.gov.uk/sign-in-to-manage-your-student-loan-balance",
+    "description": "Sign in to view and manage student loan balance and repayments",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": [
+      "student",
+      "loans",
+      "repayment"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Get Into Teaching",
+    "url": "https://getintoteaching.education.gov.uk",
+    "description": "Teaching career guidance and application support",
+    "category": "Teacher Recruitment",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "training",
+      "recruitment"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Find Teacher Training Courses",
+    "url": "https://find-teacher-training-courses.service.gov.uk",
+    "description": "Search for and find initial teacher training courses by location or provider",
+    "category": "Teacher Training",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "training",
+      "courses"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Apply for Teacher Training",
+    "url": "https://www.gov.uk/apply-for-teacher-training",
+    "description": "Apply for a teacher training course in England",
+    "category": "Teacher Training",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "training",
+      "application"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Apply for Qualified Teacher Status (QTS)",
+    "url": "https://www.apply-for-qts-in-england.education.gov.uk",
+    "description": "Apply for QTS if you trained to teach overseas",
+    "category": "Teacher Qualifications",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "qualification",
+      "qts"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Access Your Teaching Qualifications",
+    "url": "https://www.gov.uk/guidance/access-your-teaching-qualifications",
+    "description": "View and download teaching qualification certificates including QTS, QTLS, and NPQs",
+    "category": "Teacher Qualifications",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "qualification",
+      "certificates"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Early Career Framework Support",
+    "url": "https://www.early-career-framework.education.gov.uk",
+    "description": "Support service for early career teachers and mentors",
+    "category": "Teacher Development",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "early-career",
+      "training"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Professional Development for Teachers and Leaders",
+    "url": "https://professional-development-for-teachers-leaders.education.gov.uk",
+    "description": "Access professional development resources and courses for teachers and school leaders",
+    "category": "Teacher Development",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "professional-development",
+      "training"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "National Professional Qualifications (NPQ)",
+    "url": "https://www.gov.uk/guidance/national-professional-qualification-npq-courses",
+    "description": "Information and application for NPQ courses for teachers and leaders",
+    "category": "Teacher Development",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "qualification",
+      "leadership"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Teaching Vacancies",
+    "url": "https://teaching-vacancies.service.gov.uk",
+    "description": "Search and apply for teaching, leadership and support jobs in schools",
+    "category": "Teacher Recruitment",
+    "department": "Department for Education",
+    "tags": [
+      "jobs",
+      "teacher",
+      "recruitment"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Teach in Further Education",
+    "url": "https://www.teachinfurthereducation.education.gov.uk",
+    "description": "Search for teaching jobs in further education and get career advice",
+    "category": "Further Education",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "further-education",
+      "jobs"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Find an Apprenticeship",
+    "url": "https://www.gov.uk/apply-apprenticeship",
+    "description": "Search and apply for apprenticeships in England",
+    "category": "Apprenticeships",
+    "department": "Department for Education",
+    "tags": [
+      "apprenticeship",
+      "training",
+      "jobs"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Create Apprenticeship Account (Individuals)",
+    "url": "https://www.apprenticeships.gov.uk/apprentices/create-account",
+    "description": "Create an account to search and apply for apprenticeships",
+    "category": "Apprenticeships",
+    "department": "Department for Education",
+    "tags": [
+      "apprenticeship",
+      "account",
+      "application"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Apprenticeship Service (Employers)",
+    "url": "https://www.apprenticeships.gov.uk/employers/create-apprenticeship-service-account",
+    "description": "Create employer account to access apprenticeship funding and advertise vacancies",
+    "category": "Apprenticeships",
+    "department": "Department for Education",
+    "tags": [
+      "apprenticeship",
+      "employer",
+      "funding"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Apprenticeship Provider and Assessment Register",
+    "url": "https://apply.apprenticeships.education.gov.uk",
+    "description": "Apply to join the apprenticeship provider and assessment register (APAR)",
+    "category": "Apprenticeships",
+    "department": "Department for Education",
+    "tags": [
+      "apprenticeship",
+      "provider",
+      "registration"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Get Information About Schools (GIAS)",
+    "url": "https://get-information-schools.service.gov.uk",
+    "description": "Search for school contact details and information",
+    "category": "School Information",
+    "department": "Department for Education",
+    "tags": [
+      "school",
+      "directory",
+      "information"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "School Performance Tables",
+    "url": "https://www.gov.uk/school-performance-tables",
+    "description": "View and compare school performance data",
+    "category": "School Information",
+    "department": "Department for Education",
+    "tags": [
+      "school",
+      "performance",
+      "data"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Explore Education Statistics",
+    "url": "https://explore-education-statistics.service.gov.uk",
+    "description": "Find and explore official education statistics and data",
+    "category": "Data and Statistics",
+    "department": "Department for Education",
+    "tags": [
+      "statistics",
+      "data",
+      "research"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Education Statistics API",
+    "url": "https://api.education.gov.uk/statistics",
+    "description": "Public API for accessing education statistics programmatically",
+    "category": "Data and Statistics",
+    "department": "Department for Education",
+    "tags": [
+      "api",
+      "statistics",
+      "data"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Tax-Free Childcare",
+    "url": "https://www.gov.uk/tax-free-childcare",
+    "description": "Information and application for Tax-Free Childcare scheme",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": [
+      "childcare",
+      "funding",
+      "tax"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Apply for Tax-Free Childcare",
+    "url": "https://www.gov.uk/apply-for-tax-free-childcare",
+    "description": "Apply for Tax-Free Childcare and 30 hours free childcare",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": [
+      "childcare",
+      "application",
+      "funding"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Sign in to Childcare Account",
+    "url": "https://www.gov.uk/sign-in-childcare-account",
+    "description": "Sign in to childcare account for Tax-Free Childcare or free childcare hours",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": [
+      "childcare",
+      "account",
+      "authentication"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Best Start in Life - Childcare Support",
+    "url": "https://www.beststartinlife.gov.uk/childcare-support-available",
+    "description": "Check eligibility for childcare support including 30 hours free childcare",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": [
+      "childcare",
+      "eligibility",
+      "funding"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Apply for Free School Meals",
+    "url": "https://www.gov.uk/apply-free-school-meals",
+    "description": "Check eligibility and apply for free school meals",
+    "category": "School Support",
+    "department": "Department for Education",
+    "tags": [
+      "school",
+      "meals",
+      "funding"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Data Collections Service",
+    "url": "https://form.education.gov.uk/service/Data-collections-service-request-form",
+    "description": "Support for school data collection systems (S2S, ASP, GIAP, GIAS, COLLECT)",
+    "category": "School Administration",
+    "department": "Department for Education",
+    "tags": [
+      "school",
+      "data",
+      "administration"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Report Extremism in Education",
+    "url": "https://report-extremism.education.gov.uk",
+    "description": "Report concerns about extremism in education settings",
+    "category": "Safeguarding",
+    "department": "Department for Education",
+    "tags": [
+      "safeguarding",
+      "reporting",
+      "security"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "FOI Request - Department for Education",
+    "url": "https://form.education.gov.uk/service/Contact_the_Department_for_Education",
+    "description": "Submit Freedom of Information requests to the Department for Education",
+    "category": "Transparency",
+    "department": "Department for Education",
+    "tags": [
+      "foi",
+      "transparency",
+      "contact"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Student Finance England Campaign",
+    "url": "https://studentfinance.campaign.gov.uk",
+    "description": "Student finance information and guidance for current and prospective students",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": [
+      "student",
+      "finance",
+      "information"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Teaching Vacancies Campaign",
+    "url": "https://teaching-vacancies.campaign.gov.uk",
+    "description": "Advice and guidance for job seekers looking for teaching positions",
+    "category": "Teacher Recruitment",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "jobs",
+      "guidance"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Help with Childcare Costs",
+    "url": "https://www.gov.uk/help-with-childcare-costs",
+    "description": "Information about all types of childcare support available",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": [
+      "childcare",
+      "funding",
+      "support"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Regulated Professions Register - School Teacher",
+    "url": "https://www.regulated-professions.service.gov.uk/professions/school-teacher-2",
+    "description": "Information about school teacher as a regulated profession",
+    "category": "Teacher Qualifications",
+    "department": "Department for Education",
+    "tags": [
+      "teacher",
+      "qualification",
+      "regulation"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Support Child or Partner's Student Finance Application",
+    "url": "https://www.gov.uk/support-child-or-partners-student-finance-application",
+    "description": "Provide household income details to support student finance application",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": [
+      "student",
+      "finance",
+      "household-income"
+    ],
+    "source_department": "DfE"
+  },
+  {
+    "name": "Rural Payments Service",
+    "url": "https://www.ruralpayments.service.gov.uk/",
+    "description": "Make or update rural payments claims for farming schemes including Basic Payment Scheme, Countryside Stewardship, and Sustainable Farming Incentive",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "farming",
+      "rural-payments",
+      "agriculture",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Find Farm and Land Payment Data",
+    "url": "https://find-farm-and-land-payment-data.defra.gov.uk/service-start",
+    "description": "Search CAP payments received by beneficiaries under Rural Development, Direct Aids and Market Schemes",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "farming",
+      "rural-payments",
+      "transparency",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Check for Flooding in England",
+    "url": "https://check-for-flooding.service.gov.uk/",
+    "description": "Real-time flood warnings and river level information for England",
+    "department": "Environment Agency",
+    "tags": [
+      "flooding",
+      "environment",
+      "defra",
+      "emergency"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Sign Up for Flood Warnings",
+    "url": "https://www.fws.environment-agency.gov.uk/app/olr/home",
+    "description": "Register to receive free flood warnings by telephone, mobile, email or SMS",
+    "department": "Environment Agency",
+    "tags": [
+      "flooding",
+      "environment",
+      "defra",
+      "alerts"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Get a Rod Fishing Licence",
+    "url": "https://get-fishing-licence.service.gov.uk/buy/licence-for",
+    "description": "Purchase rod fishing licences for salmon, trout, freshwater fish, smelt or eel in England and Wales",
+    "department": "Environment Agency",
+    "tags": [
+      "fishing",
+      "recreation",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "IPAFFS - Import of Products, Animals, Food and Feed System",
+    "url": "https://www.gov.uk/guidance/import-of-products-animals-food-and-feed-system",
+    "description": "Notify authorities about imports of animals, animal products, high-risk food and feed, and plants to Great Britain",
+    "department": "Animal and Plant Health Agency",
+    "tags": [
+      "import",
+      "animals",
+      "plants",
+      "food-safety",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Waste Carriers Registration Service",
+    "url": "https://wastecarriersregistration.service.gov.uk/",
+    "description": "Register or renew as a waste carrier, broker or dealer in England",
+    "department": "Environment Agency",
+    "tags": [
+      "waste",
+      "environment",
+      "registration",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Countryside Stewardship Grant Finder",
+    "url": "https://www.gov.uk/countryside-stewardship-grants",
+    "description": "Find information about Countryside Stewardship options, capital items and supplements for environmental land management",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "farming",
+      "grants",
+      "environment",
+      "rural",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Apply for Export Health Certificate",
+    "url": "https://www.gov.uk/guidance/apply-for-an-export-health-certificate",
+    "description": "Apply for export health certificates to export live animals and animal products from England, Scotland and Wales",
+    "department": "Animal and Plant Health Agency",
+    "tags": [
+      "export",
+      "animals",
+      "certification",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Cattle Tracing System Online",
+    "url": "https://www.gov.uk/cattle-tracing-online",
+    "description": "Report cattle movements and manage cattle records with the British Cattle Movement Service",
+    "department": "Rural Payments Agency",
+    "tags": [
+      "livestock",
+      "agriculture",
+      "traceability",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Register as Poultry or Bird Keeper",
+    "url": "https://www.gov.uk/guidance/register-as-a-keeper-of-less-than-50-poultry-or-other-captive-birds",
+    "description": "Register as a keeper of less than 50 poultry or other captive birds with APHA for disease control",
+    "department": "Animal and Plant Health Agency",
+    "tags": [
+      "poultry",
+      "registration",
+      "animal-health",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Report Dead Wild Birds",
+    "url": "https://www.gov.uk/guidance/report-dead-wild-birds",
+    "description": "Report dead wild birds to help monitor and control avian influenza (bird flu)",
+    "department": "Animal and Plant Health Agency",
+    "tags": [
+      "wildlife",
+      "disease-surveillance",
+      "bird-flu",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Bring Pet to Great Britain",
+    "url": "https://www.gov.uk/bring-pet-to-great-britain",
+    "description": "Requirements for bringing pet dogs, cats or ferrets to Great Britain including pet passports and health certificates",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "pets",
+      "import",
+      "travel",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Apply for Water Abstraction or Impounding Licence",
+    "url": "https://www.gov.uk/guidance/water-management-apply-for-a-water-abstraction-or-impoundment-licence",
+    "description": "Apply for a licence to abstract more than 20 cubic metres of water per day or to impound water",
+    "department": "Environment Agency",
+    "tags": [
+      "water",
+      "licensing",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Manage Water Abstraction Licence Online",
+    "url": "https://www.gov.uk/guidance/manage-your-water-abstraction-or-impoundment-licences-online",
+    "description": "Manage water abstraction or impoundment licences using the online service",
+    "department": "Environment Agency",
+    "tags": [
+      "water",
+      "licensing",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Apply for Marine Licence",
+    "url": "https://www.gov.uk/apply-marine-licence",
+    "description": "Apply for a marine licence for construction, dredging, or other activities in UK marine waters",
+    "department": "Marine Management Organisation",
+    "tags": [
+      "marine",
+      "licensing",
+      "coastal",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Register Waste Exemptions",
+    "url": "https://www.gov.uk/guidance/register-your-waste-exemptions",
+    "description": "Register exemptions to store, treat, use or dispose of waste without a permit",
+    "department": "Environment Agency",
+    "tags": [
+      "waste",
+      "exemptions",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Report Environmental Incident",
+    "url": "https://www.gov.uk/report-environmental-incident",
+    "description": "Report environmental incidents including pollution, flooding, and poaching to the Environment Agency 24/7 hotline",
+    "department": "Environment Agency",
+    "tags": [
+      "environment",
+      "incident-reporting",
+      "pollution",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Check Long-Term Flood Risk",
+    "url": "https://www.gov.uk/check-long-term-flood-risk",
+    "description": "Check the long-term flood risk for any location in England",
+    "department": "Environment Agency",
+    "tags": [
+      "flooding",
+      "risk-assessment",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Plant Health Controls",
+    "url": "https://www.gov.uk/guidance/plant-health-controls",
+    "description": "Guidance on plant health import and export controls to prevent spread of plant pests and diseases",
+    "department": "Animal and Plant Health Agency",
+    "tags": [
+      "plants",
+      "import",
+      "export",
+      "biosecurity",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "UK Plant Health Information Portal",
+    "url": "https://planthealthportal.defra.gov.uk/",
+    "description": "Comprehensive portal for plant health import and export requirements, regulations and guidance",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "plants",
+      "import",
+      "export",
+      "information",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Report Catch Return",
+    "url": "https://www.gov.uk/catch-return",
+    "description": "Report salmon and sea trout catch returns for England and Wales",
+    "department": "Environment Agency",
+    "tags": [
+      "fishing",
+      "reporting",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Report Illegal Fishing in England",
+    "url": "https://www.gov.uk/report-illegal-fishing-in-england",
+    "description": "Report illegal fishing activities in England to the Environment Agency",
+    "department": "Environment Agency",
+    "tags": [
+      "fishing",
+      "enforcement",
+      "reporting",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Report Dead or Injured Animal",
+    "url": "https://www.gov.uk/report-dead-animal",
+    "description": "Report dead or injured wild animals for welfare or disease surveillance purposes",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "wildlife",
+      "animal-welfare",
+      "reporting",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Report Stranded Whale or Dolphin",
+    "url": "https://www.gov.uk/report-stranded-whale-dolphin",
+    "description": "Report stranded whales, dolphins, porpoises, marine turtles and basking sharks",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "marine",
+      "wildlife",
+      "reporting",
+      "conservation",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Funding for Farmers",
+    "url": "https://www.gov.uk/guidance/funding-for-farmers",
+    "description": "Overview of funding schemes and grants available for farmers and land managers including SFI, Countryside Stewardship and rural payments",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "farming",
+      "grants",
+      "funding",
+      "rural",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Request Flooding History",
+    "url": "https://www.gov.uk/request-flooding-history",
+    "description": "Request historical flooding data for properties in England",
+    "department": "Environment Agency",
+    "tags": [
+      "flooding",
+      "history",
+      "property",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Permission to Work on River, Flood or Sea Defence",
+    "url": "https://www.gov.uk/permission-work-on-river-flood-sea-defence",
+    "description": "Apply for permission to carry out work on or near a river, flood defence or sea defence",
+    "department": "Environment Agency",
+    "tags": [
+      "flooding",
+      "rivers",
+      "permissions",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Report Veterinary Medicine Problem",
+    "url": "https://www.gov.uk/report-veterinary-medicine-problem",
+    "description": "Report suspected adverse events or quality defects with veterinary medicines",
+    "department": "Veterinary Medicines Directorate",
+    "tags": [
+      "veterinary",
+      "medicines",
+      "reporting",
+      "animal-health",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Freshwater Rod Fishing Rules",
+    "url": "https://www.gov.uk/freshwater-rod-fishing-rules",
+    "description": "Fishing regulations, byelaws and rules for freshwater fishing in England",
+    "department": "Environment Agency",
+    "tags": [
+      "fishing",
+      "regulations",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Hunting and Shooting Wildlife",
+    "url": "https://www.gov.uk/hunting",
+    "description": "Rules and regulations for lawful hunting and shooting of wildlife in England",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "wildlife",
+      "hunting",
+      "regulations",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Tree Preservation Orders and Trees in Conservation Areas",
+    "url": "https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas",
+    "description": "Guidance on tree preservation orders and protected trees in conservation areas",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "trees",
+      "conservation",
+      "planning",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Woodland Grants and Incentives",
+    "url": "https://www.gov.uk/government/publications/woodland-grants-and-incentives-overview-table",
+    "description": "Overview of available woodland creation and management grants including England Woodland Creation Offer and Woodland Creation Planning Grant",
+    "department": "Forestry Commission",
+    "tags": [
+      "woodland",
+      "forestry",
+      "grants",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Farm Carbon Calculator",
+    "url": "https://calculator.farmcarbontoolkit.org.uk/",
+    "description": "Free industry-leading tool for farmers to measure carbon footprint including emissions and sequestration",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "farming",
+      "carbon",
+      "emissions",
+      "sustainability",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Register Biomass Supplier",
+    "url": "https://www.gov.uk/register-biomass-supplier",
+    "description": "Register as a supplier of sustainable biomass fuel",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "biomass",
+      "energy",
+      "sustainability",
+      "registration",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Seasonal Worker Visa",
+    "url": "https://www.gov.uk/seasonal-worker-visa",
+    "description": "Apply for a seasonal worker visa to work in horticulture and poultry sectors in the UK",
+    "department": "UK Visas and Immigration",
+    "tags": [
+      "agriculture",
+      "employment",
+      "visa",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Agricultural Workers Rights",
+    "url": "https://www.gov.uk/agricultural-workers-rights",
+    "description": "Information about employment rights for agricultural workers in England",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "agriculture",
+      "employment",
+      "workers-rights",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Check if You Need a Licence to Abstract Water",
+    "url": "https://www.gov.uk/guidance/check-if-you-need-a-licence-to-abstract-water",
+    "description": "Check whether you need a licence to take water from surface or underground sources",
+    "department": "Environment Agency",
+    "tags": [
+      "water",
+      "licensing",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Avian Influenza (Bird Flu) Guidance",
+    "url": "https://www.gov.uk/guidance/avian-influenza-bird-flu",
+    "description": "Guidance on prevention, detection and control of avian influenza in poultry and captive birds",
+    "department": "Animal and Plant Health Agency",
+    "tags": [
+      "poultry",
+      "disease",
+      "biosecurity",
+      "animal-health",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Managing Wildlife on Your Land",
+    "url": "https://www.gov.uk/managing-wildlife-on-your-land",
+    "description": "Guidance for landowners on managing protected species and wildlife habitats",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "wildlife",
+      "conservation",
+      "land-management",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Prepare for Flooding",
+    "url": "https://www.gov.uk/prepare-for-flooding",
+    "description": "Guidance on how to prepare your property and family for flooding",
+    "department": "Environment Agency",
+    "tags": [
+      "flooding",
+      "emergency",
+      "preparation",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Help During a Flood",
+    "url": "https://www.gov.uk/help-during-flood",
+    "description": "What to do before, during and immediately after a flood",
+    "department": "Environment Agency",
+    "tags": [
+      "flooding",
+      "emergency",
+      "response",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "After a Flood",
+    "url": "https://www.gov.uk/after-flood",
+    "description": "Recovery guidance and support available after flooding",
+    "department": "Environment Agency",
+    "tags": [
+      "flooding",
+      "recovery",
+      "support",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Report Flood Cause",
+    "url": "https://www.gov.uk/report-flood-cause",
+    "description": "Report flooding incidents and contributing factors to help improve flood defences",
+    "department": "Environment Agency",
+    "tags": [
+      "flooding",
+      "reporting",
+      "infrastructure",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Dispose of Hazardous Waste",
+    "url": "https://www.gov.uk/dispose-hazardous-waste",
+    "description": "Find out how to safely dispose of hazardous waste from households and businesses",
+    "department": "Environment Agency",
+    "tags": [
+      "waste",
+      "hazardous",
+      "disposal",
+      "environment",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Report Fly-Tipping",
+    "url": "https://www.gov.uk/report-flytipping",
+    "description": "Report illegal dumping of waste to local authorities",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "waste",
+      "enforcement",
+      "reporting",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Rubbish Collection Day",
+    "url": "https://www.gov.uk/rubbish-collection-day",
+    "description": "Find your local rubbish and recycling collection days",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "waste",
+      "recycling",
+      "local-services",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Check Your Business is in a Protected Area",
+    "url": "https://www.gov.uk/check-your-business-protected-area",
+    "description": "Find out if your business is located in a protected area of countryside",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "environment",
+      "conservation",
+      "business",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Licence to Release Non-Native Wildlife",
+    "url": "https://www.gov.uk/nonnative-wildlife",
+    "description": "Apply for a licence to release non-native wildlife and plants",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": [
+      "wildlife",
+      "licensing",
+      "biosecurity",
+      "defra"
+    ],
+    "source_department": "Defra"
+  },
+  {
+    "name": "Companies House - Find and Update Company Information",
+    "url": "https://find-and-update.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "company-search",
+      "business-registration"
+    ],
+    "description": "Main Companies House service for searching company information, filing documents, and managing company records",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Company Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/search/companies",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "search"
+    ],
+    "description": "Search for UK companies by name or number",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Advanced Company Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/advanced-search",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "search",
+      "advanced"
+    ],
+    "description": "Advanced search for companies with detailed filtering options",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Officer Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/search/officers",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "search",
+      "directors"
+    ],
+    "description": "Search for company officers and directors",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Disqualified Officers Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/search/disqualified-officers",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "search",
+      "compliance"
+    ],
+    "description": "Search for disqualified company directors",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Dissolved Company Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/dissolved-search",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "search"
+    ],
+    "description": "Search for dissolved companies",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - File Confirmation Statement",
+    "url": "https://find-and-update.company-information.service.gov.uk/confirmation-statement",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "filing",
+      "compliance"
+    ],
+    "description": "File company confirmation statement online",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - WebFiling Service",
+    "url": "https://ewf.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "filing",
+      "webfiling"
+    ],
+    "description": "Electronic filing service for company accounts and documents",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Developer API Portal",
+    "url": "https://developer.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "api",
+      "developers"
+    ],
+    "description": "Developer portal for Companies House REST API",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - API Specifications",
+    "url": "https://developer-specs.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "api",
+      "documentation"
+    ],
+    "description": "API specifications and documentation for Companies House services",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Public Data API",
+    "url": "https://api.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "api",
+      "data"
+    ],
+    "description": "REST API for accessing company information programmatically",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Streaming API",
+    "url": "https://stream.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "api",
+      "streaming",
+      "realtime"
+    ],
+    "description": "Streaming API for real-time company data changes",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Document API",
+    "url": "https://document-api.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "api",
+      "documents"
+    ],
+    "description": "API for retrieving company filing documents (PDF, iXBRL)",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Identity Service",
+    "url": "https://identity.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "identity",
+      "authentication"
+    ],
+    "description": "Identity verification and authentication service for Companies House",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Sign In",
+    "url": "https://find-and-update.company-information.service.gov.uk/signin",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "authentication"
+    ],
+    "description": "User account sign-in for Companies House services",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Developer Forum",
+    "url": "https://forum.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "support",
+      "developers"
+    ],
+    "description": "Developer community forum for Companies House API support",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Beta Service (Legacy)",
+    "url": "https://beta.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "legacy"
+    ],
+    "description": "Legacy beta service for company search (redirects to main service)",
+    "discovery_method": "web_search",
+    "confidence": "medium",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Intellectual Property Office Portal",
+    "url": "https://www.gov.uk/government/organisations/intellectual-property-office",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "patents",
+      "trademarks",
+      "designs"
+    ],
+    "description": "Main portal for UK Intellectual Property Office services",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Trademark Search",
+    "url": "https://trademarks.ipo.gov.uk/ipo-tmtext/start",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "trademarks",
+      "search"
+    ],
+    "description": "Search UK trademark database by text and keywords",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Trademark Application",
+    "url": "https://trademarks.ipo.gov.uk/ipo-apply",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "trademarks",
+      "application"
+    ],
+    "description": "Apply to register a UK trademark online",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Trademark Case Search",
+    "url": "https://trademarks.ipo.gov.uk/ipo-tmcase/start",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "trademarks",
+      "search"
+    ],
+    "description": "Search trademark cases and applications by number",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Trademark Owner Search",
+    "url": "https://trademarks.ipo.gov.uk/ipo-tmowner/start",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "trademarks",
+      "search"
+    ],
+    "description": "Search trademarks by owner name",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Registered Design Search",
+    "url": "https://www.registered-design.service.gov.uk/find/",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "designs",
+      "search"
+    ],
+    "description": "Search UK registered designs database",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Patent Information Service (Ipsum)",
+    "url": "https://www.ipo.gov.uk/p-ipsum.htm",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "patents",
+      "search",
+      "legacy"
+    ],
+    "description": "Online patent information and document inspection service (legacy - being replaced by One IPO Search)",
+    "discovery_method": "web_search",
+    "confidence": "medium",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Trade Marks Journal",
+    "url": "https://www.ipo.gov.uk/t-tmj.htm",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "trademarks",
+      "journal"
+    ],
+    "description": "Official Trade Marks Journal publication",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Renew Patent, Trademark or Design",
+    "url": "https://www.gov.uk/renew-patent-trademark-registered-design",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "renewal",
+      "patents",
+      "trademarks",
+      "designs"
+    ],
+    "description": "Renew UK patents, trademarks or registered designs",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Register a Trademark",
+    "url": "https://www.gov.uk/how-to-register-a-trade-mark",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "trademarks",
+      "registration"
+    ],
+    "description": "Guidance and application for UK trademark registration",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - Search for a Trademark",
+    "url": "https://www.gov.uk/search-for-trademark",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "trademarks",
+      "search"
+    ],
+    "description": "Search UK trademark register",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - One IPO Patents Service",
+    "url": "https://www.gov.uk/government/publications/one-ipo-patents-service-overview",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "patents",
+      "one-ipo"
+    ],
+    "description": "New integrated digital service for UK patent applications (launching 2025-2026)",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Get Company Information Guide",
+    "url": "https://www.gov.uk/get-information-about-a-company",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "information"
+    ],
+    "description": "Guide to getting information about UK companies",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - File Annual Accounts",
+    "url": "https://www.gov.uk/file-your-company-annual-accounts",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "filing",
+      "accounts"
+    ],
+    "description": "File company annual accounts with Companies House",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - File Confirmation Statement",
+    "url": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "filing",
+      "compliance"
+    ],
+    "description": "File confirmation statement with Companies House",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - File Company Changes",
+    "url": "https://www.gov.uk/file-changes-to-a-company-with-companies-house",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "filing",
+      "changes"
+    ],
+    "description": "File changes to company details with Companies House",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Set Up Limited Company",
+    "url": "https://www.gov.uk/set-up-limited-company",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "registration",
+      "incorporation"
+    ],
+    "description": "Register and incorporate a new limited company",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Running a Limited Company",
+    "url": "https://www.gov.uk/running-a-limited-company",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "guidance",
+      "compliance"
+    ],
+    "description": "Guidance on running a UK limited company",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Closing a Limited Company",
+    "url": "https://www.gov.uk/closing-a-limited-company",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "dissolution"
+    ],
+    "description": "Close or dissolve a limited company",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Verify Your Identity",
+    "url": "https://www.gov.uk/guidance/verify-your-identity-for-companies-house",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "identity",
+      "verification"
+    ],
+    "description": "Identity verification service for company directors and PSCs",
+    "discovery_method": "web_fetch",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Order Certified Documents",
+    "url": "https://www.gov.uk/guidance/order-certified-copies-and-certificates-from-companies-house",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "documents",
+      "certificates"
+    ],
+    "description": "Order certified copies and certificates from Companies House",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Search Register Guidance",
+    "url": "https://www.gov.uk/guidance/search-the-companies-house-register",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "search",
+      "guidance"
+    ],
+    "description": "Guidance on searching the Companies House register",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "Companies House - Filing Information Online",
+    "url": "https://www.gov.uk/guidance/filing-your-companies-house-information-online",
+    "category": "Business & Corporate",
+    "tags": [
+      "companies-house",
+      "filing",
+      "guidance"
+    ],
+    "description": "Guidance on filing company information online",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  },
+  {
+    "name": "UK IPO - File Documents Guide",
+    "url": "https://www.gov.uk/government/publications/how-to-file-documents-with-the-intellectual-property-office",
+    "category": "Intellectual Property",
+    "tags": [
+      "ipo",
+      "filing",
+      "guidance"
+    ],
+    "description": "How to file documents with the Intellectual Property Office",
+    "discovery_method": "web_search",
+    "confidence": "high",
+    "source_department": "Companies House & IPO"
+  }
+]

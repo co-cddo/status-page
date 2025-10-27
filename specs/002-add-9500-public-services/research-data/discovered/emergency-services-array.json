@@ -1,0 +1,734 @@
+[
+  {
+    "url": "https://www.police.uk/pu/contact-the-police/report-a-crime-incident",
+    "name": "Police.uk Online Crime and Incident Reporting",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.gov.uk/contact-police",
+    "name": "GOV.UK Police Contact and Crime Reporting Portal",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.gov.uk/report-terrorism",
+    "name": "GOV.UK Report Terrorism Online",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.counterterrorism.police.uk/report-suspicious-activity",
+    "name": "Counter Terrorism Policing Suspicious Activity Reporting",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.gov.uk/police-and-crime-commissioners",
+    "name": "Police and Crime Commissioner Public Contact Portal",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.fireservice.co.uk/safety/",
+    "name": "Fire Safety in the Home",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.fireservice.co.uk/",
+    "name": "UK Fire Service Resources - Public Information Portal",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.firescotland.gov.uk/your-safety/",
+    "name": "Your Safety - Scottish Fire and Rescue Service",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.london-fire.gov.uk/safety/",
+    "name": "London Fire Brigade - Safety and Prevention",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.gov.uk/government/collections/fire-statistics-monitor",
+    "name": "Fire and Rescue Incident Statistics",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://nfcc.org.uk/contacts/fire-and-rescue-services/",
+    "name": "National Fire Chiefs Council: Service Directory & Prevention Hub",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.gov.uk/government/groups/defence-fire-risk-management-organisation",
+    "name": "Defence Fire and Rescue Organisation - Fire Safety Services",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://ambulance.nhs.wales",
+    "name": "Welsh Ambulance Services University NHS Trust",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Emergency Services"
+  },
+  {
+    "url": "https://www.eastamb.nhs.uk",
+    "name": "East of England Ambulance Service NHS Trust",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Emergency Services"
+  },
+  {
+    "url": "https://www.yas.nhs.uk",
+    "name": "Yorkshire Ambulance Service NHS Trust",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Emergency Services"
+  },
+  {
+    "url": "https://www.secamb.nhs.uk",
+    "name": "South East Coast Ambulance Service NHS Foundation Trust",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Emergency Services"
+  },
+  {
+    "url": "https://www.londonambulance.nhs.uk",
+    "name": "London Ambulance Service NHS Trust",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Emergency Services"
+  },
+  {
+    "url": "https://www.nwas.nhs.uk",
+    "name": "North West Ambulance Service NHS Trust",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Emergency Services"
+  },
+  {
+    "url": "https://www.swast.nhs.uk",
+    "name": "South Western Ambulance Service NHS Foundation Trust",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Emergency Services"
+  },
+  {
+    "url": "https://www.gov.uk/government/organisations/maritime-and-coastguard-agency",
+    "name": "Maritime and Coastguard Agency (MCA)",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Coast Guard"
+  },
+  {
+    "url": "https://hmcoastguard.uk",
+    "name": "HM Coastguard",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Coast Guard"
+  },
+  {
+    "url": "https://www.gov.uk/government/collections/maritime-safety-portal",
+    "name": "Maritime Safety Portal",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Coast Guard"
+  },
+  {
+    "url": "https://www.rnli.org.uk",
+    "name": "Royal National Lifeboat Institution (RNLI)",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Coast Guard"
+  },
+  {
+    "url": "https://www.gov.uk/report-maritime-accident",
+    "name": "Maritime Accident Reporting",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Coast Guard"
+  },
+  {
+    "url": "https://www.gov.uk/maritime-safety-leaflets",
+    "name": "Maritime Safety Leaflets",
+    "discovery_source": "perplexity-web-search",
+    "source_department": "Coast Guard"
+  },
+  {
+    "url": "https://www.avonandsomerset.police.uk",
+    "name": "Avon and Somerset Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.bedfordshire.police.uk",
+    "name": "Bedfordshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.cambs.police.uk",
+    "name": "Cambridgeshire Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.cheshire.police.uk",
+    "name": "Cheshire Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.cityoflondon.police.uk",
+    "name": "City of London Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.cleveland.police.uk",
+    "name": "Cleveland Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.cumbria.police.uk",
+    "name": "Cumbria Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.derbyshire.police.uk",
+    "name": "Derbyshire Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.devon-cornwall.police.uk",
+    "name": "Devon & Cornwall Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.dorset.police.uk",
+    "name": "Dorset Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.durham.police.uk",
+    "name": "Durham Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.dyfed-powys.police.uk",
+    "name": "Dyfed-Powys Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.essex.police.uk",
+    "name": "Essex Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.gloucestershire.police.uk",
+    "name": "Gloucestershire Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.gmp.police.uk",
+    "name": "Greater Manchester Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.gwent.police.uk",
+    "name": "Gwent Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.hampshire.police.uk",
+    "name": "Hampshire Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.herts.police.uk",
+    "name": "Hertfordshire Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.humberside.police.uk",
+    "name": "Humberside Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.kent.police.uk",
+    "name": "Kent Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.lancashire.police.uk",
+    "name": "Lancashire Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.leics.police.uk",
+    "name": "Leicestershire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.lincs.police.uk",
+    "name": "Lincolnshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.merseyside.police.uk",
+    "name": "Merseyside Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.met.police.uk",
+    "name": "Metropolitan Police Service",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.norfolk.police.uk",
+    "name": "Norfolk Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.northyorkshire.police.uk",
+    "name": "North Yorkshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.northants.police.uk",
+    "name": "Northamptonshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.northumbria.police.uk",
+    "name": "Northumbria Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.nottinghamshire.police.uk",
+    "name": "Nottinghamshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.southyorks.police.uk",
+    "name": "South Yorkshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.staffordshire.police.uk",
+    "name": "Staffordshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.suffolk.police.uk",
+    "name": "Suffolk Constabulary",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.surrey.police.uk",
+    "name": "Surrey Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.sussex.police.uk",
+    "name": "Sussex Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.thamesvalley.police.uk",
+    "name": "Thames Valley Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.warwickshire.police.uk",
+    "name": "Warwickshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.westmercia.police.uk",
+    "name": "West Mercia Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.west-midlands.police.uk",
+    "name": "West Midlands Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.westyorkshire.police.uk",
+    "name": "West Yorkshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.wiltshire.police.uk",
+    "name": "Wiltshire Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.northwales.police.uk",
+    "name": "North Wales Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.south-wales.police.uk",
+    "name": "South Wales Police",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.scotland.police.uk",
+    "name": "Police Scotland",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.psni.police.uk",
+    "name": "Police Service of Northern Ireland",
+    "discovery_source": "manual-police-uk-force-list",
+    "source_department": "Policing"
+  },
+  {
+    "url": "https://www.avonfire.gov.uk/",
+    "name": "Avon Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.cornwall.gov.uk/fire-and-rescue-service/",
+    "name": "Cornwall Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.dsfire.gov.uk/",
+    "name": "Devon & Somerset Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.dwfire.org.uk/",
+    "name": "Dorset & Wiltshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.gloucestershire.gov.uk/glosfire/",
+    "name": "Gloucestershire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://gov.gg/fire",
+    "name": "Guernsey Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.gov.je/government/departments/justicehomeaffairs/departments/fireservice/Pages/default.aspx",
+    "name": "Jersey Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.scilly.gov.uk/community-safety/fire-rescue",
+    "name": "Isles of Scilly Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://bucksfire.gov.uk/",
+    "name": "Buckinghamshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.esfrs.org/",
+    "name": "East Sussex Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.hantsfire.gov.uk/",
+    "name": "Hampshire & Isle of Wight Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.kent.fire-uk.org/",
+    "name": "Kent Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.oxfordshire.gov.uk/fire-and-community-safety/oxfordshire-fire-and-rescue-service",
+    "name": "Oxfordshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.rbfrs.co.uk/",
+    "name": "Royal Berkshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.surreycc.gov.uk/community/fire-and-rescue",
+    "name": "Surrey Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.westsussex.gov.uk/fire-emergencies-and-crime/west-sussex-fire-and-rescue-service/",
+    "name": "West Sussex Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.clevelandfire.gov.uk/",
+    "name": "Cleveland Fire Brigade",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.ddfire.gov.uk/",
+    "name": "Durham and Darlington Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.northumberlandfireandrescue.gov.uk/",
+    "name": "Northumberland Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.twfire.gov.uk/",
+    "name": "Tyne and Wear Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://humbersidefire.gov.uk/",
+    "name": "Humberside Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.northyorksfire.gov.uk/",
+    "name": "North Yorkshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.syfire.gov.uk/",
+    "name": "South Yorkshire Fire & Rescue",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.westyorksfire.gov.uk/",
+    "name": "West Yorkshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.cheshirefire.gov.uk/",
+    "name": "Cheshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.cumbriafire.gov.uk/",
+    "name": "Cumbria Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.gov.im/categories/home-and-neighbourhood/emergency-services/fire-and-rescue-service/",
+    "name": "Isle of Man Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.lancsfirerescue.org.uk/",
+    "name": "Lancashire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.manchesterfire.gov.uk/",
+    "name": "Greater Manchester Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.merseyfire.gov.uk/",
+    "name": "Merseyside Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.bedsfire.gov.uk/",
+    "name": "Bedfordshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "http://www.cambsfire.gov.uk",
+    "name": "Cambridgeshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.essex-fire.gov.uk/",
+    "name": "Essex County Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.hertfordshire.gov.uk/services/fire-and-rescue/fire-rescue-and-being-prepared.aspx",
+    "name": "Hertfordshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.norfolk.gov.uk/fire",
+    "name": "Norfolk Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.suffolk.gov.uk/suffolk-fire-and-rescue-service",
+    "name": "Suffolk Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.derbys-fire.gov.uk/",
+    "name": "Derbyshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://leics-fire.gov.uk/",
+    "name": "Leicestershire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.lincolnshire.gov.uk/lincolnshire-fire-rescue",
+    "name": "Lincolnshire Fire & Rescue",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.notts-fire.gov.uk/",
+    "name": "Nottinghamshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.northantsfire.gov.uk/",
+    "name": "Northamptonshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.hwfire.org.uk/",
+    "name": "Hereford and Worcester Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.shropshirefire.gov.uk/",
+    "name": "Shropshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.staffordshirefire.gov.uk/",
+    "name": "Staffordshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.warwickshire.gov.uk/fireandrescue",
+    "name": "Warwickshire Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.wmfs.net/",
+    "name": "West Midlands Fire Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.mawwfire.gov.uk/",
+    "name": "Mid and West Wales Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.northwalesfire.gov.wales/",
+    "name": "North Wales Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.southwales-fire.gov.uk/",
+    "name": "South Wales Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.london-fire.gov.uk/",
+    "name": "London Fire Brigade",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.firescotland.gov.uk/",
+    "name": "Scottish Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  },
+  {
+    "url": "https://www.nifrs.org/",
+    "name": "Northern Ireland Fire & Rescue Service",
+    "discovery_source": "manual-nfcc-fire-directory",
+    "source_department": "Fire & Rescue"
+  }
+]

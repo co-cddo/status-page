@@ -1,0 +1,92 @@
+{
+  "version": "1.0.0",
+  "total_tags": 74,
+  "categories": {
+    "department": [
+      { "tag_name": "hmrc", "description": "HM Revenue & Customs" },
+      { "tag_name": "dvla", "description": "Driver and Vehicle Licensing Agency" },
+      { "tag_name": "dwp", "description": "Department for Work and Pensions" },
+      { "tag_name": "nhs", "description": "National Health Service" },
+      { "tag_name": "nhs-england", "parent_tag": "nhs", "description": "NHS England" },
+      { "tag_name": "nhs-scotland", "parent_tag": "nhs", "description": "NHS Scotland" },
+      { "tag_name": "nhs-wales", "parent_tag": "nhs", "description": "NHS Wales" },
+      { "tag_name": "nhs-northern-ireland", "parent_tag": "nhs", "description": "Northern Ireland Health and Social Care" },
+      { "tag_name": "home-office", "description": "Home Office" },
+      { "tag_name": "moj", "description": "Ministry of Justice" },
+      { "tag_name": "dfe", "description": "Department for Education" },
+      { "tag_name": "defra", "description": "Department for Environment, Food & Rural Affairs" },
+      { "tag_name": "companies-house", "description": "Companies House" },
+      { "tag_name": "ipo", "description": "Intellectual Property Office" },
+      { "tag_name": "policing", "description": "Police Services" },
+      { "tag_name": "fire-rescue", "description": "Fire and Rescue Services" },
+      { "tag_name": "ambulance", "description": "Ambulance Services" },
+      { "tag_name": "coast-guard", "description": "Coast Guard and Maritime" },
+      { "tag_name": "local-government", "description": "Local Government Services" },
+      { "tag_name": "hmcts", "description": "HM Courts & Tribunals Service" },
+      { "tag_name": "gds", "description": "Government Digital Service" },
+      { "tag_name": "cabinet-office", "description": "Cabinet Office" },
+      { "tag_name": "third-party", "description": "Third-Party Service Providers" },
+      { "tag_name": "other-government", "description": "Other Government Departments" }
+    ],
+    "service-type": [
+      { "tag_name": "application", "description": "Application or form submission service" },
+      { "tag_name": "booking", "description": "Booking or appointment service" },
+      { "tag_name": "information", "description": "Information or guidance portal" },
+      { "tag_name": "payment", "description": "Payment processing service" },
+      { "tag_name": "authentication", "description": "Login or authentication service" },
+      { "tag_name": "search", "description": "Search or lookup service" },
+      { "tag_name": "reporting", "description": "Reporting or incident submission" },
+      { "tag_name": "licensing", "description": "Licensing or registration service" },
+      { "tag_name": "registration", "description": "User or entity registration" },
+      { "tag_name": "case-management", "description": "Case tracking or management" },
+      { "tag_name": "appointment", "description": "Appointment scheduling" },
+      { "tag_name": "portal", "description": "Professional or internal portal" },
+      { "tag_name": "api", "description": "API endpoint or integration service" }
+    ],
+    "geography": [
+      { "tag_name": "england", "description": "England" },
+      { "tag_name": "scotland", "description": "Scotland" },
+      { "tag_name": "wales", "description": "Wales" },
+      { "tag_name": "northern-ireland", "description": "Northern Ireland" },
+      { "tag_name": "uk-wide", "description": "United Kingdom wide" },
+      { "tag_name": "london", "description": "London region" },
+      { "tag_name": "regional", "description": "Regional service" },
+      { "tag_name": "local-authority-westminster", "description": "Westminster local authority" },
+      { "tag_name": "local-authority-manchester", "description": "Manchester local authority" },
+      { "tag_name": "local-authority-birmingham", "description": "Birmingham local authority" },
+      { "tag_name": "local-authority-other", "description": "Other local authorities" }
+    ],
+    "criticality": [
+      { "tag_name": "critical", "description": "Life-critical services (emergency, urgent care)" },
+      { "tag_name": "high-volume", "description": "High-volume services used daily by thousands" },
+      { "tag_name": "standard", "description": "Standard public services" }
+    ],
+    "channel": [
+      { "tag_name": "citizen-facing", "description": "Public citizen-facing service" },
+      { "tag_name": "business-facing", "description": "Business or commercial facing" },
+      { "tag_name": "internal", "description": "Internal government service" },
+      { "tag_name": "professional", "description": "Professional user service (doctors, lawyers)" },
+      { "tag_name": "emergency", "description": "Emergency response service" }
+    ],
+    "lifecycle": [
+      { "tag_name": "live", "description": "Live production service" },
+      { "tag_name": "beta", "description": "Beta testing phase" },
+      { "tag_name": "alpha", "description": "Alpha testing phase" },
+      { "tag_name": "deprecated", "description": "Deprecated service" },
+      { "tag_name": "migrated", "description": "Service migrated to new platform" },
+      { "tag_name": "merged", "description": "Service merged into another" },
+      { "tag_name": "archived", "description": "Archived historical service" },
+      { "tag_name": "pilot", "description": "Pilot program" },
+      { "tag_name": "trial", "description": "Trial service" },
+      { "tag_name": "preview", "description": "Preview or test environment" },
+      { "tag_name": "staging", "description": "Staging environment" },
+      { "tag_name": "development", "description": "Development environment" },
+      { "tag_name": "maintenance", "description": "Under maintenance" },
+      { "tag_name": "retired", "description": "Retired service" },
+      { "tag_name": "replaced", "description": "Replaced by another service" },
+      { "tag_name": "suspended", "description": "Temporarily suspended" },
+      { "tag_name": "planned", "description": "Planned future service" },
+      { "tag_name": "announced", "description": "Announced but not yet launched" }
+    ]
+  }
+}

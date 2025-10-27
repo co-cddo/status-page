@@ -1,0 +1,2217 @@
+[
+  {
+    "original_url": "https://www.forms.service.gov.uk/",
+    "canonical_url": "https://www.forms.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.forms.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 127,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.payments.service.gov.uk/",
+    "canonical_url": "https://www.payments.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.payments.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 129,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://sscl.com/",
+    "canonical_url": "https://sscl.com/",
+    "redirect_chain": [
+      "https://sscl.com/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 133,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.notifications.service.gov.uk/",
+    "canonical_url": "https://www.notifications.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.notifications.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 170,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.uksbs.co.uk/",
+    "canonical_url": "https://www.uksbs.co.uk/",
+    "redirect_chain": [
+      "https://www.uksbs.co.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 211,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.barnsley.gov.uk",
+    "canonical_url": "https://www.barnsley.gov.uk",
+    "redirect_chain": [
+      "https://www.barnsley.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 265,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bolton.gov.uk",
+    "canonical_url": "https://www.bolton.gov.uk",
+    "redirect_chain": [
+      "https://www.bolton.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 146,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.birmingham.gov.uk",
+    "canonical_url": "https://www.birmingham.gov.uk",
+    "redirect_chain": [
+      "https://www.birmingham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 161,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+    "canonical_url": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+    "redirect_chain": [
+      "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 335,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bradford.gov.uk",
+    "canonical_url": "https://www.bradford.gov.uk",
+    "redirect_chain": [
+      "https://www.bradford.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 208,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bury.gov.uk",
+    "canonical_url": "https://www.bury.gov.uk",
+    "redirect_chain": [
+      "https://www.bury.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 181,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.sbs.nhs.uk/",
+    "canonical_url": "https://www.sbs.nhs.uk/",
+    "redirect_chain": [
+      "https://www.sbs.nhs.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 430,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.calderdale.gov.uk",
+    "canonical_url": "https://www.calderdale.gov.uk",
+    "redirect_chain": [
+      "https://www.calderdale.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 249,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.contractsfinder.service.gov.uk/",
+    "canonical_url": "https://www.contractsfinder.service.gov.uk/Search",
+    "redirect_chain": [
+      "https://www.contractsfinder.service.gov.uk/",
+      "https://www.contractsfinder.service.gov.uk/Search"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 456,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.coventry.gov.uk",
+    "canonical_url": "https://www.coventry.gov.uk",
+    "redirect_chain": [
+      "https://www.coventry.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 211,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.north-tyneside.gov.uk",
+    "canonical_url": "https://www.north-tyneside.gov.uk",
+    "redirect_chain": [
+      "https://www.north-tyneside.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 11,
+    "error": "getaddrinfo ENOTFOUND www.north-tyneside.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gateshead.gov.uk",
+    "canonical_url": "https://www.gateshead.gov.uk",
+    "redirect_chain": [
+      "https://www.gateshead.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 253,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.leeds.gov.uk",
+    "canonical_url": "https://www.leeds.gov.uk",
+    "redirect_chain": [
+      "https://www.leeds.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 245,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.dudley.gov.uk/residents",
+    "canonical_url": "https://www.dudley.gov.uk/residents",
+    "redirect_chain": [
+      "https://www.dudley.gov.uk/residents"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 317,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.oldham.gov.uk",
+    "canonical_url": "https://www.oldham.gov.uk",
+    "redirect_chain": [
+      "https://www.oldham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 117,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.manchester.gov.uk",
+    "canonical_url": "https://www.manchester.gov.uk",
+    "redirect_chain": [
+      "https://www.manchester.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 187,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.liverpool.gov.uk",
+    "canonical_url": "https://www.liverpool.gov.uk",
+    "redirect_chain": [
+      "https://www.liverpool.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 235,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.newcastle.gov.uk",
+    "canonical_url": "https://www.newcastle.gov.uk",
+    "redirect_chain": [
+      "https://www.newcastle.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 220,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.rotherham.gov.uk",
+    "canonical_url": "https://www.rotherham.gov.uk",
+    "redirect_chain": [
+      "https://www.rotherham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 96,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.sandwell.gov.uk",
+    "canonical_url": "https://www.sandwell.gov.uk",
+    "redirect_chain": [
+      "https://www.sandwell.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 103,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.digitalmarketplace.service.gov.uk/",
+    "canonical_url": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.digitalmarketplace.service.gov.uk/",
+      "https://www.applytosupply.digitalmarketplace.service.gov.uk/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 713,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.south-tyneside.gov.uk",
+    "canonical_url": "https://www.south-tyneside.gov.uk",
+    "redirect_chain": [
+      "https://www.south-tyneside.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 44,
+    "error": "getaddrinfo ENOTFOUND www.south-tyneside.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.rochdale.gov.uk",
+    "canonical_url": "https://www.rochdale.gov.uk",
+    "redirect_chain": [
+      "https://www.rochdale.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 155,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.st-helens.gov.uk",
+    "canonical_url": "https://www.st-helens.gov.uk",
+    "redirect_chain": [
+      "https://www.st-helens.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 39,
+    "error": "getaddrinfo ENOTFOUND www.st-helens.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.salford.gov.uk",
+    "canonical_url": "https://www.salford.gov.uk",
+    "redirect_chain": [
+      "https://www.salford.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 158,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.solihull.gov.uk",
+    "canonical_url": "https://www.solihull.gov.uk",
+    "redirect_chain": [
+      "https://www.solihull.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 101,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.sefton.gov.uk",
+    "canonical_url": "https://www.sefton.gov.uk",
+    "redirect_chain": [
+      "https://www.sefton.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 197,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.sheffield.gov.uk",
+    "canonical_url": "https://www.sheffield.gov.uk",
+    "redirect_chain": [
+      "https://www.sheffield.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 373,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.sunderland.gov.uk/",
+    "canonical_url": "https://www.sunderland.gov.uk/",
+    "redirect_chain": [
+      "https://www.sunderland.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 358,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.knowsley.gov.uk",
+    "canonical_url": "https://www.knowsley.gov.uk",
+    "redirect_chain": [
+      "https://www.knowsley.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 756,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tameside.gov.uk",
+    "canonical_url": "https://www.tameside.gov.uk",
+    "redirect_chain": [
+      "https://www.tameside.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 415,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.wakefield.gov.uk",
+    "canonical_url": "https://www.wakefield.gov.uk",
+    "redirect_chain": [
+      "https://www.wakefield.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 444,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://go.walsall.gov.uk",
+    "canonical_url": "https://go.walsall.gov.uk",
+    "redirect_chain": [
+      "https://go.walsall.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 471,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.east-sussex.gov.uk",
+    "canonical_url": "https://www.east-sussex.gov.uk",
+    "redirect_chain": [
+      "https://www.east-sussex.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 93,
+    "error": "getaddrinfo ENOTFOUND www.east-sussex.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.cambridgeshire.gov.uk",
+    "canonical_url": "https://www.cambridgeshire.gov.uk",
+    "redirect_chain": [
+      "https://www.cambridgeshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 195,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.wolverhampton.gov.uk",
+    "canonical_url": "https://www.wolverhampton.gov.uk",
+    "redirect_chain": [
+      "https://www.wolverhampton.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 264,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.wirral.gov.uk",
+    "canonical_url": "https://www.wirral.gov.uk",
+    "redirect_chain": [
+      "https://www.wirral.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 481,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.devon.gov.uk",
+    "canonical_url": "https://www.devon.gov.uk",
+    "redirect_chain": [
+      "https://www.devon.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 234,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.hampshire.gov.uk",
+    "canonical_url": "https://www.hampshire.gov.uk",
+    "redirect_chain": [
+      "https://www.hampshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 341,
+    "error": "getaddrinfo ENOTFOUND www.hampshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.essex.gov.uk",
+    "canonical_url": "https://www.essex.gov.uk",
+    "redirect_chain": [
+      "https://www.essex.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 428,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.stockport.gov.uk",
+    "canonical_url": "https://www.stockport.gov.uk",
+    "redirect_chain": [
+      "https://www.stockport.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 942,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gloucestershire.gov.uk",
+    "canonical_url": "https://www.gloucestershire.gov.uk",
+    "redirect_chain": [
+      "https://www.gloucestershire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 438,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.kent.gov.uk/",
+    "canonical_url": "https://www.kent.gov.uk/",
+    "redirect_chain": [
+      "https://www.kent.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 408,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.lincolnshire.gov.uk",
+    "canonical_url": "https://www.lincolnshire.gov.uk",
+    "redirect_chain": [
+      "https://www.lincolnshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 381,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.lancashire.gov.uk",
+    "canonical_url": "https://www.lancashire.gov.uk",
+    "redirect_chain": [
+      "https://www.lancashire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 424,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.west-sussex.gov.uk",
+    "canonical_url": "https://www.west-sussex.gov.uk",
+    "redirect_chain": [
+      "https://www.west-sussex.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 15,
+    "error": "getaddrinfo ENOTFOUND www.west-sussex.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.leicestershire.gov.uk",
+    "canonical_url": "https://www.leicestershire.gov.uk",
+    "redirect_chain": [
+      "https://www.leicestershire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 440,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.nottinghamshire.gov.uk",
+    "canonical_url": "https://www.nottinghamshire.gov.uk",
+    "redirect_chain": [
+      "https://www.nottinghamshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 130,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.suffolk.gov.uk",
+    "canonical_url": "https://www.suffolk.gov.uk",
+    "redirect_chain": [
+      "https://www.suffolk.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 102,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.norfolk.gov.uk/",
+    "canonical_url": "https://www.norfolk.gov.uk/",
+    "redirect_chain": [
+      "https://www.norfolk.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 189,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.warwickshire.gov.uk",
+    "canonical_url": "https://www.warwickshire.gov.uk",
+    "redirect_chain": [
+      "https://www.warwickshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 75,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bath-north-east-somerset.gov.uk",
+    "canonical_url": "https://www.bath-north-east-somerset.gov.uk",
+    "redirect_chain": [
+      "https://www.bath-north-east-somerset.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 55,
+    "error": "getaddrinfo ENOTFOUND www.bath-north-east-somerset.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.blackburn-with-darwen.gov.uk",
+    "canonical_url": "https://www.blackburn-with-darwen.gov.uk",
+    "redirect_chain": [
+      "https://www.blackburn-with-darwen.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 34,
+    "error": "getaddrinfo ENOTFOUND www.blackburn-with-darwen.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.oxfordshire.gov.uk",
+    "canonical_url": "https://www.oxfordshire.gov.uk",
+    "redirect_chain": [
+      "https://www.oxfordshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 156,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bournemouth-christchurch-poole.gov.uk",
+    "canonical_url": "https://www.bournemouth-christchurch-poole.gov.uk",
+    "redirect_chain": [
+      "https://www.bournemouth-christchurch-poole.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 42,
+    "error": "getaddrinfo ENOTFOUND www.bournemouth-christchurch-poole.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.worcestershire.gov.uk",
+    "canonical_url": "https://www.worcestershire.gov.uk",
+    "redirect_chain": [
+      "https://www.worcestershire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 158,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.central-bedfordshire.gov.uk",
+    "canonical_url": "https://www.central-bedfordshire.gov.uk",
+    "redirect_chain": [
+      "https://www.central-bedfordshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 103,
+    "error": "getaddrinfo ENOTFOUND www.central-bedfordshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.cheshire-west-chester.gov.uk",
+    "canonical_url": "https://www.cheshire-west-chester.gov.uk",
+    "redirect_chain": [
+      "https://www.cheshire-west-chester.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 12,
+    "error": "getaddrinfo ENOTFOUND www.cheshire-west-chester.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.cheshire-east.gov.uk",
+    "canonical_url": "https://www.cheshire-east.gov.uk",
+    "redirect_chain": [
+      "https://www.cheshire-east.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 40,
+    "error": "getaddrinfo ENOTFOUND www.cheshire-east.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bedford.gov.uk",
+    "canonical_url": "https://www.bedford.gov.uk",
+    "redirect_chain": [
+      "https://www.bedford.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 271,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bracknell-forest.gov.uk",
+    "canonical_url": "https://www.bracknell-forest.gov.uk",
+    "redirect_chain": [
+      "https://www.bracknell-forest.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 238,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.surreycc.gov.uk/",
+    "canonical_url": "https://www.surreycc.gov.uk/",
+    "redirect_chain": [
+      "https://www.surreycc.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 442,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.cumberland.gov.uk",
+    "canonical_url": "https://www.cumberland.gov.uk",
+    "redirect_chain": [
+      "https://www.cumberland.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 218,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.cornwall.gov.uk",
+    "canonical_url": "https://www.cornwall.gov.uk",
+    "redirect_chain": [
+      "https://www.cornwall.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 224,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.derby.gov.uk",
+    "canonical_url": "https://www.derby.gov.uk",
+    "redirect_chain": [
+      "https://www.derby.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 142,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.east-riding-of-yorkshire.gov.uk",
+    "canonical_url": "https://www.east-riding-of-yorkshire.gov.uk",
+    "redirect_chain": [
+      "https://www.east-riding-of-yorkshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 18,
+    "error": "getaddrinfo ENOTFOUND www.east-riding-of-yorkshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.darlington.gov.uk",
+    "canonical_url": "https://www.darlington.gov.uk",
+    "redirect_chain": [
+      "https://www.darlington.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 194,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.brighton-hove.gov.uk",
+    "canonical_url": "https://www.brighton-hove.gov.uk",
+    "redirect_chain": [
+      "https://www.brighton-hove.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 493,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.isle-of-wight.gov.uk",
+    "canonical_url": "https://www.isle-of-wight.gov.uk",
+    "redirect_chain": [
+      "https://www.isle-of-wight.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 10,
+    "error": "getaddrinfo ENOTFOUND www.isle-of-wight.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.kingston-upon-hull.gov.uk",
+    "canonical_url": "https://www.kingston-upon-hull.gov.uk",
+    "redirect_chain": [
+      "https://www.kingston-upon-hull.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 11,
+    "error": "getaddrinfo ENOTFOUND www.kingston-upon-hull.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.hartlepool.gov.uk",
+    "canonical_url": "https://www.hartlepool.gov.uk",
+    "redirect_chain": [
+      "https://www.hartlepool.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 132,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.durham.gov.uk",
+    "canonical_url": "https://www.durham.gov.uk",
+    "redirect_chain": [
+      "https://www.durham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 193,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.herefordshire.gov.uk",
+    "canonical_url": "https://www.herefordshire.gov.uk",
+    "redirect_chain": [
+      "https://www.herefordshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 139,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bristol.gov.uk",
+    "canonical_url": "https://www.bristol.gov.uk",
+    "redirect_chain": [
+      "https://www.bristol.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 592,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.leicester.gov.uk",
+    "canonical_url": "https://www.leicester.gov.uk",
+    "redirect_chain": [
+      "https://www.leicester.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 117,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.medway.gov.uk",
+    "canonical_url": "https://www.medway.gov.uk",
+    "redirect_chain": [
+      "https://www.medway.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 124,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.north-east-lincolnshire.gov.uk",
+    "canonical_url": "https://www.north-east-lincolnshire.gov.uk",
+    "redirect_chain": [
+      "https://www.north-east-lincolnshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 60,
+    "error": "getaddrinfo ENOTFOUND www.north-east-lincolnshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.north-lincolnshire.gov.uk",
+    "canonical_url": "https://www.north-lincolnshire.gov.uk",
+    "redirect_chain": [
+      "https://www.north-lincolnshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 23,
+    "error": "getaddrinfo ENOTFOUND www.north-lincolnshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.buckinghamshire.gov.uk",
+    "canonical_url": "https://www.buckinghamshire.gov.uk",
+    "redirect_chain": [
+      "https://www.buckinghamshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 688,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.wigan.gov.uk",
+    "canonical_url": "https://www.wigan.gov.uk",
+    "redirect_chain": [
+      "https://www.wigan.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1724,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.north-northamptonshire.gov.uk",
+    "canonical_url": "https://www.north-northamptonshire.gov.uk",
+    "redirect_chain": [
+      "https://www.north-northamptonshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 17,
+    "error": "getaddrinfo ENOTFOUND www.north-northamptonshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.north-somerset.gov.uk",
+    "canonical_url": "https://www.north-somerset.gov.uk",
+    "redirect_chain": [
+      "https://www.north-somerset.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 16,
+    "error": "getaddrinfo ENOTFOUND www.north-somerset.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.north-yorkshire.gov.uk",
+    "canonical_url": "https://www.north-yorkshire.gov.uk",
+    "redirect_chain": [
+      "https://www.north-yorkshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 19,
+    "error": "getaddrinfo ENOTFOUND www.north-yorkshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.middlesbrough.gov.uk",
+    "canonical_url": "https://www.middlesbrough.gov.uk",
+    "redirect_chain": [
+      "https://www.middlesbrough.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 198,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.dorsetcouncil.gov.uk",
+    "canonical_url": "https://www.dorsetcouncil.gov.uk",
+    "redirect_chain": [
+      "https://www.dorsetcouncil.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 418,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://m.luton.gov.uk/redirect/show",
+    "canonical_url": "https://m.luton.gov.uk/Page/Show/?redirectToMobile=True",
+    "redirect_chain": [
+      "https://m.luton.gov.uk/redirect/show",
+      "https://m.luton.gov.uk/Page/Show/?redirectToMobile=True"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 265,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.milton-keynes.gov.uk",
+    "canonical_url": "https://www.milton-keynes.gov.uk",
+    "redirect_chain": [
+      "https://www.milton-keynes.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 232,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.nottingham.gov.uk",
+    "canonical_url": "https://www.nottingham.gov.uk",
+    "redirect_chain": [
+      "https://www.nottingham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 184,
+    "error": "Hostname/IP does not match certificate's altnames: Host: www.nottingham.gov.uk. is not in the cert's altnames: DNS:*.azurewebsites.net, DNS:*.scm.azurewebsites.net, DNS:*.sso.azurewebsites.net, DNS:*.westeurope-01.azurewebsites.net, DNS:*.scm.westeurope-01.azurewebsites.net, DNS:*.sso.westeurope-01.azurewebsites.net, DNS:*.westeurope.c.azurewebsites.net, DNS:*.scm.westeurope.c.azurewebsites.net, DNS:*.sso.westeurope.c.azurewebsites.net, DNS:*.azure-mobile.net, DNS:*.scm.azure-mobile.net",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.peterborough.gov.uk",
+    "canonical_url": "https://www.peterborough.gov.uk",
+    "redirect_chain": [
+      "https://www.peterborough.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 189,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.northumberland.gov.uk",
+    "canonical_url": "https://www.northumberland.gov.uk",
+    "redirect_chain": [
+      "https://www.northumberland.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 235,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.reading.gov.uk",
+    "canonical_url": "https://www.reading.gov.uk",
+    "redirect_chain": [
+      "https://www.reading.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 251,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.plymouth.gov.uk",
+    "canonical_url": "https://www.plymouth.gov.uk",
+    "redirect_chain": [
+      "https://www.plymouth.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 324,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.redcar-cleveland.gov.uk",
+    "canonical_url": "https://www.redcar-cleveland.gov.uk",
+    "redirect_chain": [
+      "https://www.redcar-cleveland.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 267,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.south-gloucestershire.gov.uk",
+    "canonical_url": "https://www.south-gloucestershire.gov.uk",
+    "redirect_chain": [
+      "https://www.south-gloucestershire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 60,
+    "error": "getaddrinfo ENOTFOUND www.south-gloucestershire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.slough.gov.uk",
+    "canonical_url": "https://www.slough.gov.uk",
+    "redirect_chain": [
+      "https://www.slough.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 212,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.somerset.gov.uk",
+    "canonical_url": "https://www.somerset.gov.uk",
+    "redirect_chain": [
+      "https://www.somerset.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 185,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.southend-on-sea.gov.uk",
+    "canonical_url": "https://www.southend-on-sea.gov.uk",
+    "redirect_chain": [
+      "https://www.southend-on-sea.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 77,
+    "error": "getaddrinfo ENOTFOUND www.southend-on-sea.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.stockton-on-tees.gov.uk",
+    "canonical_url": "https://www.stockton-on-tees.gov.uk",
+    "redirect_chain": [
+      "https://www.stockton-on-tees.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 60,
+    "error": "getaddrinfo ENOTFOUND www.stockton-on-tees.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.stoke-on-trent.gov.uk",
+    "canonical_url": "https://www.stoke-on-trent.gov.uk",
+    "redirect_chain": [
+      "https://www.stoke-on-trent.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 26,
+    "error": "getaddrinfo ENOTFOUND www.stoke-on-trent.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.telford-wrekin.gov.uk",
+    "canonical_url": "https://www.telford-wrekin.gov.uk",
+    "redirect_chain": [
+      "https://www.telford-wrekin.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 57,
+    "error": "getaddrinfo ENOTFOUND www.telford-wrekin.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.swindon.gov.uk",
+    "canonical_url": "https://www.swindon.gov.uk",
+    "redirect_chain": [
+      "https://www.swindon.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 112,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.west-berkshire.gov.uk",
+    "canonical_url": "https://www.west-berkshire.gov.uk",
+    "redirect_chain": [
+      "https://www.west-berkshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 21,
+    "error": "getaddrinfo ENOTFOUND www.west-berkshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.west-northamptonshire.gov.uk",
+    "canonical_url": "https://www.west-northamptonshire.gov.uk",
+    "redirect_chain": [
+      "https://www.west-northamptonshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 8,
+    "error": "getaddrinfo ENOTFOUND www.west-northamptonshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.westmorland-furness.gov.uk",
+    "canonical_url": "https://www.westmorland-furness.gov.uk",
+    "redirect_chain": [
+      "https://www.westmorland-furness.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 16,
+    "error": "getaddrinfo ENOTFOUND www.westmorland-furness.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.rutland.gov.uk",
+    "canonical_url": "https://www.rutland.gov.uk",
+    "redirect_chain": [
+      "https://www.rutland.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 476,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www3.halton.gov.uk",
+    "canonical_url": "https://www3.halton.gov.uk/Pages/Home.aspx",
+    "redirect_chain": [
+      "https://www3.halton.gov.uk",
+      "https://www3.halton.gov.uk/Pages/Home.aspx"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 958,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.windsor-maidenhead.gov.uk",
+    "canonical_url": "https://www.windsor-maidenhead.gov.uk",
+    "redirect_chain": [
+      "https://www.windsor-maidenhead.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 21,
+    "error": "getaddrinfo ENOTFOUND www.windsor-maidenhead.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.torbay.gov.uk",
+    "canonical_url": "https://www.torbay.gov.uk",
+    "redirect_chain": [
+      "https://www.torbay.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 197,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.thurrock.gov.uk",
+    "canonical_url": "https://www.thurrock.gov.uk",
+    "redirect_chain": [
+      "https://www.thurrock.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 230,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.warrington.gov.uk",
+    "canonical_url": "https://www.warrington.gov.uk",
+    "redirect_chain": [
+      "https://www.warrington.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 212,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.wiltshire.gov.uk",
+    "canonical_url": "https://www.wiltshire.gov.uk",
+    "redirect_chain": [
+      "https://www.wiltshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 121,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.southampton.gov.uk",
+    "canonical_url": "https://www.southampton.gov.uk",
+    "redirect_chain": [
+      "https://www.southampton.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 368,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.barking-dagenham.gov.uk",
+    "canonical_url": "https://www.barking-dagenham.gov.uk",
+    "redirect_chain": [
+      "https://www.barking-dagenham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 87,
+    "error": "Hostname/IP does not match certificate's altnames: Host: www.barking-dagenham.gov.uk. is not in the cert's altnames: DNS:*.uk-1.platformsh.site, DNS:admin.uk-1.platform.sh, DNS:uk-1.platform.sh",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.portsmouth.gov.uk",
+    "canonical_url": "https://www.portsmouth.gov.uk",
+    "redirect_chain": [
+      "https://www.portsmouth.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 673,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.wokingham.gov.uk",
+    "canonical_url": "https://www.wokingham.gov.uk",
+    "redirect_chain": [
+      "https://www.wokingham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 161,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.york.gov.uk",
+    "canonical_url": "https://www.york.gov.uk",
+    "redirect_chain": [
+      "https://www.york.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 157,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.doncaster.gov.uk",
+    "canonical_url": "https://www.doncaster.gov.uk",
+    "redirect_chain": [
+      "https://www.doncaster.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 3012,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bexley.gov.uk",
+    "canonical_url": "https://www.bexley.gov.uk",
+    "redirect_chain": [
+      "https://www.bexley.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 127,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.brent.gov.uk/",
+    "canonical_url": "https://www.brent.gov.uk/",
+    "redirect_chain": [
+      "https://www.brent.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 120,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.hammersmith-fulham.gov.uk",
+    "canonical_url": "https://www.hammersmith-fulham.gov.uk",
+    "redirect_chain": [
+      "https://www.hammersmith-fulham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 28,
+    "error": "getaddrinfo ENOTFOUND www.hammersmith-fulham.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.croydon.gov.uk",
+    "canonical_url": "https://www.croydon.gov.uk",
+    "redirect_chain": [
+      "https://www.croydon.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 160,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.greenwich.gov.uk",
+    "canonical_url": "https://www.greenwich.gov.uk",
+    "redirect_chain": [
+      "https://www.greenwich.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 102,
+    "error": "Hostname/IP does not match certificate's altnames: Host: www.greenwich.gov.uk. is not in the cert's altnames: DNS:hcidata.co.uk, DNS:hcidata.com, DNS:hcidata.uk, DNS:secure.hcidata.com, DNS:www.hcidata.co.uk, DNS:www.hcidata.com, DNS:www.hcidata.uk, DNS:www.secure.hcidata.com",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.enfield.gov.uk",
+    "canonical_url": "https://www.enfield.gov.uk",
+    "redirect_chain": [
+      "https://www.enfield.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 112,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.camden.gov.uk",
+    "canonical_url": "https://www.camden.gov.uk",
+    "redirect_chain": [
+      "https://www.camden.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 175,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://haringey.gov.uk/",
+    "canonical_url": "https://haringey.gov.uk/",
+    "redirect_chain": [
+      "https://haringey.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 152,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.harrow.gov.uk",
+    "canonical_url": "https://www.harrow.gov.uk",
+    "redirect_chain": [
+      "https://www.harrow.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 127,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.kensington-chelsea.gov.uk",
+    "canonical_url": "https://www.kensington-chelsea.gov.uk",
+    "redirect_chain": [
+      "https://www.kensington-chelsea.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 14,
+    "error": "getaddrinfo ENOTFOUND www.kensington-chelsea.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.kingston-upon-thames.gov.uk",
+    "canonical_url": "https://www.kingston-upon-thames.gov.uk",
+    "redirect_chain": [
+      "https://www.kingston-upon-thames.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 15,
+    "error": "getaddrinfo ENOTFOUND www.kingston-upon-thames.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.havering.gov.uk",
+    "canonical_url": "https://www.havering.gov.uk",
+    "redirect_chain": [
+      "https://www.havering.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 105,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.bromley.gov.uk",
+    "canonical_url": "https://www.bromley.gov.uk",
+    "redirect_chain": [
+      "https://www.bromley.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 325,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.hounslow.gov.uk",
+    "canonical_url": "https://www.hounslow.gov.uk",
+    "redirect_chain": [
+      "https://www.hounslow.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 167,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://hackney.gov.uk/",
+    "canonical_url": "https://hackney.gov.uk/",
+    "redirect_chain": [
+      "https://hackney.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 293,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://next.shropshire.gov.uk/",
+    "canonical_url": "https://next.shropshire.gov.uk/",
+    "redirect_chain": [
+      "https://next.shropshire.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 893,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.hillingdon.gov.uk",
+    "canonical_url": "https://www.hillingdon.gov.uk",
+    "redirect_chain": [
+      "https://www.hillingdon.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 195,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.lambeth.gov.uk",
+    "canonical_url": "https://www.lambeth.gov.uk",
+    "redirect_chain": [
+      "https://www.lambeth.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 102,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://lewisham.gov.uk/",
+    "canonical_url": "https://lewisham.gov.uk/",
+    "redirect_chain": [
+      "https://lewisham.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 116,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.richmond-upon-thames.gov.uk",
+    "canonical_url": "https://www.richmond-upon-thames.gov.uk",
+    "redirect_chain": [
+      "https://www.richmond-upon-thames.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 55,
+    "error": "getaddrinfo ENOTFOUND www.richmond-upon-thames.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.newham.gov.uk",
+    "canonical_url": "https://www.newham.gov.uk",
+    "redirect_chain": [
+      "https://www.newham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 159,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.islington.gov.uk",
+    "canonical_url": "https://www.islington.gov.uk",
+    "redirect_chain": [
+      "https://www.islington.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 312,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.redbridge.gov.uk/",
+    "canonical_url": "https://www.redbridge.gov.uk/",
+    "redirect_chain": [
+      "https://www.redbridge.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 171,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tower-hamlets.gov.uk",
+    "canonical_url": "https://www.tower-hamlets.gov.uk",
+    "redirect_chain": [
+      "https://www.tower-hamlets.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 161,
+    "error": "getaddrinfo ENOTFOUND www.tower-hamlets.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.waltham-forest.gov.uk",
+    "canonical_url": "https://www.waltham-forest.gov.uk",
+    "redirect_chain": [
+      "https://www.waltham-forest.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 155,
+    "error": "getaddrinfo ENOTFOUND www.waltham-forest.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.southwark.gov.uk",
+    "canonical_url": "https://www.southwark.gov.uk",
+    "redirect_chain": [
+      "https://www.southwark.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 196,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.sutton.gov.uk",
+    "canonical_url": "https://www.sutton.gov.uk",
+    "redirect_chain": [
+      "https://www.sutton.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 214,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.barnet.gov.uk",
+    "canonical_url": "https://www.barnet.gov.uk",
+    "redirect_chain": [
+      "https://www.barnet.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 708,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.westminster.gov.uk",
+    "canonical_url": "https://www.westminster.gov.uk",
+    "redirect_chain": [
+      "https://www.westminster.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 214,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.merton.gov.uk",
+    "canonical_url": "https://www.merton.gov.uk",
+    "redirect_chain": [
+      "https://www.merton.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 428,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.wandsworth.gov.uk",
+    "canonical_url": "https://www.wandsworth.gov.uk",
+    "redirect_chain": [
+      "https://www.wandsworth.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 286,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.clackmannanshire.gov.uk",
+    "canonical_url": "https://www.clackmannanshire.gov.uk",
+    "redirect_chain": [
+      "https://www.clackmannanshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 157,
+    "error": "getaddrinfo ENOTFOUND www.clackmannanshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.dumfries-galloway.gov.uk",
+    "canonical_url": "https://www.dumfries-galloway.gov.uk",
+    "redirect_chain": [
+      "https://www.dumfries-galloway.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 142,
+    "error": "getaddrinfo ENOTFOUND www.dumfries-galloway.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.east-dunbartonshire.gov.uk",
+    "canonical_url": "https://www.east-dunbartonshire.gov.uk",
+    "redirect_chain": [
+      "https://www.east-dunbartonshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 42,
+    "error": "getaddrinfo ENOTFOUND www.east-dunbartonshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.east-lothian.gov.uk",
+    "canonical_url": "https://www.east-lothian.gov.uk",
+    "redirect_chain": [
+      "https://www.east-lothian.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 39,
+    "error": "getaddrinfo ENOTFOUND www.east-lothian.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.east-renfrewshire.gov.uk",
+    "canonical_url": "https://www.east-renfrewshire.gov.uk",
+    "redirect_chain": [
+      "https://www.east-renfrewshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 47,
+    "error": "getaddrinfo ENOTFOUND www.east-renfrewshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.aberdeencity.gov.uk",
+    "canonical_url": "https://www.aberdeencity.gov.uk",
+    "redirect_chain": [
+      "https://www.aberdeencity.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 282,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.glasgow-city.gov.uk",
+    "canonical_url": "https://www.glasgow-city.gov.uk",
+    "redirect_chain": [
+      "https://www.glasgow-city.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 72,
+    "error": "getaddrinfo ENOTFOUND www.glasgow-city.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.angus.gov.uk",
+    "canonical_url": "https://www.angus.gov.uk",
+    "redirect_chain": [
+      "https://www.angus.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 300,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.argyll-bute.gov.uk",
+    "canonical_url": "https://www.argyll-bute.gov.uk",
+    "redirect_chain": [
+      "https://www.argyll-bute.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 323,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.aberdeenshire.gov.uk",
+    "canonical_url": "https://www.aberdeenshire.gov.uk",
+    "redirect_chain": [
+      "https://www.aberdeenshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 350,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.edinburgh.gov.uk",
+    "canonical_url": "https://www.edinburgh.gov.uk",
+    "redirect_chain": [
+      "https://www.edinburgh.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 187,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.north-lanarkshire.gov.uk",
+    "canonical_url": "https://www.north-lanarkshire.gov.uk",
+    "redirect_chain": [
+      "https://www.north-lanarkshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 51,
+    "error": "getaddrinfo ENOTFOUND www.north-lanarkshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.dundeecity.gov.uk",
+    "canonical_url": "https://www.dundeecity.gov.uk",
+    "redirect_chain": [
+      "https://www.dundeecity.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 274,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.highland.gov.uk",
+    "canonical_url": "https://www.highland.gov.uk",
+    "redirect_chain": [
+      "https://www.highland.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 172,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.orkney-islands.gov.uk",
+    "canonical_url": "https://www.orkney-islands.gov.uk",
+    "redirect_chain": [
+      "https://www.orkney-islands.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 21,
+    "error": "getaddrinfo ENOTFOUND www.orkney-islands.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.falkirk.gov.uk",
+    "canonical_url": "https://www.falkirk.gov.uk",
+    "redirect_chain": [
+      "https://www.falkirk.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 209,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.perth-kinross.gov.uk",
+    "canonical_url": "https://www.perth-kinross.gov.uk",
+    "redirect_chain": [
+      "https://www.perth-kinross.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 23,
+    "error": "getaddrinfo ENOTFOUND www.perth-kinross.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.moray.gov.uk",
+    "canonical_url": "https://www.moray.gov.uk",
+    "redirect_chain": [
+      "https://www.moray.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 133,
+    "error": "connect ECONNREFUSED 212.126.139.40:443",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.scottish-borders.gov.uk",
+    "canonical_url": "https://www.scottish-borders.gov.uk",
+    "redirect_chain": [
+      "https://www.scottish-borders.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 41,
+    "error": "getaddrinfo ENOTFOUND www.scottish-borders.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.shetland-islands.gov.uk",
+    "canonical_url": "https://www.shetland-islands.gov.uk",
+    "redirect_chain": [
+      "https://www.shetland-islands.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 45,
+    "error": "getaddrinfo ENOTFOUND www.shetland-islands.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.south-lanarkshire.gov.uk",
+    "canonical_url": "https://www.south-lanarkshire.gov.uk",
+    "redirect_chain": [
+      "https://www.south-lanarkshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 36,
+    "error": "getaddrinfo ENOTFOUND www.south-lanarkshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.west-dunbartonshire.gov.uk",
+    "canonical_url": "https://www.west-dunbartonshire.gov.uk",
+    "redirect_chain": [
+      "https://www.west-dunbartonshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 47,
+    "error": "getaddrinfo ENOTFOUND www.west-dunbartonshire.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.west-lothian.gov.uk",
+    "canonical_url": "https://www.west-lothian.gov.uk",
+    "redirect_chain": [
+      "https://www.west-lothian.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 48,
+    "error": "getaddrinfo ENOTFOUND www.west-lothian.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.midlothian.gov.uk",
+    "canonical_url": "https://www.midlothian.gov.uk",
+    "redirect_chain": [
+      "https://www.midlothian.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 213,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.north-ayrshire.gov.uk",
+    "canonical_url": "https://www.north-ayrshire.gov.uk",
+    "redirect_chain": [
+      "https://www.north-ayrshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 171,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.fife.gov.uk",
+    "canonical_url": "https://www.fife.gov.uk",
+    "redirect_chain": [
+      "https://www.fife.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 305,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.renfrewshire.gov.uk",
+    "canonical_url": "https://www.renfrewshire.gov.uk",
+    "redirect_chain": [
+      "https://www.renfrewshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 115,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.south-ayrshire.gov.uk",
+    "canonical_url": "https://www.south-ayrshire.gov.uk",
+    "redirect_chain": [
+      "https://www.south-ayrshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 169,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.blaenau-gwent.gov.uk",
+    "canonical_url": "https://www.blaenau-gwent.gov.uk",
+    "redirect_chain": [
+      "https://www.blaenau-gwent.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 150,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.caerphilly.gov.uk",
+    "canonical_url": "https://www.caerphilly.gov.uk",
+    "redirect_chain": [
+      "https://www.caerphilly.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 196,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.isle-of-anglesey.gov.uk",
+    "canonical_url": "https://www.isle-of-anglesey.gov.uk",
+    "redirect_chain": [
+      "https://www.isle-of-anglesey.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 58,
+    "error": "getaddrinfo ENOTFOUND www.isle-of-anglesey.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.stirling.gov.uk",
+    "canonical_url": "https://www.stirling.gov.uk",
+    "redirect_chain": [
+      "https://www.stirling.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 315,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.ceredigion.gov.uk",
+    "canonical_url": "https://www.ceredigion.gov.uk",
+    "redirect_chain": [
+      "https://www.ceredigion.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 242,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.merthyr-tydfil.gov.uk",
+    "canonical_url": "https://www.merthyr-tydfil.gov.uk",
+    "redirect_chain": [
+      "https://www.merthyr-tydfil.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 10,
+    "error": "getaddrinfo ENOTFOUND www.merthyr-tydfil.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.neath-port-talbot.gov.uk",
+    "canonical_url": "https://www.neath-port-talbot.gov.uk",
+    "redirect_chain": [
+      "https://www.neath-port-talbot.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 25,
+    "error": "getaddrinfo ENOTFOUND www.neath-port-talbot.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.monmouthshire.gov.uk",
+    "canonical_url": "https://www.monmouthshire.gov.uk",
+    "redirect_chain": [
+      "https://www.monmouthshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 103,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.carmarthenshire.gov.wales",
+    "canonical_url": "https://www.carmarthenshire.gov.wales",
+    "redirect_chain": [
+      "https://www.carmarthenshire.gov.wales"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 364,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.cne-siar.gov.uk",
+    "canonical_url": "https://www.cne-siar.gov.uk",
+    "redirect_chain": [
+      "https://www.cne-siar.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 429,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gwynedd.llyw.cymru/",
+    "canonical_url": "https://www.gwynedd.llyw.cymru/index.aspx",
+    "redirect_chain": [
+      "https://www.gwynedd.llyw.cymru/",
+      "https://www.gwynedd.llyw.cymru/index.aspx"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 270,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.newport.gov.uk",
+    "canonical_url": "https://www.newport.gov.uk",
+    "redirect_chain": [
+      "https://www.newport.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 153,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.vale-of-glamorgan.gov.uk",
+    "canonical_url": "https://www.vale-of-glamorgan.gov.uk",
+    "redirect_chain": [
+      "https://www.vale-of-glamorgan.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 11,
+    "error": "getaddrinfo ENOTFOUND www.vale-of-glamorgan.gov.uk",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.rhondda-cynon-taf.gov.uk",
+    "canonical_url": "https://www.rhondda-cynon-taf.gov.uk",
+    "redirect_chain": [
+      "https://www.rhondda-cynon-taf.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 59,
+    "error": "connect EHOSTUNREACH 194.80.194.55:443",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.antrim-newtownabbeycouncil.org",
+    "canonical_url": "https://www.antrim-newtownabbeycouncil.org",
+    "redirect_chain": [
+      "https://www.antrim-newtownabbeycouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 66,
+    "error": "getaddrinfo ENOTFOUND www.antrim-newtownabbeycouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.powys.gov.uk",
+    "canonical_url": "https://www.powys.gov.uk",
+    "redirect_chain": [
+      "https://www.powys.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 156,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.ards-north-downcouncil.org",
+    "canonical_url": "https://www.ards-north-downcouncil.org",
+    "redirect_chain": [
+      "https://www.ards-north-downcouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 80,
+    "error": "getaddrinfo ENOTFOUND www.ards-north-downcouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.armagh-city-banbridge-craigavoncouncil.org",
+    "canonical_url": "https://www.armagh-city-banbridge-craigavoncouncil.org",
+    "redirect_chain": [
+      "https://www.armagh-city-banbridge-craigavoncouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 31,
+    "error": "getaddrinfo ENOTFOUND www.armagh-city-banbridge-craigavoncouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.pembrokeshire.gov.uk",
+    "canonical_url": "https://www.pembrokeshire.gov.uk",
+    "redirect_chain": [
+      "https://www.pembrokeshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 235,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.flintshire.gov.uk",
+    "canonical_url": "https://www.flintshire.gov.uk",
+    "redirect_chain": [
+      "https://www.flintshire.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 462,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.causeway-coast-glenscouncil.org",
+    "canonical_url": "https://www.causeway-coast-glenscouncil.org",
+    "redirect_chain": [
+      "https://www.causeway-coast-glenscouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 36,
+    "error": "getaddrinfo ENOTFOUND www.causeway-coast-glenscouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.wrexham.gov.uk",
+    "canonical_url": "https://www.wrexham.gov.uk",
+    "redirect_chain": [
+      "https://www.wrexham.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 143,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.swansea.gov.uk",
+    "canonical_url": "https://www.swansea.gov.uk",
+    "redirect_chain": [
+      "https://www.swansea.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 175,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.conwy.gov.uk",
+    "canonical_url": "https://www.conwy.gov.uk",
+    "redirect_chain": [
+      "https://www.conwy.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 581,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.derry-city-strabanecouncil.org",
+    "canonical_url": "https://www.derry-city-strabanecouncil.org",
+    "redirect_chain": [
+      "https://www.derry-city-strabanecouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 119,
+    "error": "getaddrinfo ENOTFOUND www.derry-city-strabanecouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.belfastcity.gov.uk",
+    "canonical_url": "https://www.belfastcity.gov.uk",
+    "redirect_chain": [
+      "https://www.belfastcity.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 139,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.fermanagh-omaghcouncil.org",
+    "canonical_url": "https://www.fermanagh-omaghcouncil.org",
+    "redirect_chain": [
+      "https://www.fermanagh-omaghcouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 136,
+    "error": "getaddrinfo ENOTFOUND www.fermanagh-omaghcouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.lisburn-castlereaghcouncil.org",
+    "canonical_url": "https://www.lisburn-castlereaghcouncil.org",
+    "redirect_chain": [
+      "https://www.lisburn-castlereaghcouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 117,
+    "error": "getaddrinfo ENOTFOUND www.lisburn-castlereaghcouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.mid-east-antrimcouncil.org",
+    "canonical_url": "https://www.mid-east-antrimcouncil.org",
+    "redirect_chain": [
+      "https://www.mid-east-antrimcouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 128,
+    "error": "getaddrinfo ENOTFOUND www.mid-east-antrimcouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.mid-ulstercouncil.org",
+    "canonical_url": "https://www.mid-ulstercouncil.org",
+    "redirect_chain": [
+      "https://www.mid-ulstercouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 126,
+    "error": "getaddrinfo ENOTFOUND www.mid-ulstercouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.newry-mourne-downcouncil.org",
+    "canonical_url": "https://www.newry-mourne-downcouncil.org",
+    "redirect_chain": [
+      "https://www.newry-mourne-downcouncil.org"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 149,
+    "error": "getaddrinfo ENOTFOUND www.newry-mourne-downcouncil.org",
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.cardiff.gov.uk/Pages/VariationRoot.aspx",
+    "canonical_url": "https://www.cardiff.gov.uk/ENG/Pages/default.aspx",
+    "redirect_chain": [
+      "https://www.cardiff.gov.uk/Pages/VariationRoot.aspx",
+      "https://www.cardiff.gov.uk/ENG",
+      "https://www.cardiff.gov.uk/ENG/Pages/default.aspx"
+    ],
+    "redirect_count": 2,
+    "latency_ms": 890,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.inverclyde.gov.uk",
+    "canonical_url": "https://www.inverclyde.gov.uk",
+    "redirect_chain": [
+      "https://www.inverclyde.gov.uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 2794,
+    "is_duplicate": false
+  }
+]

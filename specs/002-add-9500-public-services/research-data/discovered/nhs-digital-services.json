@@ -1,0 +1,105 @@
+{
+  "task": "T049",
+  "description": "Web search discovery for NHS Apps and digital tools",
+  "discovery_method": "WebSearch + WebFetch",
+  "search_queries": [
+    "NHS app digital services online login portal patient access"
+  ],
+  "discovery_date": "2025-10-26",
+  "total_services_found": 18,
+  "services": [
+    {
+      "name": "NHS Login",
+      "url": "https://digital.nhs.uk/services/nhs-login",
+      "type": "authentication",
+      "description": "Secure single sign-on for NHS digital services",
+      "launched": "September 2018",
+      "users": "46,000,000+",
+      "integrated_services": "120+ apps and services"
+    },
+    {
+      "name": "NHS App Online",
+      "url": "https://www.nhsapp.service.nhs.uk/",
+      "type": "patient_app",
+      "description": "Main NHS patient-facing mobile and web application"
+    },
+    {
+      "name": "NHS App Login Portal",
+      "url": "https://www.nhsapp.service.nhs.uk/login",
+      "type": "authentication",
+      "description": "Login page for NHS App"
+    },
+    {
+      "name": "NHS Login Setup",
+      "url": "https://help.login.nhs.uk/setupnhslogin/",
+      "type": "authentication_setup",
+      "description": "Help pages for setting up NHS login"
+    },
+    {
+      "name": "NHS Login Information Page",
+      "url": "https://www.nhs.uk/nhs-services/online-services/nhs-login/",
+      "type": "information",
+      "description": "Patient information about NHS login service"
+    },
+    {
+      "name": "NHS Login Accessible Services",
+      "url": "https://www.nhs.uk/nhs-services/online-services/nhs-login/websites-and-apps-you-can-access-with-nhs-login/",
+      "type": "information",
+      "description": "Directory of services accessible with NHS login"
+    },
+    {
+      "name": "NHS App Troubleshooting",
+      "url": "https://digital.nhs.uk/services/nhs-app/resources/trouble-shooting-guide/helping-patients-reconnect-to-app-services",
+      "type": "support",
+      "description": "Technical support for NHS App connection issues"
+    },
+    {
+      "name": "Getting Patients Started with NHS Login",
+      "url": "https://digital.nhs.uk/services/nhs-login/nhs-login-for-health-and-care/getting-patients-started-with-nhs-login",
+      "type": "guidance",
+      "description": "Guidance for healthcare providers on NHS login"
+    },
+    {
+      "name": "Patient Access",
+      "url": "https://support.patientaccess.com/signing-in/nhs-login-and-patient-access",
+      "type": "third_party_integration",
+      "description": "Third-party service integrated with NHS login"
+    },
+    {
+      "name": "Patients Know Best",
+      "url": "https://wiki.patientsknowbest.com/space/MAN/3624075361/NHS+App+&+NHS+Login",
+      "type": "third_party_integration",
+      "description": "Patient health records platform with NHS login integration"
+    },
+    {
+      "name": "eConsult",
+      "url": "https://www.econsult.net/",
+      "type": "online_consultation",
+      "description": "Online consultation platform accessible via NHS App",
+      "notes": "Referenced in search results as NHS App accessible service"
+    }
+  ],
+  "nhs_login_features": {
+    "authentication_method": "Email address and password",
+    "eligibility": "Patients registered at GP practice in England or receiving NHS services in England",
+    "services_accessible": "120+ apps and services",
+    "total_users": "46,000,000+",
+    "launch_date": "September 2018"
+  },
+  "certificate_transparency_findings": {
+    "source": "crt.sh %.nhs.uk",
+    "total_certificates": 3309,
+    "sample_subdomains": [
+      "*.2e2.thirdparty.nhs.uk",
+      "*.5bp.nhs.uk",
+      "*.aintreehospitals.nhs.uk"
+    ]
+  },
+  "notes": [
+    "NHS login is the primary authentication method for all NHS digital services",
+    "Over 46 million registered users as of 2025",
+    "120+ services currently integrated",
+    "Available to patients in England only",
+    "Single sign-on across multiple NHS and partner services"
+  ]
+}

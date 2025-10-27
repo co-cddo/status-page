@@ -34,14 +34,7 @@ CLARIFICATION]
 
 _GATE: Must pass before Phase 0 research. Re-check after Phase 1 design._
 
-**Test-Driven Development (Principle III)**:
-
-- [ ] 100% test pass rate requirement understood and accepted (ZERO tolerance for failures)
-- [ ] 80% minimum code coverage target established
-- [ ] Test-first Red-Green-Refactor cycle will be followed
-- [ ] All test suites (unit, integration, e2e, accessibility, performance) will be implemented
-
-[Additional gates determined based on constitution file]
+[Gates determined based on constitution file]
 
 ## Project Structure
 

@@ -1,0 +1,241 @@
+[
+  {
+    "original_url": "https://www.gov.uk/government/organisations/hm-revenue-customs",
+    "canonical_url": "https://www.gov.uk/government/organisations/hm-revenue-customs",
+    "redirect_chain": [
+      "https://www.gov.uk/government/organisations/hm-revenue-customs"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 201
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-tax",
+    "canonical_url": "https://www.gov.uk/vehicle-tax",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-tax"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 243
+  },
+  {
+    "original_url": "https://www.gov.uk/self-assessment-tax-returns",
+    "canonical_url": "https://www.gov.uk/self-assessment-tax-returns",
+    "redirect_chain": [
+      "https://www.gov.uk/self-assessment-tax-returns"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 245
+  },
+  {
+    "original_url": "https://www.gov.uk/check-mot-history",
+    "canonical_url": "https://www.gov.uk/check-mot-history",
+    "redirect_chain": [
+      "https://www.gov.uk/check-mot-history"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 246
+  },
+  {
+    "original_url": "https://www.gov.uk/change-address-driving-licence",
+    "canonical_url": "https://www.gov.uk/change-address-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/change-address-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 253
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-licence-exchange-foreign-licence",
+    "canonical_url": "https://www.gov.uk/driving-licence-exchange-foreign-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-licence-exchange-foreign-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 280
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/",
+    "canonical_url": "https://www.gov.uk/government/organisations/hm-revenue-customs",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/",
+      "https://www.gov.uk/government/organisations/hm-revenue-customs"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 333
+  },
+  {
+    "original_url": "https://www.gov.uk/universal-credit",
+    "canonical_url": "https://www.gov.uk/universal-credit",
+    "redirect_chain": [
+      "https://www.gov.uk/universal-credit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 343
+  },
+  {
+    "original_url": "https://www.gov.uk/jobseekers-allowance",
+    "canonical_url": "https://www.gov.uk/jobseekers-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/jobseekers-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 148
+  },
+  {
+    "original_url": "https://www.gov.uk/vat-registration",
+    "canonical_url": "https://www.gov.uk/register-for-vat",
+    "redirect_chain": [
+      "https://www.gov.uk/vat-registration",
+      "https://www.gov.uk/register-for-vat"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 350
+  },
+  {
+    "original_url": "https://www.gov.uk/pay-self-assessment-tax-bill",
+    "canonical_url": "https://www.gov.uk/pay-self-assessment-tax-bill",
+    "redirect_chain": [
+      "https://www.gov.uk/pay-self-assessment-tax-bill"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 356
+  },
+  {
+    "original_url": "https://www.gov.uk/pip",
+    "canonical_url": "https://www.gov.uk/pip",
+    "redirect_chain": [
+      "https://www.gov.uk/pip"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 146
+  },
+  {
+    "original_url": "https://www.gov.uk/passport-fees",
+    "canonical_url": "https://www.gov.uk/passport-fees",
+    "redirect_chain": [
+      "https://www.gov.uk/passport-fees"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 141
+  },
+  {
+    "original_url": "https://www.gov.uk/state-pension",
+    "canonical_url": "https://www.gov.uk/state-pension",
+    "redirect_chain": [
+      "https://www.gov.uk/state-pension"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 154
+  },
+  {
+    "original_url": "https://www.gov.uk/apply-renew-passport",
+    "canonical_url": "https://www.gov.uk/apply-renew-passport",
+    "redirect_chain": [
+      "https://www.gov.uk/apply-renew-passport"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 120
+  },
+  {
+    "original_url": "https://www.gov.uk/employment-support-allowance",
+    "canonical_url": "https://www.gov.uk/employment-support-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/employment-support-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 162
+  },
+  {
+    "original_url": "https://www.gov.uk/check-uk-visa",
+    "canonical_url": "https://www.gov.uk/check-uk-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/check-uk-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 110
+  },
+  {
+    "original_url": "https://www.gov.uk/browse/visas-immigration",
+    "canonical_url": "https://www.gov.uk/browse/visas-immigration",
+    "redirect_chain": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 129
+  },
+  {
+    "original_url": "https://www.nhs.uk/",
+    "canonical_url": "https://www.nhs.uk/",
+    "redirect_chain": [
+      "https://www.nhs.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 154
+  },
+  {
+    "original_url": "https://111.nhs.uk/",
+    "canonical_url": "https://111.nhs.uk/",
+    "redirect_chain": [
+      "https://111.nhs.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 206
+  },
+  {
+    "original_url": "https://www.police.uk/",
+    "canonical_url": "https://www.police.uk/",
+    "redirect_chain": [
+      "https://www.police.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 203
+  },
+  {
+    "original_url": "https://find-and-update.company-information.service.gov.uk/",
+    "canonical_url": "https://find-and-update.company-information.service.gov.uk/",
+    "redirect_chain": [
+      "https://find-and-update.company-information.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 205
+  },
+  {
+    "original_url": "https://www.police.uk/pu/contact-the-police",
+    "canonical_url": "https://www.police.uk/pu/contact-the-police",
+    "redirect_chain": [
+      "https://www.police.uk/pu/contact-the-police"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 224
+  },
+  {
+    "original_url": "https://beta.companieshouse.gov.uk/",
+    "canonical_url": "https://find-and-update.company-information.service.gov.uk/",
+    "redirect_chain": [
+      "https://beta.companieshouse.gov.uk/",
+      "https://find-and-update.company-information.service.gov.uk/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 266
+  },
+  {
+    "original_url": "https://www.nhs.uk/service-search",
+    "canonical_url": "https://www.nhs.uk/nhs-services/services-near-you/",
+    "redirect_chain": [
+      "https://www.nhs.uk/service-search",
+      "https://www.nhs.uk/nhs-services/services-near-you/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 380
+  },
+  {
+    "original_url": "https://www.nhs.uk/nhs-app",
+    "canonical_url": "https://www.nhs.uk/nhs-app/",
+    "redirect_chain": [
+      "https://www.nhs.uk/nhs-app",
+      "https://www.nhs.uk/nhs-app/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 591
+  }
+]

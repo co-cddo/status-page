@@ -1,0 +1,393 @@
+# GOV.UK Public Services Status Monitor - Configuration
+# Auto-generated from discovered services
+
+settings:
+  check_interval: 60
+  warning_threshold: 2
+  timeout: 5
+  page_refresh: 60
+  max_retries: 3
+  worker_pool_size: 0
+
+pings:
+
+  # ============================================================================
+  # CRITICAL SERVICES (60-second check interval)
+  # ============================================================================
+
+  # Emergency Services (Police/Fire/Ambulance)
+  # Life-critical emergency services including police, fire, and ambulance
+    protocol: HTTPS
+    method: GET
+    resource: https://www.police.uk/
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+    protocol: HTTPS
+    method: GET
+    resource: https://www.police.uk/pu/contact-the-police
+    tags:
+      - policing
+      - information
+      - standard
+      - emergency
+      - live
+      - uk-wide
+    expected:
+      status: 403
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+
+
+  # ============================================================================
+  # HIGH-VOLUME SERVICES (300-second check interval)
+  # ============================================================================
+
+  # DVLA Licensing & Vehicle Services
+  # Driver and Vehicle Licensing Agency services
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/change-address-driving-licence
+    tags:
+      - dvla
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/vehicle-tax
+    tags:
+      - dvla
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+
+  # DWP Benefits & Pensions
+  # Department for Work and Pensions benefits and pensions services
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/jobseekers-allowance
+    tags:
+      - dwp
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/pip
+    tags:
+      - dwp
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/state-pension
+    tags:
+      - dwp
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/universal-credit
+    tags:
+      - dwp
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+
+  # Home Office Immigration & Passports
+  # Home Office immigration, passports, and visa services
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/apply-renew-passport
+    tags:
+      - home-office
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/browse/visas-immigration
+    tags:
+      - home-office
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/check-uk-visa
+    tags:
+      - home-office
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/passport-fees
+    tags:
+      - home-office
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+
+  # NHS Routine Healthcare Services
+  # Routine NHS healthcare services (booking, GP access, patient records)
+    protocol: HTTPS
+    method: GET
+    resource: https://111.nhs.uk/
+    tags:
+      - nhs
+      - information
+      - critical
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nhs.uk/nhs-app/
+    tags:
+      - nhs
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nhs.uk/nhs-services/services-near-you/
+    tags:
+      - nhs
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nhs.uk/
+    tags:
+      - nhs
+      - information
+      - high-volume
+      - citizen-facing
+      - live
+      - england
+    expected:
+      status: 200
+    interval: 300
+    warning_threshold: 3
+    timeout: 10
+
+
+  # ============================================================================
+  # STANDARD SERVICES (900-second check interval)
+  # ============================================================================
+
+  # Companies House & Intellectual Property
+  # Companies House and Intellectual Property Office services
+    protocol: HTTPS
+    method: GET
+    resource: https://find-and-update.company-information.service.gov.uk/
+    tags:
+      - companies-house
+      - information
+      - standard
+      - business-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+
+  # Other Government Services
+  # Other government department services
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/check-mot-history
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/employment-support-allowance
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/organisations/hm-revenue-customs
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/pay-self-assessment-tax-bill
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/register-for-vat
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/self-assessment-tax-returns
+    tags:
+      - other-government
+      - information
+      - standard
+      - citizen-facing
+      - live
+      - uk-wide
+    expected:
+      status: 200
+    interval: 900
+    warning_threshold: 5
+    timeout: 15
+
