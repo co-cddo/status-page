@@ -1,0 +1,106 @@
+{
+  "discovery_task": "T096",
+  "discovery_date": "2025-10-26",
+  "discovery_method": "Web search for contracted service providers",
+  "total_services_found": 8,
+  "provider_types": {
+    "sms_providers": 2,
+    "payment_processors": 1,
+    "shared_services": 2,
+    "infrastructure": 1,
+    "framework_providers": 1,
+    "cloud_providers": 1
+  },
+  "services": [
+    {
+      "name": "GOV.UK Notify - Firetext SMS Provider",
+      "provider": "Firetext",
+      "contract_value": "£98.2 million",
+      "contract_period": "2 years (2025-2027)",
+      "service_type": "SMS messaging infrastructure",
+      "parent_service": "GOV.UK Notify",
+      "parent_url": "https://www.notifications.service.gov.uk/",
+      "tags": ["third-party", "sms", "notify", "contracted"]
+    },
+    {
+      "name": "GOV.UK Notify - MMG SMS Provider",
+      "provider": "MMG",
+      "contract_value": "£98.2 million",
+      "contract_period": "2 years (2025-2027)",
+      "service_type": "SMS messaging infrastructure",
+      "parent_service": "GOV.UK Notify",
+      "parent_url": "https://www.notifications.service.gov.uk/",
+      "tags": ["third-party", "sms", "notify", "contracted"]
+    },
+    {
+      "name": "GOV.UK Pay - Payment Service Provider",
+      "provider": "To be determined (tender in progress)",
+      "contract_value": "£49.2 million",
+      "contract_period": "Multi-year contract",
+      "service_type": "Payment processing (card and open banking)",
+      "parent_service": "GOV.UK Pay",
+      "parent_url": "https://www.payments.service.gov.uk/",
+      "api_url": "https://publicapi.payments.service.gov.uk/v1/payments",
+      "tags": ["third-party", "payment", "contracted"]
+    },
+    {
+      "name": "UK Shared Business Services (UKSBS)",
+      "provider": "UKSBS (owned by DSIT, DESNZ, DBT, UKRI)",
+      "service_url": "https://www.uksbs.co.uk/",
+      "gov_url": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+      "service_type": "Shared services - HR, payroll, finance, procurement, IT",
+      "tags": ["third-party", "shared-services", "back-office"]
+    },
+    {
+      "name": "Shared Services Connected Ltd (SSCL)",
+      "provider": "Sopra Steria (formerly joint venture with Cabinet Office)",
+      "service_url": "https://sscl.com/",
+      "service_type": "Shared services - Finance, HR, payroll, procurement, pension admin",
+      "contract_value": "£300 million extension (2025)",
+      "departments_served": 29,
+      "transactions_annual": "6.5 million",
+      "savings_delivered": "£950 million",
+      "platform": "myHub (single sign-on)",
+      "tags": ["third-party", "shared-services", "back-office", "contracted"]
+    },
+    {
+      "name": "Technology Services 4 Framework",
+      "provider": "Multiple suppliers (framework)",
+      "contract_value": "£16 billion",
+      "service_type": "IT services procurement framework",
+      "scope": "Digital consultancy, service integration, infrastructure, cybersecurity, data, application development",
+      "tags": ["third-party", "framework", "procurement"]
+    },
+    {
+      "name": "Project Gigabit",
+      "provider": "Multiple contractors",
+      "contract_value": "£2 billion+",
+      "contract_period": "Coverage signed by March 2025",
+      "service_type": "Broadband infrastructure",
+      "coverage": "England, Wales, Scotland",
+      "tags": ["third-party", "infrastructure", "broadband"]
+    },
+    {
+      "name": "Oracle Cloud Infrastructure Migration",
+      "provider": "Oracle (via SSCL)",
+      "service_type": "Cloud infrastructure",
+      "users_migrated": "260,000 UK government users",
+      "migration_from": "On-premises back-office software",
+      "tags": ["third-party", "cloud", "infrastructure"]
+    }
+  ],
+  "notes": [
+    "GOV.UK Notify SMS contracts represent £196.4 million total commitment over 2 years",
+    "Government spends at least £14 billion annually on digital technology suppliers",
+    "PAC reports indicate market consolidation with few large suppliers",
+    "Digital Commercial Centre of Excellence established in 2025 with 24 experts",
+    "Government has no central record of digital procurement spending",
+    "15 people manage full-time relationships with all technology suppliers"
+  ],
+  "sources": [
+    "Government Digital Service announcements (2025)",
+    "Public Accounts Committee reports (2024-2025)",
+    "UK government procurement notices",
+    "Technology industry reports"
+  ]
+}

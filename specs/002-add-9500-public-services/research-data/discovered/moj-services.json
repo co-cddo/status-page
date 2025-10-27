@@ -1,0 +1,338 @@
+[
+  {
+    "name": "Find a Court or Tribunal",
+    "url": "https://www.find-court-tribunal.service.gov.uk/",
+    "category": "Courts & Tribunals",
+    "department": "MOJ",
+    "service_type": "Search/Directory",
+    "notes": "Locate court and tribunal locations across the UK"
+  },
+  {
+    "name": "Money Claims Service",
+    "url": "https://www.moneyclaims.service.gov.uk/",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Online Claim Portal",
+    "notes": "Make civil money claims up to £25,000"
+  },
+  {
+    "name": "Money Claims - Make Claim",
+    "url": "https://www.moneyclaims.service.gov.uk/make-claim",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Form Submission",
+    "notes": "Start a new money claim online"
+  },
+  {
+    "name": "Money Claims - Return to Claim",
+    "url": "https://www.moneyclaims.service.gov.uk/return-to-claim",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Account Management",
+    "notes": "Access and manage existing claims"
+  },
+  {
+    "name": "Money Claims - Enter Claim Number",
+    "url": "https://www.moneyclaims.service.gov.uk/enter-claim-number",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Status Update",
+    "notes": "Update payment status for existing claims"
+  },
+  {
+    "name": "Money Claims - First Contact",
+    "url": "https://www.moneyclaims.service.gov.uk/first-contact/claim-reference",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Response Portal",
+    "notes": "Respond to a money claim"
+  },
+  {
+    "name": "Money Claim Online (MCOL)",
+    "url": "https://www.moneyclaim.gov.uk/web/mcol/welcome",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Online Claim Portal",
+    "notes": "Make money claims over £25,000"
+  },
+  {
+    "name": "MyHMCTS - Manage Case",
+    "url": "https://manage-case.platform.hmcts.net/",
+    "category": "Case Management",
+    "department": "HMCTS",
+    "service_type": "Professional Portal",
+    "notes": "Case management for legal professionals"
+  },
+  {
+    "name": "MyHMCTS - Manage Organisation",
+    "url": "https://manage-org.platform.hmcts.net/",
+    "category": "Case Management",
+    "department": "HMCTS",
+    "service_type": "Professional Portal",
+    "notes": "Organisation and user account management for legal professionals"
+  },
+  {
+    "name": "Money Claim Legal Platform",
+    "url": "https://www.moneyclaim-legal.platform.hmcts.net/",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Professional Portal",
+    "notes": "Legal professional money claims portal"
+  },
+  {
+    "name": "Immigration & Asylum Appeal",
+    "url": "https://www.appeal-immigration-asylum-decision.service.gov.uk/",
+    "category": "Immigration Appeals",
+    "department": "HMCTS",
+    "service_type": "Appeal Portal",
+    "notes": "Appeal immigration or asylum decisions"
+  },
+  {
+    "name": "Immigration & Asylum Appeal - Start Appeal",
+    "url": "https://www.appeal-immigration-asylum-decision.service.gov.uk/start-appeal",
+    "category": "Immigration Appeals",
+    "department": "HMCTS",
+    "service_type": "Form Submission",
+    "notes": "Begin immigration or asylum appeal process"
+  },
+  {
+    "name": "Benefit Decision Appeal",
+    "url": "https://www.appeal-benefit-decision.service.gov.uk/",
+    "category": "Social Security Appeals",
+    "department": "HMCTS",
+    "service_type": "Appeal Portal",
+    "notes": "Appeal benefit decisions to tribunal"
+  },
+  {
+    "name": "Benefit Decision Appeal - Entry",
+    "url": "https://www.appeal-benefit-decision.service.gov.uk/entry",
+    "category": "Social Security Appeals",
+    "department": "HMCTS",
+    "service_type": "Form Submission",
+    "notes": "Start benefit appeal submission"
+  },
+  {
+    "name": "Benefit Decision Appeal - Sign In",
+    "url": "https://www.appeal-benefit-decision.service.gov.uk/sign-in-back",
+    "category": "Social Security Appeals",
+    "department": "HMCTS",
+    "service_type": "Account Access",
+    "notes": "Return to existing benefit appeal"
+  },
+  {
+    "name": "Employment Tribunal Claim",
+    "url": "https://www.claim-employment-tribunals.service.gov.uk/",
+    "category": "Employment Tribunals",
+    "department": "HMCTS",
+    "service_type": "Claim Portal",
+    "notes": "Make employment tribunal claims online"
+  },
+  {
+    "name": "Traffic Penalty Tribunal",
+    "url": "https://www.trafficpenaltytribunal.gov.uk/",
+    "category": "Traffic & Parking",
+    "department": "MOJ",
+    "service_type": "Appeal Portal",
+    "notes": "Appeal parking and traffic penalty charge notices"
+  },
+  {
+    "name": "Traffic Penalty Tribunal - Submit Appeal",
+    "url": "https://www.trafficpenaltytribunal.gov.uk/want-to-appeal/",
+    "category": "Traffic & Parking",
+    "department": "MOJ",
+    "service_type": "Form Submission",
+    "notes": "Submit traffic penalty appeal online"
+  },
+  {
+    "name": "London Tribunals - Online Appeals",
+    "url": "https://www.londontribunals.gov.uk/about/online-appeals",
+    "category": "Traffic & Parking",
+    "department": "MOJ",
+    "service_type": "Appeal Portal",
+    "notes": "Appeal parking and traffic penalties in London"
+  },
+  {
+    "name": "Check Client Qualifies for Legal Aid",
+    "url": "https://check-your-client-qualifies-for-legal-aid.service.gov.uk/",
+    "category": "Legal Aid",
+    "department": "MOJ",
+    "service_type": "Eligibility Checker",
+    "notes": "Legal professionals check client legal aid eligibility"
+  },
+  {
+    "name": "Legal Aid Data",
+    "url": "https://data.justice.gov.uk/legalaid",
+    "category": "Legal Aid",
+    "department": "MOJ",
+    "service_type": "Data Portal",
+    "notes": "Legal aid statistics and data"
+  },
+  {
+    "name": "GOV.UK - Make Court Claim for Money",
+    "url": "https://www.gov.uk/make-court-claim-for-money",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on making civil money claims"
+  },
+  {
+    "name": "GOV.UK - Respond to Court Claim",
+    "url": "https://www.gov.uk/respond-to-court-claim-for-money",
+    "category": "Civil Claims",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on responding to money claims"
+  },
+  {
+    "name": "GOV.UK - Divorce",
+    "url": "https://www.gov.uk/divorce",
+    "category": "Family Law",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Information on divorce process and applications"
+  },
+  {
+    "name": "GOV.UK - Apply for Probate",
+    "url": "https://www.gov.uk/applying-for-probate",
+    "category": "Probate",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on probate applications"
+  },
+  {
+    "name": "GOV.UK - Search Will Probate",
+    "url": "https://www.gov.uk/search-will-probate",
+    "category": "Probate",
+    "department": "HMCTS",
+    "service_type": "Search Service",
+    "notes": "Search for probate records and wills"
+  },
+  {
+    "name": "GOV.UK - Pay Court Fine Online",
+    "url": "https://www.gov.uk/pay-court-fine-online",
+    "category": "Payments",
+    "department": "HMCTS",
+    "service_type": "Payment Portal",
+    "notes": "Pay court fines and penalties online"
+  },
+  {
+    "name": "GOV.UK - Court Fees",
+    "url": "https://www.gov.uk/court-fees-what-they-are",
+    "category": "Payments",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Information on court fees and charges"
+  },
+  {
+    "name": "GOV.UK - Get Help with Court Fees",
+    "url": "https://www.gov.uk/get-help-with-court-fees",
+    "category": "Payments",
+    "department": "HMCTS",
+    "service_type": "Financial Support",
+    "notes": "Apply for help with court fees"
+  },
+  {
+    "name": "GOV.UK - Check Legal Aid",
+    "url": "https://www.gov.uk/check-legal-aid",
+    "category": "Legal Aid",
+    "department": "MOJ",
+    "service_type": "Eligibility Checker",
+    "notes": "Check eligibility for legal aid"
+  },
+  {
+    "name": "GOV.UK - Legal Aid Overview",
+    "url": "https://www.gov.uk/legal-aid",
+    "category": "Legal Aid",
+    "department": "MOJ",
+    "service_type": "Information & Guidance",
+    "notes": "Overview of legal aid services"
+  },
+  {
+    "name": "GOV.UK - Appeal Benefit Decision",
+    "url": "https://www.gov.uk/appeal-benefit-decision",
+    "category": "Social Security Appeals",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on appealing benefit decisions"
+  },
+  {
+    "name": "GOV.UK - Employment Tribunals",
+    "url": "https://www.gov.uk/employment-tribunals",
+    "category": "Employment Tribunals",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Information on making employment tribunal claims"
+  },
+  {
+    "name": "GOV.UK - Immigration Asylum Tribunal",
+    "url": "https://www.gov.uk/immigration-asylum-tribunal",
+    "category": "Immigration Appeals",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on immigration and asylum tribunal appeals"
+  },
+  {
+    "name": "GOV.UK - Jury Service",
+    "url": "https://www.gov.uk/jury-service",
+    "category": "Court Services",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Information on jury service obligations"
+  },
+  {
+    "name": "GOV.UK - Prison Visits",
+    "url": "https://www.gov.uk/prison-visits",
+    "category": "Prison Services",
+    "department": "MOJ",
+    "service_type": "Booking Service",
+    "notes": "Book prison visits online"
+  },
+  {
+    "name": "GOV.UK - Send Prisoner Money",
+    "url": "https://www.gov.uk/send-prisoner-money",
+    "category": "Prison Services",
+    "department": "MOJ",
+    "service_type": "Payment Portal",
+    "notes": "Send money to prisoners online"
+  },
+  {
+    "name": "GOV.UK - When Someone Dies",
+    "url": "https://www.gov.uk/when-someone-dies",
+    "category": "Probate",
+    "department": "HMCTS",
+    "service_type": "Information & Guidance",
+    "notes": "Death administration and probate guidance"
+  },
+  {
+    "name": "Courts Data - Justice Data",
+    "url": "https://data.justice.gov.uk/courts",
+    "category": "Open Data",
+    "department": "MOJ",
+    "service_type": "Data Portal",
+    "notes": "Court statistics and performance data"
+  },
+  {
+    "name": "Tribunals Data - Justice Data",
+    "url": "https://data.justice.gov.uk/courts/tribunals",
+    "category": "Open Data",
+    "department": "MOJ",
+    "service_type": "Data Portal",
+    "notes": "Tribunal statistics and performance data"
+  },
+  {
+    "name": "GOV.UK - Court and Tribunal Forms",
+    "url": "https://www.gov.uk/government/collections/court-and-tribunal-forms",
+    "category": "Forms & Documents",
+    "department": "HMCTS",
+    "service_type": "Document Repository",
+    "notes": "Collection of court and tribunal forms"
+  },
+  {
+    "name": "GOV.UK - Appeal Penalty Charge Notice",
+    "url": "https://www.gov.uk/appeal-against-a-penalty-charge-notice",
+    "category": "Traffic & Parking",
+    "department": "MOJ",
+    "service_type": "Information & Guidance",
+    "notes": "Guidance on appealing parking penalty charges"
+  }
+]

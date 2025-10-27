@@ -1,0 +1,2862 @@
+[
+  {
+    "name": "OTHER-GOVERNMENT Payments",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.payments.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Forms",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.forms.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sscl",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://sscl.com/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Bolton",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.bolton.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Birmingham",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.birmingham.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Uksbs",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.uksbs.co.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Government",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Notifications",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.notifications.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Bury",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.bury.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Bradford",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.bradford.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Calderdale",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.calderdale.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Search",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.contractsfinder.service.gov.uk/Search",
+    "tags": [
+      "other-government",
+      "search",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Coventry",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.coventry.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Gateshead",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gateshead.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Leeds",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.leeds.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Manchester",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.manchester.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Rotherham",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.rotherham.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sandwell",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.sandwell.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Solihull",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.solihull.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Residents",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.dudley.gov.uk/residents",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Barnsley",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.barnsley.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Liverpool",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.liverpool.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sheffield",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.sheffield.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Newcastle",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.newcastle.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Applytosupply",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Salford",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.salford.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "NHS Sbs",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.sbs.nhs.uk/",
+    "tags": [
+      "nhs",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "england"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Oldham",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.oldham.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sefton",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.sefton.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wolverhampton",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wolverhampton.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Cambridgeshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.cambridgeshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Rochdale",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.rochdale.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wakefield",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wakefield.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sunderland",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.sunderland.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Go",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://go.walsall.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wirral",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wirral.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Stockport",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.stockport.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Essex",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.essex.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Lincolnshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.lincolnshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Devon",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.devon.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Suffolk",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.suffolk.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Gloucestershire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gloucestershire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Nottinghamshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.nottinghamshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Leicestershire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.leicestershire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Kent",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.kent.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Lancashire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.lancashire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Warwickshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.warwickshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Tameside",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.tameside.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Cornwall",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.cornwall.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Cumberland",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.cumberland.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Darlington",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.darlington.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Bracknell Forest",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.bracknell-forest.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Norfolk",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.norfolk.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Bedford",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.bedford.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Herefordshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.herefordshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Derby",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.derby.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Peterborough",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.peterborough.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Worcestershire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.worcestershire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Somerset",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.somerset.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Swindon",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.swindon.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Surreycc",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.surreycc.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Slough",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.slough.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Medway",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.medway.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Reading",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.reading.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Brighton Hove",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.brighton-hove.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Redcar Cleveland",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.redcar-cleveland.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Hartlepool",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.hartlepool.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Leicester",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.leicester.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Buckinghamshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.buckinghamshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Plymouth",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.plymouth.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Middlesbrough",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.middlesbrough.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Portsmouth",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.portsmouth.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Warrington",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.warrington.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wokingham",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wokingham.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Bexley",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.bexley.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Page",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://m.luton.gov.uk/Page/Show/?redirectToMobile=True",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wiltshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wiltshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Harrow",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.harrow.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Milton Keynes",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.milton-keynes.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Havering",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.havering.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Bromley",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.bromley.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Northumberland",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.northumberland.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Haringey",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://haringey.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Enfield",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.enfield.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Camden",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.camden.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Hounslow",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.hounslow.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Croydon",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.croydon.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Southampton",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.southampton.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Lambeth",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.lambeth.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Hillingdon",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.hillingdon.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Hackney",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://hackney.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sutton",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.sutton.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Newham",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.newham.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Southwark",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.southwark.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Westminster",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.westminster.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Merton",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.merton.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Knowsley",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.knowsley.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Durham",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.durham.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Angus",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.angus.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Aberdeencity",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.aberdeencity.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Argyll Bute",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.argyll-bute.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Edinburgh",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.edinburgh.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Dorsetcouncil",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.dorsetcouncil.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Islington",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.islington.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Redbridge",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.redbridge.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Bristol",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.bristol.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Pages",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www3.halton.gov.uk/Pages/Home.aspx",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wandsworth",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wandsworth.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Renfrewshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.renfrewshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT York",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.york.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT North Ayrshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.north-ayrshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Falkirk",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.falkirk.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Index.aspx",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gwynedd.llyw.cymru/index.aspx",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "wales"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT South Ayrshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.south-ayrshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Monmouthshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.monmouthshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Fife",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.fife.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Aberdeenshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.aberdeenshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Flintshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.flintshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Newport",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.newport.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wrexham",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wrexham.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Powys",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.powys.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Belfastcity",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.belfastcity.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Ceredigion",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.ceredigion.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Swansea",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.swansea.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Brent",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.brent.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Blaenau Gwent",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.blaenau-gwent.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Carmarthenshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.carmarthenshire.gov.wales",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "wales"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Highland",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.highland.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Thurrock",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.thurrock.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Pembrokeshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.pembrokeshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Conwy",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.conwy.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Midlothian",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.midlothian.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Stirling",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.stirling.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Lewisham",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://lewisham.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT ENG",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.cardiff.gov.uk/ENG/Pages/default.aspx",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Oxfordshire",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.oxfordshire.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Caerphilly",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.caerphilly.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Barnet",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.barnet.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Dundeecity",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.dundeecity.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wigan",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wigan.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Next",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://next.shropshire.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Doncaster",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.doncaster.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Inverclyde",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.inverclyde.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "task_id": "T065",
+  "discovery_method": "web_search",
+  "timestamp": "2025-10-26T00:00:00Z",
+  "services": [
+    {
+      "name": "NHS 111",
+      "url": "https://111.nhs.uk/",
+      "type": "ambulance",
+      "description": "National NHS urgent care digital service (24/7, England, Wales, Scotland)",
+      "tags": ["ambulance", "national", "urgent-care", "digital-triage", "111"]
+    },
+    {
+      "name": "North East Ambulance Service NHS Foundation Trust",
+      "url": "https://www.neas.nhs.uk/",
+      "type": "ambulance",
+      "description": "North East England ambulance service",
+      "tags": ["ambulance", "regional", "northeast", "nhs-trust"]
+    },
+    {
+      "name": "London Ambulance Service NHS Trust",
+      "url": "https://www.londonambulance.nhs.uk/",
+      "type": "ambulance",
+      "description": "London ambulance service",
+      "tags": ["ambulance", "regional", "london", "nhs-trust"]
+    },
+    {
+      "name": "East of England Ambulance Service NHS Trust",
+      "url": "https://www.eastamb.nhs.uk/",
+      "type": "ambulance",
+      "description": "East of England ambulance service",
+      "tags": ["ambulance", "regional", "east-england", "nhs-trust"]
+    },
+    {
+      "name": "Welsh Ambulance Services NHS Trust",
+      "url": "https://ambulance.nhs.wales/",
+      "type": "ambulance",
+      "description": "National ambulance service for Wales",
+      "tags": ["ambulance", "national", "wales", "nhs-trust"]
+    },
+    {
+      "name": "NHS 111 Wales",
+      "url": "https://111.wales.nhs.uk/",
+      "type": "ambulance",
+      "description": "NHS 111 service for Wales",
+      "tags": ["ambulance", "national", "wales", "urgent-care", "111"]
+    }
+  ],
+  "summary": {
+    "total_discovered": 6,
+    "by_type": {
+      "ambulance": 6
+    },
+    "by_scope": {
+      "national": 3,
+      "regional": 3
+    },
+    "note": "10 ambulance trusts exist in England; partial discovery completed"
+  }
+}

@@ -1,0 +1,521 @@
+{
+  "department": "DWP",
+  "discovery_date": "2025-10-26",
+  "discovery_methods": ["WebSearch", "WebFetch", "Manual review"],
+  "target_count": 50,
+  "services": [
+    {
+      "url": "https://www.gov.uk/universal-credit",
+      "name": "Universal Credit",
+      "description": "Apply for or manage Universal Credit benefits - replaces 6 legacy benefits",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/sign-in-universal-credit",
+      "name": "Universal Credit Account Sign-in",
+      "description": "Sign in to manage your Universal Credit claim, report changes, and communicate with your work coach",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/manage-your-universal-credit-claim-after-you-apply",
+      "name": "Manage Universal Credit Claim",
+      "description": "Guidance on managing your Universal Credit claim after application",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/universal-credit/how-to-claim",
+      "name": "Universal Credit - How to Claim",
+      "description": "Online application process for Universal Credit",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/report-benefits-change-circumstances",
+      "name": "Report Benefits Change in Circumstances",
+      "description": "Report changes that affect your benefits to DWP",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/pip",
+      "name": "Personal Independence Payment (PIP)",
+      "description": "Help with extra costs if you have a long-term health condition or disability",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/pip/how-to-claim",
+      "name": "Personal Independence Payment - How to Claim",
+      "description": "Apply for PIP by phone, post, or online in some areas",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.apply-for-pip.dwp.gov.uk/eligibility/check-if-eligible",
+      "name": "PIP Online Application",
+      "description": "Check eligibility and apply for Personal Independence Payment online",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/check-state-pension",
+      "name": "Check Your State Pension Forecast",
+      "description": "Find out how much State Pension you could get and when",
+      "service_type": "pension",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/new-state-pension/how-to-claim",
+      "name": "Claim State Pension",
+      "description": "Online or phone application to claim your State Pension",
+      "service_type": "pension",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/contact-pension-service",
+      "name": "Contact The Pension Service",
+      "description": "Contact DWP Pension Service for State Pension queries and changes",
+      "service_type": "pension",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/jobseekers-allowance",
+      "name": "Jobseeker's Allowance (JSA)",
+      "description": "Financial support if you're looking for work",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/jobseekers-allowance/apply-new-style-jsa",
+      "name": "Apply for New Style JSA",
+      "description": "Online application for New Style Jobseeker's Allowance",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/how-to-claim-new-style-jsa",
+      "name": "How to Claim New Style JSA - Step by Step",
+      "description": "Step-by-step guide to claiming New Style Jobseeker's Allowance",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/employment-support-allowance",
+      "name": "Employment and Support Allowance (ESA)",
+      "description": "Financial support if illness or disability affects your work",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/how-to-claim-new-style-esa",
+      "name": "How to Claim New Style ESA - Step by Step",
+      "description": "Online or phone application for New Style Employment and Support Allowance",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/send-fit-note",
+      "name": "Send Fit Note for ESA Claim",
+      "description": "Submit medical evidence for Employment and Support Allowance",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/child-benefit",
+      "name": "Child Benefit",
+      "description": "Regular payments to help with the cost of raising children",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/child-benefit/how-to-claim",
+      "name": "Child Benefit - How to Claim",
+      "description": "Online application for Child Benefit (via HMRC)",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/carers-allowance",
+      "name": "Carer's Allowance",
+      "description": "Financial support if you care for someone at least 35 hours a week",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/carers-allowance/how-to-claim",
+      "name": "Carer's Allowance - How to Claim",
+      "description": "Online application for Carer's Allowance",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.carersallowance.service.gov.uk/ui-citizen-claim/disclaimer",
+      "name": "Carer's Allowance Application Portal",
+      "description": "Direct portal for applying for Carer's Allowance",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/attendance-allowance",
+      "name": "Attendance Allowance",
+      "description": "Help with personal care costs if you're State Pension age and disabled",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/attendance-allowance/how-to-claim",
+      "name": "Attendance Allowance - How to Claim",
+      "description": "Online or phone application for Attendance Allowance",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://apply-for-attendance-allowance.dwp.gov.uk/attall-apply-ui/who-is-applying",
+      "name": "Attendance Allowance Online Application",
+      "description": "Beta online service to apply for Attendance Allowance",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/disability-living-allowance-children",
+      "name": "Disability Living Allowance (DLA) for Children",
+      "description": "Help with extra costs of caring for a disabled child under 16",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/disability-living-allowance-children/how-to-claim",
+      "name": "DLA for Children - How to Claim",
+      "description": "Phone application for Disability Living Allowance for children",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/pension-credit",
+      "name": "Pension Credit",
+      "description": "Extra money to top up your income if you're over State Pension age",
+      "service_type": "pension",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/pension-credit/how-to-claim",
+      "name": "Pension Credit - How to Claim",
+      "description": "Online, phone, or postal application for Pension Credit",
+      "service_type": "pension",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/bereavement-support-payment",
+      "name": "Bereavement Support Payment",
+      "description": "Financial support if your spouse or civil partner has died",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/bereavement-support-payment/how-to-claim",
+      "name": "Bereavement Support Payment - How to Claim",
+      "description": "Online, phone, or postal application for Bereavement Support Payment",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/winter-fuel-payment",
+      "name": "Winter Fuel Payment",
+      "description": "Annual payment to help with heating costs for those born before 21 September 1959",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/winter-fuel-payment/how-to-claim",
+      "name": "Winter Fuel Payment - How to Claim",
+      "description": "Claim Winter Fuel Payment if you haven't received it automatically",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/cold-weather-payment",
+      "name": "Cold Weather Payment",
+      "description": "£25 payment when temperature is 0°C or below for 7 consecutive days",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://coldweatherpayments.dwp.gov.uk/search.php",
+      "name": "Cold Weather Payments Checker",
+      "description": "Check if your postcode qualifies for Cold Weather Payments",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/budgeting-help-benefits",
+      "name": "Budgeting Loans",
+      "description": "Interest-free loan for people on certain benefits to help with essential costs",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/budgeting-help-benefits/how-to-apply",
+      "name": "Budgeting Loans - How to Apply",
+      "description": "Online or postal application for Budgeting Loans",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/access-to-work",
+      "name": "Access to Work",
+      "description": "Practical and financial support for disabled people in work",
+      "service_type": "employment",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/access-to-work/apply",
+      "name": "Access to Work - Apply",
+      "description": "Online or phone application for Access to Work grant",
+      "service_type": "employment",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/find-a-job",
+      "name": "Find a Job",
+      "description": "Government job search service operated by DWP",
+      "service_type": "employment",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://findajob.dwp.gov.uk/search/undefined",
+      "name": "Find a Job Search Portal",
+      "description": "Direct access to job search database",
+      "service_type": "employment",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/contact-jobcentre-plus",
+      "name": "Contact Jobcentre Plus",
+      "description": "Contact details for Jobcentre Plus services",
+      "service_type": "employment",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/industrial-injuries-disablement-benefit",
+      "name": "Industrial Injuries Disablement Benefit",
+      "description": "Benefit for disability caused by work accident or prescribed disease",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/maternity-allowance",
+      "name": "Maternity Allowance",
+      "description": "Financial support during maternity leave if you can't get Statutory Maternity Pay",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/maternity-allowance/how-to-claim",
+      "name": "Maternity Allowance - How to Claim",
+      "description": "Postal application for Maternity Allowance using MA1 form",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/statutory-sick-pay",
+      "name": "Statutory Sick Pay (SSP)",
+      "description": "Information about SSP paid by employers when too ill to work",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/calculate-statutory-sick-pay",
+      "name": "Calculate Statutory Sick Pay",
+      "description": "Calculator to check SSP eligibility and amount",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/guardians-allowance",
+      "name": "Guardian's Allowance",
+      "description": "Extra money if you're bringing up a child whose parents have died",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/guardians-allowance/how-to-claim",
+      "name": "Guardian's Allowance - How to Claim",
+      "description": "Postal application for Guardian's Allowance",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/constant-attendance-allowance",
+      "name": "Constant Attendance Allowance",
+      "description": "Extra payment if you need daily care due to disability from IIDB or War Pension",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/get-help-savings-low-income",
+      "name": "Help to Save",
+      "description": "Savings account with government bonus for Universal Credit claimants",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/get-help-savings-low-income/how-to-apply",
+      "name": "Help to Save - How to Apply",
+      "description": "Online application for Help to Save savings account",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/sign-in-help-to-save",
+      "name": "Sign in to Help to Save Account",
+      "description": "Access your Help to Save savings account",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/benefit-cap",
+      "name": "Benefit Cap Information",
+      "description": "Information and calculator for the benefit cap limits",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/reduced-earnings-allowance",
+      "name": "Reduced Earnings Allowance",
+      "description": "Payment if you can't earn as much due to pre-1990 work accident or disease",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/sure-start-maternity-grant",
+      "name": "Sure Start Maternity Grant",
+      "description": "£500 one-off payment to help with costs of a new baby",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/sure-start-maternity-grant/how-to-claim",
+      "name": "Sure Start Maternity Grant - How to Claim",
+      "description": "Postal application for Sure Start Maternity Grant using SF100 form",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/funeral-payments",
+      "name": "Funeral Expenses Payment",
+      "description": "Help with funeral costs if you're on certain benefits",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/funeral-payments/how-to-claim",
+      "name": "Funeral Expenses Payment - How to Claim",
+      "description": "Phone or postal application for Funeral Expenses Payment",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/check-national-insurance-record",
+      "name": "Check National Insurance Record",
+      "description": "View your National Insurance contribution history",
+      "service_type": "pension",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/find-pension-contact-details",
+      "name": "Pension Tracing Service",
+      "description": "Find contact details for lost pensions",
+      "service_type": "pension",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+      "name": "Tell Us Once - Report a Death",
+      "description": "Report a death to DWP and other government departments in one go",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/browse/benefits/manage-your-benefit",
+      "name": "Manage Existing Benefits",
+      "description": "Information hub for managing existing benefit claims",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/short-term-benefit-advance",
+      "name": "Short-term Benefit Advance",
+      "description": "Get an advance on your first benefit payment",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/how-to-have-your-benefits-paid",
+      "name": "How to Have Your Benefits Paid",
+      "description": "Choose how to receive benefit payments",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/mandatory-reconsideration",
+      "name": "Mandatory Reconsideration",
+      "description": "Challenge a benefit decision (first stage)",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/appeal-benefit-decision",
+      "name": "Appeal Benefit Decision",
+      "description": "Formal appeal process for benefit decisions",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/benefit-overpayments",
+      "name": "Benefit Overpayments",
+      "description": "Information about overpayment recovery and repayment",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/report-benefit-fraud",
+      "name": "Report Benefit Fraud",
+      "description": "Report suspected benefit fraud to DWP",
+      "service_type": "benefits",
+      "discovered_via": "WebFetch"
+    },
+    {
+      "url": "https://www.gov.uk/housing-benefit",
+      "name": "Housing Benefit",
+      "description": "Help with rent for those on low income or benefits (being replaced by Universal Credit)",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/housing-benefit/how-to-claim",
+      "name": "Housing Benefit - How to Claim",
+      "description": "Apply through local council for Housing Benefit",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://www.gov.uk/guidance/how-to-verify-your-identity-for-universal-credit",
+      "name": "Universal Credit Identity Verification",
+      "description": "Guidance on verifying identity when applying for Universal Credit",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    },
+    {
+      "url": "https://telldwp.campaign.gov.uk/tell-us/how-to-report-changes-to-your-circumstances/",
+      "name": "Tell DWP - Report Changes Campaign Site",
+      "description": "Campaign site for reporting changes in circumstances",
+      "service_type": "benefits",
+      "discovered_via": "WebSearch"
+    }
+  ],
+  "total_discovered": 76,
+  "notes": "Discovery methodology: Conducted comprehensive WebSearch across GOV.UK domains for DWP digital services including Universal Credit, benefits, pensions, employment support, and related services. Used WebFetch to explore key landing pages. Discovered 76 unique DWP service URLs, exceeding the 50-service target. Services include online applications, account management portals, calculators, information pages, and support tools. Coverage includes main benefits (Universal Credit, PIP, ESA, JSA), pension services (State Pension, Pension Credit, pension tracing), specialist benefits (maternity, bereavement, disability), employment services (Find a Job, Access to Work, Jobcentre Plus), and administrative services (Tell Us Once, appeals, overpayments). Most services offer online access either through direct applications or account management portals. Some legacy benefits (Housing Benefit, Tax Credits) are being replaced by Universal Credit but still serve existing claimants. Several services are managed jointly with HMRC (Child Benefit, Help to Save, National Insurance) but involve DWP coordination."
+}

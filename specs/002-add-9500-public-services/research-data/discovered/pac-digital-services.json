@@ -1,0 +1,173 @@
+{
+  "discovery_task": "T100",
+  "discovery_date": "2025-10-26",
+  "discovery_method": "Manual review of UK Public Accounts Committee reports for contracted digital services",
+  "total_services_found": 7,
+  "service_categories": {
+    "procurement_frameworks": 2,
+    "shared_services": 2,
+    "infrastructure": 1,
+    "specific_projects": 2
+  },
+  "key_pac_reports": [
+    {
+      "title": "Government's relationship with digital technology suppliers",
+      "publication_number": "640",
+      "session": "2024-25",
+      "publication_date": "2025-06",
+      "url": "https://publications.parliament.uk/pa/cm5901/cmselect/cmpubacc/640/report.html",
+      "hearing_date": "2025-02-27",
+      "status": "Access restricted (403)"
+    },
+    {
+      "title": "Digital reforms: Govt has mountain to climb",
+      "publication_date": "2025-06",
+      "url": "https://committees.parliament.uk/committee/127/public-accounts-committee/news/207232/digital-reforms-govt-has-mountain-to-climb-but-does-not-yet-understand-size-of-challenge/"
+    },
+    {
+      "title": "Use of AI in Government",
+      "publication_number": "47199",
+      "session": "2024-25",
+      "url": "https://committees.parliament.uk/publications/47199/documents/244683/default/"
+    },
+    {
+      "title": "Government Shared Services",
+      "url": "https://committees.parliament.uk/publications/39382/documents/193520/default/"
+    }
+  ],
+  "services_and_contracts": [
+    {
+      "name": "Technology Services 4 Framework",
+      "contract_value": "£16 billion",
+      "service_type": "IT services procurement framework",
+      "launch_status": "Delayed 6 months from original date",
+      "scope": [
+        "Digital consultancy",
+        "Service integration",
+        "Infrastructure management",
+        "Cybersecurity",
+        "Data services",
+        "Application development",
+        "Transformation projects"
+      ],
+      "tags": ["framework", "procurement", "it-services"]
+    },
+    {
+      "name": "Digital technology suppliers (aggregate)",
+      "annual_spending": "£14 billion minimum",
+      "data_quality": "No central record of spending (third-party estimates)",
+      "supplier_count": "Multiple (market concentration with few large suppliers)",
+      "management_staff": "15 full-time technology supplier relationship managers",
+      "tags": ["procurement", "suppliers"]
+    },
+    {
+      "name": "Digital Commercial Centre of Excellence",
+      "establishment_date": "2025-01",
+      "parent_organization": "DSIT (Department for Science, Innovation and Technology)",
+      "staff_count": 24,
+      "comparison": "24 digital experts vs 6,000 general commercial personnel",
+      "purpose": "Enhance digital procurement capabilities",
+      "tags": ["capability", "procurement"]
+    },
+    {
+      "name": "Shared Services Connected Ltd (SSCL)",
+      "contract_extension": "£300 million",
+      "extension_period": "3 years (2025)",
+      "provider": "Sopra Steria",
+      "departments_served": 29,
+      "service_type": "Back-office shared services",
+      "tags": ["shared-services", "contracted"]
+    },
+    {
+      "name": "UK Shared Business Services (UKSBS)",
+      "ownership": "DSIT, DESNZ, DBT, UKRI",
+      "service_type": "Shared services provider",
+      "scope": "HR, payroll, finance, procurement, IT",
+      "tags": ["shared-services", "government-owned"]
+    },
+    {
+      "name": "HM Prison & Probation Service - Electronic Tagging Programme",
+      "status": "Failed delivery cited in PAC reports",
+      "issues": "Large cost overruns",
+      "report_focus": "Example of digital transformation failure",
+      "tags": ["failed-project", "digital-transformation"]
+    },
+    {
+      "name": "Building Digital UK",
+      "report": "Annual Report and Accounts 2024-2025",
+      "url": "https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025/",
+      "service_type": "Digital infrastructure",
+      "tags": ["infrastructure", "broadband"]
+    }
+  ],
+  "key_findings": {
+    "annual_spending": "£14 billion+ on digital technology suppliers",
+    "data_management": "No central record of digital procurement spending",
+    "supplier_relationships": "15 full-time staff manage all technology supplier relationships",
+    "market_concentration": "Digital technology market dominated by small number of large suppliers",
+    "skills_gap": "24 digital experts in Digital Commercial Centre of Excellence vs 6,000 general commercial staff",
+    "legacy_systems": "28% of central government systems are outdated legacy IT",
+    "transformation_timeline": "Government has mountain to climb, does not understand scale of challenge",
+    "procurement_inefficiencies": "Compounded by lack of digital skills in civil service"
+  },
+  "pac_recommendations": [
+    {
+      "deadline": "2025-autumn",
+      "requirement": "Ensure government has data and capability to make informed decisions about technology spending"
+    },
+    {
+      "requirement": "Address market concentration and limited supplier choice"
+    },
+    {
+      "requirement": "Improve digital skills and commercial capabilities"
+    },
+    {
+      "requirement": "Create central record of digital procurement spending"
+    },
+    {
+      "requirement": "Scale up Digital Commercial Centre of Excellence staffing"
+    }
+  ],
+  "government_response": {
+    "digital_sourcing_strategy": {
+      "status": "In development",
+      "lead": "DSIT (Department for Science, Innovation and Technology)"
+    },
+    "organizational_changes": {
+      "date": "2025-01",
+      "merger": "GDS, CDDO, Incubator for Artificial Intelligence, Geospatial Commission, parts of Responsible Tech Adoption Unit",
+      "new_organization": "Government Digital Service (GDS)",
+      "parent": "Department for Science, Innovation and Technology (DSIT)"
+    }
+  },
+  "pac_activity_2024_2025": {
+    "evidence_sessions": 53,
+    "reports_published": 45,
+    "topics_examined": [
+      "Government cyber resilience",
+      "Government's relationship with digital technology suppliers",
+      "Use of AI in Government",
+      "Government Shared Services",
+      "Digital transformation",
+      "Procurement value for money"
+    ]
+  },
+  "notes": [
+    "PAC reports highlight systemic issues in digital procurement",
+    "Government lacks central visibility of £14bn annual digital spending",
+    "Only 15 people manage full-time relationships with all technology suppliers",
+    "Digital Commercial Centre of Excellence significantly understaffed (24 vs needs)",
+    "28% of government systems are legacy IT requiring modernization",
+    "Market concentration limits government choice of suppliers",
+    "Electronic tagging programme cited as example of digital project failure",
+    "PAC report URLs return 403 errors (restricted access)",
+    "Government committed to delivering reforms by autumn 2025"
+  ],
+  "sources": [
+    "UK Parliament Public Accounts Committee reports (2024-2025)",
+    "PAC news releases and summaries",
+    "Government responses to PAC reports",
+    "Building Digital UK Annual Report",
+    "Technology industry analysis"
+  ]
+}

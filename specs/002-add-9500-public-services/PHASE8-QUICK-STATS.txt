@@ -1,0 +1,124 @@
+================================================================================
+  PHASE 8: *.service.gov.uk DOMAIN DISCOVERY - QUICK STATISTICS
+================================================================================
+
+EXECUTION DATE:     2025-10-26
+PHASE STATUS:       ✅ COMPLETED
+EXPECTED YIELD:     4000+ services
+ACTUAL YIELD:       1104 unique service.gov.uk domains
+
+--------------------------------------------------------------------------------
+DISCOVERY BREAKDOWN
+--------------------------------------------------------------------------------
+
+SOURCE 1: Community Registry (govuk-digital-services.herokuapp.com)
+  - Services documented: 525
+  - Unique domains:      395
+  - Data quality:        HIGH (includes metadata)
+
+SOURCE 2: Certificate Transparency (crt.sh)
+  - Certificate records: 4,629
+  - Unique domains:      868
+  - Coverage:            COMPREHENSIVE (includes staging/test)
+
+CONSOLIDATED RESULTS:
+  - Total unique domains: 1,104
+  - Registry only:        236 (21.4%)
+  - Certs only:          709 (64.2%)
+  - Both sources:        159 (14.4%)
+
+--------------------------------------------------------------------------------
+KEY FINDINGS
+--------------------------------------------------------------------------------
+
+✅ CRITICAL CORRECTION: Domain is service.gov.uk (singular), NOT services.gov.uk
+✅ Multi-source approach essential (64% of domains only in CT logs)
+✅ High-quality metadata available from community registry
+✅ ~30% of discovered domains are staging/test environments
+
+--------------------------------------------------------------------------------
+SAMPLE DISCOVERED SERVICES (Top 20)
+--------------------------------------------------------------------------------
+
+1.  https://academic-technology-approval.service.gov.uk
+2.  https://accept-refugee-integration-loan.service.gov.uk
+3.  https://accounts.manage-apprenticeships.service.gov.uk
+4.  https://analyse-school-performance.service.gov.uk
+5.  https://animal-disease-testing.service.gov.uk
+6.  https://appeal-benefit-decision.service.gov.uk
+7.  https://appeal-planning-decision.service.gov.uk
+8.  https://apply-blue-badge.service.gov.uk
+9.  https://apply-divorce.service.gov.uk
+10. https://apply-driver-digital-tachograph-card.service.gov.uk
+11. https://book-prison-visit.service.gov.uk
+12. https://check-mot-history.service.gov.uk
+13. https://check-your-state-pension.service.gov.uk
+14. https://claim-criminal-injuries-compensation.service.gov.uk
+15. https://find-legal-advice.justice.gov.uk
+16. https://get-state-pension.service.gov.uk
+17. https://register-to-vote.service.gov.uk
+18. https://report-modern-slavery.service.gov.uk
+19. https://view-driving-licence.service.gov.uk
+20. https://www.tax.service.gov.uk (HMRC main portal)
+
+--------------------------------------------------------------------------------
+SERVICE CATEGORIES IDENTIFIED
+--------------------------------------------------------------------------------
+
+TAX & REVENUE:        ~150 domains (tax.service.gov.uk, HMRC services)
+BENEFITS & WELFARE:   ~80 domains (Universal Credit, pensions, appeals)
+TRANSPORT & DVLA:     ~60 domains (driving licenses, tachographs, MOT)
+JUSTICE & COURTS:     ~50 domains (tribunals, appeals, legal services)
+EDUCATION:            ~40 domains (apprenticeships, school performance)
+IMMIGRATION:          ~30 domains (visa, asylum, settled status)
+WIFI INFRASTRUCTURE:  ~80 domains (govwifi admin and services)
+DIGITAL MARKETPLACE:  ~20 domains (procurement, G-Cloud)
+ENVIRONMENT:          ~30 domains (waste, permits, rural payments)
+OTHER SERVICES:       ~564 domains (diverse government services)
+
+--------------------------------------------------------------------------------
+OUTPUT FILES CREATED (9 files)
+--------------------------------------------------------------------------------
+
+MASTER LISTS:
+  ✓ service-gov-uk-all-domains.txt (1,104 domains)
+  ✓ service-gov-uk-all-urls.txt (1,104 HTTPS URLs)
+
+SOURCE DATA:
+  ✓ service-gov-uk-registry-domains.txt (395 registry domains)
+  ✓ service-gov-uk-domains-certs.txt (868 CT domains)
+  ✓ service-gov-uk-all-certs.json (4,629 certificate records, 2.2MB)
+  ✓ govuk-services-registry.json (525 services with metadata)
+
+REPORTS:
+  ✓ service-gov-uk-discovery-summary.json (execution metadata)
+  ✓ PHASE8-SERVICE-GOV-UK-REPORT.md (detailed execution report)
+  ✓ PHASE8-QUICK-STATS.txt (this file)
+
+UTILITIES:
+  ✓ consolidate-service-gov-uk.cjs (reusable consolidation script)
+
+--------------------------------------------------------------------------------
+IMPACT ON 9500+ SERVICES GOAL
+--------------------------------------------------------------------------------
+
+TARGET:               9,500+ UK public service endpoints
+PHASE 8 DELIVERY:     1,104 unique service.gov.uk domains
+PROGRESS:             ~11.6% from this phase alone
+CONFIDENCE:           MODERATE to HIGH
+
+RATIONALE: service.gov.uk alone delivered 1,104 services. With police.uk 
+(~800), nhs.uk (~1,500), and broader gov.uk infrastructure remaining, the 
+9,500+ target is achievable through comprehensive multi-domain enumeration.
+
+--------------------------------------------------------------------------------
+NEXT STEPS
+--------------------------------------------------------------------------------
+
+1. Service validation via HTTP health checks (expected 400-600 active)
+2. Metadata enrichment from Community Registry
+3. Tag application (department, category, environment)
+4. Integration with config.yaml for monitoring
+5. Continue with remaining discovery phases (police.uk, nhs.uk, etc.)
+
+================================================================================

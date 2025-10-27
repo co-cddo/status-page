@@ -1,0 +1,73 @@
+{
+  "task_id": "T063",
+  "discovery_method": "web_search",
+  "timestamp": "2025-10-26T00:00:00Z",
+  "services": [
+    {
+      "name": "Police.UK - National Portal",
+      "url": "https://www.police.uk/",
+      "type": "police",
+      "description": "Official national app and web portal for 38 out of 43 territorial police forces",
+      "tags": ["police", "national", "reporting", "crime-prevention", "single-online-home"]
+    },
+    {
+      "name": "Police.UK - Crime Data Portal",
+      "url": "https://data.police.uk/",
+      "type": "police",
+      "description": "Street-level crime, outcome, and stop and search data in CSV format",
+      "tags": ["police", "national", "data", "open-data", "transparency"]
+    },
+    {
+      "name": "Police Digital Service",
+      "url": "https://pds.police.uk/",
+      "type": "police",
+      "description": "Police Digital Service platform",
+      "tags": ["police", "national", "digital-services", "technology"]
+    },
+    {
+      "name": "Metropolitan Police",
+      "url": "https://www.met.police.uk/",
+      "type": "police",
+      "description": "Metropolitan Police Service online reporting and contact",
+      "tags": ["police", "regional", "london", "reporting"]
+    },
+    {
+      "name": "City of London Police",
+      "url": "https://www.cityoflondon.police.uk/",
+      "type": "police",
+      "description": "City of London Police digital services",
+      "tags": ["police", "regional", "london", "reporting"]
+    },
+    {
+      "name": "Greater Manchester Police",
+      "url": "https://www.gmp.police.uk/",
+      "type": "police",
+      "description": "Greater Manchester Police online services",
+      "tags": ["police", "regional", "manchester", "reporting"]
+    },
+    {
+      "name": "West Yorkshire Police",
+      "url": "https://www.westyorkshire.police.uk/",
+      "type": "police",
+      "description": "West Yorkshire Police reporting platform",
+      "tags": ["police", "regional", "yorkshire", "reporting"]
+    },
+    {
+      "name": "Avon and Somerset Police",
+      "url": "https://www.avonandsomerset.police.uk/",
+      "type": "police",
+      "description": "Avon and Somerset Police online reporting",
+      "tags": ["police", "regional", "southwest", "reporting"]
+    }
+  ],
+  "summary": {
+    "total_discovered": 8,
+    "by_type": {
+      "police": 8
+    },
+    "by_scope": {
+      "national": 3,
+      "regional": 5
+    }
+  }
+}

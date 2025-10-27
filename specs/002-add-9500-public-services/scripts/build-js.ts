@@ -12,7 +12,7 @@
 
 import { build } from 'esbuild';
 import { mkdir } from 'fs/promises';
-import { createLogger } from '../src/logging/logger.ts';
+import { createLogger } from '../../../src/logging/logger.ts';
 
 const logger = createLogger({ serviceName: 'build-js' });
 

@@ -1,0 +1,135 @@
+{
+  "discovery_task": "T097",
+  "discovery_date": "2025-10-26",
+  "discovery_method": "Web search for GDS-hosted services and platforms",
+  "total_services_found": 12,
+  "service_categories": {
+    "digital_platforms": 5,
+    "apis": 7,
+    "frameworks": 1,
+    "infrastructure": 1
+  },
+  "services": [
+    {
+      "name": "GOV.UK Notify",
+      "url": "https://www.notifications.service.gov.uk/",
+      "api_url": "https://www.notifications.service.gov.uk/using-notify/api-documentation",
+      "api_catalogue": "https://www.api.gov.uk/gds/gov-uk-notify/",
+      "description": "Send emails, text messages and letters - cheaply and easily",
+      "service_type": "Notification platform",
+      "status": "Live",
+      "github": "https://github.com/alphagov/notifications-api",
+      "tags": ["gds", "platform", "notify", "api"]
+    },
+    {
+      "name": "GOV.UK Pay",
+      "url": "https://www.payments.service.gov.uk/",
+      "api_url": "https://publicapi.payments.service.gov.uk/v1/payments",
+      "docs_url": "https://docs.payments.service.gov.uk/",
+      "api_catalogue": "https://www.api.gov.uk/gds/gov-uk-pay/",
+      "description": "Collect and process payments - simple experience for users and easy integration",
+      "service_type": "Payment platform",
+      "status": "Live",
+      "tags": ["gds", "platform", "payment", "api"]
+    },
+    {
+      "name": "GOV.UK One Login",
+      "url": "https://www.sign-in.service.gov.uk/",
+      "description": "Sign in and prove identity to access services quickly and easily",
+      "service_type": "Identity and authentication platform",
+      "status": "Beta",
+      "tags": ["gds", "platform", "identity", "authentication"]
+    },
+    {
+      "name": "GOV.UK Forms",
+      "url": "https://www.forms.service.gov.uk/",
+      "description": "Create accessible online forms for GOV.UK without coding",
+      "service_type": "Form builder platform",
+      "status": "Beta",
+      "tags": ["gds", "platform", "forms"]
+    },
+    {
+      "name": "Digital Marketplace",
+      "url": "https://www.digitalmarketplace.service.gov.uk/",
+      "description": "Procurement of technology and services through G-Cloud or DOS frameworks",
+      "service_type": "Procurement platform",
+      "status": "Live",
+      "tags": ["gds", "platform", "procurement"]
+    },
+    {
+      "name": "GOV.UK Design System",
+      "url": "https://design-system.service.gov.uk/",
+      "description": "Design patterns and components for government services",
+      "service_type": "Design framework",
+      "status": "Live",
+      "tags": ["gds", "framework", "design"]
+    },
+    {
+      "name": "Bank Holidays API",
+      "api_catalogue": "https://www.api.gov.uk/gds/bank-holidays/",
+      "description": "UK bank holidays data",
+      "service_type": "API",
+      "status": "Live",
+      "tags": ["gds", "api", "data"]
+    },
+    {
+      "name": "Data.gov.uk API",
+      "url": "https://www.data.gov.uk/",
+      "api_catalogue": "https://www.api.gov.uk/gds/data-gov-uk/",
+      "description": "Find open data from UK government",
+      "service_type": "API",
+      "status": "Live",
+      "tags": ["gds", "api", "data", "open-data"]
+    },
+    {
+      "name": "GOV.UK Content API",
+      "api_catalogue": "https://www.api.gov.uk/gds/gov-uk-content/",
+      "description": "Access GOV.UK content programmatically",
+      "service_type": "API",
+      "status": "Live",
+      "tags": ["gds", "api", "content"]
+    },
+    {
+      "name": "GOV.UK Organisations API",
+      "api_catalogue": "https://www.api.gov.uk/gds/gov-uk-organisations/",
+      "description": "Government organisation data",
+      "service_type": "API",
+      "status": "Live",
+      "tags": ["gds", "api", "organisations"]
+    },
+    {
+      "name": "GOV.UK Search API",
+      "api_catalogue": "https://www.api.gov.uk/gds/gov-uk-search/",
+      "description": "Search GOV.UK content",
+      "service_type": "API",
+      "status": "Live",
+      "tags": ["gds", "api", "search"]
+    },
+    {
+      "name": "UK Emergency Alerts",
+      "description": "Emergency alert system for UK public",
+      "service_type": "Alert platform",
+      "status": "Live",
+      "tags": ["gds", "platform", "alerts", "emergency"]
+    }
+  ],
+  "organizational_changes": {
+    "date": "2025-01",
+    "description": "GDS merged with CDDO, Incubator for Artificial Intelligence, Geospatial Commission, and parts of Responsible Tech Adoption Unit",
+    "parent_department": "Department for Science, Innovation and Technology (DSIT)",
+    "new_organization_name": "Government Digital Service (GDS)"
+  },
+  "notes": [
+    "Digital Service Platforms collectively known as GOV.UK platforms",
+    "All platforms follow GOV.UK Design System standards",
+    "Most platforms offer API access for integration",
+    "Community-maintained list of 400+ government services exists at govuk-digital-services.herokuapp.com",
+    "GDS GitHub organization: https://github.com/alphagov"
+  ],
+  "sources": [
+    "GDS Service Toolkit (www.gov.uk/service-toolkit)",
+    "GDS API Catalogue (www.api.gov.uk/gds/)",
+    "Government Digital Service announcements",
+    "X-GOVUK community project"
+  ]
+}

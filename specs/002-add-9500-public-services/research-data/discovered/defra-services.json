@@ -1,0 +1,345 @@
+[
+  {
+    "name": "Rural Payments Service",
+    "url": "https://www.ruralpayments.service.gov.uk/",
+    "description": "Make or update rural payments claims for farming schemes including Basic Payment Scheme, Countryside Stewardship, and Sustainable Farming Incentive",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["farming", "rural-payments", "agriculture", "defra"]
+  },
+  {
+    "name": "Find Farm and Land Payment Data",
+    "url": "https://find-farm-and-land-payment-data.defra.gov.uk/service-start",
+    "description": "Search CAP payments received by beneficiaries under Rural Development, Direct Aids and Market Schemes",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["farming", "rural-payments", "transparency", "defra"]
+  },
+  {
+    "name": "Check for Flooding in England",
+    "url": "https://check-for-flooding.service.gov.uk/",
+    "description": "Real-time flood warnings and river level information for England",
+    "department": "Environment Agency",
+    "tags": ["flooding", "environment", "defra", "emergency"]
+  },
+  {
+    "name": "Sign Up for Flood Warnings",
+    "url": "https://www.fws.environment-agency.gov.uk/app/olr/home",
+    "description": "Register to receive free flood warnings by telephone, mobile, email or SMS",
+    "department": "Environment Agency",
+    "tags": ["flooding", "environment", "defra", "alerts"]
+  },
+  {
+    "name": "Get a Rod Fishing Licence",
+    "url": "https://get-fishing-licence.service.gov.uk/buy/licence-for",
+    "description": "Purchase rod fishing licences for salmon, trout, freshwater fish, smelt or eel in England and Wales",
+    "department": "Environment Agency",
+    "tags": ["fishing", "recreation", "environment", "defra"]
+  },
+  {
+    "name": "IPAFFS - Import of Products, Animals, Food and Feed System",
+    "url": "https://www.gov.uk/guidance/import-of-products-animals-food-and-feed-system",
+    "description": "Notify authorities about imports of animals, animal products, high-risk food and feed, and plants to Great Britain",
+    "department": "Animal and Plant Health Agency",
+    "tags": ["import", "animals", "plants", "food-safety", "defra"]
+  },
+  {
+    "name": "Waste Carriers Registration Service",
+    "url": "https://wastecarriersregistration.service.gov.uk/",
+    "description": "Register or renew as a waste carrier, broker or dealer in England",
+    "department": "Environment Agency",
+    "tags": ["waste", "environment", "registration", "defra"]
+  },
+  {
+    "name": "Countryside Stewardship Grant Finder",
+    "url": "https://www.gov.uk/countryside-stewardship-grants",
+    "description": "Find information about Countryside Stewardship options, capital items and supplements for environmental land management",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["farming", "grants", "environment", "rural", "defra"]
+  },
+  {
+    "name": "Apply for Export Health Certificate",
+    "url": "https://www.gov.uk/guidance/apply-for-an-export-health-certificate",
+    "description": "Apply for export health certificates to export live animals and animal products from England, Scotland and Wales",
+    "department": "Animal and Plant Health Agency",
+    "tags": ["export", "animals", "certification", "defra"]
+  },
+  {
+    "name": "Cattle Tracing System Online",
+    "url": "https://www.gov.uk/cattle-tracing-online",
+    "description": "Report cattle movements and manage cattle records with the British Cattle Movement Service",
+    "department": "Rural Payments Agency",
+    "tags": ["livestock", "agriculture", "traceability", "defra"]
+  },
+  {
+    "name": "Register as Poultry or Bird Keeper",
+    "url": "https://www.gov.uk/guidance/register-as-a-keeper-of-less-than-50-poultry-or-other-captive-birds",
+    "description": "Register as a keeper of less than 50 poultry or other captive birds with APHA for disease control",
+    "department": "Animal and Plant Health Agency",
+    "tags": ["poultry", "registration", "animal-health", "defra"]
+  },
+  {
+    "name": "Report Dead Wild Birds",
+    "url": "https://www.gov.uk/guidance/report-dead-wild-birds",
+    "description": "Report dead wild birds to help monitor and control avian influenza (bird flu)",
+    "department": "Animal and Plant Health Agency",
+    "tags": ["wildlife", "disease-surveillance", "bird-flu", "defra"]
+  },
+  {
+    "name": "Bring Pet to Great Britain",
+    "url": "https://www.gov.uk/bring-pet-to-great-britain",
+    "description": "Requirements for bringing pet dogs, cats or ferrets to Great Britain including pet passports and health certificates",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["pets", "import", "travel", "defra"]
+  },
+  {
+    "name": "Apply for Water Abstraction or Impounding Licence",
+    "url": "https://www.gov.uk/guidance/water-management-apply-for-a-water-abstraction-or-impoundment-licence",
+    "description": "Apply for a licence to abstract more than 20 cubic metres of water per day or to impound water",
+    "department": "Environment Agency",
+    "tags": ["water", "licensing", "environment", "defra"]
+  },
+  {
+    "name": "Manage Water Abstraction Licence Online",
+    "url": "https://www.gov.uk/guidance/manage-your-water-abstraction-or-impoundment-licences-online",
+    "description": "Manage water abstraction or impoundment licences using the online service",
+    "department": "Environment Agency",
+    "tags": ["water", "licensing", "environment", "defra"]
+  },
+  {
+    "name": "Apply for Marine Licence",
+    "url": "https://www.gov.uk/apply-marine-licence",
+    "description": "Apply for a marine licence for construction, dredging, or other activities in UK marine waters",
+    "department": "Marine Management Organisation",
+    "tags": ["marine", "licensing", "coastal", "defra"]
+  },
+  {
+    "name": "Register Waste Exemptions",
+    "url": "https://www.gov.uk/guidance/register-your-waste-exemptions",
+    "description": "Register exemptions to store, treat, use or dispose of waste without a permit",
+    "department": "Environment Agency",
+    "tags": ["waste", "exemptions", "environment", "defra"]
+  },
+  {
+    "name": "Report Environmental Incident",
+    "url": "https://www.gov.uk/report-environmental-incident",
+    "description": "Report environmental incidents including pollution, flooding, and poaching to the Environment Agency 24/7 hotline",
+    "department": "Environment Agency",
+    "tags": ["environment", "incident-reporting", "pollution", "defra"]
+  },
+  {
+    "name": "Check Long-Term Flood Risk",
+    "url": "https://www.gov.uk/check-long-term-flood-risk",
+    "description": "Check the long-term flood risk for any location in England",
+    "department": "Environment Agency",
+    "tags": ["flooding", "risk-assessment", "environment", "defra"]
+  },
+  {
+    "name": "Plant Health Controls",
+    "url": "https://www.gov.uk/guidance/plant-health-controls",
+    "description": "Guidance on plant health import and export controls to prevent spread of plant pests and diseases",
+    "department": "Animal and Plant Health Agency",
+    "tags": ["plants", "import", "export", "biosecurity", "defra"]
+  },
+  {
+    "name": "UK Plant Health Information Portal",
+    "url": "https://planthealthportal.defra.gov.uk/",
+    "description": "Comprehensive portal for plant health import and export requirements, regulations and guidance",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["plants", "import", "export", "information", "defra"]
+  },
+  {
+    "name": "Report Catch Return",
+    "url": "https://www.gov.uk/catch-return",
+    "description": "Report salmon and sea trout catch returns for England and Wales",
+    "department": "Environment Agency",
+    "tags": ["fishing", "reporting", "environment", "defra"]
+  },
+  {
+    "name": "Report Illegal Fishing in England",
+    "url": "https://www.gov.uk/report-illegal-fishing-in-england",
+    "description": "Report illegal fishing activities in England to the Environment Agency",
+    "department": "Environment Agency",
+    "tags": ["fishing", "enforcement", "reporting", "defra"]
+  },
+  {
+    "name": "Report Dead or Injured Animal",
+    "url": "https://www.gov.uk/report-dead-animal",
+    "description": "Report dead or injured wild animals for welfare or disease surveillance purposes",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["wildlife", "animal-welfare", "reporting", "defra"]
+  },
+  {
+    "name": "Report Stranded Whale or Dolphin",
+    "url": "https://www.gov.uk/report-stranded-whale-dolphin",
+    "description": "Report stranded whales, dolphins, porpoises, marine turtles and basking sharks",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["marine", "wildlife", "reporting", "conservation", "defra"]
+  },
+  {
+    "name": "Funding for Farmers",
+    "url": "https://www.gov.uk/guidance/funding-for-farmers",
+    "description": "Overview of funding schemes and grants available for farmers and land managers including SFI, Countryside Stewardship and rural payments",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["farming", "grants", "funding", "rural", "defra"]
+  },
+  {
+    "name": "Request Flooding History",
+    "url": "https://www.gov.uk/request-flooding-history",
+    "description": "Request historical flooding data for properties in England",
+    "department": "Environment Agency",
+    "tags": ["flooding", "history", "property", "defra"]
+  },
+  {
+    "name": "Permission to Work on River, Flood or Sea Defence",
+    "url": "https://www.gov.uk/permission-work-on-river-flood-sea-defence",
+    "description": "Apply for permission to carry out work on or near a river, flood defence or sea defence",
+    "department": "Environment Agency",
+    "tags": ["flooding", "rivers", "permissions", "defra"]
+  },
+  {
+    "name": "Report Veterinary Medicine Problem",
+    "url": "https://www.gov.uk/report-veterinary-medicine-problem",
+    "description": "Report suspected adverse events or quality defects with veterinary medicines",
+    "department": "Veterinary Medicines Directorate",
+    "tags": ["veterinary", "medicines", "reporting", "animal-health", "defra"]
+  },
+  {
+    "name": "Freshwater Rod Fishing Rules",
+    "url": "https://www.gov.uk/freshwater-rod-fishing-rules",
+    "description": "Fishing regulations, byelaws and rules for freshwater fishing in England",
+    "department": "Environment Agency",
+    "tags": ["fishing", "regulations", "environment", "defra"]
+  },
+  {
+    "name": "Hunting and Shooting Wildlife",
+    "url": "https://www.gov.uk/hunting",
+    "description": "Rules and regulations for lawful hunting and shooting of wildlife in England",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["wildlife", "hunting", "regulations", "defra"]
+  },
+  {
+    "name": "Tree Preservation Orders and Trees in Conservation Areas",
+    "url": "https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas",
+    "description": "Guidance on tree preservation orders and protected trees in conservation areas",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["trees", "conservation", "planning", "defra"]
+  },
+  {
+    "name": "Woodland Grants and Incentives",
+    "url": "https://www.gov.uk/government/publications/woodland-grants-and-incentives-overview-table",
+    "description": "Overview of available woodland creation and management grants including England Woodland Creation Offer and Woodland Creation Planning Grant",
+    "department": "Forestry Commission",
+    "tags": ["woodland", "forestry", "grants", "environment", "defra"]
+  },
+  {
+    "name": "Farm Carbon Calculator",
+    "url": "https://calculator.farmcarbontoolkit.org.uk/",
+    "description": "Free industry-leading tool for farmers to measure carbon footprint including emissions and sequestration",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["farming", "carbon", "emissions", "sustainability", "defra"]
+  },
+  {
+    "name": "Register Biomass Supplier",
+    "url": "https://www.gov.uk/register-biomass-supplier",
+    "description": "Register as a supplier of sustainable biomass fuel",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["biomass", "energy", "sustainability", "registration", "defra"]
+  },
+  {
+    "name": "Seasonal Worker Visa",
+    "url": "https://www.gov.uk/seasonal-worker-visa",
+    "description": "Apply for a seasonal worker visa to work in horticulture and poultry sectors in the UK",
+    "department": "UK Visas and Immigration",
+    "tags": ["agriculture", "employment", "visa", "defra"]
+  },
+  {
+    "name": "Agricultural Workers Rights",
+    "url": "https://www.gov.uk/agricultural-workers-rights",
+    "description": "Information about employment rights for agricultural workers in England",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["agriculture", "employment", "workers-rights", "defra"]
+  },
+  {
+    "name": "Check if You Need a Licence to Abstract Water",
+    "url": "https://www.gov.uk/guidance/check-if-you-need-a-licence-to-abstract-water",
+    "description": "Check whether you need a licence to take water from surface or underground sources",
+    "department": "Environment Agency",
+    "tags": ["water", "licensing", "environment", "defra"]
+  },
+  {
+    "name": "Avian Influenza (Bird Flu) Guidance",
+    "url": "https://www.gov.uk/guidance/avian-influenza-bird-flu",
+    "description": "Guidance on prevention, detection and control of avian influenza in poultry and captive birds",
+    "department": "Animal and Plant Health Agency",
+    "tags": ["poultry", "disease", "biosecurity", "animal-health", "defra"]
+  },
+  {
+    "name": "Managing Wildlife on Your Land",
+    "url": "https://www.gov.uk/managing-wildlife-on-your-land",
+    "description": "Guidance for landowners on managing protected species and wildlife habitats",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["wildlife", "conservation", "land-management", "defra"]
+  },
+  {
+    "name": "Prepare for Flooding",
+    "url": "https://www.gov.uk/prepare-for-flooding",
+    "description": "Guidance on how to prepare your property and family for flooding",
+    "department": "Environment Agency",
+    "tags": ["flooding", "emergency", "preparation", "defra"]
+  },
+  {
+    "name": "Help During a Flood",
+    "url": "https://www.gov.uk/help-during-flood",
+    "description": "What to do before, during and immediately after a flood",
+    "department": "Environment Agency",
+    "tags": ["flooding", "emergency", "response", "defra"]
+  },
+  {
+    "name": "After a Flood",
+    "url": "https://www.gov.uk/after-flood",
+    "description": "Recovery guidance and support available after flooding",
+    "department": "Environment Agency",
+    "tags": ["flooding", "recovery", "support", "defra"]
+  },
+  {
+    "name": "Report Flood Cause",
+    "url": "https://www.gov.uk/report-flood-cause",
+    "description": "Report flooding incidents and contributing factors to help improve flood defences",
+    "department": "Environment Agency",
+    "tags": ["flooding", "reporting", "infrastructure", "defra"]
+  },
+  {
+    "name": "Dispose of Hazardous Waste",
+    "url": "https://www.gov.uk/dispose-hazardous-waste",
+    "description": "Find out how to safely dispose of hazardous waste from households and businesses",
+    "department": "Environment Agency",
+    "tags": ["waste", "hazardous", "disposal", "environment", "defra"]
+  },
+  {
+    "name": "Report Fly-Tipping",
+    "url": "https://www.gov.uk/report-flytipping",
+    "description": "Report illegal dumping of waste to local authorities",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["waste", "enforcement", "reporting", "defra"]
+  },
+  {
+    "name": "Rubbish Collection Day",
+    "url": "https://www.gov.uk/rubbish-collection-day",
+    "description": "Find your local rubbish and recycling collection days",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["waste", "recycling", "local-services", "defra"]
+  },
+  {
+    "name": "Check Your Business is in a Protected Area",
+    "url": "https://www.gov.uk/check-your-business-protected-area",
+    "description": "Find out if your business is located in a protected area of countryside",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["environment", "conservation", "business", "defra"]
+  },
+  {
+    "name": "Licence to Release Non-Native Wildlife",
+    "url": "https://www.gov.uk/nonnative-wildlife",
+    "description": "Apply for a licence to release non-native wildlife and plants",
+    "department": "Department for Environment, Food & Rural Affairs",
+    "tags": ["wildlife", "licensing", "biosecurity", "defra"]
+  }
+]

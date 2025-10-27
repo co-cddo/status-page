@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Aberdeen City",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.aberdeencity.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Aberdeenshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.aberdeenshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Angus",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.angus.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Argyll and Bute",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.argyll-bute.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Clackmannanshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.clackmannanshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Dumfries and Galloway",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.dumfries-galloway.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Dundee City",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.dundeecity.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "East Ayrshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "/Home.aspx",
+    "validated": true,
+    "statusCode": 301,
+    "redirectUrl": "/Home.aspx"
+  },
+  {
+    "name": "East Dunbartonshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.east-dunbartonshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "East Lothian",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.east-lothian.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "East Renfrewshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.east-renfrewshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Edinburgh",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.edinburgh.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Falkirk",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.falkirk.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Fife",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.fife.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Glasgow City",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.glasgow-city.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Highland",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.highland.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Inverclyde",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.inverclyde.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Midlothian",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.midlothian.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Moray",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.moray.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "North Ayrshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.north-ayrshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "North Lanarkshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.north-lanarkshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Orkney Islands",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.orkney-islands.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Perth and Kinross",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.perth-kinross.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Renfrewshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.renfrewshire.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  },
+  {
+    "name": "Scottish Borders",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.scottish-borders.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Shetland Islands",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.shetland-islands.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "South Ayrshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.south-ayrshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "South Lanarkshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.south-lanarkshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Stirling",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.stirling.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "West Dunbartonshire",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.west-dunbartonshire.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "West Lothian",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.west-lothian.gov.uk",
+    "validated": false
+  },
+  {
+    "name": "Western Isles",
+    "region": "scotland",
+    "type": "unitary",
+    "website": "https://www.cne-siar.gov.uk",
+    "validated": true,
+    "statusCode": 200
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "task_id": "T064",
+  "discovery_method": "web_search",
+  "timestamp": "2025-10-26T00:00:00Z",
+  "services": [
+    {
+      "name": "Fire England - Service Finder",
+      "url": "https://fireengland.uk/",
+      "type": "fire",
+      "description": "National fire service finder by postcode",
+      "tags": ["fire", "national", "directory", "england"]
+    },
+    {
+      "name": "National Fire Chiefs Council",
+      "url": "https://nfcc.org.uk/",
+      "type": "fire",
+      "description": "National coordination and contact information for UK fire services",
+      "tags": ["fire", "national", "coordination", "uk"]
+    },
+    {
+      "name": "London Fire Brigade",
+      "url": "https://www.london-fire.gov.uk/",
+      "type": "fire",
+      "description": "London Fire Brigade digital services",
+      "tags": ["fire", "regional", "london", "safety"]
+    },
+    {
+      "name": "Merseyside Fire & Rescue Service",
+      "url": "https://www.merseyfire.gov.uk/",
+      "type": "fire",
+      "description": "Merseyside Fire & Rescue Service",
+      "tags": ["fire", "regional", "merseyside", "safety"]
+    },
+    {
+      "name": "Tyne and Wear Fire and Rescue Service",
+      "url": "https://www.twfire.gov.uk/",
+      "type": "fire",
+      "description": "Tyne and Wear Fire and Rescue Service",
+      "tags": ["fire", "regional", "tyne-wear", "safety"]
+    },
+    {
+      "name": "Devon and Somerset Fire and Rescue Service",
+      "url": "https://www.dsfire.gov.uk/",
+      "type": "fire",
+      "description": "Devon and Somerset Fire and Rescue Service",
+      "tags": ["fire", "regional", "southwest", "safety"]
+    },
+    {
+      "name": "Hampshire & Isle of Wight Fire & Rescue Service",
+      "url": "https://www.hantsfire.gov.uk/",
+      "type": "fire",
+      "description": "Hampshire & Isle of Wight Fire & Rescue Service",
+      "tags": ["fire", "regional", "hampshire", "safety"]
+    },
+    {
+      "name": "Scottish Fire and Rescue Service",
+      "url": "https://www.firescotland.gov.uk/",
+      "type": "fire",
+      "description": "National fire service for Scotland with digital platforms and control room solution",
+      "tags": ["fire", "national", "scotland", "safety", "digital-transformation"]
+    },
+    {
+      "name": "Mid and West Wales Fire and Rescue Service",
+      "url": "https://www.mawwfire.gov.uk/",
+      "type": "fire",
+      "description": "Mid and West Wales Fire and Rescue Service",
+      "tags": ["fire", "regional", "wales", "safety"]
+    },
+    {
+      "name": "South Wales Fire and Rescue Service",
+      "url": "https://www.southwales-fire.gov.uk/",
+      "type": "fire",
+      "description": "South Wales Fire and Rescue Service",
+      "tags": ["fire", "regional", "wales", "safety"]
+    }
+  ],
+  "summary": {
+    "total_discovered": 10,
+    "by_type": {
+      "fire": 10
+    },
+    "by_region": {
+      "england": 7,
+      "scotland": 1,
+      "wales": 2
+    }
+  }
+}

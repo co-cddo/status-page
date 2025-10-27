@@ -1,0 +1,172 @@
+{
+  "discovery_task": "T099",
+  "discovery_date": "2025-10-26",
+  "discovery_method": "Web search for UK government shared services platforms",
+  "total_services_found": 11,
+  "service_categories": {
+    "shared_service_providers": 3,
+    "digital_platforms": 5,
+    "procurement": 2,
+    "data_sharing": 1
+  },
+  "services": [
+    {
+      "name": "UK Shared Business Services (UKSBS)",
+      "url": "https://www.uksbs.co.uk/",
+      "gov_url": "https://www.gov.uk/government/organisations/uk-shared-business-services-ltd",
+      "description": "Shared services for HR, payroll, finance, procurement, IT",
+      "ownership": "DSIT, DESNZ, DBT, UKRI",
+      "service_type": "Back-office shared services",
+      "scope": "HR and payroll, finance, procurement, IT business services",
+      "tags": ["shared-services", "back-office", "hr", "finance", "procurement"]
+    },
+    {
+      "name": "Shared Services Connected Ltd (SSCL)",
+      "url": "https://sscl.com/",
+      "description": "Critical business support services for government",
+      "ownership": "Sopra Steria (fully acquired 2023, formerly joint venture with Cabinet Office)",
+      "service_type": "Back-office shared services",
+      "contract_value": "£300 million extension (2025)",
+      "contract_period": "3 years",
+      "departments_served": 29,
+      "employees": 3000,
+      "transactions_annual": "6.5 million",
+      "contacts_annual": "3.2 million",
+      "savings_delivered": "£950 million",
+      "platform": "myHub (single sign-on multi-supplier ecosystem)",
+      "cloud_migration": "260,000 users migrated to Oracle Cloud Infrastructure",
+      "scope": "Finance and Accounting, HR and Payroll, Procurement, Pension Administration, Resourcing Services",
+      "tags": ["shared-services", "back-office", "hr", "finance", "procurement", "cloud"]
+    },
+    {
+      "name": "NHS Shared Business Services (NHS SBS)",
+      "url": "https://www.sbs.nhs.uk/",
+      "description": "Shared corporate solutions for NHS",
+      "service_type": "NHS-specific shared services",
+      "scope": "Corporate services for NHS organizations",
+      "tags": ["shared-services", "nhs", "health"]
+    },
+    {
+      "name": "Government Shared Services (GSS)",
+      "blog_url": "https://sharedservices.blog.gov.uk/",
+      "description": "Government shared services coordination",
+      "service_type": "Shared services coordination",
+      "tags": ["shared-services", "coordination"]
+    },
+    {
+      "name": "Find a Tender Service (FTS)",
+      "launch_date": "2025-02-24",
+      "description": "Central digital platform for public procurement",
+      "service_type": "Procurement platform",
+      "scope": "Public procurement notices and tenders",
+      "tags": ["shared-services", "procurement", "platform"]
+    },
+    {
+      "name": "Contracts Finder",
+      "url": "https://www.contractsfinder.service.gov.uk/",
+      "description": "Find government contracts and procurement opportunities",
+      "service_type": "Procurement platform",
+      "tags": ["shared-services", "procurement", "contracts"]
+    },
+    {
+      "name": "Digital Marketplace",
+      "url": "https://www.digitalmarketplace.service.gov.uk/",
+      "description": "Procurement of digital and technology services",
+      "service_type": "Digital procurement platform",
+      "frameworks": ["G-Cloud", "DOS (Digital Outcomes and Specialists)"],
+      "tags": ["shared-services", "procurement", "digital"]
+    },
+    {
+      "name": "GOV.UK Notify",
+      "url": "https://www.notifications.service.gov.uk/",
+      "description": "Shared notification service for emails, SMS, letters",
+      "service_type": "Shared digital platform",
+      "contract_value": "£196.4 million (SMS providers)",
+      "tags": ["shared-services", "platform", "notify"]
+    },
+    {
+      "name": "GOV.UK Pay",
+      "url": "https://www.payments.service.gov.uk/",
+      "description": "Shared payment processing service",
+      "service_type": "Shared digital platform",
+      "tags": ["shared-services", "platform", "payment"]
+    },
+    {
+      "name": "GOV.UK Forms",
+      "url": "https://www.forms.service.gov.uk/",
+      "description": "Shared form creation platform",
+      "service_type": "Shared digital platform",
+      "status": "Beta",
+      "tags": ["shared-services", "platform", "forms"]
+    },
+    {
+      "name": "Data Sharing Platform",
+      "description": "Cross-government data sharing infrastructure",
+      "service_type": "Data sharing",
+      "regulatory_changes": "Data Protection and Digital Information Bill (2025)",
+      "notes": "Reforms to enable better joined-up data use across public sector",
+      "tags": ["shared-services", "data", "platform"]
+    }
+  ],
+  "strategic_initiatives": {
+    "shared_services_centres": {
+      "target": "5 cloud-based shared service centres",
+      "target_date": "2028",
+      "original_target": "2025 (delayed 3 years)",
+      "expected_savings": "10% to 15% in operating costs",
+      "clusters": 5,
+      "strategy_updated": "2021-03"
+    },
+    "traditional_scope": [
+      "HR",
+      "Finance",
+      "Payroll",
+      "Procurement"
+    ],
+    "expanded_scope": [
+      "Civil Service pension administration",
+      "Grant payments",
+      "Security vetting"
+    ]
+  },
+  "governance": [
+    {
+      "document": "Shared Services Strategy for Government",
+      "date": "2021-03",
+      "url": "https://assets.publishing.service.gov.uk/media/604755c0e90e0715427736b5/Shared-Services-Strategy-for-Government-March-2021.pdf"
+    },
+    {
+      "document": "Next Generation Shared Services - The Strategic Plan",
+      "date": "2012-12",
+      "url": "https://assets.publishing.service.gov.uk/media/5f2841df8fa8f57ac683d862/Next_Generation_Shared_Services_-_The_Strategic_Plan__1___1_.pdf"
+    },
+    {
+      "document": "Government Shared Services: A Strategic Vision",
+      "date": "2011-07"
+    }
+  ],
+  "nao_reports": [
+    {
+      "title": "Government Shared Services",
+      "organization": "National Audit Office",
+      "url": "https://www.nao.org.uk/reports/government-shared-services/"
+    }
+  ],
+  "notes": [
+    "Shared services strategy aims for consolidation of back-office functions",
+    "Five shared service clusters established in 2021 strategy refresh",
+    "Target of 5 cloud-based centres delayed from 2025 to 2028",
+    "Expected savings of 10-15% in operating costs",
+    "SSCL largest provider serving 29 departments",
+    "Traditional scope: HR, Finance, Payroll, Procurement",
+    "Expanded scope includes pensions, grants, security vetting",
+    "Digital platforms (Notify, Pay, Forms) act as shared services"
+  ],
+  "sources": [
+    "Government Shared Services Strategy documents",
+    "National Audit Office reports",
+    "Public Accounts Committee reports",
+    "SSCL and UKSBS official websites",
+    "Government digital service announcements"
+  ]
+}

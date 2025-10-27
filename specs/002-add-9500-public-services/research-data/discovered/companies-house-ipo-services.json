@@ -1,0 +1,371 @@
+[
+  {
+    "name": "Companies House - Find and Update Company Information",
+    "url": "https://find-and-update.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "company-search", "business-registration"],
+    "description": "Main Companies House service for searching company information, filing documents, and managing company records",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Company Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/search/companies",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "search"],
+    "description": "Search for UK companies by name or number",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Advanced Company Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/advanced-search",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "search", "advanced"],
+    "description": "Advanced search for companies with detailed filtering options",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Officer Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/search/officers",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "search", "directors"],
+    "description": "Search for company officers and directors",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Disqualified Officers Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/search/disqualified-officers",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "search", "compliance"],
+    "description": "Search for disqualified company directors",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Dissolved Company Search",
+    "url": "https://find-and-update.company-information.service.gov.uk/dissolved-search",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "search"],
+    "description": "Search for dissolved companies",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - File Confirmation Statement",
+    "url": "https://find-and-update.company-information.service.gov.uk/confirmation-statement",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "filing", "compliance"],
+    "description": "File company confirmation statement online",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - WebFiling Service",
+    "url": "https://ewf.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "filing", "webfiling"],
+    "description": "Electronic filing service for company accounts and documents",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Developer API Portal",
+    "url": "https://developer.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "api", "developers"],
+    "description": "Developer portal for Companies House REST API",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - API Specifications",
+    "url": "https://developer-specs.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "api", "documentation"],
+    "description": "API specifications and documentation for Companies House services",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Public Data API",
+    "url": "https://api.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "api", "data"],
+    "description": "REST API for accessing company information programmatically",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Streaming API",
+    "url": "https://stream.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "api", "streaming", "realtime"],
+    "description": "Streaming API for real-time company data changes",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Document API",
+    "url": "https://document-api.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "api", "documents"],
+    "description": "API for retrieving company filing documents (PDF, iXBRL)",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Identity Service",
+    "url": "https://identity.company-information.service.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "identity", "authentication"],
+    "description": "Identity verification and authentication service for Companies House",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Sign In",
+    "url": "https://find-and-update.company-information.service.gov.uk/signin",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "authentication"],
+    "description": "User account sign-in for Companies House services",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Developer Forum",
+    "url": "https://forum.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "support", "developers"],
+    "description": "Developer community forum for Companies House API support",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Beta Service (Legacy)",
+    "url": "https://beta.companieshouse.gov.uk/",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "legacy"],
+    "description": "Legacy beta service for company search (redirects to main service)",
+    "discovery_method": "web_search",
+    "confidence": "medium"
+  },
+  {
+    "name": "UK IPO - Intellectual Property Office Portal",
+    "url": "https://www.gov.uk/government/organisations/intellectual-property-office",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "patents", "trademarks", "designs"],
+    "description": "Main portal for UK Intellectual Property Office services",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - Trademark Search",
+    "url": "https://trademarks.ipo.gov.uk/ipo-tmtext/start",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "trademarks", "search"],
+    "description": "Search UK trademark database by text and keywords",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - Trademark Application",
+    "url": "https://trademarks.ipo.gov.uk/ipo-apply",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "trademarks", "application"],
+    "description": "Apply to register a UK trademark online",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - Trademark Case Search",
+    "url": "https://trademarks.ipo.gov.uk/ipo-tmcase/start",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "trademarks", "search"],
+    "description": "Search trademark cases and applications by number",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - Trademark Owner Search",
+    "url": "https://trademarks.ipo.gov.uk/ipo-tmowner/start",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "trademarks", "search"],
+    "description": "Search trademarks by owner name",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - Registered Design Search",
+    "url": "https://www.registered-design.service.gov.uk/find/",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "designs", "search"],
+    "description": "Search UK registered designs database",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - Patent Information Service (Ipsum)",
+    "url": "https://www.ipo.gov.uk/p-ipsum.htm",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "patents", "search", "legacy"],
+    "description": "Online patent information and document inspection service (legacy - being replaced by One IPO Search)",
+    "discovery_method": "web_search",
+    "confidence": "medium"
+  },
+  {
+    "name": "UK IPO - Trade Marks Journal",
+    "url": "https://www.ipo.gov.uk/t-tmj.htm",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "trademarks", "journal"],
+    "description": "Official Trade Marks Journal publication",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - Renew Patent, Trademark or Design",
+    "url": "https://www.gov.uk/renew-patent-trademark-registered-design",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "renewal", "patents", "trademarks", "designs"],
+    "description": "Renew UK patents, trademarks or registered designs",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - Register a Trademark",
+    "url": "https://www.gov.uk/how-to-register-a-trade-mark",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "trademarks", "registration"],
+    "description": "Guidance and application for UK trademark registration",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - Search for a Trademark",
+    "url": "https://www.gov.uk/search-for-trademark",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "trademarks", "search"],
+    "description": "Search UK trademark register",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - One IPO Patents Service",
+    "url": "https://www.gov.uk/government/publications/one-ipo-patents-service-overview",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "patents", "one-ipo"],
+    "description": "New integrated digital service for UK patent applications (launching 2025-2026)",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Get Company Information Guide",
+    "url": "https://www.gov.uk/get-information-about-a-company",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "information"],
+    "description": "Guide to getting information about UK companies",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - File Annual Accounts",
+    "url": "https://www.gov.uk/file-your-company-annual-accounts",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "filing", "accounts"],
+    "description": "File company annual accounts with Companies House",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - File Confirmation Statement",
+    "url": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "filing", "compliance"],
+    "description": "File confirmation statement with Companies House",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - File Company Changes",
+    "url": "https://www.gov.uk/file-changes-to-a-company-with-companies-house",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "filing", "changes"],
+    "description": "File changes to company details with Companies House",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Set Up Limited Company",
+    "url": "https://www.gov.uk/set-up-limited-company",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "registration", "incorporation"],
+    "description": "Register and incorporate a new limited company",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Running a Limited Company",
+    "url": "https://www.gov.uk/running-a-limited-company",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "guidance", "compliance"],
+    "description": "Guidance on running a UK limited company",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Closing a Limited Company",
+    "url": "https://www.gov.uk/closing-a-limited-company",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "dissolution"],
+    "description": "Close or dissolve a limited company",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Verify Your Identity",
+    "url": "https://www.gov.uk/guidance/verify-your-identity-for-companies-house",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "identity", "verification"],
+    "description": "Identity verification service for company directors and PSCs",
+    "discovery_method": "web_fetch",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Order Certified Documents",
+    "url": "https://www.gov.uk/guidance/order-certified-copies-and-certificates-from-companies-house",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "documents", "certificates"],
+    "description": "Order certified copies and certificates from Companies House",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Search Register Guidance",
+    "url": "https://www.gov.uk/guidance/search-the-companies-house-register",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "search", "guidance"],
+    "description": "Guidance on searching the Companies House register",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "Companies House - Filing Information Online",
+    "url": "https://www.gov.uk/guidance/filing-your-companies-house-information-online",
+    "category": "Business & Corporate",
+    "tags": ["companies-house", "filing", "guidance"],
+    "description": "Guidance on filing company information online",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  },
+  {
+    "name": "UK IPO - File Documents Guide",
+    "url": "https://www.gov.uk/government/publications/how-to-file-documents-with-the-intellectual-property-office",
+    "category": "Intellectual Property",
+    "tags": ["ipo", "filing", "guidance"],
+    "description": "How to file documents with the Intellectual Property Office",
+    "discovery_method": "web_search",
+    "confidence": "high"
+  }
+]

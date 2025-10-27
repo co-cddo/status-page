@@ -1,0 +1,2346 @@
+# GOV.UK Public Services Status Monitor - Configuration
+# Auto-generated from discovered services
+
+settings:
+  check_interval: 60
+  warning_threshold: 2
+  timeout: 5
+  page_refresh: 60
+  max_retries: 3
+  worker_pool_size: 0
+
+pings:
+
+  # ============================================================================
+  # CRITICAL SERVICES (60-second check interval)
+  # ============================================================================
+
+  # NHS Emergency & Urgent Care
+  # Life-critical NHS emergency and urgent care services (NHS 111, A&E, urgent care)
+  - name: East of England Ambulance Service NHS Trust
+    protocol: HTTPS
+    method: GET
+    resource: https://www.eastamb.nhs.uk
+    tags:
+      - nhs
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: London Ambulance Service NHS Trust
+    protocol: HTTPS
+    method: GET
+    resource: https://www.londonambulance.nhs.uk
+    tags:
+      - nhs
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: North West Ambulance Service NHS Trust
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nwas.nhs.uk
+    tags:
+      - nhs
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: South East Coast Ambulance Service NHS Foundation Trust
+    protocol: HTTPS
+    method: GET
+    resource: https://www.secamb.nhs.uk
+    tags:
+      - nhs
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: South Western Ambulance Service NHS Foundation Trust
+    protocol: HTTPS
+    method: GET
+    resource: https://www.swast.nhs.uk
+    tags:
+      - nhs
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Yorkshire Ambulance Service NHS Trust
+    protocol: HTTPS
+    method: GET
+    resource: https://www.yas.nhs.uk
+    tags:
+      - nhs
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+
+  # Emergency Services (Police/Fire/Ambulance)
+  # Life-critical emergency services including police, fire, and ambulance
+  - name: Avon and Somerset Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.avonandsomerset.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Avon Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.avonfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Bedfordshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.bedsfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Bedfordshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.bedfordshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Buckinghamshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://bucksfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Cambridgeshire Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cambs.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Cambridgeshire Fire & Rescue Service
+    protocol: HTTP
+    method: GET
+    resource: http://www.cambsfire.gov.uk
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Cheshire Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cheshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Cheshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cheshirefire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: City of London Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cityoflondon.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Cleveland Fire Brigade
+    protocol: HTTPS
+    method: GET
+    resource: https://www.clevelandfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Cleveland Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cleveland.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Cornwall Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cornwall.gov.uk/fire-and-rescue-service
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Counter Terrorism Policing Suspicious Activity Reporting
+    protocol: HTTPS
+    method: GET
+    resource: https://www.counterterrorism.police.uk/report-suspicious-activity
+    tags:
+      - policing
+      - reporting
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Cumbria Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cumbria.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Cumbria Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.cumbriafire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Defence Fire and Rescue Organisation - Fire Safety Services
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/groups/defence-fire-risk-management-organisation
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Derbyshire Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.derbyshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Derbyshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.derbys-fire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Devon & Cornwall Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.devon-cornwall.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Devon & Somerset Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dsfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Dorset & Wiltshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dwfire.org.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Dorset Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dorset.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Durham and Darlington Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.ddfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Durham Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.durham.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Dyfed-Powys Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.dyfed-powys.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: East Sussex Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.esfrs.org/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Essex County Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.essex-fire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Essex Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.essex.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Fire and Rescue Incident Statistics
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/collections/fire-statistics-monitor
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Fire Safety in the Home
+    protocol: HTTPS
+    method: GET
+    resource: https://www.fireservice.co.uk/safety
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Gloucestershire Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gloucestershire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Gloucestershire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gloucestershire.gov.uk/glosfire
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: GOV.UK Police Contact and Crime Reporting Portal
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/contact-police
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: GOV.UK Report Terrorism Online
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/report-terrorism
+    tags:
+      - gds
+      - reporting
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Greater Manchester Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.manchesterfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Greater Manchester Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gmp.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Guernsey Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://gov.gg/fire
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Gwent Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gwent.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Hampshire & Isle of Wight Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.hantsfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Hampshire Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.hampshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Hereford and Worcester Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.hwfire.org.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Hertfordshire Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.herts.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Hertfordshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.hertfordshire.gov.uk/services/fire-and-rescue/fire-rescue-and-being-prepared.aspx
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: HM Coastguard
+    protocol: HTTPS
+    method: GET
+    resource: https://hmcoastguard.uk
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Humberside Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://humbersidefire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Humberside Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.humberside.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Isle of Man Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.im/categories/home-and-neighbourhood/emergency-services/fire-and-rescue-service
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Isles of Scilly Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.scilly.gov.uk/community-safety/fire-rescue
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Jersey Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.je/government/departments/justicehomeaffairs/departments/fireservice/Pages/default.aspx
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Kent Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.kent.fire-uk.org/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Kent Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.kent.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Lancashire Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.lancashire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Lancashire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.lancsfirerescue.org.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Leicestershire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://leics-fire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Leicestershire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.leics.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Lincolnshire Fire & Rescue
+    protocol: HTTPS
+    method: GET
+    resource: https://www.lincolnshire.gov.uk/lincolnshire-fire-rescue
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Lincolnshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.lincs.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: London Fire Brigade
+    protocol: HTTPS
+    method: GET
+    resource: https://www.london-fire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: London Fire Brigade - Safety and Prevention
+    protocol: HTTPS
+    method: GET
+    resource: https://www.london-fire.gov.uk/safety
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Maritime Accident Reporting
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/report-maritime-accident
+    tags:
+      - gds
+      - reporting
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Maritime and Coastguard Agency (MCA)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/organisations/maritime-and-coastguard-agency
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Maritime Safety Leaflets
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/maritime-safety-leaflets
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Maritime Safety Portal
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/government/collections/maritime-safety-portal
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Merseyside Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.merseyfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Merseyside Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.merseyside.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Metropolitan Police Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.met.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Mid and West Wales Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.mawwfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: 'National Fire Chiefs Council: Service Directory & Prevention Hub'
+    protocol: HTTPS
+    method: GET
+    resource: https://nfcc.org.uk/contacts/fire-and-rescue-services
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Norfolk Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.norfolk.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Norfolk Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.norfolk.gov.uk/fire
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: North Wales Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northwalesfire.gov.wales/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: North Wales Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northwales.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: North Yorkshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northyorksfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: North Yorkshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northyorkshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Northamptonshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northantsfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Northamptonshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northants.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Northern Ireland Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nifrs.org/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Northumberland Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northumberlandfireandrescue.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Northumbria Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.northumbria.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Nottinghamshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.notts-fire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Nottinghamshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.nottinghamshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Oxfordshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.oxfordshire.gov.uk/fire-and-community-safety/oxfordshire-fire-and-rescue-service
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Police and Crime Commissioner Public Contact Portal
+    protocol: HTTPS
+    method: GET
+    resource: https://www.gov.uk/police-and-crime-commissioners
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Police Scotland
+    protocol: HTTPS
+    method: GET
+    resource: https://www.scotland.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Police Service of Northern Ireland
+    protocol: HTTPS
+    method: GET
+    resource: https://www.psni.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Police.uk Online Crime and Incident Reporting
+    protocol: HTTPS
+    method: GET
+    resource: https://www.police.uk/pu/contact-the-police/report-a-crime-incident
+    tags:
+      - policing
+      - reporting
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Royal Berkshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.rbfrs.co.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Royal National Lifeboat Institution (RNLI)
+    protocol: HTTPS
+    method: GET
+    resource: https://www.rnli.org.uk
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Scottish Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.firescotland.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Shropshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.shropshirefire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: South Wales Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.southwales-fire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: South Wales Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.south-wales.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: South Yorkshire Fire & Rescue
+    protocol: HTTPS
+    method: GET
+    resource: https://www.syfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: South Yorkshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.southyorks.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Staffordshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.staffordshirefire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Staffordshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.staffordshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Suffolk Constabulary
+    protocol: HTTPS
+    method: GET
+    resource: https://www.suffolk.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Suffolk Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.suffolk.gov.uk/suffolk-fire-and-rescue-service
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Surrey Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.surreycc.gov.uk/community/fire-and-rescue
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Surrey Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.surrey.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Sussex Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.sussex.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Thames Valley Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.thamesvalley.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Tyne and Wear Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.twfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: UK Fire Service Resources - Public Information Portal
+    protocol: HTTPS
+    method: GET
+    resource: https://www.fireservice.co.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Warwickshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.warwickshire.gov.uk/fireandrescue
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Warwickshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.warwickshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Welsh Ambulance Services University NHS Trust
+    protocol: HTTPS
+    method: GET
+    resource: https://ambulance.nhs.wales
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: West Mercia Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.westmercia.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: West Midlands Fire Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.wmfs.net/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: West Midlands Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.west-midlands.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: West Sussex Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.westsussex.gov.uk/fire-emergencies-and-crime/west-sussex-fire-and-rescue-service
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: West Yorkshire Fire & Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.westyorksfire.gov.uk/
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: West Yorkshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.westyorkshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Wiltshire Police
+    protocol: HTTPS
+    method: GET
+    resource: https://www.wiltshire.police.uk
+    tags:
+      - policing
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+  - name: Your Safety - Scottish Fire and Rescue Service
+    protocol: HTTPS
+    method: GET
+    resource: https://www.firescotland.gov.uk/your-safety
+    tags:
+      - gds
+      - digital
+      - production
+      - england
+      - wales
+      - scotland
+      - northern-ireland
+      - critical
+      - emergency
+    expected:
+      status: 200
+    interval: 60
+    warning_threshold: 2
+    timeout: 5
+

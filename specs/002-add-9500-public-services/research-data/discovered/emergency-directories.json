@@ -1,0 +1,78 @@
+{
+  "task_id": "T068",
+  "discovery_method": "manual_review",
+  "timestamp": "2025-10-26T00:00:00Z",
+  "directories": [
+    {
+      "name": "Police.UK Contact Directory",
+      "url": "https://www.police.uk/pu/contact-us/",
+      "type": "directory",
+      "coverage": "police",
+      "description": "Contact information for 43 police forces in England, Wales, and Northern Ireland",
+      "tags": ["police", "directory", "contact", "national"]
+    },
+    {
+      "name": "NFCC Fire and Rescue Services Directory",
+      "url": "https://nfcc.org.uk/contacts/fire-and-rescue-services/",
+      "type": "directory",
+      "coverage": "fire",
+      "description": "Contact information for 49 fire and rescue services across UK",
+      "tags": ["fire", "directory", "contact", "national"]
+    },
+    {
+      "name": "Fire England Service Finder",
+      "url": "https://fireengland.uk/your-fire-and-rescue-service/find-your-service",
+      "type": "directory",
+      "coverage": "fire",
+      "description": "Postcode-based fire service finder for England",
+      "tags": ["fire", "directory", "postcode-finder", "england"]
+    },
+    {
+      "name": "NHS England Provider Directory",
+      "url": "https://www.england.nhs.uk/publication/nhs-provider-directory/",
+      "type": "directory",
+      "coverage": "nhs",
+      "description": "Comprehensive NHS trust and foundation trust directory with contact details",
+      "tags": ["nhs", "directory", "trusts", "national"]
+    },
+    {
+      "name": "Information Now - 999 Emergency Services",
+      "url": "https://www.informationnow.org.uk/organisation/emergency-services-fire-police-ambulance/",
+      "type": "directory",
+      "coverage": "all",
+      "description": "Directory of all UK emergency services (fire, police, ambulance, coast guard)",
+      "tags": ["emergency", "directory", "all-services", "national"]
+    },
+    {
+      "name": "GOV.UK 999 and 112 Emergency Numbers",
+      "url": "https://www.gov.uk/guidance/999-and-112-the-uks-national-emergency-numbers",
+      "type": "directory",
+      "coverage": "all",
+      "description": "Official guidance on UK emergency contact numbers",
+      "tags": ["emergency", "directory", "999", "112", "national"]
+    },
+    {
+      "name": "Welsh Government - Fire and Rescue Services",
+      "url": "https://www.gov.wales/find-your-local-fire-and-rescue-service",
+      "type": "directory",
+      "coverage": "fire",
+      "description": "Directory of fire and rescue services in Wales",
+      "tags": ["fire", "directory", "wales", "regional"]
+    }
+  ],
+  "summary": {
+    "total_directories": 7,
+    "by_coverage": {
+      "police": 1,
+      "fire": 3,
+      "nhs": 1,
+      "all": 2
+    },
+    "key_insights": [
+      "43 police forces in England and Wales use Single Online Home (SOH) platform via Police.UK",
+      "49 fire and rescue services across UK",
+      "10 NHS ambulance trusts in England, plus 1 each for Wales, Scotland, Northern Ireland",
+      "999 and 112 are primary emergency numbers for all services"
+    ]
+  }
+}

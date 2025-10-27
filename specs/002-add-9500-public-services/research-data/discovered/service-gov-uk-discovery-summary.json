@@ -1,0 +1,24 @@
+{
+  "task": "T112-T115: service.gov.uk Domain Discovery",
+  "timestamp": "2025-10-26T22:22:00.036Z",
+  "sources": {
+    "Community Registry (govuk-digital-services.herokuapp.com)": 395,
+    "Certificate Transparency (crt.sh)": 868
+  },
+  "statistics": {
+    "totalUniqueDomains": 1104,
+    "totalUniqueUrls": 1104,
+    "breakdown": {
+      "registryOnly": 236,
+      "certsOnly": 709,
+      "bothSources": 159
+    }
+  },
+  "outputFiles": {
+    "allDomains": "research-data/discovered/service-gov-uk-all-domains.txt",
+    "allUrls": "research-data/discovered/service-gov-uk-all-urls.txt",
+    "registryDomains": "research-data/discovered/service-gov-uk-registry-domains.txt",
+    "certDomains": "research-data/discovered/service-gov-uk-domains-certs.txt",
+    "certData": "research-data/discovered/service-gov-uk-all-certs.json"
+  }
+}

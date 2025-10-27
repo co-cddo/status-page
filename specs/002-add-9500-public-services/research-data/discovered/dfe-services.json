@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Student Finance England - Login",
+    "url": "https://www.student-finance.service.gov.uk",
+    "description": "Student finance account login for undergraduate and postgraduate applications",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": ["student", "finance", "loans", "grants"]
+  },
+  {
+    "name": "Apply for Student Finance",
+    "url": "https://www.gov.uk/apply-online-for-student-finance",
+    "description": "Apply online for student finance including loans and grants",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": ["student", "finance", "application"]
+  },
+  {
+    "name": "Student Finance - Register/Login",
+    "url": "https://www.gov.uk/student-finance-register-login",
+    "description": "Register or sign in to student finance account",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": ["student", "finance", "authentication"]
+  },
+  {
+    "name": "Manage Student Loan Balance",
+    "url": "https://www.gov.uk/sign-in-to-manage-your-student-loan-balance",
+    "description": "Sign in to view and manage student loan balance and repayments",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": ["student", "loans", "repayment"]
+  },
+  {
+    "name": "Get Into Teaching",
+    "url": "https://getintoteaching.education.gov.uk",
+    "description": "Teaching career guidance and application support",
+    "category": "Teacher Recruitment",
+    "department": "Department for Education",
+    "tags": ["teacher", "training", "recruitment"]
+  },
+  {
+    "name": "Find Teacher Training Courses",
+    "url": "https://find-teacher-training-courses.service.gov.uk",
+    "description": "Search for and find initial teacher training courses by location or provider",
+    "category": "Teacher Training",
+    "department": "Department for Education",
+    "tags": ["teacher", "training", "courses"]
+  },
+  {
+    "name": "Apply for Teacher Training",
+    "url": "https://www.gov.uk/apply-for-teacher-training",
+    "description": "Apply for a teacher training course in England",
+    "category": "Teacher Training",
+    "department": "Department for Education",
+    "tags": ["teacher", "training", "application"]
+  },
+  {
+    "name": "Apply for Qualified Teacher Status (QTS)",
+    "url": "https://www.apply-for-qts-in-england.education.gov.uk",
+    "description": "Apply for QTS if you trained to teach overseas",
+    "category": "Teacher Qualifications",
+    "department": "Department for Education",
+    "tags": ["teacher", "qualification", "qts"]
+  },
+  {
+    "name": "Access Your Teaching Qualifications",
+    "url": "https://www.gov.uk/guidance/access-your-teaching-qualifications",
+    "description": "View and download teaching qualification certificates including QTS, QTLS, and NPQs",
+    "category": "Teacher Qualifications",
+    "department": "Department for Education",
+    "tags": ["teacher", "qualification", "certificates"]
+  },
+  {
+    "name": "Early Career Framework Support",
+    "url": "https://www.early-career-framework.education.gov.uk",
+    "description": "Support service for early career teachers and mentors",
+    "category": "Teacher Development",
+    "department": "Department for Education",
+    "tags": ["teacher", "early-career", "training"]
+  },
+  {
+    "name": "Professional Development for Teachers and Leaders",
+    "url": "https://professional-development-for-teachers-leaders.education.gov.uk",
+    "description": "Access professional development resources and courses for teachers and school leaders",
+    "category": "Teacher Development",
+    "department": "Department for Education",
+    "tags": ["teacher", "professional-development", "training"]
+  },
+  {
+    "name": "National Professional Qualifications (NPQ)",
+    "url": "https://www.gov.uk/guidance/national-professional-qualification-npq-courses",
+    "description": "Information and application for NPQ courses for teachers and leaders",
+    "category": "Teacher Development",
+    "department": "Department for Education",
+    "tags": ["teacher", "qualification", "leadership"]
+  },
+  {
+    "name": "Teaching Vacancies",
+    "url": "https://teaching-vacancies.service.gov.uk",
+    "description": "Search and apply for teaching, leadership and support jobs in schools",
+    "category": "Teacher Recruitment",
+    "department": "Department for Education",
+    "tags": ["jobs", "teacher", "recruitment"]
+  },
+  {
+    "name": "Teach in Further Education",
+    "url": "https://www.teachinfurthereducation.education.gov.uk",
+    "description": "Search for teaching jobs in further education and get career advice",
+    "category": "Further Education",
+    "department": "Department for Education",
+    "tags": ["teacher", "further-education", "jobs"]
+  },
+  {
+    "name": "Find an Apprenticeship",
+    "url": "https://www.gov.uk/apply-apprenticeship",
+    "description": "Search and apply for apprenticeships in England",
+    "category": "Apprenticeships",
+    "department": "Department for Education",
+    "tags": ["apprenticeship", "training", "jobs"]
+  },
+  {
+    "name": "Create Apprenticeship Account (Individuals)",
+    "url": "https://www.apprenticeships.gov.uk/apprentices/create-account",
+    "description": "Create an account to search and apply for apprenticeships",
+    "category": "Apprenticeships",
+    "department": "Department for Education",
+    "tags": ["apprenticeship", "account", "application"]
+  },
+  {
+    "name": "Apprenticeship Service (Employers)",
+    "url": "https://www.apprenticeships.gov.uk/employers/create-apprenticeship-service-account",
+    "description": "Create employer account to access apprenticeship funding and advertise vacancies",
+    "category": "Apprenticeships",
+    "department": "Department for Education",
+    "tags": ["apprenticeship", "employer", "funding"]
+  },
+  {
+    "name": "Apprenticeship Provider and Assessment Register",
+    "url": "https://apply.apprenticeships.education.gov.uk",
+    "description": "Apply to join the apprenticeship provider and assessment register (APAR)",
+    "category": "Apprenticeships",
+    "department": "Department for Education",
+    "tags": ["apprenticeship", "provider", "registration"]
+  },
+  {
+    "name": "Get Information About Schools (GIAS)",
+    "url": "https://get-information-schools.service.gov.uk",
+    "description": "Search for school contact details and information",
+    "category": "School Information",
+    "department": "Department for Education",
+    "tags": ["school", "directory", "information"]
+  },
+  {
+    "name": "School Performance Tables",
+    "url": "https://www.gov.uk/school-performance-tables",
+    "description": "View and compare school performance data",
+    "category": "School Information",
+    "department": "Department for Education",
+    "tags": ["school", "performance", "data"]
+  },
+  {
+    "name": "Explore Education Statistics",
+    "url": "https://explore-education-statistics.service.gov.uk",
+    "description": "Find and explore official education statistics and data",
+    "category": "Data and Statistics",
+    "department": "Department for Education",
+    "tags": ["statistics", "data", "research"]
+  },
+  {
+    "name": "Education Statistics API",
+    "url": "https://api.education.gov.uk/statistics",
+    "description": "Public API for accessing education statistics programmatically",
+    "category": "Data and Statistics",
+    "department": "Department for Education",
+    "tags": ["api", "statistics", "data"]
+  },
+  {
+    "name": "Tax-Free Childcare",
+    "url": "https://www.gov.uk/tax-free-childcare",
+    "description": "Information and application for Tax-Free Childcare scheme",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": ["childcare", "funding", "tax"]
+  },
+  {
+    "name": "Apply for Tax-Free Childcare",
+    "url": "https://www.gov.uk/apply-for-tax-free-childcare",
+    "description": "Apply for Tax-Free Childcare and 30 hours free childcare",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": ["childcare", "application", "funding"]
+  },
+  {
+    "name": "Sign in to Childcare Account",
+    "url": "https://www.gov.uk/sign-in-childcare-account",
+    "description": "Sign in to childcare account for Tax-Free Childcare or free childcare hours",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": ["childcare", "account", "authentication"]
+  },
+  {
+    "name": "Best Start in Life - Childcare Support",
+    "url": "https://www.beststartinlife.gov.uk/childcare-support-available",
+    "description": "Check eligibility for childcare support including 30 hours free childcare",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": ["childcare", "eligibility", "funding"]
+  },
+  {
+    "name": "Apply for Free School Meals",
+    "url": "https://www.gov.uk/apply-free-school-meals",
+    "description": "Check eligibility and apply for free school meals",
+    "category": "School Support",
+    "department": "Department for Education",
+    "tags": ["school", "meals", "funding"]
+  },
+  {
+    "name": "Data Collections Service",
+    "url": "https://form.education.gov.uk/service/Data-collections-service-request-form",
+    "description": "Support for school data collection systems (S2S, ASP, GIAP, GIAS, COLLECT)",
+    "category": "School Administration",
+    "department": "Department for Education",
+    "tags": ["school", "data", "administration"]
+  },
+  {
+    "name": "Report Extremism in Education",
+    "url": "https://report-extremism.education.gov.uk",
+    "description": "Report concerns about extremism in education settings",
+    "category": "Safeguarding",
+    "department": "Department for Education",
+    "tags": ["safeguarding", "reporting", "security"]
+  },
+  {
+    "name": "FOI Request - Department for Education",
+    "url": "https://form.education.gov.uk/service/Contact_the_Department_for_Education",
+    "description": "Submit Freedom of Information requests to the Department for Education",
+    "category": "Transparency",
+    "department": "Department for Education",
+    "tags": ["foi", "transparency", "contact"]
+  },
+  {
+    "name": "Student Finance England Campaign",
+    "url": "https://studentfinance.campaign.gov.uk",
+    "description": "Student finance information and guidance for current and prospective students",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": ["student", "finance", "information"]
+  },
+  {
+    "name": "Teaching Vacancies Campaign",
+    "url": "https://teaching-vacancies.campaign.gov.uk",
+    "description": "Advice and guidance for job seekers looking for teaching positions",
+    "category": "Teacher Recruitment",
+    "department": "Department for Education",
+    "tags": ["teacher", "jobs", "guidance"]
+  },
+  {
+    "name": "Help with Childcare Costs",
+    "url": "https://www.gov.uk/help-with-childcare-costs",
+    "description": "Information about all types of childcare support available",
+    "category": "Childcare",
+    "department": "Department for Education",
+    "tags": ["childcare", "funding", "support"]
+  },
+  {
+    "name": "Regulated Professions Register - School Teacher",
+    "url": "https://www.regulated-professions.service.gov.uk/professions/school-teacher-2",
+    "description": "Information about school teacher as a regulated profession",
+    "category": "Teacher Qualifications",
+    "department": "Department for Education",
+    "tags": ["teacher", "qualification", "regulation"]
+  },
+  {
+    "name": "Support Child or Partner's Student Finance Application",
+    "url": "https://www.gov.uk/support-child-or-partners-student-finance-application",
+    "description": "Provide household income details to support student finance application",
+    "category": "Student Finance",
+    "department": "Department for Education",
+    "tags": ["student", "finance", "household-income"]
+  }
+]

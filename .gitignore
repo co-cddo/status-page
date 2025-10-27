@@ -42,10 +42,6 @@ history.csv
 _data/health.json
 _data/services.json
 
-# Research artifacts (feature 002-add-9500-public-services)
-# Ephemeral discovery data - not committed to repository
-specs/002-add-9500-public-services/research-data/
-
 # Temporary files
 *.tmp
 .cache/

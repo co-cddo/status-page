@@ -1,0 +1,572 @@
+[
+  {
+    "url": "https://www.forms.service.gov.uk/",
+    "canonical_url": "https://www.forms.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 78,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.179Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.357Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.payments.service.gov.uk/",
+    "canonical_url": "https://www.payments.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 101,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.155Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.sign-in.service.gov.uk/",
+    "canonical_url": "https://www.sign-in.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 80,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.178Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.gov.uk/",
+    "canonical_url": "https://www.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 145,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.181Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.data.gov.uk/",
+    "canonical_url": "https://www.data.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 146,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.180Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025",
+    "canonical_url": "https://www.gov.uk/government/publications/building-digital-uk-annual-report-and-accounts-2024-2025",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 166,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.184Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/",
+    "canonical_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 199,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.184Z",
+    "retry_count": 0,
+    "department": "nhs",
+    "service_type": "information",
+    "criticality": "high-volume",
+    "geography": [
+      "england"
+    ],
+    "tags": [
+      "nhs",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "england"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination/",
+    "canonical_url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 202,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.184Z",
+    "retry_count": 0,
+    "department": "nhs",
+    "service_type": "information",
+    "criticality": "high-volume",
+    "geography": [
+      "england"
+    ],
+    "tags": [
+      "nhs",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "england"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.notifications.service.gov.uk/",
+    "canonical_url": "https://www.notifications.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 235,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.179Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://sscl.com/",
+    "canonical_url": "https://sscl.com/",
+    "is_accessible": true,
+    "http_status": 403,
+    "latency_ms": 233,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.181Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.uksbs.co.uk/",
+    "canonical_url": "https://www.uksbs.co.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 247,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.183Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.contractsfinder.service.gov.uk/Search",
+    "canonical_url": "https://www.contractsfinder.service.gov.uk/Search",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 258,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.185Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "search",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "search",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.358Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://find-and-update.company-information.service.gov.uk/",
+    "canonical_url": "https://find-and-update.company-information.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 270,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.181Z",
+    "retry_count": 0,
+    "department": "companies-house",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "companies-house",
+      "information",
+      "standard",
+      "business-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.359Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://design-system.service.gov.uk/",
+    "canonical_url": "https://design-system.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 273,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.182Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.359Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments",
+    "canonical_url": "https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 310,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.185Z",
+    "retry_count": 0,
+    "department": "nhs",
+    "service_type": "information",
+    "criticality": "high-volume",
+    "geography": [
+      "england"
+    ],
+    "tags": [
+      "nhs",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "england"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.359Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "canonical_url": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 314,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.185Z",
+    "retry_count": 0,
+    "department": "other-government",
+    "service_type": "information",
+    "criticality": "standard",
+    "geography": [
+      "uk-wide"
+    ],
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.359Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://digital.nhs.uk/coronavirus/vaccinations",
+    "canonical_url": "https://digital.nhs.uk/coronavirus/vaccinations",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 442,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.185Z",
+    "retry_count": 0,
+    "department": "nhs",
+    "service_type": "information",
+    "criticality": "high-volume",
+    "geography": [
+      "england"
+    ],
+    "tags": [
+      "nhs",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "england"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.359Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://www.sbs.nhs.uk/",
+    "canonical_url": "https://www.sbs.nhs.uk/",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 624,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.185Z",
+    "retry_count": 0,
+    "department": "nhs",
+    "service_type": "information",
+    "criticality": "high-volume",
+    "geography": [
+      "england"
+    ],
+    "tags": [
+      "nhs",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "england"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.359Z",
+      "discovered_by": "validation-pipeline"
+    }
+  },
+  {
+    "url": "https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination",
+    "canonical_url": "https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination",
+    "is_accessible": true,
+    "http_status": 200,
+    "latency_ms": 1138,
+    "validation_passed": true,
+    "failure_reason": "",
+    "timestamp": "2025-10-26T22:37:44.186Z",
+    "retry_count": 0,
+    "department": "nhs",
+    "service_type": "information",
+    "criticality": "high-volume",
+    "geography": [
+      "england"
+    ],
+    "tags": [
+      "nhs",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "england"
+    ],
+    "discovery_source": {
+      "discovery_method": "manual",
+      "discovery_date": "2025-10-26T22:43:14.359Z",
+      "discovered_by": "validation-pipeline"
+    }
+  }
+]

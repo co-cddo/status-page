@@ -1,0 +1,2974 @@
+[
+  {
+    "original_url": "https://www.tax.service.gov.uk/set-up-a-payment-plan/epaye-payment-plan",
+    "canonical_url": "https://www.tax.service.gov.uk/set-up-a-payment-plan/epaye-payment-plan",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/set-up-a-payment-plan/epaye-payment-plan"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 154,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/ask-hmrc/hmrc-digital-assistant",
+    "canonical_url": "https://www.tax.service.gov.uk/ask-hmrc/hmrc-digital-assistant",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/ask-hmrc/hmrc-digital-assistant"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 159,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/personal-account/signin",
+    "canonical_url": "https://www.tax.service.gov.uk/personal-account/signin",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/personal-account/signin"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 161,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/ask-hmrc/chat/online-services-helpdesk",
+    "canonical_url": "https://www.tax.service.gov.uk/ask-hmrc/chat/online-services-helpdesk",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/ask-hmrc/chat/online-services-helpdesk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 161,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments",
+    "canonical_url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 162,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/customs-registration-services/cds/register",
+    "canonical_url": "https://www.tax.service.gov.uk/customs-registration-services/cds/register",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/customs-registration-services/cds/register"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 202,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/marriage-allowance-application/how-it-works",
+    "canonical_url": "https://www.tax.service.gov.uk/marriage-allowance-application/how-it-works",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/marriage-allowance-application/how-it-works"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 216,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/check-income-tax",
+    "canonical_url": "https://www.tax.service.gov.uk/check-income-tax",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/check-income-tax"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 217,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/ask-for-copy-of-your-corporation-tax-utr",
+    "canonical_url": "https://www.tax.service.gov.uk/ask-for-copy-of-your-corporation-tax-utr",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/ask-for-copy-of-your-corporation-tax-utr"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 217,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/making-tax-digital-software",
+    "canonical_url": "https://www.tax.service.gov.uk/making-tax-digital-software",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/making-tax-digital-software"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 223,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/vat-through-software/sign-up",
+    "canonical_url": "https://www.tax.service.gov.uk/vat-through-software/sign-up",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/vat-through-software/sign-up"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 228,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/check-your-state-pension",
+    "canonical_url": "https://www.tax.service.gov.uk/check-your-state-pension",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/check-your-state-pension"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 229,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://childcare.tax.service.gov.uk/ccp/acc/login",
+    "canonical_url": "https://childcare.tax.service.gov.uk/ccp/acc/login",
+    "redirect_chain": [
+      "https://childcare.tax.service.gov.uk/ccp/acc/login"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 233,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.access.service.gov.uk/login/signin/creds",
+    "canonical_url": "https://www.access.service.gov.uk/login/signin/creds",
+    "redirect_chain": [
+      "https://www.access.service.gov.uk/login/signin/creds"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 245,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://childcare-support.tax.service.gov.uk/",
+    "canonical_url": "https://childcare-support.tax.service.gov.uk/",
+    "redirect_chain": [
+      "https://childcare-support.tax.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 257,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/eligibility-for-paye/register-online",
+    "canonical_url": "https://www.tax.service.gov.uk/eligibility-for-paye/register-online",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/eligibility-for-paye/register-online"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 260,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/api-test-user",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/api-test-user",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/api-test-user"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 157,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/helpline/helplines-by-service",
+    "canonical_url": "https://www.tax.service.gov.uk/helpline/helplines-by-service",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/helpline/helplines-by-service"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 152,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/api-documentation",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/api-documentation",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/api-documentation"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 309,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/mdtp/we-need-to-confirm-your-identity",
+    "canonical_url": "https://www.tax.service.gov.uk/mdtp/we-need-to-confirm-your-identity",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/mdtp/we-need-to-confirm-your-identity"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 168,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/information/help",
+    "canonical_url": "https://www.tax.service.gov.uk/information/help",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/information/help"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 163,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/information/faqs",
+    "canonical_url": "https://www.tax.service.gov.uk/information/faqs",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/information/faqs"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 160,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/submissions/new-form",
+    "canonical_url": "https://www.tax.service.gov.uk/submissions/new-form",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/submissions/new-form"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 157,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/business-account/vat/which-account-to-add",
+    "canonical_url": "https://www.tax.service.gov.uk/business-account/vat/which-account-to-add",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/business-account/vat/which-account-to-add"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 206,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/file-your-tax-return",
+    "canonical_url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/file-your-tax-return",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/file-your-tax-return"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 152,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/sign-in-to-hmrc-online-services/identity/start-again",
+    "canonical_url": "https://www.tax.service.gov.uk/sign-in-to-hmrc-online-services/identity/start-again",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/sign-in-to-hmrc-online-services/identity/start-again"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 223,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/call-us-debt-too-old",
+    "canonical_url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/call-us-debt-too-old",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/call-us-debt-too-old"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 176,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/already-have-a-plan",
+    "canonical_url": "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/already-have-a-plan",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/pay-what-you-owe-in-instalments/already-have-a-plan"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 190,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/business-account/epaye/signedout",
+    "canonical_url": "https://www.tax.service.gov.uk/business-account/epaye/signedout",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/business-account/epaye/signedout"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 182,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/check-tax-on-goods-you-bring-into-the-uk",
+    "canonical_url": "https://www.tax.service.gov.uk/check-tax-on-goods-you-bring-into-the-uk/previous-declaration",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/check-tax-on-goods-you-bring-into-the-uk",
+      "https://www.tax.service.gov.uk/check-tax-on-goods-you-bring-into-the-uk/previous-declaration"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 309,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/eligibility-for-setting-up-company",
+    "canonical_url": "https://www.tax.service.gov.uk/eligibility-for-setting-up-company/check-before-you-start",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/eligibility-for-setting-up-company",
+      "https://www.tax.service.gov.uk/eligibility-for-setting-up-company/check-before-you-start"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 342,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://design.tax.service.gov.uk/",
+    "canonical_url": "https://design.tax.service.gov.uk/",
+    "redirect_chain": [
+      "https://design.tax.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 347,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/business-account/thank-you",
+    "canonical_url": "https://www.tax.service.gov.uk/business-account/thank-you",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/business-account/thank-you"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 197,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/check-income-tax/session-expired",
+    "canonical_url": "https://www.tax.service.gov.uk/check-income-tax/session-expired",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/check-income-tax/session-expired"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 198,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/personal-account/tax-credits-have-ended",
+    "canonical_url": "https://www.tax.service.gov.uk/personal-account/tax-credits-have-ended",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/personal-account/tax-credits-have-ended"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 222,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/repayments/signed-out",
+    "canonical_url": "https://www.tax.service.gov.uk/repayments/signed-out",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/repayments/signed-out"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 198,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/choose-software",
+    "canonical_url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/choose-software",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/choose-software"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 200,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/verify-software",
+    "canonical_url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/verify-software",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/vat-through-software/sign-up/error/verify-software"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 188,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/software-ready",
+    "canonical_url": "https://www.tax.service.gov.uk/vat-through-software/sign-up/software-ready",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/vat-through-software/sign-up/software-ready"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 193,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/marriage-allowance-application/benefit-calculator",
+    "canonical_url": "https://www.tax.service.gov.uk/marriage-allowance-application/benefit-calculator",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/marriage-allowance-application/benefit-calculator"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 187,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.access.service.gov.uk/signout",
+    "canonical_url": "https://www.access.service.gov.uk/signout",
+    "redirect_chain": [
+      "https://www.access.service.gov.uk/signout"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 167,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://api-platform-status.production.tax.service.gov.uk/",
+    "canonical_url": "https://api-platform-status.production.tax.service.gov.uk/",
+    "redirect_chain": [
+      "https://api-platform-status.production.tax.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 541,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/information/faqs/corporationTax",
+    "canonical_url": "https://www.tax.service.gov.uk/information/faqs/corporationTax",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/information/faqs/corporationTax"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 193,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://find-and-update.company-information.service.gov.uk/",
+    "canonical_url": "https://find-and-update.company-information.service.gov.uk/",
+    "redirect_chain": [
+      "https://find-and-update.company-information.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 185,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://find-and-update.company-information.service.gov.uk/accounts/corporation-tax",
+    "canonical_url": "https://find-and-update.company-information.service.gov.uk/accounts/corporation-tax",
+    "redirect_chain": [
+      "https://find-and-update.company-information.service.gov.uk/accounts/corporation-tax"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 172,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/testing",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/testing",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/api-documentation/docs/testing"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 177,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/authorisation",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/authorisation",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/api-documentation/docs/authorisation"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 236,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/api-documentation/docs/api"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 337,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://customs.hmrc.gov.uk/channelsPortalWebApp/channelsPortalWebApp.portal",
+    "canonical_url": "https://customs.hmrc.gov.uk/channelsPortalWebApp/channelsPortalWebApp.portal",
+    "redirect_chain": [
+      "https://customs.hmrc.gov.uk/channelsPortalWebApp/channelsPortalWebApp.portal"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1719,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-api/1.0",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-api/1.0",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-api/1.0"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1294,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://find-and-update.company-information.service.gov.uk/appeal-a-penalty",
+    "canonical_url": "https://find-and-update.company-information.service.gov.uk/appeal-a-penalty/",
+    "redirect_chain": [
+      "https://find-and-update.company-information.service.gov.uk/appeal-a-penalty",
+      "https://find-and-update.company-information.service.gov.uk/appeal-a-penalty/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 1393,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/apply-for-your-full-driving-licence",
+    "canonical_url": "https://www.gov.uk/apply-for-your-full-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/apply-for-your-full-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1262,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/apply-first-provisional-driving-licence",
+    "canonical_url": "https://www.gov.uk/apply-first-provisional-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/apply-first-provisional-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1293,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/renew-driving-licence",
+    "canonical_url": "https://www.gov.uk/renew-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/renew-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1253,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/renew-driving-licence-at-70",
+    "canonical_url": "https://www.gov.uk/renew-driving-licence-at-70",
+    "redirect_chain": [
+      "https://www.gov.uk/renew-driving-licence-at-70"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1198,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/business-account",
+    "canonical_url": "https://www.access.service.gov.uk/authorize?client_id=qLpLcsAsJMK7hcJrR9pqsEV34CwhJN&response_type=code&scope=openid&redirect_uri=https://www.tax.service.gov.uk/bas-gateway/login&nonce=fbf1ded2-61b6-4a70-be53-16172c918e66&state=7088e0fee63247879f26e4076c01032f&ui_locales=en-GB&max_age=0&custom1=session-f57a20d8-b1a5-4399-a67c-1aae32fb8e3c&acr_values=acr-gg-x",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/business-account",
+      "https://www.tax.service.gov.uk/bas-gateway/sign-in?continue_url=/business-account&accountType=ORGANISATION",
+      "https://www.tax.service.gov.uk/sign-in-to-hmrc-online-services/identity/sign-in/tmr3C5A6LuIv6lRgZRBK1_B27YmY",
+      "https://www.tax.service.gov.uk/bas-gateway/idp-sign-in?continue=%2Fsign-in-to-hmrc-online-services%2Fidentity%2Fauthorize%2Fcomplete%2Ftmr3C5A6LuIv6lRgZRBK1_B27YmY&accountType=Organisation&originalContinueUrl=/business-account",
+      "https://www.access.service.gov.uk/authorize?client_id=qLpLcsAsJMK7hcJrR9pqsEV34CwhJN&response_type=code&scope=openid&redirect_uri=https://www.tax.service.gov.uk/bas-gateway/login&nonce=fbf1ded2-61b6-4a70-be53-16172c918e66&state=7088e0fee63247879f26e4076c01032f&ui_locales=en-GB&max_age=0&custom1=session-f57a20d8-b1a5-4399-a67c-1aae32fb8e3c&acr_values=acr-gg-x"
+    ],
+    "redirect_count": 4,
+    "latency_ms": 2042,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/account",
+    "canonical_url": "https://www.access.service.gov.uk/authorize?client_id=qLpLcsAsJMK7hcJrR9pqsEV34CwhJN&response_type=code&scope=openid&redirect_uri=https://www.tax.service.gov.uk/bas-gateway/login&nonce=b68d10ff-20c3-4b18-8585-5b023c032fb1&state=b0629981a5604a77b385c61a6889b5c8&ui_locales=en-GB&max_age=0&custom1=session-deabb826-dc4d-41a2-a897-72209318d7c9&acr_values=acr-gg-x",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/account",
+      "https://www.tax.service.gov.uk/bas-gateway/sign-in?continue_url=/account",
+      "https://www.tax.service.gov.uk/sign-in-to-hmrc-online-services/identity/sign-in/Re7IFAxVi5RdbggkwbW3Dx3dn9xt",
+      "https://www.tax.service.gov.uk/bas-gateway/idp-sign-in?continue=%2Fsign-in-to-hmrc-online-services%2Fidentity%2Fauthorize%2Fcomplete%2FRe7IFAxVi5RdbggkwbW3Dx3dn9xt&originalContinueUrl=/account",
+      "https://www.access.service.gov.uk/authorize?client_id=qLpLcsAsJMK7hcJrR9pqsEV34CwhJN&response_type=code&scope=openid&redirect_uri=https://www.tax.service.gov.uk/bas-gateway/login&nonce=b68d10ff-20c3-4b18-8585-5b023c032fb1&state=b0629981a5604a77b385c61a6889b5c8&ui_locales=en-GB&max_age=0&custom1=session-deabb826-dc4d-41a2-a897-72209318d7c9&acr_values=acr-gg-x"
+    ],
+    "redirect_count": 4,
+    "latency_ms": 2069,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/renew-photo-driving-licence",
+    "canonical_url": "https://www.gov.uk/renew-photo-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/renew-photo-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1128,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://online.hmrc.gov.uk/shortforms",
+    "canonical_url": "https://www.tax.service.gov.uk/shortforms/",
+    "redirect_chain": [
+      "https://online.hmrc.gov.uk/shortforms",
+      "https://www.tax.service.gov.uk/shortforms",
+      "https://www.tax.service.gov.uk/shortforms/"
+    ],
+    "redirect_count": 2,
+    "latency_ms": 1807,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/renew-medical-driving-licence",
+    "canonical_url": "https://www.gov.uk/renew-medical-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/renew-medical-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 114,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/guidance/work-out-company-car-and-fuel-benefit",
+    "canonical_url": "https://www.tax.service.gov.uk/guidance/work-out-company-car-and-fuel-benefit/session-blocked",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/guidance/work-out-company-car-and-fuel-benefit",
+      "https://www.tax.service.gov.uk/guidance/work-out-company-car-and-fuel-benefit/start/tax-year",
+      "https://www.tax.service.gov.uk/guidance/work-out-company-car-and-fuel-benefit?c=1",
+      "https://www.tax.service.gov.uk/guidance/work-out-company-car-and-fuel-benefit/start/tax-year?c=1",
+      "https://www.tax.service.gov.uk/guidance/work-out-company-car-and-fuel-benefit/session-blocked"
+    ],
+    "redirect_count": 4,
+    "latency_ms": 2084,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/replace-a-driving-licence",
+    "canonical_url": "https://www.gov.uk/replace-a-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/replace-a-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 151,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/exchange-paper-driving-licence",
+    "canonical_url": "https://www.gov.uk/exchange-paper-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/exchange-paper-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 138,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/exchange-nongb-driving-licence",
+    "canonical_url": "https://www.gov.uk/exchange-nongb-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/exchange-nongb-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 124,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/view-driving-licence",
+    "canonical_url": "https://www.gov.uk/view-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/view-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 102,
+    "is_duplicate": false,
+    "duplicate_original_urls": [
+      "https://www.gov.uk/view-driving-licence",
+      "https://www.gov.uk/add-driving-licence-check-code"
+    ]
+  },
+  {
+    "original_url": "https://www.gov.uk/driver-vehicles-account",
+    "canonical_url": "https://www.gov.uk/driver-vehicles-account",
+    "redirect_chain": [
+      "https://www.gov.uk/driver-vehicles-account"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 104,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide",
+      "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 1483,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-driving-information",
+    "canonical_url": "https://www.gov.uk/check-driving-information",
+    "redirect_chain": [
+      "https://www.gov.uk/check-driving-information"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 138,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/track-your-driving-licence-application",
+    "canonical_url": "https://www.gov.uk/track-your-driving-licence-application",
+    "redirect_chain": [
+      "https://www.gov.uk/track-your-driving-licence-application"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 142,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/tell-dvla-changed-address",
+    "canonical_url": "https://www.gov.uk/tell-dvla-changed-address",
+    "redirect_chain": [
+      "https://www.gov.uk/tell-dvla-changed-address"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 146,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.tax.service.gov.uk/gg/sign-in",
+    "canonical_url": "https://www.access.service.gov.uk/authorize?client_id=qLpLcsAsJMK7hcJrR9pqsEV34CwhJN&response_type=code&scope=openid&redirect_uri=https://www.tax.service.gov.uk/bas-gateway/login&nonce=d0da0aff-dc1d-4184-a6da-c6d05354f8f7&state=8a08caa2ad50462683c5ba9e3b94e685&ui_locales=en-GB&max_age=0&custom1=session-585f4cac-071a-4bbb-9fb1-91905c152fd4&acr_values=acr-gg-x",
+    "redirect_chain": [
+      "https://www.tax.service.gov.uk/gg/sign-in",
+      "https://www.tax.service.gov.uk/bas-gateway/sign-in?origin=",
+      "https://www.tax.service.gov.uk/sign-in-to-hmrc-online-services/identity/sign-in/RfuDhOBsgvTG9YG9Nr8qbNMbdu5z",
+      "https://www.tax.service.gov.uk/bas-gateway/idp-sign-in?continue=%2Fsign-in-to-hmrc-online-services%2Fidentity%2Fauthorize%2Fcomplete%2FRfuDhOBsgvTG9YG9Nr8qbNMbdu5z",
+      "https://www.access.service.gov.uk/authorize?client_id=qLpLcsAsJMK7hcJrR9pqsEV34CwhJN&response_type=code&scope=openid&redirect_uri=https://www.tax.service.gov.uk/bas-gateway/login&nonce=d0da0aff-dc1d-4184-a6da-c6d05354f8f7&state=8a08caa2ad50462683c5ba9e3b94e685&ui_locales=en-GB&max_age=0&custom1=session-585f4cac-071a-4bbb-9fb1-91905c152fd4&acr_values=acr-gg-x"
+    ],
+    "redirect_count": 4,
+    "latency_ms": 3037,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/guides/fraud-prevention",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/guides/fraud-prevention/",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/guides/fraud-prevention",
+      "https://developer.service.hmrc.gov.uk/guides/fraud-prevention/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 2504,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/change-address-driving-licence",
+    "canonical_url": "https://www.gov.uk/change-address-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/change-address-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1153,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/change-name-driving-licence",
+    "canonical_url": "https://www.gov.uk/change-name-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/change-name-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1136,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/individual-tax/1.1",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/individual-tax/1.1",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/individual-tax/1.1"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 2532,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/add-driving-licence-check-code",
+    "canonical_url": "https://www.gov.uk/view-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/add-driving-licence-check-code",
+      "https://www.gov.uk/view-driving-licence"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 1185,
+    "is_duplicate": true,
+    "duplicate_of": "https://www.gov.uk/view-driving-licence"
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/guides/vat-mtd-end-to-end-service-guide",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/guides/vat-mtd-end-to-end-service-guide/",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/guides/vat-mtd-end-to-end-service-guide",
+      "https://developer.service.hmrc.gov.uk/guides/vat-mtd-end-to-end-service-guide/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 2555,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/developer/applications",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/developer/login",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/developer/applications",
+      "https://developer.service.hmrc.gov.uk/developer/login"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 2544,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide",
+    "canonical_url": "https://developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide/",
+    "redirect_chain": [
+      "https://developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide",
+      "https://developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 2560,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/automatic-driving-licence-to-manual",
+    "canonical_url": "https://www.gov.uk/automatic-driving-licence-to-manual",
+    "redirect_chain": [
+      "https://www.gov.uk/automatic-driving-licence-to-manual"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1159,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/reapply-driving-licence-medical-condition",
+    "canonical_url": "https://www.gov.uk/reapply-driving-licence-medical-condition",
+    "redirect_chain": [
+      "https://www.gov.uk/reapply-driving-licence-medical-condition"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1156,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/reapply-licence-revoked",
+    "canonical_url": "https://www.gov.uk/reapply-licence-revoked",
+    "redirect_chain": [
+      "https://www.gov.uk/reapply-licence-revoked"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1133,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/giving-up-your-driving-licence",
+    "canonical_url": "https://www.gov.uk/giving-up-your-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/giving-up-your-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1131,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/adding-higher-categories-to-your-driving-licence",
+    "canonical_url": "https://www.gov.uk/adding-higher-categories-to-your-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/adding-higher-categories-to-your-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1184,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/health-conditions-and-driving",
+    "canonical_url": "https://www.gov.uk/health-conditions-and-driving",
+    "redirect_chain": [
+      "https://www.gov.uk/health-conditions-and-driving"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1128,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/renew-lorry-bus-coach-licence",
+    "canonical_url": "https://www.gov.uk/renew-lorry-bus-coach-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/renew-lorry-bus-coach-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1110,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-eyesight-rules",
+    "canonical_url": "https://www.gov.uk/driving-eyesight-rules",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-eyesight-rules"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1114,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-medical-conditions",
+    "canonical_url": "https://www.gov.uk/driving-medical-conditions",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-medical-conditions"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1151,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/apply-driver-digital-tachograph-card",
+    "canonical_url": "https://www.gov.uk/apply-driver-digital-tachograph-card",
+    "redirect_chain": [
+      "https://www.gov.uk/apply-driver-digital-tachograph-card"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1106,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-tax-refund",
+    "canonical_url": "https://www.gov.uk/vehicle-tax-refund",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-tax-refund"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 111,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-tax-direct-debit",
+    "canonical_url": "https://www.gov.uk/vehicle-tax-direct-debit",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-tax-direct-debit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 131,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/replace-driver-cpc-card",
+    "canonical_url": "https://www.gov.uk/replace-driver-cpc-card",
+    "redirect_chain": [
+      "https://www.gov.uk/replace-driver-cpc-card"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 139,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-tax",
+    "canonical_url": "https://www.gov.uk/vehicle-tax",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-tax"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 148,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-vehicle-tax",
+    "canonical_url": "https://www.gov.uk/check-vehicle-tax",
+    "redirect_chain": [
+      "https://www.gov.uk/check-vehicle-tax"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 137,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-tax-rate-tables",
+    "canonical_url": "https://www.gov.uk/vehicle-tax-rate-tables",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-tax-rate-tables"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 154,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/report-untaxed-vehicle",
+    "canonical_url": "https://www.gov.uk/report-untaxed-vehicle",
+    "redirect_chain": [
+      "https://www.gov.uk/report-untaxed-vehicle"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 155,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/make-a-sorn",
+    "canonical_url": "https://www.gov.uk/make-a-sorn",
+    "redirect_chain": [
+      "https://www.gov.uk/make-a-sorn"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 166,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-your-driver-cpc-periodic-training-hours",
+    "canonical_url": "https://www.gov.uk/check-your-driver-cpc-periodic-training-hours",
+    "redirect_chain": [
+      "https://www.gov.uk/check-your-driver-cpc-periodic-training-hours"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 217,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/historic-vehicles",
+    "canonical_url": "https://www.gov.uk/historic-vehicles",
+    "redirect_chain": [
+      "https://www.gov.uk/historic-vehicles"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 151,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/get-vehicle-information-from-dvla",
+    "canonical_url": "https://www.gov.uk/get-vehicle-information-from-dvla",
+    "redirect_chain": [
+      "https://www.gov.uk/get-vehicle-information-from-dvla"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 104,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/get-vehicle-tax-exemption-disability",
+    "canonical_url": "https://www.gov.uk/get-vehicle-tax-exemption-disability",
+    "redirect_chain": [
+      "https://www.gov.uk/get-vehicle-tax-exemption-disability"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 160,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-exempt-from-vehicle-tax",
+    "canonical_url": "https://www.gov.uk/vehicle-exempt-from-vehicle-tax",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-exempt-from-vehicle-tax"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 160,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-log-book",
+    "canonical_url": "https://www.gov.uk/vehicle-log-book",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-log-book"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 164,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/change-vehicle-details-registration-certificate",
+    "canonical_url": "https://www.gov.uk/change-vehicle-details-registration-certificate",
+    "redirect_chain": [
+      "https://www.gov.uk/change-vehicle-details-registration-certificate"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 169,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/change-name-v5c",
+    "canonical_url": "https://www.gov.uk/change-name-v5c",
+    "redirect_chain": [
+      "https://www.gov.uk/change-name-v5c"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 156,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/sold-bought-vehicle",
+    "canonical_url": "https://www.gov.uk/sold-bought-vehicle",
+    "redirect_chain": [
+      "https://www.gov.uk/sold-bought-vehicle"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1160,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/change-address-v5c",
+    "canonical_url": "https://www.gov.uk/change-address-v5c",
+    "redirect_chain": [
+      "https://www.gov.uk/change-address-v5c"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1163,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/taking-vehicles-out-of-uk",
+    "canonical_url": "https://www.gov.uk/taking-vehicles-out-of-uk",
+    "redirect_chain": [
+      "https://www.gov.uk/taking-vehicles-out-of-uk"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1155,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/request-information-from-dvla",
+    "canonical_url": "https://www.gov.uk/request-information-from-dvla",
+    "redirect_chain": [
+      "https://www.gov.uk/request-information-from-dvla"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1119,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-mot-status",
+    "canonical_url": "https://www.gov.uk/check-mot-status",
+    "redirect_chain": [
+      "https://www.gov.uk/check-mot-status"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1116,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-registration",
+    "canonical_url": "https://www.gov.uk/vehicle-registration",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-registration"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1159,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-vehicle-e10-petrol",
+    "canonical_url": "https://www.gov.uk/check-vehicle-e10-petrol",
+    "redirect_chain": [
+      "https://www.gov.uk/check-vehicle-e10-petrol"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1154,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-mot-history",
+    "canonical_url": "https://www.gov.uk/check-mot-history",
+    "redirect_chain": [
+      "https://www.gov.uk/check-mot-history"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1164,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/get-personalised-private-number-plate",
+    "canonical_url": "https://www.gov.uk/get-personalised-private-number-plate",
+    "redirect_chain": [
+      "https://www.gov.uk/get-personalised-private-number-plate"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1132,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-vehicle-recall",
+    "canonical_url": "https://www.gov.uk/check-vehicle-recall",
+    "redirect_chain": [
+      "https://www.gov.uk/check-vehicle-recall"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1145,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/buy-a-personalised-registration-number",
+    "canonical_url": "https://www.gov.uk/buy-a-personalised-registration-number",
+    "redirect_chain": [
+      "https://www.gov.uk/buy-a-personalised-registration-number"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1134,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-registration-schemes-for-the-motor-trade",
+    "canonical_url": "https://www.gov.uk/vehicle-registration-schemes-for-the-motor-trade",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-registration-schemes-for-the-motor-trade"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1122,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/displaying-number-plates",
+    "canonical_url": "https://www.gov.uk/displaying-number-plates",
+    "redirect_chain": [
+      "https://www.gov.uk/displaying-number-plates"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1129,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/where-registered-disabled-drivers-can-park",
+    "canonical_url": "https://www.gov.uk/where-registered-disabled-drivers-can-park",
+    "redirect_chain": [
+      "https://www.gov.uk/where-registered-disabled-drivers-can-park"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1112,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/trade-licence-plates",
+    "canonical_url": "https://www.gov.uk/trade-licence-plates",
+    "redirect_chain": [
+      "https://www.gov.uk/trade-licence-plates"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1128,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/personalised-vehicle-registration-numbers",
+    "canonical_url": "https://www.gov.uk/personalised-vehicle-registration-numbers",
+    "redirect_chain": [
+      "https://www.gov.uk/personalised-vehicle-registration-numbers"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1140,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/change-blue-badge-details",
+    "canonical_url": "https://www.gov.uk/change-blue-badge-details",
+    "redirect_chain": [
+      "https://www.gov.uk/change-blue-badge-details"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1109,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/apply-blue-badge",
+    "canonical_url": "https://www.gov.uk/apply-blue-badge",
+    "redirect_chain": [
+      "https://www.gov.uk/apply-blue-badge"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1124,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/mobility-scooters-and-powered-wheelchairs-rules",
+    "canonical_url": "https://www.gov.uk/mobility-scooters-and-powered-wheelchairs-rules",
+    "redirect_chain": [
+      "https://www.gov.uk/mobility-scooters-and-powered-wheelchairs-rules"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 136,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/replace-lost-stolen-blue-badge",
+    "canonical_url": "https://www.gov.uk/replace-lost-stolen-blue-badge",
+    "redirect_chain": [
+      "https://www.gov.uk/replace-lost-stolen-blue-badge"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 141,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/blue-badge-scheme-information-council",
+    "canonical_url": "https://www.gov.uk/blue-badge-scheme-information-council",
+    "redirect_chain": [
+      "https://www.gov.uk/blue-badge-scheme-information-council"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 147,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-licence-fees",
+    "canonical_url": "https://www.gov.uk/driving-licence-fees",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-licence-fees"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 156,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-licence-codes",
+    "canonical_url": "https://www.gov.uk/driving-licence-codes",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-licence-codes"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 165,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-licence-categories",
+    "canonical_url": "https://www.gov.uk/driving-licence-categories",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-licence-categories"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 169,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/number-plate-supplier",
+    "canonical_url": "https://www.gov.uk/number-plate-supplier",
+    "redirect_chain": [
+      "https://www.gov.uk/number-plate-supplier"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1215,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/penalty-points-endorsements",
+    "canonical_url": "https://www.gov.uk/penalty-points-endorsements",
+    "redirect_chain": [
+      "https://www.gov.uk/penalty-points-endorsements"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 330,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/tell-dvla-about-bereavement",
+    "canonical_url": "https://www.gov.uk/tell-dvla-about-bereavement",
+    "redirect_chain": [
+      "https://www.gov.uk/tell-dvla-about-bereavement"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 325,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-motorhome",
+    "canonical_url": "https://www.gov.uk/driving-motorhome",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-motorhome"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 347,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/learn-to-drive-a-car",
+    "canonical_url": "https://www.gov.uk/learn-to-drive-a-car",
+    "redirect_chain": [
+      "https://www.gov.uk/learn-to-drive-a-car"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 350,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/towing-rules",
+    "canonical_url": "https://www.gov.uk/towing-rules",
+    "redirect_chain": [
+      "https://www.gov.uk/towing-rules"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 320,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/training-hgv",
+    "canonical_url": "https://www.gov.uk/training-hgv",
+    "redirect_chain": [
+      "https://www.gov.uk/training-hgv"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 302,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/towing-with-car",
+    "canonical_url": "https://www.gov.uk/towing-with-car",
+    "redirect_chain": [
+      "https://www.gov.uk/towing-with-car"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 323,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/book-theory-test",
+    "canonical_url": "https://www.gov.uk/book-theory-test",
+    "redirect_chain": [
+      "https://www.gov.uk/book-theory-test"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 296,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/become-lorry-bus-driver",
+    "canonical_url": "https://www.gov.uk/become-lorry-bus-driver",
+    "redirect_chain": [
+      "https://www.gov.uk/become-lorry-bus-driver"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 320,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/book-driving-test",
+    "canonical_url": "https://www.gov.uk/book-driving-test",
+    "redirect_chain": [
+      "https://www.gov.uk/book-driving-test"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 299,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-test-cost",
+    "canonical_url": "https://www.gov.uk/driving-test-cost",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-test-cost"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 311,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicles-can-drive",
+    "canonical_url": "https://www.gov.uk/vehicles-can-drive",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicles-can-drive"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 560,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/sorn-statutory-off-road-notification",
+    "canonical_url": "https://www.gov.uk/sorn-statutory-off-road-notification",
+    "redirect_chain": [
+      "https://www.gov.uk/sorn-statutory-off-road-notification"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 528,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/id-for-driving-licence",
+    "canonical_url": "https://www.gov.uk/id-for-driving-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/id-for-driving-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 580,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-nongb-licence",
+    "canonical_url": "https://www.gov.uk/driving-nongb-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-nongb-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 572,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/dvlaforms",
+    "canonical_url": "https://www.gov.uk/dvlaforms",
+    "redirect_chain": [
+      "https://www.gov.uk/dvlaforms"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 586,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/scrapped-and-written-off-vehicles",
+    "canonical_url": "https://www.gov.uk/scrapped-and-written-off-vehicles",
+    "redirect_chain": [
+      "https://www.gov.uk/scrapped-and-written-off-vehicles"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 587,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/contact-the-dvla",
+    "canonical_url": "https://www.gov.uk/contact-the-dvla",
+    "redirect_chain": [
+      "https://www.gov.uk/contact-the-dvla"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 598,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driving-a-minibus",
+    "canonical_url": "https://www.gov.uk/driving-a-minibus",
+    "redirect_chain": [
+      "https://www.gov.uk/driving-a-minibus"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 602,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/drivers-hours",
+    "canonical_url": "https://www.gov.uk/drivers-hours",
+    "redirect_chain": [
+      "https://www.gov.uk/drivers-hours"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 324,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/find-approved-tachograph-centre-atc",
+    "canonical_url": "https://www.gov.uk/find-approved-tachograph-centre-atc",
+    "redirect_chain": [
+      "https://www.gov.uk/find-approved-tachograph-centre-atc"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 290,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/driver-cpc-training",
+    "canonical_url": "https://www.gov.uk/driver-cpc-training",
+    "redirect_chain": [
+      "https://www.gov.uk/driver-cpc-training"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 292,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/data-requests-dvla",
+    "canonical_url": "https://www.gov.uk/data-requests-dvla",
+    "redirect_chain": [
+      "https://www.gov.uk/data-requests-dvla"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 289,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/employing-people-to-drive",
+    "canonical_url": "https://www.gov.uk/employing-people-to-drive",
+    "redirect_chain": [
+      "https://www.gov.uk/employing-people-to-drive"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 298,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/vehicle-recalls-and-faults",
+    "canonical_url": "https://www.gov.uk/vehicle-recalls-and-faults",
+    "redirect_chain": [
+      "https://www.gov.uk/vehicle-recalls-and-faults"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 306,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/universal-credit",
+    "canonical_url": "https://www.gov.uk/universal-credit",
+    "redirect_chain": [
+      "https://www.gov.uk/universal-credit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 311,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/checks-when-buying-a-used-car",
+    "canonical_url": "https://www.gov.uk/checks-when-buying-a-used-car",
+    "redirect_chain": [
+      "https://www.gov.uk/checks-when-buying-a-used-car"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 320,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/report-benefits-change-circumstances",
+    "canonical_url": "https://www.gov.uk/report-benefits-change-circumstances",
+    "redirect_chain": [
+      "https://www.gov.uk/report-benefits-change-circumstances"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 177,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/universal-credit/how-to-claim",
+    "canonical_url": "https://www.gov.uk/universal-credit/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/universal-credit/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 182,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/tachographs",
+    "canonical_url": "https://www.gov.uk/tachographs",
+    "redirect_chain": [
+      "https://www.gov.uk/tachographs"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 393,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-state-pension",
+    "canonical_url": "https://www.gov.uk/check-state-pension",
+    "redirect_chain": [
+      "https://www.gov.uk/check-state-pension"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 129,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/pip",
+    "canonical_url": "https://www.gov.uk/pip",
+    "redirect_chain": [
+      "https://www.gov.uk/pip"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 172,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/sign-in-universal-credit",
+    "canonical_url": "https://www.gov.uk/sign-in-universal-credit",
+    "redirect_chain": [
+      "https://www.gov.uk/sign-in-universal-credit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 377,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/pip/how-to-claim",
+    "canonical_url": "https://www.gov.uk/pip/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/pip/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 178,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/new-state-pension/how-to-claim",
+    "canonical_url": "https://www.gov.uk/new-state-pension/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/new-state-pension/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 169,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/guidance/manage-your-universal-credit-claim-after-you-apply",
+    "canonical_url": "https://www.gov.uk/guidance/manage-your-universal-credit-claim-after-you-apply",
+    "redirect_chain": [
+      "https://www.gov.uk/guidance/manage-your-universal-credit-claim-after-you-apply"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 366,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/contact-pension-service",
+    "canonical_url": "https://www.gov.uk/contact-pension-service",
+    "redirect_chain": [
+      "https://www.gov.uk/contact-pension-service"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 163,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/how-to-claim-new-style-jsa",
+    "canonical_url": "https://www.gov.uk/how-to-claim-new-style-jsa",
+    "redirect_chain": [
+      "https://www.gov.uk/how-to-claim-new-style-jsa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 182,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.apply-for-pip.dwp.gov.uk/eligibility/check-if-eligible",
+    "canonical_url": "https://www.apply-for-pip.dwp.gov.uk/eligibility/check-if-eligible",
+    "redirect_chain": [
+      "https://www.apply-for-pip.dwp.gov.uk/eligibility/check-if-eligible"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 255,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/how-to-claim-new-style-esa",
+    "canonical_url": "https://www.gov.uk/how-to-claim-new-style-esa",
+    "redirect_chain": [
+      "https://www.gov.uk/how-to-claim-new-style-esa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 168,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/employment-support-allowance",
+    "canonical_url": "https://www.gov.uk/employment-support-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/employment-support-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 187,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/send-fit-note",
+    "canonical_url": "https://www.gov.uk/send-fit-note",
+    "redirect_chain": [
+      "https://www.gov.uk/send-fit-note"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 172,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/child-benefit",
+    "canonical_url": "https://www.gov.uk/child-benefit",
+    "redirect_chain": [
+      "https://www.gov.uk/child-benefit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 172,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/jobseekers-allowance/apply-new-style-jsa",
+    "canonical_url": "https://www.gov.uk/jobseekers-allowance/apply-new-style-jsa",
+    "redirect_chain": [
+      "https://www.gov.uk/jobseekers-allowance/apply-new-style-jsa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 212,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/child-benefit/how-to-claim",
+    "canonical_url": "https://www.gov.uk/child-benefit/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/child-benefit/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 194,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/jobseekers-allowance",
+    "canonical_url": "https://www.gov.uk/jobseekers-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/jobseekers-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 296,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/carers-allowance/how-to-claim",
+    "canonical_url": "https://www.gov.uk/carers-allowance/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/carers-allowance/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 207,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/attendance-allowance",
+    "canonical_url": "https://www.gov.uk/attendance-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/attendance-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 198,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/attendance-allowance/how-to-claim",
+    "canonical_url": "https://www.gov.uk/attendance-allowance/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/attendance-allowance/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 188,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/pension-credit/how-to-claim",
+    "canonical_url": "https://www.gov.uk/pension-credit/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/pension-credit/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 161,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/disability-living-allowance-children/how-to-claim",
+    "canonical_url": "https://www.gov.uk/disability-living-allowance-children/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/disability-living-allowance-children/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 180,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.carersallowance.service.gov.uk/ui-citizen-claim/disclaimer",
+    "canonical_url": "https://www.carersallowance.service.gov.uk/ui-citizen-claim/disclaimer",
+    "redirect_chain": [
+      "https://www.carersallowance.service.gov.uk/ui-citizen-claim/disclaimer"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 226,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/disability-living-allowance-children",
+    "canonical_url": "https://www.gov.uk/disability-living-allowance-children",
+    "redirect_chain": [
+      "https://www.gov.uk/disability-living-allowance-children"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 197,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/bereavement-support-payment",
+    "canonical_url": "https://www.gov.uk/bereavement-support-payment",
+    "redirect_chain": [
+      "https://www.gov.uk/bereavement-support-payment"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 129,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/pension-credit",
+    "canonical_url": "https://www.gov.uk/pension-credit",
+    "redirect_chain": [
+      "https://www.gov.uk/pension-credit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 198,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/carers-allowance",
+    "canonical_url": "https://www.gov.uk/carers-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/carers-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 300,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/winter-fuel-payment",
+    "canonical_url": "https://www.gov.uk/winter-fuel-payment",
+    "redirect_chain": [
+      "https://www.gov.uk/winter-fuel-payment"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 196,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/winter-fuel-payment/how-to-claim",
+    "canonical_url": "https://www.gov.uk/winter-fuel-payment/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/winter-fuel-payment/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 191,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/bereavement-support-payment/how-to-claim",
+    "canonical_url": "https://www.gov.uk/bereavement-support-payment/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/bereavement-support-payment/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 198,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/cold-weather-payment",
+    "canonical_url": "https://www.gov.uk/cold-weather-payment",
+    "redirect_chain": [
+      "https://www.gov.uk/cold-weather-payment"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 191,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/budgeting-help-benefits",
+    "canonical_url": "https://www.gov.uk/budgeting-help-benefits",
+    "redirect_chain": [
+      "https://www.gov.uk/budgeting-help-benefits"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 182,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/budgeting-help-benefits/how-to-apply",
+    "canonical_url": "https://www.gov.uk/budgeting-help-benefits/how-to-apply",
+    "redirect_chain": [
+      "https://www.gov.uk/budgeting-help-benefits/how-to-apply"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 182,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://coldweatherpayments.dwp.gov.uk/search.php",
+    "canonical_url": "https://coldweatherpayments.dwp.gov.uk/search.php",
+    "redirect_chain": [
+      "https://coldweatherpayments.dwp.gov.uk/search.php"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 234,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://apply-for-attendance-allowance.dwp.gov.uk/attall-apply-ui/who-is-applying",
+    "canonical_url": "https://apply-for-attendance-allowance.dwp.gov.uk/attall-apply-ui/who-is-applying",
+    "redirect_chain": [
+      "https://apply-for-attendance-allowance.dwp.gov.uk/attall-apply-ui/who-is-applying"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 348,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/access-to-work/apply",
+    "canonical_url": "https://www.gov.uk/access-to-work/apply",
+    "redirect_chain": [
+      "https://www.gov.uk/access-to-work/apply"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 252,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/find-a-job",
+    "canonical_url": "https://www.gov.uk/find-a-job",
+    "redirect_chain": [
+      "https://www.gov.uk/find-a-job"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 273,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/access-to-work",
+    "canonical_url": "https://www.gov.uk/access-to-work",
+    "redirect_chain": [
+      "https://www.gov.uk/access-to-work"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 286,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/contact-jobcentre-plus",
+    "canonical_url": "https://www.gov.uk/contact-jobcentre-plus",
+    "redirect_chain": [
+      "https://www.gov.uk/contact-jobcentre-plus"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 268,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/maternity-allowance/how-to-claim",
+    "canonical_url": "https://www.gov.uk/maternity-allowance/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/maternity-allowance/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 279,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/industrial-injuries-disablement-benefit",
+    "canonical_url": "https://www.gov.uk/industrial-injuries-disablement-benefit",
+    "redirect_chain": [
+      "https://www.gov.uk/industrial-injuries-disablement-benefit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 308,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/maternity-allowance",
+    "canonical_url": "https://www.gov.uk/maternity-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/maternity-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 317,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/calculate-statutory-sick-pay",
+    "canonical_url": "https://www.gov.uk/calculate-statutory-sick-pay",
+    "redirect_chain": [
+      "https://www.gov.uk/calculate-statutory-sick-pay"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 403,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/statutory-sick-pay",
+    "canonical_url": "https://www.gov.uk/statutory-sick-pay",
+    "redirect_chain": [
+      "https://www.gov.uk/statutory-sick-pay"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 408,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/guardians-allowance",
+    "canonical_url": "https://www.gov.uk/guardians-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/guardians-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 396,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/get-help-savings-low-income/how-to-apply",
+    "canonical_url": "https://www.gov.uk/get-help-savings-low-income/how-to-apply",
+    "redirect_chain": [
+      "https://www.gov.uk/get-help-savings-low-income/how-to-apply"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 410,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/constant-attendance-allowance",
+    "canonical_url": "https://www.gov.uk/constant-attendance-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/constant-attendance-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 414,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/sign-in-help-to-save",
+    "canonical_url": "https://www.gov.uk/sign-in-help-to-save",
+    "redirect_chain": [
+      "https://www.gov.uk/sign-in-help-to-save"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 409,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/get-help-savings-low-income",
+    "canonical_url": "https://www.gov.uk/get-help-savings-low-income",
+    "redirect_chain": [
+      "https://www.gov.uk/get-help-savings-low-income"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 416,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/guardians-allowance/how-to-claim",
+    "canonical_url": "https://www.gov.uk/guardians-allowance/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/guardians-allowance/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 420,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/benefit-cap",
+    "canonical_url": "https://www.gov.uk/benefit-cap",
+    "redirect_chain": [
+      "https://www.gov.uk/benefit-cap"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 413,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/reduced-earnings-allowance",
+    "canonical_url": "https://www.gov.uk/reduced-earnings-allowance",
+    "redirect_chain": [
+      "https://www.gov.uk/reduced-earnings-allowance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 388,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/sure-start-maternity-grant/how-to-claim",
+    "canonical_url": "https://www.gov.uk/sure-start-maternity-grant/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/sure-start-maternity-grant/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 320,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/funeral-payments",
+    "canonical_url": "https://www.gov.uk/funeral-payments",
+    "redirect_chain": [
+      "https://www.gov.uk/funeral-payments"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 313,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-national-insurance-record",
+    "canonical_url": "https://www.gov.uk/check-national-insurance-record",
+    "redirect_chain": [
+      "https://www.gov.uk/check-national-insurance-record"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 310,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/find-pension-contact-details",
+    "canonical_url": "https://www.gov.uk/find-pension-contact-details",
+    "redirect_chain": [
+      "https://www.gov.uk/find-pension-contact-details"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 283,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/short-term-benefit-advance",
+    "canonical_url": "https://www.gov.uk/short-term-benefit-advance",
+    "redirect_chain": [
+      "https://www.gov.uk/short-term-benefit-advance"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1164,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/browse/benefits/manage-your-benefit",
+    "canonical_url": "https://www.gov.uk/browse/benefits/manage-your-benefit",
+    "redirect_chain": [
+      "https://www.gov.uk/browse/benefits/manage-your-benefit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1268,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/how-to-have-your-benefits-paid",
+    "canonical_url": "https://www.gov.uk/how-to-have-your-benefits-paid",
+    "redirect_chain": [
+      "https://www.gov.uk/how-to-have-your-benefits-paid"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1163,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+    "canonical_url": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+    "redirect_chain": [
+      "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1280,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://findajob.dwp.gov.uk/search/undefined",
+    "canonical_url": "https://findajob.dwp.gov.uk/search/undefined",
+    "redirect_chain": [
+      "https://findajob.dwp.gov.uk/search/undefined"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1599,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/mandatory-reconsideration",
+    "canonical_url": "https://www.gov.uk/mandatory-reconsideration",
+    "redirect_chain": [
+      "https://www.gov.uk/mandatory-reconsideration"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1128,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/benefit-overpayments",
+    "canonical_url": "https://www.gov.uk/benefit-overpayments",
+    "redirect_chain": [
+      "https://www.gov.uk/benefit-overpayments"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1087,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/sure-start-maternity-grant",
+    "canonical_url": "https://www.gov.uk/sure-start-maternity-grant",
+    "redirect_chain": [
+      "https://www.gov.uk/sure-start-maternity-grant"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1433,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/report-benefit-fraud",
+    "canonical_url": "https://www.gov.uk/report-benefit-fraud",
+    "redirect_chain": [
+      "https://www.gov.uk/report-benefit-fraud"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1086,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/funeral-payments/how-to-claim",
+    "canonical_url": "https://www.gov.uk/funeral-payments/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/funeral-payments/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1333,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/appeal-benefit-decision",
+    "canonical_url": "https://www.gov.uk/appeal-benefit-decision",
+    "redirect_chain": [
+      "https://www.gov.uk/appeal-benefit-decision"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1091,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/housing-benefit/how-to-claim",
+    "canonical_url": "https://www.gov.uk/housing-benefit/how-to-claim",
+    "redirect_chain": [
+      "https://www.gov.uk/housing-benefit/how-to-claim"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1084,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/housing-benefit",
+    "canonical_url": "https://www.gov.uk/housing-benefit",
+    "redirect_chain": [
+      "https://www.gov.uk/housing-benefit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1087,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/guidance/how-to-verify-your-identity-for-universal-credit",
+    "canonical_url": "https://www.gov.uk/guidance/how-to-verify-your-identity-for-universal-credit",
+    "redirect_chain": [
+      "https://www.gov.uk/guidance/how-to-verify-your-identity-for-universal-credit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1124,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/apply-renew-passport",
+    "canonical_url": "https://www.gov.uk/apply-renew-passport",
+    "redirect_chain": [
+      "https://www.gov.uk/apply-renew-passport"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1125,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/track-passport-application",
+    "canonical_url": "https://www.gov.uk/track-passport-application",
+    "redirect_chain": [
+      "https://www.gov.uk/track-passport-application"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1110,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/renew-adult-passport",
+    "canonical_url": "https://www.gov.uk/renew-adult-passport",
+    "redirect_chain": [
+      "https://www.gov.uk/renew-adult-passport"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1109,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/eta",
+    "canonical_url": "https://www.gov.uk/eta",
+    "redirect_chain": [
+      "https://www.gov.uk/eta"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 103,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/report-a-lost-or-stolen-passport",
+    "canonical_url": "https://www.gov.uk/report-a-lost-or-stolen-passport",
+    "redirect_chain": [
+      "https://www.gov.uk/report-a-lost-or-stolen-passport"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 133,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/get-a-passport-urgently",
+    "canonical_url": "https://www.gov.uk/get-a-passport-urgently",
+    "redirect_chain": [
+      "https://www.gov.uk/get-a-passport-urgently"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 136,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/travel-urgently-from-abroad-without-uk-passport",
+    "canonical_url": "https://www.gov.uk/travel-urgently-from-abroad-without-uk-passport",
+    "redirect_chain": [
+      "https://www.gov.uk/travel-urgently-from-abroad-without-uk-passport"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 147,
+    "is_duplicate": false,
+    "duplicate_original_urls": [
+      "https://www.gov.uk/travel-urgently-from-abroad-without-uk-passport",
+      "https://www.gov.uk/emergency-travel-document"
+    ]
+  },
+  {
+    "original_url": "https://www.passport.service.gov.uk/filter",
+    "canonical_url": "https://www.passport.service.gov.uk/filter",
+    "redirect_chain": [
+      "https://www.passport.service.gov.uk/filter"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1191,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/evisa",
+    "canonical_url": "https://www.gov.uk/evisa",
+    "redirect_chain": [
+      "https://www.gov.uk/evisa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 195,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://view-immigration-status.service.gov.uk/status",
+    "canonical_url": "https://view-immigration-status.service.gov.uk/status",
+    "redirect_chain": [
+      "https://view-immigration-status.service.gov.uk/status"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 200,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-immigration-status",
+    "canonical_url": "https://www.gov.uk/check-immigration-status",
+    "redirect_chain": [
+      "https://www.gov.uk/check-immigration-status"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 200,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/emergency-travel-document",
+    "canonical_url": "https://www.gov.uk/travel-urgently-from-abroad-without-uk-passport",
+    "redirect_chain": [
+      "https://www.gov.uk/emergency-travel-document",
+      "https://www.gov.uk/travel-urgently-from-abroad-without-uk-passport"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 208,
+    "is_duplicate": true,
+    "duplicate_of": "https://www.gov.uk/travel-urgently-from-abroad-without-uk-passport"
+  },
+  {
+    "original_url": "https://www.gov.uk/check-visa-processing-time",
+    "canonical_url": "https://www.gov.uk/check-visa-processing-time",
+    "redirect_chain": [
+      "https://www.gov.uk/check-visa-processing-time"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 218,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.apply-emergency-travel-document.service.gov.uk/",
+    "canonical_url": "https://www.apply-emergency-travel-document.service.gov.uk/",
+    "redirect_chain": [
+      "https://www.apply-emergency-travel-document.service.gov.uk/"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 230,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/check-uk-visa",
+    "canonical_url": "https://www.gov.uk/check-uk-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/check-uk-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 227,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/prove-right-to-work",
+    "canonical_url": "https://www.gov.uk/prove-right-to-work",
+    "redirect_chain": [
+      "https://www.gov.uk/prove-right-to-work"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 175,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/get-a-child-passport",
+    "canonical_url": "https://www.gov.uk/get-a-child-passport",
+    "redirect_chain": [
+      "https://www.gov.uk/get-a-child-passport"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1252,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/child-study-visa",
+    "canonical_url": "https://www.gov.uk/child-study-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/child-study-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1157,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/view-right-to-work",
+    "canonical_url": "https://www.gov.uk/view-right-to-work",
+    "redirect_chain": [
+      "https://www.gov.uk/view-right-to-work"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1170,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/graduate-visa",
+    "canonical_url": "https://www.gov.uk/graduate-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/graduate-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1149,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/student-visa",
+    "canonical_url": "https://www.gov.uk/student-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/student-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1162,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/skilled-worker-visa",
+    "canonical_url": "https://www.gov.uk/skilled-worker-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/skilled-worker-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1126,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/view-prove-immigration-status",
+    "canonical_url": "https://www.gov.uk/evisa/view-evisa-get-share-code-prove-immigration-status",
+    "redirect_chain": [
+      "https://www.gov.uk/view-prove-immigration-status",
+      "https://www.gov.uk/evisa/view-evisa-get-share-code-prove-immigration-status"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 1256,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/global-talent",
+    "canonical_url": "https://www.gov.uk/global-talent",
+    "redirect_chain": [
+      "https://www.gov.uk/global-talent"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1110,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/health-care-worker-visa",
+    "canonical_url": "https://www.gov.uk/health-care-worker-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/health-care-worker-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1125,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/settled-status-eu-citizens-families",
+    "canonical_url": "https://www.gov.uk/settled-status-eu-citizens-families",
+    "redirect_chain": [
+      "https://www.gov.uk/settled-status-eu-citizens-families"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1070,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/innovator-founder-visa",
+    "canonical_url": "https://www.gov.uk/innovator-founder-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/innovator-founder-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1153,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/start-up-visa",
+    "canonical_url": "https://www.gov.uk/start-up-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/start-up-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1125,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/apply-sponsor-licence",
+    "canonical_url": "https://www.gov.uk/apply-sponsor-licence",
+    "redirect_chain": [
+      "https://www.gov.uk/apply-sponsor-licence"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1127,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/uk-visa-sponsorship-employers",
+    "canonical_url": "https://www.gov.uk/uk-visa-sponsorship-employers",
+    "redirect_chain": [
+      "https://www.gov.uk/uk-visa-sponsorship-employers"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1138,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/uk-family-visa",
+    "canonical_url": "https://www.gov.uk/uk-family-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/uk-family-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1143,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/marriage-visa",
+    "canonical_url": "https://www.gov.uk/marriage-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/marriage-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1128,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/standard-visitor",
+    "canonical_url": "https://www.gov.uk/standard-visitor",
+    "redirect_chain": [
+      "https://www.gov.uk/standard-visitor"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1122,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/transit-visa",
+    "canonical_url": "https://www.gov.uk/transit-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/transit-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1124,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/indefinite-leave-to-remain",
+    "canonical_url": "https://www.gov.uk/indefinite-leave-to-remain",
+    "redirect_chain": [
+      "https://www.gov.uk/indefinite-leave-to-remain"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 131,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/british-citizenship",
+    "canonical_url": "https://www.gov.uk/british-citizenship",
+    "redirect_chain": [
+      "https://www.gov.uk/british-citizenship"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 134,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/life-in-the-uk-test",
+    "canonical_url": "https://www.gov.uk/life-in-the-uk-test",
+    "redirect_chain": [
+      "https://www.gov.uk/life-in-the-uk-test"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 153,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+    "canonical_url": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+    "redirect_chain": [
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 159,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/asylum-support",
+    "canonical_url": "https://www.gov.uk/asylum-support",
+    "redirect_chain": [
+      "https://www.gov.uk/asylum-support"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 167,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/healthcare-immigration-application",
+    "canonical_url": "https://www.gov.uk/healthcare-immigration-application",
+    "redirect_chain": [
+      "https://www.gov.uk/healthcare-immigration-application"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 171,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/settlement-refugee-or-humanitarian-protection",
+    "canonical_url": "https://www.gov.uk/settlement-refugee-or-humanitarian-protection",
+    "redirect_chain": [
+      "https://www.gov.uk/settlement-refugee-or-humanitarian-protection"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 178,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/guidance/apply-for-a-visa-under-the-ukraine-sponsorship-scheme",
+    "canonical_url": "https://www.gov.uk/guidance/apply-for-a-visa-under-the-ukraine-sponsorship-scheme",
+    "redirect_chain": [
+      "https://www.gov.uk/guidance/apply-for-a-visa-under-the-ukraine-sponsorship-scheme"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 182,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/british-national-overseas-bno-visa",
+    "canonical_url": "https://www.gov.uk/british-national-overseas-bno-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/british-national-overseas-bno-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 185,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://telldwp.campaign.gov.uk/tell-us/how-to-report-changes-to-your-circumstances",
+    "canonical_url": "https://telldwp.campaign.gov.uk/tell-dwp/how-to-report-changes-to-your-circumstances/",
+    "redirect_chain": [
+      "https://telldwp.campaign.gov.uk/tell-us/how-to-report-changes-to-your-circumstances",
+      "https://telldwp.campaign.gov.uk/tell-dwp/how-to-report-changes-to-your-circumstances/"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 2550,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/youth-mobility",
+    "canonical_url": "https://www.gov.uk/youth-mobility",
+    "redirect_chain": [
+      "https://www.gov.uk/youth-mobility"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1196,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/assisted-digital-help-online-applications-evisas",
+    "canonical_url": "https://www.gov.uk/assisted-digital-help-online-applications-evisas",
+    "redirect_chain": [
+      "https://www.gov.uk/assisted-digital-help-online-applications-evisas"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1121,
+    "is_duplicate": false,
+    "duplicate_original_urls": [
+      "https://www.gov.uk/assisted-digital-help-online-applications-evisas",
+      "https://www.gov.uk/assisted-digital-help-online-applications"
+    ]
+  },
+  {
+    "original_url": "https://www.gov.uk/frontier-worker-permit",
+    "canonical_url": "https://www.gov.uk/frontier-worker-permit",
+    "redirect_chain": [
+      "https://www.gov.uk/frontier-worker-permit"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1240,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/ancestry-visa",
+    "canonical_url": "https://www.gov.uk/ancestry-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/ancestry-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1248,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/biometric-residence-permits",
+    "canonical_url": "https://www.gov.uk/biometric-residence-permits",
+    "redirect_chain": [
+      "https://www.gov.uk/biometric-residence-permits"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1214,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/overseas-domestic-worker-visa",
+    "canonical_url": "https://www.gov.uk/overseas-domestic-worker-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/overseas-domestic-worker-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1220,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/religious-worker-visa",
+    "canonical_url": "https://www.gov.uk/religious-worker-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/religious-worker-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1232,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/parent-of-a-child-at-school-visa",
+    "canonical_url": "https://www.gov.uk/parent-of-a-child-at-school-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/parent-of-a-child-at-school-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1222,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/sportsperson-visa",
+    "canonical_url": "https://www.gov.uk/sportsperson-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/sportsperson-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1228,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/minister-of-religion-visa",
+    "canonical_url": "https://www.gov.uk/minister-of-religion-visa",
+    "redirect_chain": [
+      "https://www.gov.uk/minister-of-religion-visa"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1258,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/copy-of-police-records",
+    "canonical_url": "https://www.gov.uk/copy-of-police-records",
+    "redirect_chain": [
+      "https://www.gov.uk/copy-of-police-records"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1187,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/report-terrorism",
+    "canonical_url": "https://www.gov.uk/report-terrorism",
+    "redirect_chain": [
+      "https://www.gov.uk/report-terrorism"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1172,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/request-copy-criminal-record",
+    "canonical_url": "https://www.gov.uk/request-copy-criminal-record",
+    "redirect_chain": [
+      "https://www.gov.uk/request-copy-criminal-record"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1216,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/report-crime",
+    "canonical_url": "https://www.gov.uk/report-crime",
+    "redirect_chain": [
+      "https://www.gov.uk/report-crime"
+    ],
+    "redirect_count": 0,
+    "latency_ms": 1181,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/assisted-digital-help-online-applications",
+    "canonical_url": "https://www.gov.uk/assisted-digital-help-online-applications-evisas",
+    "redirect_chain": [
+      "https://www.gov.uk/assisted-digital-help-online-applications",
+      "https://www.gov.uk/assisted-digital-help-online-applications-evisas"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 1214,
+    "is_duplicate": true,
+    "duplicate_of": "https://www.gov.uk/assisted-digital-help-online-applications-evisas"
+  },
+  {
+    "original_url": "https://www.gov.uk/disclosure-barring-service-check",
+    "canonical_url": "https://www.gov.uk/dbs-check-applicant-criminal-record",
+    "redirect_chain": [
+      "https://www.gov.uk/disclosure-barring-service-check",
+      "https://www.gov.uk/dbs-check-applicant-criminal-record"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 1282,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.gov.uk/contact-ukvi",
+    "canonical_url": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
+    "redirect_chain": [
+      "https://www.gov.uk/contact-ukvi",
+      "https://www.gov.uk/contact-ukvi-inside-outside-uk"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 1302,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://www.biometric-residence-permit.service.gov.uk/collection/where",
+    "canonical_url": "https://www.biometric-residence-permit.service.gov.uk/collection/where?hof-cookie-check",
+    "redirect_chain": [
+      "https://www.biometric-residence-permit.service.gov.uk/collection/where",
+      "https://www.biometric-residence-permit.service.gov.uk/collection/where?hof-cookie-check"
+    ],
+    "redirect_count": 1,
+    "latency_ms": 1434,
+    "is_duplicate": false
+  },
+  {
+    "original_url": "https://public-online.hmrc.gov.uk/lc/content",
+    "canonical_url": "https://www.gov.uk/government/collections/hm-revenue-and-customs-service-availability-and-issues",
+    "redirect_chain": [
+      "https://public-online.hmrc.gov.uk/lc/content",
+      "http://www.hmrc.gov.uk/efiling/temp_down.htm?3EXT",
+      "http://aka.hmrc.gov.uk/efiling/temp_down.htm?3EXT",
+      "https://www.gov.uk/government/collections/hm-revenue-and-customs-service-availability-and-issues"
+    ],
+    "redirect_count": 3,
+    "latency_ms": 9738,
+    "is_duplicate": false
+  }
+]

@@ -1,0 +1,61 @@
+{
+  "task": "T048",
+  "description": "Web search discovery for NHS booking services",
+  "discovery_method": "WebSearch",
+  "search_queries": [
+    "NHS appointment booking GP vaccine online system"
+  ],
+  "discovery_date": "2025-10-26",
+  "total_services_found": 12,
+  "services": [
+    {
+      "name": "NHS COVID-19 Vaccination Booking",
+      "url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-covid-19-vaccination/",
+      "type": "vaccination_booking",
+      "description": "Online COVID-19 vaccination appointment booking",
+      "status": "historical",
+      "notes": "Service discontinued - no longer booking COVID-19 vaccinations online"
+    },
+    {
+      "name": "COVID-19 Vaccination Booking Portal",
+      "url": "https://enquiries.test-and-trace.nhs.uk/covid-19-vaccinations/book-a-covid-19-vaccination",
+      "type": "vaccination_booking",
+      "description": "Test and Trace COVID-19 vaccination booking system",
+      "status": "historical"
+    },
+    {
+      "name": "NHS Digital Coronavirus Vaccinations",
+      "url": "https://digital.nhs.uk/coronavirus/vaccinations",
+      "type": "vaccination_data",
+      "description": "Coronavirus vaccination data and statistics"
+    },
+    {
+      "name": "NHS App GP Appointments",
+      "url": "https://digital.nhs.uk/services/nhs-app/nhs-app-features/appointments",
+      "type": "gp_booking",
+      "description": "Book GP appointments via NHS App",
+      "availability": "Shows appointments within next 16 weeks",
+      "notes": "Requires GP practice to enable online booking"
+    },
+    {
+      "name": "NHS Vaccination and Booking Services",
+      "url": "https://www.nhs.uk/nhs-services/vaccination-and-booking-services/",
+      "type": "vaccination_information",
+      "description": "General information about vaccination and booking services"
+    }
+  ],
+  "appointment_systems": [
+    {
+      "name": "TPP SystmOne",
+      "type": "gp_system",
+      "description": "GP practice management system with online appointment booking",
+      "configuration": "Online Services > Appointment Booking > Enable appointment booking"
+    }
+  ],
+  "notes": [
+    "COVID-19 online booking service discontinued",
+    "GP appointments available via NHS App if practice enables it",
+    "NHS 119 telephone booking also discontinued",
+    "Individual GP practices control online booking availability"
+  ]
+}

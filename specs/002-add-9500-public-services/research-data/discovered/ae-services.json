@@ -1,0 +1,81 @@
+{
+  "task_id": "T067",
+  "discovery_method": "web_search",
+  "timestamp": "2025-10-26T00:00:00Z",
+  "services": [
+    {
+      "name": "NHS Find Urgent and Emergency Care Services",
+      "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/find-urgent-and-emergency-care-services/",
+      "type": "ae",
+      "description": "National NHS service finder for A&E departments",
+      "tags": ["ae", "national", "directory", "urgent-care"]
+    },
+    {
+      "name": "NHS Wales A&E Live",
+      "url": "https://aeinfo.nhs.wales/",
+      "type": "ae",
+      "description": "Real-time A&E department information for Wales",
+      "tags": ["ae", "national", "wales", "live-status"]
+    },
+    {
+      "name": "Healthcare Maps - NHS Hospital Directory",
+      "url": "https://www.healthcaremaps.co.uk/",
+      "type": "ae",
+      "description": "Comprehensive UK NHS hospital trust departments data",
+      "tags": ["ae", "national", "directory", "data"]
+    },
+    {
+      "name": "North East London A&E Directory",
+      "url": "https://northeastlondon.icb.nhs.uk/service/accident-and-emergency-ae/",
+      "type": "ae",
+      "description": "A&E departments in North East London",
+      "tags": ["ae", "regional", "london"]
+    },
+    {
+      "name": "Oxford University Hospitals Emergency Department",
+      "url": "https://www.ouh.nhs.uk/services/departments/acute-emergency/emergency-department/",
+      "type": "ae",
+      "description": "Oxford University Hospitals A&E",
+      "tags": ["ae", "regional", "oxford"]
+    },
+    {
+      "name": "University Hospitals Birmingham Emergency Department",
+      "url": "https://www.uhb.nhs.uk/services/emergency-department/",
+      "type": "ae",
+      "description": "UHB Emergency Department",
+      "tags": ["ae", "regional", "birmingham"]
+    },
+    {
+      "name": "Leeds Teaching Hospitals Emergency Departments",
+      "url": "https://www.leedsth.nhs.uk/services/emergency-departments/",
+      "type": "ae",
+      "description": "Leeds Teaching Hospitals emergency services",
+      "tags": ["ae", "regional", "leeds"]
+    },
+    {
+      "name": "Imperial College Healthcare A&E",
+      "url": "https://www.imperial.nhs.uk/our-services/emergency-care/accident-and-emergency",
+      "type": "ae",
+      "description": "Imperial College Healthcare NHS Trust A&E",
+      "tags": ["ae", "regional", "london"]
+    },
+    {
+      "name": "University Hospitals Sussex A&E",
+      "url": "https://www.uhsussex.nhs.uk/services/accident-emergency/",
+      "type": "ae",
+      "description": "University Hospitals Sussex emergency services",
+      "tags": ["ae", "regional", "sussex"]
+    }
+  ],
+  "summary": {
+    "total_discovered": 9,
+    "by_type": {
+      "ae": 9
+    },
+    "by_scope": {
+      "national": 3,
+      "regional": 6
+    },
+    "note": "NHS 111 can book A&E arrival slots for reduced waiting times"
+  }
+}

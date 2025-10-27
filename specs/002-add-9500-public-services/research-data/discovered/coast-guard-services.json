@@ -1,0 +1,49 @@
+{
+  "task_id": "T066",
+  "discovery_method": "web_search",
+  "timestamp": "2025-10-26T00:00:00Z",
+  "services": [
+    {
+      "name": "Maritime and Coastguard Agency",
+      "url": "https://www.gov.uk/government/organisations/maritime-and-coastguard-agency",
+      "type": "coastguard",
+      "description": "MCA digital services including vessel surveys and seafarer certification",
+      "tags": ["coastguard", "national", "maritime", "gov-uk", "digital-services"]
+    },
+    {
+      "name": "Maritime and Coastguard Agency - Direct",
+      "url": "https://mcga.gov.uk/",
+      "type": "coastguard",
+      "description": "Direct MCGA website",
+      "tags": ["coastguard", "national", "maritime"]
+    },
+    {
+      "name": "HM Coastguard UK",
+      "url": "https://hmcoastguard.uk/",
+      "type": "coastguard",
+      "description": "HM Coastguard search and rescue operations",
+      "tags": ["coastguard", "national", "search-rescue", "emergency"]
+    },
+    {
+      "name": "UK Ship Register",
+      "url": "https://ukshipregister.co.uk/",
+      "type": "coastguard",
+      "description": "UK Ship Register digital services",
+      "tags": ["coastguard", "national", "maritime", "registration"]
+    },
+    {
+      "name": "Royal National Lifeboat Institution",
+      "url": "https://rnli.org/",
+      "type": "coastguard",
+      "description": "RNLI lifeboat and lifeguard services, safety reporting",
+      "tags": ["coastguard", "national", "lifeboat", "safety", "charity"]
+    }
+  ],
+  "summary": {
+    "total_discovered": 5,
+    "by_type": {
+      "coastguard": 5
+    },
+    "note": "MCA digital transformation ongoing with £29.5M investment in control room solution"
+  }
+}

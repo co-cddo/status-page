@@ -1,0 +1,6542 @@
+[
+  {
+    "name": "MOJ Admin",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://admin.employmenttribunals.service.gov.uk",
+    "tags": [
+      "moj",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Admin",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://admin.wastecarriersregistration.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sign In Apprenticeship Service Account",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/sign-in-apprenticeship-service-account",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Antivirus Api",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://antivirus-api.digitalmarketplace.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 401
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Register Interest Homes Ukraine",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/register-interest-homes-ukraine",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Api",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://api.notifications.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Users",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://admin.staging.wifi.service.gov.uk/users/sign_in",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Users (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://admin.wifi.service.gov.uk/users/sign_in",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Api (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://api.recalls.check-mot.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "MOJ Appeal Tax Tribunal",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://appeal-tax-tribunal.service.gov.uk",
+    "tags": [
+      "moj",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply Convert Academy",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-convert-academy.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply For A Veterans Card",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-for-a-veterans-card.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply For Bankruptcy",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-for-bankruptcy.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Docs",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://api.publish-teacher-training-courses.service.gov.uk/docs/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply For Public Appointment",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-for-public-appointment.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply Company Tachograph Card",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-company-tachograph-card.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "HMRC Api Platform Status",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://api-platform-status.production.tax.service.gov.uk",
+    "tags": [
+      "hmrc",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply Gender Recognition Certificate",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-gender-recognition-certificate.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Appeal",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://appeal-planning-decision.service.gov.uk/appeal/new-saved-appeal",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Idp",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://auth.apply-for-innovation-funding.service.gov.uk/idp/profile/SAML2/Redirect/SSO?SAMLRequest=nVJNb4IwGP4rpHcoFiWjERKnh5m4aYTtsMuC8KLNSsv6Fjf%2F%2FRBc4i4m27nP5%2Ft0inktGz5r7UFt4aMFtM5XLRXy%2FiEmrVFc5yiQq7wG5Lbg6exxxZnn88ZoqwstiTNDBGOFVnOtsK3BpGCOooDn7SomB2sb5JTmTSNPbqWNK5TSx%2FyMd6tWlULtPRwI3l4fvfadpgex22kJ9uAhanq2ZHSzTjPiLLqMQvXsK%2B2ugPcXA1E2tMtfCQkX9S2UwkBhaZquibNcxOTNr6pxCGEEUVCEgR%2Bwya4sJxEb%2BxFUUXDXwRBbWCq0ubIxYT6buCPfZWHGGA8m3A9eibO5nOle9Elu33Q3gJA%2FZNnGHRq%2FgMG%2BbQcgyfS8DO%2BNzdVWt2Xzn4FI8o85pvTKcwjQ8KfOZLnYaCmKkzOTUn%2FODeQWYjIiNBkov39W8g0%3D&RelayState=ss%3Amc%3A4bb10a3daf4dcf97f4def88fe330483e5fb45b72b5bb0dbd308500d7274be4fb",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Applicant",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-blue-badge.service.gov.uk/applicant",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Apply For Driving Licence",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-for-driving-licence.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login Start",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-for-an-import-licence.service.gov.uk/login-start/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Become Transport Manager",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/become-transport-manager",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Error",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-for-debt-relief-order.service.gov.uk/error",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "HMRC Account",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://account.help-to-save.externaltest.tax.service.gov.uk",
+    "tags": [
+      "hmrc",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login Start (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-for-an-export-certificate.service.gov.uk/login-start/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Apply Plug In Vehicle Grant",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-plug-in-vehicle-grant.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "DVLA Apply Provisional Driving Licence",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-provisional-driving-licence.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Errors",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-deal-ivory.service.gov.uk/errors/session-timed-out",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://animal-disease-testing.service.gov.uk/login",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply Workplace Chargepoint Grant",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-workplace-chargepoint-grant.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Licence Application",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-licence.ozone-depleting-substances.service.gov.uk/licence-application/index",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Applyforquota",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-quota.fluorinated-gas.service.gov.uk/applyforquota/index",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Assets",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://assets.digitalmarketplace.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Candidate",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-for-teacher-training.service.gov.uk/candidate/account",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Check For Flooding",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://check-for-flooding.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Catchreturn",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://catchreturn.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Buysellvehicle",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://buysellvehicle.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Check Long Term Flood Risk",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://check-long-term-flood-risk.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Quota",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-quota.ozone-depleting-substances.service.gov.uk/quota/index",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DWP Start",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://apply-for-pension-credit.service.gov.uk/start",
+    "tags": [
+      "dwp",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Auth",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://cases.civillegaladvice.service.gov.uk/auth/login/",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Check Payment Practices",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://check-payment-practices.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "HMRC Childcare",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://childcare.tax.service.gov.uk",
+    "tags": [
+      "hmrc",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Check Legal Aid",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/check-legal-aid",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "HMRC Childcare Support",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://childcare-support.tax.service.gov.uk",
+    "tags": [
+      "hmrc",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Get Help Savings Low Income",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/get-help-savings-low-income",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Guidance",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/guidance/carry-out-international-road-haulage",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Biomass Suppliers List",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://biomass-suppliers-list.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Check Your Client Qualifies For Legal Aid",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://check-your-client-qualifies-for-legal-aid.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Change Address V5c",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://change-address-v5c.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "MOJ Claim Crown Court Defence",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://claim-crown-court-defence.service.gov.uk",
+    "tags": [
+      "moj",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Check Duties Customs Exporting Goods",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.check-duties-customs-exporting-goods.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Tax Free Childcare",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/tax-free-childcare",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://child-maintenance.service.gov.uk/apply",
+    "tags": [
+      "other-government",
+      "application",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Trade Tariff",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/trade-tariff",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Check International Trade Barriers",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.check-international-trade-barriers.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Evicting Tenants",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/evicting-tenants/accelerated-possession-orders",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "Home Office Get Electronic Visa Waiver",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/get-electronic-visa-waiver",
+    "tags": [
+      "home-office",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Government",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/government/collections/additional-payments-for-teaching-eligibility-and-payment-details",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Compare School Performance",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://compare-school-performance.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Csr",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.civilservicejobs.service.gov.uk/csr/index.cgi",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Ddat Capability Framework",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://ddat-capability-framework.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Complete Deputy Report",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://complete-deputy-report.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Demo",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://demo.dev.reminders.mot-testing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Claim Chargepoint Grants",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://claim-chargepoint-grants.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Government (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/government/publications/covid-19-guidance-for-people-whose-immune-system-means-they-are-at-higher-risk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Coronavirus",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/coronavirus",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Demo Sms Receiver",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://demo-sms-receiver.dev.reminders.mot-testing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Claims",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://claim.redundancy-payments.service.gov.uk/claims/start",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Categories",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://create-energy-label.service.gov.uk/categories",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Vehicle Tax",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/vehicle-tax",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Find Energy Certificate",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/find-energy-certificate",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Check Vehicle Compatibility E10 Petrol",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://check-vehicle-compatibility-e10-petrol.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "HMRC Design",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://design.tax.service.gov.uk",
+    "tags": [
+      "hmrc",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Design System",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://design-system.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Ethnicity Facts Figures",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.ethnicity-facts-figures.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Docs (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://docs.payments.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Docs (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://docs.notifications.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DWP Directpayment",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://directpayment.universal-credit.service.gov.uk",
+    "tags": [
+      "dwp",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Docs (4)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://docs.wifi.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Files",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://files.civilservicejobs.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DfE Explore Education Statistics",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://explore-education-statistics.service.gov.uk",
+    "tags": [
+      "dfe",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "MOJ Apply",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://employmenttribunals.service.gov.uk/apply",
+    "tags": [
+      "moj",
+      "application",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Find Energy Improvements Suitable For Your Home",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://find-energy-improvements-suitable-for-your-home.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://dev.animal-disease-testing.service.gov.uk/login",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "Home Office Apply Immigration Health Surcharge Refund",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/apply-immigration-health-surcharge-refund/healthcare-setting",
+    "tags": [
+      "home-office",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Dcidm.onmicrosoft.com",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://dcidm.b2clogin.com/dcidm.onmicrosoft.com/b2c_1a_cui_signupsignin/oauth2/v2.0/authorize?client_id=c607fd2d-7d76-4222-94ad-bc62ca576006&scope=openid%20offline_access&response_type=code&redirect_uri=https%3A%2F%2Fcomply-chemical-regulations.service.gov.uk%2Flogin%2Freturn&state=8d9fd802-bc00-4f89-9659-dd1155e48da7&response_mode=form_post&policyName=b2c_1a_cui_signupsignin&journey=chemicals&serviceId=c0ca7608-de9b-e811-a94f-000d3a3a8543&_ga=undefined",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Find A Conformity Assessment Body",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://find-a-conformity-assessment-body.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "Companies House Find And Update",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://find-and-update.company-information.service.gov.uk",
+    "tags": [
+      "companies-house",
+      "information",
+      "standard",
+      "business-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Driver And Vehicles Account",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://driver-and-vehicles-account.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Find Government Grants",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://find-government-grants.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Find Public Health Resources",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://find-public-health-resources.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Flood Map For Planning",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://flood-map-for-planning.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Guide To Job Sharing",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.civil-service-careers.gov.uk/guide-to-job-sharing/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Forms",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://forms.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Foreign Influence Registration Scheme",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://foreign-influence-registration-scheme.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Gender Pay Gap",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://gender-pay-gap.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Get Fishing Licence",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://get-fishing-licence.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Get A Guarantee For Export Finance",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://get-a-guarantee-for-export-finance.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Get New Energy Certificate",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/get-new-energy-certificate",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Get Information Schools",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://get-information-schools.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Export From Uk",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.business.gov.uk/export-from-uk/support-topics/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DfE Get Help Buying For Schools",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://get-help-buying-for-schools.education.gov.uk/",
+    "tags": [
+      "dfe",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Fqaregister",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://fqaregister.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Findapprenticeship",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.findapprenticeship.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Find Teacher Training Courses",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://find-teacher-training-courses.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Eu Settled Status Enquiries",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://eu-settled-status-enquiries.service.gov.uk/?hof-cookie-check",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Find Teacher Training Courses (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://find-teacher-training-courses.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Communications",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.communications.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Help With Prison Visits",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/help-with-prison-visits",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "MOJ Helpwithcourtfees",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://helpwithcourtfees.service.gov.uk",
+    "tags": [
+      "moj",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Dcidm.onmicrosoft.com (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://dcidm.b2clogin.com/dcidm.onmicrosoft.com/b2c_1a_cui_signupsignin/oauth2/v2.0/authorize?client_id=24a8e802-1b57-4918-bd44-02b87096a5d9&response_type=code&redirect_uri=https%3A%2F%2Fapply-export-health-certificate.service.gov.uk%2Fb2c%2Fexporter%2Fhandle-oauth-code&response_mode=form_post&state=2c828726efae313b669d3ab69c90fcf131bcf4710da4b17c41d2f7c5853df40767cdd56c376fc8c531dca4fdd6c5a837c2795b676ecdc110bac4852a3bd0c0f4191ba84ecde2b737dd5e88a692f88a06fe02a64dc6942d5715dd8614d46dce9faa79757b4425c3d38213cf77b362cb62af5d21650a880c8f0f714f455a95ed0a&scope=24a8e802-1b57-4918-bd44-02b87096a5d9+offline_access&policyName=b2c_1a_cui_signupsignin&journey=chemicals&serviceId=34b46f99-66b6-e811-a954-000d3a29b5de&prompt=login&nonce=1761518113",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Integration",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.integration.publishing.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 401
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Get Duplicate Vehicle Log Book",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://get-duplicate-vehicle-log-book.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Power Of Attorney",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/power-of-attorney/make-lasting-power",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Find Test Centre Hgv Bus Trailer Mot",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://find-test-centre-hgv-bus-trailer-mot.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "Home Office Report A Lost Or Stolen Passport",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/report-a-lost-or-stolen-passport",
+    "tags": [
+      "home-office",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Int",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://int.test.recalls.check-mot.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Import Products Animals Food Feed",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://import-products-animals-food-feed.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Kings Awards Enterprise",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://kings-awards-enterprise.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Contact The Dvla",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/contact-the-dvla",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Manage Water Abstraction Impoundment Licence",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://manage-water-abstraction-impoundment-licence.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Multiple Vehiclecheck",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://multiple-vehiclecheck.drive-clean-air-zone.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Connect",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://identity.insolvency.gov.uk/connect/authorize?client_id=CodeClientPKCE-36a8f5d729b94db5941135edae74458e&redirect_uri=https%3A%2F%2Fmanage-users-debt-respite-breathing-space.service.gov.uk%2Fsignin-oidc&response_type=code&scope=openid%20inss%20bss.creditor.api%20bss.moneyadviser.api&code_challenge=8hVea6uI26YdDrJ-_aMN2IQP9O8osurNalZj45pCC6s&code_challenge_method=S256&response_mode=form_post&nonce=638971149219590184.YWZmNTViOTQtZjUxNS00MTNjLWIxNzgtZmEyNmNhYTg4MmIzYzhjMzFlZTgtNjk4MC00YjZkLWE1OTMtMzc4MmE2MDBiM2Fh&state=CfDJ8AGFpmCOD_tJskuFS8_uojaoEoAH5zYwt8K1jRep_Xv0wo2NHRDzb9s0vYQCssledKXUnnn76-32j2jsp-bOduogtAlkq7_71RcKPWCs7X3p-GpmPJeYehW_XqzIvX9O_MlDPVKcxn1heruTRirdUKJFS4SLuJ4vNrzOj0QWhcEnFz8rIGl23xNX7UKqkKl74i9a-GQ-O7wYHGxysqCO28JqKkdfPW736wkPmxmrkHn_Ilhf2YhmtKpmfwkFme4JmWQLilznEVt2oupBxEKsIkkYG8aLnfUEYPXt_0LCfwn3WD4XBx3dgVezby8UQqFxEl7O0PgmqMKHHU9v9a2jGT_gcEezRGqEZlo0_gFuL7D_l4o1wbtAfi3tJ7o2tz4iDGd1F6Mg6d_tT1CMIJAVY3BmZPvnmPgz6ebRObzYe_yK&x-client-SKU=ID_NET6_0&x-client-ver=6.35.0.0",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Nft Sms Receiver",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://nft-sms-receiver.dev.reminders.mot-testing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DWP Invitation Code",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://get-state-pension.service.gov.uk/invitation-code",
+    "tags": [
+      "dwp",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Government (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/government/organisations/intellectual-property-office",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Guidance (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/guidance/copyright-orphan-works",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "Home Office Browse",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/browse/abroad/passports",
+    "tags": [
+      "home-office",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Register Birth Abroad",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/register-birth-abroad",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Register A Death",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/register-a-death/y/overseas",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Payments",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://payments.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Notifications",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.notifications.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Payments (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://payments.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Modern Slavery Statement Registry",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://modern-slavery-statement-registry.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Service Toolkit",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/service-toolkit",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Dcidm.onmicrosoft.com (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://dcidm.b2clogin.com/dcidm.onmicrosoft.com/b2c_1a_cui_signupsignin/oauth2/v2.0/authorize?client_id=6a73e122-02b9-49e5-bfb5-021e3619cbe6&scope=openid%20offline_access&response_type=code&redirect_uri=https%3A%2F%2Fmanage-fish-exports.service.gov.uk%2Flogin%2Freturn&serviceId=b8717ec3-66b6-e811-a954-000d3a29b5de&response_mode=form_post",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Ui Citizen Claim Ni",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://nidirect.carersallowance.service.gov.uk/ui-citizen-claim-ni/disclaimer",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sessions",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://peoplefinder.service.gov.uk/sessions/new",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Government (4)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/government/publications/covid-19-testing-services/covid-19-testing-for-individuals",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Nationalcareers",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://nationalcareers.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Pp Sms Receiver",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://pp-sms-receiver.reminders.mot-testing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Dataset",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.data.gov.uk/dataset/731b25a8-0462-4a7d-aa3f-5a5d44ae26d2/historical-performance-platform",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Landing",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://pay-dartford-crossing-charge.service.gov.uk/landing",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Personalisedvehicleregistration",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://personalisedvehicleregistration.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "DVLA Paydvlafine",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://paydvlafine.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Production",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://production.payments.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Pp",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://pp.test.recalls.check-mot.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Probatesearch",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://probatesearch.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DWP Sign In",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://portal.universal-credit.service.gov.uk/sign-in",
+    "tags": [
+      "dwp",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Government (5)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/government/collections/intellectual-property-designs",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT En",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://prisonvisits.service.gov.uk/en/request",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DWP Portal Stage",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://portal-stage.universal-credit.service.gov.uk",
+    "tags": [
+      "dwp",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Pp (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://pp.reminders.mot-testing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Report Smell",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/report-smell",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Dcidm.onmicrosoft.com (4)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://dcidm.b2clogin.com/dcidm.onmicrosoft.com/b2c_1a_cui_signupsignin/oauth2/v2.0/authorize?client_id=25b18ede-95ae-4aec-b204-dc05da5801eb&response_type=code&redirect_uri=https%3A%2F%2Fapply-plant-export-certificates.service.gov.uk%2Fb2c%2Ftrader%2Fhandle-oauth-code&response_mode=form_post&state=d9cbd070de6a688c30d14e7fe655643436d7bb750a7fc91afac26ab121048a3687246b1c5573d2184f09df97dd38a78bcad979011871866aae9fde7a4135dd81c271cc9290f43cbf6dd3cbaddcb7d9845b96ecd64b12c5db65fc7af390ee1b87e7e136310c8715ef8735c980f5ed9c64a963089051ecb9d0baf32b717c22&scope=25b18ede-95ae-4aec-b204-dc05da5801eb+offline_access&policyName=b2c_1a_prod_scp_signup_signin_roles_dynx_idm&journey=default&serviceId=a4d44b69-6bf2-ea11-a815-000d3ab4653d&prompt=login&nonce=1761518113",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Product Safety Database",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.product-safety-database.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Report Wreck Material",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/report-wreck-material/reporting-wreck-material",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DEFRA Report Environmental Problem",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/report-environmental-problem",
+    "tags": [
+      "defra",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Dataset (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.data.gov.uk/dataset/a8f488fd-eaea-4176-92b0-6d0437b4d121/historical-gov-uk-registers",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Publish Payment Practices",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://publish-payment-practices.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Queens Awards Enterprise",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://queens-awards-enterprise.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Pupil",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://pupil.multiplication-tables-check.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Auth (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://publisher.ethnicity-facts-figures.service.gov.uk/auth/login?next=%2F",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sign In",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://record-catch.service.gov.uk/sign-in",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Register Flood Risk Exemption",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://register-flood-risk-exemption.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Claims (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://notice.redundancy-payments.service.gov.uk/claims/start",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DfE Providers",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://providers.apprenticeships.education.gov.uk/",
+    "tags": [
+      "dfe",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sign In (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.publish-teacher-training-courses.service.gov.uk/sign-in",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Birth",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://register-a-birth-abroad.service.gov.uk/birth/what-is-your-relationship-to-the-child",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Register 406 Beacons",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://register-406-beacons.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Death",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://register-a-death-abroad.service.gov.uk/death/which-country-did-the-death-happen-in",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Report Director Conduct",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://report-director-conduct.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Report Official Development Assistance",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://report-official-development-assistance.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Right To Rent",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://right-to-rent.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Docs (5)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://prototype-kit.service.gov.uk/docs/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Search Local Land Charges",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://search-local-land-charges.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Request A Baby Loss Certificate",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://request-a-baby-loss-certificate.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Reply Jury Summons",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://reply-jury-summons.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Search Property Information",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://search-property-information.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Register",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://register.fluorinated-gas.service.gov.uk/register/index",
+    "tags": [
+      "other-government",
+      "application",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Register Trailer",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://register-trailer.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Register Vehicle",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://register-vehicle.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Report",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://report.fluorinated-gas.service.gov.uk/report/index",
+    "tags": [
+      "other-government",
+      "reporting",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sign In (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://sign-in.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Right To Work",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://right-to-work.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DfE Financial Benchmarking And Insights Tool",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://financial-benchmarking-and-insights-tool.education.gov.uk/",
+    "tags": [
+      "dfe",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Search",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://search.cosmetic-product-notifications.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Send Fit Note",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://send-fit-note.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT En Gb",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://send-money-to-prisoner.service.gov.uk/en-gb/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://selfservice.payments.service.gov.uk/login",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sms Receiver",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://sms-receiver.reminders.mot-testing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Staging",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://staging.payments.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Static",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://static.civilservicejobs.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Skillsfunding",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://skillsfunding.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Staging (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://staging.nationalcareers.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Submit Flood Coastal Erosion Funding Proposal",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://submit-flood-coastal-erosion-funding-proposal.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Submit",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://submit.cosmetic-product-notifications.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DfE StudentFinance Unplanned.html",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.protocol.slc.co.uk/studentFinance-unplanned.html",
+    "tags": [
+      "dfe",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Basic_sessions",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://staging.trade-tariff.service.gov.uk/basic_sessions/new?return_url=%2Ffind_commodity",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Submit Learner Data",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://submit-learner-data.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Taa",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://taa.dq.test.mot-testing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Government (6)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/government/organisations/hm-revenue-customs",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sorn",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://sorn.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Teaching Jobs",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://teaching-jobs.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Teaching Vacancies",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://teaching-vacancies.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Supplier Cyber Protection",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.supplier-cyber-protection.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Status",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://status.wifi.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Status (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://status.notifications.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Users (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://trackparliamentaryquestions.service.gov.uk/users/sign_in",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "HMRC Vehicletax",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://vehicletax.service.gov.uk/",
+    "tags": [
+      "hmrc",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Public Referral",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://staging.report-benefit-fraud.service.gov.uk/public-referral/suspect-details",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Use Lasting Power Attorney",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/use-lasting-power-attorney/start-lasting-power-of-attorney",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT View Lasting Power Of Attorney",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/view-lasting-power-of-attorney",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "Home Office Browse (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/browse/visas-immigration",
+    "tags": [
+      "home-office",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Government (7)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/government/organisations/department-for-international-trade/about/about-our-services",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "Home Office View Immigration Status",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://view-immigration-status.service.gov.uk",
+    "tags": [
+      "home-office",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wastecarriersregistration",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://wastecarriersregistration.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wasteexemptions",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://wasteexemptions.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "MOJ Tribunal Response",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://tribunal-response.employmenttribunals.service.gov.uk",
+    "tags": [
+      "moj",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "MOJ Utiac",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://tribunalsdecisions.service.gov.uk/utiac",
+    "tags": [
+      "moj",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply Basic Criminal Record Check",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-basic-criminal-record-check.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Accept",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.accept-refugee-integration-loan.service.gov.uk/accept?hof-cookie-check",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wifi",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wifi.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Entry",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.appeal-benefit-decision.service.gov.uk/entry",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Steps",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-budgeting-loan.service.gov.uk/steps/appointee-who",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Staging (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.staging.publishing.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Academic Technology Approval",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.academic-technology-approval.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DWP Www Stage",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www-stage.universal-credit.service.gov.uk",
+    "tags": [
+      "dwp",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "Home Office Start Appeal",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.appeal-immigration-asylum-decision.service.gov.uk/start-appeal",
+    "tags": [
+      "home-office",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply Emergency Travel Document",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-emergency-travel-document.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "critical",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 60,
+    "warning_threshold": 2,
+    "timeout": 5
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply Deceased Military Record",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-deceased-military-record.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Status (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://status.publishing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Check Duties Customs Exporting Goods (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.check-duties-customs-exporting-goods.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-national-insurance-number.service.gov.uk/apply/welcome",
+    "tags": [
+      "other-government",
+      "application",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply New Style Employment Support Allowance",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-new-style-employment-support-allowance.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Ethnicity Facts Figures (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.ethnicity-facts-figures.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Government (8)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/government/organisations/competition-and-markets-authority",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login (4)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://hmcts-access.service.gov.uk/login?client_id=divorce&response_type=code&redirect_uri=https://www.apply-divorce.service.gov.uk/oauth2/callback",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "HMRC Childcare Support (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.childcare-support.tax.service.gov.uk",
+    "tags": [
+      "hmrc",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Applytosupply",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.applytosupply.digitalmarketplace.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Buysellvehicle (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.buysellvehicle.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "DVLA Apply Plug In Vehicle Grant (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-plug-in-vehicle-grant.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "HMRC Childcare (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.childcare.tax.service.gov.uk",
+    "tags": [
+      "hmrc",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Contact Embassy",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.contact-embassy.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Compare School Performance (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.compare-school-performance.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Digital Identity Services Register",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.digital-identity-services-register.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Check Mot",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.check-mot.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Complete Deputy Report (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.complete-deputy-report.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Ui Citizen Claim",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.carersallowance.service.gov.uk/ui-citizen-claim/disclaimer",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Findapprenticeship (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.findapprenticeship.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Find Government Grants (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.find-government-grants.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Book Theory Test",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.book-theory-test.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply Workplace Chargepoint Grant (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-workplace-chargepoint-grant.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Faster Uk Entry",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.faster-uk-entry.service.gov.uk/?hof-cookie-check",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login (5)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://hmcts-access.service.gov.uk/login?ui_locales=en&response_type=code&state=8243bfcd-a84c-44d3-8ec4-0d0e095b2c1b&client_id=probate&redirect_uri=https%3A%2F%2Fwww.apply-for-probate.service.gov.uk%2Foauth2%2Fcallback",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Get Approval To Spend",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.get-approval-to-spend.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Search (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.contractsfinder.service.gov.uk/Search",
+    "tags": [
+      "other-government",
+      "search",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Forms (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.forms.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Applytosupply (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.applytosupply.digitalmarketplace.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Vehicleenquiry",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://vehicleenquiry.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.apply-for-refugee-integration-loan.service.gov.uk/apply?hof-cookie-check",
+    "tags": [
+      "other-government",
+      "application",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "MOJ Find Court Tribunal",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.find-court-tribunal.service.gov.uk",
+    "tags": [
+      "moj",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Decree Nisi",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.decree-nisi.apply-divorce.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Get Document Legalised",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/get-document-legalised",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Www Ppd2",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www-ppd2.faster-uk-entry.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Get Information Schools (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.get-information-schools.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Notifications (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.notifications.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Biometric Residence Permit",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.biometric-residence-permit.service.gov.uk/?hof-cookie-check",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Kings Awards Enterprise (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.kings-awards-enterprise.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Driving Medical Condition",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.driving-medical-condition.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Fqaregister (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.fqaregister.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Errors (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://weee.service.gov.uk/Errors/404?aspxerrorpath=/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DWP Findpensioncontacts",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.findpensioncontacts.service.gov.uk",
+    "tags": [
+      "dwp",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Product Safety Database (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.product-safety-database.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Hgvlevy",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.hgvlevy.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Manage Roadworks",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.manage-roadworks.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Heat Pump Check",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.heat-pump-check.service.gov.uk/?q=country",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Apply (4)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.get-disability-work-support.service.gov.uk/apply/eligibility/check-eligible",
+    "tags": [
+      "other-government",
+      "application",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Payments (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.payments.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Claim Chargepoint Grants (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.claim-chargepoint-grants.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Pay Childcare Social Care Invoice",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.pay-childcare-social-care-invoice.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Orphanworkslicensing",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.orphanworkslicensing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Get Help Buying For Schools",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.get-help-buying-for-schools.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Nature Of Parenthood",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.plan-shared-parental-leave.service.gov.uk/nature-of-parenthood",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Search (3)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.find-tender.service.gov.uk/Search",
+    "tags": [
+      "other-government",
+      "search",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "HMRC Vehicletax (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://vehicletax.service.gov.uk",
+    "tags": [
+      "hmrc",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login (6)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://hmcts-access.service.gov.uk/login?client_id=divorce&redirect_uri=https%3A%2F%2Fwww.respond-divorce.service.gov.uk%2Fauthenticated&ui_locales=en&response_type=code&state=0a97a35e-d90b-4113-baba-54ae6f0cb957",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Patent",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.patent.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Register Childminder",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.register-childminder.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Register Nanny",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.register-nanny.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Supplier Cyber Protection (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.supplier-cyber-protection.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT En (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.prisonvisits.service.gov.uk/en/request",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Renew Patent Trademark Registered Design",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.gov.uk/renew-patent-trademark-registered-design",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Registered Design",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.registered-design.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Report Childcare Incident",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.report-childcare-incident.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wifi (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wifi.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Report Childminder New Adults",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.report-childminder-new-adults.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Managefleetvehicles",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.managefleetvehicles.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Report Official Development Assistance (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.report-official-development-assistance.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login (7)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://hmcts-access.service.gov.uk/login?client_id=cmc_citizen&redirect_uri=https://www1.moneyclaims.service.gov.uk/receiver&state=eyJzdGF0ZSI6ImUwM2M1ZGU5LWJlODItNDMxNy04OGIxLWY5ZGI3NGFhZmQ1OSJ9&response_type=code&scope=openid%20profile%20roles",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Request A Baby Loss Certificate (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.request-a-baby-loss-certificate.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Vehicleenquiry (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://vehicleenquiry.service.gov.uk/",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login (8)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.animal-disease-testing.service.gov.uk/login",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Search Armed Forces Memorial Roll Of Honour",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.search-armed-forces-memorial-roll-of-honour.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sorn (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://sorn.service.gov.uk/",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sign In (4)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.sign-in.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Public Referral (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.report-benefit-fraud.service.gov.uk/public-referral/suspect-details",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DEFRA Ruralpayments",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.ruralpayments.service.gov.uk",
+    "tags": [
+      "defra",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 401
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Mot Testing",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.mot-testing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Reminders",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.reminders.mot-testing.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Search For Intellectual Property",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.search-for-intellectual-property.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Start",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.submit-a-barring-referral.service.gov.uk/start",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Sign In Choice",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.repay-manage-benefit-owed.service.gov.uk/sign-in-choice",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Wastecarriersregistration (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.wastecarriersregistration.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Personalisedvehicleregistration (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.personalisedvehicleregistration.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "GOV.UK Verifyapostille",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.verifyapostille.service.gov.uk",
+    "tags": [
+      "gds",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Welcome",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.submit-general-aviation-report.service.gov.uk/welcome/index",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Login (9)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://test.animal-disease-testing.service.gov.uk/login",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DWP Start (2)",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.universal-credit.service.gov.uk/start",
+    "tags": [
+      "dwp",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  },
+  {
+    "name": "OTHER-GOVERNMENT Trade Remedies",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.trade-remedies.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT En US",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.trainer.book-theory-test.service.gov.uk/en-US/Account/Login/ExternalLogin?provider=https%3A%2F%2Ftrainerbooktheorytests.b2clogin.com%2Ftfp%2F5e971404-c5ed-44e4-908b-3460a5ce5c13%2Fb2c_1a_signup_signin%2Fv2.0%2F&ReturnUrl=%2F",
+    "tags": [
+      "other-government",
+      "authentication",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 302
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Submit An Online Apis Report",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.submit-an-online-apis-report.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "OTHER-GOVERNMENT Support People Susceptible To Radicalisation",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.support-people-susceptible-to-radicalisation.service.gov.uk",
+    "tags": [
+      "other-government",
+      "information",
+      "standard",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 200
+    },
+    "interval": 900,
+    "warning_threshold": 5,
+    "timeout": 15
+  },
+  {
+    "name": "DVLA Viewdrivingrecord",
+    "protocol": "HTTPS",
+    "method": "GET",
+    "resource": "https://www.viewdrivingrecord.service.gov.uk",
+    "tags": [
+      "dvla",
+      "information",
+      "high-volume",
+      "citizen-facing",
+      "live",
+      "uk-wide"
+    ],
+    "expected": {
+      "status": 403
+    },
+    "interval": 300,
+    "warning_threshold": 3,
+    "timeout": 10
+  }
+]
