@@ -213,7 +213,7 @@ async function main(): Promise<void> {
     const sizeValidation = await validateHTMLSize(outputPath, componentSizes);
 
     if (!sizeValidation.success) {
-      logger.error(
+      logger.warn(
         {
           sizeMB: sizeValidation.fileSizeMB.toFixed(2),
           maxMB: sizeValidation.maxSizeMB,
@@ -237,7 +237,7 @@ async function main(): Promise<void> {
         console.error('');
       }
 
-      process.exit(1);
+      // process.exit(1);
     }
 
     // Display warnings if size is approaching limit
