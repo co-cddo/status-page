@@ -12,8 +12,8 @@ importers:
         specifier: ^3.1.2
         version: 3.1.2
       '@x-govuk/govuk-eleventy-plugin':
-        specifier: ^8.0.4
-        version: 8.0.4(@types/markdown-it@14.1.2)(markdown-it@14.1.0)
+        specifier: ^8.1.0
+        version: 8.1.0(@types/markdown-it@14.1.2)(markdown-it@14.1.0)
       '@x-govuk/govuk-prototype-components':
         specifier: ^5.0.2
         version: 5.0.2(govuk-frontend@5.13.0)
@@ -698,8 +698,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@rollup/plugin-commonjs@28.0.8':
-    resolution: {integrity: sha512-o1Ug9PxYsF61R7/NXO/GgMZZproLd/WH2XA53Tp9ppf6bU1lMlTtC/gUM6zM3mesi2E0rypk+PNtVrELREyWEQ==}
+  '@rollup/plugin-commonjs@28.0.9':
+    resolution: {integrity: sha512-PIR4/OHZ79romx0BVVll/PkwWpJ7e5lsqFa3gFfcrFPWwLXLV39JVUzQV9RKjWerE7B845Hqjj9VYlQeieZ2dA==}
     engines: {node: '>=16.0.0 || 14 >= 14.17'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0||^4.0.0
@@ -979,8 +979,8 @@ packages:
   '@vitest/utils@2.1.9':
     resolution: {integrity: sha512-v0psaMSkNJ3A2NMrUEHFRzJtDPFn+/VWZ5WxImB21T9fjucJRmS7xCS3ppEnARb9y11OAzaD+P2Ps+b+BGX5iQ==}
 
-  '@x-govuk/govuk-eleventy-plugin@8.0.4':
-    resolution: {integrity: sha512-aG8HAqpvoqzunot9+K9BFPUnBUqhuQztQnVGXvnk4VxiKIrjZ+02Mi2uSNxdHKPQ0XCmMKlcqyGhep76Lp4HZw==}
+  '@x-govuk/govuk-eleventy-plugin@8.1.0':
+    resolution: {integrity: sha512-Q8tqDn6lxf9rGYXTIeMub53fB1QAhyL5nOoEZKn00zTLWDyExAigBJr+Uf+JZDmuNyCQXUtMgxHzD/CXsfHhuQ==}
     engines: {node: '>=22'}
 
   '@x-govuk/govuk-prototype-components@5.0.2':
@@ -1846,6 +1846,9 @@ packages:
   magic-string@0.30.19:
     resolution: {integrity: sha512-2N21sPY9Ws53PZvsEpVtNuSW+ScYbQdp4b9qUaL+9QkHUrGFKo56Lg9Emg5s9V/qrtNBmiR01sYhUOwu3H+VOw==}
 
+  magic-string@0.30.21:
+    resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
+
   magicast@0.3.5:
     resolution: {integrity: sha512-L0WhttDl+2BOsybvEOLK7fW3UA0OQ0IQ2d6Zl2x/a6vVRs3bAY0ECOSHHeL5jD+SbOpOCUEi0y1DgHEn9Qn1AQ==}
 
@@ -1884,6 +1887,10 @@ packages:
 
   markdown-it-govuk@0.7.0:
     resolution: {integrity: sha512-dPzReMTc1b/jIvnNTVxeWbFPQ7JXI7jg0hO2CM22C/tzFZxYqYKs01Jo5L5lTvSMaCxBO65HWslaoyMDkJLQ9w==}
+    engines: {node: '>=22'}
+
+  markdown-it-govuk@0.8.0:
+    resolution: {integrity: sha512-XLkL8YVQBMvBiiGg7+ixEg/FH1lrtWhRRlnPUFwE82Ru0k3p3G5f2ilQR69CTri36EhMfHGdOqanhKSSioB7DA==}
     engines: {node: '>=22'}
 
   markdown-it-image-figures@2.1.1:
@@ -3166,14 +3173,14 @@ snapshots:
     dependencies:
       playwright: 1.56.1
 
-  '@rollup/plugin-commonjs@28.0.8(rollup@4.52.5)':
+  '@rollup/plugin-commonjs@28.0.9(rollup@4.52.5)':
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.52.5)
       commondir: 1.0.1
       estree-walker: 2.0.2
       fdir: 6.5.0(picomatch@4.0.3)
       is-reference: 1.2.1
-      magic-string: 0.30.19
+      magic-string: 0.30.21
       picomatch: 4.0.3
     optionalDependencies:
       rollup: 4.52.5
@@ -3459,12 +3466,12 @@ snapshots:
       loupe: 3.2.1
       tinyrainbow: 1.2.0
 
-  '@x-govuk/govuk-eleventy-plugin@8.0.4(@types/markdown-it@14.1.2)(markdown-it@14.1.0)':
+  '@x-govuk/govuk-eleventy-plugin@8.1.0(@types/markdown-it@14.1.2)(markdown-it@14.1.0)':
     dependencies:
       '@11ty/eleventy': 3.1.2
       '@11ty/eleventy-navigation': 1.0.4
       '@11ty/eleventy-plugin-rss': 2.0.4
-      '@rollup/plugin-commonjs': 28.0.8(rollup@4.52.5)
+      '@rollup/plugin-commonjs': 28.0.9(rollup@4.52.5)
       '@rollup/plugin-node-resolve': 16.0.3(rollup@4.52.5)
       '@rollup/plugin-terser': 0.4.4(rollup@4.52.5)
       '@x-govuk/govuk-prototype-components': 5.0.2(govuk-frontend@5.13.0)
@@ -3477,7 +3484,7 @@ snapshots:
       markdown-it-deflist: 3.0.0
       markdown-it-footnote: 4.0.0
       markdown-it-github-alerts: 1.0.0(markdown-it@14.1.0)
-      markdown-it-govuk: 0.7.0
+      markdown-it-govuk: 0.8.0
       markdown-it-image-figures: 2.1.1(markdown-it@14.1.0)
       markdown-it-ins: 4.0.0
       markdown-it-mark: 4.0.0
@@ -4404,6 +4411,10 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  magic-string@0.30.21:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.5
+
   magicast@0.3.5:
     dependencies:
       '@babel/parser': 7.28.4
@@ -4436,6 +4447,10 @@ snapshots:
       markdown-it: 14.1.0
 
   markdown-it-govuk@0.7.0:
+    dependencies:
+      highlight.js: 11.11.1
+
+  markdown-it-govuk@0.8.0:
     dependencies:
       highlight.js: 11.11.1
 
