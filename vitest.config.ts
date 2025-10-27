@@ -104,7 +104,12 @@ export default defineConfig({
     maxConcurrency: 10,
 
     // Reporter
-    reporters: ['verbose'],
+    silent: true,
+    reporters: ['json'],
+    outputFile: {
+      json: './json-report.json',
+    },
+    // silent: 'passed-only',
 
     // Watch mode exclusions
     watchExclude: [

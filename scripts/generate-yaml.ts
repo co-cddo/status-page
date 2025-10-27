@@ -157,11 +157,17 @@ function generateYaml(
         sortKeys: false,
       });
 
-      // Extract just the service entry (remove array wrapper and indent)
+      // Extract just the service entry (remove array wrapper but keep the dash)
       const lines_ = serviceYaml.split('\n');
-      for (let i = 1; i < lines_.length; i++) {
-        if (lines_[i].trim()) {
-          lines.push('  ' + lines_[i]);
+      for (let i = 0; i < lines_.length; i++) {
+        const line = lines_[i];
+        if (line.trim()) {
+          // First line has "- " which we want to preserve, subsequent lines need extra indent
+          if (i === 0) {
+            lines.push('  ' + line); // "  - name: ..."
+          } else {
+            lines.push('  ' + line); // "    field: value"
+          }
         }
       }
     }
