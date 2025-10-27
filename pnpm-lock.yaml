@@ -33,8 +33,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       markdown-it-govuk:
-        specifier: ^0.7.0
-        version: 0.7.0
+        specifier: ^0.8.0
+        version: 0.8.0
       pino:
         specifier: ^10.1.0
         version: 10.1.0
@@ -1884,6 +1884,10 @@ packages:
 
   markdown-it-govuk@0.7.0:
     resolution: {integrity: sha512-dPzReMTc1b/jIvnNTVxeWbFPQ7JXI7jg0hO2CM22C/tzFZxYqYKs01Jo5L5lTvSMaCxBO65HWslaoyMDkJLQ9w==}
+    engines: {node: '>=22'}
+
+  markdown-it-govuk@0.8.0:
+    resolution: {integrity: sha512-XLkL8YVQBMvBiiGg7+ixEg/FH1lrtWhRRlnPUFwE82Ru0k3p3G5f2ilQR69CTri36EhMfHGdOqanhKSSioB7DA==}
     engines: {node: '>=22'}
 
   markdown-it-image-figures@2.1.1:
@@ -4436,6 +4440,10 @@ snapshots:
       markdown-it: 14.1.0
 
   markdown-it-govuk@0.7.0:
+    dependencies:
+      highlight.js: 11.11.1
+
+  markdown-it-govuk@0.8.0:
     dependencies:
       highlight.js: 11.11.1
 
